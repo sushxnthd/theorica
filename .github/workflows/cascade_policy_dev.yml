@@ -1,0 +1,32 @@
+name: Cascade-policy development panel
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "src/theorica/causal/cascade_policy.py"
+      - "scripts/cascade_policy_dev.py"
+      - ".github/workflows/cascade_policy_dev.yml"
+permissions:
+  contents: read
+jobs:
+  dev:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: |
+          mkdir -p external
+          git clone https://github.com/qpiai/Active-Causal-Discovery-Bench.git external/Active-Causal-Discovery-Bench
+          git -C external/Active-Causal-Discovery-Bench checkout c9b3018967b6ce798f12add37120b79a963177ed
+      - run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e .
+          python -m pip install -e external/Active-Causal-Discovery-Bench
+      - run: python scripts/cascade_policy_dev.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cascade-policy-development
+          path: results/development/cascade_policy_dev.json
