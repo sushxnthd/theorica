@@ -1,0 +1,56 @@
+{
+  "benchmark": "DiscoverPhysics native trajectory evaluator",
+  "pinned_commit": "33b7fa9df96de9c35744efd181ca7e5a8dd60ad5",
+  "actions_run": 35508351675,
+  "method": "generic 15-experiment radial force-map identification",
+  "passes": 4,
+  "total": 5,
+  "worlds": [
+    {
+      "world": "gravity",
+      "experiment_count": 15,
+      "p1_exponent": 1.0000150470998352,
+      "p2_exponent": -1.0000150470998355,
+      "mean_pos_error": 3.9142535428518856e-10,
+      "max_pos_error": 5.32718346535785e-9,
+      "native_evaluator_pass": true
+    },
+    {
+      "world": "yukawa",
+      "experiment_count": 15,
+      "p1_exponent": 1.000013498001668,
+      "p2_exponent": -1.0000134980016684,
+      "mean_pos_error": 0.000028924925507053783,
+      "max_pos_error": 0.00015137668836500947,
+      "native_evaluator_pass": true
+    },
+    {
+      "world": "fractional",
+      "experiment_count": 15,
+      "p1_exponent": 1.0000100296568946,
+      "p2_exponent": -1.0000100296568948,
+      "mean_pos_error": 3.3851644302156967e-12,
+      "max_pos_error": 3.206345174638987e-11,
+      "native_evaluator_pass": true
+    },
+    {
+      "world": "coulomb_easy",
+      "experiment_count": 15,
+      "p1_exponent": 1.0000630292376953,
+      "p2_exponent": 1.0000630292376946,
+      "mean_pos_error": 0.5394935035165499,
+      "max_pos_error": 4.427002233562515,
+      "native_evaluator_pass": false
+    },
+    {
+      "world": "extra_dimensions",
+      "experiment_count": 15,
+      "p1_exponent": 1.0000166633945933,
+      "p2_exponent": -1.0000166633945937,
+      "mean_pos_error": 0.000016093211511764598,
+      "max_pos_error": 0.00009684477689334509,
+      "native_evaluator_pass": true
+    }
+  ],
+  "claim_boundary": "selected compatible static two-particle panel; native trajectory axis only; no explanation judge or leaderboard claim"
+}
