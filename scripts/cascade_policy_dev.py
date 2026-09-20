@@ -26,7 +26,7 @@ def accepted_seeds(level,cfg,n=12):
     while len(out)<n:
         seed=int(rng.integers(1,2_147_483_647))
         try:build_benchmark_instance(cfg,np.random.default_rng(seed))
-        except RuntimeError:continue
+        except (RuntimeError,ValueError):continue
         out.append(seed)
     return out
 
