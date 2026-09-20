@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use THEORICA, please cite the accompanying preprint."
+title: "THEORICA: Experimental Theory Synthesis and Active Causal Discovery"
+authors:
+  - family-names: Dasari
+    given-names: Sushanth
+version: 0.5.0
+date-released: 2026-09-20
+repository-code: "https://github.com/sushxnthd/theorica"
