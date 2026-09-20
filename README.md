@@ -25,6 +25,19 @@ Paired directed-F1 gain: **+0.048**, bootstrap 95% CI **[+0.0148,+0.0818]**, one
 
 The pinned replay in this repository reproduces the aggregate result exactly.
 
+A stronger follow-up used **ACDB's exact 48-instance canonical paper seed panel** and the paper runner's runtime-seed rule. On this panel, THEORICA did **not** outperform the official PC-greedy baseline in directed F1:
+
+| Metric | THEORICA | Official PC-greedy |
+|---|---:|---:|
+| Directed F1 ↑ | 0.704 | **0.709** |
+| DAG SHD ↓ | 5.08 | **4.54** |
+| ACDB efficiency ↑ | **0.824** | 0.730 |
+| Interventions ↓ | **2.06** | 2.54 |
+
+Directed-F1 difference was **−0.0048**, bootstrap 95% CI **[−0.0513,+0.0488]**. THEORICA used **0.479 fewer interventions per instance**, bootstrap 95% CI **[+0.229,+0.750]**, one-sided Wilcoxon **p=0.000536**; ACDB efficiency also favored THEORICA (**p=0.00850**). DAG SHD favored PC-greedy. The official PC-greedy replay matches ACDB's published per-level values to rounding, validating the reconstructed paper panel.
+
+This is a **trade-off result**, not a superiority claim.
+
 ### DiscoverPhysics
 
 A separate generic **15-experiment** system-identification policy was evaluated with the **native DiscoverPhysics trajectory evaluator** on five compatible static two-particle worlds.
