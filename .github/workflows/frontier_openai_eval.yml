@@ -1,0 +1,67 @@
+name: Frozen OpenAI frontier evaluation
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "OpenAI model ID"
+        required: false
+        default: "gpt-6-astra"
+  push:
+    paths:
+      - "frontier_trigger.txt"
+
+permissions:
+  contents: read
+
+jobs:
+  frontier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      MODEL: ${{ inputs.model || 'gpt-6-astra' }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify secret is configured
+        run: |
+          if [ -z "$OPENAI_API_KEY" ]; then
+            echo "OPENAI_API_KEY repository secret is missing."
+            exit 2
+          fi
+
+      - name: Install frozen evaluation environment
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[frontier]"
+
+      - name: Run paired vanilla vs THEORICA panel
+        run: |
+          python scripts/frontier_openai_eval.py             --model "$MODEL"             --conditions vanilla,theorica             --tasks all             --out results/frontier/openai_frontier_v1.json
+
+      - name: Compute paired statistics
+        run: python scripts/frontier_stats.py results/frontier/openai_frontier_v1.json
+
+      - name: Record provenance
+        run: |
+          mkdir -p results/frontier
+          git rev-parse HEAD > results/frontier/repository_commit.txt
+          python -V > results/frontier/python_version.txt
+          pip freeze > results/frontier/pip_freeze.txt
+          sha256sum             configs/frontier_panel.json             prompts/frontier_vanilla.txt             prompts/frontier_theorica.txt             scripts/frontier_openai_eval.py             scripts/frontier_stats.py             > results/frontier/FROZEN_SHA256.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: theorica-frontier-openai-v1
+          path: |
+            results/frontier/openai_frontier_v1.json
+            results/frontier/openai_frontier_v1_stats.json
+            results/frontier/repository_commit.txt
+            results/frontier/python_version.txt
+            results/frontier/pip_freeze.txt
+            results/frontier/FROZEN_SHA256.txt
