@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="THEORICA — autonomous experimental science: theory synthesis, causal interventions, native benchmark evaluation, and preregistered sim-to-real research.">
+  <title>THEORICA — Autonomous Experimental Science</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="field" aria-hidden="true"></canvas>
+  <header class="nav">
+    <a class="wordmark" href="#top">THEORICA</a>
+    <nav>
+      <a href="#evidence">Evidence</a>
+      <a href="#arc">Research arc</a>
+      <a href="#physical">Physical phase</a>
+      <a href="#limits">Boundaries</a>
+      <a href="https://github.com/sushxnthd/theorica">GitHub ↗</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="eyebrow">AUTONOMOUS EXPERIMENTAL SCIENCE / OPEN RESEARCH</p>
+      <h1>Can an AI scientist<br>survive <em>reality?</em></h1>
+      <p class="lede">THEORICA studies whether a machine can construct quantitative theories, choose informative interventions, falsify itself, and eventually enter a real laboratory without a human steering the experiment.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="https://github.com/sushxnthd/theorica/blob/main/paper/PREPRINT.md">Read the preprint</a>
+        <a class="button" href="https://github.com/sushxnthd/theorica">Reproduce the work</a>
+      </div>
+      <div class="proof-strip">
+        <div><strong>0.704</strong><span>directed F1<br>ACDB canonical panel</span></div>
+        <div><strong>2.06</strong><span>interventions<br>vs 2.54 PC-greedy</span></div>
+        <div><strong>4 / 5</strong><span>native trajectory passes<br>DiscoverPhysics panel</span></div>
+        <div><strong>₹0</strong><span>personal spend<br>hard project constraint</span></div>
+      </div>
+    </section>
+
+    <section class="statement">
+      <p>THEORICA is not built around a single flattering result.</p>
+      <h2>The first major hypothesis <span class="strike">failed.</span></h2>
+      <p class="wide">A frozen holdout showed that our sophisticated active-sampling heuristic did <strong>not</strong> reliably beat a competent uniform experimental design. We kept the failure public. It exposed a deeper problem: an agent cannot discover a theory that its hypothesis language cannot express.</p>
+    </section>
+
+    <section id="arc" class="arc">
+      <div class="section-head">
+        <p class="eyebrow">RESEARCH ARC</p>
+        <h2>Follow the evidence,<br>even when it breaks the pitch.</h2>
+      </div>
+      <div class="steps">
+        <article>
+          <span>01</span>
+          <h3>Adaptive sampling</h3>
+          <p>Falsification-first experiment selection looked promising on development worlds.</p>
+          <b class="negative">Frozen test: rejected</b>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Representation ceiling</h3>
+          <p>Independent equations showed the scientist failed whenever the correct law was absent from its fixed model menu.</p>
+          <b>2 / 8 Nguyen tasks</b>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Theory synthesis</h3>
+          <p>Complete-equation selection was replaced by bounded compositional symbolic theory construction.</p>
+          <b>8 / 8 + 5 / 5 frozen transfer</b>
+        </article>
+        <article>
+          <span>04</span>
+          <h3>Causal science</h3>
+          <p>The agent learned to spend interventions resolving hidden graph structure rather than only fit functions.</p>
+          <b>Native ACDB execution</b>
+        </article>
+        <article>
+          <span>05</span>
+          <h3>Unknown physics</h3>
+          <p>A generic 15-experiment policy inferred force maps from raw trajectories in unfamiliar DiscoverPhysics worlds.</p>
+          <b>4 / 5 native trajectory passes</b>
+        </article>
+        <article>
+          <span>06</span>
+          <h3>Reality gap</h3>
+          <p>The scientist is frozen before a physical optics campaign. Real drift, calibration error and saturation become part of the test.</p>
+          <b class="pending">Preregistered / unfunded</b>
+        </article>
+      </div>
+    </section>
+
+    <section id="evidence" class="evidence">
+      <div class="section-head">
+        <p class="eyebrow">NATIVE EXTERNAL EVIDENCE</p>
+        <h2>Tests we do not own.</h2>
+      </div>
+
+      <div class="evidence-grid">
+        <article class="card">
+          <div class="card-top">
+            <p>ACTIVE-CAUSAL-DISCOVERY-BENCH</p>
+            <a href="https://github.com/sushxnthd/theorica/blob/main/results/native/ACDB_CANONICAL_PANEL_REPORT.md">audit ↗</a>
+          </div>
+          <h3>Canonical paper panel</h3>
+          <p>Exact 48-instance ACDB paper seed map and runtime RNG rule. THEORICA does not beat PC-greedy on graph accuracy; it trades some structural error for fewer interventions.</p>
+          <table>
+            <tr><th></th><th>THEORICA</th><th>PC-greedy</th></tr>
+            <tr><td>Directed F1 ↑</td><td>0.704</td><td><strong>0.709</strong></td></tr>
+            <tr><td>DAG SHD ↓</td><td>5.08</td><td><strong>4.54</strong></td></tr>
+            <tr><td>Efficiency ↑</td><td><strong>0.824</strong></td><td>0.730</td></tr>
+            <tr><td>Interventions ↓</td><td><strong>2.06</strong></td><td>2.54</td></tr>
+          </table>
+          <p class="small">Intervention reduction: 0.479/run; bootstrap 95% CI [0.229, 0.750], one-sided Wilcoxon p = 0.000536.</p>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <p>DISCOVERPHYSICS</p>
+            <a href="https://github.com/sushxnthd/theorica/blob/main/results/native/DISCOVERPHYSICS_REPORT.md">audit ↗</a>
+          </div>
+          <h3>Native trajectory evaluator</h3>
+          <p>One generic 15-experiment policy. No access to hidden laws, rubrics or evaluation trajectories during discovery.</p>
+          <table>
+            <tr><th>World</th><th>MSE</th><th></th></tr>
+            <tr><td>gravity</td><td>3.91e−10</td><td class="pass">PASS</td></tr>
+            <tr><td>Yukawa</td><td>2.89e−05</td><td class="pass">PASS</td></tr>
+            <tr><td>fractional</td><td>3.39e−12</td><td class="pass">PASS</td></tr>
+            <tr><td>Coulomb</td><td>5.39e−01</td><td class="fail">FAIL</td></tr>
+            <tr><td>extra dimensions</td><td>1.61e−05</td><td class="pass">PASS</td></tr>
+          </table>
+          <p class="small">Selected compatible static two-particle panel; trajectory axis only. Not an official leaderboard result.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="physical" class="physical">
+      <div class="section-head">
+        <p class="eyebrow">NEXT DECISIVE TEST</p>
+        <h2>Freeze the scientist.<br>Then give it a real instrument.</h2>
+      </div>
+      <div class="physical-grid">
+        <div class="rig">
+          <div class="beam"></div>
+          <div class="optic o1">P1</div>
+          <div class="optic o2">P2</div>
+          <div class="sensor">PD</div>
+          <div class="labels"><span>LED</span><span>fixed</span><span>motorized</span><span>detector</span></div>
+        </div>
+        <div>
+          <p>The first physical campaign is written <strong>before the hardware exists</strong>. After <code>START</code>, human measurement choices, hints, adjustments, selective restarts or data deletion invalidate the official trial.</p>
+          <div class="criterion">
+            <span>Primary preregistered criterion</span>
+            <strong>physical holdout NRMSE ≤ 0.10</strong>
+            <small>zero human intervention · zero holdout leakage · all raw traces retained</small>
+          </div>
+          <a class="text-link" href="https://github.com/sushxnthd/theorica/blob/main/docs/SIM_TO_REAL_PREREGISTRATION.md">Read the preregistration →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="limits" class="limits">
+      <div class="section-head">
+        <p class="eyebrow">CLAIM BOUNDARIES</p>
+        <h2>What this project<br>does <em>not</em> prove.</h2>
+      </div>
+      <ul>
+        <li>THEORICA does not beat PC-greedy overall on ACDB.</li>
+        <li>4/5 DiscoverPhysics trajectory passes is not an 80% overall benchmark score.</li>
+        <li>No paid-provider frontier-model comparison is currently claimed.</li>
+        <li>No physical sim→real result exists yet.</li>
+        <li>The bounded symbolic grammar is not general theorem proving.</li>
+        <li>No admission, publication, grant or collaboration is guaranteed.</li>
+      </ul>
+      <a class="text-link" href="https://github.com/sushxnthd/theorica/blob/main/docs/CLAIM_BOUNDARIES.md">Full claim ledger →</a>
+    </section>
+
+    <section class="open">
+      <p class="eyebrow">OPEN CHALLENGE</p>
+      <h2>Reproduce it.<br>Break it.<br>Host the physical test.</h2>
+      <p>Independent negative results are welcome. The repository contains pinned third-party commits, replay workflows, frozen panels and a collaboration protocol.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="https://github.com/sushxnthd/theorica/issues/1">Collaborate / replicate</a>
+        <a class="button" href="https://github.com/sushxnthd/theorica/blob/main/docs/REPLICATION_CHALLENGE.md">Replication protocol</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>THEORICA / 2026</span>
+    <span>Built as open research under a zero-personal-spend constraint.</span>
+    <a href="https://github.com/sushxnthd/theorica">github.com/sushxnthd/theorica</a>
+  </footer>
+  <script src="field.js"></script>
+</body>
+</html>
