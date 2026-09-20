@@ -1,0 +1,27 @@
+{
+  "title": "THEORICA: Open-Ended Theory Synthesis, Active Causal Discovery, and Native Evaluation for Autonomous Experimental Science",
+  "upload_type": "software",
+  "description": "THEORICA is an autonomous experimental-science research system combining compositional theory synthesis, active causal discovery, native third-party benchmark evaluation, and a preregistered sim-to-real physical validation plan.",
+  "creators": [
+    {
+      "name": "Dasari, Sushanth"
+    }
+  ],
+  "access_right": "open",
+  "license": "MIT",
+  "keywords": [
+    "autonomous science",
+    "AI scientist",
+    "symbolic regression",
+    "causal discovery",
+    "experiment design",
+    "scientific discovery"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/sushxnthd/theorica",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}
