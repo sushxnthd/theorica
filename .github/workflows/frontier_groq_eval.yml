@@ -1,0 +1,55 @@
+name: Free-tier Groq frontier evaluation
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Groq model ID"
+        required: false
+        default: "openai/gpt-oss-120b"
+  push:
+    paths:
+      - "groq_frontier_trigger.txt"
+permissions:
+  contents: read
+jobs:
+  frontier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      MODEL: ${{ inputs.model || 'openai/gpt-oss-120b' }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify free-tier key
+        run: |
+          if [ -z "$GROQ_API_KEY" ]; then
+            echo "GROQ_API_KEY repository secret is missing."
+            exit 2
+          fi
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[frontier]"
+      - name: Execute frozen paired panel
+        run: python scripts/frontier_groq_eval.py --model "$MODEL"
+      - name: Paired statistics
+        run: python scripts/frontier_stats.py results/frontier/groq_frontier_v1.json
+      - name: Provenance
+        run: |
+          git rev-parse HEAD > results/frontier/groq_repository_commit.txt
+          python -V > results/frontier/groq_python_version.txt
+          pip freeze > results/frontier/groq_pip_freeze.txt
+          sha256sum configs/frontier_panel.json prompts/frontier_vanilla.txt prompts/frontier_theorica.txt scripts/frontier_openai_eval.py scripts/frontier_groq_eval.py scripts/frontier_stats.py > results/frontier/GROQ_FROZEN_SHA256.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: theorica-free-groq-frontier-v1
+          path: |
+            results/frontier/groq_frontier_v1.json
+            results/frontier/groq_frontier_v1_stats.json
+            results/frontier/groq_repository_commit.txt
+            results/frontier/groq_python_version.txt
+            results/frontier/groq_pip_freeze.txt
+            results/frontier/GROQ_FROZEN_SHA256.txt
