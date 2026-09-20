@@ -1,34 +1,27 @@
 from __future__ import annotations
 import argparse, json
-from .runner import run_once, run_suite, summarize, save_json
-from .environments.tasks import TASKS
-
+from .runner import run_nguyen_once, run_causal_once
+from .adapters.nguyen_source import TASKS as NGUYEN_TASKS
 
 def main():
-    p=argparse.ArgumentParser(prog="theorica")
+    p=argparse.ArgumentParser(prog="theorica",description="THEORICA — autonomous experimental science")
     sub=p.add_subparsers(dest="cmd",required=True)
-    r=sub.add_parser("run")
-    r.add_argument("--agent",choices=["uniform","random","falsification"],default="falsification")
-    r.add_argument("--task",choices=TASKS,default="faulted_cos2")
-    r.add_argument("--seed",type=int,default=0)
-    r.add_argument("--budget",type=int,default=30)
-    r.add_argument("--out",default="")
-    d=sub.add_parser("demo")
-    d.add_argument("--seeds",type=int,default=20)
-    d.add_argument("--budget",type=int,default=30)
-    d.add_argument("--out",default="results/demo_results.json")
+    n=sub.add_parser("nguyen",help="run compositional theory synthesis")
+    n.add_argument("--task",choices=sorted(NGUYEN_TASKS),default="nguyen-5")
+    n.add_argument("--seed",type=int,default=0)
+    n.add_argument("--budget",type=int,default=14)
+    c=sub.add_parser("causal",help="run active causal discovery")
+    c.add_argument("--nodes",type=int,default=6)
+    c.add_argument("--edges",type=int,default=6)
+    c.add_argument("--seed",type=int,default=123)
+    c.add_argument("--budget",type=int,default=2)
+    c.add_argument("--policy",choices=["greedy","random"],default="greedy")
     args=p.parse_args()
-    if args.cmd=="run":
-        run,m=run_once(args.agent,args.task,args.seed,args.budget)
-        payload={"metrics":m,"run":run.as_dict()}
-        if args.out: save_json(args.out,payload)
-        print(json.dumps(payload,indent=2))
+    if args.cmd=="nguyen":
+        run,score=run_nguyen_once(args.task,args.seed,args.budget)
+        print(json.dumps({"score":score,"run":run.as_dict()},indent=2))
     else:
-        rows=run_suite(args.seeds,args.budget)
-        summary=summarize(rows)
-        payload={"summary":summary,"rows":rows}
-        save_json(args.out,payload)
-        print(json.dumps(summary,indent=2))
+        print(json.dumps(run_causal_once(args.nodes,args.edges,args.seed,args.budget,args.policy),indent=2))
 
 if __name__=="__main__":
     main()
