@@ -1,7 +1,6 @@
 from __future__ import annotations
 from dataclasses import dataclass, field, asdict
-from typing import List, Dict
-from .models import fit_all
+from typing import List, Dict, Any
 
 @dataclass
 class AgentRun:
@@ -10,7 +9,7 @@ class AgentRun:
     seed: int
     observations: List[dict]
     selected_model: str
-    selected_params: Dict[str, float]
+    selected_params: Dict[str, Any]
     model_weights: Dict[str, float]
     suspected_faults: List[dict] = field(default_factory=list)
     stopped_early: bool = False
@@ -19,6 +18,9 @@ class AgentRun:
         return asdict(self)
 
 def final_fit(observations):
+    # Lazy import keeps the current theory-synthesis path independent of the
+    # archived fixed-family model selector used in earlier internal versions.
+    from .models import fit_all
     xs=[o["x_commanded"] for o in observations]
     ys=[o["y"] for o in observations]
     fits,weights=fit_all(xs,ys)
