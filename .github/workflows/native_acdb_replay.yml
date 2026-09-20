@@ -1,0 +1,44 @@
+name: Native ACDB replay
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/native_acdb_eval.py"
+      - ".github/workflows/native_acdb_replay.yml"
+permissions:
+  contents: read
+jobs:
+  native-acdb:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Clone pinned official ACDB
+        run: |
+          mkdir -p external
+          git clone https://github.com/qpiai/Active-Causal-Discovery-Bench.git external/Active-Causal-Discovery-Bench
+          git -C external/Active-Causal-Discovery-Bench checkout c9b3018967b6ce798f12add37120b79a963177ed
+          git -C external/Active-Causal-Discovery-Bench rev-parse HEAD | tee acdb_commit.txt
+      - name: Install benchmark
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e external/Active-Causal-Discovery-Bench
+      - name: Execute paired native evaluation
+        run: python scripts/native_acdb_eval.py
+      - name: Record provenance
+        run: |
+          python -V > python_version.txt
+          pip freeze > pip_freeze.txt
+          sha256sum scripts/native_acdb_eval.py > adapter_sha256.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: theorica-native-acdb-replay
+          path: |
+            native_acdb_results.json
+            acdb_commit.txt
+            adapter_sha256.txt
+            python_version.txt
+            pip_freeze.txt
