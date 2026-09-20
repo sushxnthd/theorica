@@ -1,0 +1,27 @@
+{
+  "benchmark": "Active-Causal-Discovery-Bench native package/API",
+  "upstream_commit": "c9b3018967b6ce798f12add37120b79a963177ed",
+  "n_instances": 48,
+  "methods": {
+    "theorica_ambiguity_targeting": {
+      "directed_f1": 0.6470411382265904,
+      "skeleton_f1": 0.7900351075121458,
+      "dag_shd": 5.479166666666667,
+      "efficiency": 0.8385416666666666,
+      "interventions_used": 1.8333333333333333
+    },
+    "random_targeting": {
+      "directed_f1": 0.5990798517617194,
+      "skeleton_f1": 0.7900351075121458,
+      "dag_shd": 6.166666666666667,
+      "efficiency": 0.6243055555555556,
+      "interventions_used": 2.8958333333333335
+    }
+  },
+  "paired_directed_f1_delta_mean": 0.047961286464870884,
+  "bootstrap_95_ci": [0.01480, 0.08181],
+  "wilcoxon_one_sided_p": 0.00195,
+  "paired_wins": 21,
+  "paired_ties": 24,
+  "paired_losses": 3
+}
