@@ -1,12 +1,12 @@
 # THEORICA: Open-Ended Theory Synthesis, Active Causal Discovery, and Native Evaluation for Autonomous Experimental Science
 
-**Sushanth Dasari — Preprint draft, 20 September 2026**
+**Sushanth Dasari — Preprint draft, 24 September 2026**
 
 ## Abstract
 
 Scientific agents are often evaluated on question answering, coding, simulation, or laboratory automation in isolation, while experimental science requires a coupled loop: form hypotheses, choose measurements, revise theories, distinguish physical effects from instrument faults, and survive tests not used during discovery.
 
-THEORICA is a student-led research program organized around these failure modes. A frozen internal test first rejected our strongest initial hypothesis: an adaptive falsification-oriented experiment policy did not reliably outperform a matched uniform design. Independent equation tasks then exposed a deeper bottleneck because the agent could only select among complete equations already present in its hypothesis menu. We replaced fixed-family selection with bounded compositional symbolic synthesis and later extended it to multivariate relationships.
+THEORICA is a student-led research program organized around these failure modes. A frozen internal test first rejected our strongest initial hypothesis: an adaptive falsification-oriented experiment policy did not reliably outperform a matched uniform design. Independent equation tasks then exposed a deeper bottleneck because the agent could only select among complete equations already present in its hypothesis menu. We replaced fixed-family selection with bounded compositional symbolic synthesis and later extended it to multivariate relationships. A subsequent frozen misspecification study tested whether the scientist could revise the language itself rather than only search inside it. On 100 unseen noisy periodic-law tasks, a cross-fitted spectral-closure mechanism reduced median extrapolation NRMSE from **0.22759** for the current grammar and **0.09739** for a stronger fixed integer-frequency bank to **0.002293**, with **97/100** runs below 0.01 NRMSE and 100/100 paired wins against both baselines. The method estimates a missing continuous frequency from held-out evidence before injecting the corresponding operator pair into the grammar.
 
 A separate causal branch uses interventions to resolve graph ambiguity. On 48 paired instances generated with the native Active-Causal-Discovery-Bench package, THEORICA achieved directed F1 **0.647 vs 0.599** for random intervention targeting, with fewer interventions (**1.83 vs 2.90**). The paired F1 gain was **+0.048**, bootstrap 95% CI **[+0.015,+0.082]**, one-sided Wilcoxon **p=0.00195**. The pinned replay committed in this repository reproduces the aggregate result exactly.
 
@@ -51,7 +51,36 @@ A multivariate extension added cross-monomials, nonlinear interactions, variable
 
 These suites are development and transfer evidence, not claims of universal symbolic discovery.
 
-## 5. Active causal discovery
+## 5. Cross-fitted grammar closure under misspecification
+
+Compositional synthesis still leaves a deeper limitation: its operator vocabulary is fixed before the data arrive. THEORICA therefore tests whether predictive failure can become evidence about the **hypothesis language itself**.
+
+The first bounded grammar-closure mechanism targets one deliberately omitted structure: an unknown continuous periodic frequency. The current grammar contains fixed-frequency trigonometric primitives such as `sin(x)` and `cos(x)`, but it does not contain a continuously fitted frequency parameter. The closure procedure:
+
+1. fits a deliberately low-complexity cubic scaffold in two cross-fitting folds;
+2. asks whether adding `sin(ωx)` and `cos(ωx)` sharply reduces held-out error;
+3. searches `ω` continuously from the observations rather than loading a target-frequency bank;
+4. opens the grammar only when a frozen held-out error-ratio gate is crossed; and
+5. injects the inferred operator pair into the full bounded grammar and reruns sparse theory synthesis.
+
+The frozen evaluation used 100 unseen seeds (1000–1099). Each hidden law had the form `A sin(ωx + phase) + b x + c`, with `ω` sampled continuously from **[1.35, 5.65]**, 40 noisy training measurements on **[-2,2]**, and fresh noiseless validation on 401 points spanning **[-2.5,2.5]**. Measurement noise had standard deviation 1% of the clean training-output standard deviation.
+
+Two fixed-language baselines were strengthened for the comparison: the current THEORICA grammar used trial width 200, and a separate Fourier-bank baseline additionally preloaded integer frequencies `k = 2,...,6`.
+
+| Metric | Current grammar | Fixed integer bank | Spectral closure |
+|---|---:|---:|---:|
+| Median validation NRMSE ↓ | 0.22759 | 0.09739 | **0.002293** |
+| Mean validation NRMSE ↓ | 0.25184 | 0.11720 | **0.003748** |
+| Runs below 0.01 NRMSE | 1/100 | 6/100 | **97/100** |
+| Paired wins by closure | — | — | **100/100 vs both** |
+
+Median absolute frequency error was **0.00268**, with 90th-percentile error **0.02494**. Against the current grammar, mean paired NRMSE improvement was **0.24810**, bootstrap 95% CI **[0.21461, 0.28395]**, with one-sided paired Wilcoxon **p = 1.95e-18**. The same paired test against the stronger fixed integer-frequency bank also gave **p = 1.95e-18**.
+
+The repository's clean GitHub Actions workflow successfully reruns the new unit tests and the complete 100-task holdout before uploading the result artifact.
+
+This result changes the internal scientific question from only **"which theory inside H?"** toward **"does held-out evidence show that H itself is missing structure?"** The claim remains narrow: this is one successful periodic grammar-expansion mechanism. It is not universal operator invention, a state-of-the-art symbolic-regression claim, or evidence that arbitrary missing mathematical operators can be discovered.
+
+## 6. Active causal discovery
 
 THEORICA maintains a separate causal branch because graph orientation is not the same problem as equation fitting. The causal scientist estimates an observational skeleton with conditional-independence tests, orients available v-structures, applies Meek-style closure, and then spends an intervention budget on unresolved relationships.
 
@@ -82,7 +111,7 @@ The native replay inside this repository reproduces these aggregate values exact
 
 This is not an official ACDB leaderboard submission and does not use the paper's canonical leaderboard seed panel.
 
-## 6. Native DiscoverPhysics trajectory evaluation
+## 7. Native DiscoverPhysics trajectory evaluation
 
 DiscoverPhysics places scientific agents in unfamiliar simulated physical worlds, lets them design experiments, and evaluates executable discovered laws on held-out trajectories plus a separate explanation axis.
 
@@ -125,7 +154,7 @@ The Coulomb failure was published before any Coulomb-specific retuning.
 
 The supported claim is limited to four trajectory-axis passes on this selected compatible panel. It is **not** an 80% overall DiscoverPhysics score, not a full benchmark pass, and not a frontier-model comparison.
 
-## 7. Instrument reasoning and identifiability
+## 8. Instrument reasoning and identifiability
 
 An earlier design allowed drift and calibration nuisance parameters in every model. That reduced accuracy because physical parameters and instrument parameters can be non-identifiable under small experiment budgets.
 
@@ -133,7 +162,7 @@ The current instrument critic is evidence-gated: it opens a fault hypothesis onl
 
 This motivates the physical phase because a real apparatus forces the agent to distinguish **the world changed** from **the instrument changed**.
 
-## 8. Preregistered physical phase
+## 9. Preregistered physical phase
 
 The next decisive experiment is designed before official hardware data exist.
 
@@ -156,17 +185,18 @@ The first preregistered success criterion is:
 
 Later tasks add angular bias, source drift, sparse outliers, detector saturation, and composite faults.
 
-## 9. Zero-personal-spend constraint
+## 10. Zero-personal-spend constraint
 
 THEORICA is being built under a hard rule: **₹0 personal spend by the author**.
 
 No paid API, compute subscription, hardware purchase, publication fee, domain, or competition fee is required. Any paid resource used in future official work must be supplied through a genuinely free tier, grant, sponsor, collaborator, institution, or in-kind support.
 
-## 10. Limitations
+## 11. Limitations
 
 THEORICA remains a bounded prototype.
 
 - The symbolic grammar is not unrestricted theorem proving or program synthesis.
+- The spectral-closure result demonstrates only one periodic operator-family expansion and does not establish universal grammar induction.
 - Low predictive error may hide non-equivalent explanations.
 - The multivariate suite is low-dimensional.
 - The causal policy has not been shown superior to every classical intervention strategy.
@@ -181,7 +211,7 @@ These limitations are experimental targets, not claims to be papered over.
 
 THEORICA's main contribution is a falsifiable research progression rather than one benchmark number.
 
-A frozen test rejected the original active-sampling claim. External equations exposed a hypothesis-language ceiling. Compositional synthesis reduced that ceiling on the included suites. A separate causal policy then survived native ACDB execution and exact replay. A distinct trajectory-driven policy subsequently passed four of five native DiscoverPhysics trajectory evaluations on a compatible panel without reading their hidden laws.
+A frozen test rejected the original active-sampling claim. External equations exposed a hypothesis-language ceiling. Compositional synthesis reduced that ceiling on the included suites. A frozen grammar-misspecification study then showed that, for one omitted periodic structure, held-out evidence could trigger a continuous-frequency language expansion that sharply improved unseen extrapolation. A separate causal policy then survived native ACDB execution and exact replay. A distinct trajectory-driven policy subsequently passed four of five native DiscoverPhysics trajectory evaluations on a compatible panel without reading their hidden laws.
 
 The remaining decisive test is physical: whether a scientist frozen in simulation can enter an unfamiliar real laboratory, infer a predictive relationship, and remain reliable when the apparatus itself is imperfect.
 
