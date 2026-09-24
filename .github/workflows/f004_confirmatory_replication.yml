@@ -1,0 +1,29 @@
+name: F004 confirmatory representation-falsification replication
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - breakthrough-eprocess-falsification
+    paths:
+      - "scripts/f004_confirmatory_replication.py"
+      - "docs/F004_CONFIRMATORY_REPLICATION_PREREG.md"
+      - ".github/workflows/f004_confirmatory_replication.yml"
+
+jobs:
+  frozen-f004:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e ".[dev]"
+      - run: pytest -q tests/test_anytime_falsification.py
+      - run: python scripts/f004_confirmatory_replication.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: f004-confirmatory-replication
+          path: results/f004_anytime_representation_falsification.json
