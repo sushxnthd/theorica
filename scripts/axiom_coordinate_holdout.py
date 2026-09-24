@@ -160,7 +160,11 @@ def _canonical():
     out = []
     for i, (name, oracle, domain, target) in enumerate(worlds):
         result = discover_coordinate(
-            oracle, domain, seed=100 + i, n_samples=240
+            oracle,
+            domain,
+            seed=100 + i,
+            n_samples=800,
+            smoothness=1e-4,
         )
         got = sp.sympify(result.derivative_expression, locals={"x": x})
         ratio = sp.simplify(got / target)
