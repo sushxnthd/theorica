@@ -8,6 +8,8 @@ Scientific agents are often evaluated on question answering, coding, simulation,
 
 THEORICA is a student-led research program organized around these failure modes. A frozen internal test first rejected our strongest initial hypothesis: an adaptive falsification-oriented experiment policy did not reliably outperform a matched uniform design. Independent equation tasks then exposed a deeper bottleneck because the agent could only select among complete equations already present in its hypothesis menu. We replaced fixed-family selection with bounded compositional symbolic synthesis and later extended it to multivariate relationships. A subsequent frozen misspecification study tested whether the scientist could revise the language itself rather than only search inside it. On 100 unseen noisy periodic-law tasks, a cross-fitted spectral-closure mechanism reduced median extrapolation NRMSE from **0.22759** for the current grammar and **0.09739** for a stronger fixed integer-frequency bank to **0.002293**, with **97/100** runs below 0.01 NRMSE and 100/100 paired wins against both baselines. The method estimates a missing continuous frequency from held-out evidence before injecting the corresponding operator pair into the grammar.
 
+A separate structural-discovery branch asks whether the scientist can infer mathematical organization before fitting an equation. Given only black-box access to an unknown binary composition law, THEORICA experimentally tests algebraic identities, conditionally searches for an additive latent coordinate, and symbolically compresses the recovered coordinate. In a frozen clean run it recovered the symbolic coordinate structure for **5/5** canonical associative operations, rejected **3/3** invalid controls, and met the prespecified recovery gates on **50/50** unseen noisy hidden-coordinate worlds. Median derivative-shape error was **0.001584** and median unseen composition error **0.0003931**; the structural representation beat a direct degree-6 bivariate polynomial baseline on **46/50** paired worlds. The representation theorem itself is classical; the potentially novel object is the automated experiment-to-axiom-to-coordinate discovery chain, which remains a novelty hypothesis pending broader literature and expert validation.
+
 A separate causal branch uses interventions to resolve graph ambiguity. On 48 paired instances generated with the native Active-Causal-Discovery-Bench package, THEORICA achieved directed F1 **0.647 vs 0.599** for random intervention targeting, with fewer interventions (**1.83 vs 2.90**). The paired F1 gain was **+0.048**, bootstrap 95% CI **[+0.015,+0.082]**, one-sided Wilcoxon **p=0.00195**. The pinned replay committed in this repository reproduces the aggregate result exactly.
 
 Separately, a generic 15-experiment force-map identification policy was evaluated with the native DiscoverPhysics trajectory evaluator on five compatible static two-particle worlds and passed the benchmark trajectory threshold on **4/5** worlds: gravity, Yukawa, fractional gravity, and extra dimensions. Coulomb failed and is retained as a negative result.
@@ -80,7 +82,51 @@ The repository's clean GitHub Actions workflow successfully reruns the new unit 
 
 This result changes the internal scientific question from only **"which theory inside H?"** toward **"does held-out evidence show that H itself is missing structure?"** The claim remains narrow: this is one successful periodic grammar-expansion mechanism. It is not universal operator invention, a state-of-the-art symbolic-regression claim, or evidence that arbitrary missing mathematical operators can be discovered.
 
-## 6. Active causal discovery
+## 6. Experimental axiom discovery and latent coordinates
+
+Equation discovery usually assumes the variables and mathematical representation in which the law should be expressed. THEORICA now tests an earlier question: can experiments reveal **what structural representation the system belongs to**?
+
+The new branch is given only black-box experimental access to a scalar binary operation `F(x,y)` on a stated domain. It is not told the governing equation, whether the operation is associative, or whether a simplifying logarithmic, rapidity, reciprocal, or power coordinate exists.
+
+The current pipeline first probes commutativity and associativity using fresh interventions. If the evidence passes the frozen structural gate, it searches nonparametrically for a monotone coordinate `g` satisfying
+
+```
+g(F(x,y)) = g(x) + g(y).
+```
+
+It then differentiates the learned coordinate, compresses the derivative into a generic rational form `P(x)/Q(x)`, and integrates that representation symbolically. Named target transforms are not supplied as an answer menu.
+
+On a canonical black-box panel, the system recovered all five latent-coordinate structures:
+
+- multiplication → logarithmic coordinate;
+- relativistic velocity composition → rapidity / `atanh` coordinate;
+- probabilistic OR → `-log(1-x)` coordinate;
+- harmonic/parallel composition → reciprocal coordinate;
+- cubic norm composition → cubic coordinate.
+
+Thus **5/5** canonical associative worlds were accepted and **5/5** symbolic coordinate structures were recovered. Three deliberately invalid controls were rejected (**3/3**).
+
+A separate frozen holdout generated **50 unseen associative worlds** from hidden monotone coordinates whose derivatives were random low-degree rational functions. Each world supplied 200 noisy operation measurements, with output noise standard deviation equal to 0.1% of the experimental-domain span. THEORICA never received the hidden coefficients or coordinate.
+
+| Metric | Frozen clean result |
+|---|---:|
+| Hidden worlds meeting success gates | **50/50** |
+| Median derivative-shape error | **0.001584** |
+| 90th-percentile derivative-shape error | **0.004560** |
+| Maximum derivative-shape error | **0.006254** |
+| Median unseen operation error | **0.0003931** |
+| Degree-6 polynomial median error | **0.0008314** |
+| Coordinate-model wins vs polynomial | **46/50** |
+
+The clean GitHub Actions workflow installed the project from scratch, passed the targeted tests, executed the full holdout, and uploaded the result artifact.
+
+The mathematical representation principle is not claimed as new. Classical functional-equation and functional-network work studies additive generators for associative operations, often with the structural premise supplied in advance. THEORICA's research hypothesis is instead the end-to-end autonomous sequence:
+
+**black-box experiment → empirical axiom diagnosis → representation choice → latent-coordinate recovery → symbolic law → held-out falsification.**
+
+Our current literature search has not established that this complete sequence is field-first, so the supported claim is a reproducible new THEORICA capability and a **plausible methodological novelty**, not certified priority.
+
+## 7. Active causal discovery
 
 THEORICA maintains a separate causal branch because graph orientation is not the same problem as equation fitting. The causal scientist estimates an observational skeleton with conditional-independence tests, orients available v-structures, applies Meek-style closure, and then spends an intervention budget on unresolved relationships.
 
@@ -111,7 +157,7 @@ The native replay inside this repository reproduces these aggregate values exact
 
 This is not an official ACDB leaderboard submission and does not use the paper's canonical leaderboard seed panel.
 
-## 7. Native DiscoverPhysics trajectory evaluation
+## 8. Native DiscoverPhysics trajectory evaluation
 
 DiscoverPhysics places scientific agents in unfamiliar simulated physical worlds, lets them design experiments, and evaluates executable discovered laws on held-out trajectories plus a separate explanation axis.
 
@@ -154,7 +200,7 @@ The Coulomb failure was published before any Coulomb-specific retuning.
 
 The supported claim is limited to four trajectory-axis passes on this selected compatible panel. It is **not** an 80% overall DiscoverPhysics score, not a full benchmark pass, and not a frontier-model comparison.
 
-## 8. Instrument reasoning and identifiability
+## 9. Instrument reasoning and identifiability
 
 An earlier design allowed drift and calibration nuisance parameters in every model. That reduced accuracy because physical parameters and instrument parameters can be non-identifiable under small experiment budgets.
 
@@ -162,7 +208,7 @@ The current instrument critic is evidence-gated: it opens a fault hypothesis onl
 
 This motivates the physical phase because a real apparatus forces the agent to distinguish **the world changed** from **the instrument changed**.
 
-## 9. Preregistered physical phase
+## 10. Preregistered physical phase
 
 The next decisive experiment is designed before official hardware data exist.
 
@@ -185,18 +231,19 @@ The first preregistered success criterion is:
 
 Later tasks add angular bias, source drift, sparse outliers, detector saturation, and composite faults.
 
-## 10. Zero-personal-spend constraint
+## 11. Zero-personal-spend constraint
 
 THEORICA is being built under a hard rule: **₹0 personal spend by the author**.
 
 No paid API, compute subscription, hardware purchase, publication fee, domain, or competition fee is required. Any paid resource used in future official work must be supplied through a genuinely free tier, grant, sponsor, collaborator, institution, or in-kind support.
 
-## 11. Limitations
+## 12. Limitations
 
 THEORICA remains a bounded prototype.
 
 - The symbolic grammar is not unrestricted theorem proving or program synthesis.
 - The spectral-closure result demonstrates only one periodic operator-family expansion and does not establish universal grammar induction.
+- The axiom-to-coordinate result uses a classical representation principle and does not yet establish field-first methodological novelty; stronger baselines and independent literature/expert validation remain necessary.
 - Low predictive error may hide non-equivalent explanations.
 - The multivariate suite is low-dimensional.
 - The causal policy has not been shown superior to every classical intervention strategy.
@@ -211,7 +258,7 @@ These limitations are experimental targets, not claims to be papered over.
 
 THEORICA's main contribution is a falsifiable research progression rather than one benchmark number.
 
-A frozen test rejected the original active-sampling claim. External equations exposed a hypothesis-language ceiling. Compositional synthesis reduced that ceiling on the included suites. A frozen grammar-misspecification study then showed that, for one omitted periodic structure, held-out evidence could trigger a continuous-frequency language expansion that sharply improved unseen extrapolation. A separate causal policy then survived native ACDB execution and exact replay. A distinct trajectory-driven policy subsequently passed four of five native DiscoverPhysics trajectory evaluations on a compatible panel without reading their hidden laws.
+A frozen test rejected the original active-sampling claim. External equations exposed a hypothesis-language ceiling. Compositional synthesis reduced that ceiling on the included suites. A frozen grammar-misspecification study then showed that, for one omitted periodic structure, held-out evidence could trigger a continuous-frequency language expansion that sharply improved unseen extrapolation. A separate black-box structural study then moved the problem one level earlier: THEORICA experimentally diagnosed algebraic identities and recovered latent coordinates that linearized unseen nonlinear composition laws, including a 50/50 frozen hidden-world result. A separate causal policy then survived native ACDB execution and exact replay. A distinct trajectory-driven policy subsequently passed four of five native DiscoverPhysics trajectory evaluations on a compatible panel without reading their hidden laws.
 
 The remaining decisive test is physical: whether a scientist frozen in simulation can enter an unfamiliar real laboratory, infer a predictive relationship, and remain reliable when the apparatus itself is imperfect.
 
