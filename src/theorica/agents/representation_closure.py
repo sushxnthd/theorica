@@ -161,7 +161,7 @@ class WeakAnnihilatorSynthesizer:
                 row = []
                 for order, power in self.terms:
                     g = self._test_derivative(x, power, order, phi, d1, d2)
-                    integral = np.trapz(g * y, x)
+                    integral = np.trapezoid(g * y, x)
                     row.append(((-1) ** order) * integral)
                 rows.append(row)
         W = np.asarray(rows, dtype=float)
