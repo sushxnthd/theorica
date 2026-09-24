@@ -9,7 +9,9 @@ The representation-closure implementation is frozen at commit:
 `f3c3c6cdd89f4edd6970e90a7da817a425c04b8c`
 
 No method or gate changes are permitted after inspecting the holdout outcomes.
-Any later change creates a new campaign version.
+Any later scientific change creates a new campaign version.
+
+Compatibility note: the first clean CI attempt failed before any holdout task ran because NumPy 2 removed `np.trapz`. Commit `8c181efa2039d32ecf1f80077dc097df7c35c2de` replaces only that call with the equivalent `np.trapezoid`; no algorithm, gate, seed, family, or benchmark logic changed.
 
 Development used ordinary exponentials/oscillations and exploratory Airy,
 Bessel, parabolic-cylinder, and Legendre examples. None of the four holdout
