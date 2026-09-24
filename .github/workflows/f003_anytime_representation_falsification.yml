@@ -1,0 +1,30 @@
+name: F003 anytime representation falsification
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - breakthrough-eprocess-falsification
+    paths:
+      - "scripts/f003_anytime_representation_falsification.py"
+      - "tests/test_anytime_falsification.py"
+      - "docs/F003_ANYTIME_REPRESENTATION_FALSIFICATION_PREREG.md"
+      - ".github/workflows/f003_anytime_representation_falsification.yml"
+
+jobs:
+  frozen-f003:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e ".[dev]"
+      - run: pytest -q tests/test_anytime_falsification.py
+      - run: python scripts/f003_anytime_representation_falsification.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: f003-anytime-representation-falsification
+          path: results/f003_anytime_representation_falsification.json
