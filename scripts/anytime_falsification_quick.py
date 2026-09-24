@@ -1,4 +1,7 @@
-from scripts.anytime_falsification_dev import task
+from pathlib import Path
+import sys
+sys.path.append(str(Path(__file__).resolve().parent))
+from anytime_falsification_dev import task
 from theorica.agents.anytime_falsification import AnytimeRepresentationFalsifier
 from theorica.agents.representation_closure import normalized_rmse
 
