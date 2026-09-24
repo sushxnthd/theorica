@@ -59,3 +59,21 @@ Only if the certificate is calibrated on development tasks should a preregistere
 ## Claim boundary
 
 There is no breakthrough claim at this stage. The active-discrimination idea overlaps prior art. The local Taylor-confounding mechanism and a calibrated abstention certificate are hypotheses requiring formalization, prior-art review, and prospective validation.
+
+
+## Run 4: finite-noise certificate derivation and development falsification
+
+For the two locally confounded families
+f(x)=log(1+a x^2) and g(x)=1/(1+a x^2), after separately projecting away the nuisance scaffold span{1,x^2}, let d be the difference between the two residual mean vectors at the sampled x values. Under iid Gaussian measurement noise with known standard deviation sigma and equal prior probability for the two candidate families, the likelihood-ratio classifier has exact Bayes correctness
+
+q = Phi(||d||_2 / (2 sigma)),
+
+where Phi is the standard-normal CDF. Thus q is a finite-noise identifiability certificate for this *fixed two-family, known-parameter* problem: if q is near 1/2 the data cannot justify choosing between the families, regardless of optimizer quality.
+
+A dense numerical asymptotic check on symmetric intervals [-R,R] confirmed that mean squared residual-family separation scales as R^8 in the local regime (log-log slope 7.972 over R=0.03..0.14 for a=1), as predicted by the matched Taylor expansion. Equivalently ||d|| scales as R^4 at fixed sample count.
+
+A fresh Monte Carlo development grid used n=41 symmetric observations, R in {0.08,0.10,0.14,0.20,0.28,0.40,0.55,0.70}, sigma in {1e-4,3e-4,1e-3,3e-3,1e-2}, and 1000 independently generated trials per cell. Across all 40 cells, the certificate's predicted Bayes correctness matched empirical nearest-template classification with mean absolute calibration error 0.0062 and maximum absolute error 0.0284. These are development results, not a prospective confirmation.
+
+Interpretation: the earlier rational/log confusion has a quantitative information-theoretic explanation in this controlled case. The certificate is not yet general enough for a breakthrough claim because parameters are known and only two fixed families are compared. The critical next falsification is whether a conservative certificate remains calibrated after nuisance parameters are estimated from the same noisy data and across >2 operator families. Only after that development problem is solved should gates and unopened confirmation tasks be frozen.
+
+Prior-art boundary tightened on 2026-09-25: recent work already treats robust structural identifiability under noise for equation/PDE recovery, optimal experiment design for model discrimination, and structural-identifiability-aware symbolic regression. Therefore novelty cannot rest on 'identifiability under noise' itself. Any eventual contribution must be specifically about a calibrated, operational abstention certificate for grammar expansion in autonomous symbolic discovery, with prospective false-expansion control and evidence that it adds something not provided by existing identifiability/model-discrimination methods.
