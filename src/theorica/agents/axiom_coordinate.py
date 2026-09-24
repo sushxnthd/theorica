@@ -286,6 +286,7 @@ def discover_coordinate(
     n_samples: int = 200,
     noise_fraction: float = 0.0,
     axiom_tolerance: float = 1e-6,
+    smoothness: float = 1e-4,
 ) -> CoordinateDiscovery:
     """Blind black-box path: axioms -> latent coordinate -> symbolic coordinate."""
     diagnostics = diagnose_operation(
@@ -306,7 +307,9 @@ def discover_coordinate(
         seed=seed + 1,
         noise_fraction=noise_fraction,
     )
-    knots, generator = learn_additive_coordinate(samples, domain)
+    knots, generator = learn_additive_coordinate(
+        samples, domain, smoothness=smoothness
+    )
     p, q, m, n = fit_rational_derivative(knots, generator)
     derivative, coordinate = symbolic_coordinate_from_rational(p, q)
     return CoordinateDiscovery(
