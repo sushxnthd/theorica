@@ -8,6 +8,43 @@ The project is being developed under a hard constraint:
 
 > **Zero personal spend.** No paid API, compute subscription, hardware purchase, domain, publication fee, or competition fee is required from the author. Paid resources may only enter through a grant, sponsor, collaborator, institution, or genuinely free tier.
 
+## Experimental axiom discovery and latent coordinates
+
+THEORICA now has a separate structural-discovery branch that starts from a
+black-box binary operation rather than an equation-fitting task.
+
+The scientist experimentally tests algebraic identities, and when the evidence
+supports a commutative associative structure it searches for a latent coordinate
+`g` in which the observed nonlinear composition becomes additive:
+
+```
+g(F(x,y)) = g(x) + g(y).
+```
+
+It then compresses the learned coordinate into an interpretable symbolic law.
+The named answer transforms are not supplied as candidates.
+
+On the frozen clean workflow:
+
+- **5/5** canonical black-box laws had their symbolic coordinate structure
+  recovered, including logarithmic multiplication, relativistic rapidity,
+  probabilistic-OR, reciprocal/harmonic, and cubic coordinates;
+- **3/3** invalid structural controls were rejected;
+- **50/50** unseen noisy hidden-coordinate worlds met the frozen recovery gates;
+- median hidden-coordinate derivative-shape error was **0.001584**;
+- median unseen composition error was **0.0003931**;
+- the latent-coordinate representation beat a direct degree-6 bivariate
+  polynomial baseline on **46/50** paired worlds.
+
+This result is reproduced by
+`.github/workflows/axiom_coordinate_holdout.yml` and documented in
+`results/AXIOM_COORDINATE_REPORT.md`.
+
+The representation mathematics is classical. The potentially novel research
+question is the automated **experiment → axiom diagnosis → representation
+choice → latent coordinate → symbolic law** chain. We do not currently claim a
+certified field-first result.
+
 ## Self-expanding theory language
 
 THEORICA now contains a narrow **grammar-closure** mechanism for a failure mode the earlier project exposed: the correct law may be outside the scientist's current hypothesis language.
@@ -116,6 +153,7 @@ Native external workflows:
 - `.github/workflows/native_acdb_replay.yml`
 - `.github/workflows/native_discoverphysics_forcemap.yml`
 - `.github/workflows/operator_induction_holdout.yml`
+- `.github/workflows/axiom_coordinate_holdout.yml`
 
 Evidence:
 
@@ -123,6 +161,8 @@ Evidence:
 - `results/native/REPLAY_PROVENANCE.md`
 - `results/native/DISCOVERPHYSICS_REPORT.md`
 - `results/OPERATOR_INDUCTION_REPORT.md`
+- `results/AXIOM_COORDINATE_REPORT.md`
+- `docs/AXIOM_TO_COORDINATE_THEORY.md`
 
 Read `docs/CLAIM_BOUNDARIES.md` before citing benchmark numbers.
 
