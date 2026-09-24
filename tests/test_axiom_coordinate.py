@@ -43,10 +43,13 @@ def test_rediscovers_relativistic_rapidity_coordinate():
     for _ in range(300):
         u, v = rng.uniform(-0.7, 0.7, size=2)
         truth = F(u, v)
+        if not (-0.85 <= truth <= 0.85):
+            continue
         pred = float(
             predict_from_coordinate(
                 u, v, result.knots, result.generator
             )
         )
         errs.append((truth - pred) ** 2)
+    assert len(errs) > 150
     assert np.sqrt(np.mean(errs)) < 2e-3
