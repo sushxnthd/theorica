@@ -294,6 +294,7 @@ class RepresentationClosureScientist:
         *,
         gate_ratio: float = 0.50,
         operator_max_validation_nrmse: float = 0.08,
+        explicit_inadequacy_nrmse: float = 0.01,
         symbolic_trial_width: int = 200,
         operator_top_k: int = 30,
     ):
@@ -301,6 +302,7 @@ class RepresentationClosureScientist:
         self.operator_max_validation_nrmse = float(
             operator_max_validation_nrmse
         )
+        self.explicit_inadequacy_nrmse = float(explicit_inadequacy_nrmse)
         self.symbolic_trial_width = int(symbolic_trial_width)
         self.operator = WeakAnnihilatorSynthesizer(top_k=operator_top_k)
 
@@ -338,7 +340,8 @@ class RepresentationClosureScientist:
                 candidate.validation_nrmse / max(explicit_validation, 1e-12)
             )
             use_operator = (
-                candidate.validation_nrmse
+                explicit_validation >= self.explicit_inadequacy_nrmse
+                and candidate.validation_nrmse
                 <= self.operator_max_validation_nrmse
                 and ratio <= self.gate_ratio
             )
