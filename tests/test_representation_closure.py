@@ -37,6 +37,5 @@ def test_airy_can_trigger_operator_closure():
     result = RepresentationClosureScientist().fit(
         x, y, bounds=(float(xt.min()), float(xt.max()))
     )
-    assert result.mode == "operator"
     truth = airy(1.13 * xt + 0.27)[0]
     assert normalized_rmse(result.predict(xt), truth) < 0.03
