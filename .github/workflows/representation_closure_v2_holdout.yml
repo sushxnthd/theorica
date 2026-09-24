@@ -1,0 +1,30 @@
+name: representation-closure-v2-holdout
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - breakthrough-representation-closure-v2
+    paths:
+      - "src/theorica/agents/representation_closure.py"
+      - "scripts/representation_closure_v2_holdout.py"
+      - "docs/REPRESENTATION_CLOSURE_V2_PREREGISTRATION.md"
+      - ".github/workflows/representation_closure_v2_holdout.yml"
+
+jobs:
+  frozen-v2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e ".[dev]"
+      - run: pytest -q tests/test_representation_closure.py
+      - run: python scripts/representation_closure_v2_holdout.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: representation-closure-v2-holdout
+          path: results/representation_closure_v2_holdout.json
