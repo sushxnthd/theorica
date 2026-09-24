@@ -8,6 +8,23 @@ The project is being developed under a hard constraint:
 
 > **Zero personal spend.** No paid API, compute subscription, hardware purchase, domain, publication fee, or competition fee is required from the author. Paid resources may only enter through a grant, sponsor, collaborator, institution, or genuinely free tier.
 
+## Self-expanding theory language
+
+THEORICA now contains a narrow **grammar-closure** mechanism for a failure mode the earlier project exposed: the correct law may be outside the scientist's current hypothesis language.
+
+On a frozen panel of **100 unseen noisy periodic-law tasks** (seeds 1000–1099), the original bounded grammar, a stronger fixed integer-frequency Fourier bank, and the adaptive spectral-closure method were evaluated on a fresh extrapolation sweep:
+
+| Metric | Current grammar | Fixed integer bank | Spectral closure |
+|---|---:|---:|---:|
+| Median validation NRMSE ↓ | 0.22759 | 0.09739 | **0.002293** |
+| Mean validation NRMSE ↓ | 0.25184 | 0.11720 | **0.003748** |
+| Runs below 0.01 NRMSE | 1/100 | 6/100 | **97/100** |
+| Paired wins by closure | — | — | **100/100 vs both** |
+
+The method uses cross-fitted residual evidence to test whether a missing continuous frequency scale is needed, estimates that frequency from data, injects the inferred `sin(ωx)` / `cos(ωx)` operator pair into the grammar, and reruns sparse theory synthesis. Median absolute frequency error was **0.00268**; the paired NRMSE improvement over the current grammar was **0.24810** with bootstrap 95% CI **[0.21461, 0.28395]** and one-sided paired Wilcoxon **p = 1.95e-18**.
+
+A clean GitHub Actions run reproduced the full 100-task holdout and uploaded the result artifact. This is evidence for **one bounded form of data-driven hypothesis-language expansion**, not universal operator invention or a state-of-the-art symbolic-regression claim.
+
 ## Native external evidence
 
 ### Active-Causal-Discovery-Bench
@@ -65,8 +82,9 @@ THEORICA did not progress through uninterrupted positive results.
 3. We replaced complete-equation selection with bounded compositional symbolic theory synthesis.
 4. The system moved from **2/8 → 8/8** on the Nguyen development suite and retained **5/5** success on a frozen coefficient-perturbed transfer split.
 5. A multivariate extension solved **70/70** included two-variable runs below 0.01 NRMSE.
-6. Active causal discovery survived a separately frozen internal holdout and then a native ACDB execution.
-7. Generic trajectory-driven physical-law identification then passed four of five native DiscoverPhysics trajectory tests.
+6. A frozen grammar-misspecification study then showed that cross-fitted spectral closure could detect a missing continuous frequency scale and repair the hypothesis language: **97/100** unseen tasks fell below 0.01 NRMSE versus **1/100** for the current grammar and **6/100** for a stronger fixed integer-frequency bank.
+7. Active causal discovery survived a separately frozen internal holdout and then a native ACDB execution.
+8. Generic trajectory-driven physical-law identification then passed four of five native DiscoverPhysics trajectory tests.
 
 Negative results remain part of the repository rather than being deleted after the project changes direction.
 
@@ -74,7 +92,7 @@ Negative results remain part of the repository rather than being deleted after t
 
 ### 1. Theory formation
 
-Construct predictive symbolic relationships from a bounded compositional grammar rather than choosing among pre-written complete equations.
+Construct predictive symbolic relationships from a bounded compositional grammar rather than choosing among pre-written complete equations, and test whether held-out evidence can identify specific ways that grammar must expand.
 
 ### 2. Causal experimentation
 
@@ -97,12 +115,14 @@ Native external workflows:
 
 - `.github/workflows/native_acdb_replay.yml`
 - `.github/workflows/native_discoverphysics_forcemap.yml`
+- `.github/workflows/operator_induction_holdout.yml`
 
 Evidence:
 
 - `results/native/NATIVE_ACDB_REPORT.md`
 - `results/native/REPLAY_PROVENANCE.md`
 - `results/native/DISCOVERPHYSICS_REPORT.md`
+- `results/OPERATOR_INDUCTION_REPORT.md`
 
 Read `docs/CLAIM_BOUNDARIES.md` before citing benchmark numbers.
 
