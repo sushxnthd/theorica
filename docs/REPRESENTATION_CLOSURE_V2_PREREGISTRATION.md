@@ -23,6 +23,8 @@ Frozen implementation commit:
 No scientific method or gate changes are permitted after the v2 holdout is
 first executed.
 
+Pre-holdout CI note: the first v2 workflow stopped at the regression-test stage before the holdout runner executed. The old Airy test asserted that operator mode must always be selected; this conflicts with v2's new absolute falsification gate. Commit `1a32b95beb985601c87f2ed92d6810d5cffe1bb4` changes only that test expectation to require accurate prediction, not a forced representation. The v2 algorithm, gates, families, seeds, and benchmark script were unchanged.
+
 ## Research question
 
 Can a family-agnostic differential meta-language recover governing structure
