@@ -1,0 +1,26 @@
+name: axiom-coordinate-holdout
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "src/theorica/agents/axiom_coordinate.py"
+      - "tests/test_axiom_coordinate.py"
+      - "scripts/axiom_coordinate_holdout.py"
+      - ".github/workflows/axiom_coordinate_holdout.yml"
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e ".[dev]"
+      - run: pytest -q tests/test_axiom_coordinate.py
+      - run: python scripts/axiom_coordinate_holdout.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: axiom-coordinate-holdout
+          path: results/axiom_coordinate_holdout.json
