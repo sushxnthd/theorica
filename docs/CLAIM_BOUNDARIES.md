@@ -2,6 +2,8 @@
 
 ## Supported now
 
+- A frozen equational-theory discovery branch correctly classified **125/125** noisy structural worlds spanning additive-generator, quasi-arithmetic-mean, semilattice, unresolved-control, and adversarial-decoy families. On 50 hidden-coordinate worlds, representation-aware active experimentation achieved median NRMSE **0.0006357** versus **0.001345** for random sampling in the same representation and **0.004679** for an active degree-6 polynomial baseline. An untouched confirmatory comparison against an active RBF Gaussian process won **39/40** paired worlds at a 20-query budget at both tested noise levels. A separately frozen theorem router achieved **125/125** correct routing at each of two noise levels with median **128** oracle calls.
+
 - THEORICA v0.3 moved from fixed complete-equation selection to compositional symbolic theory synthesis.
 - v0.4 extends synthesis to two-variable interactions and solves the included 70-run multivariate suite.
 - A frozen 100-task periodic grammar-misspecification panel shows one bounded form of data-driven hypothesis-language expansion. Cross-fitted spectral closure reduced median extrapolation NRMSE from **0.22759** for the current grammar and **0.09739** for a stronger fixed integer-frequency bank to **0.002293**, winning all 100 paired tasks against both baselines; **97/100** closure runs achieved NRMSE < 0.01. Median absolute inferred-frequency error was **0.00268**. The clean repository workflow reproduced the holdout successfully.
@@ -14,6 +16,8 @@
 - The physical sim-to-real protocol was written before any official hardware result exists.
 
 ## Not supported yet
+
+- The equational-theory result does **not** establish universal algebraic-structure discovery or certified field-first priority. The strongest current novelty hypothesis is the combined black-box experiment → empirical term equalities → theorem-premise verification → representation selection → representation-space active design loop. Independent literature review, stronger external baselines, and expert scrutiny are still required before claiming a field-level breakthrough.
 
 - No physical laboratory has been built or operated.
 - The DiscoverPhysics result is **not** an official leaderboard score or an overall benchmark pass rate. It covers five selected compatible worlds and only the native trajectory axis; the benchmark's separate LLM-judged explanation axis was not run.
