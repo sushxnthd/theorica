@@ -26,8 +26,23 @@ out := "results/translation_action_challenge_v1.tsv";
 PrintTo(out, "");
 
 Emit := function(name, source, n, id, table)
+    local i, j;
     AppendTo(out, name, "\t", source, "\t", String(n), "\t",
-        String(id), "\t", String(table), "\n");
+        String(id), "\t[");
+    for i in [1..Length(table)] do
+        if i > 1 then
+            AppendTo(out, ",");
+        fi;
+        AppendTo(out, "[");
+        for j in [1..Length(table[i])] do
+            if j > 1 then
+                AppendTo(out, ",");
+            fi;
+            AppendTo(out, String(table[i][j]));
+        od;
+        AppendTo(out, "]");
+    od;
+    AppendTo(out, "]\n");
 end;
 
 GroupTable := function(G)
