@@ -108,6 +108,95 @@ This does not contradict quadratic lower bounds for arbitrary quasigroups or
 arbitrary binary operations because the theorem imposes a compact
 translation-action promise.
 
+## Theorem 2: information-theoretic linear lower bound
+
+The linear dependence on `n` cannot in general be improved to sublinear
+query complexity, even inside a compact translation-action family.
+
+Fix a permutation group `G <= Sym(S)` with
+
+```
+|G| = |S| = n.
+```
+
+For every bijection
+
+```
+lambda : S -> G,
+```
+
+define an operation
+
+```
+F_lambda(x,y) = lambda(x)(y).
+```
+
+Each operation has bijective, faithful left translations, and its set of left
+translations is exactly `G`. There are therefore
+
+```
+n!
+```
+
+distinct operation tables in this promise class.
+
+### Proposition
+
+Any exact chosen-query learner that identifies every operation in this class
+requires, in the worst case,
+
+```
+q >= log_n(n!)
+```
+
+oracle queries. Hence `q = Omega(n)`.
+
+### Proof
+
+A single oracle answer is one element of an `n`-element carrier, so a depth
+`q` deterministic query tree has at most `n^q` answer transcripts. Exact
+identification of all `n!` possible operations requires
+
+```
+n^q >= n!.
+```
+
+Therefore
+
+```
+q >= log_n(n!).
+```
+
+By Stirling's approximation,
+
+```
+log_n(n!)
+= (n log n - n + O(log n)) / log n
+= n - n/log n + O(1),
+```
+
+which is `Omega(n)`. The same transcript-counting argument applies to
+zero-error randomized learners after conditioning on their internal
+randomness. □
+
+### Consequence
+
+When the required number of translation generators `r` and permutation-base
+size `m` are bounded constants, Theorem 1 gives
+
+```
+q <= n(r+m) = O(n),
+```
+
+while Theorem 2 supplies an `Omega(n)` lower bound on a natural subclass.
+
+Thus translation-base reconstruction is **order-optimal in oracle-query
+scaling** for bounded-rank, bounded-base promise families.
+
+This statement concerns the selected-query model. It does not imply optimality
+against passive table completion, and it does not say the constants are
+optimal.
+
 ## Discovery rather than a supplied promise
 
 The implemented THEORICA procedure is deliberately not handed `G`, `r`,
