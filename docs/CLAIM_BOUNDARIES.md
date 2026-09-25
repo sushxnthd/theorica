@@ -116,6 +116,36 @@ See `results/EXTERNAL_FALSIFICATION_REPORT.md`.
   exact predecessor for the full family-agnostic translation-base
   reconstruction procedure or its conditional `n(r+b)` recovery theorem.
 
+### Public-catalogue cross-family validation
+
+- Translation-Action Challenge v1.1 is preserved as a **failed frozen run**:
+  **297/345** eligible task/repeat cases were reconstructed exactly. All 48
+  failures were public nonassociative loops.
+- That failure exposed a missing acquisition rule rather than a violation of
+  the reconstruction theorem. If a candidate translation in the current
+  subgroup agrees on its base but fails at a fresh point, the true translation
+  is provably outside the current subgroup. Proposition 3 formalizes this
+  counterexample certificate.
+- Challenge v1.2 keeps the **same public corpus, split, budgets, eligibility
+  scorer, and gates** and changes only that one behavior: a validation
+  counterexample triggers acquisition of the falsifying translation.
+- The clean v1.2 holdout contains **165 unique public algebras** and three
+  acquisition seeds per algebra. Of **345 eligible task/repeat cases**,
+  THEORICA reconstructs **345/345 exactly** and makes **0/150 false
+  acceptances** on out-of-promise controls.
+- The eligible holdout includes **35 unique non-group algebras**:
+  10 faithful connected quandles and 25 nonassociative loops. Across repeated
+  runs this is **30/30 quandle** and **75/75 loop** exact reconstruction,
+  alongside **240/240** SmallGrp group runs.
+- Against the same representation learner with random full-row acquisition,
+  adaptive acquisition has median total table fraction **13.021% vs 15.061%**
+  overall and **10.981% vs 13.021%** on SmallGrp. On paired-exact cases the
+  one-sided Wilcoxon test gives **p = 3.31e-14**; adaptive reconstruction also
+  succeeds on three group cases where the random policy fails.
+- Because the faithful quandle and loop instances are tiny, the frozen 64-query
+  validation budget effectively exhausts their tables. Those families support
+  cross-family correctness, not a subquadratic efficiency claim.
+
 ### Not supported
 
 - Certified "first-ever" priority. Failure to locate a predecessor is evidence,
