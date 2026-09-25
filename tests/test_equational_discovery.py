@@ -6,6 +6,8 @@ from theorica.agents.equational_discovery import (
     enumerate_terms,
     fit_coordinate,
     representation_coefficient,
+    verify_representation_hypotheses,
+    verified_representation_coefficient,
 )
 
 
@@ -63,3 +65,31 @@ def test_active_coordinate_recovers_relativistic_composition():
 
     assert len(errors) > 150
     assert np.sqrt(np.mean(errors)) < 0.01
+
+
+def test_theorem_gate_rejects_mean_like_bisymmetry_decoy():
+    miner = EquationalTheoryMiner(p95_tolerance=1e-10)
+    domain = (-0.8, 0.8)
+
+    decoy = lambda x, y: (
+        0.5 * (x + y)
+        - 0.10 * (x - y) ** 2
+        + 0.40 * (x - y) ** 2 * (x + y)
+    )
+    theory = miner.mine(decoy, domain, assignments=40, seed=20)
+    assert theory.family == "quasi_arithmetic_mean_candidate"
+
+    evidence = verify_representation_hypotheses(
+        decoy, domain, theory, probes=120, seed=21
+    )
+    assert not evidence.passed
+    assert evidence.verified_family == "unresolved"
+
+    actual_mean = lambda x, y: (x + y) / 2.0
+    mean_theory = miner.mine(actual_mean, domain, assignments=40, seed=22)
+    mean_evidence = verify_representation_hypotheses(
+        actual_mean, domain, mean_theory, probes=120, seed=23
+    )
+    assert mean_evidence.passed
+    assert mean_evidence.verified_family == "quasi_arithmetic_mean"
+    assert verified_representation_coefficient(mean_evidence) == 0.5
