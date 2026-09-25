@@ -30,6 +30,16 @@ class EquationalTheory:
 
 
 @dataclass
+class RepresentationEvidence:
+    candidate_family: str
+    verified_family: str
+    monotonicity_rate: float
+    bisymmetry_p95: float | None
+    probes: int
+    passed: bool
+
+
+@dataclass
 class CoordinateModel:
     knots: np.ndarray
     generator: np.ndarray
@@ -265,6 +275,154 @@ def fit_coordinate(
         smoothness=smoothness,
     )
     return CoordinateModel(knots, generator, float(coefficient))
+
+
+def _empirical_monotonicity_rate(
+    oracle: Callable[[float, float], float],
+    domain: tuple[float, float],
+    *,
+    probes: int,
+    seed: int,
+) -> float:
+    rng = np.random.default_rng(seed)
+    lo, hi = map(float, domain)
+    span = hi - lo
+    passed = 0
+    total = 0
+
+    for _ in range(int(probes)):
+        a, b = sorted(rng.uniform(lo, hi, size=2))
+        if b - a < 0.20 * span:
+            center = 0.5 * (a + b)
+            a = max(lo, center - 0.125 * span)
+            b = min(hi, center + 0.125 * span)
+        y = float(rng.uniform(lo, hi))
+        try:
+            f1 = float(oracle(float(a), y))
+            f2 = float(oracle(float(b), y))
+            g1 = float(oracle(y, float(a)))
+            g2 = float(oracle(y, float(b)))
+        except Exception:
+            continue
+
+        if all(np.isfinite(v) and lo <= v <= hi for v in (f1, f2)):
+            total += 1
+            passed += int(f2 > f1)
+        if all(np.isfinite(v) and lo <= v <= hi for v in (g1, g2)):
+            total += 1
+            passed += int(g2 > g1)
+
+    return float(passed / max(total, 1))
+
+
+def _empirical_bisymmetry_p95(
+    oracle: Callable[[float, float], float],
+    domain: tuple[float, float],
+    *,
+    probes: int,
+    seed: int,
+) -> float:
+    rng = np.random.default_rng(seed)
+    lo, hi = map(float, domain)
+    span = max(hi - lo, 1e-12)
+    residuals = []
+
+    for _ in range(int(probes)):
+        x, y, z, w = rng.uniform(lo, hi, size=4)
+        try:
+            xy = float(oracle(float(x), float(y)))
+            zw = float(oracle(float(z), float(w)))
+            xz = float(oracle(float(x), float(z)))
+            yw = float(oracle(float(y), float(w)))
+            if not all(
+                np.isfinite(v) and lo <= v <= hi
+                for v in (xy, zw, xz, yw)
+            ):
+                continue
+            left = float(oracle(xy, zw))
+            right = float(oracle(xz, yw))
+        except Exception:
+            continue
+        if all(
+            np.isfinite(v) and lo <= v <= hi
+            for v in (left, right)
+        ):
+            residuals.append(abs(left - right) / span)
+
+    if not residuals:
+        return float("inf")
+    return float(np.quantile(residuals, 0.95))
+
+
+def verify_representation_hypotheses(
+    oracle: Callable[[float, float], float],
+    domain: tuple[float, float],
+    theory: EquationalTheory,
+    *,
+    probes: int = 60,
+    seed: int = 0,
+    monotonicity_threshold: float = 0.95,
+    bisymmetry_tolerance: float = 0.012,
+) -> RepresentationEvidence:
+    """Empirically verify the extra hypotheses needed before theorem routing.
+
+    The shallow equational miner is deliberately not treated as sufficient
+    evidence for a representation theorem. Associative-generator routing also
+    requires strong sampled monotonicity. Quasi-arithmetic-mean routing requires
+    sampled monotonicity plus the bisymmetry identity, which rules out smooth
+    symmetric/idempotent decoys that merely resemble means.
+    """
+    monotonicity = _empirical_monotonicity_rate(
+        oracle,
+        domain,
+        probes=probes,
+        seed=seed,
+    )
+    bisymmetry = None
+    verified = "unresolved"
+    passed = False
+
+    if theory.family == "additive_generator_candidate":
+        passed = monotonicity >= monotonicity_threshold
+        if passed:
+            verified = "additive_generator"
+    elif theory.family == "quasi_arithmetic_mean_candidate":
+        bisymmetry = _empirical_bisymmetry_p95(
+            oracle,
+            domain,
+            probes=probes,
+            seed=seed + 1,
+        )
+        passed = (
+            monotonicity >= monotonicity_threshold
+            and bisymmetry <= bisymmetry_tolerance
+        )
+        if passed:
+            verified = "quasi_arithmetic_mean"
+    elif theory.family == "commutative_semilattice":
+        passed = True
+        verified = "commutative_semilattice"
+
+    return RepresentationEvidence(
+        candidate_family=theory.family,
+        verified_family=verified,
+        monotonicity_rate=float(monotonicity),
+        bisymmetry_p95=(
+            None if bisymmetry is None else float(bisymmetry)
+        ),
+        probes=int(probes),
+        passed=bool(passed),
+    )
+
+
+def verified_representation_coefficient(
+    evidence: RepresentationEvidence,
+) -> float | None:
+    if evidence.verified_family == "additive_generator":
+        return 1.0
+    if evidence.verified_family == "quasi_arithmetic_mean":
+        return 0.5
+    return None
 
 
 def representation_coefficient(theory: EquationalTheory) -> float | None:
