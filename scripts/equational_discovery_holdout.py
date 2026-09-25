@@ -12,7 +12,8 @@ from theorica.agents.equational_discovery import (
     active_coordinate_samples,
     fit_coordinate,
     random_operation_samples,
-    representation_coefficient,
+    verify_representation_hypotheses,
+    verified_representation_coefficient,
 )
 
 
@@ -88,6 +89,22 @@ def make_control(seed):
     if mode == 1:
         return lambda x, y: 0.45 * x + 0.15 * y + 0.10 * x * y, domain
     return lambda x, y: 0.45 * np.sin(x + y), domain
+
+
+def make_mean_like_decoy(seed):
+    """Smooth symmetric/idempotent/strictly-monotone but non-bisymmetric."""
+    domain = (-0.8, 0.8)
+    rng = np.random.default_rng(seed)
+    e1 = float(rng.choice([-0.10, -0.05, 0.05, 0.10]))
+    e2 = float(rng.choice([0.35, 0.40]))
+    return (
+        lambda x, y: (
+            0.5 * (x + y)
+            + e1 * (x - y) ** 2
+            + e2 * (x - y) ** 2 * (x + y)
+        ),
+        domain,
+    )
 
 
 def poly_features(X, degree):
@@ -227,13 +244,13 @@ def structural_panel():
         world = make_coordinate_world(1000 + i)
         cases = [
             (
-                "additive_generator_candidate",
+                "additive_generator",
                 world["additive"],
                 world["domain"],
                 11000 + i,
             ),
             (
-                "quasi_arithmetic_mean_candidate",
+                "quasi_arithmetic_mean",
                 make_coordinate_world(1100 + i)["mean"],
                 world["domain"],
                 12000 + i,
@@ -247,6 +264,8 @@ def structural_panel():
         ]
         control, domain = make_control(1200 + i)
         cases.append(("unresolved", control, domain, 14000 + i))
+        decoy, domain = make_mean_like_decoy(1300 + i)
+        cases.append(("unresolved", decoy, domain, 15000 + i))
 
         for expected, clean, domain, noise_seed in cases:
             theory = miner.mine(
@@ -255,10 +274,26 @@ def structural_panel():
                 assignments=20,
                 seed=noise_seed + 1000,
             )
+            evidence = verify_representation_hypotheses(
+                NoisyOracle(
+                    clean,
+                    domain,
+                    noise_seed + 50000,
+                    noise_fraction=0.001,
+                ),
+                domain,
+                theory,
+                probes=60,
+                seed=noise_seed + 2000,
+            )
             records.append(
                 {
                     "expected": expected,
-                    "predicted": theory.family,
+                    "candidate": theory.family,
+                    "predicted": evidence.verified_family,
+                    "theorem_gate_passed": evidence.passed,
+                    "monotonicity_rate": evidence.monotonicity_rate,
+                    "bisymmetry_p95": evidence.bisymmetry_p95,
                     "commutative": theory.commutative,
                     "associative": theory.associative,
                     "idempotent": theory.idempotent,
@@ -289,10 +324,18 @@ def active_representation_panel():
                 assignments=20,
                 seed=seed + 11000,
             )
-            coefficient = representation_coefficient(theory)
+            evidence = verify_representation_hypotheses(
+                NoisyOracle(clean, domain, seed + 11500, 0.001),
+                domain,
+                theory,
+                probes=60,
+                seed=seed + 11600,
+            )
+            coefficient = verified_representation_coefficient(evidence)
             if coefficient is None:
                 raise AssertionError(
-                    f"structure routing failed for seed {seed}: {theory.family}"
+                    "verified representation routing failed for "
+                    f"seed {seed}: {theory.family} -> {evidence.verified_family}"
                 )
 
             active_obs = NoisyOracle(clean, domain, seed + 12000, 0.001)
@@ -354,6 +397,7 @@ def active_representation_panel():
                     "family": family,
                     "seed": seed,
                     "mined_family": theory.family,
+                    "verified_family": evidence.verified_family,
                     "coefficient": coefficient,
                     "active_coordinate_error": active_error,
                     "random_coordinate_error": random_error,
@@ -420,6 +464,7 @@ def run():
                 "quasi-arithmetic mean",
                 "commutative semilattice",
                 "unresolved controls",
+                "mean-like adversarial decoys that fail bisymmetry",
             ],
         },
         "active_design": {
@@ -442,7 +487,7 @@ def run():
     print(json.dumps(summary, indent=2))
 
     # Frozen gates are deliberately weaker than the development observations.
-    assert summary["structural_classification_correct"] >= 96
+    assert summary["structural_classification_correct"] >= 121
     assert summary["active_coordinate_median_nrmse"] < 0.0015
     assert summary["active_wins_vs_random_coordinate"] >= 42
     assert summary["active_wins_vs_active_polynomial"] >= 48
