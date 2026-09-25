@@ -42,6 +42,20 @@ class RepresentationEvidence:
 
 
 @dataclass
+class QueryEfficientRoute:
+    verified_family: str
+    coefficient: float | None
+    oracle_calls: int
+    repeat_noise_p95: float
+    commutativity_p95: float
+    idempotence_p95: float
+    associativity_p95: float
+    bisymmetry_p95: float | None
+    monotonicity_rate: float | None
+    thresholds: dict[str, float]
+
+
+@dataclass
 class CoordinateModel:
     knots: np.ndarray
     generator: np.ndarray
@@ -195,6 +209,234 @@ class EquationalTheoryMiner:
             family=family,
             assignments=int(assignments),
         )
+
+
+class _CountingOracle:
+    def __init__(self, oracle):
+        self.oracle = oracle
+        self.calls = 0
+
+    def __call__(self, x, y):
+        self.calls += 1
+        return self.oracle(x, y)
+
+
+def _p95_or_inf(values):
+    if not values:
+        return float("inf")
+    return float(np.quantile(np.asarray(values, dtype=float), 0.95))
+
+
+def _commutativity_p95(oracle, domain, probes, rng):
+    lo, hi = map(float, domain)
+    span = max(hi - lo, 1e-12)
+    residuals = []
+    for _ in range(int(probes)):
+        x, y = rng.uniform(lo, hi, size=2)
+        try:
+            a = float(oracle(float(x), float(y)))
+            b = float(oracle(float(y), float(x)))
+        except Exception:
+            continue
+        if all(np.isfinite(v) and lo <= v <= hi for v in (a, b)):
+            residuals.append(abs(a - b) / span)
+    return _p95_or_inf(residuals)
+
+
+def _idempotence_p95(oracle, domain, probes, rng):
+    lo, hi = map(float, domain)
+    span = max(hi - lo, 1e-12)
+    residuals = []
+    for _ in range(int(probes)):
+        x = float(rng.uniform(lo, hi))
+        try:
+            z = float(oracle(x, x))
+        except Exception:
+            continue
+        if np.isfinite(z) and lo <= z <= hi:
+            residuals.append(abs(z - x) / span)
+    return _p95_or_inf(residuals)
+
+
+def _associativity_p95(oracle, domain, probes, rng):
+    lo, hi = map(float, domain)
+    span = max(hi - lo, 1e-12)
+    residuals = []
+    attempts = 0
+    while len(residuals) < int(probes) and attempts < 20 * int(probes):
+        x, y, z = rng.uniform(lo, hi, size=3)
+        attempts += 1
+        try:
+            xy = float(oracle(float(x), float(y)))
+            yz = float(oracle(float(y), float(z)))
+            if not all(
+                np.isfinite(v) and lo <= v <= hi for v in (xy, yz)
+            ):
+                continue
+            left = float(oracle(xy, float(z)))
+            right = float(oracle(float(x), yz))
+        except Exception:
+            continue
+        if all(
+            np.isfinite(v) and lo <= v <= hi for v in (left, right)
+        ):
+            residuals.append(abs(left - right) / span)
+    return _p95_or_inf(residuals)
+
+
+def _monotonicity_rate_margin(oracle, domain, probes, rng, margin):
+    lo, hi = map(float, domain)
+    span = max(hi - lo, 1e-12)
+    positives = 0
+    violations = 0
+    conclusive = 0
+
+    for _ in range(int(probes)):
+        x1, x2 = sorted(rng.uniform(lo, hi, size=2))
+        if x2 - x1 < 0.20 * span:
+            mid = 0.5 * (x1 + x2)
+            x1 = max(lo, mid - 0.12 * span)
+            x2 = min(hi, mid + 0.12 * span)
+        y = float(rng.uniform(lo, hi))
+        for left_first in (True, False):
+            try:
+                if left_first:
+                    a = float(oracle(float(x1), y))
+                    b = float(oracle(float(x2), y))
+                else:
+                    a = float(oracle(y, float(x1)))
+                    b = float(oracle(y, float(x2)))
+            except Exception:
+                continue
+            if not all(
+                np.isfinite(v) and lo <= v <= hi for v in (a, b)
+            ):
+                continue
+            delta = (b - a) / span
+            if delta > margin:
+                positives += 1
+                conclusive += 1
+            elif delta < -margin:
+                violations += 1
+                conclusive += 1
+
+    if conclusive == 0:
+        return 0.0
+    return float(positives / conclusive)
+
+
+def query_efficient_theorem_route(
+    oracle: Callable[[float, float], float],
+    domain: tuple[float, float],
+    *,
+    seed: int = 0,
+    probes: int = 8,
+) -> QueryEfficientRoute:
+    """Route among theorem-backed representation families with counted queries.
+
+    This is the deployment counterpart to broad term enumeration. The theorem
+    library is compiled into a staged premise test:
+      1. estimate repeat noise;
+      2. test cheap idempotence, associativity, and commutativity;
+      3. run only the additional premises required by the surviving theorem
+         family (bisymmetry and/or strict monotonicity).
+
+    Failed premises cause abstention rather than forced classification.
+    """
+    counted = _CountingOracle(oracle)
+    rng = np.random.default_rng(seed)
+    lo, hi = map(float, domain)
+    span = max(hi - lo, 1e-12)
+
+    # Replicate noise: direct repeated measurements at identical inputs.
+    repeat_diffs = []
+    attempts = 0
+    target_repeats = max(6, int(probes))
+    while len(repeat_diffs) < target_repeats and attempts < 20 * target_repeats:
+        x, y = rng.uniform(lo, hi, size=2)
+        attempts += 1
+        try:
+            a = float(counted(float(x), float(y)))
+            b = float(counted(float(x), float(y)))
+        except Exception:
+            continue
+        if all(np.isfinite(v) and lo <= v <= hi for v in (a, b)):
+            repeat_diffs.append(abs(a - b) / span)
+
+    repeat_noise = _p95_or_inf(repeat_diffs)
+    if not np.isfinite(repeat_noise):
+        repeat_noise = 0.0
+
+    thresholds = {
+        "commutativity": max(0.008, 1.5 * repeat_noise),
+        "idempotence": max(0.006, 1.1 * repeat_noise),
+        "associativity": max(0.012, 2.0 * repeat_noise),
+        "bisymmetry": max(0.012, 2.0 * repeat_noise),
+        "monotonicity_margin": max(0.001, 1.2 * repeat_noise),
+    }
+
+    # Cheap discriminating premises first.
+    idem = _idempotence_p95(counted, domain, probes, rng)
+    assoc = _associativity_p95(counted, domain, probes, rng)
+    comm = _commutativity_p95(counted, domain, probes, rng)
+
+    is_idem = idem <= thresholds["idempotence"]
+    is_assoc = assoc <= thresholds["associativity"]
+    is_comm = comm <= thresholds["commutativity"]
+
+    bisym = None
+    monotonicity = None
+    family = "unresolved"
+    coefficient = None
+
+    if is_comm and is_assoc and is_idem:
+        family = "commutative_semilattice"
+    elif is_comm and is_assoc and not is_idem:
+        monotonicity = _monotonicity_rate_margin(
+            counted,
+            domain,
+            probes,
+            rng,
+            thresholds["monotonicity_margin"],
+        )
+        if monotonicity >= 0.95:
+            family = "additive_generator"
+            coefficient = 1.0
+    elif is_comm and is_idem and not is_assoc:
+        bisym = _empirical_bisymmetry_p95(
+            counted,
+            domain,
+            probes=probes,
+            seed=int(rng.integers(0, 2**31 - 1)),
+        )
+        monotonicity = _monotonicity_rate_margin(
+            counted,
+            domain,
+            probes,
+            rng,
+            thresholds["monotonicity_margin"],
+        )
+        if (
+            bisym <= thresholds["bisymmetry"]
+            and monotonicity >= 0.95
+        ):
+            family = "quasi_arithmetic_mean"
+            coefficient = 0.5
+
+    return QueryEfficientRoute(
+        verified_family=family,
+        coefficient=coefficient,
+        oracle_calls=int(counted.calls),
+        repeat_noise_p95=float(repeat_noise),
+        commutativity_p95=float(comm),
+        idempotence_p95=float(idem),
+        associativity_p95=float(assoc),
+        bisymmetry_p95=None if bisym is None else float(bisym),
+        monotonicity_rate=(
+            None if monotonicity is None else float(monotonicity)
+        ),
+        thresholds={k: float(v) for k, v in thresholds.items()},
+    )
 
 
 def _interp_weights(values, knots):
