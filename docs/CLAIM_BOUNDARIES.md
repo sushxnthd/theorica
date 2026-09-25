@@ -34,3 +34,44 @@
 The project does not require the author to pay for APIs, compute subscriptions, domains, publication fees, or hardware. Any paid resource used in future official work must be supplied through a genuinely free tier, grant, sponsor, collaborator, institution, or in-kind support.
 
 These boundaries are part of the research artifact and should remain in public releases.
+
+
+## External falsification — 25 September 2026
+
+The external audit narrows the novelty claim substantially.
+
+### Supported externally
+
+- On 11 published Binary Operation Completion operations, the bounded generic
+  equation miner matched **88/88** exhaustive identity labels.
+- A named-template tester matched all 88 labels in **100/100** repeats with a
+  mean **65.58 calls/task**, compared with **14,976 calls/task** for generic
+  mining. Generic equation mining is therefore **not** claimed to be
+  query-efficient.
+- A clean-room implementation of the ICLR 2025 HyperCube architecture reproduced
+  strong algebraic inductive-bias behavior on four small published BOC tasks,
+  including mean test accuracy 1.00 on C6 addition, C6 subtraction, and S3
+  composition.
+
+### Novelty claims explicitly rejected
+
+- first algebraic axiom discovery from samples;
+- first equational-theory exploration system;
+- first query-efficient algebraic identity tester;
+- first black-box operation-table recovery method;
+- first learned algebraic/group representation from partial operation data;
+- first active symbolic/scientific experiment-design system.
+
+### Remaining novelty hypothesis
+
+The only surviving novelty hypothesis is the integration of:
+
+**empirical equational discovery -> theorem-premise verification and abstention
+-> representation selection -> representation-space active experiment design.**
+
+The full integrated loop has **not** yet been demonstrated end-to-end on a
+third-party benchmark. Until it is, public materials should describe the method
+as a *plausibly novel integrated methodology*, not a proven field-level
+breakthrough or field-first result.
+
+See `results/EXTERNAL_FALSIFICATION_REPORT.md`.
