@@ -517,3 +517,89 @@ def discover_short_translation_law(
                 )
 
     return None
+
+
+
+@dataclass
+class BidirectionalTranslationResult:
+    accepted: bool
+    side: str | None
+    total_oracle_calls: int
+    chosen_oracle_calls: int | None
+    result: TranslationActionResult | None
+
+
+def discover_bidirectional_translation_action(
+    oracle: Callable[[int, int], int],
+    carrier_size: int,
+    *,
+    seed: int = 0,
+    **kwargs,
+) -> BidirectionalTranslationResult:
+    """Try both left- and right-translation action representations.
+
+    The learner is not told which orientation is algebraically natural.
+    For right translations it applies the same algorithm to the transposed
+    operation F^T(x,y)=F(y,x), then transposes any recovered table back.
+
+    Query accounting is deliberately conservative: left- and right-search
+    calls are added even if they duplicate the same pair.
+    """
+    left = discover_translation_action_representation(
+        oracle,
+        carrier_size,
+        seed=seed,
+        **kwargs,
+    )
+
+    right_raw = discover_translation_action_representation(
+        lambda x, y: oracle(y, x),
+        carrier_size,
+        seed=seed + 104729,
+        **kwargs,
+    )
+
+    right = right_raw
+    if right_raw.accepted and right_raw.reconstructed_table is not None:
+        right = TranslationActionResult(
+            accepted=True,
+            reason=right_raw.reason,
+            oracle_calls=right_raw.oracle_calls,
+            queried_rows=right_raw.queried_rows,
+            generated_group_size=right_raw.generated_group_size,
+            base=right_raw.base,
+            validation_queries=right_raw.validation_queries,
+            reconstructed_table=right_raw.reconstructed_table.T.copy(),
+            translation_index=right_raw.translation_index,
+        )
+
+    total = int(left.oracle_calls + right_raw.oracle_calls)
+    candidates = []
+    if left.accepted:
+        candidates.append(("left", left))
+    if right.accepted:
+        candidates.append(("right", right))
+
+    if not candidates:
+        return BidirectionalTranslationResult(
+            accepted=False,
+            side=None,
+            total_oracle_calls=total,
+            chosen_oracle_calls=None,
+            result=None,
+        )
+
+    side, chosen = min(
+        candidates,
+        key=lambda item: (
+            item[1].oracle_calls,
+            0 if item[0] == "left" else 1,
+        ),
+    )
+    return BidirectionalTranslationResult(
+        accepted=True,
+        side=side,
+        total_oracle_calls=total,
+        chosen_oracle_calls=int(chosen.oracle_calls),
+        result=chosen,
+    )
