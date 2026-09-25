@@ -325,6 +325,57 @@ def _monotonicity_rate_margin(oracle, domain, probes, rng, margin):
     return float(positives / conclusive)
 
 
+def _bisymmetry_stress_p95(
+    oracle: Callable[[float, float], float],
+    domain: tuple[float, float],
+) -> float:
+    """Evaluate bisymmetry on a small deterministic counterexample stress set.
+
+    Random testing can miss smooth near-laws. The stress set deliberately mixes
+    repeated extremes with interior points, which amplifies violations for a
+    broad class of symmetric/idempotent perturbations while exact
+    quasi-arithmetic means still satisfy bisymmetry up to measurement noise.
+    """
+    lo, hi = map(float, domain)
+    span = max(hi - lo, 1e-12)
+    mid = 0.5 * (lo + hi)
+    q1 = lo + 0.25 * span
+    q3 = lo + 0.75 * span
+
+    quadruples = [
+        (hi, hi, q3, lo),
+        (lo, lo, q1, hi),
+        (hi, hi, mid, lo),
+        (lo, lo, mid, hi),
+        (hi, lo, hi, q3),
+        (lo, hi, lo, q1),
+        (q3, hi, lo, hi),
+        (q1, lo, hi, lo),
+    ]
+    residuals = []
+    for x, y, z, w in quadruples:
+        try:
+            xy = float(oracle(x, y))
+            zw = float(oracle(z, w))
+            xz = float(oracle(x, z))
+            yw = float(oracle(y, w))
+            if not all(
+                np.isfinite(v) and lo <= v <= hi
+                for v in (xy, zw, xz, yw)
+            ):
+                continue
+            left = float(oracle(xy, zw))
+            right = float(oracle(xz, yw))
+        except Exception:
+            continue
+        if all(
+            np.isfinite(v) and lo <= v <= hi
+            for v in (left, right)
+        ):
+            residuals.append(abs(left - right) / span)
+    return _p95_or_inf(residuals)
+
+
 def query_efficient_theorem_route(
     oracle: Callable[[float, float], float],
     domain: tuple[float, float],
@@ -403,12 +454,14 @@ def query_efficient_theorem_route(
             family = "additive_generator"
             coefficient = 1.0
     elif is_comm and is_idem and not is_assoc:
-        bisym = _empirical_bisymmetry_p95(
+        random_bisym = _empirical_bisymmetry_p95(
             counted,
             domain,
             probes=probes,
             seed=int(rng.integers(0, 2**31 - 1)),
         )
+        stress_bisym = _bisymmetry_stress_p95(counted, domain)
+        bisym = max(random_bisym, stress_bisym)
         monotonicity = _monotonicity_rate_margin(
             counted,
             domain,
