@@ -35,6 +35,8 @@ class RepresentationEvidence:
     verified_family: str
     monotonicity_rate: float
     bisymmetry_p95: float | None
+    repeat_noise_p95: float
+    effective_bisymmetry_tolerance: float
     probes: int
     passed: bool
 
@@ -315,6 +317,41 @@ def _empirical_monotonicity_rate(
     return float(passed / max(total, 1))
 
 
+def _estimate_repeat_noise_p95(
+    oracle: Callable[[float, float], float],
+    domain: tuple[float, float],
+    *,
+    probes: int,
+    seed: int,
+) -> float:
+    """Estimate observation noise from repeated measurements at identical inputs.
+
+    The returned value is the 95th percentile absolute repeat difference,
+    normalized by the domain span. It is an empirical scale estimate only; no
+    Gaussian noise model is required by the verifier.
+    """
+    rng = np.random.default_rng(seed)
+    lo, hi = map(float, domain)
+    span = max(hi - lo, 1e-12)
+    differences = []
+
+    attempts = 0
+    while len(differences) < int(probes) and attempts < 20 * int(probes):
+        x, y = rng.uniform(lo, hi, size=2)
+        attempts += 1
+        try:
+            a = float(oracle(float(x), float(y)))
+            b = float(oracle(float(x), float(y)))
+        except Exception:
+            continue
+        if all(np.isfinite(v) and lo <= v <= hi for v in (a, b)):
+            differences.append(abs(a - b) / span)
+
+    if not differences:
+        return 0.0
+    return float(np.quantile(differences, 0.95))
+
+
 def _empirical_bisymmetry_p95(
     oracle: Callable[[float, float], float],
     domain: tuple[float, float],
@@ -372,6 +409,21 @@ def verify_representation_hypotheses(
     sampled monotonicity plus the bisymmetry identity, which rules out smooth
     symmetric/idempotent decoys that merely resemble means.
     """
+    repeat_noise = _estimate_repeat_noise_p95(
+        oracle,
+        domain,
+        probes=max(16, probes // 3),
+        seed=seed + 10,
+    )
+    # A bisymmetry comparison composes multiple noisy oracle calls. Under a
+    # first-order propagation model its residual noise scale is larger than a
+    # direct repeat difference. The 1.8 multiplier is a conservative
+    # propagation allowance; the original fixed tolerance remains a floor.
+    effective_bisymmetry_tolerance = max(
+        float(bisymmetry_tolerance),
+        1.8 * float(repeat_noise),
+    )
+
     monotonicity = _empirical_monotonicity_rate(
         oracle,
         domain,
@@ -395,7 +447,7 @@ def verify_representation_hypotheses(
         )
         passed = (
             monotonicity >= monotonicity_threshold
-            and bisymmetry <= bisymmetry_tolerance
+            and bisymmetry <= effective_bisymmetry_tolerance
         )
         if passed:
             verified = "quasi_arithmetic_mean"
@@ -409,6 +461,10 @@ def verify_representation_hypotheses(
         monotonicity_rate=float(monotonicity),
         bisymmetry_p95=(
             None if bisymmetry is None else float(bisymmetry)
+        ),
+        repeat_noise_p95=float(repeat_noise),
+        effective_bisymmetry_tolerance=float(
+            effective_bisymmetry_tolerance
         ),
         probes=int(probes),
         passed=bool(passed),
