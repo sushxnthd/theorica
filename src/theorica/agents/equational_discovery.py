@@ -430,7 +430,10 @@ def query_efficient_theorem_route(
         # through the operation's local slope. These factors are deliberately
         # conservative; adversarial near-laws are handled by stress probes.
         "associativity": max(0.012, 3.0 * repeat_noise),
-        "bisymmetry": max(0.012, 3.0 * repeat_noise),
+        # Bisymmetry receives deterministic stress probes in addition to
+        # random probes, so a tighter propagation factor remains robust while
+        # preserving power against smooth near-law decoys.
+        "bisymmetry": max(0.012, 2.1 * repeat_noise),
         "monotonicity_margin": max(0.001, 1.2 * repeat_noise),
     }
 
