@@ -96,6 +96,8 @@ def broad_call_count(clean,domain,seed,noise):
 
 
 def run():
+    # Oracle-call totals include repeated measurements and every nested
+    # composition required by theorem-premise tests.
     rows=[]
     all_cases=cases()
     for ni,noise in enumerate((0.001,0.003)):
