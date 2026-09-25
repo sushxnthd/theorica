@@ -180,6 +180,7 @@ def discover_translation_action_representation(
     max_group_size: int = 20000,
     max_base_size: int = 12,
     validation_queries: int = 64,
+    acquisition_policy: str = "unresolved",
 ) -> TranslationActionResult:
     """Discover a faithful finite operation through its left-translation action.
 
@@ -198,6 +199,8 @@ def discover_translation_action_representation(
     n = int(carrier_size)
     if n <= 0:
         raise ValueError("carrier_size must be positive")
+    if acquisition_policy not in {"unresolved", "random"}:
+        raise ValueError("acquisition_policy must be 'unresolved' or 'random'")
 
     rng = np.random.default_rng(seed)
     counted = CachedFiniteOracle(oracle, n)
@@ -355,7 +358,16 @@ def discover_translation_action_representation(
                 reconstructed_table=None,
                 translation_index=None,
             )
-        next_row = int(rng.choice(unseen_unresolved))
+
+        if acquisition_policy == "unresolved":
+            candidates = unseen_unresolved
+        else:
+            candidates = [
+                x for x in range(n) if x not in queried_rows
+            ]
+            if not candidates:
+                candidates = unseen_unresolved
+        next_row = int(rng.choice(candidates))
 
     return TranslationActionResult(
         accepted=False,
