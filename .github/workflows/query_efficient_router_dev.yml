@@ -1,0 +1,25 @@
+name: query-efficient-router-dev
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "src/theorica/agents/equational_discovery.py"
+      - "scripts/query_efficient_router_dev.py"
+      - ".github/workflows/query_efficient_router_dev.yml"
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e ".[dev]"
+      - run: pytest -q tests/test_equational_discovery.py
+      - run: python scripts/query_efficient_router_dev.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: query-efficient-router-dev
+          path: results/query_efficient_router_dev.json
