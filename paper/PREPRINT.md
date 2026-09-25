@@ -243,6 +243,100 @@ Five algebraically different operations were reconstructed by the same learner:
 These are chosen-query measurements, so they are not a direct sample-efficiency
 comparison with passive table-completion systems.
 
+### Public GAP cross-family challenge
+
+To test whether the BOC result reflected a narrow collection of readable
+operations, we constructed a second external benchmark directly from public GAP
+catalogues. The workflow regenerates the corpus from SmallGrp and pinned
+RightQuasigroups rather than storing hand-authored hidden laws.
+
+The cross-family holdout contains **165 unique public algebras**:
+
+- 80 SmallGrp groups at orders 36, 40, and 48;
+- 50 sampled SmallQuandle controls at orders 8 and 9;
+- 10 public faithful connected quandles at orders 8 and 9;
+- 25 public nonassociative loops of order 6.
+
+Each algebra is evaluated under three frozen acquisition seeds.
+
+The scorer uses the full table only after evaluation to determine whether the
+operation satisfies the compact translation-action promise. Family labels and
+GAP identifiers are not supplied to the learner.
+
+#### Frozen v1.1 failure
+
+The first cross-family run was frozen before evaluation and **failed**:
+
+| Source | Eligible cases | Exact reconstructions |
+|---|---:|---:|
+| SmallGrp | 240 | **240/240** |
+| faithful connected quandles | 30 | **30/30** |
+| nonassociative loops | 75 | **27/75** |
+| sampled SmallQuandle controls | 0 | — |
+
+Overall, v1.1 reconstructed **297/345** eligible task/repeat cases while making
+**0/150** false acceptances.
+
+All 48 failures were public nonassociative loops. The full-table scorer verified
+that those loops satisfied the theorem promise, so this was an algorithmic
+failure rather than an out-of-scope benchmark case.
+
+The failure exposed a second partial-representation problem. A translation
+outside the current generated subgroup can imitate an element of that subgroup
+on the subgroup's current base. If a fresh query then finds
+
+```
+L_x(y) != h_x(y),
+```
+
+the true `L_x` cannot belong to the current subgroup: if it did, agreement on
+the base would have uniquely forced `L_x=h_x`.
+
+This gives a falsification-driven acquisition rule. A counterexample now causes
+THEORICA to acquire the complete `L_x`, strictly enlarge the representation
+when necessary, and retry. The proposition is formalized in
+`docs/TRANSLATION_BASE_RECONSTRUCTION.md`.
+
+#### Frozen v1.2 result
+
+Challenge v1.2 keeps the **same public corpus, split, budgets, eligibility
+scorer, and success gates**. The only learner change relative to failed v1.1 is
+the counterexample-driven refinement above.
+
+| Metric | v1.2 |
+|---|---:|
+| Holdout task/repeat cases | **495** |
+| Eligible cases | **345** |
+| Exact reconstructions | **345/345** |
+| Ineligible controls | **150** |
+| False acceptances | **0/150** |
+| Unique eligible holdout algebras | **115** |
+| Unique eligible non-group algebras | **35** |
+| Median total table fraction, adaptive | **0.1302** |
+| Median total table fraction, random-row | 0.1506 |
+
+Cross-family exactness is:
+
+- SmallGrp: **240/240**;
+- faithful connected quandles: **30/30**;
+- nonassociative loops: **75/75**.
+
+The same representation learner with random full-row acquisition reconstructs
+342/345 eligible cases. Restricting the query-count comparison to cases where
+both policies are exact, the adaptive policy uses mean **174.20** calls versus
+**193.80** for random acquisition, with outcomes **98 wins / 225 ties / 19
+losses** and one-sided paired Wilcoxon **p=3.31e-14**. The adaptive policy also
+succeeds on three public group cases where the random policy fails.
+
+The faithful-quandle and loop tables are very small. The frozen 64-query
+validation budget effectively exhausts those tables, so the non-group result
+supports cross-family correctness rather than subquadratic efficiency. On the
+larger SmallGrp holdout, median total query fraction is **0.1098** for adaptive
+acquisition versus **0.1302** for random acquisition.
+
+This versioning is intentional: the failed v1.1 result remains public rather
+than being overwritten by the corrected v1.2 result.
+
 ### Automatic action-law compression
 
 After reconstructing the action representation, THEORICA searches a short word
