@@ -330,11 +330,15 @@ def template_identity_tester(
 
 def run():
     tables = published_boc_tables()
+    truths = {
+        name: exhaustive_identity_truth(table)
+        for name, table in tables.items()
+    }
     records = []
     total_correct = 0
 
     for task_index, (name, table) in enumerate(tables.items()):
-        truth = exhaustive_identity_truth(table)
+        truth = truths[name]
         prediction, miner_meta = generic_equational_miner(
             table,
             assignments=32,
@@ -363,7 +367,7 @@ def run():
         correct = 0
         calls = 0
         for task_index, (name, table) in enumerate(tables.items()):
-            truth = exhaustive_identity_truth(table)
+            truth = truths[name]
             prediction, task_calls = template_identity_tester(
                 table,
                 assignments=8,
