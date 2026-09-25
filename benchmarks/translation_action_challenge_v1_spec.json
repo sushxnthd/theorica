@@ -1,0 +1,29 @@
+{
+  "name": "Translation-Action Challenge v1",
+  "frozen_on": "2026-09-25",
+  "purpose": "Third-party public-corpus stress test for family-agnostic translation-action discovery.",
+  "development": {
+    "small_group_orders": [8, 10, 12, 14, 16],
+    "connected_quandle_orders": [3, 4, 5]
+  },
+  "holdout": {
+    "small_group_orders": [18, 20, 21, 22, 24],
+    "connected_quandle_orders": [6, 7, 8]
+  },
+  "controls": {
+    "source": "Published Binary Operation Completion operations from Huh (ICLR 2025) / Power et al. (2022)",
+    "tasks": ["cond", "quad1", "quad2", "quad3", "cube1", "cube2"]
+  },
+  "protocol": {
+    "all_small_groups_for_listed_orders": true,
+    "all_connected_quandles_for_listed_orders": true,
+    "max_generator_rows": 8,
+    "max_group_size": 20000,
+    "max_base_size": 12,
+    "validation_queries": 32,
+    "try_both_translation_sides": true,
+    "query_accounting": "sum both orientation searches conservatively",
+    "success": "exact reconstruction for accepted public algebra; no acceptance of listed incompatible controls"
+  },
+  "freeze_rule": "Any change to this file after the first holdout run must be versioned as v2 rather than silently altering v1."
+}
