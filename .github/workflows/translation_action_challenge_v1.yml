@@ -1,0 +1,49 @@
+name: translation-action-challenge-v1
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "src/theorica/agents/translation_action.py"
+      - "scripts/export_gap_translation_challenge.g"
+      - "scripts/translation_action_challenge_v1.py"
+      - ".github/workflows/translation_action_challenge_v1.yml"
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install THEORICA
+        run: python -m pip install -e ".[dev]"
+
+      - name: Install GAP and SmallGrp
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gap gap-smallgrp
+
+      - name: Install pinned RightQuasigroups 0.9.12
+        run: |
+          mkdir -p "$HOME/.gap/pkg"
+          curl -L             https://github.com/gap-packages/RightQuasigroups/releases/download/v0.9.12/RightQuasigroups-0.9.12.tar.gz             -o /tmp/RightQuasigroups.tar.gz
+          tar -xzf /tmp/RightQuasigroups.tar.gz -C "$HOME/.gap/pkg"
+          mv "$HOME/.gap/pkg/RightQuasigroups-0.9.12" "$HOME/.gap/pkg/RightQuasigroups"
+
+      - name: Export frozen public GAP corpus
+        run: gap -q scripts/export_gap_translation_challenge.g
+
+      - name: Run challenge
+        run: python scripts/translation_action_challenge_v1.py
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: translation-action-challenge-v1
+          path: |
+            results/translation_action_challenge_v1.tsv
+            results/translation_action_challenge_v1.json
