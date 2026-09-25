@@ -40,12 +40,17 @@ class DirectOracle:
 
 def parse_corpus(path):
     cases = []
-    for line in path.read_text(encoding="utf-8").splitlines():
+    for line_number, line in enumerate(
+        path.read_text(encoding="utf-8").splitlines(), start=1
+    ):
         if not line.strip():
             continue
-        name, source, order_text, library_id_text, table_text = line.split(
-            "\t", 4
-        )
+        parts = line.split("\t", 4)
+        if len(parts) != 5:
+            raise ValueError(
+                f"malformed corpus line {line_number}: {line[:500]!r}"
+            )
+        name, source, order_text, library_id_text, table_text = parts
         table = np.asarray(ast.literal_eval(table_text), dtype=np.int64) - 1
         n = int(order_text)
 
