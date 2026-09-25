@@ -39,8 +39,25 @@ squared addition under the deliberately minimal fixed-epsilon reproduction.
 The only novelty hypothesis that survived the audit is the **integration** of
 empirical equational discovery, theorem-premise verification/abstention,
 representation selection, and representation-conditioned experimental design.
-The full loop has not yet been validated end-to-end on a third-party benchmark,
-so THEORICA does **not** currently claim a proven field-level breakthrough.
+
+A follow-up frozen external run now tests that loop end-to-end on the published
+Binary Operation Completion task family. Across **1,100** task/repeat cases,
+THEORICA made **1,100/1,100** correct route decisions, accepted **200/200**
+true-group cases, abstained on **900/900** non-group cases, and reconstructed
+the complete hidden operation table exactly on **200/200** accepted cases.
+Modular addition required **991 calls (10.53% of the table)** and S5
+composition required **1,221.8 calls on average (8.48%)**, including the
+generic structure-discovery overhead.
+
+This does **not** establish sample-efficiency superiority: Huh's ICLR 2025
+HyperCube-SE reports roughly **5%** data for perfect accuracy on group
+operations when the group-representation bias is supplied in advance. The
+remaining research hypothesis is therefore about **automatic representation
+choice before specialized learning**, not beating a group-specialist after the
+family is known.
+
+THEORICA still does **not** claim certified field-first priority or a proven
+field-level breakthrough.
 
 See `results/EXTERNAL_FALSIFICATION_REPORT.md`.
 
