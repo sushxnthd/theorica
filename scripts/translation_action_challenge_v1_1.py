@@ -56,7 +56,7 @@ def parse_corpus(path):
 
         if source == "SmallGrp":
             split = "dev" if n in {24, 32} else "holdout"
-        elif source == "RightQuasigroups:SmallLoop":
+        elif source == "RQ:SmallLoop":
             split = "dev" if n == 5 else "holdout"
         else:
             split = "dev" if n in {6, 7} else "holdout"
