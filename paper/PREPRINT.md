@@ -1,6 +1,6 @@
 # THEORICA: Open-Ended Theory Synthesis, Active Causal Discovery, and Native Evaluation for Autonomous Experimental Science
 
-**Sushanth Dasari — Preprint draft, 24 September 2026**
+**Sushanth Dasari — Preprint draft, 25 September 2026**
 
 ## Abstract
 
@@ -8,7 +8,7 @@ Scientific agents are often evaluated on question answering, coding, simulation,
 
 THEORICA is a student-led research program organized around these failure modes. A frozen internal test first rejected our strongest initial hypothesis: an adaptive falsification-oriented experiment policy did not reliably outperform a matched uniform design. Independent equation tasks then exposed a deeper bottleneck because the agent could only select among complete equations already present in its hypothesis menu. We replaced fixed-family selection with bounded compositional symbolic synthesis and later extended it to multivariate relationships. A subsequent frozen misspecification study tested whether the scientist could revise the language itself rather than only search inside it. On 100 unseen noisy periodic-law tasks, a cross-fitted spectral-closure mechanism reduced median extrapolation NRMSE from **0.22759** for the current grammar and **0.09739** for a stronger fixed integer-frequency bank to **0.002293**, with **97/100** runs below 0.01 NRMSE and 100/100 paired wins against both baselines. The method estimates a missing continuous frequency from held-out evidence before injecting the corresponding operator pair into the grammar.
 
-A separate structural-discovery branch asks whether the scientist can infer mathematical organization before fitting an equation. Given only black-box access to an unknown binary composition law, THEORICA experimentally tests algebraic identities, conditionally searches for an additive latent coordinate, and symbolically compresses the recovered coordinate. In a frozen clean run it recovered the symbolic coordinate structure for **5/5** canonical associative operations, rejected **3/3** invalid controls, and met the prespecified recovery gates on **50/50** unseen noisy hidden-coordinate worlds. Median derivative-shape error was **0.001584** and median unseen composition error **0.0003931**; the structural representation beat a direct degree-6 bivariate polynomial baseline on **46/50** paired worlds. The representation theorem itself is classical; the potentially novel object is the automated experiment-to-axiom-to-coordinate discovery chain, which remains a novelty hypothesis pending broader literature and expert validation.
+A separate structural-discovery branch asks whether the scientist can infer mathematical organization before fitting an equation. The current system generically enumerates shallow composed terms of an unknown black-box operation, mines empirical equalities among them, verifies additional premises required by candidate representation theorems, abstains when those premises fail, and then allocates subsequent experiments in the selected latent representation. On a frozen panel it correctly routed **125/125** noisy structural worlds. On 50 hidden-coordinate worlds, representation-aware active design achieved median NRMSE **0.000636** versus **0.001345** for random sampling in the same representation and **0.004679** for an active polynomial baseline. A separate untouched panel beat an active RBF Gaussian process on **39/40** worlds at a 20-query budget at each of two noise levels. External falsification substantially narrowed the novelty claim: sample-to-axiom discovery, identity testing, black-box operation recovery, algebraic representation learning, and active symbolic experimentation all have prior art. On 11 published Binary Operation Completion tasks, the generic miner nevertheless matched **88/88** exhaustive identity labels; a named-template tester achieved the same labels about **228x** more query-efficiently, which is retained as a negative result. The surviving research hypothesis concerns the integrated equation-discovery -> theorem-routing -> representation-conditioned experiment loop, not any component in isolation.
 
 A separate causal branch uses interventions to resolve graph ambiguity. On 48 paired instances generated with the native Active-Causal-Discovery-Bench package, THEORICA achieved directed F1 **0.647 vs 0.599** for random intervention targeting, with fewer interventions (**1.83 vs 2.90**). The paired F1 gain was **+0.048**, bootstrap 95% CI **[+0.015,+0.082]**, one-sided Wilcoxon **p=0.00195**. The pinned replay committed in this repository reproduces the aggregate result exactly.
 
@@ -82,49 +82,67 @@ The repository's clean GitHub Actions workflow successfully reruns the new unit 
 
 This result changes the internal scientific question from only **"which theory inside H?"** toward **"does held-out evidence show that H itself is missing structure?"** The claim remains narrow: this is one successful periodic grammar-expansion mechanism. It is not universal operator invention, a state-of-the-art symbolic-regression claim, or evidence that arbitrary missing mathematical operators can be discovered.
 
-## 6. Experimental axiom discovery and latent coordinates
+## 6. Equational-theory discovery, theorem routing, and external falsification
 
-Equation discovery usually assumes the variables and mathematical representation in which the law should be expressed. THEORICA now tests an earlier question: can experiments reveal **what structural representation the system belongs to**?
+Equation discovery normally assumes the representation in which a law should be expressed. THEORICA tests an earlier question: can black-box experiments reveal algebraic structure strongly enough to determine which representation should be learned?
 
-The new branch is given only black-box experimental access to a scalar binary operation `F(x,y)` on a stated domain. It is not told the governing equation, whether the operation is associative, or whether a simplifying logarithmic, rapidity, reciprocal, or power coordinate exists.
+The current structural branch no longer begins with bespoke named associativity or commutativity tests. It enumerates a bounded language of composed terms over the unknown binary operation and evaluates those terms on noisy assignments. Pairs whose empirical signatures are indistinguishable become candidate equations. Named properties are read from that empirically mined equivalence relation only afterward.
 
-The current pipeline first probes commutativity and associativity using fresh interventions. If the evidence passes the frozen structural gate, it searches nonparametrically for a monotone coordinate `g` satisfying
+Candidate equations do not directly authorize a representation theorem. THEORICA separately verifies additional premises required by the surviving family, including monotonicity and bisymmetry where relevant, calibrates thresholds from repeated measurements, uses replicated confirmation for borderline cases, and abstains when the theorem gate fails.
 
-```
-g(F(x,y)) = g(x) + g(y).
-```
+The currently supported representation routes include additive-generator operations, quasi-arithmetic means, and commutative semilattices. For generator families, the next experiments are selected to reduce uncertainty in the one-dimensional latent coordinate rather than uncertainty of the original two-dimensional output surface.
 
-It then differentiates the learned coordinate, compresses the derivative into a generic rational form `P(x)/Q(x)`, and integrates that representation symbolically. Named target transforms are not supplied as an answer menu.
+### Frozen structural and active-design results
 
-On a canonical black-box panel, the system recovered all five latent-coordinate structures:
+A 125-world noisy structural holdout contained equal numbers of additive-generator operations, quasi-arithmetic means, commutative semilattices, ordinary unresolved controls, and smooth adversarial mean-like decoys that satisfy several superficial properties while violating the additional theorem premises.
 
-- multiplication → logarithmic coordinate;
-- relativistic velocity composition → rapidity / `atanh` coordinate;
-- probabilistic OR → `-log(1-x)` coordinate;
-- harmonic/parallel composition → reciprocal coordinate;
-- cubic norm composition → cubic coordinate.
+**125/125** worlds were classified correctly.
 
-Thus **5/5** canonical associative worlds were accepted and **5/5** symbolic coordinate structures were recovered. Three deliberately invalid controls were rejected (**3/3**).
+On 50 hidden-coordinate worlds with a 20-measurement budget:
 
-A separate frozen holdout generated **50 unseen associative worlds** from hidden monotone coordinates whose derivatives were random low-degree rational functions. Each world supplied 200 noisy operation measurements, with output noise standard deviation equal to 0.1% of the experimental-domain span. THEORICA never received the hidden coefficients or coordinate.
-
-| Metric | Frozen clean result |
+| Metric | Result |
 |---|---:|
-| Hidden worlds meeting success gates | **50/50** |
-| Median derivative-shape error | **0.001584** |
-| 90th-percentile derivative-shape error | **0.004560** |
-| Maximum derivative-shape error | **0.006254** |
-| Median unseen operation error | **0.0003931** |
-| Degree-6 polynomial median error | **0.0008314** |
-| Coordinate-model wins vs polynomial | **46/50** |
+| Active representation median NRMSE | **0.0006357** |
+| Random representation median NRMSE | 0.001345 |
+| Active degree-6 polynomial median NRMSE | 0.004679 |
+| Wins vs random representation | **46/50** |
+| Wins vs active polynomial | **50/50** |
+| Wilcoxon p vs random | **6.77e-13** |
+| Wilcoxon p vs polynomial | **8.88e-16** |
 
-The clean GitHub Actions workflow installed the project from scratch, passed the targeted tests, executed the full holdout, and uploaded the result artifact.
+A separate untouched confirmation compared the representation learner with an RBF Gaussian process that actively chose experiments by predictive variance. At the 20-query budget, THEORICA won **39/40** paired worlds at noise fraction 0.001 and **39/40** at noise fraction 0.003, with one-sided paired Wilcoxon p-values **6.37e-11** and **4.07e-10**, respectively.
 
-The mathematical representation principle is not claimed as new. Classical functional-equation and functional-network work studies additive generators for associative operations, often with the structural premise supplied in advance. THEORICA's research hypothesis is instead the end-to-end autonomous sequence:
+A separately frozen sequential theorem router achieved **125/125** correct routing at each of two noise levels with median **128** oracle calls. A broad generic-miner reference required 1,540 median calls on its measured subset. This comparison is an internal cost diagnostic, not a published-baseline superiority claim.
 
-**black-box experiment → empirical axiom diagnosis → representation choice → latent-coordinate recovery → symbolic law → held-out falsification.**
+### External falsification
 
-Our current literature search has not established that this complete sequence is field-first, so the supported claim is a reproducible new THEORICA capability and a **plausible methodological novelty**, not certified priority.
+We then attempted to falsify the novelty claim rather than extend it by internal benchmark iteration.
+
+The priority search found substantial prior art for every broad component:
+
+- Barzdin & Barzdin and later QuickSpec-style systems discover algebraic/equational laws from samples or tests.
+- RoughSpec efficiently searches supplied identity templates.
+- Classical and modern identity/property-testing work gives efficient procedures for associativity, group properties, and related identities.
+- Black-box group/ring work recovers hidden operation tables from chosen oracle queries under algebraic assumptions.
+- Functional Networks and aggregation-function methods learn generator representations when the structural family is supplied.
+- HyperCube (ICLR 2025) recovers finite group/group-like operations and learned unitary representations from partial operation tables.
+- Active symbolic regression, Bayesian experimental design, and active Koopman learning already choose informative experiments for model discovery.
+
+Therefore none of those components is claimed as field-first.
+
+To test transfer beyond THEORICA-generated worlds, we constructed an external audit from 11 total Binary Operation Completion operations published in the Power/Huh benchmark family. The generic miner enumerated 471 terms with at most three operation applications and used 32 random assignments. Exhaustive full-table verification supplied ground truth for eight identities.
+
+It matched **88/88** identity labels. On the published S5 conjugation operation, for example, it recovered idempotence, left self-distributivity, and flexibility while rejecting associativity and the other tested laws.
+
+However, a hostile named-template baseline matched all **88/88** labels in **100/100** independent repeats using only **65.58** operation calls per task on average, versus **14,976** calls/task for generic mining. This roughly 228-fold gap is retained as a negative result: generic equation mining is useful when the relevant laws are not known in advance, but is profoundly inefficient when the identity templates are already supplied.
+
+We also implemented a clean-room reproduction of the HyperCube architecture and regularizer printed in the ICLR 2025 paper. Under a deliberately minimal fixed-epsilon 500-step protocol and ten 60%-training splits, H-regularized HyperCube achieved mean test accuracy **1.00** on C6 addition, **1.00** on C6 subtraction, **1.00** on S3 composition, and **0.893** on C6 squared addition. The published method therefore provides a strong specialized counterpoint to THEORICA's generic routing approach.
+
+The external audit rejects novelty claims for sample-to-axiom discovery, query-efficient identity testing, black-box operation recovery, learned algebraic representations, and active experimentation individually. The narrower surviving hypothesis is the integration:
+
+**black-box experiments -> empirical equational theory -> theorem-premise verification/abstention -> representation selection -> representation-conditioned experiment design -> held-out falsification.**
+
+Two dedicated literature searches did not identify an exact predecessor for that full chain, but absence from search is not proof of priority. Moreover, the full chain has not yet been demonstrated end-to-end on a third-party benchmark. It should therefore be described as a **plausibly novel integrated methodology**, not a proven field-first breakthrough.
 
 ## 7. Active causal discovery
 
@@ -243,7 +261,7 @@ THEORICA remains a bounded prototype.
 
 - The symbolic grammar is not unrestricted theorem proving or program synthesis.
 - The spectral-closure result demonstrates only one periodic operator-family expansion and does not establish universal grammar induction.
-- The axiom-to-coordinate result uses a classical representation principle and does not yet establish field-first methodological novelty; stronger baselines and independent literature/expert validation remain necessary.
+- The structural-discovery result uses established ingredients from equational theory exploration, representation theorems, and active learning. External falsification found no exact predecessor for the complete routing loop, but the full loop has not yet been validated end-to-end on a third-party benchmark; a field-first or groundbreaking claim is therefore not supported.
 - Low predictive error may hide non-equivalent explanations.
 - The multivariate suite is low-dimensional.
 - The causal policy has not been shown superior to every classical intervention strategy.
