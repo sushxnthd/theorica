@@ -1,0 +1,23 @@
+name: external-boc-theorem-routing
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/external_boc_theorem_routing.py"
+      - ".github/workflows/external_boc_theorem_routing.yml"
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e ".[dev]"
+      - run: python scripts/external_boc_theorem_routing.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: external-boc-theorem-routing
+          path: results/external_boc_theorem_routing.json
