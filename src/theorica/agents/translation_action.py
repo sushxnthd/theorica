@@ -332,3 +332,118 @@ def discover_translation_action_representation(
         reconstructed_table=None,
         translation_index=None,
     )
+
+
+
+@dataclass
+class TranslationLaw:
+    word: str
+    diagonal_constant: int | None
+    exhaustive_pairs: int
+
+
+def _evaluate_translation_word(
+    word: str,
+    left_x: np.ndarray,
+    left_y: np.ndarray,
+    left_c: np.ndarray | None = None,
+) -> np.ndarray:
+    token_map = {
+        "X": np.asarray(left_x, dtype=np.int64),
+        "Y": np.asarray(left_y, dtype=np.int64),
+        "x": inverse_permutation(left_x),
+        "y": inverse_permutation(left_y),
+    }
+    if left_c is not None:
+        token_map["C"] = np.asarray(left_c, dtype=np.int64)
+        token_map["c"] = inverse_permutation(left_c)
+
+    actions = [token_map[token] for token in word]
+    result = actions[-1].copy()
+    for action in reversed(actions[:-1]):
+        result = compose_permutations(action, result)
+    return result
+
+
+def discover_short_translation_law(
+    table: np.ndarray,
+    *,
+    max_word_length: int = 3,
+    screening_pairs: int = 16,
+    seed: int = 0,
+) -> TranslationLaw | None:
+    """Compress a reconstructed operation into a short left-action law.
+
+    Search is deliberately representation-level rather than family-labelled.
+    X,Y denote L_x,L_y and lowercase x,y their inverses. If F(x,x) is a
+    carrier-wide constant c, C/c denote L_c and its inverse.
+
+    A candidate must first survive random screening and is then verified on
+    every ordered pair (x,y) in the carrier.
+    """
+    table = np.asarray(table, dtype=np.int64)
+    n = len(table)
+    rows = [table[i].copy() for i in range(n)]
+    if not all(is_permutation(row) for row in rows):
+        return None
+
+    diagonal = np.diag(table)
+    constant = int(diagonal[0]) if np.all(diagonal == diagonal[0]) else None
+    left_c = None if constant is None else rows[constant]
+
+    tokens = ["X", "Y", "x", "y"]
+    if left_c is not None:
+        tokens += ["C", "c"]
+
+    rng = np.random.default_rng(seed)
+    probes = [
+        tuple(map(int, rng.integers(0, n, size=2)))
+        for _ in range(int(screening_pairs))
+    ]
+    # Add deterministic corners so the screen is not purely random.
+    probes += [(0, 0), (0, n - 1), (n - 1, 0), (n - 1, n - 1)]
+
+    import itertools
+
+    for length in range(1, int(max_word_length) + 1):
+        for word_tuple in itertools.product(tokens, repeat=length):
+            word = "".join(word_tuple)
+
+            passed = True
+            for x_value, y_value in probes:
+                target = rows[int(table[x_value, y_value])]
+                candidate = _evaluate_translation_word(
+                    word,
+                    rows[x_value],
+                    rows[y_value],
+                    left_c,
+                )
+                if not np.array_equal(candidate, target):
+                    passed = False
+                    break
+            if not passed:
+                continue
+
+            for x_value in range(n):
+                for y_value in range(n):
+                    target = rows[int(table[x_value, y_value])]
+                    candidate = _evaluate_translation_word(
+                        word,
+                        rows[x_value],
+                        rows[y_value],
+                        left_c,
+                    )
+                    if not np.array_equal(candidate, target):
+                        passed = False
+                        break
+                if not passed:
+                    break
+
+            if passed:
+                return TranslationLaw(
+                    word=word,
+                    diagonal_constant=constant,
+                    exhaustive_pairs=n * n,
+                )
+
+    return None
