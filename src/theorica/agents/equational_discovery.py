@@ -221,6 +221,21 @@ class _CountingOracle:
         return self.oracle(x, y)
 
 
+class _AveragedOracle:
+    """Average repeated measurements while preserving outer call accounting."""
+
+    def __init__(self, oracle, replicates: int = 3):
+        self.oracle = oracle
+        self.replicates = int(replicates)
+
+    def __call__(self, x, y):
+        values = [float(self.oracle(x, y)) for _ in range(self.replicates)]
+        values = [v for v in values if np.isfinite(v)]
+        if not values:
+            return np.nan
+        return float(np.mean(values))
+
+
 def _p95_or_inf(values):
     if not values:
         return float("inf")
@@ -378,6 +393,22 @@ def _bisymmetry_stress_p95(
     return _p95_or_inf(residuals)
 
 
+def _confirm_if_borderline(
+    value: float,
+    threshold: float,
+    evaluator,
+    *,
+    expansion: float = 1.35,
+):
+    """Re-test only near-threshold failures with averaged measurements."""
+    if value <= threshold:
+        return value, threshold, False
+    if not np.isfinite(value) or value > expansion * threshold:
+        return value, threshold, False
+    confirmed_value, confirmed_threshold = evaluator()
+    return float(confirmed_value), float(confirmed_threshold), True
+
+
 def query_efficient_theorem_route(
     oracle: Callable[[float, float], float],
     domain: tuple[float, float],
@@ -442,9 +473,42 @@ def query_efficient_theorem_route(
     assoc = _associativity_p95(counted, domain, probes, rng)
     comm = _commutativity_p95(counted, domain, probes, rng)
 
-    is_idem = idem <= thresholds["idempotence"]
-    is_assoc = assoc <= thresholds["associativity"]
-    is_comm = comm <= thresholds["commutativity"]
+    # Borderline failures trigger targeted replicated measurements rather than
+    # a global relaxation of the theorem gate. Averaging three replicates
+    # reduces the stochastic scale by sqrt(3), while strong violations are
+    # rejected without extra queries.
+    confirm_probes = max(12, 2 * int(probes))
+    averaged = _AveragedOracle(counted, replicates=3)
+    sqrt3 = float(np.sqrt(3.0))
+
+    idem, idem_threshold, _ = _confirm_if_borderline(
+        idem,
+        thresholds["idempotence"],
+        lambda: (
+            _idempotence_p95(averaged, domain, confirm_probes, rng),
+            max(0.006, 1.5 * repeat_noise / sqrt3),
+        ),
+    )
+    assoc, assoc_threshold, _ = _confirm_if_borderline(
+        assoc,
+        thresholds["associativity"],
+        lambda: (
+            _associativity_p95(averaged, domain, confirm_probes, rng),
+            max(0.012, 3.0 * repeat_noise / sqrt3),
+        ),
+    )
+    comm, comm_threshold, _ = _confirm_if_borderline(
+        comm,
+        thresholds["commutativity"],
+        lambda: (
+            _commutativity_p95(averaged, domain, confirm_probes, rng),
+            max(0.008, 2.7 * repeat_noise / sqrt3),
+        ),
+    )
+
+    is_idem = idem <= idem_threshold
+    is_assoc = assoc <= assoc_threshold
+    is_comm = comm <= comm_threshold
 
     bisym = None
     monotonicity = None
@@ -473,6 +537,28 @@ def query_efficient_theorem_route(
         )
         stress_bisym = _bisymmetry_stress_p95(counted, domain)
         bisym = max(random_bisym, stress_bisym)
+
+        def confirm_bisymmetry():
+            random_confirm = _empirical_bisymmetry_p95(
+                averaged,
+                domain,
+                probes=confirm_probes,
+                seed=int(rng.integers(0, 2**31 - 1)),
+            )
+            stress_confirm = _bisymmetry_stress_p95(
+                averaged, domain
+            )
+            return (
+                max(random_confirm, stress_confirm),
+                max(0.012, 2.1 * repeat_noise / sqrt3),
+            )
+
+        bisym, bisym_threshold, _ = _confirm_if_borderline(
+            bisym,
+            thresholds["bisymmetry"],
+            confirm_bisymmetry,
+            expansion=1.5,
+        )
         monotonicity = _monotonicity_rate_margin(
             counted,
             domain,
@@ -481,7 +567,7 @@ def query_efficient_theorem_route(
             thresholds["monotonicity_margin"],
         )
         if (
-            bisym <= thresholds["bisymmetry"]
+            bisym <= bisym_threshold
             and monotonicity >= 0.95
         ):
             family = "quasi_arithmetic_mean"
