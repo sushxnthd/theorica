@@ -8,6 +8,42 @@ The project is being developed under a hard constraint:
 
 > **Zero personal spend.** No paid API, compute subscription, hardware purchase, domain, publication fee, or competition fee is required from the author. Paid resources may only enter through a grant, sponsor, collaborator, institution, or genuinely free tier.
 
+## External falsification audit
+
+The equational-theory result has now been subjected to a hostile external audit
+rather than being evaluated only on THEORICA-generated worlds.
+
+A two-stage literature sweep covering older sample-to-axiom systems,
+QuickSpec/RoughSpec-style theory exploration, black-box group/ring recovery,
+identity/property testing, active group-environment learning, functional
+networks, active symbolic regression, and 2025-2026 neural algebraic-structure
+discovery **invalidated several broad novelty claims**. Algebraic axiom
+discovery from samples, query-efficient identity testing, latent algebraic
+representation learning, black-box operation recovery, and active experiment
+selection all have substantial prior art.
+
+On 11 published Binary Operation Completion operations from the Power/Huh
+benchmark family, THEORICA's generic bounded equational miner recovered
+**88/88** exhaustive identity labels. However, a named-template falsification
+baseline recovered the same 88/88 labels in **100/100** independent repeats
+using about **65.6 operation calls/task**, versus **14,976 calls/task** for the
+generic miner. This negative result rules out a query-efficiency claim for
+generic equation mining.
+
+A clean-room reproduction of the ICLR 2025 HyperCube architecture also
+confirmed that strong representation-specific methods are formidable:
+H-regularized HyperCube achieved mean test accuracy **1.00** on C6 addition,
+**1.00** on C6 subtraction, **1.00** on S3 composition, and **0.893** on C6
+squared addition under the deliberately minimal fixed-epsilon reproduction.
+
+The only novelty hypothesis that survived the audit is the **integration** of
+empirical equational discovery, theorem-premise verification/abstention,
+representation selection, and representation-conditioned experimental design.
+The full loop has not yet been validated end-to-end on a third-party benchmark,
+so THEORICA does **not** currently claim a proven field-level breakthrough.
+
+See `results/EXTERNAL_FALSIFICATION_REPORT.md`.
+
 ## Equational-theory discovery and theorem-routed experiments
 
 THEORICA now goes one step earlier than equation fitting. For an unknown black-box
