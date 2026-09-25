@@ -1,0 +1,24 @@
+name: representation-information-curve
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "src/theorica/agents/equational_discovery.py"
+      - "scripts/representation_information_curve.py"
+      - ".github/workflows/representation_information_curve.yml"
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e ".[dev]"
+      - run: python scripts/representation_information_curve.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: representation-information-curve
+          path: results/representation_information_curve.json
