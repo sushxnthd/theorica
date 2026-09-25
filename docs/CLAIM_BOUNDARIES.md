@@ -69,9 +69,20 @@ The only surviving novelty hypothesis is the integration of:
 **empirical equational discovery -> theorem-premise verification and abstention
 -> representation selection -> representation-space active experiment design.**
 
-The full integrated loop has **not** yet been demonstrated end-to-end on a
-third-party benchmark. Until it is, public materials should describe the method
-as a *plausibly novel integrated methodology*, not a proven field-level
-breakthrough or field-first result.
+A frozen follow-up now demonstrates the integrated route end-to-end on the
+published Binary Operation Completion task family: **1,100/1,100** route
+decisions correct across 100 repetitions of 11 operations, with **200/200**
+true-group cases accepted and exactly reconstructed and **900/900** non-group
+cases rejected/abstained. Modular addition used **10.53%** of the full table in
+oracle calls and S5 composition **8.48%** on average, including generic
+structure-discovery overhead.
+
+This closes the previous third-party end-to-end validation gap but does **not**
+establish sample-efficiency superiority: HyperCube-SE reports about **5%** data
+for perfect accuracy on group operations when the group inductive bias is
+provided in advance. Public materials should therefore describe the result as
+a *plausibly novel integrated methodology with third-party end-to-end
+validation*, not a certified field-first result or universal algebraic
+discovery method.
 
 See `results/EXTERNAL_FALSIFICATION_REPORT.md`.
