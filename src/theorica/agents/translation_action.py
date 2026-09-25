@@ -263,16 +263,37 @@ def discover_translation_action_representation(
         base = base_candidate
         index = _signature_index(group, base)
 
-        translation_index: dict[int, int] = {}
+        preliminary: dict[int, int] = {}
         unresolved: list[int] = []
 
         for x in range(n):
             signature = tuple(counted(x, b) for b in base)
             matches = index.get(signature, [])
             if len(matches) == 1:
-                translation_index[x] = int(matches[0])
+                preliminary[x] = int(matches[0])
             else:
                 unresolved.append(int(x))
+
+        # Faithfulness is part of the representation promise: distinct carrier
+        # elements must correspond to distinct translations. A too-small
+        # generated group can otherwise make many elements share the same base
+        # signature (notably when the first acquired row is the identity).
+        reverse: dict[int, list[int]] = {}
+        for x, group_index in preliminary.items():
+            reverse.setdefault(group_index, []).append(x)
+
+        collided: set[int] = set()
+        for xs in reverse.values():
+            if len(xs) > 1:
+                collided.update(xs)
+
+        unresolved.extend(sorted(collided))
+        unresolved = sorted(set(unresolved))
+        translation_index = {
+            x: group_index
+            for x, group_index in preliminary.items()
+            if x not in collided
+        }
 
         if not unresolved:
             reconstructed = np.stack(
@@ -319,7 +340,22 @@ def discover_translation_action_representation(
         # Acquire the most direct counterexample to the current representation:
         # a carrier element whose translation cannot yet be uniquely represented
         # by the generated permutation group.
-        next_row = int(rng.choice(unresolved))
+        unseen_unresolved = [
+            x for x in unresolved if x not in queried_rows
+        ]
+        if not unseen_unresolved:
+            return TranslationActionResult(
+                accepted=False,
+                reason="nonfaithful_or_unresolved_translation_action",
+                oracle_calls=counted.calls,
+                queried_rows=len(queried_rows),
+                generated_group_size=len(group),
+                base=base,
+                validation_queries=0,
+                reconstructed_table=None,
+                translation_index=None,
+            )
+        next_row = int(rng.choice(unseen_unresolved))
 
     return TranslationActionResult(
         accepted=False,
