@@ -41,6 +41,66 @@ oracle values before optional validation.
 A matching transcript-counting argument gives an `Omega(n)` lower bound on a
 natural promise subclass, so the scaling is order-optimal when `r+b=O(1)`.
 
+### Public GAP cross-family challenge
+
+The 11-operation BOC result was followed by a larger public-catalogue test using
+GAP SmallGrp and pinned RightQuasigroups data.
+
+The benchmark progression is deliberately versioned:
+
+- **v1:** 80 unique SmallGrp holdout groups plus sampled out-of-promise
+  SmallQuandle controls. THEORICA reconstructed **240/240** eligible
+  task/repeat cases and made **0/150** false acceptances.
+- **v1.1:** added public faithful connected quandles and nonassociative loops.
+  The frozen learner **failed**, reconstructing only **297/345** eligible
+  cases. All 48 failures were public order-6 loops.
+- **v1.2:** changed one scientific behavior: a validation counterexample now
+  triggers acquisition of the falsifying translation instead of immediate
+  abstention. The public corpus, split, budgets, scorer, and gates are unchanged.
+
+Clean v1.2 result over **165 unique public holdout algebras**, each evaluated
+under three acquisition seeds:
+
+| Metric | v1.2 |
+|---|---:|
+| Eligible task/repeat cases | **345** |
+| Exact reconstructions | **345/345** |
+| Ineligible controls | **150** |
+| False acceptances | **0/150** |
+| Unique eligible non-group holdout algebras | **35** |
+| Adaptive median queried table fraction | **13.021%** |
+| Random-row median queried table fraction | 15.061% |
+| Adaptive / random mean calls on paired-exact cases | **174.20 / 193.80** |
+| Paired acquisition Wilcoxon | **p = 3.31e-14** |
+
+Cross-family correctness:
+
+- SmallGrp: **240/240** exact;
+- public faithful connected quandles: **30/30** exact;
+- public nonassociative loops: **75/75** exact;
+- sampled out-of-promise SmallQuandles: **0/150 false acceptances**.
+
+The tiny quandle/loop tables are effectively exhausted by the frozen 64-query
+validation budget, so this is a **cross-family correctness result**, not a
+query-efficiency claim for those tiny structures. Query-efficiency evidence is
+strongest on the larger SmallGrp holdout: median **10.981%** of the table vs
+**13.021%** for the same-representation random-row policy.
+
+The v1.1 failure is preserved publicly and motivated Proposition 3 in the theory
+note: a fresh counterexample proves that the falsifying translation is outside
+the current generated subgroup, so acquiring it is a certified representation
+expansion.
+
+See:
+
+- `docs/TRANSLATION_ACTION_CHALLENGE_V1.md`
+- `results/TRANSLATION_ACTION_CHALLENGE_V1_REPORT.md`
+- `results/TRANSLATION_ACTION_CHALLENGE_V1_1_FAILURE.md`
+- `results/TRANSLATION_ACTION_CHALLENGE_V1_2_REPORT.md`
+
+Clean v1.2 workflow:
+https://github.com/sushxnthd/theorica/actions/runs/36138175775
+
 ### External BOC holdout
 
 On 11 published Binary Operation Completion operations, 100 acquisition seeds
@@ -131,8 +191,9 @@ remaining research hypothesis is therefore about **automatic representation
 choice before specialized learning**, not beating a group-specialist after the
 family is known.
 
-THEORICA still does **not** claim certified field-first priority or a proven
-field-level breakthrough.
+The equational-theory routing branch still does **not** claim certified
+field-first priority. The later translation-base reconstruction result is a
+stronger, separately bounded priority candidate described above.
 
 See `results/EXTERNAL_FALSIFICATION_REPORT.md`.
 
