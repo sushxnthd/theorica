@@ -8,6 +8,42 @@ The project is being developed under a hard constraint:
 
 > **Zero personal spend.** No paid API, compute subscription, hardware purchase, domain, publication fee, or competition fee is required from the author. Paid resources may only enter through a grant, sponsor, collaborator, institution, or genuinely free tier.
 
+## Equational-theory discovery and theorem-routed experiments
+
+THEORICA now goes one step earlier than equation fitting. For an unknown black-box
+binary operation, it first evaluates a bounded language of composed operation
+terms and mines empirical equalities among them. Named properties such as
+commutativity, associativity, and idempotence are interpreted only after the
+term-equivalence structure has been observed.
+
+The surviving identities are then subjected to theorem-specific premise checks
+such as strict monotonicity and bisymmetry. If a representation family is
+supported, THEORICA allocates subsequent measurements in the latent coordinate
+implied by that representation rather than fitting the original 2D surface
+directly.
+
+Frozen results:
+
+- **125/125** noisy structural worlds correctly routed across additive-generator,
+  quasi-arithmetic-mean, semilattice, unresolved-control, and adversarial-decoy
+  families.
+- On 50 hidden-coordinate worlds, active representation learning achieved median
+  NRMSE **0.0006357** versus **0.001345** for random sampling in the same
+  representation and **0.004679** for an active degree-6 polynomial baseline,
+  winning **46/50** and **50/50** paired worlds respectively.
+- On a separate untouched active-GP confirmation, representation learning won
+  **39/40** paired worlds at a 20-query budget at both tested noise levels.
+- A separately frozen query-efficient theorem router classified **125/125** worlds
+  correctly at each of two noise levels using a median **128** black-box oracle
+  calls, versus **1,540** median calls for THEORICA's broad generic-miner
+  reference.
+
+See `results/EQUATIONAL_THEORY_DISCOVERY_REPORT.md`.
+
+The current novelty hypothesis is the complete
+**experiment → empirical equational theory → theorem routing → representation-space
+active design** loop. We do not yet claim certified field-first priority.
+
 ## Experimental axiom discovery and latent coordinates
 
 THEORICA now has a separate structural-discovery branch that starts from a
