@@ -386,10 +386,12 @@ def discover_short_translation_law(
     rows = [table[i].copy() for i in range(n)]
     if not all(is_permutation(row) for row in rows):
         return None
+    inverses = [inverse_permutation(row) for row in rows]
 
     diagonal = np.diag(table)
     constant = int(diagonal[0]) if np.all(diagonal == diagonal[0]) else None
     left_c = None if constant is None else rows[constant]
+    inverse_c = None if constant is None else inverses[constant]
 
     tokens = ["X", "Y", "x", "y"]
     if left_c is not None:
@@ -400,40 +402,47 @@ def discover_short_translation_law(
         tuple(map(int, rng.integers(0, n, size=2)))
         for _ in range(int(screening_pairs))
     ]
-    # Add deterministic corners so the screen is not purely random.
     probes += [(0, 0), (0, n - 1), (n - 1, 0), (n - 1, n - 1)]
 
     import itertools
+
+    def evaluate(word: str, x_value: int, y_value: int) -> np.ndarray:
+        token_map = {
+            "X": rows[x_value],
+            "Y": rows[y_value],
+            "x": inverses[x_value],
+            "y": inverses[y_value],
+        }
+        if left_c is not None:
+            token_map["C"] = left_c
+            token_map["c"] = inverse_c
+
+        actions = [token_map[token] for token in word]
+        result = actions[-1]
+        for action in reversed(actions[:-1]):
+            result = compose_permutations(action, result)
+        return result
 
     for length in range(1, int(max_word_length) + 1):
         for word_tuple in itertools.product(tokens, repeat=length):
             word = "".join(word_tuple)
 
-            passed = True
-            for x_value, y_value in probes:
-                target = rows[int(table[x_value, y_value])]
-                candidate = _evaluate_translation_word(
-                    word,
-                    rows[x_value],
-                    rows[y_value],
-                    left_c,
+            if any(
+                not np.array_equal(
+                    evaluate(word, x_value, y_value),
+                    rows[int(table[x_value, y_value])],
                 )
-                if not np.array_equal(candidate, target):
-                    passed = False
-                    break
-            if not passed:
+                for x_value, y_value in probes
+            ):
                 continue
 
+            passed = True
             for x_value in range(n):
                 for y_value in range(n):
-                    target = rows[int(table[x_value, y_value])]
-                    candidate = _evaluate_translation_word(
-                        word,
-                        rows[x_value],
-                        rows[y_value],
-                        left_c,
-                    )
-                    if not np.array_equal(candidate, target):
+                    if not np.array_equal(
+                        evaluate(word, x_value, y_value),
+                        rows[int(table[x_value, y_value])],
+                    ):
                         passed = False
                         break
                 if not passed:
