@@ -8,6 +8,7 @@ from theorica.agents.equational_discovery import (
     representation_coefficient,
     verify_representation_hypotheses,
     verified_representation_coefficient,
+    query_efficient_theorem_route,
 )
 
 
@@ -93,3 +94,38 @@ def test_theorem_gate_rejects_mean_like_bisymmetry_decoy():
     assert mean_evidence.passed
     assert mean_evidence.verified_family == "quasi_arithmetic_mean"
     assert verified_representation_coefficient(mean_evidence) == 0.5
+
+
+def test_query_efficient_router_routes_and_abstains():
+    domain = (-0.8, 0.8)
+
+    add = lambda x, y: x + y
+    add_route = query_efficient_theorem_route(
+        add, (-0.35, 0.35), seed=31, probes=8
+    )
+    assert add_route.verified_family == "additive_generator"
+    assert add_route.coefficient == 1.0
+    assert add_route.oracle_calls < 150
+
+    mean = lambda x, y: (x + y) / 2.0
+    mean_route = query_efficient_theorem_route(
+        mean, domain, seed=32, probes=8
+    )
+    assert mean_route.verified_family == "quasi_arithmetic_mean"
+    assert mean_route.coefficient == 0.5
+    assert mean_route.oracle_calls < 180
+
+    semilattice = query_efficient_theorem_route(
+        max, domain, seed=33, probes=8
+    )
+    assert semilattice.verified_family == "commutative_semilattice"
+
+    decoy = lambda x, y: (
+        0.5 * (x + y)
+        - 0.10 * (x - y) ** 2
+        + 0.40 * (x - y) ** 2 * (x + y)
+    )
+    decoy_route = query_efficient_theorem_route(
+        decoy, domain, seed=34, probes=8
+    )
+    assert decoy_route.verified_family == "unresolved"
