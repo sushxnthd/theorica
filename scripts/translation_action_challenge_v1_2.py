@@ -1,9 +1,11 @@
 from __future__ import annotations
 
-"""Translation-Action Challenge v1.2: public cross-family holdout.
+"""Translation-Action Challenge v1.2: corrected public cross-family holdout.
 
-Extends v1 with public faithful connected quandles and nonassociative loops
-without changing THEORICA's learner or thresholds.
+Uses the unchanged v1.1 public corpus, split, budgets and gates.  The only
+learner change is counterexample-driven refinement after the failed v1.1 run:
+a validation mismatch acquires the falsifying translation instead of causing
+immediate abstention.
 """
 
 import ast
@@ -11,6 +13,7 @@ import json
 from pathlib import Path
 
 import numpy as np
+from scipy.stats import wilcoxon
 
 from theorica.agents.translation_action import (
     discover_translation_action_representation,
@@ -267,9 +270,11 @@ def run():
                 source: sum(case["source"] == source for case in cases)
                 for source in sources
             },
-            "extension_from_v1": (
-                "retains v1 corpus; adds faithful connected quandles and "
-                "public nonassociative small loops; learner unchanged"
+            "provenance": (
+                "same public corpus, split, budgets, eligibility scorer and "
+                "gates as failed v1.1; the learner change is only that a "
+                "validation counterexample now triggers acquisition of the "
+                "falsifying translation row instead of immediate abstention"
             ),
         },
         "parameters": {
