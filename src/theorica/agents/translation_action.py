@@ -306,6 +306,7 @@ def discover_translation_action_representation(
 
             validation_used = 0
             attempts = 0
+            counterexample_row = None
             while (
                 validation_used < int(validation_queries)
                 and attempts < 20 * max(1, int(validation_queries))
@@ -316,9 +317,19 @@ def discover_translation_action_representation(
                     continue
                 validation_used += 1
                 if counted(x, y) != int(reconstructed[x, y]):
+                    counterexample_row = int(x)
+                    break
+
+            if counterexample_row is not None:
+                # A failed prediction is not merely a rejection signal.  It
+                # proves that the current generated action group does not yet
+                # contain the true translation for this carrier element.
+                # Acquire that falsifying row in full and refine the
+                # representation, provided it has not already been acquired.
+                if counterexample_row in queried_rows:
                     return TranslationActionResult(
                         accepted=False,
-                        reason="heldout_validation_failure",
+                        reason="validation_failure_on_acquired_translation",
                         oracle_calls=counted.calls,
                         queried_rows=len(queried_rows),
                         generated_group_size=len(group),
@@ -327,6 +338,8 @@ def discover_translation_action_representation(
                         reconstructed_table=None,
                         translation_index=None,
                     )
+                next_row = counterexample_row
+                continue
 
             return TranslationActionResult(
                 accepted=True,
