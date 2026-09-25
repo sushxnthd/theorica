@@ -8,7 +8,7 @@ Scientific agents are often evaluated on question answering, coding, simulation,
 
 THEORICA is a student-led research program organized around these failure modes. A frozen internal test first rejected our strongest initial hypothesis: an adaptive falsification-oriented experiment policy did not reliably outperform a matched uniform design. Independent equation tasks then exposed a deeper bottleneck because the agent could only select among complete equations already present in its hypothesis menu. We replaced fixed-family selection with bounded compositional symbolic synthesis and later extended it to multivariate relationships. A subsequent frozen misspecification study tested whether the scientist could revise the language itself rather than only search inside it. On 100 unseen noisy periodic-law tasks, a cross-fitted spectral-closure mechanism reduced median extrapolation NRMSE from **0.22759** for the current grammar and **0.09739** for a stronger fixed integer-frequency bank to **0.002293**, with **97/100** runs below 0.01 NRMSE and 100/100 paired wins against both baselines. The method estimates a missing continuous frequency from held-out evidence before injecting the corresponding operator pair into the grammar.
 
-A separate structural-discovery branch asks whether the scientist can infer mathematical organization before fitting an equation. The current system generically enumerates shallow composed terms of an unknown black-box operation, mines empirical equalities among them, verifies additional premises required by candidate representation theorems, abstains when those premises fail, and then allocates subsequent experiments in the selected latent representation. On a frozen panel it correctly routed **125/125** noisy structural worlds. On 50 hidden-coordinate worlds, representation-aware active design achieved median NRMSE **0.000636** versus **0.001345** for random sampling in the same representation and **0.004679** for an active polynomial baseline. A separate untouched panel beat an active RBF Gaussian process on **39/40** worlds at a 20-query budget at each of two noise levels. External falsification substantially narrowed the novelty claim: sample-to-axiom discovery, identity testing, black-box operation recovery, algebraic representation learning, and active symbolic experimentation all have prior art. On 11 published Binary Operation Completion tasks, the generic miner nevertheless matched **88/88** exhaustive identity labels; a named-template tester achieved the same labels about **228x** more query-efficiently, which is retained as a negative result. The surviving research hypothesis concerns the integrated equation-discovery -> theorem-routing -> representation-conditioned experiment loop, not any component in isolation. A follow-up frozen BOC run then tested that integration end-to-end: across **1,100** task/repeat cases, all route decisions were correct, **200/200** true-group cases were accepted and exactly reconstructed, and **900/900** non-group cases were rejected or abstained. This external result strengthens the integration hypothesis but does not establish field-first priority or sample-efficiency superiority over group-specialized methods.
+A separate structural-discovery branch asks whether the scientist can infer mathematical organization before fitting an equation. The current system generically enumerates shallow composed terms of an unknown black-box operation, mines empirical equalities among them, verifies additional premises required by candidate representation theorems, abstains when those premises fail, and then allocates subsequent experiments in the selected latent representation. On a frozen panel it correctly routed **125/125** noisy structural worlds. On 50 hidden-coordinate worlds, representation-aware active design achieved median NRMSE **0.000636** versus **0.001345** for random sampling in the same representation and **0.004679** for an active polynomial baseline. A separate untouched panel beat an active RBF Gaussian process on **39/40** worlds at a 20-query budget at each of two noise levels. External falsification substantially narrowed the novelty claim: sample-to-axiom discovery, identity testing, black-box operation recovery, algebraic representation learning, and active symbolic experimentation all have prior art. On 11 published Binary Operation Completion tasks, the generic miner nevertheless matched **88/88** exhaustive identity labels; a named-template tester achieved the same labels about **228x** more query-efficiently, which is retained as a negative result. The surviving research hypothesis concerns the integrated equation-discovery -> theorem-routing -> representation-conditioned experiment loop, not any component in isolation. A further translation-base reconstruction then removed the named-family router: on 1,100 external BOC task/repeat cases it made 1,100/1,100 correct decisions, exactly reconstructed 500/500 compact permutation-action operations using 2.75%-6.50% mean table-query fractions, rejected 600/600 other cases, and automatically recovered distinct action laws such as `XY`, `XYx`, and `XYX`. The accompanying conditional recovery theorem gives an `n(r+b)` upper bound and a natural `Omega(n)` lower bound, yielding order-optimal linear scaling when translation-generator rank and permutation-base size are bounded. A follow-up frozen BOC run then tested that integration end-to-end: across **1,100** task/repeat cases, all route decisions were correct, **200/200** true-group cases were accepted and exactly reconstructed, and **900/900** non-group cases were rejected or abstained. This external result strengthens the integration hypothesis but does not establish field-first priority or sample-efficiency superiority over group-specialized methods.
 
 A separate causal branch uses interventions to resolve graph ambiguity. On 48 paired instances generated with the native Active-Causal-Discovery-Bench package, THEORICA achieved directed F1 **0.647 vs 0.599** for random intervention targeting, with fewer interventions (**1.83 vs 2.90**). The paired F1 gain was **+0.048**, bootstrap 95% CI **[+0.015,+0.082]**, one-sided Wilcoxon **p=0.00195**. The pinned replay committed in this repository reproduces the aggregate result exactly.
 
@@ -152,7 +152,152 @@ This is not a sample-efficiency superiority result. HyperCube-SE reports approxi
 
 Two dedicated literature searches did not identify an exact predecessor for the full equation-discovery -> theorem-routing -> representation-conditioned experimental-design chain, but absence from search is not proof of priority. The supported status is therefore **a plausibly novel integrated methodology with third-party end-to-end validation**, not a certified field-first breakthrough.
 
-## 7. Active causal discovery
+## 7. Translation-base reconstruction without family labels
+
+The external theorem-routing study still selected from a named representation
+taxonomy. We therefore tested a stricter question: can a useful algebraic
+representation be discovered directly from how an unknown operation acts on its
+carrier, without first classifying it as a group, quandle, subtraction law, or
+other named family?
+
+For a finite operation `F:SxS->S`, define the left translation
+
+```
+L_x(y)=F(x,y).
+```
+
+THEORICA queries a small number of complete translations. If they are
+permutations, it generates their permutation group and computes a base `B`
+for that action. The image tuple of `B` uniquely identifies a permutation
+inside the generated group. The scientist therefore queries every remaining
+carrier element only on the base. A translation whose signature is missing,
+ambiguous, or collides with another carrier element triggers acquisition of
+that row in full.
+
+### Conditional reconstruction theorem
+
+Suppose all left translations lie in a permutation group `G`, the map
+`x -> L_x` is injective, `G` is generated by `r` translations, and
+the action has a base of size `b`. Querying the `r` generator rows and the
+`b` base images of every carrier element reconstructs the full operation
+using at most
+
+```
+n(r+b)
+```
+
+oracle values before validation.
+
+A matching information-theoretic argument gives linear lower-bound scaling on a
+natural promise subclass. If `|G|=|S|=n`, every bijection
+`lambda:S->G` defines `F_lambda(x,y)=lambda(x)(y)`, yielding `n!`
+possible tables. Since one query returns one of `n` symbols, any exact
+learner requires
+
+```
+q >= log_n(n!) = Omega(n).
+```
+
+Thus the `O(n)` scaling is order-optimal whenever `r+b=O(1)`.
+
+### Frozen failure and correction
+
+The first 100-repeat external implementation did not pass its frozen gate. It
+reconstructed 480/500 expected compact-action cases. The failure exposed a
+missing premise in the code and theorem: a base signature can uniquely identify
+an element *within the current generated group* while several carrier elements
+still collapse onto that same translation.
+
+The corrected implementation explicitly enforces faithfulness of
+`x -> L_x`. Signature collisions cause another unresolved translation to be
+queried rather than premature acceptance or rejection. A regression test forces
+cyclic addition to begin with its identity translation, the degenerate case
+that exposed the error.
+
+### External BOC holdout
+
+The corrected method was frozen and run on the same 11 published Binary
+Operation Completion operations, with **100 independent acquisition seeds per
+operation**. The learner received no family labels.
+
+| Metric | Corrected frozen result |
+|---|---:|
+| Task/repeat cases | **1,100** |
+| Correct accept/reject decisions | **1,100/1,100** |
+| Expected compact-action cases | 500 |
+| Accepted compact-action cases | **500/500** |
+| Exact complete reconstructions | **500/500** |
+| Other cases | 600 |
+| Unexpected acceptances | **0/600** |
+
+Five algebraically different operations were reconstructed by the same learner:
+
+| Operation | Mean query fraction of full table |
+|---|---:|
+| modular addition | **2.752%** |
+| modular subtraction | **4.761%** |
+| S5 composition | **3.377%** |
+| S5 conjugation | **4.616%** |
+| S5 sandwich `aba` | **6.501%** |
+
+These are chosen-query measurements, so they are not a direct sample-efficiency
+comparison with passive table-completion systems.
+
+### Automatic action-law compression
+
+After reconstructing the action representation, THEORICA searches a short word
+language over
+
+```
+X=L_x, Y=L_y, x=L_x^{-1}, y=L_y^{-1}.
+```
+
+If `F(t,t)` is a carrier-wide constant `c`, it also permits
+`C=L_c` and its inverse.
+
+The following identities were discovered and then verified exhaustively over
+the complete reconstructed external tables:
+
+| Operation | Recovered translation identity |
+|---|---|
+| modular addition | `L_F(x,y)=XY` |
+| modular subtraction | `L_F(x,y)=XYC`, `c=0` |
+| S5 composition | `L_F(x,y)=XY` |
+| S5 conjugation | `L_F(x,y)=XYx` |
+| S5 sandwich `aba` | `L_F(x,y)=XYX` |
+
+The conjugation relation is classical rack/quandle mathematics; the claim is
+not that these identities are new. The research object is the family-agnostic
+**discovery and reconstruction procedure** that reaches them without a supplied
+algebraic label.
+
+### Priority audit
+
+A dedicated hostile search covered black-box group/ring recovery, Cayley-table
+completion, quasigroups and loops, racks and quandles, multiplication/operator
+groups, permutation-group base algorithms, active algebraic learning, and
+operation-table machine learning.
+
+The search found the constituent mathematics separately:
+
+- specialized black-box Abelian-group recovery with linear query complexity;
+- classical Sims/Leon permutation bases and strong generating sets;
+- permutation representations and translation identities for racks/quandles;
+- specialized neural group-representation learning for partial operation
+  tables.
+
+It did **not** identify an earlier family-agnostic operation learner that
+combines acquired translation generators, automatic permutation-group base
+construction, base-image experiments for every unknown translation, adaptive
+row acquisition, exact table reconstruction across multiple operation
+families, and automatic action-law compression. It also did not locate the same
+conditional `n(r+b)` reconstruction guarantee.
+
+This is evidence for priority, not historical proof. The supported wording is
+therefore **plausible first-priority field-level methodological contribution**,
+not certified first-ever publication.
+
+## 8. Active causal discovery
 
 THEORICA maintains a separate causal branch because graph orientation is not the same problem as equation fitting. The causal scientist estimates an observational skeleton with conditional-independence tests, orients available v-structures, applies Meek-style closure, and then spends an intervention budget on unresolved relationships.
 
@@ -183,7 +328,7 @@ The native replay inside this repository reproduces these aggregate values exact
 
 This is not an official ACDB leaderboard submission and does not use the paper's canonical leaderboard seed panel.
 
-## 8. Native DiscoverPhysics trajectory evaluation
+## 9. Native DiscoverPhysics trajectory evaluation
 
 DiscoverPhysics places scientific agents in unfamiliar simulated physical worlds, lets them design experiments, and evaluates executable discovered laws on held-out trajectories plus a separate explanation axis.
 
@@ -226,7 +371,7 @@ The Coulomb failure was published before any Coulomb-specific retuning.
 
 The supported claim is limited to four trajectory-axis passes on this selected compatible panel. It is **not** an 80% overall DiscoverPhysics score, not a full benchmark pass, and not a frontier-model comparison.
 
-## 9. Instrument reasoning and identifiability
+## 10. Instrument reasoning and identifiability
 
 An earlier design allowed drift and calibration nuisance parameters in every model. That reduced accuracy because physical parameters and instrument parameters can be non-identifiable under small experiment budgets.
 
@@ -234,7 +379,7 @@ The current instrument critic is evidence-gated: it opens a fault hypothesis onl
 
 This motivates the physical phase because a real apparatus forces the agent to distinguish **the world changed** from **the instrument changed**.
 
-## 10. Preregistered physical phase
+## 11. Preregistered physical phase
 
 The next decisive experiment is designed before official hardware data exist.
 
@@ -257,19 +402,19 @@ The first preregistered success criterion is:
 
 Later tasks add angular bias, source drift, sparse outliers, detector saturation, and composite faults.
 
-## 11. Zero-personal-spend constraint
+## 12. Zero-personal-spend constraint
 
 THEORICA is being built under a hard rule: **₹0 personal spend by the author**.
 
 No paid API, compute subscription, hardware purchase, publication fee, domain, or competition fee is required. Any paid resource used in future official work must be supplied through a genuinely free tier, grant, sponsor, collaborator, institution, or in-kind support.
 
-## 12. Limitations
+## 13. Limitations
 
 THEORICA remains a bounded prototype.
 
 - The symbolic grammar is not unrestricted theorem proving or program synthesis.
 - The spectral-closure result demonstrates only one periodic operator-family expansion and does not establish universal grammar induction.
-- The structural-discovery result uses established ingredients from equational theory exploration, representation theorems, and active learning. External falsification found no exact predecessor for the complete routing loop, but the full loop has not yet been validated end-to-end on a third-party benchmark; a field-first or groundbreaking claim is therefore not supported.
+- The structural-discovery result uses established ingredients from equational theory exploration, representation theorems, and active learning. The later translation-base result has third-party end-to-end validation and a targeted priority search found no exact predecessor, but certified first-publication priority and peer-reviewed field acceptance remain unestablished.
 - Low predictive error may hide non-equivalent explanations.
 - The multivariate suite is low-dimensional.
 - The causal policy has not been shown superior to every classical intervention strategy.
