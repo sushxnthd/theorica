@@ -338,3 +338,89 @@ A field-level claim should wait for an external benchmark where THEORICA must
 discover the structure, route itself to the representation, and use that
 representation to outperform representation-agnostic active baselines without
 being told the algebraic family in advance.
+
+
+## 7. External end-to-end routing on published BOC operations
+
+The first external audit validated only the equation-mining stage. We therefore
+froze a second experiment that evaluates the **full surviving loop** on the same
+published Binary Operation Completion task family.
+
+For every task THEORICA receives only black-box pair queries. It is not told
+which operations are groups.
+
+The procedure:
+
+1. generically evaluates 66 terms over x,y,z with at most two uses of F;
+2. infers whether associativity is empirically supported from the term
+   signatures;
+3. only for associative candidates, searches for and validates a two-sided
+   identity;
+4. actively acquires right-multiplication actions for generators;
+5. checks that the learned actions are bijections;
+6. constructs words for the entire carrier under learned generator actions and
+   their inverses;
+7. reconstructs the complete multiplication table **without further table
+   queries**;
+8. otherwise abstains.
+
+Ground truth is consulted only after discovery for scoring.
+
+The frozen clean run used **100 repetitions of all 11 external tasks**.
+
+| Metric | Result |
+|---|---:|
+| Task/repeat cases | **1,100** |
+| Correct route decisions | **1,100/1,100** |
+| True-group cases | 200 |
+| True-group cases accepted | **200/200** |
+| Non-group cases | 900 |
+| Non-group cases abstained | **900/900** |
+| Exact full-table reconstructions | **200/200 accepted cases** |
+| Fixed generic-mining cost | 756 oracle calls/task |
+
+For modular addition on 97 elements, complete reconstruction used **991**
+oracle calls on every run, equal to **10.53%** of the 9,409-entry table.
+
+For S5 composition on 120 elements, complete reconstruction used mean
+**1,221.8** calls (median **1,157**, range **1,157–1,397**), equal to
+**8.48%** of the 14,400-entry table on average. The learned right-regular
+representation used 2.54 generators on average.
+
+Clean workflow:
+https://github.com/sushxnthd/theorica/actions/runs/36125334978
+
+Artifact:
+https://github.com/sushxnthd/theorica/actions/runs/36125334978/artifacts/10858793652
+
+### Hostile comparison with HyperCube-SE
+
+This end-to-end result closes the earlier external-validation gap, but it does
+**not** establish sample-efficiency superiority. Huh (ICLR 2025) reports that
+HyperCube-SE requires approximately **5%** of the operation table to attain
+perfect test accuracy on group operations when the group-representation bias is
+built into the model in advance. THEORICA's total costs here are approximately
+8.5–10.5% of the full table because they include the cost of first deciding
+whether the group representation is appropriate.
+
+That distinction is the scientific point being tested, not a leaderboard win:
+HyperCube-SE is a stronger specialized learner once the useful algebraic bias is
+chosen; THEORICA pays extra measurements to infer whether that bias should be
+used at all.
+
+### Revised external status
+
+The statement in the previous section that the full loop had not yet been
+demonstrated on a third-party benchmark is superseded by this frozen run.
+
+The externally supported claim is now:
+
+> On the published BOC operation family, a generic empirical equation-mining
+> stage can route previously unlabeled tasks into or away from a group
+> representation, and on routed group tasks a representation-directed
+> acquisition procedure can exactly reconstruct the hidden operation while
+> abstaining on the tested non-group operations.
+
+This materially strengthens the integration hypothesis. It still does **not**
+prove field-first priority, universal algebraic routing, or superiority to
+specialized algebraic learners.
