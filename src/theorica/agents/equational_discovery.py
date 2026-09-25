@@ -339,18 +339,20 @@ def _bisymmetry_stress_p95(
     lo, hi = map(float, domain)
     span = max(hi - lo, 1e-12)
     mid = 0.5 * (lo + hi)
-    q1 = lo + 0.25 * span
-    q3 = lo + 0.75 * span
+    safe_lo = lo + 0.08 * span
+    safe_hi = hi - 0.08 * span
+    q1 = lo + 0.28 * span
+    q3 = lo + 0.72 * span
 
     quadruples = [
-        (hi, hi, q3, lo),
-        (lo, lo, q1, hi),
-        (hi, hi, mid, lo),
-        (lo, lo, mid, hi),
-        (hi, lo, hi, q3),
-        (lo, hi, lo, q1),
-        (q3, hi, lo, hi),
-        (q1, lo, hi, lo),
+        (safe_hi, safe_hi, q3, safe_lo),
+        (safe_lo, safe_lo, q1, safe_hi),
+        (safe_hi, safe_hi, mid, safe_lo),
+        (safe_lo, safe_lo, mid, safe_hi),
+        (safe_hi, safe_lo, safe_hi, q3),
+        (safe_lo, safe_hi, safe_lo, q1),
+        (q3, safe_hi, safe_lo, safe_hi),
+        (q1, safe_lo, safe_hi, safe_lo),
     ]
     residuals = []
     for x, y, z, w in quadruples:
@@ -419,10 +421,16 @@ def query_efficient_theorem_route(
         repeat_noise = 0.0
 
     thresholds = {
-        "commutativity": max(0.008, 1.5 * repeat_noise),
-        "idempotence": max(0.006, 1.1 * repeat_noise),
-        "associativity": max(0.012, 2.0 * repeat_noise),
-        "bisymmetry": max(0.012, 2.0 * repeat_noise),
+        # Direct two-call equality. The repeat-noise estimate itself is based
+        # on a small sample, so keep a finite calibration margin.
+        "commutativity": max(0.008, 2.7 * repeat_noise),
+        # One noisy output is compared with a noiseless input.
+        "idempotence": max(0.006, 1.5 * repeat_noise),
+        # Nested identities propagate noise through multiple oracle calls and
+        # through the operation's local slope. These factors are deliberately
+        # conservative; adversarial near-laws are handled by stress probes.
+        "associativity": max(0.012, 3.0 * repeat_noise),
+        "bisymmetry": max(0.012, 3.0 * repeat_noise),
         "monotonicity_margin": max(0.001, 1.2 * repeat_noise),
     }
 
