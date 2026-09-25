@@ -1,0 +1,388 @@
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Callable
+
+import numpy as np
+
+
+@dataclass(frozen=True)
+class OperationTerm:
+    kind: str
+    left: "OperationTerm | None" = None
+    right: "OperationTerm | None" = None
+    name: str | None = None
+
+    def __str__(self) -> str:
+        if self.kind == "var":
+            return str(self.name)
+        return f"F({self.left},{self.right})"
+
+
+@dataclass
+class EquationalTheory:
+    identities: list[tuple[str, str]]
+    commutative: bool
+    associative: bool
+    idempotent: bool
+    family: str
+    assignments: int
+
+
+@dataclass
+class CoordinateModel:
+    knots: np.ndarray
+    generator: np.ndarray
+    coefficient: float
+
+    def predict(self, x, y):
+        x = np.asarray(x, dtype=float)
+        y = np.asarray(y, dtype=float)
+        gx = np.interp(x, self.knots, self.generator)
+        gy = np.interp(y, self.knots, self.generator)
+        target = self.coefficient * gx + self.coefficient * gy
+        order = np.argsort(self.generator)
+        return np.interp(target, self.generator[order], self.knots[order])
+
+
+def _op_count(term: OperationTerm) -> int:
+    if term.kind == "var":
+        return 0
+    return 1 + _op_count(term.left) + _op_count(term.right)
+
+
+def enumerate_terms(max_operations: int = 2) -> list[OperationTerm]:
+    variables = [
+        OperationTerm("var", name="x"),
+        OperationTerm("var", name="y"),
+        OperationTerm("var", name="z"),
+    ]
+    by_count: dict[int, list[OperationTerm]] = {0: variables}
+    all_terms = list(variables)
+
+    for count in range(1, int(max_operations) + 1):
+        generated: dict[str, OperationTerm] = {}
+        for left_count in range(count):
+            right_count = count - 1 - left_count
+            for left in by_count[left_count]:
+                for right in by_count[right_count]:
+                    term = OperationTerm("op", left=left, right=right)
+                    generated[str(term)] = term
+        by_count[count] = list(generated.values())
+        all_terms.extend(by_count[count])
+    return all_terms
+
+
+def _evaluate_term(
+    term: OperationTerm,
+    assignment: dict[str, float],
+    oracle: Callable[[float, float], float],
+    domain: tuple[float, float],
+    cache: dict[str, float],
+):
+    key = str(term)
+    if key in cache:
+        return cache[key]
+
+    if term.kind == "var":
+        value = float(assignment[str(term.name)])
+    else:
+        a = _evaluate_term(term.left, assignment, oracle, domain, cache)
+        b = _evaluate_term(term.right, assignment, oracle, domain, cache)
+        if not (np.isfinite(a) and np.isfinite(b)):
+            value = np.nan
+        else:
+            try:
+                value = float(oracle(float(a), float(b)))
+            except Exception:
+                value = np.nan
+            if not np.isfinite(value) or not (domain[0] <= value <= domain[1]):
+                value = np.nan
+
+    cache[key] = value
+    return value
+
+
+class EquationalTheoryMiner:
+    """Enumerate shallow terms over an unknown operation and mine empirical identities.
+
+    The miner does not call bespoke tests for associativity, commutativity, or
+    idempotence. It evaluates the full bounded term language and identifies pairs
+    of terms whose observed functions are indistinguishable under the frozen
+    noise tolerance. Named structural properties are read only after the generic
+    equivalence relation has been mined.
+    """
+
+    def __init__(
+        self,
+        *,
+        max_operations: int = 2,
+        p95_tolerance: float = 0.02,
+        min_common_fraction: float = 0.20,
+    ):
+        self.max_operations = int(max_operations)
+        self.p95_tolerance = float(p95_tolerance)
+        self.min_common_fraction = float(min_common_fraction)
+
+    def mine(
+        self,
+        oracle: Callable[[float, float], float],
+        domain: tuple[float, float],
+        *,
+        assignments: int = 20,
+        seed: int = 0,
+    ) -> EquationalTheory:
+        terms = enumerate_terms(self.max_operations)
+        rng = np.random.default_rng(seed)
+        values = np.full((assignments, len(terms)), np.nan, dtype=float)
+
+        for row in range(assignments):
+            assignment = {
+                "x": float(rng.uniform(*domain)),
+                "y": float(rng.uniform(*domain)),
+                "z": float(rng.uniform(*domain)),
+            }
+            cache: dict[str, float] = {}
+            for col, term in enumerate(terms):
+                values[row, col] = _evaluate_term(
+                    term, assignment, oracle, domain, cache
+                )
+
+        span = max(float(domain[1] - domain[0]), 1e-12)
+        identities: list[tuple[str, str]] = []
+        for i in range(len(terms)):
+            for j in range(i + 1, len(terms)):
+                common = np.isfinite(values[:, i]) & np.isfinite(values[:, j])
+                if float(np.mean(common)) < self.min_common_fraction:
+                    continue
+                residual = np.abs(values[common, i] - values[common, j]) / span
+                if float(np.quantile(residual, 0.95)) <= self.p95_tolerance:
+                    identities.append((str(terms[i]), str(terms[j])))
+
+        equivalence = set(identities)
+        equivalence |= {(b, a) for a, b in identities}
+
+        commutative = ("F(x,y)", "F(y,x)") in equivalence
+        associative = ("F(F(x,y),z)", "F(x,F(y,z))") in equivalence
+        idempotent = ("x", "F(x,x)") in equivalence
+
+        if associative and commutative and idempotent:
+            family = "commutative_semilattice"
+        elif associative and commutative and not idempotent:
+            family = "additive_generator_candidate"
+        elif commutative and idempotent and not associative:
+            family = "quasi_arithmetic_mean_candidate"
+        else:
+            family = "unresolved"
+
+        return EquationalTheory(
+            identities=identities,
+            commutative=commutative,
+            associative=associative,
+            idempotent=idempotent,
+            family=family,
+            assignments=int(assignments),
+        )
+
+
+def _interp_weights(values, knots):
+    values = np.atleast_1d(np.asarray(values, dtype=float))
+    indices = np.searchsorted(knots, values, side="right") - 1
+    indices = np.clip(indices, 0, len(knots) - 2)
+    frac = (values - knots[indices]) / np.maximum(
+        knots[indices + 1] - knots[indices], 1e-15
+    )
+    W = np.zeros((len(values), len(knots)), dtype=float)
+    rows = np.arange(len(values))
+    W[rows, indices] = 1.0 - frac
+    W[rows, indices + 1] = frac
+    return W
+
+
+def _coordinate_system(
+    samples: np.ndarray,
+    domain: tuple[float, float],
+    coefficient: float,
+    *,
+    n_knots: int,
+    smoothness: float,
+):
+    samples = np.asarray(samples, dtype=float)
+    lo, hi = map(float, domain)
+    knots = np.linspace(lo, hi, int(n_knots))
+
+    A = (
+        _interp_weights(samples[:, 2], knots)
+        - coefficient * _interp_weights(samples[:, 0], knots)
+        - coefficient * _interp_weights(samples[:, 1], knots)
+    )
+
+    D = np.zeros((len(knots) - 2, len(knots)), dtype=float)
+    for i in range(len(D)):
+        D[i, i : i + 3] = [1.0, -2.0, 1.0]
+
+    if abs(2.0 * coefficient - 1.0) < 1e-10:
+        # Quasi-arithmetic means have affine coordinate ambiguity. Fix both
+        # offset and scale with two anchors.
+        Wlo = _interp_weights([lo], knots)
+        Whi = _interp_weights([hi], knots)
+        design = np.vstack([A, np.sqrt(smoothness) * D, 100.0 * Wlo, 100.0 * Whi])
+        target = np.concatenate(
+            [np.zeros(len(A) + len(D)), np.asarray([0.0, 100.0])]
+        )
+        regularizer = (
+            smoothness * (D.T @ D)
+            + 10000.0 * (Wlo.T @ Wlo + Whi.T @ Whi)
+        )
+    else:
+        anchor = lo + 0.68 * (hi - lo)
+        Wa = _interp_weights([anchor], knots)
+        design = np.vstack([A, np.sqrt(smoothness) * D, 100.0 * Wa])
+        target = np.concatenate(
+            [np.zeros(len(A) + len(D)), np.asarray([100.0])]
+        )
+        regularizer = smoothness * (D.T @ D) + 10000.0 * (Wa.T @ Wa)
+
+    generator, *_ = np.linalg.lstsq(design, target, rcond=None)
+    if np.corrcoef(knots, generator)[0, 1] < 0:
+        generator = -generator
+    return knots, generator, A, regularizer
+
+
+def fit_coordinate(
+    samples: np.ndarray,
+    domain: tuple[float, float],
+    coefficient: float,
+    *,
+    n_knots: int = 31,
+    smoothness: float = 3.0,
+) -> CoordinateModel:
+    knots, generator, _, _ = _coordinate_system(
+        samples,
+        domain,
+        float(coefficient),
+        n_knots=n_knots,
+        smoothness=smoothness,
+    )
+    return CoordinateModel(knots, generator, float(coefficient))
+
+
+def representation_coefficient(theory: EquationalTheory) -> float | None:
+    """Infer the latent affine coefficient from the mined identities.
+
+    Associative non-idempotent commutative operations use the additive-generator
+    form g(F)=g(x)+g(y). For a commutative idempotent mean, substituting x=y
+    into g(F)=c(g(x)+g(y)) forces c=1/2.
+    """
+    if theory.family == "additive_generator_candidate":
+        return 1.0
+    if theory.family == "quasi_arithmetic_mean_candidate":
+        return 0.5
+    return None
+
+
+def _valid_observation(
+    oracle: Callable[[float, float], float],
+    x: float,
+    y: float,
+    domain: tuple[float, float],
+):
+    try:
+        z = float(oracle(float(x), float(y)))
+    except Exception:
+        return None
+    if not np.isfinite(z) or not (domain[0] <= z <= domain[1]):
+        return None
+    return z
+
+
+def random_operation_samples(
+    oracle: Callable[[float, float], float],
+    domain: tuple[float, float],
+    *,
+    count: int,
+    seed: int,
+):
+    rng = np.random.default_rng(seed)
+    lo, hi = map(float, domain)
+    rows = []
+    while len(rows) < int(count):
+        x, y = rng.uniform(lo, hi, size=2)
+        z = _valid_observation(oracle, x, y, domain)
+        if z is not None:
+            rows.append((float(x), float(y), float(z)))
+    return np.asarray(rows, dtype=float)
+
+
+def active_coordinate_samples(
+    oracle: Callable[[float, float], float],
+    domain: tuple[float, float],
+    coefficient: float,
+    *,
+    budget: int = 20,
+    initial: int = 8,
+    seed: int = 0,
+    n_knots: int = 31,
+    smoothness: float = 3.0,
+    candidate_pool: int = 180,
+):
+    """Choose experiments by information gain about the latent coordinate.
+
+    For the current linearized coordinate constraints, a candidate row a has
+    one-step Gaussian information gain proportional to log(1+a^T C a), where C
+    is the current coefficient covariance. We therefore rank candidate
+    experiments by a^T C a rather than by output-prediction variance.
+    """
+    rng = np.random.default_rng(seed)
+    samples = random_operation_samples(
+        oracle, domain, count=int(initial), seed=int(seed)
+    )
+    lo, hi = map(float, domain)
+
+    while len(samples) < int(budget):
+        knots, generator, A, regularizer = _coordinate_system(
+            samples,
+            domain,
+            float(coefficient),
+            n_knots=n_knots,
+            smoothness=smoothness,
+        )
+        covariance = np.linalg.pinv(
+            A.T @ A + regularizer + 1e-8 * np.eye(len(knots))
+        )
+        model = CoordinateModel(knots, generator, float(coefficient))
+
+        proposals = []
+        for _ in range(int(candidate_pool)):
+            x, y = rng.uniform(lo, hi, size=2)
+            z_pred = float(model.predict(x, y))
+            if not (lo <= z_pred <= hi):
+                continue
+            row = (
+                _interp_weights([z_pred], knots)[0]
+                - coefficient * _interp_weights([x], knots)[0]
+                - coefficient * _interp_weights([y], knots)[0]
+            )
+            score = float(row @ covariance @ row)
+            proposals.append((score, float(x), float(y)))
+
+        proposals.sort(reverse=True)
+        observation = None
+        for _, x, y in proposals[: max(25, len(proposals))]:
+            z = _valid_observation(oracle, x, y, domain)
+            if z is not None:
+                observation = (x, y, z)
+                break
+
+        if observation is None:
+            extra = random_operation_samples(
+                oracle,
+                domain,
+                count=1,
+                seed=int(rng.integers(0, 2**31 - 1)),
+            )[0]
+            observation = tuple(float(v) for v in extra)
+
+        samples = np.vstack([samples, np.asarray(observation, dtype=float)])
+
+    return samples
