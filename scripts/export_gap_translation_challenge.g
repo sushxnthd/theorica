@@ -19,6 +19,9 @@ if LoadPackage("RightQuasigroups") = fail then
     Error("RightQuasigroups is required");
 fi;
 
+# Prevent GAP from inserting line-continuation backslashes into long table strings.
+SizeScreen([1000000,1000000]);
+
 out := "results/translation_action_challenge_v1.tsv";
 PrintTo(out, "");
 
