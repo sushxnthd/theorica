@@ -1,0 +1,23 @@
+name: external-boc-equational-audit
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/external_boc_equational_audit.py"
+      - ".github/workflows/external_boc_equational_audit.yml"
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e ".[dev]"
+      - run: python scripts/external_boc_equational_audit.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: external-boc-equational-audit
+          path: results/external_boc_equational_audit.json
