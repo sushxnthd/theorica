@@ -96,7 +96,7 @@ for spec in quandleSpecs do
         table := TransposedMat(MultiplicationTable(Q));
         Emit(
             Concatenation("smallquandle_op_", String(n), "_", String(id)),
-            "RightQuasigroups:SmallQuandle:opposite",
+            "RQ:SmallQuandle:op",
             n,
             id,
             table
@@ -117,7 +117,7 @@ for n in [6, 7, 8, 9] do
                 "faithful_connected_quandle_op_",
                 String(n), "_filtered_", String(id)
             ),
-            "RightQuasigroups:ConnectedQuandle:faithful:opposite",
+            "RQ:FaithfulQuandle:op",
             n,
             id,
             table
@@ -132,7 +132,7 @@ for id in [1..5] do
     L := SmallLoop(5, id);
     Emit(
         Concatenation("smallloop_5_", String(id)),
-        "RightQuasigroups:SmallLoop",
+        "RQ:SmallLoop",
         5,
         id,
         MultiplicationTable(L)
@@ -144,7 +144,7 @@ for id in ids do
     L := SmallLoop(6, id);
     Emit(
         Concatenation("smallloop_6_", String(id)),
-        "RightQuasigroups:SmallLoop",
+        "RQ:SmallLoop",
         6,
         id,
         MultiplicationTable(L)
