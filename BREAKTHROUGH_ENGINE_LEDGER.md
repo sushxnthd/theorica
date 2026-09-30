@@ -77,3 +77,22 @@ A fresh Monte Carlo development grid used n=41 symmetric observations, R in {0.0
 Interpretation: the earlier rational/log confusion has a quantitative information-theoretic explanation in this controlled case. The certificate is not yet general enough for a breakthrough claim because parameters are known and only two fixed families are compared. The critical next falsification is whether a conservative certificate remains calibrated after nuisance parameters are estimated from the same noisy data and across >2 operator families. Only after that development problem is solved should gates and unopened confirmation tasks be frozen.
 
 Prior-art boundary tightened on 2026-09-25: recent work already treats robust structural identifiability under noise for equation/PDE recovery, optimal experiment design for model discrimination, and structural-identifiability-aware symbolic regression. Therefore novelty cannot rest on 'identifiability under noise' itself. Any eventual contribution must be specifically about a calibrated, operational abstention certificate for grammar expansion in autonomous symbolic discovery, with prospective false-expansion control and evidence that it adds something not provided by existing identifiability/model-discrimination methods.
+
+
+## 2026-09-30: exact composite-family multiplicity counterexample
+
+Status: high-value negative result; no holdout opened.
+
+The preceding plug-in-certificate failures suggested that a certificate based only on minimum separation between competing fitted/model-family sets might be salvageable. An exact Gaussian counterexample rules out any nontrivial universal certificate that depends only on minimum set separation and noise.
+
+Let M0={0} in R^d and M1={+/- a e_j : j=1,...,d}. Observe Y=mu+epsilon with epsilon~N(0,sigma^2 I), and classify by nearest model set. Every alternative in M1 is exactly distance a from M0, so the minimum inter-set separation is a for every d. Conditional on mu=0, an error occurs iff some coordinate satisfies |epsilon_j| >= a/2. Therefore the exact correctness probability is
+
+P(correct | M0) = [2 Phi(a/(2 sigma)) - 1]^d.
+
+For every fixed finite a/sigma this tends to zero as d grows, despite unchanged minimum separation a. Hence no positive lower bound on composite-family nearest-set correctness can be a function of minimum separation/noise alone, uniformly over alternative-family multiplicity/geometry. The fixed two-template certificate Phi(||d||/(2 sigma)) does not extend to composite grammar families by simply replacing ||d|| with minimum set distance.
+
+Independent numerical check (NumPy RNG seed 20260930, 200,000 samples per dimension) at a/(2 sigma)=2 gave exact vs Monte Carlo correctness: d=1 0.95450/0.95417; d=2 0.91107/0.91187; d=4 0.83005/0.82925; d=8 0.68898/0.68922; d=16 0.47469/0.47587; d=32 0.22533/0.22572; d=64 0.05078/0.05040.
+
+Mechanistic implication: the missing variable is not another scalar correction to pairwise separation. Composite grammar expansion incurs an alternative-volume/multiplicity effect (more generally, Gaussian complexity/metric entropy of the competing model set). Any defensible abstention certificate must control the supremum of noise projections over the alternative family, or an equivalent family-complexity quantity, not merely closest-family distance.
+
+Claim boundary: this counterexample is exact and self-verifiable but is not claimed as a novel theorem; it is a decisive falsification of the branch's distance-only certificate strategy. The next research step, if this branch continues, is to test a formally justified complexity-aware risk bound rather than invent another empirical scalar phase variable.
