@@ -1,0 +1,35 @@
+name: translation-completeness-certificate
+
+on:
+  push:
+    branches: [breakthrough-engine/nonfaithful-reconstruction-boundary-20261013]
+    paths:
+      - scripts/verify_translation_completeness_certificate.py
+      - scripts/audit_translation_completeness_certificate.py
+      - src/theorica/agents/translation_certificate.py
+      - tests/test_translation_certificate.py
+      - docs/TRANSLATION_COMPLETENESS_CERTIFICATE_PREREGISTRATION.md
+      - .github/workflows/translation-completeness-certificate.yml
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -e . pytest
+      - name: Primary exhaustive verifier
+        run: python scripts/verify_translation_completeness_certificate.py --max-n 8 --output translation-completeness-boundary.json
+      - name: Independent constructive audit
+        run: python scripts/audit_translation_completeness_certificate.py --max-n 64 --output translation-completeness-audit.json
+      - name: Production certificate tests
+        run: pytest -q tests/test_translation_certificate.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: translation-completeness-certificate
+          path: |
+            translation-completeness-boundary.json
+            translation-completeness-audit.json
