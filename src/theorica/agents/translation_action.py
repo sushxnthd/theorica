@@ -20,6 +20,62 @@ class TranslationActionResult:
     translation_index: dict[int, int] | None
 
 
+def reconstruct_from_translation_generators(
+    oracle: Callable[[int, int], int],
+    carrier_size: int,
+    generator_rows: Iterable[int],
+    *,
+    max_group_size: int = 20000,
+    max_base_size: int = 12,
+) -> TranslationActionResult:
+    """Exactly reconstruct under a certified translation-group promise.
+
+    Preconditions are semantic, not inferred by this routine: the supplied
+    complete rows generate a permutation group containing every true left
+    translation.  Under that promise, a group base identifies each row even
+    when several carrier elements induce the same translation.  Thus
+    faithfulness of ``x -> L_x`` is deliberately *not* required.
+
+    The routine uses exactly ``r*n + (n-r)*b`` distinct oracle values, where
+    ``r`` is the number of distinct supplied row indices and ``b`` is the
+    computed base size (subject to cache overlap).
+    """
+    n = int(carrier_size)
+    if n <= 0:
+        raise ValueError("carrier_size must be positive")
+    rows = tuple(dict.fromkeys(int(x) for x in generator_rows))
+    if not rows or any(not 0 <= x < n for x in rows):
+        raise ValueError("generator_rows must be nonempty carrier indices")
+    counted = CachedFiniteOracle(oracle, n)
+    generators = []
+    for x in rows:
+        action = counted.row(x)
+        if not is_permutation(action):
+            return TranslationActionResult(False, "non_bijective_generator", counted.calls,
+                len(rows), 0, tuple(), 0, None, None)
+        generators.append(action)
+    group = permutation_group_closure(generators, max_size=max_group_size)
+    if group is None:
+        return TranslationActionResult(False, "translation_group_exceeds_cap", counted.calls,
+            len(rows), max_group_size + 1, tuple(), 0, None, None)
+    base = greedy_permutation_base(group, n, max_base_size=max_base_size)
+    if base is None:
+        return TranslationActionResult(False, "no_small_permutation_base", counted.calls,
+            len(rows), len(group), tuple(), 0, None, None)
+    signature_index = _signature_index(group, base)
+    translation_index = {}
+    for x in range(n):
+        signature = tuple(counted(x, b) for b in base)
+        matches = signature_index.get(signature, [])
+        if len(matches) != 1:
+            return TranslationActionResult(False, "generator_promise_not_identifiable", counted.calls,
+                len(rows), len(group), base, 0, None, None)
+        translation_index[x] = int(matches[0])
+    reconstructed = np.stack([group[translation_index[x]] for x in range(n)], axis=0)
+    return TranslationActionResult(True, "certified_translation_action_recovered", counted.calls,
+        len(rows), len(group), base, 0, reconstructed, translation_index)
+
+
 class CachedFiniteOracle:
     """Cache chosen queries to a deterministic finite binary-operation oracle."""
 

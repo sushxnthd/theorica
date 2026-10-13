@@ -1,0 +1,55 @@
+{
+  "by_n": {
+    "1": {
+      "failures": 0,
+      "faithful": 1,
+      "nonfaithful": 0,
+      "operations": 1
+    },
+    "2": {
+      "failures": 0,
+      "faithful": 2,
+      "nonfaithful": 2,
+      "operations": 4
+    },
+    "3": {
+      "failures": 0,
+      "faithful": 120,
+      "nonfaithful": 96,
+      "operations": 216
+    },
+    "4": {
+      "failures": 0,
+      "faithful": 255024,
+      "nonfaithful": 76752,
+      "operations": 331776
+    }
+  },
+  "canonical_sha256": "28646f21b4cdc2dde89355be9bfb1a37d81b5dfcc27ee472912c94fa43b24e56",
+  "expected_operations": 331997,
+  "failures": [],
+  "first_nonfaithful": {
+    "base": [],
+    "generator_rows": [
+      0
+    ],
+    "group_size": 1,
+    "n": 2,
+    "queries": 2,
+    "table": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ]
+    ]
+  },
+  "implementation": "independent_no_production_or_primary_checker_imports",
+  "max_n": 4,
+  "observed_operations": 331997,
+  "schema": "theorica.nonfaithful-translation-boundary.independent-audit.v1",
+  "status": "PASS"
+}

@@ -2,6 +2,7 @@ import numpy as np
 
 from theorica.agents.translation_action import (
     discover_translation_action_representation,
+    reconstruct_from_translation_generators,
 )
 
 
@@ -102,3 +103,27 @@ def test_validation_counterexample_refines_public_loop():
     assert result.accepted
     assert np.array_equal(result.reconstructed_table, table)
     assert result.queried_rows >= 2
+
+
+def test_certified_reconstruction_allows_repeated_identity_translations():
+    table = np.asarray([[0, 1], [0, 1]], dtype=np.int64)
+    result = reconstruct_from_translation_generators(
+        _table_oracle(table), 2, generator_rows=[0]
+    )
+    assert result.accepted
+    assert result.reason == "certified_translation_action_recovered"
+    assert np.array_equal(result.reconstructed_table, table)
+    assert result.oracle_calls == 2
+    assert result.base == tuple()
+
+
+def test_certified_reconstruction_allows_repeated_nonidentity_translation():
+    table = np.asarray(
+        [[1, 0, 2], [1, 0, 2], [0, 1, 2]], dtype=np.int64
+    )
+    result = reconstruct_from_translation_generators(
+        _table_oracle(table), 3, generator_rows=[0]
+    )
+    assert result.accepted
+    assert np.array_equal(result.reconstructed_table, table)
+    assert len(set(result.translation_index.values())) == 2
