@@ -2,7 +2,16 @@
 
 **Result date:** 13 October 2026  
 **Classification:** exact theorem correction + exhaustive finite verification + system capability  
-**Overall breakthrough gate:** **INCONCLUSIVE** (priority and external validation remain open)
+**Overall breakthrough gate:** **INCONCLUSIVE** (priority and automatic certificate acquisition remain open)
+
+## Prospective external validation update
+
+The frozen follow-up on previously unopened GAP RightQuasigroups catalogue
+cases passed all seven gates: 159/159 eligible nonfaithful quandles were
+reconstructed exactly by production and independent implementations, every
+case used fewer than `n^2` queries, and the median query reduction was 44.44%.
+The old learner rejected all 159.  See
+`docs/NONFAITHFUL_PUBLIC_CATALOGUE_RESULT.md`.
 
 ## Smallest supported claim
 
@@ -138,8 +147,8 @@ certified generator completeness.  It does not solve safe group discovery from
 an unknown nonfaithful operation, prove subquadratic behavior for large-base
 groups, or establish field-first priority.
 
-The cheapest decisive next experiment is a frozen public corpus of
-nonfaithful quandles/racks with hidden generator certificates, paired with a
-collision-refinement learner.  Success requires exact reconstruction without
-false acceptance on out-of-promise controls; failure should localize whether
-completeness certification or base growth is the limiting mechanism.
+The cheapest decisive next experiment is now certificate acquisition from
+partial queries, paired with out-of-promise controls.  Success requires exact
+reconstruction without false acceptance when the discovered subgroup is
+incomplete; failure should localize whether completeness certification or base
+growth is the limiting mechanism.

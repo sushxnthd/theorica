@@ -109,6 +109,13 @@ See `results/EXTERNAL_FALSIFICATION_REPORT.md`.
 - This correction expands the certified reconstruction capability; it does
   **not** establish that the existing automatic discovery heuristic can safely
   accept collisions before subgroup completeness is certified.
+- A separately frozen prospective evaluation selected 160 new GAP
+  RightQuasigroups catalogue IDs disjoint from the opened v1 nonfaithful
+  sample.  Of 159 eligible nonfaithful quandles, production and independent
+  implementations reconstructed **159/159 exactly**.  Every case used fewer
+  than `n^2` queries, with **44.44% median query reduction**, while the old
+  learner rejected all 159.  This validates the certified capability, not
+  automatic certificate acquisition.
 
 ### Supported
 
