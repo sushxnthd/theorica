@@ -1,5 +1,15 @@
 # Claim Boundaries
 
+## Rack-generated translation closure
+
+For a finite left rack whose algebraic promise is externally certified, full rows for a
+forward operation-generating seed set `S` exactly determine the table in `|S|*n` oracle
+calls via `L_(x*y)=L_x L_y L_x^-1`. This is a conditional reconstruction theorem and
+implemented capability. It is not a cheap black-box test that the operation is a rack,
+not a historical-first claim for the classical identity, and not a bound on the minimum
+size of a generating set. Without the rack promise, the generic near-quadratic
+completeness boundary remains in force.
+
 ## Supported now
 
 - A frozen equational-theory discovery branch correctly classified **125/125** noisy structural worlds spanning additive-generator, quasi-arithmetic-mean, semilattice, unresolved-control, and adversarial-decoy families. On 50 hidden-coordinate worlds, representation-aware active experimentation achieved median NRMSE **0.0006357** versus **0.001345** for random sampling in the same representation and **0.004679** for an active degree-6 polynomial baseline. An untouched confirmatory comparison against an active RBF Gaussian process won **39/40** paired worlds at a 20-query budget at both tested noise levels. A separately frozen theorem router achieved **125/125** correct routing at each of two noise levels with median **128** oracle calls.
