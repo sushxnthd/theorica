@@ -1,0 +1,38 @@
+name: adaptive-rack-seed-boundary
+
+on:
+  push:
+    branches:
+      - breakthrough-engine/nonfaithful-reconstruction-boundary-20261013
+    paths:
+      - docs/ADAPTIVE_RACK_SEED_ACQUISITION_PREREGISTRATION.md
+      - scripts/verify_adaptive_rack_seed_boundary.py
+      - scripts/audit_adaptive_rack_seed_boundary.py
+      - src/theorica/agents/rack_seed_acquisition.py
+      - tests/test_rack_seed_acquisition.py
+      - .github/workflows/adaptive-rack-seed-boundary.yml
+  workflow_dispatch:
+
+jobs:
+  exact-boundary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e '.[dev]'
+      - name: Production acquisition tests
+        run: pytest -q tests/test_rack_seed_acquisition.py tests/test_rack_translation_closure.py
+      - name: Primary exact verifier
+        run: python scripts/verify_adaptive_rack_seed_boundary.py --max-exhaustive-n 4 --max-family-n 64 --output adaptive-rack-seed-boundary.json
+      - name: Independent audit
+        run: python scripts/audit_adaptive_rack_seed_boundary.py adaptive-rack-seed-boundary.json --max-n 64 --output adaptive-rack-seed-boundary-audit.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: adaptive-rack-seed-boundary
+          path: |
+            adaptive-rack-seed-boundary.json
+            adaptive-rack-seed-boundary-audit.json
