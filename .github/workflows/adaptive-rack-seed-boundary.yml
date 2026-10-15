@@ -24,7 +24,7 @@ jobs:
           python-version: "3.12"
       - run: pip install -e '.[dev]'
       - name: Production acquisition tests
-        run: pytest -q tests/test_rack_seed_acquisition.py tests/test_rack_translation_closure.py
+        run: python -m pytest -q tests/test_rack_seed_acquisition.py tests/test_rack_translation_closure.py
       - name: Primary exact verifier
         run: python scripts/verify_adaptive_rack_seed_boundary.py --max-exhaustive-n 4 --max-family-n 64 --output adaptive-rack-seed-boundary.json
       - name: Independent audit
