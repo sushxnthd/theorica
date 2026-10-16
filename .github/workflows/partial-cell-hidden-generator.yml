@@ -1,0 +1,53 @@
+name: partial-cell-hidden-generator
+
+on:
+  push:
+    branches:
+      - breakthrough-engine/nonfaithful-reconstruction-boundary-20261013
+    paths:
+      - docs/PARTIAL_CELL_HIDDEN_GENERATOR_PREREGISTRATION.md
+      - scripts/verify_partial_cell_hidden_generator.py
+      - scripts/audit_partial_cell_hidden_generator.py
+      - .github/workflows/partial-cell-hidden-generator.yml
+  workflow_dispatch:
+
+jobs:
+  exact-boundary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Syntax check
+        run: |
+          python -m py_compile scripts/verify_partial_cell_hidden_generator.py
+          python -m py_compile scripts/audit_partial_cell_hidden_generator.py
+      - name: Primary exact verifier
+        run: python scripts/verify_partial_cell_hidden_generator.py --max-n 64 --output partial-cell-primary.json
+      - name: Independent audit
+        run: python scripts/audit_partial_cell_hidden_generator.py --max-n 64 --output partial-cell-audit.json
+      - name: Deterministic rerun
+        run: |
+          cp partial-cell-primary.json /tmp/primary-1.json
+          cp partial-cell-audit.json /tmp/audit-1.json
+          python scripts/verify_partial_cell_hidden_generator.py --max-n 64 --output partial-cell-primary.json
+          python scripts/audit_partial_cell_hidden_generator.py --max-n 64 --output partial-cell-audit.json
+          cmp /tmp/primary-1.json partial-cell-primary.json
+          cmp /tmp/audit-1.json partial-cell-audit.json
+      - name: Verify terminal gates
+        run: |
+          python - <<'PY'
+          import json
+          for path in ("partial-cell-primary.json","partial-cell-audit.json"):
+              data=json.load(open(path))
+              assert data["status"]=="PASS", (path,data.get("failures"))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: partial-cell-hidden-generator
+          path: |
+            partial-cell-primary.json
+            partial-cell-audit.json
