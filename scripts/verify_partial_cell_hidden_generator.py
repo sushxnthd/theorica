@@ -16,11 +16,19 @@ def op(n,z,p,x,y):
     return p[y] if x==z else y
 
 def closure(n,z,p,seeds):
+    """Exact operation closure specialized to the one-active-row family."""
     seen=set(seeds)
-    while True:
-        add={op(n,z,p,x,y) for x in seen for y in seen}
-        if add<=seen: return seen
-        seen|=add
+    if z not in seen:
+        return seen
+    # Only left multiplication by z is nonidentity, so operation closure is
+    # exactly the union of p-orbits of the current elements.
+    frontier=list(seen)
+    while frontier:
+        value=p[frontier.pop()]
+        if value not in seen:
+            seen.add(value)
+            frontier.append(value)
+    return seen
 
 def structural_rack_check(n,z,p):
     if p[z]!=z or set(p)!=set(range(n)): return False
