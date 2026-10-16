@@ -4,6 +4,7 @@ import pytest
 from theorica.agents.rack_seed_acquisition import (
     acquire_rack_generating_rows,
     locate_hidden_generator_by_cells,
+    locate_hidden_generator_randomized,
 )
 
 
@@ -119,3 +120,48 @@ def test_partial_cell_locator_rejects_out_of_range_answer():
     assert not result.accepted
     assert result.reason == "oracle_value_out_of_range"
     assert result.oracle_calls == 1
+
+
+def test_randomized_locator_refuses_bounded_error_without_authorization():
+    calls = 0
+    def oracle(x: int, y: int) -> int:
+        nonlocal calls
+        calls += 1
+        return y
+    result = locate_hidden_generator_randomized(
+        oracle, 11, family_certified=True, allow_bounded_error=False,
+        minimum_success_numerator=3, minimum_success_denominator=4, rng_seed=7,
+    )
+    assert not result.accepted
+    assert result.reason == "bounded_error_authorization_required"
+    assert result.oracle_calls == 0
+    assert calls == 0
+
+
+def test_randomized_locator_uses_exact_confidence_budget():
+    n, hidden = 11, 4
+    table = hidden_cycle_rack(n, hidden)
+    result = locate_hidden_generator_randomized(
+        lambda x, y: int(table[x, y]), n,
+        family_certified=True, allow_bounded_error=True,
+        minimum_success_numerator=3, minimum_success_denominator=4, rng_seed=19,
+    )
+    assert result.accepted
+    assert result.query_budget == 8
+    assert result.oracle_calls <= 8
+    assert (result.guaranteed_success_numerator, result.guaranteed_success_denominator) == (9, 11)
+
+
+def test_randomized_locator_keeps_zero_error_default_exact():
+    n, hidden = 13, 12
+    table = hidden_cycle_rack(n, hidden)
+    result = locate_hidden_generator_randomized(
+        lambda x, y: int(table[x, y]), n,
+        family_certified=True, allow_bounded_error=False,
+        minimum_success_numerator=1, minimum_success_denominator=1, rng_seed=99,
+    )
+    assert result.accepted
+    assert result.distinguished_row == hidden
+    assert result.oracle_calls == n - 1
+    assert result.reason == "hidden_generator_inferred"
+    assert (result.guaranteed_success_numerator, result.guaranteed_success_denominator) == (1, 1)

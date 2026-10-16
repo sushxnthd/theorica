@@ -1,0 +1,54 @@
+name: randomized-partial-cell-bound
+
+on:
+  push:
+    branches:
+      - breakthrough-engine/nonfaithful-reconstruction-boundary-20261013
+    paths:
+      - docs/RANDOMIZED_PARTIAL_CELL_BOUND_PREREGISTRATION.md
+      - docs/RANDOMIZED_PARTIAL_CELL_BOUND_RESULT.md
+      - scripts/verify_randomized_partial_cell_bound.py
+      - scripts/audit_randomized_partial_cell_bound.py
+      - results/randomized_partial_cell_*.json
+      - src/theorica/agents/rack_seed_acquisition.py
+      - tests/test_rack_seed_acquisition.py
+      - .github/workflows/randomized-partial-cell-bound.yml
+  workflow_dispatch:
+
+jobs:
+  exact-frontier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -e ".[dev]"
+      - name: Syntax and runtime contract
+        run: |
+          python -m py_compile scripts/verify_randomized_partial_cell_bound.py
+          python -m py_compile scripts/audit_randomized_partial_cell_bound.py
+          python -m py_compile src/theorica/agents/rack_seed_acquisition.py
+          python -m pytest -q tests/test_rack_seed_acquisition.py
+      - name: Exact primary and independent audit
+        run: |
+          python scripts/verify_randomized_partial_cell_bound.py --max-n 128 --output /tmp/randomized-primary.json
+          python scripts/audit_randomized_partial_cell_bound.py --max-n 128 --output /tmp/randomized-audit.json
+          cmp /tmp/randomized-primary.json results/randomized_partial_cell_primary.json
+          cmp /tmp/randomized-audit.json results/randomized_partial_cell_audit.json
+      - name: Deterministic rerun
+        run: |
+          cp /tmp/randomized-primary.json /tmp/randomized-primary-first.json
+          cp /tmp/randomized-audit.json /tmp/randomized-audit-first.json
+          python scripts/verify_randomized_partial_cell_bound.py --max-n 128 --output /tmp/randomized-primary.json
+          python scripts/audit_randomized_partial_cell_bound.py --max-n 128 --output /tmp/randomized-audit.json
+          cmp /tmp/randomized-primary-first.json /tmp/randomized-primary.json
+          cmp /tmp/randomized-audit-first.json /tmp/randomized-audit.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: randomized-partial-cell-bound
+          path: |
+            /tmp/randomized-primary.json
+            /tmp/randomized-audit.json

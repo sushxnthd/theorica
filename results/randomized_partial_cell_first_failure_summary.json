@@ -1,0 +1,158 @@
+{
+  "canonical_sha256": "897d35f4b9a8b49763e61addd6e2598abb887e0d98f73ec11ae5f9d7bd4bac96",
+  "counts": {
+    "confidence_checks": 8379,
+    "expectation_checks": 8253,
+    "frontier_cases": 8253,
+    "hidden_label_checks": 707259,
+    "lower_bound_checks": 8253
+  },
+  "diagnosis": "direct expectation check multiplied each stopping position twice; theorem frontier and lower-bound checks had no failures",
+  "failure_count": 8001,
+  "first_failures": [
+    [
+      "expected_calls",
+      3,
+      2,
+      "7/3",
+      "5/3"
+    ],
+    [
+      "expected_calls",
+      4,
+      2,
+      "9/4",
+      "7/4"
+    ],
+    [
+      "expected_calls",
+      4,
+      3,
+      "17/4",
+      "9/4"
+    ],
+    [
+      "expected_calls",
+      5,
+      2,
+      "11/5",
+      "9/5"
+    ],
+    [
+      "expected_calls",
+      5,
+      3,
+      "4",
+      "12/5"
+    ],
+    [
+      "expected_calls",
+      5,
+      4,
+      "34/5",
+      "14/5"
+    ],
+    [
+      "expected_calls",
+      6,
+      2,
+      "13/6",
+      "11/6"
+    ],
+    [
+      "expected_calls",
+      6,
+      3,
+      "23/6",
+      "5/2"
+    ],
+    [
+      "expected_calls",
+      6,
+      4,
+      "19/3",
+      "3"
+    ],
+    [
+      "expected_calls",
+      6,
+      5,
+      "10",
+      "10/3"
+    ],
+    [
+      "expected_calls",
+      7,
+      2,
+      "15/7",
+      "13/7"
+    ],
+    [
+      "expected_calls",
+      7,
+      3,
+      "26/7",
+      "18/7"
+    ],
+    [
+      "expected_calls",
+      7,
+      4,
+      "6",
+      "22/7"
+    ],
+    [
+      "expected_calls",
+      7,
+      5,
+      "65/7",
+      "25/7"
+    ],
+    [
+      "expected_calls",
+      7,
+      6,
+      "97/7",
+      "27/7"
+    ],
+    [
+      "expected_calls",
+      8,
+      2,
+      "17/8",
+      "15/8"
+    ],
+    [
+      "expected_calls",
+      8,
+      3,
+      "29/8",
+      "21/8"
+    ],
+    [
+      "expected_calls",
+      8,
+      4,
+      "23/4",
+      "13/4"
+    ],
+    [
+      "expected_calls",
+      8,
+      5,
+      "35/4",
+      "15/4"
+    ],
+    [
+      "expected_calls",
+      8,
+      6,
+      "103/8",
+      "33/8"
+    ]
+  ],
+  "schema": "theorica.randomized-partial-cell-bound.first-verifier-failure.v1",
+  "source_canonical_sha256": "d0eb8317088930f4eaabedb0fb5485a99ce978ea0ef2e993b256c25f24f5eab0",
+  "source_file_sha256": "1d0ad5cae88164a9762096300c964cc5323d3a3e1fe63656911c52f47522b7b1",
+  "status": "FAIL"
+}
