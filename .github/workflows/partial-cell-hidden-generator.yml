@@ -6,8 +6,11 @@ on:
       - breakthrough-engine/nonfaithful-reconstruction-boundary-20261013
     paths:
       - docs/PARTIAL_CELL_HIDDEN_GENERATOR_PREREGISTRATION.md
+      - docs/PARTIAL_CELL_HIDDEN_GENERATOR_RESULT.md
       - scripts/verify_partial_cell_hidden_generator.py
       - scripts/audit_partial_cell_hidden_generator.py
+      - src/theorica/agents/rack_seed_acquisition.py
+      - tests/test_rack_seed_acquisition.py
       - .github/workflows/partial-cell-hidden-generator.yml
   workflow_dispatch:
 
@@ -20,10 +23,15 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Install package and test dependencies
+        run: python -m pip install -e ".[dev]"
       - name: Syntax check
         run: |
           python -m py_compile scripts/verify_partial_cell_hidden_generator.py
           python -m py_compile scripts/audit_partial_cell_hidden_generator.py
+          python -m py_compile src/theorica/agents/rack_seed_acquisition.py
+      - name: Runtime interface tests
+        run: python -m pytest -q tests/test_rack_seed_acquisition.py
       - name: Primary exact verifier
         run: python scripts/verify_partial_cell_hidden_generator.py --max-n 64 --output partial-cell-primary.json
       - name: Independent audit
