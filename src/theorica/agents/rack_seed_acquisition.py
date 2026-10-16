@@ -50,6 +50,171 @@ class RandomizedHiddenGeneratorResult:
     guaranteed_success_denominator: int
 
 
+@dataclass(frozen=True)
+class HiddenFamilyVerificationResult:
+    """Receipt for full verification of the hidden-cycle rack family."""
+
+    accepted: bool
+    reason: str
+    oracle_calls: int
+    distinguished_row: int | None
+    seed_rows: tuple[int, ...]
+    observations: tuple[tuple[int, int, int], ...]
+
+
+@dataclass(frozen=True)
+class HiddenFamilySpotCheckResult:
+    """One-sided bounded-error receipt for an explicit family witness."""
+
+    accepted: bool
+    reason: str
+    oracle_calls: int
+    distinguished_row: int | None
+    query_budget: int
+    population_size: int
+    guaranteed_rejection_numerator: int
+    guaranteed_rejection_denominator: int
+    mismatch: tuple[int, int, int, int] | None
+
+
+def _valid_hidden_cycle_witness(
+    carrier_size: int,
+    distinguished_row: int,
+    active_translation: tuple[int, ...],
+) -> bool:
+    """Check the public witness without consulting the private oracle."""
+    n = int(carrier_size)
+    z = int(distinguished_row)
+    row = tuple(int(value) for value in active_translation)
+    if n < 3 or not 0 <= z < n or len(row) != n:
+        return False
+    if tuple(sorted(row)) != tuple(range(n)) or row[z] != z:
+        return False
+    start = next(index for index in range(n) if index != z)
+    seen: list[int] = []
+    current = start
+    while current not in seen:
+        if current == z:
+            return False
+        seen.append(current)
+        current = row[current]
+    return current == start and set(seen) == set(range(n)) - {z}
+
+
+def verify_hidden_cycle_family_by_cells(
+    oracle: Callable[[int, int], int],
+    carrier_size: int,
+) -> HiddenFamilyVerificationResult:
+    """Verify family membership and locate the generator using exactly n^2 cells.
+
+    Unlike the query-efficient locators, this path does not trust a Boolean
+    family assertion.  It reads the complete operation and accepts exactly the
+    tables with one nonidentity row whose translation fixes its own label and
+    is a full cycle on the complement.
+    """
+    n = int(carrier_size)
+    if n < 3:
+        raise ValueError("carrier_size must be at least 3")
+    rows: list[list[int]] = []
+    observations: list[tuple[int, int, int]] = []
+    for row in range(n):
+        values: list[int] = []
+        for column in range(n):
+            value = int(oracle(row, column))
+            observations.append((row, column, value))
+            if not 0 <= value < n:
+                return HiddenFamilyVerificationResult(
+                    False, "oracle_value_out_of_range", len(observations),
+                    None, (), tuple(observations),
+                )
+            values.append(value)
+        rows.append(values)
+
+    identity = tuple(range(n))
+    nonidentity = [index for index, row in enumerate(rows) if tuple(row) != identity]
+    if len(nonidentity) != 1:
+        return HiddenFamilyVerificationResult(
+            False, "not_exactly_one_nonidentity_row", n * n,
+            None, (), tuple(observations),
+        )
+    distinguished = nonidentity[0]
+    active = tuple(rows[distinguished])
+    if not _valid_hidden_cycle_witness(n, distinguished, active):
+        return HiddenFamilyVerificationResult(
+            False, "active_translation_not_full_complement_cycle", n * n,
+            None, (), tuple(observations),
+        )
+    companion = next(index for index in range(n) if index != distinguished)
+    return HiddenFamilyVerificationResult(
+        True, "hidden_cycle_family_verified", n * n, distinguished,
+        (distinguished, companion), tuple(observations),
+    )
+
+
+def spot_check_hidden_cycle_witness(
+    oracle: Callable[[int, int], int],
+    carrier_size: int,
+    *,
+    distinguished_row: int,
+    active_translation: tuple[int, ...],
+    allow_bounded_error: bool,
+    minimum_rejection_numerator: int,
+    minimum_rejection_denominator: int,
+    rng_seed: int,
+) -> HiddenFamilySpotCheckResult:
+    """Spot-check an explicit witness with the exact one-sided frontier.
+
+    If the oracle differs from the witnessed table in at least one cell,
+    uniform sampling without replacement of q cells rejects with probability
+    at least q/n^2.  The guarantee is over an ideal uniform permutation; the
+    seed records the concrete pseudorandom execution for reproducibility.
+    """
+    n = int(carrier_size)
+    if n < 3:
+        raise ValueError("carrier_size must be at least 3")
+    if minimum_rejection_denominator <= 0:
+        raise ValueError("minimum_rejection_denominator must be positive")
+    beta = Fraction(minimum_rejection_numerator, minimum_rejection_denominator)
+    if not 0 <= beta <= 1:
+        raise ValueError("minimum rejection probability must lie in [0,1]")
+    population = n * n
+    if not _valid_hidden_cycle_witness(n, distinguished_row, active_translation):
+        return HiddenFamilySpotCheckResult(
+            False, "invalid_family_witness", 0, None, 0, population,
+            0, 1, None,
+        )
+    if beta < 1 and not allow_bounded_error:
+        return HiddenFamilySpotCheckResult(
+            False, "bounded_error_authorization_required", 0, None, 0,
+            population, 0, 1, None,
+        )
+
+    budget = math.ceil(population * beta)
+    order = np.random.default_rng(int(rng_seed)).permutation(population)
+    active = tuple(int(value) for value in active_translation)
+    z = int(distinguished_row)
+    for call_count, flat in enumerate(order[:budget], start=1):
+        row, column = divmod(int(flat), n)
+        expected = active[column] if row == z else column
+        observed = int(oracle(row, column))
+        if not 0 <= observed < n:
+            return HiddenFamilySpotCheckResult(
+                False, "oracle_value_out_of_range", call_count, None, budget,
+                population, budget, population,
+                (row, column, expected, observed),
+            )
+        if observed != expected:
+            return HiddenFamilySpotCheckResult(
+                False, "certificate_mismatch", call_count, None, budget,
+                population, budget, population,
+                (row, column, expected, observed),
+            )
+    return HiddenFamilySpotCheckResult(
+        True, "certificate_spot_check_passed", budget, z, budget,
+        population, budget, population, None,
+    )
+
+
 def locate_hidden_generator_randomized(
     oracle: Callable[[int, int], int],
     carrier_size: int,

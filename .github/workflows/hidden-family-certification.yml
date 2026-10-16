@@ -1,0 +1,65 @@
+name: hidden-family-certification
+
+on:
+  push:
+    branches:
+      - breakthrough-engine/nonfaithful-reconstruction-boundary-20261013
+    paths:
+      - docs/HIDDEN_FAMILY_CERTIFICATION_*.md
+      - scripts/verify_hidden_family_certification.py
+      - scripts/audit_hidden_family_certification.py
+      - results/hidden_family_certification_*.json
+      - src/theorica/agents/rack_seed_acquisition.py
+      - tests/test_rack_seed_acquisition.py
+      - .github/workflows/hidden-family-certification.yml
+  workflow_dispatch:
+
+jobs:
+  exact-boundary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -e ".[dev]"
+      - name: Syntax and focused runtime tests
+        run: |
+          python -m py_compile scripts/verify_hidden_family_certification.py
+          python -m py_compile scripts/audit_hidden_family_certification.py
+          python -m py_compile src/theorica/agents/rack_seed_acquisition.py
+          python -m pytest -q tests/test_rack_seed_acquisition.py
+      - name: Primary and independent exact checks
+        run: |
+          python scripts/verify_hidden_family_certification.py \
+            --max-n 32 --output /tmp/hidden-family-primary.json
+          python scripts/audit_hidden_family_certification.py \
+            /tmp/hidden-family-primary.json --max-n 24 \
+            --output /tmp/hidden-family-audit.json
+      - name: Require terminal pass and committed equality
+        run: |
+          python - <<'PY'
+          import json
+          for path in ("/tmp/hidden-family-primary.json", "/tmp/hidden-family-audit.json"):
+              data=json.load(open(path))
+              assert data["status"] == "PASS", (path, data.get("failures"))
+          PY
+          cmp /tmp/hidden-family-primary.json results/hidden_family_certification_primary.json
+          cmp /tmp/hidden-family-audit.json results/hidden_family_certification_audit.json
+      - name: Deterministic rerun
+        run: |
+          python scripts/verify_hidden_family_certification.py \
+            --max-n 32 --output /tmp/hidden-family-primary-2.json >/dev/null
+          python scripts/audit_hidden_family_certification.py \
+            /tmp/hidden-family-primary-2.json --max-n 24 \
+            --output /tmp/hidden-family-audit-2.json >/dev/null
+          cmp /tmp/hidden-family-primary.json /tmp/hidden-family-primary-2.json
+          cmp /tmp/hidden-family-audit.json /tmp/hidden-family-audit-2.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hidden-family-certification
+          path: |
+            /tmp/hidden-family-primary.json
+            /tmp/hidden-family-audit.json

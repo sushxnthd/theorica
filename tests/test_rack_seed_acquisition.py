@@ -5,6 +5,8 @@ from theorica.agents.rack_seed_acquisition import (
     acquire_rack_generating_rows,
     locate_hidden_generator_by_cells,
     locate_hidden_generator_randomized,
+    spot_check_hidden_cycle_witness,
+    verify_hidden_cycle_family_by_cells,
 )
 
 
@@ -165,3 +167,109 @@ def test_randomized_locator_keeps_zero_error_default_exact():
     assert result.oracle_calls == n - 1
     assert result.reason == "hidden_generator_inferred"
     assert (result.guaranteed_success_numerator, result.guaranteed_success_denominator) == (1, 1)
+
+
+@pytest.mark.parametrize("n", range(3, 18))
+def test_full_family_verifier_accepts_every_hidden_row(n: int):
+    for hidden in range(n):
+        table = hidden_cycle_rack(n, hidden)
+        result = verify_hidden_cycle_family_by_cells(
+            lambda x, y: int(table[x, y]), n
+        )
+        assert result.accepted
+        assert result.distinguished_row == hidden
+        assert result.oracle_calls == n * n
+        assert operation_closure(table, result.seed_rows) == set(range(n))
+
+
+def test_full_family_verifier_rejects_single_cell_corruption():
+    n, hidden = 9, 4
+    table = hidden_cycle_rack(n, hidden)
+    table[2, 7] = 3
+    result = verify_hidden_cycle_family_by_cells(
+        lambda x, y: int(table[x, y]), n
+    )
+    assert not result.accepted
+    assert result.reason == "not_exactly_one_nonidentity_row"
+    assert result.oracle_calls == n * n
+
+
+def test_spot_checker_refuses_bad_witness_without_queries():
+    calls = 0
+    def oracle(x: int, y: int) -> int:
+        nonlocal calls
+        calls += 1
+        return y
+    result = spot_check_hidden_cycle_witness(
+        oracle, 7, distinguished_row=2,
+        active_translation=tuple(range(7)), allow_bounded_error=True,
+        minimum_rejection_numerator=1, minimum_rejection_denominator=2,
+        rng_seed=3,
+    )
+    assert not result.accepted
+    assert result.reason == "invalid_family_witness"
+    assert calls == result.oracle_calls == 0
+
+
+def test_spot_checker_requires_bounded_error_authorization():
+    n, hidden = 11, 3
+    table = hidden_cycle_rack(n, hidden)
+    result = spot_check_hidden_cycle_witness(
+        lambda x, y: int(table[x, y]), n,
+        distinguished_row=hidden,
+        active_translation=tuple(int(x) for x in table[hidden]),
+        allow_bounded_error=False,
+        minimum_rejection_numerator=3,
+        minimum_rejection_denominator=4,
+        rng_seed=5,
+    )
+    assert not result.accepted
+    assert result.reason == "bounded_error_authorization_required"
+    assert result.oracle_calls == 0
+
+
+def test_spot_checker_budget_and_full_verification_path():
+    n, hidden = 10, 6
+    table = hidden_cycle_rack(n, hidden)
+    witness = tuple(int(x) for x in table[hidden])
+    partial = spot_check_hidden_cycle_witness(
+        lambda x, y: int(table[x, y]), n,
+        distinguished_row=hidden, active_translation=witness,
+        allow_bounded_error=True,
+        minimum_rejection_numerator=2,
+        minimum_rejection_denominator=3,
+        rng_seed=17,
+    )
+    assert partial.accepted
+    assert partial.query_budget == partial.oracle_calls == 67
+    assert (partial.guaranteed_rejection_numerator,
+            partial.guaranteed_rejection_denominator) == (67, 100)
+
+    exact = spot_check_hidden_cycle_witness(
+        lambda x, y: int(table[x, y]), n,
+        distinguished_row=hidden, active_translation=witness,
+        allow_bounded_error=False,
+        minimum_rejection_numerator=1,
+        minimum_rejection_denominator=1,
+        rng_seed=17,
+    )
+    assert exact.accepted
+    assert exact.oracle_calls == n * n
+
+
+def test_spot_checker_records_detected_mismatch():
+    n, hidden = 8, 1
+    table = hidden_cycle_rack(n, hidden)
+    witness = tuple(int(x) for x in table[hidden])
+    table[5, 3] = 0
+    result = spot_check_hidden_cycle_witness(
+        lambda x, y: int(table[x, y]), n,
+        distinguished_row=hidden, active_translation=witness,
+        allow_bounded_error=False,
+        minimum_rejection_numerator=1,
+        minimum_rejection_denominator=1,
+        rng_seed=29,
+    )
+    assert not result.accepted
+    assert result.reason == "certificate_mismatch"
+    assert result.mismatch == (5, 3, 3, 0)
