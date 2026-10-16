@@ -21,6 +21,85 @@ class RackSeedAcquisitionResult:
     reconstruction: RackClosureCertificate | None
 
 
+@dataclass(frozen=True)
+class HiddenGeneratorLocalizationResult:
+    """Cell-query localization result for the certified hidden-cycle family."""
+
+    accepted: bool
+    reason: str
+    oracle_calls: int
+    distinguished_row: int | None
+    seed_rows: tuple[int, ...]
+    observations: tuple[tuple[int, int, int], ...]
+
+
+def locate_hidden_generator_by_cells(
+    oracle: Callable[[int, int], int],
+    carrier_size: int,
+    *,
+    family_certified: bool,
+) -> HiddenGeneratorLocalizationResult:
+    """Locate the unique nonidentity row using at most n - 1 cell queries.
+
+    The external certificate must promise the family R(n, z, sigma): every row
+    except z is the identity and row z fixes z while acting as a full cycle on
+    the other elements.  The function deliberately refuses to extrapolate this
+    theorem to an uncertified rack.
+
+    Rows 0 through n - 2 receive one deterministic off-diagonal probe.  A
+    nonidentity answer identifies z immediately; after n - 1 identity answers,
+    z is the omitted final row.  Any other element paired with z is then a
+    generating seed for this promised family.
+    """
+    n = int(carrier_size)
+    if n < 3:
+        raise ValueError("carrier_size must be at least 3")
+    if not family_certified:
+        return HiddenGeneratorLocalizationResult(
+            False,
+            "family_certificate_required",
+            0,
+            None,
+            (),
+            (),
+        )
+
+    observations: list[tuple[int, int, int]] = []
+    for row in range(n - 1):
+        column = (row + 1) % n
+        value = int(oracle(row, column))
+        observations.append((row, column, value))
+        if not 0 <= value < n:
+            return HiddenGeneratorLocalizationResult(
+                False,
+                "oracle_value_out_of_range",
+                len(observations),
+                None,
+                (),
+                tuple(observations),
+            )
+        if value != column:
+            return HiddenGeneratorLocalizationResult(
+                True,
+                "hidden_generator_localized",
+                len(observations),
+                row,
+                (row, column),
+                tuple(observations),
+            )
+
+    distinguished = n - 1
+    companion = 0
+    return HiddenGeneratorLocalizationResult(
+        True,
+        "hidden_generator_inferred",
+        n - 1,
+        distinguished,
+        (distinguished, companion),
+        tuple(observations),
+    )
+
+
 def acquire_rack_generating_rows(
     oracle: Callable[[int, int], int],
     carrier_size: int,
