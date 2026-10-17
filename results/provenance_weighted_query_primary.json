@@ -1,0 +1,67 @@
+{
+  "canonical_sha256": "6888a5a13553a81a843ec5eb3421cf17ac5f666179c3aa3900101449bf73a167",
+  "counts": {
+    "budget_inversions": 73791,
+    "frontier_cases": 73791,
+    "hidden_label_runs": 560925,
+    "policy_subsets": 2005668,
+    "prior_vectors": 9828
+  },
+  "failures": [],
+  "max_n": 8,
+  "max_weight": 3,
+  "per_n": [
+    {
+      "budget_inversions": 81,
+      "frontier_cases": 81,
+      "hidden_label_runs": 243,
+      "n": 3,
+      "policy_subsets": 189,
+      "prior_vectors": 27
+    },
+    {
+      "budget_inversions": 324,
+      "frontier_cases": 324,
+      "hidden_label_runs": 1296,
+      "n": 4,
+      "policy_subsets": 1215,
+      "prior_vectors": 81
+    },
+    {
+      "budget_inversions": 1215,
+      "frontier_cases": 1215,
+      "hidden_label_runs": 6075,
+      "n": 5,
+      "policy_subsets": 7533,
+      "prior_vectors": 243
+    },
+    {
+      "budget_inversions": 4374,
+      "frontier_cases": 4374,
+      "hidden_label_runs": 26244,
+      "n": 6,
+      "policy_subsets": 45927,
+      "prior_vectors": 729
+    },
+    {
+      "budget_inversions": 15309,
+      "frontier_cases": 15309,
+      "hidden_label_runs": 107163,
+      "n": 7,
+      "policy_subsets": 277749,
+      "prior_vectors": 2187
+    },
+    {
+      "budget_inversions": 52488,
+      "frontier_cases": 52488,
+      "hidden_label_runs": 419904,
+      "n": 8,
+      "policy_subsets": 1673055,
+      "prior_vectors": 6561
+    }
+  ],
+  "protocol_commit": "567255ce8cfcad6adecebffe15b9a36a633fefa5",
+  "schema": "theorica.provenance-weighted-query-frontier.v1",
+  "status": "PASS",
+  "theorem": "P*(pi,q)=sum_of_largest_(q+1)_prior_masses"
+}

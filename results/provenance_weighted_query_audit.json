@@ -1,0 +1,9 @@
+{
+  "canonical_sha256": "57fa0412913a26f03efbb596527aef5547dc50581b60bccc626cd6053ebeeb98",
+  "checks": 2079459,
+  "failures": [],
+  "max_n": 8,
+  "max_weight": 3,
+  "schema": "theorica.provenance-weighted-query-frontier.audit.v1",
+  "status": "PASS"
+}

@@ -51,6 +51,23 @@ class RandomizedHiddenGeneratorResult:
 
 
 @dataclass(frozen=True)
+class ProvenanceWeightedLocalizationResult:
+    """Bayes-optimal localization receipt under certified provenance weights."""
+
+    accepted: bool
+    reason: str
+    oracle_calls: int
+    distinguished_row: int | None
+    seed_rows: tuple[int, ...]
+    observations: tuple[tuple[int, int, int], ...]
+    query_budget: int
+    query_order: tuple[int, ...]
+    negative_leaf_guess: int | None
+    success_numerator: int
+    success_denominator: int
+
+
+@dataclass(frozen=True)
 class HiddenFamilyVerificationResult:
     """Receipt for full verification of the hidden-cycle rack family."""
 
@@ -274,6 +291,99 @@ def locate_hidden_generator_randomized(
     return RandomizedHiddenGeneratorResult(
         True, "hidden_generator_guessed_with_bounded_error", q, guess,
         (guess, companion), tuple(observations), q, q + 1, n,
+    )
+
+
+def provenance_weighted_query_budget(
+    prior_weights: tuple[int, ...],
+    *,
+    minimum_success_numerator: int,
+    minimum_success_denominator: int,
+) -> int:
+    """Return the least q whose exact Bayes frontier reaches the target."""
+    weights = tuple(int(weight) for weight in prior_weights)
+    if len(weights) < 3 or any(weight < 0 for weight in weights) or sum(weights) <= 0:
+        raise ValueError("prior_weights must contain at least three nonnegative values with positive sum")
+    if minimum_success_denominator <= 0:
+        raise ValueError("minimum_success_denominator must be positive")
+    target = Fraction(minimum_success_numerator, minimum_success_denominator)
+    if not 0 <= target <= 1:
+        raise ValueError("minimum success probability must lie in [0,1]")
+    ranked = sorted(weights, reverse=True)
+    total = sum(ranked)
+    cumulative = 0
+    for count, weight in enumerate(ranked, start=1):
+        cumulative += weight
+        if Fraction(cumulative, total) >= target:
+            return count - 1
+    return len(weights) - 1
+
+
+def locate_hidden_generator_with_provenance(
+    oracle: Callable[[int, int], int],
+    carrier_size: int,
+    *,
+    family_certified: bool,
+    provenance_certified: bool,
+    prior_weights: tuple[int, ...],
+    query_budget: int,
+    allow_bounded_error: bool,
+) -> ProvenanceWeightedLocalizationResult:
+    """Execute the exact Bayes-optimal q-query plan for trusted provenance.
+
+    The certified hidden-cycle promise makes one off-diagonal cell an equality
+    test for a candidate row.  Query q members of the q+1 largest prior masses
+    and guess the remaining member after all negative observations.  The exact
+    Bayes success receipt is the mass of those q+1 labels.
+    """
+    n = int(carrier_size)
+    weights = tuple(int(weight) for weight in prior_weights)
+    q = int(query_budget)
+    empty = ProvenanceWeightedLocalizationResult(
+        False, "family_and_provenance_certificates_required", 0, None, (), (),
+        max(q, 0), (), None, 0, 1,
+    )
+    if n < 3:
+        raise ValueError("carrier_size must be at least 3")
+    if len(weights) != n or any(weight < 0 for weight in weights) or sum(weights) <= 0:
+        raise ValueError("prior_weights must match carrier_size, be nonnegative, and have positive sum")
+    if not 0 <= q <= n - 1:
+        raise ValueError("query_budget must lie in [0, carrier_size-1]")
+    if not family_certified or not provenance_certified:
+        return empty
+    if q < n - 1 and not allow_bounded_error:
+        return ProvenanceWeightedLocalizationResult(
+            False, "bounded_error_authorization_required", 0, None, (), (),
+            q, (), None, 0, 1,
+        )
+
+    ranked = tuple(sorted(range(n), key=lambda label: (-weights[label], label)))
+    selected = ranked[: q + 1]
+    query_order = selected[:q]
+    guess = selected[q]
+    success = Fraction(sum(weights[label] for label in selected), sum(weights))
+    observations: list[tuple[int, int, int]] = []
+    for row in query_order:
+        column = (row + 1) % n
+        value = int(oracle(row, column))
+        observations.append((row, column, value))
+        if not 0 <= value < n:
+            return ProvenanceWeightedLocalizationResult(
+                False, "oracle_value_out_of_range", len(observations), None,
+                (), tuple(observations), q, query_order, guess,
+                success.numerator, success.denominator,
+            )
+        if value != column:
+            return ProvenanceWeightedLocalizationResult(
+                True, "hidden_generator_localized", len(observations), row,
+                (row, column), tuple(observations), q, query_order, guess,
+                success.numerator, success.denominator,
+            )
+    companion = (guess + 1) % n
+    return ProvenanceWeightedLocalizationResult(
+        True, "hidden_generator_guessed_from_provenance", q, guess,
+        (guess, companion), tuple(observations), q, query_order, guess,
+        success.numerator, success.denominator,
     )
 
 

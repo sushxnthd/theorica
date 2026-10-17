@@ -5,6 +5,8 @@ from theorica.agents.rack_seed_acquisition import (
     acquire_rack_generating_rows,
     locate_hidden_generator_by_cells,
     locate_hidden_generator_randomized,
+    locate_hidden_generator_with_provenance,
+    provenance_weighted_query_budget,
     spot_check_hidden_cycle_witness,
     verify_hidden_cycle_family_by_cells,
 )
@@ -273,3 +275,60 @@ def test_spot_checker_records_detected_mismatch():
     assert not result.accepted
     assert result.reason == "certificate_mismatch"
     assert result.mismatch == (5, 3, 3, 0)
+
+
+def test_provenance_weighted_planner_attains_top_mass_frontier():
+    n, hidden = 6, 4
+    table = hidden_cycle_rack(n, hidden)
+    result = locate_hidden_generator_with_provenance(
+        lambda x, y: int(table[x, y]), n,
+        family_certified=True, provenance_certified=True,
+        prior_weights=(1, 2, 3, 4, 9, 5), query_budget=2,
+        allow_bounded_error=True,
+    )
+    assert result.accepted
+    assert result.distinguished_row == hidden
+    assert result.query_order == (4, 5)
+    assert result.negative_leaf_guess == 3
+    assert (result.success_numerator, result.success_denominator) == (3, 4)
+
+
+def test_provenance_weighted_planner_uses_negative_leaf_guess():
+    n, hidden = 6, 3
+    table = hidden_cycle_rack(n, hidden)
+    result = locate_hidden_generator_with_provenance(
+        lambda x, y: int(table[x, y]), n,
+        family_certified=True, provenance_certified=True,
+        prior_weights=(1, 2, 3, 4, 9, 5), query_budget=2,
+        allow_bounded_error=True,
+    )
+    assert result.accepted
+    assert result.distinguished_row == hidden
+    assert result.reason == "hidden_generator_guessed_from_provenance"
+    assert result.oracle_calls == 2
+
+
+def test_provenance_weighted_planner_refuses_untrusted_prior_without_queries():
+    calls = 0
+    def oracle(x: int, y: int) -> int:
+        nonlocal calls
+        calls += 1
+        return y
+    result = locate_hidden_generator_with_provenance(
+        oracle, 5, family_certified=True, provenance_certified=False,
+        prior_weights=(1, 2, 3, 4, 5), query_budget=2,
+        allow_bounded_error=True,
+    )
+    assert not result.accepted
+    assert result.reason == "family_and_provenance_certificates_required"
+    assert result.oracle_calls == calls == 0
+
+
+def test_provenance_weighted_confidence_budget_is_exact():
+    weights = (1, 2, 3, 4, 9, 5)
+    assert provenance_weighted_query_budget(
+        weights, minimum_success_numerator=3, minimum_success_denominator=4
+    ) == 2
+    assert provenance_weighted_query_budget(
+        weights, minimum_success_numerator=1, minimum_success_denominator=1
+    ) == 5
