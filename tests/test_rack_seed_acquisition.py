@@ -1,3 +1,5 @@
+from fractions import Fraction
+
 import numpy as np
 import pytest
 
@@ -6,6 +8,7 @@ from theorica.agents.rack_seed_acquisition import (
     locate_hidden_generator_by_cells,
     locate_hidden_generator_randomized,
     locate_hidden_generator_with_provenance,
+    locate_hidden_generator_with_robust_provenance,
     provenance_weighted_query_budget,
     spot_check_hidden_cycle_witness,
     verify_hidden_cycle_family_by_cells,
@@ -332,3 +335,40 @@ def test_provenance_weighted_confidence_budget_is_exact():
     assert provenance_weighted_query_budget(
         weights, minimum_success_numerator=1, minimum_success_denominator=1
     ) == 5
+
+
+def test_robust_provenance_planner_executes_certified_seed_bound_mixture():
+    n = 5
+    table = hidden_cycle_rack(n, 2)
+    first = locate_hidden_generator_with_robust_provenance(
+        lambda x, y: int(table[x, y]), n,
+        family_certified=True, provenance_certified=True,
+        prior_weights=(1, 1, 1, 1, 1), tv_radius=Fraction(1, 10),
+        query_budget=1, allow_bounded_error=True, plan_seed="receipt-17",
+    )
+    second = locate_hidden_generator_with_robust_provenance(
+        lambda x, y: int(table[x, y]), n,
+        family_certified=True, provenance_certified=True,
+        prior_weights=(1, 1, 1, 1, 1), tv_radius=Fraction(1, 10),
+        query_budget=1, allow_bounded_error=True, plan_seed="receipt-17",
+    )
+    assert first == second
+    assert first.accepted
+    assert first.plan_seed_digest is not None
+    assert abs(first.robust_success_floor - 0.4) < 1e-9
+    assert first.certificate_residual < 1e-8
+
+
+def test_robust_provenance_planner_refuses_uncertified_inputs_without_queries():
+    calls = 0
+    def oracle(x: int, y: int) -> int:
+        nonlocal calls
+        calls += 1
+        return y
+    result = locate_hidden_generator_with_robust_provenance(
+        oracle, 5, family_certified=True, provenance_certified=False,
+        prior_weights=(1, 1, 1, 1, 1), tv_radius=Fraction(1, 10),
+        query_budget=1, allow_bounded_error=True, plan_seed=7,
+    )
+    assert not result.accepted
+    assert result.oracle_calls == calls == 0

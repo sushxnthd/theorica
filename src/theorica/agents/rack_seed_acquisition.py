@@ -9,6 +9,7 @@ import numpy as np
 
 from .translation_action import CachedFiniteOracle
 from .translation_certificate import RackClosureCertificate, reconstruct_rack_from_generating_rows
+from .robust_provenance import sample_robust_randomized_plan, synthesize_robust_randomized_plan
 
 
 @dataclass
@@ -65,6 +66,24 @@ class ProvenanceWeightedLocalizationResult:
     negative_leaf_guess: int | None
     success_numerator: int
     success_denominator: int
+
+
+@dataclass(frozen=True)
+class RobustProvenanceLocalizationResult:
+    """Executed localization receipt for a certified TV-robust query mixture."""
+
+    accepted: bool
+    reason: str
+    oracle_calls: int
+    distinguished_row: int | None
+    seed_rows: tuple[int, ...]
+    observations: tuple[tuple[int, int, int], ...]
+    query_budget: int
+    query_order: tuple[int, ...]
+    negative_leaf_guess: int | None
+    robust_success_floor: float
+    certificate_residual: float
+    plan_seed_digest: str | None
 
 
 @dataclass(frozen=True)
@@ -384,6 +403,76 @@ def locate_hidden_generator_with_provenance(
         True, "hidden_generator_guessed_from_provenance", q, guess,
         (guess, companion), tuple(observations), q, query_order, guess,
         success.numerator, success.denominator,
+    )
+
+
+def locate_hidden_generator_with_robust_provenance(
+    oracle: Callable[[int, int], int],
+    carrier_size: int,
+    *,
+    family_certified: bool,
+    provenance_certified: bool,
+    prior_weights: tuple[int, ...],
+    tv_radius: Fraction,
+    query_budget: int,
+    allow_bounded_error: bool,
+    plan_seed: str | int,
+) -> RobustProvenanceLocalizationResult:
+    """Execute a payoff-certified minimax randomized plan under TV ambiguity."""
+    n = int(carrier_size)
+    q = int(query_budget)
+    weights = tuple(int(weight) for weight in prior_weights)
+    empty = RobustProvenanceLocalizationResult(
+        False, "family_and_provenance_certificates_required", 0, None, (), (),
+        max(q, 0), (), None, 0.0, 0.0, None,
+    )
+    if n < 3:
+        raise ValueError("carrier_size must be at least 3")
+    if len(weights) != n or any(weight < 0 for weight in weights) or sum(weights) <= 0:
+        raise ValueError("prior_weights must match carrier_size, be nonnegative, and have positive sum")
+    if not 0 <= q < n:
+        raise ValueError("query_budget must lie in [0, carrier_size-1]")
+    if not family_certified or not provenance_certified:
+        return empty
+    if q < n - 1 and not allow_bounded_error:
+        return RobustProvenanceLocalizationResult(
+            False, "bounded_error_authorization_required", 0, None, (), (),
+            q, (), None, 0.0, 0.0, None,
+        )
+    plan = synthesize_robust_randomized_plan(weights, q, Fraction(tv_radius))
+    if not plan.certificate_valid:
+        return RobustProvenanceLocalizationResult(
+            False, "randomized_plan_certificate_failed", 0, None, (), (),
+            q, (), None, plan.certified_worst_case_payoff,
+            plan.certificate_residual, None,
+        )
+    sampled = sample_robust_randomized_plan(plan, plan_seed)
+    observations: list[tuple[int, int, int]] = []
+    for row in sampled.query_order:
+        column = (row + 1) % n
+        value = int(oracle(row, column))
+        observations.append((row, column, value))
+        if not 0 <= value < n:
+            return RobustProvenanceLocalizationResult(
+                False, "oracle_value_out_of_range", len(observations), None, (),
+                tuple(observations), q, sampled.query_order,
+                sampled.terminal_guess, plan.certified_worst_case_payoff,
+                plan.certificate_residual, sampled.seed_digest,
+            )
+        if value != column:
+            return RobustProvenanceLocalizationResult(
+                True, "hidden_generator_localized", len(observations), row,
+                (row, column), tuple(observations), q, sampled.query_order,
+                sampled.terminal_guess, plan.certified_worst_case_payoff,
+                plan.certificate_residual, sampled.seed_digest,
+            )
+    guess = sampled.terminal_guess
+    companion = (guess + 1) % n
+    return RobustProvenanceLocalizationResult(
+        True, "hidden_generator_guessed_from_robust_provenance", q, guess,
+        (guess, companion), tuple(observations), q, sampled.query_order, guess,
+        plan.certified_worst_case_payoff, plan.certificate_residual,
+        sampled.seed_digest,
     )
 
 

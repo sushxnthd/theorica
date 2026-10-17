@@ -1,5 +1,5 @@
 {
-  "canonical_sha256": "183401706fe59e584b018510e9704c906216128ee09ee6125c4ca4add1c603e0",
+  "canonical_sha256": "f2a7a92b44015d6cbc844f1b710961fd44ed661b6ae46bdcd92d1fb4f7014b95",
   "counts": {
     "deterministic_subset_checks": 332613,
     "frontier_cases": 85212,
@@ -11,7 +11,7 @@
   "schema": "theorica.robust-provenance-query-frontier.v1",
   "status": "PASS",
   "theorems": {
-    "deterministic": "D*(p,delta,q)=max(0,sum_top_(q+1)(p)-delta)",
+    "deterministic": "D*=1 for q=n-1; otherwise max(0,sum_top_(q+1)(p)-delta)",
     "randomized": "R*(p,delta,q)=min_{TV(pi,p)<=delta} sum_top_(q+1)(pi)",
     "separation": "for uniform p and delta>0, R*=(q+1)/n>D* when D* is positive"
   },

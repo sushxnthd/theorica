@@ -8,7 +8,8 @@ prior lie in `TV(pi,p)<=delta`, and let `k=q+1` be the number of labels on which
 
 For deterministic strategies,
 
-`D*(p,delta,q) = max(0, sum_top_k(p) - delta)`.
+`D*(p,delta,q) = max(0, sum_top_k(p) - delta)` when `k<n`, while
+`D*(p,delta,n-1)=1` at full coverage.
 
 For randomized strategies,
 
@@ -18,10 +19,13 @@ The second expression is an exact finite linear program.
 
 ## Proof
 
-A deterministic plan succeeds on a fixed `k`-set `S`. Total variation permits
-the adversary to move up to `delta` probability mass out of `S`, so its worst
-case is `max(0,p(S)-delta)`. Choosing the largest nominal masses proves the first
-law.
+A deterministic plan succeeds on a fixed `k`-set `S`. When `S` is a proper
+subset, total variation permits the adversary to move up to `delta` probability
+mass out of `S`, so its worst case is `max(0,p(S)-delta)`. Choosing the largest
+nominal masses proves the first law. At `k=n`, there is no complement into which
+mass can move, and the value is exactly one. This boundary correction was found
+by the subsequent constructive-synthesis protocol and is preserved in
+`ROBUST_FULL_COVERAGE_CORRECTION.md`.
 
 A randomized plan is a distribution over `k`-sets. Its inclusion-probability
 vector lies in the hypersimplex `A={a in [0,1]^n: sum a_i=k}`, and payoff against
@@ -34,7 +38,7 @@ yielding the second law.
 
 ## Decisive separation
 
-For uniform nominal `p`, every prior has top-`k` mass at least `k/n`, while the
+For uniform nominal `p` and `k<n`, every prior has top-`k` mass at least `k/n`, while the
 uniform prior itself remains in every TV ball. Hence `R*=k/n`. But for any
 positive radius before truncation, `D*=k/n-delta`. Therefore the current
 deterministic top-mass planner is strictly dominated under uncertain provenance.

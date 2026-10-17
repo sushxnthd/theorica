@@ -24,7 +24,7 @@ def main():
                 counts['deterministic_subset_checks']+=sum(1 for _ in combinations(range(n),k))
                 for delta in radii:
                     observed=deterministic_tv_frontier(weights,q,delta)
-                    expected=max(Fraction(0),nominal-delta)
+                    expected=Fraction(1) if k==n else max(Fraction(0),nominal-delta)
                     if observed!=expected: failures.append({'weights':weights,'q':q,'delta':str(delta)})
                     # LP check on a fixed asymmetric control per dimension;
                     # deterministic enumeration remains exhaustive.
@@ -43,7 +43,7 @@ def main():
                 counts['uniform_separations']+=1
                 if len(witnesses)<8: witnesses.append({'n':n,'q':q,'deterministic':str(frontier.deterministic_value),'randomized':frontier.randomized_value})
     payload={'schema':'theorica.robust-provenance-query-frontier.v1','theorems':{
-      'deterministic':'D*(p,delta,q)=max(0,sum_top_(q+1)(p)-delta)',
+      'deterministic':'D*=1 for q=n-1; otherwise max(0,sum_top_(q+1)(p)-delta)',
       'randomized':'R*(p,delta,q)=min_{TV(pi,p)<=delta} sum_top_(q+1)(pi)',
       'separation':'for uniform p and delta>0, R*=(q+1)/n>D* when D* is positive'},
       'counts':counts,'failures':failures,'witnesses':witnesses,'status':'PASS' if not failures else 'FAIL'}
