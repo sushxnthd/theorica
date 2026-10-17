@@ -1,0 +1,68 @@
+{
+  "canonical_sha256": "f2a7a92b44015d6cbc844f1b710961fd44ed661b6ae46bdcd92d1fb4f7014b95",
+  "counts": {
+    "deterministic_subset_checks": 332613,
+    "frontier_cases": 85212,
+    "prior_vectors": 3267,
+    "randomized_lp_cases": 100,
+    "uniform_separations": 20
+  },
+  "failures": [],
+  "schema": "theorica.robust-provenance-query-frontier.v1",
+  "status": "PASS",
+  "theorems": {
+    "deterministic": "D*=1 for q=n-1; otherwise max(0,sum_top_(q+1)(p)-delta)",
+    "randomized": "R*(p,delta,q)=min_{TV(pi,p)<=delta} sum_top_(q+1)(pi)",
+    "separation": "for uniform p and delta>0, R*=(q+1)/n>D* when D* is positive"
+  },
+  "witnesses": [
+    {
+      "deterministic": "7/30",
+      "n": 3,
+      "q": 0,
+      "randomized": 0.3333333333333333
+    },
+    {
+      "deterministic": "17/30",
+      "n": 3,
+      "q": 1,
+      "randomized": 0.6666666666666666
+    },
+    {
+      "deterministic": "3/20",
+      "n": 4,
+      "q": 0,
+      "randomized": 0.25
+    },
+    {
+      "deterministic": "2/5",
+      "n": 4,
+      "q": 1,
+      "randomized": 0.5
+    },
+    {
+      "deterministic": "13/20",
+      "n": 4,
+      "q": 2,
+      "randomized": 0.75
+    },
+    {
+      "deterministic": "1/10",
+      "n": 5,
+      "q": 0,
+      "randomized": 0.2
+    },
+    {
+      "deterministic": "3/10",
+      "n": 5,
+      "q": 1,
+      "randomized": 0.39999999999999997
+    },
+    {
+      "deterministic": "1/2",
+      "n": 5,
+      "q": 2,
+      "randomized": 0.6
+    }
+  ]
+}

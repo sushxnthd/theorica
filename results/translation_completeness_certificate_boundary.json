@@ -1,0 +1,79 @@
+{
+  "by_n": {
+    "2": {
+      "agreeing_outside_permutations_total": 1,
+      "ambiguity_failures": 0,
+      "ambiguous_coordinate_subsets": 1,
+      "n_minus_1_subsets": 2,
+      "permutations": 2,
+      "uniqueness_failures": 0,
+      "worst_case_untrusted_row_queries": 1
+    },
+    "3": {
+      "agreeing_outside_permutations_total": 8,
+      "ambiguity_failures": 0,
+      "ambiguous_coordinate_subsets": 4,
+      "n_minus_1_subsets": 3,
+      "permutations": 6,
+      "uniqueness_failures": 0,
+      "worst_case_untrusted_row_queries": 2
+    },
+    "4": {
+      "agreeing_outside_permutations_total": 49,
+      "ambiguity_failures": 0,
+      "ambiguous_coordinate_subsets": 11,
+      "n_minus_1_subsets": 4,
+      "permutations": 24,
+      "uniqueness_failures": 0,
+      "worst_case_untrusted_row_queries": 3
+    },
+    "5": {
+      "agreeing_outside_permutations_total": 294,
+      "ambiguity_failures": 0,
+      "ambiguous_coordinate_subsets": 26,
+      "n_minus_1_subsets": 5,
+      "permutations": 120,
+      "uniqueness_failures": 0,
+      "worst_case_untrusted_row_queries": 4
+    },
+    "6": {
+      "agreeing_outside_permutations_total": 1893,
+      "ambiguity_failures": 0,
+      "ambiguous_coordinate_subsets": 57,
+      "n_minus_1_subsets": 6,
+      "permutations": 720,
+      "uniqueness_failures": 0,
+      "worst_case_untrusted_row_queries": 5
+    },
+    "7": {
+      "agreeing_outside_permutations_total": 13572,
+      "ambiguity_failures": 0,
+      "ambiguous_coordinate_subsets": 120,
+      "n_minus_1_subsets": 7,
+      "permutations": 5040,
+      "uniqueness_failures": 0,
+      "worst_case_untrusted_row_queries": 6
+    },
+    "8": {
+      "agreeing_outside_permutations_total": 109345,
+      "ambiguity_failures": 0,
+      "ambiguous_coordinate_subsets": 247,
+      "n_minus_1_subsets": 8,
+      "permutations": 40320,
+      "uniqueness_failures": 0,
+      "worst_case_untrusted_row_queries": 7
+    }
+  },
+  "canonical_sha256": "955f18f38a8de6af6a39438aad0b250105c7d8b692a42756e2405082922d5e92",
+  "classification": "EXACT_ENUMERATION",
+  "counterexamples": [],
+  "gates": {
+    "all_n_minus_1_subsets_unique": true,
+    "all_subsets_at_most_n_minus_2_ambiguous": true,
+    "no_counterexamples": true
+  },
+  "max_n": 8,
+  "schema": "theorica.translation-completeness-certificate-boundary.v1",
+  "status": "PASS",
+  "theorem_query_bound": "r*n + (n-r)*(n-1)"
+}

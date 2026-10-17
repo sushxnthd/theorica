@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "all_prior_vectors": true,
+    "all_uniform_separations": true,
+    "randomized_lp_controls": true,
+    "substantial_frontier_enumeration": true,
+    "substantial_subset_enumeration": true,
+    "terminal_pass": true,
+    "witnesses_preserved": true
+  },
+  "passed": 7,
+  "schema": "theorica.robust-provenance-query-frontier.audit.v1",
+  "status": "PASS",
+  "total": 7
+}

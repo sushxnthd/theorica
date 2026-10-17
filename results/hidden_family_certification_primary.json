@@ -1,0 +1,19 @@
+{
+  "active_row_duplicate_checks": 534662,
+  "canonical_sha256": "51a57e29ffdee1aaacbb7ed7419a31314b998dda178d9c7eb10cd1308cb09d42",
+  "failures": [],
+  "family_instances": 1047,
+  "frontier_checks": 11465,
+  "hypergeometric_checks": 750,
+  "max_n": 32,
+  "runtime_acceptance_checks": 1047,
+  "single_cell_corruption_witnesses": 13934554,
+  "spot_runtime_checks": 5235,
+  "status": "PASS",
+  "theorem": {
+    "confidence_inversion": "ceil(beta*n^2)",
+    "distance_d_detection": "1-C(n^2-d,q)/C(n^2,q)",
+    "one_sided_rejection_frontier": "q/n^2",
+    "zero_error_queries": "n^2"
+  }
+}

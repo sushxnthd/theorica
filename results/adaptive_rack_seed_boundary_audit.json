@@ -1,0 +1,9 @@
+{
+  "canonical_sha256": "519f84971a6f7eee8d95e79dad2cda81aebf401e5a7ac812becbad1e464cc54e",
+  "checks": 62,
+  "failures": [],
+  "independent_method": "direct operation oracle and cubic rack identity check",
+  "primary_canonical_sha256": "7544296857290ce9a67a93a6002387041510120c4ef8103b0f2e01e00d497bf2",
+  "schema": "theorica.adaptive-rack-seed-boundary.audit.v1",
+  "status": "PASS"
+}

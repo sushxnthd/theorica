@@ -1,0 +1,67 @@
+name: robust-randomized-plan-synthesis
+
+on:
+  push:
+    branches: [breakthrough-engine/nonfaithful-reconstruction-boundary-20261013]
+    paths:
+      - docs/ROBUST_RANDOMIZED_PLAN_SYNTHESIS_*.md
+      - docs/ROBUST_FULL_COVERAGE_CORRECTION.md
+      - docs/ROBUST_PROVENANCE_QUERY_FRONTIER_RESULT.md
+      - src/theorica/agents/robust_provenance.py
+      - src/theorica/agents/rack_seed_acquisition.py
+      - scripts/verify_robust_randomized_plan_synthesis.py
+      - scripts/audit_robust_randomized_plan_synthesis.py
+      - scripts/verify_robust_provenance_query_frontier.py
+      - results/robust_randomized_plan_synthesis_*.json
+      - results/robust_full_coverage_failure.json
+      - tests/test_robust_provenance.py
+      - tests/test_rack_seed_acquisition.py
+      - .github/workflows/robust-randomized-plan-synthesis.yml
+  pull_request:
+    paths:
+      - docs/ROBUST_RANDOMIZED_PLAN_SYNTHESIS_*.md
+      - docs/ROBUST_FULL_COVERAGE_CORRECTION.md
+      - docs/ROBUST_PROVENANCE_QUERY_FRONTIER_RESULT.md
+      - src/theorica/agents/robust_provenance.py
+      - src/theorica/agents/rack_seed_acquisition.py
+      - scripts/verify_robust_randomized_plan_synthesis.py
+      - scripts/audit_robust_randomized_plan_synthesis.py
+      - scripts/verify_robust_provenance_query_frontier.py
+      - results/robust_randomized_plan_synthesis_*.json
+      - results/robust_full_coverage_failure.json
+      - tests/test_robust_provenance.py
+      - tests/test_rack_seed_acquisition.py
+      - .github/workflows/robust-randomized-plan-synthesis.yml
+  workflow_dispatch:
+
+jobs:
+  constructive-certificate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install -e '.[dev]'
+      - name: Runtime and execution regression
+        run: python -m pytest -q tests/test_robust_provenance.py tests/test_rack_seed_acquisition.py
+      - name: Reproduce synthesis and independent payoff audit
+        run: |
+          python scripts/verify_robust_randomized_plan_synthesis.py --output /tmp/primary.json
+          python scripts/audit_robust_randomized_plan_synthesis.py /tmp/primary.json --output /tmp/audit.json
+          cmp /tmp/primary.json results/robust_randomized_plan_synthesis_primary.json
+          cmp /tmp/audit.json results/robust_randomized_plan_synthesis_audit.json
+      - name: Byte-identical rerun
+        run: |
+          python scripts/verify_robust_randomized_plan_synthesis.py --output /tmp/primary-2.json >/dev/null
+          cmp /tmp/primary.json /tmp/primary-2.json
+      - name: Preserve falsification evidence
+        run: |
+          python -c "import json; r=json.load(open('results/robust_full_coverage_failure.json')); assert r['scientific_gate']=='FAIL' and r['counterexample']['old_formula_value'] != r['counterexample']['true_worst_case_success']"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: robust-randomized-plan-synthesis
+          path: |
+            /tmp/primary.json
+            /tmp/audit.json

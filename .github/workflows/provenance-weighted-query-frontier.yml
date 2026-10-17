@@ -1,0 +1,51 @@
+name: provenance-weighted-query-frontier
+
+on:
+  push:
+    branches:
+      - breakthrough-engine/nonfaithful-reconstruction-boundary-20261013
+    paths:
+      - docs/PROVENANCE_WEIGHTED_QUERY_FRONTIER_*.md
+      - scripts/verify_provenance_weighted_query_frontier.py
+      - scripts/audit_provenance_weighted_query_frontier.py
+      - results/provenance_weighted_query_*.json
+      - src/theorica/agents/rack_seed_acquisition.py
+      - tests/test_rack_seed_acquisition.py
+      - .github/workflows/provenance-weighted-query-frontier.yml
+  workflow_dispatch:
+
+jobs:
+  exact-frontier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -e ".[dev]"
+      - name: Runtime contract
+        run: |
+          python -m py_compile scripts/verify_provenance_weighted_query_frontier.py
+          python -m py_compile scripts/audit_provenance_weighted_query_frontier.py
+          python -m py_compile src/theorica/agents/rack_seed_acquisition.py
+          python -m pytest -q tests/test_rack_seed_acquisition.py
+      - name: Reproduce exact evidence
+        run: |
+          python scripts/verify_provenance_weighted_query_frontier.py --max-n 8 --max-weight 3 --output /tmp/primary.json
+          python scripts/audit_provenance_weighted_query_frontier.py --max-n 8 --max-weight 3 --output /tmp/audit.json
+          cmp /tmp/primary.json results/provenance_weighted_query_primary.json
+          cmp /tmp/audit.json results/provenance_weighted_query_audit.json
+      - name: Byte-identical rerun
+        run: |
+          python scripts/verify_provenance_weighted_query_frontier.py --max-n 8 --max-weight 3 --output /tmp/primary-2.json
+          python scripts/audit_provenance_weighted_query_frontier.py --max-n 8 --max-weight 3 --output /tmp/audit-2.json
+          cmp /tmp/primary.json /tmp/primary-2.json
+          cmp /tmp/audit.json /tmp/audit-2.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: provenance-weighted-query-frontier
+          path: |
+            /tmp/primary.json
+            /tmp/audit.json

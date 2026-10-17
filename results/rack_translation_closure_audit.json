@@ -1,0 +1,20 @@
+{
+  "alexander_quandle_families": 323,
+  "canonical_sha256": "1f0af3b7da8b4eccb756d9d8df69d70f74a755757e4e9c80657b6b11830ecf68",
+  "classification": "INDEPENDENT_CONSTRUCTIVE_AUDIT",
+  "derivation_conflicts": 0,
+  "derived_rows": 72389,
+  "exact_reconstructions": 3741,
+  "failures": [],
+  "forward_generating_seed_subsets": 3741,
+  "gates": {
+    "all_derivation_collisions_agree": true,
+    "all_reconstructions_exact": true,
+    "no_failures": true,
+    "nonempty_family_corpus": true,
+    "nonempty_generating_cases": true
+  },
+  "max_modulus": 32,
+  "schema": "theorica.rack-translation-closure-independent-audit.v1",
+  "status": "PASS"
+}

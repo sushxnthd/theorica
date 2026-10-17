@@ -1,0 +1,9 @@
+{
+  "canonical_sha256": "89535b73c8319d661dab5ce617162d73d1a9118d5f69ccbdd4ce758efa45df6c",
+  "checks": 105040,
+  "failures": [],
+  "independent_method": "direct table predicate, materialized cyclic corruptions, and rational averaging audit",
+  "max_n": 24,
+  "primary_canonical_sha256": "51a57e29ffdee1aaacbb7ed7419a31314b998dda178d9c7eb10cd1308cb09d42",
+  "status": "PASS"
+}

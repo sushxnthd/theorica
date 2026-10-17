@@ -1,0 +1,47 @@
+name: nonfaithful-public-holdout
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "docs/NONFAITHFUL_PUBLIC_CATALOGUE_PREREGISTRATION.md"
+      - "scripts/export_gap_nonfaithful_public_holdout.g"
+      - "scripts/nonfaithful_public_holdout.py"
+      - "src/theorica/agents/translation_action.py"
+      - ".github/workflows/nonfaithful_public_holdout.yml"
+
+jobs:
+  prospective-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e ".[dev]"
+      - name: Install GAP
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gap
+      - name: Install pinned RightQuasigroups
+        run: |
+          mkdir -p "$HOME/.gap/pkg"
+          git clone --depth 1 --branch v0.9.12 \
+            https://github.com/gap-packages/RightQuasigroups.git \
+            "$HOME/.gap/pkg/RightQuasigroups"
+      - name: Export frozen public holdout
+        run: gap -q scripts/export_gap_nonfaithful_public_holdout.g
+      - name: Run prospective evaluation twice
+        run: |
+          python scripts/nonfaithful_public_holdout.py
+          cp results/nonfaithful_public_holdout.json /tmp/run1.json
+          python scripts/nonfaithful_public_holdout.py
+          cmp /tmp/run1.json results/nonfaithful_public_holdout.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nonfaithful-public-holdout
+          path: |
+            results/nonfaithful_public_holdout.tsv
+            results/nonfaithful_public_holdout.json

@@ -1,0 +1,26 @@
+name: Rack translation closure
+
+on:
+  push:
+    branches:
+      - breakthrough-engine/nonfaithful-reconstruction-boundary-20261013
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e '.[dev]'
+      - run: pytest -q tests/test_rack_translation_closure.py
+      - run: python scripts/verify_rack_translation_closure.py --max-n 4 --output /tmp/rack-primary.json
+      - run: python scripts/audit_rack_translation_closure.py --max-modulus 32 --output /tmp/rack-audit.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rack-translation-closure
+          path: |
+            /tmp/rack-primary.json
+            /tmp/rack-audit.json

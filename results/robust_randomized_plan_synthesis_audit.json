@@ -1,0 +1,7 @@
+{
+  "certificate_checks": 72,
+  "failures": [],
+  "max_independent_residual": 1.999955756559757e-12,
+  "schema": "theorica.robust-randomized-plan-synthesis-audit.v1",
+  "status": "PASS"
+}

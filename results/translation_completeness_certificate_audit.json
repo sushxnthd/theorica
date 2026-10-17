@@ -1,0 +1,9 @@
+{
+  "canonical_sha256": "97865be69d736ebaf0bb0abf74e8622d67f004cb0795307412d71a931c90c293",
+  "cases": 133141,
+  "failures": [],
+  "max_n": 64,
+  "method": "constructive_transposition_and_forced_last_image",
+  "schema": "theorica.translation-completeness-certificate-audit.v1",
+  "status": "PASS"
+}
