@@ -30,7 +30,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: python -m pip install -e ".[test]"
+      - run: python -m pip install pytest && python -m pip install -e .
       - run: pytest -q tests/test_robust_provenance.py
       - run: python scripts/verify_divergence_agnostic_symmetry_law.py --output primary.json
       - run: python scripts/verify_divergence_agnostic_symmetry_law.py --output primary-rerun.json
