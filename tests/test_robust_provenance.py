@@ -63,12 +63,12 @@ def test_seed_bound_sampling_is_reproducible_and_executable():
 
 @pytest.mark.parametrize("n,q", [(2, 0), (5, 1), (7, 5), (8, 7)])
 def test_divergence_agnostic_value_is_exact(n, q):
-    assert divergence_agnostic_symmetry_value(n, q, True) == Fraction(q + 1, n)
+    assert divergence_agnostic_symmetry_value(n, q, uniform_prior_in_set=True) == Fraction(q + 1, n)
 
 
 def test_uniform_certificate_is_required():
     with pytest.raises(ValueError, match="uniform prior"):
-        divergence_agnostic_symmetry_value(5, 1, False)
+        divergence_agnostic_symmetry_value(5, 1, uniform_prior_in_set=False)
 
 
 def test_strict_domination_certificate():
