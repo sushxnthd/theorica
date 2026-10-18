@@ -32,7 +32,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: python -m pip install -e '.[test]'
+      - run: python -m pip install pytest && python -m pip install -e .
       - name: Execute theorem verifier twice
         run: |
           python scripts/verify_orbit_balanced_minimax.py --output /tmp/orbit-primary-1.json
