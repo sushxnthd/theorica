@@ -45,7 +45,10 @@ jobs:
       - name: Focused production tests
         run: |
           mkdir -p results/orbit_balanced_minimax
-          pytest -q tests/test_robust_provenance.py --junitxml=results/orbit_balanced_minimax/focused-tests.xml
+          set +e
+          pytest -q tests/test_robust_provenance.py --junitxml=results/orbit_balanced_minimax/focused-tests.xml 2>&1 | tee results/orbit_balanced_minimax/focused-tests.log
+          status=${PIPESTATUS[0]}
+          exit $status
       - name: Full suite
         run: pytest -q
       - name: Preserve exact artifacts
