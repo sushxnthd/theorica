@@ -1,10 +1,18 @@
 from fractions import Fraction
+from itertools import combinations
+
+import pytest
 
 from theorica.agents.robust_provenance import (
+    deterministic_strictly_dominated,
     deterministic_tv_frontier,
+    divergence_agnostic_symmetry_value,
     robust_provenance_frontier,
     sample_robust_randomized_plan,
+    sample_uniform_ambiguity_plan,
     synthesize_robust_randomized_plan,
+    synthesize_uniform_ambiguity_plan,
+    unrank_uniform_k_subset,
 )
 
 
@@ -52,3 +60,37 @@ def test_seed_bound_sampling_is_reproducible_and_executable():
     assert len(first.query_order) == 2
     assert first.terminal_guess not in first.query_order
 
+
+@pytest.mark.parametrize("n,q", [(2, 0), (5, 1), (7, 5), (8, 7)])
+def test_divergence_agnostic_value_is_exact(n, q):
+    assert divergence_agnostic_symmetry_value(n, q, True) == Fraction(q + 1, n)
+
+
+def test_uniform_certificate_is_required():
+    with pytest.raises(ValueError, match="uniform prior"):
+        divergence_agnostic_symmetry_value(5, 1, False)
+
+
+def test_strict_domination_certificate():
+    assert deterministic_strictly_dominated(Fraction(1, 3), 6, 2)
+    assert not deterministic_strictly_dominated(Fraction(1, 2), 6, 2)
+    assert not deterministic_strictly_dominated(Fraction(1), 6, 5)
+
+
+def test_exact_subset_unranking_matches_lexicographic_combinations():
+    expected = list(combinations(range(6), 3))
+    observed = [unrank_uniform_k_subset(6, 3, rank) for rank in range(len(expected))]
+    assert observed == expected
+
+
+def test_compact_uniform_plan_and_sampling():
+    plan = synthesize_uniform_ambiguity_plan(9, 2, uniform_prior_in_set=True)
+    assert plan.coverage_size == 3
+    assert plan.value == Fraction(1, 3)
+    assert plan.subset_count == 84
+    first = sample_uniform_ambiguity_plan(plan, "symmetry-seed")
+    second = sample_uniform_ambiguity_plan(plan, "symmetry-seed")
+    assert first == second
+    assert len(first.covered_labels) == 3
+    assert len(first.query_order) == 2
+    assert first.terminal_guess not in first.query_order
