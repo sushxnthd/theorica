@@ -152,7 +152,7 @@ def test_orbit_sampler_is_reproducible_and_executable():
 def test_orbit_planner_rejects_non_group_and_unbalanced_sampling():
     with pytest.raises(ValueError, match="closed"):
         synthesize_orbit_balanced_plan(
-            4, 1, (0, 1), ((0, 1, 2, 3), (1, 0, 2, 3)),
+            4, 1, (0, 1), ((0, 1, 2, 3), (1, 2, 3, 0)),
             ambiguity_kind="invalid", uniform_prior_in_set=True,
         )
     plan = synthesize_orbit_balanced_plan(
