@@ -1,0 +1,68 @@
+name: orbit-balanced-minimax
+
+on:
+  push:
+    branches: [breakthrough-engine/orbit-balanced-minimax-20261019]
+    paths:
+      - src/theorica/agents/robust_provenance.py
+      - tests/test_robust_provenance.py
+      - scripts/verify_orbit_balanced_minimax.py
+      - scripts/audit_orbit_balanced_minimax.py
+      - docs/ORBIT_BALANCED_MINIMAX_*.md
+      - .github/workflows/orbit-balanced-minimax.yml
+  pull_request:
+    paths:
+      - src/theorica/agents/robust_provenance.py
+      - tests/test_robust_provenance.py
+      - scripts/verify_orbit_balanced_minimax.py
+      - scripts/audit_orbit_balanced_minimax.py
+      - docs/ORBIT_BALANCED_MINIMAX_*.md
+      - .github/workflows/orbit-balanced-minimax.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  exact-theorem:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install pytest && python -m pip install -e .
+      - name: Execute theorem verifier twice
+        run: |
+          python scripts/verify_orbit_balanced_minimax.py --output /tmp/orbit-primary-1.json
+          python scripts/verify_orbit_balanced_minimax.py --output /tmp/orbit-primary-2.json
+          cmp /tmp/orbit-primary-1.json /tmp/orbit-primary-2.json
+          mkdir -p results/orbit_balanced_minimax
+          cp /tmp/orbit-primary-1.json results/orbit_balanced_minimax/primary.json
+      - name: Independent exact audit
+        run: python scripts/audit_orbit_balanced_minimax.py --primary results/orbit_balanced_minimax/primary.json --output results/orbit_balanced_minimax/audit.json
+      - name: Focused production tests
+        run: |
+          mkdir -p results/orbit_balanced_minimax
+          set +e
+          python -m pytest -q tests/test_robust_provenance.py --junitxml=results/orbit_balanced_minimax/focused-tests.xml 2>&1 | tee results/orbit_balanced_minimax/focused-tests.log
+          status=${PIPESTATUS[0]}
+          exit $status
+      - name: Full suite
+        run: python -m pytest -q
+      - name: Preserve exact artifacts
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/orbit_balanced_minimax/primary.json results/orbit_balanced_minimax/audit.json
+          if ! git diff --cached --quiet; then
+            git commit -m "research: record orbit-balanced minimax theorem"
+            git push origin HEAD:$GITHUB_REF_NAME
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: orbit-balanced-minimax
+          path: results/orbit_balanced_minimax/

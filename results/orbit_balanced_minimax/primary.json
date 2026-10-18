@@ -1,0 +1,323 @@
+{
+  "action_families": 52,
+  "balanced": 3454,
+  "compression_examples": [
+    {
+      "compression": "2",
+      "full_support": 10,
+      "k": 2,
+      "n": 5,
+      "orbit_support": 5
+    },
+    {
+      "compression": "2",
+      "full_support": 10,
+      "k": 3,
+      "n": 5,
+      "orbit_support": 5
+    },
+    {
+      "compression": "5/2",
+      "full_support": 15,
+      "k": 2,
+      "n": 6,
+      "orbit_support": 6
+    },
+    {
+      "compression": "10/3",
+      "full_support": 20,
+      "k": 3,
+      "n": 6,
+      "orbit_support": 6
+    },
+    {
+      "compression": "5/2",
+      "full_support": 15,
+      "k": 4,
+      "n": 6,
+      "orbit_support": 6
+    },
+    {
+      "compression": "3",
+      "full_support": 21,
+      "k": 2,
+      "n": 7,
+      "orbit_support": 7
+    },
+    {
+      "compression": "5",
+      "full_support": 35,
+      "k": 3,
+      "n": 7,
+      "orbit_support": 7
+    },
+    {
+      "compression": "5",
+      "full_support": 35,
+      "k": 4,
+      "n": 7,
+      "orbit_support": 7
+    },
+    {
+      "compression": "3",
+      "full_support": 21,
+      "k": 5,
+      "n": 7,
+      "orbit_support": 7
+    },
+    {
+      "compression": "7/2",
+      "full_support": 28,
+      "k": 2,
+      "n": 8,
+      "orbit_support": 8
+    },
+    {
+      "compression": "7",
+      "full_support": 56,
+      "k": 3,
+      "n": 8,
+      "orbit_support": 8
+    },
+    {
+      "compression": "35/4",
+      "full_support": 70,
+      "k": 4,
+      "n": 8,
+      "orbit_support": 8
+    },
+    {
+      "compression": "7",
+      "full_support": 56,
+      "k": 5,
+      "n": 8,
+      "orbit_support": 8
+    },
+    {
+      "compression": "7/2",
+      "full_support": 28,
+      "k": 6,
+      "n": 8,
+      "orbit_support": 8
+    },
+    {
+      "compression": "4",
+      "full_support": 36,
+      "k": 2,
+      "n": 9,
+      "orbit_support": 9
+    },
+    {
+      "compression": "28/3",
+      "full_support": 84,
+      "k": 3,
+      "n": 9,
+      "orbit_support": 9
+    },
+    {
+      "compression": "14",
+      "full_support": 126,
+      "k": 4,
+      "n": 9,
+      "orbit_support": 9
+    },
+    {
+      "compression": "14",
+      "full_support": 126,
+      "k": 5,
+      "n": 9,
+      "orbit_support": 9
+    },
+    {
+      "compression": "28/3",
+      "full_support": 84,
+      "k": 6,
+      "n": 9,
+      "orbit_support": 9
+    },
+    {
+      "compression": "4",
+      "full_support": 36,
+      "k": 7,
+      "n": 9,
+      "orbit_support": 9
+    },
+    {
+      "compression": "9/2",
+      "full_support": 45,
+      "k": 2,
+      "n": 10,
+      "orbit_support": 10
+    },
+    {
+      "compression": "12",
+      "full_support": 120,
+      "k": 3,
+      "n": 10,
+      "orbit_support": 10
+    },
+    {
+      "compression": "21",
+      "full_support": 210,
+      "k": 4,
+      "n": 10,
+      "orbit_support": 10
+    },
+    {
+      "compression": "126/5",
+      "full_support": 252,
+      "k": 5,
+      "n": 10,
+      "orbit_support": 10
+    },
+    {
+      "compression": "21",
+      "full_support": 210,
+      "k": 6,
+      "n": 10,
+      "orbit_support": 10
+    },
+    {
+      "compression": "12",
+      "full_support": 120,
+      "k": 7,
+      "n": 10,
+      "orbit_support": 10
+    },
+    {
+      "compression": "9/2",
+      "full_support": 45,
+      "k": 8,
+      "n": 10,
+      "orbit_support": 10
+    },
+    {
+      "compression": "5",
+      "full_support": 55,
+      "k": 2,
+      "n": 11,
+      "orbit_support": 11
+    },
+    {
+      "compression": "15",
+      "full_support": 165,
+      "k": 3,
+      "n": 11,
+      "orbit_support": 11
+    },
+    {
+      "compression": "30",
+      "full_support": 330,
+      "k": 4,
+      "n": 11,
+      "orbit_support": 11
+    },
+    {
+      "compression": "42",
+      "full_support": 462,
+      "k": 5,
+      "n": 11,
+      "orbit_support": 11
+    },
+    {
+      "compression": "42",
+      "full_support": 462,
+      "k": 6,
+      "n": 11,
+      "orbit_support": 11
+    },
+    {
+      "compression": "30",
+      "full_support": 330,
+      "k": 7,
+      "n": 11,
+      "orbit_support": 11
+    },
+    {
+      "compression": "15",
+      "full_support": 165,
+      "k": 8,
+      "n": 11,
+      "orbit_support": 11
+    },
+    {
+      "compression": "5",
+      "full_support": 55,
+      "k": 9,
+      "n": 11,
+      "orbit_support": 11
+    },
+    {
+      "compression": "11/2",
+      "full_support": 66,
+      "k": 2,
+      "n": 12,
+      "orbit_support": 12
+    },
+    {
+      "compression": "55/3",
+      "full_support": 220,
+      "k": 3,
+      "n": 12,
+      "orbit_support": 12
+    },
+    {
+      "compression": "165/4",
+      "full_support": 495,
+      "k": 4,
+      "n": 12,
+      "orbit_support": 12
+    },
+    {
+      "compression": "66",
+      "full_support": 792,
+      "k": 5,
+      "n": 12,
+      "orbit_support": 12
+    },
+    {
+      "compression": "77",
+      "full_support": 924,
+      "k": 6,
+      "n": 12,
+      "orbit_support": 12
+    },
+    {
+      "compression": "66",
+      "full_support": 792,
+      "k": 7,
+      "n": 12,
+      "orbit_support": 12
+    },
+    {
+      "compression": "165/4",
+      "full_support": 495,
+      "k": 8,
+      "n": 12,
+      "orbit_support": 12
+    },
+    {
+      "compression": "55/3",
+      "full_support": 220,
+      "k": 9,
+      "n": 12,
+      "orbit_support": 12
+    },
+    {
+      "compression": "11/2",
+      "full_support": 66,
+      "k": 10,
+      "n": 12,
+      "orbit_support": 12
+    }
+  ],
+  "enumeration_digest": "e9b6c193785dfab8bdb74e4e0d6e432aec4b646d5ab0614aa71c400381e0c4a1",
+  "incidence_checks": 85664,
+  "plans": 10180,
+  "sampler_checks": 44,
+  "smallest_claim": "Uniform randomization over one finite-group query orbit has point-orbit inclusion |S\u2229O_j|/|O_j|; it preserves the universal k/n uniform-containing-ambiguity minimax guarantee iff every point-orbit ratio equals k/n, while the full-simplex value of an unbalanced orbit is their minimum.",
+  "stabilizer_checks": 10180,
+  "status": "pass",
+  "theorem": "orbit-balanced minimax compression iff point-orbit ratios equal k/n",
+  "unbalanced": 6726
+}

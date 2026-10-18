@@ -8,8 +8,10 @@ from theorica.agents.robust_provenance import (
     deterministic_tv_frontier,
     divergence_agnostic_symmetry_value,
     robust_provenance_frontier,
+    sample_orbit_balanced_plan,
     sample_robust_randomized_plan,
     sample_uniform_ambiguity_plan,
+    synthesize_orbit_balanced_plan,
     synthesize_robust_randomized_plan,
     synthesize_uniform_ambiguity_plan,
     unrank_uniform_k_subset,
@@ -93,3 +95,69 @@ def test_compact_uniform_plan_and_sampling():
     assert len(first.covered_labels) == 3
     assert len(first.query_order) == 2
     assert first.terminal_guess not in first.query_order
+
+
+def _cyclic_action(n):
+    return tuple(tuple((i + shift) % n for i in range(n)) for shift in range(n))
+
+
+def _product_action(left, right):
+    return tuple(
+        tuple(
+            (i + a) % left if i < left else left + (i - left + b) % right
+            for i in range(left + right)
+        )
+        for a in range(left) for b in range(right)
+    )
+
+
+def test_transitive_orbit_plan_is_exactly_balanced_and_compressed():
+    plan = synthesize_orbit_balanced_plan(
+        9, 2, (0, 1, 2), _cyclic_action(9),
+        ambiguity_kind="cyclic-window", uniform_prior_in_set=True,
+    )
+    assert plan.certificate_valid and plan.balanced
+    assert plan.universal_minimax_value == Fraction(1, 3)
+    assert plan.inclusion_probabilities == (Fraction(1, 3),) * 9
+    assert len(plan.query_orbit) == 9
+
+
+def test_intransitive_balance_boundary_is_exact():
+    group = _product_action(3, 3)
+    balanced = synthesize_orbit_balanced_plan(
+        6, 1, (0, 3), group, ambiguity_kind="two-orbits", uniform_prior_in_set=True,
+    )
+    unbalanced = synthesize_orbit_balanced_plan(
+        6, 1, (0, 1), group, ambiguity_kind="two-orbits", uniform_prior_in_set=True,
+    )
+    assert balanced.balanced and balanced.orbit_balance_ratios == (Fraction(1, 3), Fraction(1, 3))
+    assert not unbalanced.balanced
+    assert unbalanced.universal_minimax_value is None
+    assert unbalanced.orbit_balance_ratios == (Fraction(2, 3), Fraction(0))
+    assert unbalanced.full_simplex_value == 0
+
+
+def test_orbit_sampler_is_reproducible_and_executable():
+    plan = synthesize_orbit_balanced_plan(
+        8, 2, (0, 1, 2), _cyclic_action(8),
+        ambiguity_kind="cyclic-window", uniform_prior_in_set=True,
+    )
+    first = sample_orbit_balanced_plan(plan, "orbit-receipt")
+    second = sample_orbit_balanced_plan(plan, "orbit-receipt")
+    assert first == second
+    assert first.covered_labels in plan.query_orbit
+    assert len(first.query_order) == 2
+
+
+def test_orbit_planner_rejects_non_group_and_unbalanced_sampling():
+    with pytest.raises(ValueError, match="closed"):
+        synthesize_orbit_balanced_plan(
+            4, 1, (0, 1), ((0, 1, 2, 3), (1, 2, 3, 0)),
+            ambiguity_kind="invalid", uniform_prior_in_set=True,
+        )
+    plan = synthesize_orbit_balanced_plan(
+        6, 1, (0, 1), _product_action(3, 3),
+        ambiguity_kind="unbalanced", uniform_prior_in_set=True,
+    )
+    with pytest.raises(ValueError, match="balanced"):
+        sample_orbit_balanced_plan(plan, "reject")

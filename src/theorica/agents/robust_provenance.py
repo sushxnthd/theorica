@@ -353,3 +353,135 @@ def sample_uniform_ambiguity_plan(
         counter += 1
     covered = unrank_uniform_k_subset(plan.carrier_size, plan.covered_labels, rank)
     return SampledRobustPlan(rank, covered, covered[:-1], covered[-1], digest)
+
+
+@dataclass(frozen=True)
+class OrbitBalancedPlan:
+    """Exact orbit-mixture certificate for a finite permutation action."""
+
+    carrier_size: int
+    query_budget: int
+    covered_labels: int
+    ambiguity_kind: str
+    uniform_prior_in_set: bool
+    seed_subset: tuple[int, ...]
+    action_size: int
+    point_orbits: tuple[tuple[int, ...], ...]
+    query_orbit: tuple[tuple[int, ...], ...]
+    inclusion_probabilities: tuple[Fraction, ...]
+    orbit_balance_ratios: tuple[Fraction, ...]
+    balanced: bool
+    universal_minimax_value: Fraction | None
+    full_simplex_value: Fraction
+    certificate_valid: bool
+
+
+def _validate_finite_permutation_group(
+    carrier_size: int, action_elements: tuple[tuple[int, ...], ...],
+) -> tuple[tuple[int, ...], ...]:
+    """Validate an explicitly enumerated finite permutation group, fail closed."""
+    n = int(carrier_size)
+    identity = tuple(range(n))
+    elements = tuple(sorted({tuple(int(x) for x in permutation) for permutation in action_elements}))
+    if not elements:
+        raise ValueError("action_elements must be nonempty")
+    expected = set(range(n))
+    if any(len(p) != n or set(p) != expected for p in elements):
+        raise ValueError("every action element must be a permutation of the carrier")
+    element_set = set(elements)
+    if identity not in element_set:
+        raise ValueError("action_elements must contain the identity")
+    for left in elements:
+        for right in elements:
+            composition = tuple(left[right[i]] for i in range(n))
+            if composition not in element_set:
+                raise ValueError("action_elements are not closed under composition")
+    return elements
+
+
+def synthesize_orbit_balanced_plan(
+    carrier_size: int,
+    query_budget: int,
+    seed_subset: tuple[int, ...],
+    action_elements: tuple[tuple[int, ...], ...],
+    *,
+    ambiguity_kind: str,
+    uniform_prior_in_set: bool,
+) -> OrbitBalancedPlan:
+    """Certify the sharp orbit-balance criterion and construct its query orbit.
+
+    For point orbit O_j, uniform randomization over G.S includes every point
+    with exact probability |S intersect O_j| / |O_j|. Thus the orbit mixture
+    is prior-invariant with value k/n iff every point-orbit ratio equals k/n.
+    """
+    n, q = int(carrier_size), int(query_budget)
+    if n < 2 or not 0 <= q < n:
+        raise ValueError("require carrier_size >= 2 and query_budget in [0,n-1]")
+    if not uniform_prior_in_set:
+        raise ValueError("a certificate that uniform lies in the ambiguity set is required")
+    kind = str(ambiguity_kind).strip()
+    if not kind:
+        raise ValueError("ambiguity_kind must name the certified uncertainty model")
+    k = q + 1
+    seed = tuple(sorted(int(x) for x in seed_subset))
+    if len(seed) != k or len(set(seed)) != k or any(not 0 <= x < n for x in seed):
+        raise ValueError("seed_subset must contain exactly q+1 distinct carrier labels")
+    group = _validate_finite_permutation_group(n, action_elements)
+
+    remaining = set(range(n))
+    point_orbits: list[tuple[int, ...]] = []
+    while remaining:
+        representative = min(remaining)
+        orbit = tuple(sorted({g[representative] for g in group}))
+        point_orbits.append(orbit)
+        remaining.difference_update(orbit)
+    point_orbits.sort()
+
+    query_orbit = tuple(sorted({tuple(sorted(g[x] for x in seed)) for g in group}))
+    support = len(query_orbit)
+    counts = tuple(sum(label in subset for subset in query_orbit) for label in range(n))
+    inclusion = tuple(Fraction(count, support) for count in counts)
+    ratios = tuple(Fraction(sum(x in set(seed) for x in orbit), len(orbit)) for orbit in point_orbits)
+    target = Fraction(k, n)
+    balanced = all(value == target for value in ratios)
+    full_simplex = min(inclusion)
+    valid = (
+        len(point_orbits) >= 1
+        and set().union(*(set(orbit) for orbit in point_orbits)) == set(range(n))
+        and all(len(subset) == k for subset in query_orbit)
+        and sum(inclusion) == k
+        and all(all(inclusion[x] == ratios[j] for x in orbit) for j, orbit in enumerate(point_orbits))
+        and (not balanced or all(value == target for value in inclusion))
+        and full_simplex == min(ratios)
+    )
+    return OrbitBalancedPlan(
+        n, q, k, kind, True, seed, len(group), tuple(point_orbits), query_orbit,
+        inclusion, ratios, balanced, target if balanced else None, full_simplex, valid,
+    )
+
+
+def sample_orbit_balanced_plan(
+    plan: OrbitBalancedPlan, seed: str | int,
+) -> SampledRobustPlan:
+    """Sample exactly uniformly from a certified balanced query orbit."""
+    if not plan.certificate_valid or not plan.balanced or not plan.query_orbit:
+        raise ValueError("a valid balanced orbit plan is required")
+    total = len(plan.query_orbit)
+    modulus = 1 << 256
+    limit = modulus - modulus % total
+    counter = 0
+    while True:
+        material = json.dumps({
+            "seed": str(seed), "counter": counter, "carrier_size": plan.carrier_size,
+            "query_budget": plan.query_budget, "seed_subset": list(plan.seed_subset),
+            "query_orbit": [list(subset) for subset in plan.query_orbit],
+            "ambiguity": plan.ambiguity_kind,
+        }, sort_keys=True, separators=(",", ":")).encode()
+        digest = hashlib.sha256(material).hexdigest()
+        draw = int(digest, 16)
+        if draw < limit:
+            rank = draw % total
+            break
+        counter += 1
+    covered = plan.query_orbit[rank]
+    return SampledRobustPlan(rank, covered, covered[:-1], covered[-1], digest)
