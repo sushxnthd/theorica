@@ -10,6 +10,13 @@ on:
       - "scripts/verify_divergence_agnostic_symmetry_law.py"
       - "scripts/audit_divergence_agnostic_symmetry_law.py"
       - ".github/workflows/divergence-agnostic-symmetry-law.yml"
+  pull_request:
+    paths:
+      - "src/theorica/agents/robust_provenance.py"
+      - "tests/test_robust_provenance.py"
+      - "scripts/verify_divergence_agnostic_symmetry_law.py"
+      - "scripts/audit_divergence_agnostic_symmetry_law.py"
+      - ".github/workflows/divergence-agnostic-symmetry-law.yml"
   workflow_dispatch:
 
 permissions:
