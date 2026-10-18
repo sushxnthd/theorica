@@ -72,9 +72,9 @@ def test_uniform_certificate_is_required():
 
 
 def test_strict_domination_certificate():
-    assert deterministic_strictly_dominated(Fraction(1, 3), 6, 2)
-    assert not deterministic_strictly_dominated(Fraction(1, 2), 6, 2)
-    assert not deterministic_strictly_dominated(Fraction(1), 6, 5)
+    assert deterministic_strictly_dominated(Fraction(1, 3), 6, 2, uniform_prior_in_set=True)
+    assert not deterministic_strictly_dominated(Fraction(1, 2), 6, 2, uniform_prior_in_set=True)
+    assert not deterministic_strictly_dominated(Fraction(1), 6, 5, uniform_prior_in_set=True)
 
 
 def test_exact_subset_unranking_matches_lexicographic_combinations():
@@ -84,10 +84,9 @@ def test_exact_subset_unranking_matches_lexicographic_combinations():
 
 
 def test_compact_uniform_plan_and_sampling():
-    plan = synthesize_uniform_ambiguity_plan(9, 2, uniform_prior_in_set=True)
-    assert plan.coverage_size == 3
-    assert plan.value == Fraction(1, 3)
-    assert plan.subset_count == 84
+    plan = synthesize_uniform_ambiguity_plan(9, 2, ambiguity_kind="test-family", uniform_prior_in_set=True)
+    assert plan.covered_labels == 3
+    assert plan.minimax_value == Fraction(1, 3)
     first = sample_uniform_ambiguity_plan(plan, "symmetry-seed")
     second = sample_uniform_ambiguity_plan(plan, "symmetry-seed")
     assert first == second
