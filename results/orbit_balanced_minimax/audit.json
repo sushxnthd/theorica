@@ -1,0 +1,11 @@
+{
+  "action_families": 52,
+  "balanced": 3454,
+  "enumeration_digest": "e9b6c193785dfab8bdb74e4e0d6e432aec4b646d5ab0614aa71c400381e0c4a1",
+  "incidence_checks": 85664,
+  "independent": true,
+  "plans": 10180,
+  "stabilizer_checks": 10180,
+  "status": "pass",
+  "unbalanced": 6726
+}
