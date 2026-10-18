@@ -1,0 +1,26 @@
+{
+  "divergence_families": [
+    "chi_square",
+    "forward_kl",
+    "hellinger_squared",
+    "jensen_shannon",
+    "reverse_kl",
+    "tv"
+  ],
+  "enumeration_digest": "683c7c5af8c3ea6f2ff903e43637bb98bd6789555b7be0d1199610e683eaac82",
+  "identity_checks": 35,
+  "rational_prior_checks": 318195,
+  "representative_max_divergence": {
+    "chi_square": 0.0625,
+    "forward_kl": 0.03158394240196326,
+    "hellinger_squared": 0.015940607465666525,
+    "jensen_shannon": 0.007958997917494562,
+    "reverse_kl": 0.03226926056878557,
+    "tv": 0.125
+  },
+  "smallest_claim": "If the certified ambiguity set contains the uniform prior, uniform randomization over k-subsets is minimax with exact value k/n; a deterministic plan is strictly dominated exactly when its certified worst-case mass is below k/n.",
+  "status": "pass",
+  "strict_witness_checks": 494,
+  "subset_checks": 501,
+  "theorem": "uniform-in-ambiguity minimax value k/n"
+}
