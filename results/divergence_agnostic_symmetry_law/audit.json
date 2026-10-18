@@ -1,0 +1,9 @@
+{
+  "enumeration_digest": "683c7c5af8c3ea6f2ff903e43637bb98bd6789555b7be0d1199610e683eaac82",
+  "identity_checks": 35,
+  "independent": true,
+  "rational_prior_checks": 318195,
+  "status": "pass",
+  "strict_witness_checks": 494,
+  "subset_checks": 501
+}
