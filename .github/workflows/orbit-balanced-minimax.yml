@@ -43,7 +43,9 @@ jobs:
       - name: Independent exact audit
         run: python scripts/audit_orbit_balanced_minimax.py --primary results/orbit_balanced_minimax/primary.json --output results/orbit_balanced_minimax/audit.json
       - name: Focused production tests
-        run: pytest -q tests/test_robust_provenance.py
+        run: |
+          mkdir -p results/orbit_balanced_minimax
+          pytest -q tests/test_robust_provenance.py --junitxml=results/orbit_balanced_minimax/focused-tests.xml
       - name: Full suite
         run: pytest -q
       - name: Preserve exact artifacts
