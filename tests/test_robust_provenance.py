@@ -67,7 +67,7 @@ def test_divergence_agnostic_value_is_exact(n, q):
 
 
 def test_uniform_certificate_is_required():
-    with pytest.raises(ValueError, match="uniform prior"):
+    with pytest.raises(ValueError, match="uniform lies"):
         divergence_agnostic_symmetry_value(5, 1, uniform_prior_in_set=False)
 
 
