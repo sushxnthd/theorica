@@ -41,8 +41,8 @@ def main():
             q=k-1
             value=divergence_agnostic_symmetry_value(n,q,True)
             assert value==Fraction(k,n); identity_checks+=1
-            plan=synthesize_uniform_ambiguity_plan(n,q,uniform_prior_in_set=True)
-            assert plan.value==value and plan.subset_count==math.comb(n,k)
+            plan=synthesize_uniform_ambiguity_plan(n,q,ambiguity_kind="uniform-containing",uniform_prior_in_set=True)
+            assert plan.minimax_value==value and plan.covered_labels==k
             expected=list(combinations(range(n),k))
             got=[unrank_uniform_k_subset(n,k,r) for r in range(math.comb(n,k))]
             assert got==expected; subset_checks+=len(got)
