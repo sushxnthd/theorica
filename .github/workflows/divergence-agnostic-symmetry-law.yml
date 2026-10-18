@@ -1,0 +1,38 @@
+name: Divergence-agnostic symmetry law
+
+on:
+  push:
+    branches:
+      - breakthrough-engine/divergence-agnostic-symmetry-law-20261018
+    paths:
+      - "src/theorica/agents/robust_provenance.py"
+      - "tests/test_robust_provenance.py"
+      - "scripts/verify_divergence_agnostic_symmetry_law.py"
+      - "scripts/audit_divergence_agnostic_symmetry_law.py"
+      - ".github/workflows/divergence-agnostic-symmetry-law.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e ".[test]"
+      - run: pytest -q tests/test_robust_provenance.py
+      - run: python scripts/verify_divergence_agnostic_symmetry_law.py --output primary.json
+      - run: python scripts/verify_divergence_agnostic_symmetry_law.py --output primary-rerun.json
+      - run: cmp primary.json primary-rerun.json
+      - run: python scripts/audit_divergence_agnostic_symmetry_law.py --primary primary.json --output audit.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: divergence-agnostic-symmetry-law
+          path: |
+            primary.json
+            primary-rerun.json
+            audit.json
