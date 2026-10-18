@@ -36,3 +36,4 @@ jobs:
             primary.json
             primary-rerun.json
             audit.json
+# Consolidated gate: protocol + production + tests + dual verifiers.
