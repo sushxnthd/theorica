@@ -233,3 +233,123 @@ def robust_provenance_frontier(
         action,
     )
 
+
+
+@dataclass(frozen=True)
+class SymmetryRobustPlan:
+    """Closed-form minimax plan when the certified ambiguity set contains uniform."""
+
+    carrier_size: int
+    query_budget: int
+    covered_labels: int
+    ambiguity_kind: str
+    uniform_prior_in_set: bool
+    inclusion_probability: Fraction
+    minimax_value: Fraction
+    synthesis_complexity: str
+    certificate_valid: bool
+
+
+def divergence_agnostic_symmetry_value(
+    carrier_size: int, query_budget: int, *, uniform_prior_in_set: bool,
+) -> Fraction:
+    """Exact minimax value for any ambiguity set containing the uniform prior.
+
+    A randomized k-coverage plan has inclusion vector a with sum(a)=k.
+    Uniform is an adversarial upper-bound witness: u dot a = k/n.
+    Uniform k-subset sampling realizes a_i=k/n and hence the same payoff
+    against every probability vector.
+    """
+    n = int(carrier_size)
+    q = int(query_budget)
+    if n < 2:
+        raise ValueError("carrier_size must be at least two")
+    if not 0 <= q < n:
+        raise ValueError("query_budget must lie in [0,n-1]")
+    if not uniform_prior_in_set:
+        raise ValueError("a certificate that uniform lies in the ambiguity set is required")
+    return Fraction(q + 1, n)
+
+
+def deterministic_strictly_dominated(
+    deterministic_worst_case: Fraction, carrier_size: int, query_budget: int,
+    *, uniform_prior_in_set: bool,
+) -> bool:
+    """Exact iff test once a deterministic worst-case value is certified."""
+    value = Fraction(deterministic_worst_case)
+    if not 0 <= value <= 1:
+        raise ValueError("deterministic_worst_case must lie in [0,1]")
+    return value < divergence_agnostic_symmetry_value(
+        carrier_size, query_budget, uniform_prior_in_set=uniform_prior_in_set,
+    )
+
+
+def synthesize_uniform_ambiguity_plan(
+    carrier_size: int, query_budget: int, *, ambiguity_kind: str,
+    uniform_prior_in_set: bool,
+) -> SymmetryRobustPlan:
+    """Create an O(n)-space theorem certificate; no subset LP is constructed."""
+    value = divergence_agnostic_symmetry_value(
+        carrier_size, query_budget, uniform_prior_in_set=uniform_prior_in_set,
+    )
+    kind = str(ambiguity_kind).strip()
+    if not kind:
+        raise ValueError("ambiguity_kind must name the certified uncertainty model")
+    return SymmetryRobustPlan(
+        int(carrier_size), int(query_budget), int(query_budget) + 1, kind,
+        True, value, value, "O(n) sampling space; O(k) selected labels", True,
+    )
+
+
+def unrank_uniform_k_subset(
+    carrier_size: int, covered_labels: int, rank: int,
+) -> tuple[int, ...]:
+    """Lexicographically unrank one of C(n,k) subsets exactly."""
+    from math import comb
+
+    n, k, r = int(carrier_size), int(covered_labels), int(rank)
+    if n < 1 or not 1 <= k <= n:
+        raise ValueError("require 1 <= covered_labels <= carrier_size")
+    total = comb(n, k)
+    if not 0 <= r < total:
+        raise ValueError("rank outside subset range")
+    selected: list[int] = []
+    start = 0
+    remaining = k
+    while remaining:
+        for label in range(start, n):
+            block = comb(n - label - 1, remaining - 1)
+            if r < block:
+                selected.append(label)
+                start = label + 1
+                remaining -= 1
+                break
+            r -= block
+    return tuple(selected)
+
+
+def sample_uniform_ambiguity_plan(
+    plan: SymmetryRobustPlan, seed: str | int,
+) -> SampledRobustPlan:
+    """Seed-bound exact-uniform rank sampler using rejection to avoid modulo bias."""
+    from math import comb
+
+    if not plan.certificate_valid or not plan.uniform_prior_in_set:
+        raise ValueError("a valid uniform-in-ambiguity certificate is required")
+    total = comb(plan.carrier_size, plan.covered_labels)
+    modulus = 1 << 256
+    limit = modulus - modulus % total
+    counter = 0
+    while True:
+        material = json.dumps({
+            "seed": str(seed), "counter": counter, "n": plan.carrier_size,
+            "k": plan.covered_labels, "ambiguity": plan.ambiguity_kind,
+        }, sort_keys=True, separators=(",", ":")).encode()
+        digest = hashlib.sha256(material).hexdigest()
+        draw = int(digest, 16)
+        if draw < limit:
+            rank = draw % total
+            break
+        counter += 1
+    covered = unrank_uniform_k_subset(plan.carrier_size, plan.covered_labels, rank)
+    return SampledRobustPlan(rank, covered, covered[:-1], covered[-1], digest)
