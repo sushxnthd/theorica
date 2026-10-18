@@ -39,7 +39,7 @@ def main():
     for n in range(2,9):
         for k in range(1,n+1):
             q=k-1
-            value=divergence_agnostic_symmetry_value(n,q,True)
+            value=divergence_agnostic_symmetry_value(n,q,uniform_prior_in_set=True)
             assert value==Fraction(k,n); identity_checks+=1
             plan=synthesize_uniform_ambiguity_plan(n,q,ambiguity_kind="uniform-containing",uniform_prior_in_set=True)
             assert plan.minimax_value==value and plan.covered_labels==k
