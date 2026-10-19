@@ -1,0 +1,62 @@
+{
+  "admissible_families": 1293,
+  "enumeration_digest": "6f3fad5416c4d985499a9d84f16d797086d16fd1e200f4a350ed1db93e62b773",
+  "families": 35,
+  "feasible": 655,
+  "frozen_prediction": {
+    "inclusion": "2/7",
+    "k": 2,
+    "point_orbit_sizes": [
+      3,
+      4
+    ],
+    "status": "pass",
+    "weights": [
+      "6/7",
+      "1/7"
+    ]
+  },
+  "infeasible": 638,
+  "point_checks": 5178,
+  "repair_witnesses": 571,
+  "sampler_checks": 655,
+  "schema": "theorica.orbit-mixture-repair.primary.v1",
+  "smallest_claim": "For a finite action and G-closed admissible k-query family, an invariant plan attains uniform inclusion k/n iff the target orbit-composition vector lies in the convex hull of accessible query-orbit composition vectors; when feasible, at most affine_dimension+1 point-orbit mixtures suffice.",
+  "smallest_repair_witness": {
+    "accessible_compositions": [
+      [
+        "0",
+        "1/2"
+      ],
+      [
+        "1",
+        "0"
+      ]
+    ],
+    "component_compositions": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "1/2"
+      ]
+    ],
+    "k": 1,
+    "n": 3,
+    "point_orbit_sizes": [
+      1,
+      2
+    ],
+    "weights": [
+      "1/3",
+      "2/3"
+    ]
+  },
+  "status": "pass",
+  "support_bound_checks": 655,
+  "three_orbit_cases": 2686,
+  "three_orbit_feasible": 824,
+  "three_orbit_repairs": 763
+}
