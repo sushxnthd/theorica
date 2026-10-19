@@ -1,0 +1,34 @@
+{
+  "frozen_prediction": {
+    "best_pure": "1/6",
+    "gain": "5/42",
+    "k": 2,
+    "point_orbit_sizes": [
+      3,
+      4
+    ],
+    "status": "pass",
+    "value": "2/7",
+    "weights": {
+      "(0,1/2)": "4/7",
+      "(2/3,0)": "3/7"
+    }
+  },
+  "noninvariant_counterexample": {
+    "forced_invariant_value": "1/2",
+    "gap": "1/2",
+    "status": "pass",
+    "unrestricted_value": "1"
+  },
+  "pure_optimal_cases": 1872,
+  "quotient_label_payoff_checks": 4560,
+  "schema": "theorica.orbit-quotient-ambiguity.primary.v1",
+  "smallest_claim": "For a certified finite action-invariant convex ambiguity set and a G-closed query family, robust planning loses no value by group averaging; the game factors exactly through point-orbit masses and query-orbit composition vectors, enabling an exact rational maximin certificate.",
+  "status": "pass",
+  "strict_randomization_cases": 408,
+  "support_bound_checks": 2280,
+  "three_orbit_cases": 100,
+  "three_orbit_strict_cases": 98,
+  "two_orbit_cases": 2280,
+  "two_orbit_value_digest": "47f92d772447cedea7c6ad23a179e04bb980c332e7dbbb70e2b008c17e1449a5"
+}
