@@ -9,10 +9,12 @@ from theorica.agents.robust_provenance import (
     divergence_agnostic_symmetry_value,
     robust_provenance_frontier,
     sample_orbit_balanced_plan,
+    sample_orbit_ambiguity_plan,
     sample_orbit_mixture_plan,
     sample_robust_randomized_plan,
     sample_uniform_ambiguity_plan,
     synthesize_orbit_balanced_plan,
+    synthesize_orbit_ambiguity_plan,
     synthesize_orbit_mixture_plan,
     synthesize_robust_randomized_plan,
     synthesize_uniform_ambiguity_plan,
@@ -193,3 +195,36 @@ def test_orbit_mixture_exactly_refuses_one_sided_polytope():
     assert plan.components == ()
     with pytest.raises(ValueError, match="feasible"):
         sample_orbit_mixture_plan(plan, "reject")
+
+
+def test_orbit_quotient_frozen_strict_randomization_prediction():
+    plan = synthesize_orbit_ambiguity_plan(
+        7, 1, ((0, 1), (3, 4)), _product_action(3, 4),
+        ((Fraction(3, 4), Fraction(1, 4)),
+         (Fraction(1, 4), Fraction(3, 4))),
+        ambiguity_kind="frozen-two-vertex",
+        ambiguity_invariant=True,
+    )
+    assert plan.certificate_valid and plan.strict_randomization_advantage
+    assert plan.minimax_value == Fraction(2, 7)
+    assert plan.best_pure_value == Fraction(1, 6)
+    assert plan.randomized_gain == Fraction(5, 42)
+    by_composition = {
+        component.orbit_composition: component.probability for component in plan.components
+    }
+    assert by_composition == {
+        (Fraction(2, 3), Fraction(0)): Fraction(3, 7),
+        (Fraction(0), Fraction(1, 2)): Fraction(4, 7),
+    }
+    assert sample_orbit_ambiguity_plan(plan, "quotient") == sample_orbit_ambiguity_plan(
+        plan, "quotient",
+    )
+
+
+def test_orbit_quotient_requires_invariance_certificate():
+    with pytest.raises(ValueError, match="action-invariant"):
+        synthesize_orbit_ambiguity_plan(
+            3, 0, ((0,),), _product_action(1, 2),
+            ((Fraction(1, 3), Fraction(2, 3)),),
+            ambiguity_kind="uncertified", ambiguity_invariant=False,
+        )

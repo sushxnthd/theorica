@@ -1,0 +1,67 @@
+name: orbit-quotient-ambiguity
+
+on:
+  push:
+    branches: [breakthrough-engine/orbit-quotient-ambiguity-20261019]
+    paths:
+      - src/theorica/agents/robust_provenance.py
+      - tests/test_robust_provenance.py
+      - scripts/verify_orbit_quotient_ambiguity.py
+      - scripts/audit_orbit_quotient_ambiguity.py
+      - docs/ORBIT_QUOTIENT_AMBIGUITY_*.md
+      - .github/workflows/orbit-quotient-ambiguity.yml
+  pull_request:
+    paths:
+      - src/theorica/agents/robust_provenance.py
+      - tests/test_robust_provenance.py
+      - scripts/verify_orbit_quotient_ambiguity.py
+      - scripts/audit_orbit_quotient_ambiguity.py
+      - docs/ORBIT_QUOTIENT_AMBIGUITY_*.md
+      - .github/workflows/orbit-quotient-ambiguity.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  exact-theorem:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install pytest && python -m pip install -e .
+      - name: Execute exact verifier twice
+        run: |
+          python scripts/verify_orbit_quotient_ambiguity.py --output /tmp/orbit-quotient-1.json
+          python scripts/verify_orbit_quotient_ambiguity.py --output /tmp/orbit-quotient-2.json
+          cmp /tmp/orbit-quotient-1.json /tmp/orbit-quotient-2.json
+          mkdir -p results/orbit_quotient_ambiguity
+          cp /tmp/orbit-quotient-1.json results/orbit_quotient_ambiguity/primary.json
+      - name: Independent exact audit
+        run: python scripts/audit_orbit_quotient_ambiguity.py --primary results/orbit_quotient_ambiguity/primary.json --output results/orbit_quotient_ambiguity/audit.json
+      - name: Focused production tests
+        run: |
+          set +e
+          python -m pytest -q tests/test_robust_provenance.py --junitxml=results/orbit_quotient_ambiguity/focused-tests.xml 2>&1 | tee results/orbit_quotient_ambiguity/focused-tests.log
+          status=${PIPESTATUS[0]}
+          exit $status
+      - name: Full suite
+        run: python -m pytest -q
+      - name: Preserve exact artifacts
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/orbit_quotient_ambiguity/primary.json results/orbit_quotient_ambiguity/audit.json
+          if ! git diff --cached --quiet; then
+            git commit -m "research: record orbit-quotient ambiguity theorem"
+            git push origin HEAD:$GITHUB_REF_NAME
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: orbit-quotient-ambiguity
+          path: results/orbit_quotient_ambiguity/

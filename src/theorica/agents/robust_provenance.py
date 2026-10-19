@@ -517,6 +517,26 @@ class OrbitMixturePlan:
     reason: str
 
 
+@dataclass(frozen=True)
+class OrbitAmbiguityPlan:
+    """Exact maximin certificate on the point-orbit ambiguity quotient."""
+
+    carrier_size: int
+    query_budget: int
+    covered_labels: int
+    ambiguity_kind: str
+    point_orbits: tuple[tuple[int, ...], ...]
+    ambiguity_vertices: tuple[tuple[Fraction, ...], ...]
+    accessible_query_orbits: int
+    components: tuple[OrbitMixtureComponent, ...]
+    minimax_value: Fraction
+    best_pure_value: Fraction
+    randomized_gain: Fraction
+    strict_randomization_advantage: bool
+    certificate_valid: bool
+    reason: str
+
+
 def _point_orbits(
     carrier_size: int, group: tuple[tuple[int, ...], ...],
 ) -> tuple[tuple[int, ...], ...]:
@@ -679,3 +699,179 @@ def sample_orbit_mixture_plan(
     orbit_rank, second_digest = exact_rank(f"orbit-{component_index}-{first_digest}", len(component.query_orbit))
     covered = component.query_orbit[orbit_rank]
     return SampledRobustPlan(component_index, covered, covered[:-1], covered[-1], second_digest)
+
+
+def synthesize_orbit_ambiguity_plan(
+    carrier_size: int,
+    query_budget: int,
+    admissible_seeds: tuple[tuple[int, ...], ...],
+    action_elements: tuple[tuple[int, ...], ...],
+    ambiguity_orbit_mass_vertices: tuple[tuple[Fraction, ...], ...],
+    *,
+    ambiguity_kind: str,
+    ambiguity_invariant: bool,
+) -> OrbitAmbiguityPlan:
+    """Solve a certified invariant robust query game in its exact orbit quotient.
+
+    The ambiguity vertices are masses on point orbits, not per-label masses.
+    For a G-invariant ambiguity set, group averaging makes invariant query plans
+    maximin-complete.  Their payoff depends only on the dot product between a
+    query-orbit composition vector and an ambiguity orbit-mass vector.
+    """
+    from sympy import Matrix, linsolve
+
+    n, q = int(carrier_size), int(query_budget)
+    if n < 2 or not 0 <= q < n:
+        raise ValueError("require carrier_size >= 2 and query_budget in [0,n-1]")
+    if not ambiguity_invariant:
+        raise ValueError("a certificate that the ambiguity set is action-invariant is required")
+    kind = str(ambiguity_kind).strip()
+    if not kind:
+        raise ValueError("ambiguity_kind must name the certified uncertainty model")
+    group = _validate_finite_permutation_group(n, action_elements)
+    point_orbits = _point_orbits(n, group)
+    r = len(point_orbits)
+    k = q + 1
+    if not admissible_seeds:
+        raise ValueError("admissible_seeds must be nonempty")
+
+    records_by_orbit: dict[
+        tuple[tuple[int, ...], ...], tuple[tuple[int, ...], tuple[Fraction, ...]]
+    ] = {}
+    for raw_seed in admissible_seeds:
+        seed = tuple(sorted(int(x) for x in raw_seed))
+        if len(seed) != k or len(set(seed)) != k or any(not 0 <= x < n for x in seed):
+            raise ValueError("every admissible seed must contain exactly q+1 distinct labels")
+        query_orbit = tuple(sorted({tuple(sorted(g[x] for x in seed)) for g in group}))
+        canonical_seed = min(query_orbit)
+        composition = tuple(
+            Fraction(sum(x in set(canonical_seed) for x in orbit), len(orbit))
+            for orbit in point_orbits
+        )
+        records_by_orbit[query_orbit] = (canonical_seed, composition)
+    records = tuple(sorted(
+        (seed, orbit, composition)
+        for orbit, (seed, composition) in records_by_orbit.items()
+    ))
+
+    vertices = tuple(sorted({
+        tuple(Fraction(value) for value in raw) for raw in ambiguity_orbit_mass_vertices
+    }))
+    if not vertices:
+        raise ValueError("ambiguity_orbit_mass_vertices must be nonempty")
+    if any(len(vertex) != r for vertex in vertices):
+        raise ValueError("each ambiguity vertex must have one mass per point orbit")
+    if any(any(value < 0 for value in vertex) or sum(vertex) != 1 for vertex in vertices):
+        raise ValueError("each ambiguity vertex must be a probability vector")
+
+    payoff = tuple(tuple(
+        sum((composition[j] * vertex[j] for j in range(r)), Fraction(0))
+        for vertex in vertices
+    ) for _, _, composition in records)
+    pure_values = tuple(min(row) for row in payoff)
+    best_pure = max(pure_values)
+
+    best: tuple[Fraction, tuple[int, ...], tuple[Fraction, ...]] | None = None
+    max_support = min(len(records), len(vertices), r)
+    for support_size in range(1, max_support + 1):
+        for support in combinations(range(len(records)), support_size):
+            for active in combinations(range(len(vertices)), support_size):
+                # Unknowns are support weights followed by the game value.
+                rows = [[Fraction(1) for _ in support] + [Fraction(0)]]
+                rhs = [Fraction(1)]
+                for vertex_index in active:
+                    rows.append([
+                        payoff[action_index][vertex_index] for action_index in support
+                    ] + [Fraction(-1)])
+                    rhs.append(Fraction(0))
+                solutions = linsolve((Matrix(rows), Matrix(rhs)))
+                if not solutions:
+                    continue
+                solution = next(iter(solutions))
+                if any(value.free_symbols for value in solution):
+                    continue
+                exact = tuple(Fraction(int(value.p), int(value.q)) for value in solution)
+                weights, value = exact[:-1], exact[-1]
+                if not all(weight > 0 for weight in weights):
+                    continue
+                realized = tuple(sum((
+                    weights[pos] * payoff[action_index][vertex_index]
+                    for pos, action_index in enumerate(support)
+                ), Fraction(0)) for vertex_index in range(len(vertices)))
+                if any(candidate < value for candidate in realized) or min(realized) != value:
+                    continue
+                candidate = (value, support, weights)
+                if best is None or value > best[0] or (
+                    value == best[0] and (support, weights) < (best[1], best[2])
+                ):
+                    best = candidate
+    if best is None:
+        raise RuntimeError("exact quotient game enumeration found no feasible vertex")
+
+    value, support, weights = best
+    components = tuple(
+        OrbitMixtureComponent(records[index][0], records[index][1], records[index][2], weight)
+        for index, weight in zip(support, weights, strict=True)
+    )
+    realized = tuple(sum((
+        component.probability * sum((
+            component.orbit_composition[j] * vertex[j] for j in range(r)
+        ), Fraction(0)) for component in components
+    ), Fraction(0)) for vertex in vertices)
+    valid = (
+        sum((component.probability for component in components), Fraction(0)) == 1
+        and all(component.probability > 0 for component in components)
+        and len(components) <= r
+        and min(realized) == value
+        and value >= best_pure
+    )
+    gain = value - best_pure
+    return OrbitAmbiguityPlan(
+        n, q, k, kind, point_orbits, vertices, len(records), components,
+        value, best_pure, gain, gain > 0, valid,
+        "exact_orbit_quotient_maximin_certificate",
+    )
+
+
+def sample_orbit_ambiguity_plan(
+    plan: OrbitAmbiguityPlan, seed: str | int,
+) -> SampledRobustPlan:
+    """Sample exactly from a certified rational orbit-quotient plan."""
+    if not plan.certificate_valid or not plan.components:
+        raise ValueError("a valid nonempty orbit-ambiguity certificate is required")
+    denominator = lcm(*(component.probability.denominator for component in plan.components))
+    masses = tuple(int(component.probability * denominator) for component in plan.components)
+
+    def exact_rank(namespace: str, total: int) -> tuple[int, str]:
+        modulus = 1 << 256
+        limit = modulus - modulus % total
+        counter = 0
+        while True:
+            material = json.dumps({
+                "seed": str(seed), "namespace": namespace, "counter": counter,
+                "n": plan.carrier_size, "k": plan.covered_labels,
+                "ambiguity": [[str(x) for x in v] for v in plan.ambiguity_vertices],
+                "components": [
+                    [list(c.seed_subset), str(c.probability)] for c in plan.components
+                ],
+            }, sort_keys=True, separators=(",", ":")).encode()
+            digest = hashlib.sha256(material).hexdigest()
+            draw = int(digest, 16)
+            if draw < limit:
+                return draw % total, digest
+            counter += 1
+
+    mixture_rank, first_digest = exact_rank("mixture", denominator)
+    cumulative = 0
+    component_index = len(masses) - 1
+    for index, mass in enumerate(masses):
+        cumulative += mass
+        if mixture_rank < cumulative:
+            component_index = index
+            break
+    component = plan.components[component_index]
+    orbit_rank, digest = exact_rank(
+        f"orbit-{component_index}-{first_digest}", len(component.query_orbit),
+    )
+    covered = component.query_orbit[orbit_rank]
+    return SampledRobustPlan(component_index, covered, covered[:-1], covered[-1], digest)
