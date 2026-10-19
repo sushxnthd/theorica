@@ -9,9 +9,11 @@ from theorica.agents.robust_provenance import (
     divergence_agnostic_symmetry_value,
     robust_provenance_frontier,
     sample_orbit_balanced_plan,
+    sample_orbit_mixture_plan,
     sample_robust_randomized_plan,
     sample_uniform_ambiguity_plan,
     synthesize_orbit_balanced_plan,
+    synthesize_orbit_mixture_plan,
     synthesize_robust_randomized_plan,
     synthesize_uniform_ambiguity_plan,
     unrank_uniform_k_subset,
@@ -161,3 +163,33 @@ def test_orbit_planner_rejects_non_group_and_unbalanced_sampling():
     )
     with pytest.raises(ValueError, match="balanced"):
         sample_orbit_balanced_plan(plan, "reject")
+
+
+def test_sparse_orbit_mixture_repairs_integrality_obstruction():
+    group = _product_action(3, 4)
+    plan = synthesize_orbit_mixture_plan(
+        7, 1, ((0, 3), (3, 4)), group,
+        ambiguity_kind="two-orbit-repair", uniform_prior_in_set=True,
+    )
+    assert plan.feasible and plan.certificate_valid
+    assert len(plan.components) == 2
+    assert tuple(component.probability for component in plan.components) == (
+        Fraction(6, 7), Fraction(1, 7),
+    )
+    assert plan.inclusion_probabilities == (Fraction(2, 7),) * 7
+    assert all(component.orbit_composition != (Fraction(2, 7),) * 2
+               for component in plan.components)
+    assert sample_orbit_mixture_plan(plan, "mixture-receipt") == sample_orbit_mixture_plan(
+        plan, "mixture-receipt",
+    )
+
+
+def test_orbit_mixture_exactly_refuses_one_sided_polytope():
+    plan = synthesize_orbit_mixture_plan(
+        7, 1, ((0, 3), (0, 1)), _product_action(3, 4),
+        ambiguity_kind="infeasible", uniform_prior_in_set=True,
+    )
+    assert not plan.feasible and plan.certificate_valid
+    assert plan.components == ()
+    with pytest.raises(ValueError, match="feasible"):
+        sample_orbit_mixture_plan(plan, "reject")

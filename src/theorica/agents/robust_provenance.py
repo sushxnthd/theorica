@@ -6,6 +6,7 @@ from fractions import Fraction
 import hashlib
 from itertools import combinations
 import json
+from math import lcm
 
 import numpy as np
 from scipy.optimize import linprog
@@ -485,3 +486,196 @@ def sample_orbit_balanced_plan(
         counter += 1
     covered = plan.query_orbit[rank]
     return SampledRobustPlan(rank, covered, covered[:-1], covered[-1], digest)
+
+
+@dataclass(frozen=True)
+class OrbitMixtureComponent:
+    """One uniform query-orbit component of an invariant mixture."""
+
+    seed_subset: tuple[int, ...]
+    query_orbit: tuple[tuple[int, ...], ...]
+    orbit_composition: tuple[Fraction, ...]
+    probability: Fraction
+
+
+@dataclass(frozen=True)
+class OrbitMixturePlan:
+    """Exact sparse certificate for a mixture of admissible query orbits."""
+
+    carrier_size: int
+    query_budget: int
+    covered_labels: int
+    ambiguity_kind: str
+    point_orbits: tuple[tuple[int, ...], ...]
+    accessible_query_orbits: int
+    affine_dimension: int
+    components: tuple[OrbitMixtureComponent, ...]
+    inclusion_probabilities: tuple[Fraction, ...]
+    target_probability: Fraction
+    feasible: bool
+    certificate_valid: bool
+    reason: str
+
+
+def _point_orbits(
+    carrier_size: int, group: tuple[tuple[int, ...], ...],
+) -> tuple[tuple[int, ...], ...]:
+    remaining = set(range(carrier_size))
+    result: list[tuple[int, ...]] = []
+    while remaining:
+        representative = min(remaining)
+        orbit = tuple(sorted({g[representative] for g in group}))
+        result.append(orbit)
+        remaining.difference_update(orbit)
+    return tuple(sorted(result))
+
+
+def synthesize_orbit_mixture_plan(
+    carrier_size: int,
+    query_budget: int,
+    admissible_seeds: tuple[tuple[int, ...], ...],
+    action_elements: tuple[tuple[int, ...], ...],
+    *,
+    ambiguity_kind: str,
+    uniform_prior_in_set: bool,
+) -> OrbitMixturePlan:
+    """Exactly synthesize a sparse invariant plan over admissible query orbits.
+
+    The admissible family is the union of the G-orbits of ``admissible_seeds``.
+    A feasible plan is returned exactly when the uniform inclusion vector lies
+    in the convex hull of the normalized point-orbit composition vectors.
+    Caratheodory's theorem bounds the returned number of orbit components by
+    affine_dimension + 1, hence by the number of point orbits.
+    """
+    from sympy import Matrix, linsolve
+
+    n, q = int(carrier_size), int(query_budget)
+    if n < 2 or not 0 <= q < n:
+        raise ValueError("require carrier_size >= 2 and query_budget in [0,n-1]")
+    if not uniform_prior_in_set:
+        raise ValueError("a certificate that uniform lies in the ambiguity set is required")
+    kind = str(ambiguity_kind).strip()
+    if not kind:
+        raise ValueError("ambiguity_kind must name the certified uncertainty model")
+    group = _validate_finite_permutation_group(n, action_elements)
+    point_orbits = _point_orbits(n, group)
+    k = q + 1
+    if not admissible_seeds:
+        raise ValueError("admissible_seeds must be nonempty")
+
+    orbit_records: dict[tuple[tuple[int, ...], ...], tuple[tuple[int, ...], tuple[Fraction, ...]]] = {}
+    for raw_seed in admissible_seeds:
+        seed = tuple(sorted(int(x) for x in raw_seed))
+        if len(seed) != k or len(set(seed)) != k or any(not 0 <= x < n for x in seed):
+            raise ValueError("every admissible seed must contain exactly q+1 distinct labels")
+        query_orbit = tuple(sorted({tuple(sorted(g[x] for x in seed)) for g in group}))
+        canonical_seed = min(query_orbit)
+        composition = tuple(
+            Fraction(sum(x in set(canonical_seed) for x in orbit), len(orbit))
+            for orbit in point_orbits
+        )
+        orbit_records[query_orbit] = (canonical_seed, composition)
+    records = tuple(sorted((seed, orbit, comp) for orbit, (seed, comp) in orbit_records.items()))
+    compositions = tuple(record[2] for record in records)
+    target = Fraction(k, n)
+    target_vector = tuple(target for _ in point_orbits)
+    if len(compositions) == 1:
+        affine_dimension = 0
+    else:
+        affine_dimension = int(Matrix([
+            [value for value in (
+                tuple(compositions[i][j] - compositions[0][j] for j in range(len(point_orbits)))
+            )]
+            for i in range(1, len(compositions))
+        ]).rank())
+
+    selected: tuple[int, ...] | None = None
+    selected_weights: tuple[Fraction, ...] = ()
+    max_support = min(len(records), affine_dimension + 1)
+    for support_size in range(1, max_support + 1):
+        for indices in combinations(range(len(records)), support_size):
+            columns = [[compositions[index][row] for index in indices]
+                       for row in range(len(point_orbits))]
+            columns.append([Fraction(1) for _ in indices])
+            rhs = list(target_vector) + [Fraction(1)]
+            solutions = linsolve((Matrix(columns), Matrix(rhs)))
+            if not solutions:
+                continue
+            solution = next(iter(solutions))
+            if any(value.free_symbols for value in solution):
+                continue
+            weights = tuple(Fraction(int(value.p), int(value.q)) for value in solution)
+            if all(value > 0 for value in weights) and sum(weights) == 1:
+                selected, selected_weights = indices, weights
+                break
+        if selected is not None:
+            break
+
+    if selected is None:
+        return OrbitMixturePlan(
+            n, q, k, kind, point_orbits, len(records), affine_dimension, (),
+            (), target, False, True, "uniform_target_outside_accessible_orbit_polytope",
+        )
+
+    components = tuple(
+        OrbitMixtureComponent(records[index][0], records[index][1], records[index][2], weight)
+        for index, weight in zip(selected, selected_weights, strict=True)
+    )
+    inclusion = tuple(
+        sum((component.probability * Fraction(
+            sum(label in subset for subset in component.query_orbit), len(component.query_orbit)
+        ) for component in components), Fraction(0))
+        for label in range(n)
+    )
+    valid = (
+        sum((component.probability for component in components), Fraction(0)) == 1
+        and len(components) <= affine_dimension + 1
+        and len(components) <= len(point_orbits)
+        and inclusion == (target,) * n
+        and all(component.probability > 0 for component in components)
+    )
+    return OrbitMixturePlan(
+        n, q, k, kind, point_orbits, len(records), affine_dimension, components,
+        inclusion, target, True, valid, "sparse_orbit_mixture_certificate",
+    )
+
+
+def sample_orbit_mixture_plan(
+    plan: OrbitMixturePlan, seed: str | int,
+) -> SampledRobustPlan:
+    """Sample exactly from both rational mixture weights and uniform query orbits."""
+    if not plan.certificate_valid or not plan.feasible or not plan.components:
+        raise ValueError("a valid feasible orbit-mixture certificate is required")
+    denominator = lcm(*(component.probability.denominator for component in plan.components))
+    masses = tuple(int(component.probability * denominator) for component in plan.components)
+
+    def exact_rank(namespace: str, total: int) -> tuple[int, str]:
+        modulus = 1 << 256
+        limit = modulus - modulus % total
+        counter = 0
+        while True:
+            material = json.dumps({
+                "seed": str(seed), "namespace": namespace, "counter": counter,
+                "n": plan.carrier_size, "k": plan.covered_labels,
+                "components": [
+                    [list(c.seed_subset), str(c.probability)] for c in plan.components
+                ],
+            }, sort_keys=True, separators=(",", ":")).encode()
+            digest = hashlib.sha256(material).hexdigest()
+            draw = int(digest, 16)
+            if draw < limit:
+                return draw % total, digest
+            counter += 1
+
+    mixture_rank, first_digest = exact_rank("mixture", denominator)
+    cumulative = 0
+    component_index = len(masses) - 1
+    for index, mass in enumerate(masses):
+        cumulative += mass
+        if mixture_rank < cumulative:
+            component_index = index
+            break
+    component = plan.components[component_index]
+    orbit_rank, second_digest = exact_rank(f"orbit-{component_index}-{first_digest}", len(component.query_orbit))
+    covered = component.query_orbit[orbit_rank]
+    return SampledRobustPlan(component_index, covered, covered[:-1], covered[-1], second_digest)
