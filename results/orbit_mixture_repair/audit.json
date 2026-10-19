@@ -1,0 +1,14 @@
+{
+  "admissible_families": 1293,
+  "families": 35,
+  "feasibility_digest": "5259eea8ddce0536716f526715d7cd520cff7cec7e6500d88e0beef5653d9cb1",
+  "feasible": 655,
+  "independent": true,
+  "infeasible": 638,
+  "repair_witnesses": 571,
+  "schema": "theorica.orbit-mixture-repair.audit.v1",
+  "status": "pass",
+  "three_orbit_cases": 2686,
+  "three_orbit_feasible": 824,
+  "three_orbit_repairs": 763
+}
