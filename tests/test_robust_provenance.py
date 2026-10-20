@@ -13,6 +13,7 @@ from theorica.agents.robust_provenance import (
     sample_orbit_mixture_plan,
     sample_robust_randomized_plan,
     sample_uniform_ambiguity_plan,
+    solve_two_by_two_robust_game,
     synthesize_orbit_balanced_plan,
     synthesize_orbit_ambiguity_plan,
     synthesize_orbit_mixture_plan,
@@ -219,6 +220,38 @@ def test_orbit_quotient_frozen_strict_randomization_prediction():
     assert sample_orbit_ambiguity_plan(plan, "quotient") == sample_orbit_ambiguity_plan(
         plan, "quotient",
     )
+    # Canonical record/vertex sorting may exchange either axis; the protected
+    # pairing certificate is permutation invariant.
+    assert plan.reason == "two_by_two_anti_diagonal_certificate"
+
+
+def test_two_by_two_protected_diagonal_formula():
+    result = solve_two_by_two_robust_game((
+        (Fraction(1, 2), Fraction(1, 6)),
+        (Fraction(1, 8), Fraction(3, 8)),
+    ))
+    assert result.certificate_valid and result.strict_randomization_advantage
+    assert result.protected_pairing == "diagonal"
+    assert result.action_probabilities == (Fraction(3, 7), Fraction(4, 7))
+    assert result.minimax_value == Fraction(2, 7)
+    assert result.best_pure_value == Fraction(1, 6)
+    assert result.randomized_gain == Fraction(5, 42)
+
+
+def test_two_by_two_anti_diagonal_and_equality_boundaries():
+    anti = solve_two_by_two_robust_game(((0, 1), (1, 0)))
+    assert anti.certificate_valid and anti.protected_pairing == "anti_diagonal"
+    assert anti.action_probabilities == (Fraction(1, 2), Fraction(1, 2))
+    assert anti.minimax_value == Fraction(1, 2)
+    boundary = solve_two_by_two_robust_game(((1, 0), (0, 0)))
+    assert boundary.certificate_valid and not boundary.strict_randomization_advantage
+    assert boundary.protected_pairing == "none"
+    assert boundary.minimax_value == boundary.best_pure_value == 0
+
+
+def test_two_by_two_rejects_wrong_shape():
+    with pytest.raises(ValueError, match="exactly two"):
+        solve_two_by_two_robust_game(((Fraction(1), Fraction(0)),))  # type: ignore[arg-type]
 
 
 def test_orbit_quotient_requires_invariance_certificate():
