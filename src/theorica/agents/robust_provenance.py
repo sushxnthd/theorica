@@ -537,6 +537,69 @@ class OrbitAmbiguityPlan:
     reason: str
 
 
+@dataclass(frozen=True)
+class TwoByTwoRobustGame:
+    """Exact structural certificate for a two-action, two-vertex game."""
+
+    payoff_matrix: tuple[tuple[Fraction, Fraction], tuple[Fraction, Fraction]]
+    action_probabilities: tuple[Fraction, Fraction]
+    minimax_value: Fraction
+    best_pure_value: Fraction
+    randomized_gain: Fraction
+    strict_randomization_advantage: bool
+    protected_pairing: str
+    certificate_valid: bool
+
+
+def solve_two_by_two_robust_game(
+    payoff_matrix: tuple[tuple[Fraction, Fraction], tuple[Fraction, Fraction]],
+) -> TwoByTwoRobustGame:
+    """Solve a 2x2 robust game and certify the protected-pairing boundary.
+
+    Strict mixing occurs iff either the diagonal or anti-diagonal entries are
+    all strictly greater than the two entries outside that pairing.  This is
+    the permutation-invariant form of the interior opposing-slope criterion.
+    """
+    if len(payoff_matrix) != 2 or any(len(row) != 2 for row in payoff_matrix):
+        raise ValueError("payoff_matrix must contain exactly two rows and two columns")
+    matrix = tuple(tuple(Fraction(value) for value in row) for row in payoff_matrix)
+    (a, b), (c, d) = matrix
+    pure_values = (min(a, b), min(c, d))
+    best_pure = max(pure_values)
+    diagonal = min(a, d) > max(b, c)
+    anti_diagonal = min(b, c) > max(a, d)
+
+    if diagonal or anti_diagonal:
+        denominator = (a - c) + (d - b)
+        first_probability = (d - c) / denominator
+        value = (a * d - b * c) / denominator
+        probabilities = (first_probability, 1 - first_probability)
+        pairing = "diagonal" if diagonal else "anti_diagonal"
+    else:
+        first_probability = Fraction(int(pure_values[0] >= pure_values[1]))
+        probabilities = (first_probability, 1 - first_probability)
+        value = best_pure
+        pairing = "none"
+
+    realized = tuple(
+        probabilities[0] * matrix[0][column]
+        + probabilities[1] * matrix[1][column]
+        for column in range(2)
+    )
+    gain = value - best_pure
+    valid = (
+        sum(probabilities) == 1
+        and all(probability >= 0 for probability in probabilities)
+        and min(realized) == value
+        and gain >= 0
+        and (gain > 0) == (diagonal or anti_diagonal)
+        and ((all(probability > 0 for probability in probabilities)) == (gain > 0))
+    )
+    return TwoByTwoRobustGame(
+        matrix, probabilities, value, best_pure, gain, gain > 0, pairing, valid,
+    )
+
+
 def _point_orbits(
     carrier_size: int, group: tuple[tuple[int, ...], ...],
 ) -> tuple[tuple[int, ...], ...]:
@@ -772,39 +835,50 @@ def synthesize_orbit_ambiguity_plan(
     best_pure = max(pure_values)
 
     best: tuple[Fraction, tuple[int, ...], tuple[Fraction, ...]] | None = None
-    max_support = min(len(records), len(vertices), r)
-    for support_size in range(1, max_support + 1):
-        for support in combinations(range(len(records)), support_size):
-            for active in combinations(range(len(vertices)), support_size):
-                # Unknowns are support weights followed by the game value.
-                rows = [[Fraction(1) for _ in support] + [Fraction(0)]]
-                rhs = [Fraction(1)]
-                for vertex_index in active:
-                    rows.append([
-                        payoff[action_index][vertex_index] for action_index in support
-                    ] + [Fraction(-1)])
-                    rhs.append(Fraction(0))
-                solutions = linsolve((Matrix(rows), Matrix(rhs)))
-                if not solutions:
-                    continue
-                solution = next(iter(solutions))
-                if any(value.free_symbols for value in solution):
-                    continue
-                exact = tuple(Fraction(int(value.p), int(value.q)) for value in solution)
-                weights, value = exact[:-1], exact[-1]
-                if not all(weight > 0 for weight in weights):
-                    continue
-                realized = tuple(sum((
-                    weights[pos] * payoff[action_index][vertex_index]
-                    for pos, action_index in enumerate(support)
-                ), Fraction(0)) for vertex_index in range(len(vertices)))
-                if any(candidate < value for candidate in realized) or min(realized) != value:
-                    continue
-                candidate = (value, support, weights)
-                if best is None or value > best[0] or (
-                    value == best[0] and (support, weights) < (best[1], best[2])
-                ):
-                    best = candidate
+    two_by_two: TwoByTwoRobustGame | None = None
+    if len(records) == len(vertices) == 2:
+        two_by_two = solve_two_by_two_robust_game(payoff)  # type: ignore[arg-type]
+        if not two_by_two.certificate_valid:
+            raise RuntimeError("two-by-two structural certificate failed validation")
+        support = tuple(
+            index for index, weight in enumerate(two_by_two.action_probabilities) if weight > 0
+        )
+        weights = tuple(two_by_two.action_probabilities[index] for index in support)
+        best = (two_by_two.minimax_value, support, weights)
+    else:
+        max_support = min(len(records), len(vertices), r)
+        for support_size in range(1, max_support + 1):
+            for support in combinations(range(len(records)), support_size):
+                for active in combinations(range(len(vertices)), support_size):
+                    # Unknowns are support weights followed by the game value.
+                    rows = [[Fraction(1) for _ in support] + [Fraction(0)]]
+                    rhs = [Fraction(1)]
+                    for vertex_index in active:
+                        rows.append([
+                            payoff[action_index][vertex_index] for action_index in support
+                        ] + [Fraction(-1)])
+                        rhs.append(Fraction(0))
+                    solutions = linsolve((Matrix(rows), Matrix(rhs)))
+                    if not solutions:
+                        continue
+                    solution = next(iter(solutions))
+                    if any(value.free_symbols for value in solution):
+                        continue
+                    exact = tuple(Fraction(int(value.p), int(value.q)) for value in solution)
+                    weights, value = exact[:-1], exact[-1]
+                    if not all(weight > 0 for weight in weights):
+                        continue
+                    realized = tuple(sum((
+                        weights[pos] * payoff[action_index][vertex_index]
+                        for pos, action_index in enumerate(support)
+                    ), Fraction(0)) for vertex_index in range(len(vertices)))
+                    if any(candidate < value for candidate in realized) or min(realized) != value:
+                        continue
+                    candidate = (value, support, weights)
+                    if best is None or value > best[0] or (
+                        value == best[0] and (support, weights) < (best[1], best[2])
+                    ):
+                        best = candidate
     if best is None:
         raise RuntimeError("exact quotient game enumeration found no feasible vertex")
 
@@ -829,7 +903,11 @@ def synthesize_orbit_ambiguity_plan(
     return OrbitAmbiguityPlan(
         n, q, k, kind, point_orbits, vertices, len(records), components,
         value, best_pure, gain, gain > 0, valid,
-        "exact_orbit_quotient_maximin_certificate",
+        (
+            f"two_by_two_{two_by_two.protected_pairing}_certificate"
+            if two_by_two is not None
+            else "exact_orbit_quotient_maximin_certificate"
+        ),
     )
 
 

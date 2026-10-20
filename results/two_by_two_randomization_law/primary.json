@@ -1,0 +1,44 @@
+{
+  "anti_diagonal_cases": 876,
+  "certificate_mismatches": 0,
+  "diagonal_cases": 876,
+  "exact_cases": 6561,
+  "frozen_prediction": {
+    "best_pure": "1/6",
+    "first_action_probability": "3/7",
+    "gain": "5/42",
+    "matrix": [
+      [
+        "1/2",
+        "1/6"
+      ],
+      [
+        "1/8",
+        "3/8"
+      ]
+    ],
+    "protected_pairing": "diagonal",
+    "status": "pass",
+    "value": "2/7"
+  },
+  "minimality": {
+    "one_action_strict_advantage_possible": false,
+    "one_vertex_strict_advantage_possible": false,
+    "two_by_two_witness": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "1"
+      ]
+    ]
+  },
+  "pure_or_equality_cases": 4809,
+  "schema": "theorica.two-by-two-randomization-law.primary.v1",
+  "smallest_claim": "A two-action, two-vertex robust query game has strict randomized advantage iff one diagonal pairing strictly dominates both entries outside it; the exact policy and value then follow from the unique interior crossing.",
+  "status": "pass",
+  "strict_cases": 1752,
+  "value_digest": "5a97663a1836c376ef39527b90c8a68bc8eb51a8cb9bbd30eb97d32172393546"
+}

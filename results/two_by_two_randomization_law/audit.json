@@ -1,0 +1,9 @@
+{
+  "criterion_mismatches": 0,
+  "exact_cases": 6561,
+  "independent": true,
+  "schema": "theorica.two-by-two-randomization-law.audit.v1",
+  "status": "pass",
+  "strict_cases": 1752,
+  "value_digest": "5a97663a1836c376ef39527b90c8a68bc8eb51a8cb9bbd30eb97d32172393546"
+}

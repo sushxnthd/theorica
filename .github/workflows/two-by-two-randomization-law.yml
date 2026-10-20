@@ -1,0 +1,67 @@
+name: two-by-two-randomization-law
+
+on:
+  push:
+    branches: [breakthrough-engine/two-by-two-randomization-law-20261020]
+    paths:
+      - src/theorica/agents/robust_provenance.py
+      - tests/test_robust_provenance.py
+      - scripts/verify_two_by_two_randomization_law.py
+      - scripts/audit_two_by_two_randomization_law.py
+      - docs/TWO_BY_TWO_RANDOMIZATION_LAW_*.md
+      - .github/workflows/two-by-two-randomization-law.yml
+  pull_request:
+    paths:
+      - src/theorica/agents/robust_provenance.py
+      - tests/test_robust_provenance.py
+      - scripts/verify_two_by_two_randomization_law.py
+      - scripts/audit_two_by_two_randomization_law.py
+      - docs/TWO_BY_TWO_RANDOMIZATION_LAW_*.md
+      - .github/workflows/two-by-two-randomization-law.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  exact-law:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install pytest && python -m pip install -e .
+      - name: Execute exact verifier twice
+        run: |
+          python scripts/verify_two_by_two_randomization_law.py --output /tmp/two-by-two-1.json
+          python scripts/verify_two_by_two_randomization_law.py --output /tmp/two-by-two-2.json
+          cmp /tmp/two-by-two-1.json /tmp/two-by-two-2.json
+          mkdir -p results/two_by_two_randomization_law
+          cp /tmp/two-by-two-1.json results/two_by_two_randomization_law/primary.json
+      - name: Independent exact audit
+        run: python scripts/audit_two_by_two_randomization_law.py --primary results/two_by_two_randomization_law/primary.json --output results/two_by_two_randomization_law/audit.json
+      - name: Focused production tests
+        run: |
+          set +e
+          python -m pytest -q tests/test_robust_provenance.py --junitxml=results/two_by_two_randomization_law/focused-tests.xml 2>&1 | tee results/two_by_two_randomization_law/focused-tests.log
+          status=${PIPESTATUS[0]}
+          exit $status
+      - name: Full suite
+        run: python -m pytest -q
+      - name: Preserve exact artifacts
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/two_by_two_randomization_law/primary.json results/two_by_two_randomization_law/audit.json
+          if ! git diff --cached --quiet; then
+            git commit -m "research: record two-by-two randomization law"
+            git push origin HEAD:$GITHUB_REF_NAME
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: two-by-two-randomization-law
+          path: results/two_by_two_randomization_law/
