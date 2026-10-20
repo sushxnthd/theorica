@@ -1,0 +1,40 @@
+name: supported-crossing-two-query
+
+on:
+  push:
+    branches: [breakthrough-engine/supported-crossing-two-query-law-20261021]
+  pull_request:
+    paths:
+      - src/theorica/agents/robust_provenance.py
+      - tests/test_robust_provenance.py
+      - scripts/verify_supported_crossing_two_query.py
+      - scripts/audit_supported_crossing_two_query.py
+      - docs/SUPPORTED_CROSSING_TWO_QUERY_*.md
+      - results/supported_crossing_two_query/**
+      - .github/workflows/supported-crossing-two-query.yml
+  workflow_dispatch:
+
+jobs:
+  exact-law:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -e '.[dev]'
+      - name: Reproduce twice
+        run: |
+          python scripts/verify_supported_crossing_two_query.py --output /tmp/primary-1.json
+          python scripts/verify_supported_crossing_two_query.py --output /tmp/primary-2.json
+          cmp /tmp/primary-1.json /tmp/primary-2.json
+          cmp /tmp/primary-1.json results/supported_crossing_two_query/primary.json
+      - name: Independent audit
+        run: |
+          python scripts/audit_supported_crossing_two_query.py \
+            --primary results/supported_crossing_two_query/primary.json \
+            --output /tmp/audit.json
+          cmp /tmp/audit.json results/supported_crossing_two_query/audit.json
+      - name: Full suite
+        run: pytest -q
