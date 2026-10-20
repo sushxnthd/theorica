@@ -551,6 +551,135 @@ class TwoByTwoRobustGame:
     certificate_valid: bool
 
 
+@dataclass(frozen=True)
+class TwoActionRobustGame:
+    """Exact supported-crossing certificate for two actions and many vertices."""
+
+    payoff_matrix: tuple[tuple[Fraction, ...], tuple[Fraction, ...]]
+    action_probabilities: tuple[Fraction, Fraction]
+    minimax_value: Fraction
+    best_pure_value: Fraction
+    randomized_gain: Fraction
+    strict_randomization_advantage: bool
+    supported_vertices: tuple[int, ...]
+    active_vertices: tuple[int, ...]
+    certificate_valid: bool
+
+
+def solve_two_action_robust_game(
+    payoff_matrix: tuple[tuple[Fraction, ...], tuple[Fraction, ...]],
+) -> TwoActionRobustGame:
+    """Solve a two-action finite robust game by its exact lower envelope.
+
+    Each ambiguity vertex defines an affine payoff line in the probability of
+    action zero.  Strict randomization occurs exactly at a supported interior
+    crossing whose active slopes bracket zero and whose value exceeds both
+    endpoint values.  The lower envelope is constructed in O(m log m).
+    """
+    if len(payoff_matrix) != 2 or not payoff_matrix[0]:
+        raise ValueError("payoff_matrix must contain two nonempty rows")
+    if len(payoff_matrix[0]) != len(payoff_matrix[1]):
+        raise ValueError("payoff rows must have equal length")
+    matrix = tuple(tuple(Fraction(value) for value in row) for row in payoff_matrix)
+    vertex_count = len(matrix[0])
+    lines = tuple(
+        (matrix[0][j] - matrix[1][j], matrix[1][j], j)
+        for j in range(vertex_count)
+    )
+
+    # Equal-slope lines: only the lowest intercept can constrain the envelope.
+    by_slope: dict[Fraction, tuple[Fraction, int]] = {}
+    for slope, intercept, index in lines:
+        incumbent = by_slope.get(slope)
+        if incumbent is None or (intercept, index) < incumbent:
+            by_slope[slope] = (intercept, index)
+    ordered = tuple(
+        (slope, intercept, index)
+        for slope, (intercept, index) in sorted(
+            by_slope.items(), key=lambda item: (-item[0], item[1][0], item[1][1])
+        )
+    )
+
+    hull: list[tuple[Fraction, Fraction, int]] = []
+    starts: list[Fraction | None] = []
+    for line in ordered:
+        start: Fraction | None = None
+        while hull:
+            previous = hull[-1]
+            start = (line[1] - previous[1]) / (previous[0] - line[0])
+            previous_start = starts[-1]
+            if previous_start is not None and start <= previous_start:
+                hull.pop()
+                starts.pop()
+                continue
+            break
+        if not hull:
+            start = None
+        hull.append(line)
+        starts.append(start)
+
+    endpoint_values = (
+        min(matrix[1]),
+        min(matrix[0]),
+    )
+    pure = max(endpoint_values)
+    candidates: list[tuple[Fraction, Fraction]] = [
+        (endpoint_values[0], Fraction(0)),
+        (endpoint_values[1], Fraction(1)),
+    ]
+    for position in range(1, len(hull)):
+        crossing = starts[position]
+        assert crossing is not None
+        if 0 < crossing < 1:
+            slope, intercept, _ = hull[position]
+            candidates.append((intercept + slope * crossing, crossing))
+    value = max(candidate[0] for candidate in candidates)
+    weight = min(candidate[1] for candidate in candidates if candidate[0] == value)
+    if value == pure:
+        # Canonicalize equality plateaus to a deterministic policy: there is no
+        # strict randomized advantage to certify.
+        weight = Fraction(int(endpoint_values[1] > endpoint_values[0]))
+    realized = tuple(
+        weight * matrix[0][j] + (1 - weight) * matrix[1][j]
+        for j in range(vertex_count)
+    )
+    active = tuple(j for j, candidate in enumerate(realized) if candidate == value)
+    gain = value - pure
+
+    supported: tuple[int, ...] = ()
+    if gain > 0:
+        positive = tuple(j for j in active if lines[j][0] >= 0)
+        negative = tuple(j for j in active if lines[j][0] <= 0)
+        pairs = tuple(
+            tuple(sorted((left, right)))
+            for left in positive for right in negative if left != right
+        )
+        if pairs:
+            supported = min(pairs)
+
+    probabilities = (weight, 1 - weight)
+    valid = (
+        sum(probabilities) == 1
+        and all(probability >= 0 for probability in probabilities)
+        and min(realized) == value
+        and gain >= 0
+        and ((0 < weight < 1) == (gain > 0))
+        and (bool(supported) == (gain > 0))
+        and (
+            not supported
+            or (
+                all(realized[j] == value for j in supported)
+                and min(lines[j][0] for j in supported) <= 0
+                and max(lines[j][0] for j in supported) >= 0
+            )
+        )
+    )
+    return TwoActionRobustGame(
+        matrix, probabilities, value, pure, gain, gain > 0,
+        supported, active, valid,
+    )
+
+
 def solve_two_by_two_robust_game(
     payoff_matrix: tuple[tuple[Fraction, Fraction], tuple[Fraction, Fraction]],
 ) -> TwoByTwoRobustGame:
@@ -845,6 +974,15 @@ def synthesize_orbit_ambiguity_plan(
         )
         weights = tuple(two_by_two.action_probabilities[index] for index in support)
         best = (two_by_two.minimax_value, support, weights)
+    elif len(records) == 2:
+        two_action = solve_two_action_robust_game(payoff)  # type: ignore[arg-type]
+        if not two_action.certificate_valid:
+            raise RuntimeError("two-action supported-crossing certificate failed validation")
+        support = tuple(
+            index for index, weight in enumerate(two_action.action_probabilities) if weight > 0
+        )
+        weights = tuple(two_action.action_probabilities[index] for index in support)
+        best = (two_action.minimax_value, support, weights)
     else:
         max_support = min(len(records), len(vertices), r)
         for support_size in range(1, max_support + 1):
@@ -906,6 +1044,8 @@ def synthesize_orbit_ambiguity_plan(
         (
             f"two_by_two_{two_by_two.protected_pairing}_certificate"
             if two_by_two is not None
+            else "two_action_supported_crossing_certificate"
+            if len(records) == 2
             else "exact_orbit_quotient_maximin_certificate"
         ),
     )
