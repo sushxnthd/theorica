@@ -1,0 +1,32 @@
+{
+  "by_vertices": {
+    "3": {
+      "cases": 729,
+      "strict_cases": 192
+    },
+    "4": {
+      "cases": 6561,
+      "strict_cases": 2030
+    }
+  },
+  "certificate_mismatches": 0,
+  "exact_cases": 7290,
+  "frozen_prediction": {
+    "best_pure": "1/6",
+    "first_action_probability": "3/7",
+    "status": "pass",
+    "supported_vertices": [
+      0,
+      1
+    ],
+    "undercut_value": "0",
+    "value": "2/7"
+  },
+  "schema": "theorica.supported-crossing-two-query.primary.v1",
+  "slack_vertex_preservation_cases": 14,
+  "smallest_claim": "For two query actions and finitely many ambiguity vertices, strict randomization occurs exactly at an interior lower-envelope crossing supported by all remaining vertices with active slopes bracketing zero.",
+  "status": "pass",
+  "strict_cases": 2222,
+  "value_digest": "801be2e311d0f66eb0149210eeebffdd6a31a88b71a316f04aacda98eb7e8f87",
+  "value_or_policy_mismatches": 0
+}
