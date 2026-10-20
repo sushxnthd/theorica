@@ -1,0 +1,19 @@
+{
+  "by_vertices": {
+    "3": {
+      "cases": 729,
+      "strict_cases": 192
+    },
+    "4": {
+      "cases": 6561,
+      "strict_cases": 2030
+    }
+  },
+  "exact_cases": 7290,
+  "independent": true,
+  "mismatches": 0,
+  "schema": "theorica.supported-crossing-two-query.audit.v1",
+  "status": "pass",
+  "strict_cases": 2222,
+  "value_digest": "801be2e311d0f66eb0149210eeebffdd6a31a88b71a316f04aacda98eb7e8f87"
+}
