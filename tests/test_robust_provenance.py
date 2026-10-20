@@ -14,6 +14,7 @@ from theorica.agents.robust_provenance import (
     sample_robust_randomized_plan,
     sample_uniform_ambiguity_plan,
     solve_two_by_two_robust_game,
+    solve_two_action_robust_game,
     synthesize_orbit_balanced_plan,
     synthesize_orbit_ambiguity_plan,
     synthesize_orbit_mixture_plan,
@@ -252,6 +253,35 @@ def test_two_by_two_anti_diagonal_and_equality_boundaries():
 def test_two_by_two_rejects_wrong_shape():
     with pytest.raises(ValueError, match="exactly two"):
         solve_two_by_two_robust_game(((Fraction(1), Fraction(0)),))  # type: ignore[arg-type]
+
+
+def test_two_action_supported_crossing_ignores_slack_vertex():
+    result = solve_two_action_robust_game((
+        (Fraction(1, 2), Fraction(1, 6), Fraction(1)),
+        (Fraction(1, 8), Fraction(3, 8), Fraction(1)),
+    ))
+    assert result.certificate_valid and result.strict_randomization_advantage
+    assert result.action_probabilities == (Fraction(3, 7), Fraction(4, 7))
+    assert result.minimax_value == Fraction(2, 7)
+    assert result.best_pure_value == Fraction(1, 6)
+    assert result.supported_vertices == (0, 1)
+
+
+def test_two_action_undercutting_vertex_kills_strict_advantage():
+    result = solve_two_action_robust_game((
+        (Fraction(1, 2), Fraction(1, 6), Fraction(0)),
+        (Fraction(1, 8), Fraction(3, 8), Fraction(0)),
+    ))
+    assert result.certificate_valid and not result.strict_randomization_advantage
+    assert result.minimax_value == result.best_pure_value == 0
+    assert result.supported_vertices == ()
+
+
+def test_two_action_rejects_ragged_or_empty_games():
+    with pytest.raises(ValueError):
+        solve_two_action_robust_game(((), ()))
+    with pytest.raises(ValueError):
+        solve_two_action_robust_game(((0, 1), (0,)))
 
 
 def test_orbit_quotient_requires_invariance_certificate():
