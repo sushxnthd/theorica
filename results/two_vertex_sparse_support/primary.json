@@ -12,6 +12,8 @@
   "certificate_mismatches": 0,
   "exact_cases": 7290,
   "frozen_prediction": {
+    "boundary_append_is_pure": true,
+    "boundary_append_value": "1",
     "dominated_append_value": "1",
     "overriding_append_value": "3/2",
     "overriding_is_pure": true,

@@ -79,7 +79,9 @@ The frozen witness `(0,2),(2,0),(0,0)` mixes the first two actions at
 `(1/2,1/2)`, uses dual ambiguity weights `(1/2,1/2)`, and attains value `1`
 versus pure value `0`. Adding dominated `(1/4,1/4)` leaves the policy and value
 unchanged. Adding `(3/2,3/2)` changes the exact optimum to that pure action at
-value `3/2`. All three predictions passed.
+value `3/2`. At the equality boundary, adding `(1,1)` preserves value `1` but
+canonicalizes to the new pure action, exactly as preregistered. All four
+predictions passed.
 
 ## Preserved failed gate
 

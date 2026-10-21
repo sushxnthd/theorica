@@ -82,11 +82,14 @@ def main():
     dominated = solve_two_vertex_robust_game(
         ((0, 2), (2, 0), (0, 0), (Fraction(1, 4), Fraction(1, 4)))
     )
+    boundary = solve_two_vertex_robust_game(((0, 2), (2, 0), (0, 0), (1, 1)))
     overriding = solve_two_vertex_robust_game(
         ((0, 2), (2, 0), (0, 0), (Fraction(3, 2), Fraction(3, 2)))
     )
     assert frozen.minimax_value == dominated.minimax_value == 1
     assert frozen.action_probabilities == dominated.action_probabilities[:3]
+    assert boundary.minimax_value == 1 and boundary.supported_actions == (3,)
+    assert not boundary.strict_randomization_advantage
     assert overriding.minimax_value == Fraction(3, 2)
     assert not overriding.strict_randomization_advantage
 
@@ -105,6 +108,8 @@ def main():
             "strict_dual": [str(x) for x in frozen.ambiguity_probabilities],
             "strict_value": str(frozen.minimax_value),
             "dominated_append_value": str(dominated.minimax_value),
+            "boundary_append_value": str(boundary.minimax_value),
+            "boundary_append_is_pure": not boundary.strict_randomization_advantage,
             "overriding_append_value": str(overriding.minimax_value),
             "overriding_is_pure": not overriding.strict_randomization_advantage,
             "status": "pass",

@@ -71,6 +71,13 @@ def main():
     assert primary["strict_cases"] == strict
     assert primary["by_actions"] == by_actions
     assert primary["value_digest"] == digest.hexdigest()
+    boundary = ((Fraction(0), Fraction(2)), (Fraction(2), Fraction(0)),
+                (Fraction(0), Fraction(0)), (Fraction(1), Fraction(1)))
+    boundary_probabilities, _, boundary_value, boundary_strict = solve(boundary)
+    assert boundary_value == 1 and boundary_probabilities == (0, 0, 0, 1)
+    assert not boundary_strict
+    assert primary["frozen_prediction"]["boundary_append_value"] == "1"
+    assert primary["frozen_prediction"]["boundary_append_is_pure"]
     result = {
         "schema": "theorica.two-vertex-sparse-support.audit.v1",
         "status": "pass",
@@ -79,6 +86,7 @@ def main():
         "strict_cases": strict,
         "by_actions": by_actions,
         "mismatches": 0,
+        "boundary_prediction": "pass",
         "value_digest": digest.hexdigest(),
     }
     with open(args.output, "w", encoding="utf-8") as handle:

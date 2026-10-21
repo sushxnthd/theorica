@@ -300,6 +300,11 @@ def test_two_vertex_sparse_support_strict_witness_and_predictions():
     assert dominated.action_probabilities[:3] == strict.action_probabilities
     assert dominated.action_probabilities[3] == 0
 
+    boundary = solve_two_vertex_robust_game(((0, 2), (2, 0), (0, 0), (1, 1)))
+    assert boundary.certificate_valid and not boundary.strict_randomization_advantage
+    assert boundary.supported_actions == (3,)
+    assert boundary.minimax_value == 1
+
     overriding = solve_two_vertex_robust_game(
         ((0, 2), (2, 0), (0, 0), (Fraction(3, 2), Fraction(3, 2)))
     )
