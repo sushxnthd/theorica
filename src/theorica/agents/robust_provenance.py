@@ -4,7 +4,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from fractions import Fraction
 import hashlib
-from itertools import combinations, product
+from itertools import combinations
 import json
 from math import lcm
 
@@ -886,15 +886,16 @@ def synthesize_additive_product_plan(
               for action in range(len(probabilities[t])))
         for t in range(len(probabilities))
     )
-    vertex_ranges = tuple(range(len(matrix[0])) for matrix in matrices)
-    realized = tuple(
-        sum((
-            mass * sum((matrices[t][actions[t]][vertices[t]]
-                        for t in range(len(matrices))), Fraction(0))
-            for actions, mass in joint_tuple
-        ), Fraction(0))
-        for vertices in product(*vertex_ranges)
+    # Rectangularity makes the joint worst case equal the sum of component
+    # worst cases, so certificate validation remains linear in the component
+    # matrix sizes and never expands the joint ambiguity product.
+    component_realized = tuple(
+        tuple(sum((component_probability_tuple[t][action] * matrix[action][vertex]
+                   for action in range(len(matrix))), Fraction(0))
+              for vertex in range(len(matrix[0])))
+        for t, matrix in enumerate(matrices)
     )
+    certified_worst = sum((min(payoffs) for payoffs in component_realized), Fraction(0))
     expanded_actions = 1
     expanded_vertices = 1
     for matrix in matrices:
@@ -904,7 +905,7 @@ def synthesize_additive_product_plan(
         sum((mass for _, mass in joint_tuple), Fraction(0)) == 1
         and all(mass > 0 for _, mass in joint_tuple)
         and recovered_marginals == component_probability_tuple
-        and min(realized) == value
+        and certified_worst == value
         and gain == sum((values[t] - pure_values[t] for t in range(len(values))), Fraction(0))
         and (gain > 0) == any(values[t] > pure_values[t] for t in range(len(values)))
         and len(joint_tuple) <= support_bound
