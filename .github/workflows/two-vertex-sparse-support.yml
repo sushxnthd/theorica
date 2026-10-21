@@ -1,0 +1,40 @@
+name: two-vertex-sparse-support
+
+on:
+  push:
+    branches: [breakthrough-engine/two-vertex-sparse-support-20261021]
+  pull_request:
+    paths:
+      - src/theorica/agents/robust_provenance.py
+      - tests/test_robust_provenance.py
+      - scripts/verify_two_vertex_sparse_support.py
+      - scripts/audit_two_vertex_sparse_support.py
+      - docs/TWO_VERTEX_SPARSE_SUPPORT_*.md
+      - results/two_vertex_sparse_support/**
+      - .github/workflows/two-vertex-sparse-support.yml
+  workflow_dispatch:
+
+jobs:
+  exact-law:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -e '.[dev]'
+      - name: Reproduce twice
+        run: |
+          python scripts/verify_two_vertex_sparse_support.py --output /tmp/primary-1.json
+          python scripts/verify_two_vertex_sparse_support.py --output /tmp/primary-2.json
+          cmp /tmp/primary-1.json /tmp/primary-2.json
+          cmp /tmp/primary-1.json results/two_vertex_sparse_support/primary.json
+      - name: Independent audit
+        run: |
+          python scripts/audit_two_vertex_sparse_support.py \
+            --primary results/two_vertex_sparse_support/primary.json \
+            --output /tmp/audit.json
+          cmp /tmp/audit.json results/two_vertex_sparse_support/audit.json
+      - name: Full suite
+        run: pytest -q

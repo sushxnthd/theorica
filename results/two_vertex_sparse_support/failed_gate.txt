@@ -1,0 +1,10 @@
+Initial independent-audit gate: FAILED.
+
+The primary and independent solvers agreed on every value, policy, dual
+certificate, and strictness decision, but their SHA-256 digests differed.
+The independent serializer stored a pure probability as Python integer `1`
+while the primary serializer stored the equal value as `Fraction(1, 1)`.
+Tuple equality therefore passed, but `repr` bytes differed. The independent
+implementation was corrected to canonicalize the pure mass as `Fraction(1)`.
+No production solver code, theorem condition, frozen protocol, or primary
+result was changed.

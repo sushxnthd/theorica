@@ -15,6 +15,7 @@ from theorica.agents.robust_provenance import (
     sample_uniform_ambiguity_plan,
     solve_two_by_two_robust_game,
     solve_two_action_robust_game,
+    solve_two_vertex_robust_game,
     synthesize_orbit_balanced_plan,
     synthesize_orbit_ambiguity_plan,
     synthesize_orbit_mixture_plan,
@@ -282,6 +283,51 @@ def test_two_action_rejects_ragged_or_empty_games():
         solve_two_action_robust_game(((), ()))
     with pytest.raises(ValueError):
         solve_two_action_robust_game(((0, 1), (0,)))
+
+
+def test_two_vertex_sparse_support_strict_witness_and_predictions():
+    strict = solve_two_vertex_robust_game(((0, 2), (2, 0), (0, 0)))
+    assert strict.certificate_valid and strict.strict_randomization_advantage
+    assert strict.action_probabilities == (Fraction(1, 2), Fraction(1, 2), 0)
+    assert strict.ambiguity_probabilities == (Fraction(1, 2), Fraction(1, 2))
+    assert strict.supported_actions == (0, 1)
+    assert strict.minimax_value == 1 and strict.best_pure_value == 0
+
+    dominated = solve_two_vertex_robust_game(
+        ((0, 2), (2, 0), (0, 0), (Fraction(1, 4), Fraction(1, 4)))
+    )
+    assert dominated.minimax_value == strict.minimax_value
+    assert dominated.action_probabilities[:3] == strict.action_probabilities
+    assert dominated.action_probabilities[3] == 0
+
+    overriding = solve_two_vertex_robust_game(
+        ((0, 2), (2, 0), (0, 0), (Fraction(3, 2), Fraction(3, 2)))
+    )
+    assert overriding.certificate_valid and not overriding.strict_randomization_advantage
+    assert overriding.supported_actions == (3,)
+    assert overriding.minimax_value == Fraction(3, 2)
+
+
+def test_two_vertex_rejects_ragged_or_empty_games():
+    with pytest.raises(ValueError):
+        solve_two_vertex_robust_game(())
+    with pytest.raises(ValueError):
+        solve_two_vertex_robust_game(((0, 1, 2),))
+
+
+def test_orbit_quotient_uses_two_vertex_sparse_support_fast_path():
+    plan = synthesize_orbit_ambiguity_plan(
+        3, 0, ((0,), (1,), (2,)), ((0, 1, 2),),
+        ((1, 0, 0), (0, 1, 0)),
+        ambiguity_kind="two-vertex-fast-path", ambiguity_invariant=True,
+    )
+    assert plan.certificate_valid and plan.strict_randomization_advantage
+    assert plan.reason == "two_vertex_sparse_support_certificate"
+    assert plan.minimax_value == Fraction(1, 2)
+    assert len(plan.components) == 2
+    assert tuple(component.probability for component in plan.components) == (
+        Fraction(1, 2), Fraction(1, 2),
+    )
 
 
 def test_orbit_quotient_requires_invariance_certificate():

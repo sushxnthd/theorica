@@ -566,6 +566,111 @@ class TwoActionRobustGame:
     certificate_valid: bool
 
 
+@dataclass(frozen=True)
+class TwoVertexRobustGame:
+    """Exact sparse-support certificate for many actions and two vertices."""
+
+    payoff_matrix: tuple[tuple[Fraction, Fraction], ...]
+    action_probabilities: tuple[Fraction, ...]
+    ambiguity_probabilities: tuple[Fraction, Fraction]
+    minimax_value: Fraction
+    best_pure_value: Fraction
+    randomized_gain: Fraction
+    strict_randomization_advantage: bool
+    supported_actions: tuple[int, ...]
+    active_vertices: tuple[int, ...]
+    certificate_valid: bool
+
+
+def solve_two_vertex_robust_game(
+    payoff_matrix: tuple[tuple[Fraction, Fraction], ...],
+) -> TwoVertexRobustGame:
+    """Solve an arbitrary-action, two-vertex robust game exactly.
+
+    Each action is a point in the two-vertex payoff plane. A strict mixed
+    improvement exists exactly when a segment joining points on opposite sides
+    of the diagonal crosses it above every pure action's worst-case payoff.
+    Thus a maximin plan always has support of size at most two.
+    """
+    if not payoff_matrix or any(len(row) != 2 for row in payoff_matrix):
+        raise ValueError("payoff_matrix must contain nonempty two-entry rows")
+    matrix = tuple(tuple(Fraction(value) for value in row) for row in payoff_matrix)
+    action_count = len(matrix)
+    pure_values = tuple(min(row) for row in matrix)
+    pure = max(pure_values)
+    pure_index = min(i for i, candidate in enumerate(pure_values) if candidate == pure)
+
+    crossings: list[tuple[Fraction, tuple[int, int], Fraction]] = []
+    for left, right in combinations(range(action_count), 2):
+        left_delta = matrix[left][0] - matrix[left][1]
+        right_delta = matrix[right][0] - matrix[right][1]
+        if left_delta * right_delta >= 0:
+            continue
+        left_weight = right_delta / (right_delta - left_delta)
+        if not 0 < left_weight < 1:
+            continue
+        value = left_weight * matrix[left][0] + (1 - left_weight) * matrix[right][0]
+        crossings.append((value, (left, right), left_weight))
+
+    best_crossing = max((item[0] for item in crossings), default=pure)
+    probabilities = [Fraction(0) for _ in range(action_count)]
+    supported: tuple[int, ...]
+    if best_crossing > pure:
+        value = best_crossing
+        _, supported, left_weight = min(item for item in crossings if item[0] == value)
+        probabilities[supported[0]] = left_weight
+        probabilities[supported[1]] = 1 - left_weight
+    else:
+        value = pure
+        supported = (pure_index,)
+        probabilities[pure_index] = 1
+
+    probability_tuple = tuple(probabilities)
+    realized = tuple(sum((
+        probability_tuple[i] * matrix[i][vertex]
+        for i in range(action_count)
+    ), Fraction(0)) for vertex in range(2))
+    dual_candidates = {Fraction(0), Fraction(1)}
+    for left, right in combinations(range(action_count), 2):
+        left_slope = matrix[left][0] - matrix[left][1]
+        right_slope = matrix[right][0] - matrix[right][1]
+        if left_slope == right_slope:
+            continue
+        crossing = (matrix[right][1] - matrix[left][1]) / (left_slope - right_slope)
+        if 0 <= crossing <= 1:
+            dual_candidates.add(crossing)
+    dual_scored = tuple((
+        max(q * row[0] + (1 - q) * row[1] for row in matrix), q
+    ) for q in dual_candidates)
+    dual_value = min(candidate[0] for candidate in dual_scored)
+    dual_weight = min(candidate[1] for candidate in dual_scored if candidate[0] == dual_value)
+    ambiguity_probabilities = (dual_weight, 1 - dual_weight)
+    dual_realized = tuple(
+        dual_weight * row[0] + (1 - dual_weight) * row[1] for row in matrix
+    )
+    active = tuple(i for i, payoff in enumerate(realized) if payoff == value)
+    gain = value - pure
+    valid = (
+        sum(probability_tuple) == 1
+        and all(probability >= 0 for probability in probability_tuple)
+        and min(realized) == value
+        and gain >= 0
+        and len(supported) <= 2
+        and tuple(i for i, probability in enumerate(probability_tuple) if probability > 0)
+        == supported
+        and ((len(supported) == 2) == (gain > 0))
+        and (not gain or realized[0] == realized[1] == value)
+        and dual_value == value
+        and max(dual_realized) == value
+        and sum(ambiguity_probabilities) == 1
+        and all(probability >= 0 for probability in ambiguity_probabilities)
+    )
+    return TwoVertexRobustGame(
+        matrix, probability_tuple, ambiguity_probabilities, value, pure, gain, gain > 0,
+        supported, active, valid,
+    )
+
+
 def solve_two_action_robust_game(
     payoff_matrix: tuple[tuple[Fraction, ...], tuple[Fraction, ...]],
 ) -> TwoActionRobustGame:
@@ -965,6 +1070,7 @@ def synthesize_orbit_ambiguity_plan(
 
     best: tuple[Fraction, tuple[int, ...], tuple[Fraction, ...]] | None = None
     two_by_two: TwoByTwoRobustGame | None = None
+    two_vertex: TwoVertexRobustGame | None = None
     if len(records) == len(vertices) == 2:
         two_by_two = solve_two_by_two_robust_game(payoff)  # type: ignore[arg-type]
         if not two_by_two.certificate_valid:
@@ -974,6 +1080,13 @@ def synthesize_orbit_ambiguity_plan(
         )
         weights = tuple(two_by_two.action_probabilities[index] for index in support)
         best = (two_by_two.minimax_value, support, weights)
+    elif len(vertices) == 2:
+        two_vertex = solve_two_vertex_robust_game(payoff)  # type: ignore[arg-type]
+        if not two_vertex.certificate_valid:
+            raise RuntimeError("two-vertex sparse-support certificate failed validation")
+        support = two_vertex.supported_actions
+        weights = tuple(two_vertex.action_probabilities[index] for index in support)
+        best = (two_vertex.minimax_value, support, weights)
     elif len(records) == 2:
         two_action = solve_two_action_robust_game(payoff)  # type: ignore[arg-type]
         if not two_action.certificate_valid:
@@ -1044,6 +1157,8 @@ def synthesize_orbit_ambiguity_plan(
         (
             f"two_by_two_{two_by_two.protected_pairing}_certificate"
             if two_by_two is not None
+            else "two_vertex_sparse_support_certificate"
+            if two_vertex is not None
             else "two_action_supported_crossing_certificate"
             if len(records) == 2
             else "exact_orbit_quotient_maximin_certificate"

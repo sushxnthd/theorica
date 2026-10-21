@@ -1,0 +1,37 @@
+{
+  "by_actions": {
+    "3": {
+      "cases": 729,
+      "strict_cases": 186
+    },
+    "4": {
+      "cases": 6561,
+      "strict_cases": 1922
+    }
+  },
+  "certificate_mismatches": 0,
+  "exact_cases": 7290,
+  "frozen_prediction": {
+    "dominated_append_value": "1",
+    "overriding_append_value": "3/2",
+    "overriding_is_pure": true,
+    "status": "pass",
+    "strict_dual": [
+      "1/2",
+      "1/2"
+    ],
+    "strict_probabilities": [
+      "1/2",
+      "1/2",
+      "0"
+    ],
+    "strict_value": "1"
+  },
+  "schema": "theorica.two-vertex-sparse-support.primary.v1",
+  "smallest_claim": "For any finite robust game with exactly two ambiguity vertices, an optimal query plan uses at most two actions; strict mixing occurs exactly at the highest diagonal-crossing segment above every pure value.",
+  "status": "pass",
+  "strict_cases": 2108,
+  "support_bound_mismatches": 0,
+  "value_digest": "8097edb597a5a0664f7c63eda1ac4b5e17335ef5cfb2d9df3d8ce0f81cab1c8d",
+  "value_policy_dual_mismatches": 0
+}

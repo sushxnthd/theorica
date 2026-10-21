@@ -1,0 +1,19 @@
+{
+  "by_actions": {
+    "3": {
+      "cases": 729,
+      "strict_cases": 186
+    },
+    "4": {
+      "cases": 6561,
+      "strict_cases": 1922
+    }
+  },
+  "exact_cases": 7290,
+  "independent": true,
+  "mismatches": 0,
+  "schema": "theorica.two-vertex-sparse-support.audit.v1",
+  "status": "pass",
+  "strict_cases": 2108,
+  "value_digest": "8097edb597a5a0664f7c63eda1ac4b5e17335ef5cfb2d9df3d8ce0f81cab1c8d"
+}
