@@ -109,8 +109,9 @@ def main():
         payoff_additive_certified=True, ambiguity_rectangular_certified=True,
     )
     assert parity_plan.minimax_value == 0
-    # Uniform actions guarantee 1/2 in the cross-term game.
+    # Uniform actions guarantee 1/2; uniform vertices cap every action at 1/2.
     assert min(sum(row[j] for row in parity_rows) / 4 for j in range(4)) == Fraction(1, 2)
+    assert max(sum(row) / 4 for row in parity_rows) == Fraction(1, 2)
 
     result = {
         "claim": "additive rectangular-product minimax law",
