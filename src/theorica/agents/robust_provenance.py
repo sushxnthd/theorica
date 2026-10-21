@@ -4,7 +4,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from fractions import Fraction
 import hashlib
-from itertools import combinations
+from itertools import combinations, product
 import json
 from math import lcm
 
@@ -582,6 +582,26 @@ class TwoVertexRobustGame:
     certificate_valid: bool
 
 
+@dataclass(frozen=True)
+class AdditiveProductRobustPlan:
+    """Exact sparse coupling certificate for an additive rectangular product."""
+
+    component_payoff_matrices: tuple[tuple[tuple[Fraction, ...], ...], ...]
+    component_action_probabilities: tuple[tuple[Fraction, ...], ...]
+    joint_components: tuple[tuple[tuple[int, ...], Fraction], ...]
+    component_values: tuple[Fraction, ...]
+    component_best_pure_values: tuple[Fraction, ...]
+    minimax_value: Fraction
+    best_pure_value: Fraction
+    randomized_gain: Fraction
+    strict_randomization_advantage: bool
+    expanded_action_count: int
+    expanded_vertex_count: int
+    support_bound: int
+    certificate_valid: bool
+    reason: str
+
+
 def solve_two_vertex_robust_game(
     payoff_matrix: tuple[tuple[Fraction, Fraction], ...],
 ) -> TwoVertexRobustGame:
@@ -782,6 +802,118 @@ def solve_two_action_robust_game(
     return TwoActionRobustGame(
         matrix, probabilities, value, pure, gain, gain > 0,
         supported, active, valid,
+    )
+
+
+def synthesize_additive_product_plan(
+    component_payoff_matrices: tuple[tuple[tuple[Fraction, ...], ...], ...],
+    *,
+    payoff_additive_certified: bool,
+    ambiguity_rectangular_certified: bool,
+) -> AdditiveProductRobustPlan:
+    """Solve an additive product game through its factors and sparsely couple them.
+
+    For ``M(a,b) = sum_t M_t(a_t,b_t)`` and a full Cartesian product of
+    ambiguity vertices, the robust value and best-pure value both add.  Any
+    coupling of optimal component policies is therefore optimal.  The greedy
+    common-mass coupling below realizes the component marginals with at most
+    ``1 + sum_t(s_t - 1)`` atoms, where ``s_t`` is the positive support size
+    of component ``t``.
+
+    This executable fast path deliberately supports factors with either two
+    actions or two ambiguity vertices, the exact structural solvers currently
+    certified by THEORICA.  Unsupported structure fails closed.
+    """
+    if not payoff_additive_certified:
+        raise ValueError("a certificate that payoff is additive is required")
+    if not ambiguity_rectangular_certified:
+        raise ValueError("a certificate that ambiguity is rectangular is required")
+    if not component_payoff_matrices:
+        raise ValueError("at least one component payoff matrix is required")
+
+    matrices: list[tuple[tuple[Fraction, ...], ...]] = []
+    probabilities: list[tuple[Fraction, ...]] = []
+    values: list[Fraction] = []
+    pure_values: list[Fraction] = []
+    for raw in component_payoff_matrices:
+        if not raw or not raw[0] or any(len(row) != len(raw[0]) for row in raw):
+            raise ValueError("component payoff matrices must be nonempty and rectangular")
+        matrix = tuple(tuple(Fraction(value) for value in row) for row in raw)
+        if len(matrix[0]) == 2:
+            solved = solve_two_vertex_robust_game(matrix)
+            component_probabilities = solved.action_probabilities
+        elif len(matrix) == 2:
+            solved = solve_two_action_robust_game(matrix)
+            component_probabilities = solved.action_probabilities
+        else:
+            raise ValueError("each component must have two actions or two vertices")
+        if not solved.certificate_valid:
+            raise RuntimeError("component exact certificate failed")
+        matrices.append(matrix)
+        probabilities.append(component_probabilities)
+        values.append(solved.minimax_value)
+        pure_values.append(solved.best_pure_value)
+
+    # Greedy common-mass coupling.  Every step exhausts at least one current
+    # marginal atom; only the final step can exhaust all remaining marginals.
+    active = [
+        [[index, probability] for index, probability in enumerate(component) if probability > 0]
+        for component in probabilities
+    ]
+    positions = [0 for _ in active]
+    joint: list[tuple[tuple[int, ...], Fraction]] = []
+    while all(positions[t] < len(active[t]) for t in range(len(active))):
+        actions = tuple(active[t][positions[t]][0] for t in range(len(active)))
+        mass = min(active[t][positions[t]][1] for t in range(len(active)))
+        joint.append((actions, mass))
+        for t in range(len(active)):
+            active[t][positions[t]][1] -= mass
+            if active[t][positions[t]][1] == 0:
+                positions[t] += 1
+
+    component_probability_tuple = tuple(probabilities)
+    joint_tuple = tuple(joint)
+    component_value_tuple = tuple(values)
+    component_pure_tuple = tuple(pure_values)
+    value = sum(component_value_tuple, Fraction(0))
+    pure = sum(component_pure_tuple, Fraction(0))
+    gain = value - pure
+    support_sizes = tuple(sum(p > 0 for p in component) for component in probabilities)
+    support_bound = 1 + sum(size - 1 for size in support_sizes)
+
+    recovered_marginals = tuple(
+        tuple(sum((mass for actions, mass in joint_tuple if actions[t] == action), Fraction(0))
+              for action in range(len(probabilities[t])))
+        for t in range(len(probabilities))
+    )
+    vertex_ranges = tuple(range(len(matrix[0])) for matrix in matrices)
+    realized = tuple(
+        sum((
+            mass * sum((matrices[t][actions[t]][vertices[t]]
+                        for t in range(len(matrices))), Fraction(0))
+            for actions, mass in joint_tuple
+        ), Fraction(0))
+        for vertices in product(*vertex_ranges)
+    )
+    expanded_actions = 1
+    expanded_vertices = 1
+    for matrix in matrices:
+        expanded_actions *= len(matrix)
+        expanded_vertices *= len(matrix[0])
+    valid = (
+        sum((mass for _, mass in joint_tuple), Fraction(0)) == 1
+        and all(mass > 0 for _, mass in joint_tuple)
+        and recovered_marginals == component_probability_tuple
+        and min(realized) == value
+        and gain == sum((values[t] - pure_values[t] for t in range(len(values))), Fraction(0))
+        and (gain > 0) == any(values[t] > pure_values[t] for t in range(len(values)))
+        and len(joint_tuple) <= support_bound
+    )
+    return AdditiveProductRobustPlan(
+        tuple(matrices), component_probability_tuple, joint_tuple,
+        component_value_tuple, component_pure_tuple, value, pure, gain, gain > 0,
+        expanded_actions, expanded_vertices, support_bound, valid,
+        "additive_rectangular_sparse_coupling_certificate",
     )
 
 
