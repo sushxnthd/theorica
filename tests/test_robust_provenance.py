@@ -16,6 +16,7 @@ from theorica.agents.robust_provenance import (
     solve_two_by_two_robust_game,
     solve_two_action_robust_game,
     solve_two_vertex_robust_game,
+    synthesize_additive_product_plan,
     synthesize_orbit_balanced_plan,
     synthesize_orbit_ambiguity_plan,
     synthesize_orbit_mixture_plan,
@@ -318,6 +319,48 @@ def test_two_vertex_rejects_ragged_or_empty_games():
         solve_two_vertex_robust_game(())
     with pytest.raises(ValueError):
         solve_two_vertex_robust_game(((0, 1, 2),))
+
+
+def test_additive_product_value_strictness_and_sparse_coupling():
+    plan = synthesize_additive_product_plan(
+        (
+            ((0, 2), (2, 0)),
+            ((0, 3), (3, 0)),
+            ((1, 1), (0, 0)),
+        ),
+        payoff_additive_certified=True,
+        ambiguity_rectangular_certified=True,
+    )
+    assert plan.certificate_valid and plan.strict_randomization_advantage
+    assert plan.component_values == (1, Fraction(3, 2), 1)
+    assert plan.minimax_value == Fraction(7, 2)
+    assert plan.best_pure_value == 1
+    assert len(plan.joint_components) == 2
+    assert len(plan.joint_components) <= plan.support_bound == 3
+
+
+def test_additive_product_uses_sum_not_product_support():
+    plan = synthesize_additive_product_plan(
+        tuple((((0, 2), (2, 0))) for _ in range(4)),
+        payoff_additive_certified=True,
+        ambiguity_rectangular_certified=True,
+    )
+    assert plan.certificate_valid and plan.minimax_value == 4
+    assert len(plan.joint_components) == 2
+    assert plan.support_bound == 5
+    assert plan.expanded_action_count == plan.expanded_vertex_count == 16
+
+
+def test_additive_product_fails_closed_without_structure_certificates():
+    game = (((0, 1), (1, 0)),)
+    with pytest.raises(ValueError, match="additive"):
+        synthesize_additive_product_plan(
+            game, payoff_additive_certified=False, ambiguity_rectangular_certified=True,
+        )
+    with pytest.raises(ValueError, match="rectangular"):
+        synthesize_additive_product_plan(
+            game, payoff_additive_certified=True, ambiguity_rectangular_certified=False,
+        )
 
 
 def test_orbit_quotient_uses_two_vertex_sparse_support_fast_path():
