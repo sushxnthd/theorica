@@ -1,0 +1,26 @@
+name: additive-product-minimax
+
+on:
+  push:
+    branches:
+      - "breakthrough-engine/additive-product-minimax-law-*"
+  pull_request:
+    paths:
+      - "src/theorica/agents/robust_provenance.py"
+      - "tests/test_robust_provenance.py"
+      - "scripts/verify_additive_product_minimax.py"
+      - "scripts/audit_additive_product_minimax.py"
+      - ".github/workflows/additive-product-minimax.yml"
+
+jobs:
+  exact-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -e ".[dev]"
+      - run: python scripts/verify_additive_product_minimax.py
+      - run: python scripts/audit_additive_product_minimax.py
+      - run: pytest -q tests/test_robust_provenance.py
