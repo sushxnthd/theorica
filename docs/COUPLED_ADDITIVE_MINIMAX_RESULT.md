@@ -38,6 +38,17 @@ The greedy coupling repeatedly emits the current positive component atoms with t
 - Independent Fraction-only checker, importing no THEORICA code, reproduced the full 60,903 / 37,512 digest.
 - Six-factor scaling witness: 64 joint actions reduced to seven LP variables, value 6, one policy atom.
 
+![Exact boundary counts](figures/coupled_additive_boundary.svg)
+
+| Coupled vertices | Cases | Rectangular value survives | Strict coupling bonus |
+|---:|---:|---:|---:|
+| 1 | 26,244 | 8,464 | 17,780 |
+| 2 | 39,366 | 23,830 | 15,536 |
+| 3 | 26,244 | 22,048 | 4,196 |
+| 4 (full rectangular set) | 6,561 | 6,561 | 0 |
+
+The coexistence of both outcomes at each proper subset size rules out ambiguity-set cardinality as the explanation. The exact nature-marginal feasibility condition separates them.
+
 ## Executable consequence
 
 synthesize_coupled_additive_plan returns exact rational component marginals, a sparse joint policy, the rectangular baseline, coupling bonus, and (when equality holds) a coupled nature witness. It rejects missing additivity certificates, duplicate/out-of-domain vertices, unsupported component structure, and excessive exact active-set searches.
