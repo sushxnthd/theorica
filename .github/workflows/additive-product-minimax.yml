@@ -1,4 +1,4 @@
-name: additive-product-minimax
+name: additive-and-coupled-product-minimax
 
 on:
   push:
@@ -10,6 +10,9 @@ on:
       - "tests/test_robust_provenance.py"
       - "scripts/verify_additive_product_minimax.py"
       - "scripts/audit_additive_product_minimax.py"
+      - "scripts/verify_coupled_additive_minimax.py"
+      - "scripts/audit_coupled_additive_minimax.py"
+      - "docs/COUPLED_ADDITIVE_MINIMAX_*.md"
       - ".github/workflows/additive-product-minimax.yml"
 
 jobs:
@@ -23,4 +26,6 @@ jobs:
       - run: pip install -e ".[dev]"
       - run: python scripts/verify_additive_product_minimax.py
       - run: python scripts/audit_additive_product_minimax.py
+      - run: python scripts/verify_coupled_additive_minimax.py
+      - run: python scripts/audit_coupled_additive_minimax.py
       - run: pytest -q tests/test_robust_provenance.py
