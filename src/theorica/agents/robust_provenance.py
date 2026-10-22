@@ -602,6 +602,238 @@ class AdditiveProductRobustPlan:
     reason: str
 
 
+@dataclass(frozen=True)
+class CoupledAdditiveRobustPlan:
+    """Exact marginal-LP certificate for additive, finitely coupled ambiguity."""
+    component_payoff_matrices: tuple[tuple[tuple[Fraction, ...], ...], ...]
+    ambiguity_vertices: tuple[tuple[int, ...], ...]
+    component_action_probabilities: tuple[tuple[Fraction, ...], ...]
+    joint_components: tuple[tuple[tuple[int, ...], Fraction], ...]
+    minimax_value: Fraction
+    rectangular_baseline_value: Fraction
+    coupling_bonus: Fraction
+    rectangular_value_survives: bool
+    zero_bonus_nature_witness: tuple[Fraction, ...]
+    expanded_action_count: int
+    reduced_variable_count: int
+    support_bound: int
+    certificate_valid: bool
+    reason: str
+
+
+def _solve_fraction_system(rows, rhs):
+    """Solve a square rational system; return None when singular."""
+    n = len(rows)
+    if n == 0:
+        return ()
+    a = [list(rows[i]) + [rhs[i]] for i in range(n)]
+    for col in range(n):
+        pivot = next((r for r in range(col, n) if a[r][col] != 0), None)
+        if pivot is None:
+            return None
+        a[col], a[pivot] = a[pivot], a[col]
+        scale = a[col][col]
+        a[col] = [x / scale for x in a[col]]
+        for row in range(n):
+            if row == col or a[row][col] == 0:
+                continue
+            scale = a[row][col]
+            a[row] = [a[row][j] - scale * a[col][j] for j in range(n + 1)]
+    return tuple(a[row][-1] for row in range(n))
+
+
+def _greedy_common_mass_coupling(marginals):
+    active = [[[i, p] for i, p in enumerate(m) if p > 0] for m in marginals]
+    pos = [0] * len(active)
+    joint = []
+    while all(pos[t] < len(active[t]) for t in range(len(active))):
+        actions = tuple(active[t][pos[t]][0] for t in range(len(active)))
+        mass = min(active[t][pos[t]][1] for t in range(len(active)))
+        joint.append((actions, mass))
+        for t in range(len(active)):
+            active[t][pos[t]][1] -= mass
+            if active[t][pos[t]][1] == 0:
+                pos[t] += 1
+    return tuple(joint)
+
+
+def _component_exact_solution(matrix):
+    if len(matrix[0]) == 2:
+        solved = solve_two_vertex_robust_game(matrix)
+    elif len(matrix) == 2:
+        solved = solve_two_action_robust_game((matrix[0], matrix[1]))
+    else:
+        raise ValueError("each component must have two actions or two vertices")
+    if not solved.certificate_valid:
+        raise RuntimeError("component exact certificate failed")
+    return solved.action_probabilities, solved.minimax_value
+
+
+def _zero_bonus_nature_feasibility(matrices, vertices, values):
+    """Return lambda on coupled vertices attaining every component value."""
+    m = len(vertices)
+    if m == 1:
+        ok = all(matrix[action][vertices[0][t]] <= values[t]
+                 for t, matrix in enumerate(matrices)
+                 for action in range(len(matrix)))
+        return (Fraction(1),) if ok else ()
+    d = m - 1
+    inequalities = []
+    for i in range(d):
+        row = [Fraction(0)] * d
+        row[i] = -1
+        inequalities.append((tuple(row), Fraction(0)))
+    inequalities.append((tuple(Fraction(1) for _ in range(d)), Fraction(1)))
+    last = vertices[-1]
+    for t, matrix in enumerate(matrices):
+        for action in range(len(matrix)):
+            base = matrix[action][last[t]]
+            row = tuple(matrix[action][vertices[i][t]] - base for i in range(d))
+            inequalities.append((row, values[t] - base))
+    for selected in combinations(range(len(inequalities)), d):
+        x = _solve_fraction_system(
+            tuple(inequalities[i][0] for i in selected),
+            tuple(inequalities[i][1] for i in selected),
+        )
+        if x is None:
+            continue
+        if all(sum((row[i] * x[i] for i in range(d)), Fraction(0)) <= rhs
+               for row, rhs in inequalities):
+            return tuple(x) + (Fraction(1) - sum(x, Fraction(0)),)
+    return ()
+
+
+def synthesize_coupled_additive_plan(
+    component_payoff_matrices,
+    ambiguity_vertices,
+    *,
+    payoff_additive_certified: bool,
+    max_active_sets: int = 2_000_000,
+) -> CoupledAdditiveRobustPlan:
+    """Exact reduced planner for additive payoffs and finite coupled ambiguity."""
+    if not payoff_additive_certified:
+        raise ValueError("a certificate that payoff is additive is required")
+    if not component_payoff_matrices:
+        raise ValueError("at least one component payoff matrix is required")
+    matrices = tuple(tuple(tuple(Fraction(x) for x in row) for row in raw)
+                     for raw in component_payoff_matrices)
+    if any(not matrix or not matrix[0] or
+           any(len(row) != len(matrix[0]) for row in matrix) for matrix in matrices):
+        raise ValueError("component payoff matrices must be nonempty and rectangular")
+    if not ambiguity_vertices:
+        raise ValueError("at least one coupled ambiguity vertex is required")
+    vertices = tuple(tuple(int(i) for i in vertex) for vertex in ambiguity_vertices)
+    if len(set(vertices)) != len(vertices):
+        raise ValueError("coupled ambiguity vertices must be unique")
+    if any(len(vertex) != len(matrices) or
+           any(i < 0 or i >= len(matrices[t][0]) for t, i in enumerate(vertex))
+           for vertex in vertices):
+        raise ValueError("coupled ambiguity vertex is outside a component domain")
+
+    component = tuple(_component_exact_solution(matrix) for matrix in matrices)
+    values = tuple(item[1] for item in component)
+    baseline = sum(values, Fraction(0))
+    offsets, marginal_dimension = [], 0
+    for matrix in matrices:
+        offsets.append(marginal_dimension)
+        marginal_dimension += len(matrix) - 1
+    dimension = marginal_dimension + 1
+
+    boundaries = []
+    for t, matrix in enumerate(matrices):
+        for action in range(len(matrix) - 1):
+            row = [Fraction(0)] * dimension
+            row[offsets[t] + action] = 1
+            boundaries.append((tuple(row), Fraction(0)))
+        row = [Fraction(0)] * dimension
+        for action in range(len(matrix) - 1):
+            row[offsets[t] + action] = 1
+        boundaries.append((tuple(row), Fraction(1)))
+    for vertex in vertices:
+        row = [Fraction(0)] * dimension
+        base = Fraction(0)
+        for t, matrix in enumerate(matrices):
+            last = matrix[-1][vertex[t]]
+            base += last
+            for action in range(len(matrix) - 1):
+                row[offsets[t] + action] -= matrix[action][vertex[t]] - last
+        row[-1] = 1
+        boundaries.append((tuple(row), base))
+
+    from math import comb
+    active_sets = comb(len(boundaries), dimension)
+    if active_sets > int(max_active_sets):
+        raise ValueError("exact coupled solver active-set limit exceeded")
+
+    candidates = []
+    for selected in combinations(range(len(boundaries)), dimension):
+        x = _solve_fraction_system(
+            tuple(boundaries[i][0] for i in selected),
+            tuple(boundaries[i][1] for i in selected),
+        )
+        if x is None:
+            continue
+        feasible = True
+        for t, matrix in enumerate(matrices):
+            marginal = x[offsets[t]:offsets[t] + len(matrix) - 1]
+            if any(p < 0 for p in marginal) or sum(marginal, Fraction(0)) > 1:
+                feasible = False
+                break
+        if not feasible:
+            continue
+        realized = []
+        for vertex in vertices:
+            payoff = Fraction(0)
+            for t, matrix in enumerate(matrices):
+                marginal = x[offsets[t]:offsets[t] + len(matrix) - 1]
+                payoff += sum((marginal[a] * matrix[a][vertex[t]]
+                               for a in range(len(matrix) - 1)), Fraction(0))
+                payoff += (1 - sum(marginal, Fraction(0))) * matrix[-1][vertex[t]]
+            realized.append(payoff)
+        if x[-1] <= min(realized):
+            candidates.append((x[-1], x))
+    if not candidates:
+        raise RuntimeError("coupled marginal LP had no rational vertex")
+    value = max(item[0] for item in candidates)
+    x = min(item[1] for item in candidates if item[0] == value)
+    probabilities = tuple(
+        tuple(x[offsets[t]:offsets[t] + len(matrix) - 1])
+        + (Fraction(1) - sum(x[offsets[t]:offsets[t] + len(matrix) - 1], Fraction(0)),)
+        for t, matrix in enumerate(matrices)
+    )
+    joint = _greedy_common_mass_coupling(probabilities)
+    sizes = tuple(sum(p > 0 for p in marginal) for marginal in probabilities)
+    support_bound = 1 + sum(size - 1 for size in sizes)
+    realized = tuple(
+        sum((mass * sum((matrices[t][actions[t]][vertex[t]]
+                         for t in range(len(matrices))), Fraction(0))
+             for actions, mass in joint), Fraction(0))
+        for vertex in vertices
+    )
+    bonus = value - baseline
+    witness = _zero_bonus_nature_feasibility(matrices, vertices, values)
+    expanded = 1
+    for matrix in matrices:
+        expanded *= len(matrix)
+    recovered = tuple(
+        tuple(sum((mass for actions, mass in joint if actions[t] == action), Fraction(0))
+              for action in range(len(matrices[t])))
+        for t in range(len(matrices))
+    )
+    valid = (
+        bonus >= 0 and min(realized) == value and recovered == probabilities
+        and sum((mass for _, mass in joint), Fraction(0)) == 1
+        and len(joint) <= support_bound
+        and (bonus == 0) == bool(witness)
+        and (not witness or sum(witness, Fraction(0)) == 1)
+    )
+    return CoupledAdditiveRobustPlan(
+        matrices, vertices, probabilities, joint, value, baseline, bonus,
+        bonus == 0, witness, expanded, dimension, support_bound, valid,
+        "coupled_additive_marginal_lp_certificate",
+    )
+
+
 def solve_two_vertex_robust_game(
     payoff_matrix: tuple[tuple[Fraction, Fraction], ...],
 ) -> TwoVertexRobustGame:
