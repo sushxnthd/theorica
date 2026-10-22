@@ -17,6 +17,7 @@ from theorica.agents.robust_provenance import (
     solve_two_action_robust_game,
     solve_two_vertex_robust_game,
     synthesize_additive_product_plan,
+    synthesize_coupled_additive_plan,
     synthesize_orbit_balanced_plan,
     synthesize_orbit_ambiguity_plan,
     synthesize_orbit_mixture_plan,
@@ -362,6 +363,59 @@ def test_additive_product_fails_closed_without_structure_certificates():
             game, payoff_additive_certified=True, ambiguity_rectangular_certified=False,
         )
 
+
+
+def test_coupled_additive_exact_correction_and_zero_bonus_boundary():
+    crossing = ((0, 2), (2, 0))
+    strict = synthesize_coupled_additive_plan(
+        (crossing, crossing), ((0, 0),), payoff_additive_certified=True,
+    )
+    assert strict.certificate_valid
+    assert strict.rectangular_baseline_value == 2
+    assert strict.minimax_value == 4 and strict.coupling_bonus == 2
+    assert not strict.rectangular_value_survives
+    assert strict.zero_bonus_nature_witness == ()
+
+    equality = synthesize_coupled_additive_plan(
+        (crossing, crossing), ((0, 1), (1, 0)), payoff_additive_certified=True,
+    )
+    assert equality.certificate_valid
+    assert equality.minimax_value == equality.rectangular_baseline_value == 2
+    assert equality.rectangular_value_survives
+    assert equality.zero_bonus_nature_witness == (Fraction(1, 2), Fraction(1, 2))
+    assert len(equality.joint_components) <= equality.support_bound
+
+
+def test_coupled_additive_policy_is_executable_on_three_factors():
+    plan = synthesize_coupled_additive_plan(
+        (((0, 2), (2, 0)), ((0, 3), (3, 0)), ((1, 1), (0, 0))),
+        ((0, 0, 0), (1, 1, 1)), payoff_additive_certified=True,
+    )
+    assert plan.certificate_valid
+    assert sum(mass for _, mass in plan.joint_components) == 1
+    assert len(plan.joint_components) <= plan.support_bound
+    realized = tuple(
+        sum(mass * sum(plan.component_payoff_matrices[t][actions[t]][vertex[t]]
+                       for t in range(3))
+            for actions, mass in plan.joint_components)
+        for vertex in plan.ambiguity_vertices
+    )
+    assert min(realized) == plan.minimax_value
+
+
+def test_coupled_additive_fails_closed_without_certified_structure():
+    with pytest.raises(ValueError, match="additive"):
+        synthesize_coupled_additive_plan(
+            (((0, 1), (1, 0)),), ((0,),), payoff_additive_certified=False,
+        )
+    with pytest.raises(ValueError, match="unique"):
+        synthesize_coupled_additive_plan(
+            (((0, 1), (1, 0)),), ((0,), (0,)), payoff_additive_certified=True,
+        )
+    with pytest.raises(ValueError, match="outside"):
+        synthesize_coupled_additive_plan(
+            (((0, 1), (1, 0)),), ((2,),), payoff_additive_certified=True,
+        )
 
 def test_orbit_quotient_uses_two_vertex_sparse_support_fast_path():
     plan = synthesize_orbit_ambiguity_plan(
