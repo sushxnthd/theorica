@@ -18,6 +18,8 @@ on:
       - "scripts/audit_three_vertex_additive_arrangement.py"
       - "scripts/verify_four_vertex_additive_arrangement.py"
       - "scripts/audit_four_vertex_additive_arrangement.py"
+      - "scripts/verify_fixed_scenario_additive_arrangement.py"
+      - "scripts/audit_fixed_scenario_additive_arrangement.py"
       - "docs/COUPLED_ADDITIVE_MINIMAX_*.md"
       - "docs/TWO_VERTEX_ADDITIVE_ENVELOPE_*.md"
       - "docs/THREE_VERTEX_ADDITIVE_ARRANGEMENT_*.md"
@@ -43,4 +45,6 @@ jobs:
       - run: python scripts/audit_three_vertex_additive_arrangement.py
       - run: python scripts/verify_four_vertex_additive_arrangement.py
       - run: python scripts/audit_four_vertex_additive_arrangement.py
+      - run: python scripts/verify_fixed_scenario_additive_arrangement.py
+      - run: python scripts/audit_fixed_scenario_additive_arrangement.py
       - run: pytest -q tests/test_robust_provenance.py
