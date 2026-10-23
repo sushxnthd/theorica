@@ -621,6 +621,22 @@ class CoupledAdditiveRobustPlan:
     reason: str
 
 
+@dataclass(frozen=True)
+class TwoVertexAdditiveRobustPlan:
+    """Exact product-free certificate for additive games with two scenarios."""
+    component_payoff_pairs: tuple[tuple[tuple[Fraction, Fraction], ...], ...]
+    joint_actions: tuple[tuple[tuple[int, ...], Fraction], ...]
+    minimax_value: Fraction
+    nature_probability: Fraction
+    strict_randomization_necessary: bool
+    pure_optimal_witness: tuple[int, ...]
+    expanded_action_count: int
+    breakpoint_count: int
+    support_bound: int
+    certificate_valid: bool
+    reason: str
+
+
 def _solve_fraction_system(rows, rhs):
     """Solve a square rational system; return None when singular."""
     n = len(rows)
@@ -667,6 +683,121 @@ def _component_exact_solution(matrix):
     if not solved.certificate_valid:
         raise RuntimeError("component exact certificate failed")
     return solved.action_probabilities, solved.minimax_value
+
+
+def synthesize_two_vertex_additive_plan(
+    component_payoff_pairs,
+    *,
+    payoff_additive_certified: bool,
+    max_delta_states: int = 2_000_000,
+) -> TwoVertexAdditiveRobustPlan:
+    """Solve an additive two-scenario game without Cartesian action expansion.
+
+    The nature dual is the sum of component upper envelopes. Its minimizer is
+    therefore an endpoint or a breakpoint of one component envelope. At an
+    interior minimizer, a deterministic optimum exists exactly when zero is a
+    reachable sum of payoff differences among the tied component actions.
+    """
+    if not payoff_additive_certified:
+        raise ValueError("a certificate that payoff is additive is required")
+    if not component_payoff_pairs:
+        raise ValueError("at least one component is required")
+    pairs = tuple(
+        tuple(tuple(Fraction(value) for value in action) for action in component)
+        for component in component_payoff_pairs
+    )
+    if any(not component or any(len(action) != 2 for action in component)
+           for component in pairs):
+        raise ValueError("each component action must have two scenario payoffs")
+
+    candidates = {Fraction(0), Fraction(1)}
+    for component in pairs:
+        for left, right in combinations(component, 2):
+            left_slope = left[0] - left[1]
+            right_slope = right[0] - right[1]
+            denominator = left_slope - right_slope
+            if denominator == 0:
+                continue
+            crossing = (right[1] - left[1]) / denominator
+            if 0 <= crossing <= 1:
+                candidates.add(crossing)
+
+    def line(action, probability):
+        return probability * action[0] + (1 - probability) * action[1]
+
+    def dual(probability):
+        return sum((max(line(action, probability) for action in component)
+                    for component in pairs), Fraction(0))
+
+    nature_probability = min(candidates, key=lambda p: (dual(p), p))
+    value = dual(nature_probability)
+    tied = tuple(
+        tuple(i for i, action in enumerate(component)
+              if line(action, nature_probability)
+              == max(line(candidate, nature_probability) for candidate in component))
+        for component in pairs
+    )
+
+    reachable = {Fraction(0): ()}
+    for t, actions in enumerate(tied):
+        updated = {}
+        for total, prefix in reachable.items():
+            for action in actions:
+                delta = pairs[t][action][0] - pairs[t][action][1]
+                updated.setdefault(total + delta, prefix + (action,))
+        if len(updated) > int(max_delta_states):
+            raise ValueError("exact tied-delta state limit exceeded")
+        reachable = updated
+
+    pure = reachable.get(Fraction(0), ()) if 0 < nature_probability < 1 else ()
+    if pure:
+        joint = ((pure, Fraction(1)),)
+        strict = False
+    else:
+        low_delta = min(reachable)
+        high_delta = max(reachable)
+        low = reachable[low_delta]
+        high = reachable[high_delta]
+        if nature_probability == 0:
+            if high_delta < 0:
+                raise RuntimeError("invalid left-boundary dual certificate")
+            joint = ((high, Fraction(1)),)
+            pure = high
+            strict = False
+        elif nature_probability == 1:
+            if low_delta > 0:
+                raise RuntimeError("invalid right-boundary dual certificate")
+            joint = ((low, Fraction(1)),)
+            pure = low
+            strict = False
+        else:
+            if not low_delta < 0 < high_delta:
+                raise RuntimeError("interior dual minimizer lacks bracketing responses")
+            low_mass = high_delta / (high_delta - low_delta)
+            joint = ((low, low_mass), (high, 1 - low_mass))
+            strict = True
+
+    realized = tuple(
+        sum((mass * sum((pairs[t][actions[t]][scenario]
+                         for t in range(len(pairs))), Fraction(0))
+             for actions, mass in joint), Fraction(0))
+        for scenario in range(2)
+    )
+    expanded = 1
+    for component in pairs:
+        expanded *= len(component)
+    valid = (
+        sum((mass for _, mass in joint), Fraction(0)) == 1
+        and all(mass > 0 for _, mass in joint)
+        and min(realized) == value
+        and len(joint) <= 2
+        and strict == (0 < nature_probability < 1 and not pure)
+    )
+    return TwoVertexAdditiveRobustPlan(
+        pairs, joint, value, nature_probability, strict, pure, expanded,
+        len(candidates), 2, valid,
+        "two_vertex_additive_envelope_certificate",
+    )
 
 
 def _zero_bonus_nature_feasibility(matrices, vertices, values):

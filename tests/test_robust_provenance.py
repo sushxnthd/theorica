@@ -18,6 +18,7 @@ from theorica.agents.robust_provenance import (
     solve_two_vertex_robust_game,
     synthesize_additive_product_plan,
     synthesize_coupled_additive_plan,
+    synthesize_two_vertex_additive_plan,
     synthesize_orbit_balanced_plan,
     synthesize_orbit_ambiguity_plan,
     synthesize_orbit_mixture_plan,
@@ -415,6 +416,48 @@ def test_coupled_additive_fails_closed_without_certified_structure():
     with pytest.raises(ValueError, match="outside"):
         synthesize_coupled_additive_plan(
             (((0, 1), (1, 0)),), ((2,),), payoff_additive_certified=True,
+        )
+
+
+def test_two_vertex_additive_envelope_detects_necessary_randomization():
+    plan = synthesize_two_vertex_additive_plan(
+        (((0, 2), (2, 0)), ((0, 3), (3, 0))),
+        payoff_additive_certified=True,
+    )
+    assert plan.certificate_valid
+    assert plan.minimax_value == Fraction(5, 2)
+    assert plan.nature_probability == Fraction(1, 2)
+    assert plan.strict_randomization_necessary
+    assert plan.pure_optimal_witness == ()
+    assert len(plan.joint_actions) == plan.support_bound == 2
+    assert plan.expanded_action_count == 4
+
+
+def test_two_vertex_additive_envelope_returns_pure_zero_delta_witness():
+    plan = synthesize_two_vertex_additive_plan(
+        (((0, 2), (2, 0)), ((0, 2), (2, 0))),
+        payoff_additive_certified=True,
+    )
+    assert plan.certificate_valid
+    assert plan.minimax_value == 2
+    assert not plan.strict_randomization_necessary
+    assert plan.pure_optimal_witness in ((0, 1), (1, 0))
+    assert plan.joint_actions == ((plan.pure_optimal_witness, Fraction(1)),)
+
+
+def test_two_vertex_additive_envelope_fails_closed():
+    with pytest.raises(ValueError, match="additive"):
+        synthesize_two_vertex_additive_plan(
+            (((0, 1),),), payoff_additive_certified=False,
+        )
+    with pytest.raises(ValueError, match="two scenario"):
+        synthesize_two_vertex_additive_plan(
+            (((0, 1, 2),),), payoff_additive_certified=True,
+        )
+    with pytest.raises(ValueError, match="state limit"):
+        synthesize_two_vertex_additive_plan(
+            (((0, 2), (2, 0)), ((0, 3), (3, 0))),
+            payoff_additive_certified=True, max_delta_states=1,
         )
 
 def test_orbit_quotient_uses_two_vertex_sparse_support_fast_path():
