@@ -670,6 +670,24 @@ class FourVertexAdditiveRobustPlan:
     reason: str
 
 
+@dataclass(frozen=True)
+class FixedScenarioAdditiveRobustPlan:
+    """Exact arrangement certificate for a bounded fixed scenario count."""
+    component_payoff_vectors: tuple[tuple[tuple[Fraction, ...], ...], ...]
+    joint_actions: tuple[tuple[tuple[int, ...], Fraction], ...]
+    minimax_value: Fraction
+    nature_probabilities: tuple[Fraction, ...]
+    strict_randomization_necessary: bool
+    scenario_count: int
+    expanded_action_count: int
+    tie_hyperplane_count: int
+    arrangement_candidate_count: int
+    candidate_upper_bound: int
+    support_bound: int
+    certificate_valid: bool
+    reason: str
+
+
 def _solve_fraction_system(rows, rhs):
     """Solve a square rational system; return None when singular."""
     n = len(rows)
@@ -1054,6 +1072,131 @@ def _fixed_scenario_policy(active, value, scenario_count):
                 if result:
                     return result
     raise RuntimeError("dual optimum lacks a sparse primal witness")
+
+
+def synthesize_fixed_scenario_additive_plan(
+    component_payoff_vectors,
+    *,
+    payoff_additive_certified: bool,
+    max_scenarios: int = 8,
+    max_boundary_combinations: int = 2_000_000,
+    max_active_joint_actions: int = 500_000,
+) -> FixedScenarioAdditiveRobustPlan:
+    """Solve a certified additive game at any bounded fixed scenario count.
+
+    Value computation enumerates vertices of the component-local tie
+    arrangement in the nature simplex.  It never expands Cartesian joint
+    actions.  Joint responses are constructed only among actions tied at the
+    exact minimizing nature distribution, with explicit fail-closed caps.
+    """
+    if not payoff_additive_certified:
+        raise ValueError("a certificate that payoff is additive is required")
+    if not component_payoff_vectors:
+        raise ValueError("at least one component is required")
+    vectors = tuple(
+        tuple(tuple(Fraction(value) for value in action) for action in component)
+        for component in component_payoff_vectors
+    )
+    if any(not component or not component[0] for component in vectors):
+        raise ValueError("every component needs at least one nonempty action")
+    scenario_count = len(vectors[0][0])
+    if scenario_count < 2 or scenario_count > int(max_scenarios):
+        raise ValueError("scenario count is outside the certified fixed-dimensional cap")
+    if any(len(action) != scenario_count
+           for component in vectors for action in component):
+        raise ValueError("all component actions must share one scenario count")
+
+    dimension = scenario_count - 1
+    ties = set()
+    for component in vectors:
+        for left, right in combinations(component, 2):
+            row = tuple(
+                (left[i] - left[-1]) - (right[i] - right[-1])
+                for i in range(dimension)
+            )
+            rhs = right[-1] - left[-1]
+            if any(row):
+                ties.add((row, rhs))
+
+    facets = tuple(
+        (tuple(Fraction(int(i == j)) for i in range(dimension)), Fraction(0))
+        for j in range(dimension)
+    ) + ((tuple(Fraction(1) for _ in range(dimension)), Fraction(1)),)
+    boundaries = tuple(sorted(ties)) + facets
+    boundary_combinations = comb(len(boundaries), dimension)
+    if boundary_combinations > int(max_boundary_combinations):
+        raise ValueError("exact arrangement boundary-combination limit exceeded")
+
+    def inside(point):
+        return all(value >= 0 for value in point) and sum(point) <= 1
+
+    candidates = set()
+    for selected in combinations(boundaries, dimension):
+        point = _solve_fraction_system(
+            tuple(item[0] for item in selected),
+            tuple(item[1] for item in selected),
+        )
+        if point is not None and inside(point):
+            candidates.add(point)
+    if not candidates:
+        raise RuntimeError("fixed-scenario arrangement has no feasible vertex")
+
+    def affine(action, point):
+        return sum((point[i] * action[i] for i in range(dimension)), Fraction(0)) \
+            + (1 - sum(point, Fraction(0))) * action[-1]
+
+    def dual(point):
+        return sum((max(affine(action, point) for action in component)
+                    for component in vectors), Fraction(0))
+
+    nature_point = min(candidates, key=lambda point: (dual(point), point))
+    value = dual(nature_point)
+    tied = tuple(
+        tuple(i for i, action in enumerate(component)
+              if affine(action, nature_point)
+              == max(affine(candidate, nature_point) for candidate in component))
+        for component in vectors
+    )
+    active_count = 1
+    for actions in tied:
+        active_count *= len(actions)
+    if active_count > int(max_active_joint_actions):
+        raise ValueError("exact tied joint-action limit exceeded")
+
+    active = []
+    for actions in product(*tied):
+        payoff = tuple(
+            sum((vectors[t][actions[t]][scenario] for t in range(len(vectors))),
+                Fraction(0))
+            for scenario in range(scenario_count)
+        )
+        active.append((tuple(actions), payoff))
+    joint = _fixed_scenario_policy(tuple(active), value, scenario_count)
+    realized = tuple(
+        sum((mass * sum((vectors[t][actions[t]][scenario]
+                         for t in range(len(vectors))), Fraction(0))
+             for actions, mass in joint), Fraction(0))
+        for scenario in range(scenario_count)
+    )
+    expanded = 1
+    for component in vectors:
+        expanded *= len(component)
+    nature = tuple(nature_point) + (1 - sum(nature_point, Fraction(0)),)
+    upper_bound = comb(len(ties) + scenario_count, dimension)
+    valid = (
+        sum((mass for _, mass in joint), Fraction(0)) == 1
+        and all(mass > 0 for _, mass in joint)
+        and min(realized) == value
+        and len(joint) <= scenario_count
+        and sum(nature) == 1
+        and all(probability >= 0 for probability in nature)
+        and len(candidates) <= upper_bound
+    )
+    return FixedScenarioAdditiveRobustPlan(
+        vectors, joint, value, nature, len(joint) > 1, scenario_count,
+        expanded, len(ties), len(candidates), upper_bound, scenario_count,
+        valid, "fixed_scenario_additive_arrangement_certificate",
+    )
 
 
 def synthesize_four_vertex_additive_plan(
