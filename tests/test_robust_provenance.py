@@ -8,22 +8,23 @@ from theorica.agents.robust_provenance import (
     deterministic_tv_frontier,
     divergence_agnostic_symmetry_value,
     robust_provenance_frontier,
-    sample_orbit_balanced_plan,
     sample_orbit_ambiguity_plan,
+    sample_orbit_balanced_plan,
     sample_orbit_mixture_plan,
     sample_robust_randomized_plan,
     sample_uniform_ambiguity_plan,
-    solve_two_by_two_robust_game,
     solve_two_action_robust_game,
+    solve_two_by_two_robust_game,
     solve_two_vertex_robust_game,
     synthesize_additive_product_plan,
     synthesize_coupled_additive_plan,
-    synthesize_three_vertex_additive_plan,
-    synthesize_two_vertex_additive_plan,
-    synthesize_orbit_balanced_plan,
+    synthesize_four_vertex_additive_plan,
     synthesize_orbit_ambiguity_plan,
+    synthesize_orbit_balanced_plan,
     synthesize_orbit_mixture_plan,
     synthesize_robust_randomized_plan,
+    synthesize_three_vertex_additive_plan,
+    synthesize_two_vertex_additive_plan,
     synthesize_uniform_ambiguity_plan,
     unrank_uniform_k_subset,
 )
@@ -503,6 +504,46 @@ def test_three_vertex_additive_arrangement_fails_closed():
     with pytest.raises(ValueError, match="joint-action limit"):
         synthesize_three_vertex_additive_plan(
             (((1, 0, 0), (0, 1, 0), (0, 0, 1)),) * 2,
+            payoff_additive_certified=True, max_active_joint_actions=1,
+        )
+
+
+def test_four_vertex_additive_arrangement_needs_four_way_randomization():
+    plan = synthesize_four_vertex_additive_plan(
+        (((4, 0, 0, 0), (0, 4, 0, 0), (0, 0, 4, 0), (0, 0, 0, 4)),),
+        payoff_additive_certified=True,
+    )
+    assert plan.certificate_valid
+    assert plan.minimax_value == 1
+    assert plan.nature_probabilities == (Fraction(1, 4),) * 4
+    assert plan.strict_randomization_necessary
+    assert len(plan.joint_actions) == 4
+    assert tuple(mass for _, mass in plan.joint_actions) == (Fraction(1, 4),) * 4
+
+
+def test_four_vertex_additive_arrangement_detects_pure_optimum():
+    plan = synthesize_four_vertex_additive_plan(
+        (((2, 2, 2, 2), (4, 0, 0, 0)),
+          ((1, 1, 1, 1), (0, 3, 0, 0))),
+        payoff_additive_certified=True,
+    )
+    assert plan.certificate_valid and plan.minimax_value == 3
+    assert not plan.strict_randomization_necessary
+    assert len(plan.joint_actions) == 1
+
+
+def test_four_vertex_additive_arrangement_fails_closed():
+    with pytest.raises(ValueError, match="additive"):
+        synthesize_four_vertex_additive_plan(
+            (((0, 1, 2, 3),),), payoff_additive_certified=False,
+        )
+    with pytest.raises(ValueError, match="four scenario"):
+        synthesize_four_vertex_additive_plan(
+            (((0, 1, 2),),), payoff_additive_certified=True,
+        )
+    with pytest.raises(ValueError, match="joint-action limit"):
+        synthesize_four_vertex_additive_plan(
+            (((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1)),) * 2,
             payoff_additive_certified=True, max_active_joint_actions=1,
         )
 
