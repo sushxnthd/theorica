@@ -4,7 +4,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from fractions import Fraction
 import hashlib
-from itertools import combinations
+from itertools import combinations, product
 import json
 from math import lcm
 
@@ -637,6 +637,22 @@ class TwoVertexAdditiveRobustPlan:
     reason: str
 
 
+@dataclass(frozen=True)
+class ThreeVertexAdditiveRobustPlan:
+    """Exact arrangement certificate for additive games with three scenarios."""
+    component_payoff_triples: tuple[tuple[tuple[Fraction, Fraction, Fraction], ...], ...]
+    joint_actions: tuple[tuple[tuple[int, ...], Fraction], ...]
+    minimax_value: Fraction
+    nature_probabilities: tuple[Fraction, Fraction, Fraction]
+    strict_randomization_necessary: bool
+    expanded_action_count: int
+    tie_line_count: int
+    arrangement_candidate_count: int
+    support_bound: int
+    certificate_valid: bool
+    reason: str
+
+
 def _solve_fraction_system(rows, rhs):
     """Solve a square rational system; return None when singular."""
     n = len(rows)
@@ -797,6 +813,184 @@ def synthesize_two_vertex_additive_plan(
         pairs, joint, value, nature_probability, strict, pure, expanded,
         len(candidates), 2, valid,
         "two_vertex_additive_envelope_certificate",
+    )
+
+
+def _three_vertex_policy(active, value):
+    """Find an exact support-at-most-three policy over active joint responses."""
+    for actions, payoff in active:
+        if min(payoff) >= value:
+            return ((actions, Fraction(1)),)
+
+    for left, right in combinations(active, 2):
+        low, high = Fraction(0), Fraction(1)
+        feasible = True
+        for scenario in range(3):
+            delta = left[1][scenario] - right[1][scenario]
+            rhs = value - right[1][scenario]
+            if delta > 0:
+                low = max(low, rhs / delta)
+            elif delta < 0:
+                high = min(high, rhs / delta)
+            elif rhs > 0:
+                feasible = False
+        if feasible and low <= high and high >= 0 and low <= 1:
+            weight = max(Fraction(0), low)
+            if weight <= min(Fraction(1), high):
+                result = []
+                if weight:
+                    result.append((left[0], weight))
+                if weight < 1:
+                    result.append((right[0], 1 - weight))
+                if result:
+                    return tuple(result)
+
+    for first, second, third in combinations(active, 3):
+        inequalities = [
+            ((Fraction(-1), Fraction(0)), Fraction(0)),
+            ((Fraction(0), Fraction(-1)), Fraction(0)),
+            ((Fraction(1), Fraction(1)), Fraction(1)),
+        ]
+        for scenario in range(3):
+            a = first[1][scenario] - third[1][scenario]
+            b = second[1][scenario] - third[1][scenario]
+            inequalities.append(((-a, -b), third[1][scenario] - value))
+        for i, j in combinations(range(len(inequalities)), 2):
+            point = _solve_fraction_system(
+                (inequalities[i][0], inequalities[j][0]),
+                (inequalities[i][1], inequalities[j][1]),
+            )
+            if point is None or any(
+                row[0] * point[0] + row[1] * point[1] > rhs
+                for row, rhs in inequalities
+            ):
+                continue
+            weights = (point[0], point[1], 1 - point[0] - point[1])
+            result = tuple(
+                (entry[0], weight)
+                for entry, weight in zip((first, second, third), weights)
+                if weight > 0
+            )
+            if result:
+                return result
+    raise RuntimeError("dual optimum lacks a support-at-most-three primal witness")
+
+
+def synthesize_three_vertex_additive_plan(
+    component_payoff_triples,
+    *,
+    payoff_additive_certified: bool,
+    max_active_joint_actions: int = 500_000,
+) -> ThreeVertexAdditiveRobustPlan:
+    """Solve an additive three-scenario game by an exact line arrangement.
+
+    Nature's dual is a convex piecewise-affine function on a triangle. Its
+    minimum is attained at a triangle/arrangement vertex generated solely by
+    component-local action ties. Policy recovery enumerates only actions tied
+    at the minimizing point and fails closed above the configured cap.
+    """
+    if not payoff_additive_certified:
+        raise ValueError("a certificate that payoff is additive is required")
+    if not component_payoff_triples:
+        raise ValueError("at least one component is required")
+    triples = tuple(
+        tuple(tuple(Fraction(value) for value in action) for action in component)
+        for component in component_payoff_triples
+    )
+    if any(not component or any(len(action) != 3 for action in component)
+           for component in triples):
+        raise ValueError("each component action must have three scenario payoffs")
+
+    lines = set()
+    for component in triples:
+        for left, right in combinations(component, 2):
+            alpha = (left[0] - left[2]) - (right[0] - right[2])
+            beta = (left[1] - left[2]) - (right[1] - right[2])
+            gamma = right[2] - left[2]
+            if alpha or beta:
+                lines.add((alpha, beta, gamma))
+
+    def inside(point):
+        return point[0] >= 0 and point[1] >= 0 and sum(point) <= 1
+
+    candidates = {(Fraction(0), Fraction(0)),
+                  (Fraction(1), Fraction(0)),
+                  (Fraction(0), Fraction(1))}
+    for alpha, beta, gamma in lines:
+        if beta:
+            point = (Fraction(0), gamma / beta)
+            if inside(point):
+                candidates.add(point)
+        if alpha:
+            point = (gamma / alpha, Fraction(0))
+            if inside(point):
+                candidates.add(point)
+        if alpha != beta:
+            x = (gamma - beta) / (alpha - beta)
+            point = (x, 1 - x)
+            if inside(point):
+                candidates.add(point)
+    for left, right in combinations(lines, 2):
+        point = _solve_fraction_system(
+            ((left[0], left[1]), (right[0], right[1])),
+            (left[2], right[2]),
+        )
+        if point is not None and inside(point):
+            candidates.add(point)
+
+    def plane(action, point):
+        x, y = point
+        return x * action[0] + y * action[1] + (1 - x - y) * action[2]
+
+    def dual(point):
+        return sum((max(plane(action, point) for action in component)
+                    for component in triples), Fraction(0))
+
+    nature_point = min(candidates, key=lambda point: (dual(point), point))
+    value = dual(nature_point)
+    tied = tuple(
+        tuple(i for i, action in enumerate(component)
+              if plane(action, nature_point)
+              == max(plane(candidate, nature_point) for candidate in component))
+        for component in triples
+    )
+    active_count = 1
+    for actions in tied:
+        active_count *= len(actions)
+    if active_count > int(max_active_joint_actions):
+        raise ValueError("exact tied joint-action limit exceeded")
+
+    active = []
+    for actions in product(*tied):
+        payoff = tuple(
+            sum((triples[t][actions[t]][scenario] for t in range(len(triples))),
+                Fraction(0))
+            for scenario in range(3)
+        )
+        active.append((tuple(actions), payoff))
+    joint = _three_vertex_policy(tuple(active), value)
+    realized = tuple(
+        sum((mass * sum((triples[t][actions[t]][scenario]
+                         for t in range(len(triples))), Fraction(0))
+             for actions, mass in joint), Fraction(0))
+        for scenario in range(3)
+    )
+    expanded = 1
+    for component in triples:
+        expanded *= len(component)
+    nature = (nature_point[0], nature_point[1], 1 - sum(nature_point))
+    valid = (
+        sum((mass for _, mass in joint), Fraction(0)) == 1
+        and all(mass > 0 for _, mass in joint)
+        and min(realized) == value
+        and len(joint) <= 3
+        and sum(nature) == 1
+        and all(probability >= 0 for probability in nature)
+    )
+    return ThreeVertexAdditiveRobustPlan(
+        triples, joint, value, nature, len(joint) > 1, expanded, len(lines),
+        len(candidates), 3, valid,
+        "three_vertex_additive_arrangement_certificate",
     )
 
 
