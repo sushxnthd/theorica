@@ -48,3 +48,9 @@ Floating point may propose a basis, but it may not certify one. The implementati
 This is not claimed as a new LP or coupling theorem. The bounded claim is an end-to-end compositional certificate: fixed scenario dimension makes both exact value computation and exact policy recovery independent of the Cartesian joint-action count, with an executable support-`m` policy and fail-closed rational verification. The direct product consequence is removal of tied-response explosion as an abstention cause in THEORICA's certified additive planner.
 
 The claim excludes nonadditive interactions, approximate payoff tables, unbounded scenario dimension, and instances exceeding the arrangement or marginal-variable safety caps.
+
+## Post-freeze correction after first falsification
+
+The first opened-corpus run found 2,640/32,768 classification mismatches although every value and policy certificate remained valid. Cause: a marginal LP may choose a mixed optimum even when some different pure joint action is also optimal, so `returned support > 1` does not prove that randomization is necessary.
+
+The corrected frozen rule separates execution from classification. Policy recovery remains marginal and product-free. Pure-optimality classification uses an exact capped dynamic program over *distinct cumulative scenario-payoff vectors*, never joint-action tuples. A state is a vector of cumulative payoffs after a component prefix; equal vectors merge. Randomization is certified necessary exactly when no final state is componentwise at least `V`. Exceeding the distinct-state cap abstains. The opened corpus must return to zero mismatches, and the tie-explosion witness must compress `5^15` joint tuples to exactly `C(19,4) = 11,628` payoff states.
