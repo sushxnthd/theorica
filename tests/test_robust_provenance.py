@@ -18,6 +18,7 @@ from theorica.agents.robust_provenance import (
     solve_two_vertex_robust_game,
     synthesize_additive_product_plan,
     synthesize_coupled_additive_plan,
+    synthesize_three_vertex_additive_plan,
     synthesize_two_vertex_additive_plan,
     synthesize_orbit_balanced_plan,
     synthesize_orbit_ambiguity_plan,
@@ -458,6 +459,51 @@ def test_two_vertex_additive_envelope_fails_closed():
         synthesize_two_vertex_additive_plan(
             (((0, 2), (2, 0)), ((0, 3), (3, 0))),
             payoff_additive_certified=True, max_delta_states=1,
+        )
+
+
+def test_three_vertex_additive_arrangement_needs_three_way_randomization():
+    plan = synthesize_three_vertex_additive_plan(
+        (((2, 0, 0), (0, 2, 0), (0, 0, 2)),),
+        payoff_additive_certified=True,
+    )
+    assert plan.certificate_valid
+    assert plan.minimax_value == Fraction(2, 3)
+    assert plan.nature_probabilities == (Fraction(1, 3),) * 3
+    assert plan.strict_randomization_necessary
+    assert len(plan.joint_actions) == 3
+    assert tuple(mass for _, mass in plan.joint_actions) == (Fraction(1, 3),) * 3
+
+
+def test_three_vertex_additive_arrangement_detects_two_and_one_support():
+    two = synthesize_three_vertex_additive_plan(
+        (((2, 0, 1), (0, 2, 1)),), payoff_additive_certified=True,
+    )
+    assert two.certificate_valid and two.minimax_value == 1
+    assert len(two.joint_actions) == 2
+
+    pure = synthesize_three_vertex_additive_plan(
+        (((1, 1, 1), (3, 0, 0)), ((2, 2, 2), (0, 4, 0))),
+        payoff_additive_certified=True,
+    )
+    assert pure.certificate_valid and pure.minimax_value == 3
+    assert not pure.strict_randomization_necessary
+    assert len(pure.joint_actions) == 1
+
+
+def test_three_vertex_additive_arrangement_fails_closed():
+    with pytest.raises(ValueError, match="additive"):
+        synthesize_three_vertex_additive_plan(
+            (((0, 1, 2),),), payoff_additive_certified=False,
+        )
+    with pytest.raises(ValueError, match="three scenario"):
+        synthesize_three_vertex_additive_plan(
+            (((0, 1),),), payoff_additive_certified=True,
+        )
+    with pytest.raises(ValueError, match="joint-action limit"):
+        synthesize_three_vertex_additive_plan(
+            (((1, 0, 0), (0, 1, 0), (0, 0, 1)),) * 2,
+            payoff_additive_certified=True, max_active_joint_actions=1,
         )
 
 def test_orbit_quotient_uses_two_vertex_sparse_support_fast_path():
