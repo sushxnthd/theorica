@@ -86,6 +86,39 @@ def expanded_actions(components):
     )
 
 
+def former_enumerative_recovery(actions, value):
+    """Reference the retired Cartesian recovery on tractable opened games."""
+    for support_size in range(1, 6):
+        for selected in combinations(actions, support_size):
+            if support_size == 1:
+                if min(selected[0]) >= value:
+                    return (selected[0],)
+                continue
+            dimension = support_size - 1
+            last = selected[-1]
+            inequalities = []
+            for i in range(dimension):
+                row = [Fraction(0)] * dimension
+                row[i] = -1
+                inequalities.append((tuple(row), Fraction(0)))
+            inequalities.append(((Fraction(1),) * dimension, Fraction(1)))
+            for scenario in range(5):
+                inequalities.append((
+                    tuple(-(selected[i][scenario] - last[scenario])
+                          for i in range(dimension)),
+                    last[scenario] - value,
+                ))
+            for boundary in combinations(range(len(inequalities)), dimension):
+                point = solve(tuple(inequalities[i][0] for i in boundary),
+                              tuple(inequalities[i][1] for i in boundary))
+                if point is not None and all(
+                    sum(row[i] * point[i] for i in range(dimension)) <= rhs
+                    for row, rhs in inequalities
+                ):
+                    return selected
+    return ()
+
+
 def canonical(contrasts):
     def action_unordered(vector):
         complement = tuple(1 - value for value in vector)
@@ -104,6 +137,7 @@ def evaluate(components):
     plan = synthesize_fixed_scenario_additive_plan(
         components, payoff_additive_certified=True,
     )
+    former = former_enumerative_recovery(joint, exact)
     return {
         "value": str(exact),
         "strict": strict,
@@ -114,6 +148,10 @@ def evaluate(components):
         "candidates": plan.arrangement_candidate_count,
         "candidate_bound": plan.candidate_upper_bound,
         "expanded_actions": plan.expanded_action_count,
+        "former_recovery_found": bool(former),
+        "former_recovery_support": len(former),
+        "tied_joint_actions": plan.tied_joint_action_count,
+        "marginal_variables": plan.marginal_variable_count,
     }
 
 
@@ -155,13 +193,14 @@ def main():
             and item["strict"] == item["production_strict"]
             and item["valid"]
             and item["support"] <= 5
+            and item["former_recovery_found"]
             and item["candidates"] <= item["candidate_bound"]
         )
         mismatches += int(mismatch)
         strict_cases += int(item["strict"])
         max_support = max(max_support, item["support"])
         digest.update(f"{case}|{item['value']}|{int(item['strict'])}|"
-                      f"{item['support']}\n".encode())
+                      f"{item['former_recovery_support']}\n".encode())
 
     holdouts = []
     for expected, components in frozen_holdouts():
@@ -173,6 +212,7 @@ def main():
             and item["strict"] == item["production_strict"]
             and item["valid"]
             and item["support"] <= 5
+            and item["former_recovery_found"]
             and ((expected == "strict") == item["strict"])
         )
         holdouts.append(item)
@@ -187,6 +227,22 @@ def main():
     )
     scaling_plan = synthesize_fixed_scenario_additive_plan(
         scaling, payoff_additive_certified=True,
+    )
+    tie_basis = tuple(
+        tuple(5 if scenario == action else 0 for scenario in range(5))
+        for action in range(5)
+    )
+    tie_components = (tie_basis,) * 15
+    tie_plan = synthesize_fixed_scenario_additive_plan(
+        tie_components,
+        payoff_additive_certified=True,
+        max_active_joint_actions=500_000,
+    )
+    tie_realized = tuple(
+        sum((mass * sum(tie_components[t][actions[t]][scenario]
+                         for t in range(15))
+             for actions, mass in tie_plan.joint_actions), Fraction(0))
+        for scenario in range(5)
     )
     result = {
         "schema": "fixed-scenario-additive-arrangement-v1",
@@ -220,6 +276,26 @@ def main():
             "value": str(scaling_plan.minimax_value),
             "valid": scaling_plan.certificate_valid,
         },
+        "tie_explosion_witness": {
+            "scenarios": 5,
+            "components": 15,
+            "actions_per_component": 5,
+            "tied_joint_actions": tie_plan.tied_joint_action_count,
+            "former_cap": 500000,
+            "former_would_abstain": tie_plan.tied_joint_action_count > 500000,
+            "marginal_variables": tie_plan.marginal_variable_count,
+            "pure_payoff_states": tie_plan.pure_payoff_state_count,
+            "support": len(tie_plan.joint_actions),
+            "support_bound": tie_plan.support_bound,
+            "value": str(tie_plan.minimax_value),
+            "nature": [str(value) for value in tie_plan.nature_probabilities],
+            "realized": [str(value) for value in tie_realized],
+            "joint_actions": [
+                {"actions": list(actions), "mass": str(mass)}
+                for actions, mass in tie_plan.joint_actions
+            ],
+            "valid": tie_plan.certificate_valid,
+        },
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
@@ -227,6 +303,7 @@ def main():
         "opened": result["opened"],
         "holdout_summary": result["holdout_summary"],
         "scaling_witness": result["scaling_witness"],
+        "tie_explosion_witness": result["tie_explosion_witness"],
     }, indent=2, sort_keys=True))
     if mismatches or result["holdout_summary"]["mismatches"]:
         raise SystemExit(1)
