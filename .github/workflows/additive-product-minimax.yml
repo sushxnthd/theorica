@@ -14,8 +14,11 @@ on:
       - "scripts/audit_coupled_additive_minimax.py"
       - "scripts/verify_two_vertex_additive_envelope.py"
       - "scripts/audit_two_vertex_additive_envelope.py"
+      - "scripts/verify_three_vertex_additive_arrangement.py"
+      - "scripts/audit_three_vertex_additive_arrangement.py"
       - "docs/COUPLED_ADDITIVE_MINIMAX_*.md"
       - "docs/TWO_VERTEX_ADDITIVE_ENVELOPE_*.md"
+      - "docs/THREE_VERTEX_ADDITIVE_ARRANGEMENT_*.md"
       - ".github/workflows/additive-product-minimax.yml"
 
 jobs:
@@ -33,4 +36,6 @@ jobs:
       - run: python scripts/audit_coupled_additive_minimax.py
       - run: python scripts/verify_two_vertex_additive_envelope.py
       - run: python scripts/audit_two_vertex_additive_envelope.py
+      - run: python scripts/verify_three_vertex_additive_arrangement.py
+      - run: python scripts/audit_three_vertex_additive_arrangement.py
       - run: pytest -q tests/test_robust_provenance.py
