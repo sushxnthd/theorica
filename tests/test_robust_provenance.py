@@ -19,6 +19,7 @@ from theorica.agents.robust_provenance import (
     synthesize_additive_product_plan,
     synthesize_coupled_additive_plan,
     synthesize_four_vertex_additive_plan,
+    synthesize_fixed_scenario_additive_plan,
     synthesize_orbit_ambiguity_plan,
     synthesize_orbit_balanced_plan,
     synthesize_orbit_mixture_plan,
@@ -544,6 +545,64 @@ def test_four_vertex_additive_arrangement_fails_closed():
     with pytest.raises(ValueError, match="joint-action limit"):
         synthesize_four_vertex_additive_plan(
             (((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1)),) * 2,
+            payoff_additive_certified=True, max_active_joint_actions=1,
+        )
+
+
+def test_fixed_scenario_arrangement_needs_five_way_randomization():
+    plan = synthesize_fixed_scenario_additive_plan(
+        (tuple(tuple(5 if i == j else 0 for i in range(5))
+               for j in range(5)),),
+        payoff_additive_certified=True,
+    )
+    assert plan.certificate_valid
+    assert plan.scenario_count == 5
+    assert plan.minimax_value == 1
+    assert plan.nature_probabilities == (Fraction(1, 5),) * 5
+    assert plan.strict_randomization_necessary
+    assert len(plan.joint_actions) == 5
+    assert tuple(mass for _, mass in plan.joint_actions) == (Fraction(1, 5),) * 5
+
+
+def test_fixed_scenario_matches_specialized_four_vertex_planner():
+    components = (
+        ((2, 2, 2, 2), (4, 0, 0, 0)),
+        ((1, 1, 1, 1), (0, 3, 0, 0)),
+    )
+    fixed = synthesize_fixed_scenario_additive_plan(
+        components, payoff_additive_certified=True,
+    )
+    specialized = synthesize_four_vertex_additive_plan(
+        components, payoff_additive_certified=True,
+    )
+    assert fixed.certificate_valid
+    assert fixed.minimax_value == specialized.minimax_value
+    assert fixed.nature_probabilities == specialized.nature_probabilities
+    assert fixed.strict_randomization_necessary == specialized.strict_randomization_necessary
+
+
+def test_fixed_scenario_arrangement_fails_closed():
+    with pytest.raises(ValueError, match="additive"):
+        synthesize_fixed_scenario_additive_plan(
+            (((0, 1),),), payoff_additive_certified=False,
+        )
+    with pytest.raises(ValueError, match="scenario count"):
+        synthesize_fixed_scenario_additive_plan(
+            (((0,),),), payoff_additive_certified=True,
+        )
+    with pytest.raises(ValueError, match="share one scenario count"):
+        synthesize_fixed_scenario_additive_plan(
+            (((0, 1), (0, 1, 2)),), payoff_additive_certified=True,
+        )
+    with pytest.raises(ValueError, match="boundary-combination limit"):
+        synthesize_fixed_scenario_additive_plan(
+            (((1, 0, 0, 0, 0), (0, 1, 0, 0, 0), (0, 0, 1, 0, 0)),),
+            payoff_additive_certified=True, max_boundary_combinations=1,
+        )
+    with pytest.raises(ValueError, match="joint-action limit"):
+        synthesize_fixed_scenario_additive_plan(
+            (((1, 0, 0, 0, 0), (0, 1, 0, 0, 0), (0, 0, 1, 0, 0),
+              (0, 0, 0, 1, 0), (0, 0, 0, 0, 1)),) * 2,
             payoff_additive_certified=True, max_active_joint_actions=1,
         )
 
