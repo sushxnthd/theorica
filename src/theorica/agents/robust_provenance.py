@@ -1,12 +1,12 @@
 """Robust query frontiers for uncertain certified provenance priors."""
 from __future__ import annotations
 
+import hashlib
+import json
 from dataclasses import dataclass
 from fractions import Fraction
-import hashlib
 from itertools import combinations, product
-import json
-from math import lcm
+from math import comb, lcm
 
 import numpy as np
 from scipy.optimize import linprog
@@ -653,6 +653,23 @@ class ThreeVertexAdditiveRobustPlan:
     reason: str
 
 
+@dataclass(frozen=True)
+class FourVertexAdditiveRobustPlan:
+    """Exact arrangement certificate for additive games with four scenarios."""
+    component_payoff_vectors: tuple[tuple[tuple[Fraction, ...], ...], ...]
+    joint_actions: tuple[tuple[tuple[int, ...], Fraction], ...]
+    minimax_value: Fraction
+    nature_probabilities: tuple[Fraction, Fraction, Fraction, Fraction]
+    strict_randomization_necessary: bool
+    expanded_action_count: int
+    tie_hyperplane_count: int
+    arrangement_candidate_count: int
+    candidate_upper_bound: int
+    support_bound: int
+    certificate_valid: bool
+    reason: str
+
+
 def _solve_fraction_system(rows, rhs):
     """Solve a square rational system; return None when singular."""
     n = len(rows)
@@ -991,6 +1008,167 @@ def synthesize_three_vertex_additive_plan(
         triples, joint, value, nature, len(joint) > 1, expanded, len(lines),
         len(candidates), 3, valid,
         "three_vertex_additive_arrangement_certificate",
+    )
+
+
+def _fixed_scenario_policy(active, value, scenario_count):
+    """Return an exact primal witness with support at most scenario_count."""
+    for support_size in range(1, scenario_count + 1):
+        for selected in combinations(active, support_size):
+            if support_size == 1:
+                if min(selected[0][1]) >= value:
+                    return ((selected[0][0], Fraction(1)),)
+                continue
+            dimension = support_size - 1
+            last = selected[-1][1]
+            inequalities = []
+            for i in range(dimension):
+                row = [Fraction(0)] * dimension
+                row[i] = -1
+                inequalities.append((tuple(row), Fraction(0)))
+            inequalities.append((tuple(Fraction(1) for _ in range(dimension)),
+                                  Fraction(1)))
+            for scenario in range(scenario_count):
+                row = tuple(
+                    -(selected[i][1][scenario] - last[scenario])
+                    for i in range(dimension)
+                )
+                inequalities.append((row, last[scenario] - value))
+            for boundary in combinations(range(len(inequalities)), dimension):
+                point = _solve_fraction_system(
+                    tuple(inequalities[i][0] for i in boundary),
+                    tuple(inequalities[i][1] for i in boundary),
+                )
+                if point is None or any(
+                    sum((row[i] * point[i] for i in range(dimension)),
+                        Fraction(0)) > rhs
+                    for row, rhs in inequalities
+                ):
+                    continue
+                weights = tuple(point) + (Fraction(1) - sum(point, Fraction(0)),)
+                result = tuple(
+                    (entry[0], weight)
+                    for entry, weight in zip(selected, weights)
+                    if weight > 0
+                )
+                if result:
+                    return result
+    raise RuntimeError("dual optimum lacks a sparse primal witness")
+
+
+def synthesize_four_vertex_additive_plan(
+    component_payoff_vectors,
+    *,
+    payoff_additive_certified: bool,
+    max_active_joint_actions: int = 500_000,
+) -> FourVertexAdditiveRobustPlan:
+    """Solve an additive four-scenario game by a tetrahedral arrangement.
+
+    The dual is convex piecewise affine on a three-dimensional simplex.  A
+    minimum is attained at an intersection of three component-local tie or
+    simplex-facet hyperplanes, so Cartesian joint actions are unnecessary for
+    value computation.
+    """
+    if not payoff_additive_certified:
+        raise ValueError("a certificate that payoff is additive is required")
+    if not component_payoff_vectors:
+        raise ValueError("at least one component is required")
+    vectors = tuple(
+        tuple(tuple(Fraction(value) for value in action) for action in component)
+        for component in component_payoff_vectors
+    )
+    if any(not component or any(len(action) != 4 for action in component)
+           for component in vectors):
+        raise ValueError("each component action must have four scenario payoffs")
+
+    ties = set()
+    for component in vectors:
+        for left, right in combinations(component, 2):
+            row = tuple(
+                (left[i] - left[3]) - (right[i] - right[3])
+                for i in range(3)
+            )
+            rhs = right[3] - left[3]
+            if any(row):
+                ties.add((row, rhs))
+
+    facets = tuple(
+        (tuple(Fraction(int(i == j)) for i in range(3)), Fraction(0))
+        for j in range(3)
+    ) + (
+        ((Fraction(1), Fraction(1), Fraction(1)), Fraction(1)),
+    )
+    boundaries = tuple(sorted(ties)) + facets
+
+    def inside(point):
+        return all(value >= 0 for value in point) and sum(point) <= 1
+
+    candidates = set()
+    for selected in combinations(boundaries, 3):
+        point = _solve_fraction_system(
+            tuple(item[0] for item in selected),
+            tuple(item[1] for item in selected),
+        )
+        if point is not None and inside(point):
+            candidates.add(point)
+    if not candidates:
+        raise RuntimeError("tetrahedral arrangement has no feasible vertex")
+
+    def affine(action, point):
+        return sum((point[i] * action[i] for i in range(3)), Fraction(0)) \
+            + (1 - sum(point, Fraction(0))) * action[3]
+
+    def dual(point):
+        return sum((max(affine(action, point) for action in component)
+                    for component in vectors), Fraction(0))
+
+    nature_point = min(candidates, key=lambda point: (dual(point), point))
+    value = dual(nature_point)
+    tied = tuple(
+        tuple(i for i, action in enumerate(component)
+              if affine(action, nature_point)
+              == max(affine(candidate, nature_point) for candidate in component))
+        for component in vectors
+    )
+    active_count = 1
+    for actions in tied:
+        active_count *= len(actions)
+    if active_count > int(max_active_joint_actions):
+        raise ValueError("exact tied joint-action limit exceeded")
+
+    active = []
+    for actions in product(*tied):
+        payoff = tuple(
+            sum((vectors[t][actions[t]][scenario] for t in range(len(vectors))),
+                Fraction(0))
+            for scenario in range(4)
+        )
+        active.append((tuple(actions), payoff))
+    joint = _fixed_scenario_policy(tuple(active), value, 4)
+    realized = tuple(
+        sum((mass * sum((vectors[t][actions[t]][scenario]
+                         for t in range(len(vectors))), Fraction(0))
+             for actions, mass in joint), Fraction(0))
+        for scenario in range(4)
+    )
+    expanded = 1
+    for component in vectors:
+        expanded *= len(component)
+    nature = tuple(nature_point) + (1 - sum(nature_point, Fraction(0)),)
+    upper_bound = comb(len(ties) + 4, 3)
+    valid = (
+        sum((mass for _, mass in joint), Fraction(0)) == 1
+        and all(mass > 0 for _, mass in joint)
+        and min(realized) == value
+        and len(joint) <= 4
+        and sum(nature) == 1
+        and all(probability >= 0 for probability in nature)
+        and len(candidates) <= upper_bound
+    )
+    return FourVertexAdditiveRobustPlan(
+        vectors, joint, value, nature, len(joint) > 1, expanded, len(ties),
+        len(candidates), upper_bound, 4, valid,
+        "four_vertex_additive_arrangement_certificate",
     )
 
 
