@@ -116,6 +116,16 @@ def main():
         holdout_checks.append(str(value) == item["value"] and strict == item["strict"])
 
     scaling = primary["scaling_witness"]
+    tie = primary["tie_explosion_witness"]
+    tie_mass = sum((Fraction(item["mass"]) for item in tie["joint_actions"]),
+                   Fraction(0))
+    tie_realized = []
+    for scenario in range(5):
+        tie_realized.append(sum((
+            Fraction(item["mass"])
+            * sum(5 if action == scenario else 0 for action in item["actions"])
+            for item in tie["joint_actions"]
+        ), Fraction(0)))
     checks = {
         "opened_count": len(ordered) == 32768 == primary["opened"]["cases"],
         "symmetry_count": len(keys) == 32 == primary["opened"]["symmetry_classes"],
@@ -133,9 +143,21 @@ def main():
         "scaling_certificate": scaling["valid"]
             and scaling["expanded_actions"] == 4**15
             and scaling["support"] <= 5,
+        "tie_explosion_count": tie["tied_joint_actions"] == 5**15
+            and tie["former_cap"] == 500000
+            and tie["former_would_abstain"],
+        "tie_explosion_exact_replay": tie["valid"]
+            and tie["marginal_variables"] == 75
+            and tie["pure_payoff_states"] == comb(19, 4)
+            and tie_mass == 1
+            and tuple(tie_realized) == (Fraction(15),) * 5
+            and tuple(Fraction(value) for value in tie["realized"])
+                == tuple(tie_realized)
+            and tie["support"] == len(tie["joint_actions"])
+            and tie["support"] <= tie["support_bound"] <= 5,
     }
     result = {
-        "schema": "fixed-scenario-additive-arrangement-audit-v1",
+        "schema": "fixed-scenario-additive-arrangement-audit-v2",
         "independent_digest": digest.hexdigest(),
         "checks": checks,
         "passed": all(checks.values()),
