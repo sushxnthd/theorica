@@ -684,6 +684,9 @@ class FixedScenarioAdditiveRobustPlan:
     arrangement_candidate_count: int
     candidate_upper_bound: int
     support_bound: int
+    tied_joint_action_count: int
+    marginal_variable_count: int
+    pure_payoff_state_count: int
     certificate_valid: bool
     reason: str
 
@@ -1074,20 +1077,135 @@ def _fixed_scenario_policy(active, value, scenario_count):
     raise RuntimeError("dual optimum lacks a sparse primal witness")
 
 
+def _fixed_scenario_marginal_policy(
+    vectors, tied, value, scenario_count, max_marginal_variables,
+):
+    """Recover an exact policy from a numerically proposed marginal LP basis.
+
+    HiGHS is used only to propose a sparse basis.  Every returned probability
+    is reconstructed by ``_solve_fraction_system`` and accepted only after an
+    exact rational replay of all simplex and scenario inequalities.
+    """
+    flat = tuple(
+        (component, action, vectors[component][action])
+        for component, actions in enumerate(tied)
+        for action in actions
+    )
+    variable_count = len(flat)
+    if variable_count > int(max_marginal_variables):
+        raise ValueError("exact marginal variable limit exceeded")
+
+    objective = np.arange(1, variable_count + 1, dtype=float)
+    scenario_rows = np.asarray([
+        [-float(payoff[scenario]) for _, _, payoff in flat]
+        for scenario in range(scenario_count)
+    ])
+    component_rows = np.asarray([
+        [float(component == target) for component, _, _ in flat]
+        for target in range(len(vectors))
+    ])
+    proposed = linprog(
+        objective,
+        A_ub=scenario_rows,
+        b_ub=np.full(scenario_count, -float(value)),
+        A_eq=component_rows,
+        b_eq=np.ones(len(vectors)),
+        bounds=(0, None),
+        method="highs-ds",
+    )
+    if not proposed.success:
+        raise RuntimeError("marginal policy basis proposal failed")
+
+    supports = []
+    for tolerance in (1e-7, 1e-9, 1e-11, 1e-13):
+        support = tuple(i for i, probability in enumerate(proposed.x)
+                        if probability > tolerance)
+        if support not in supports:
+            supports.append(support)
+
+    component_count = len(vectors)
+    for support in supports:
+        active_scenarios = len(support) - component_count
+        if active_scenarios < 0 or active_scenarios > scenario_count - 1:
+            continue
+        for scenarios in combinations(range(scenario_count), active_scenarios):
+            rows = []
+            rhs = []
+            for target in range(component_count):
+                rows.append(tuple(
+                    Fraction(int(flat[index][0] == target)) for index in support
+                ))
+                rhs.append(Fraction(1))
+            for scenario in scenarios:
+                rows.append(tuple(flat[index][2][scenario] for index in support))
+                rhs.append(value)
+            probabilities = _solve_fraction_system(tuple(rows), tuple(rhs))
+            if probabilities is None or any(probability < 0 for probability in probabilities):
+                continue
+
+            marginals = [[Fraction(0) for _ in component]
+                         for component in vectors]
+            for index, probability in zip(support, probabilities):
+                component, action, _ = flat[index]
+                marginals[component][action] = probability
+            marginals = tuple(tuple(marginal) for marginal in marginals)
+            if any(sum(marginal, Fraction(0)) != 1 for marginal in marginals):
+                continue
+            realized = tuple(
+                sum((marginals[t][action] * vectors[t][action][scenario]
+                     for t in range(component_count)
+                     for action in range(len(vectors[t]))), Fraction(0))
+                for scenario in range(scenario_count)
+            )
+            if min(realized) < value:
+                continue
+
+            joint = _greedy_common_mass_coupling(marginals)
+            support_bound = 1 + sum(
+                sum(probability > 0 for probability in marginal) - 1
+                for marginal in marginals
+            )
+            if support_bound > scenario_count or len(joint) > support_bound:
+                continue
+            return marginals, joint, variable_count, support_bound
+    raise RuntimeError("numerical marginal basis lacked an exact rational certificate")
+
+
+def _fixed_scenario_pure_witness(vectors, tied, value, max_states):
+    """Decide pure optimality by exact distinct cumulative-payoff states."""
+    zero = (Fraction(0),) * len(vectors[0][0])
+    states = {zero}
+    peak = 1
+    for component, actions in enumerate(tied):
+        states = {
+            tuple(state[scenario] + vectors[component][action][scenario]
+                  for scenario in range(len(zero)))
+            for state in states for action in actions
+        }
+        peak = max(peak, len(states))
+        if len(states) > int(max_states):
+            raise ValueError("exact pure-payoff state limit exceeded")
+    return any(min(state) >= value for state in states), peak
+
+
 def synthesize_fixed_scenario_additive_plan(
     component_payoff_vectors,
     *,
     payoff_additive_certified: bool,
     max_scenarios: int = 8,
     max_boundary_combinations: int = 2_000_000,
-    max_active_joint_actions: int = 500_000,
+    max_active_joint_actions: int | None = None,
+    max_marginal_variables: int = 500_000,
+    max_pure_payoff_states: int = 500_000,
 ) -> FixedScenarioAdditiveRobustPlan:
     """Solve a certified additive game at any bounded fixed scenario count.
 
     Value computation enumerates vertices of the component-local tie
     arrangement in the nature simplex.  It never expands Cartesian joint
-    actions.  Joint responses are constructed only among actions tied at the
-    exact minimizing nature distribution, with explicit fail-closed caps.
+    actions.  Policy recovery solves over component marginals among actions
+    tied at the exact minimizing nature distribution, then couples the exact
+    marginals.  ``max_active_joint_actions`` is retained as an ignored legacy
+    keyword: the recovery path never enumerates that Cartesian product.
     """
     if not payoff_additive_certified:
         raise ValueError("a certificate that payoff is additive is required")
@@ -1160,18 +1278,13 @@ def synthesize_fixed_scenario_additive_plan(
     active_count = 1
     for actions in tied:
         active_count *= len(actions)
-    if active_count > int(max_active_joint_actions):
-        raise ValueError("exact tied joint-action limit exceeded")
-
-    active = []
-    for actions in product(*tied):
-        payoff = tuple(
-            sum((vectors[t][actions[t]][scenario] for t in range(len(vectors))),
-                Fraction(0))
-            for scenario in range(scenario_count)
+    _, joint, marginal_variable_count, marginal_support_bound = \
+        _fixed_scenario_marginal_policy(
+            vectors, tied, value, scenario_count, max_marginal_variables,
         )
-        active.append((tuple(actions), payoff))
-    joint = _fixed_scenario_policy(tuple(active), value, scenario_count)
+    pure_optimal, pure_payoff_state_count = _fixed_scenario_pure_witness(
+        vectors, tied, value, max_pure_payoff_states,
+    )
     realized = tuple(
         sum((mass * sum((vectors[t][actions[t]][scenario]
                          for t in range(len(vectors))), Fraction(0))
@@ -1187,15 +1300,28 @@ def synthesize_fixed_scenario_additive_plan(
         sum((mass for _, mass in joint), Fraction(0)) == 1
         and all(mass > 0 for _, mass in joint)
         and min(realized) == value
-        and len(joint) <= scenario_count
+        and len(joint) <= marginal_support_bound <= scenario_count
         and sum(nature) == 1
         and all(probability >= 0 for probability in nature)
         and len(candidates) <= upper_bound
     )
     return FixedScenarioAdditiveRobustPlan(
-        vectors, joint, value, nature, len(joint) > 1, scenario_count,
-        expanded, len(ties), len(candidates), upper_bound, scenario_count,
-        valid, "fixed_scenario_additive_arrangement_certificate",
+        component_payoff_vectors=vectors,
+        joint_actions=joint,
+        minimax_value=value,
+        nature_probabilities=nature,
+        strict_randomization_necessary=not pure_optimal,
+        scenario_count=scenario_count,
+        expanded_action_count=expanded,
+        tie_hyperplane_count=len(ties),
+        arrangement_candidate_count=len(candidates),
+        candidate_upper_bound=upper_bound,
+        support_bound=scenario_count,
+        tied_joint_action_count=active_count,
+        marginal_variable_count=marginal_variable_count,
+        pure_payoff_state_count=pure_payoff_state_count,
+        certificate_valid=valid,
+        reason="fixed_scenario_additive_arrangement_marginal_certificate",
     )
 
 
