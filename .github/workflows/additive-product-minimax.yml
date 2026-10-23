@@ -24,6 +24,7 @@ on:
       - "docs/TWO_VERTEX_ADDITIVE_ENVELOPE_*.md"
       - "docs/THREE_VERTEX_ADDITIVE_ARRANGEMENT_*.md"
       - "docs/FOUR_VERTEX_ADDITIVE_ARRANGEMENT_*.md"
+      - "docs/FIXED_SCENARIO_*.md"
       - ".github/workflows/additive-product-minimax.yml"
 
 jobs:
