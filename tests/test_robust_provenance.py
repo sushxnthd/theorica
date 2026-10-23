@@ -599,12 +599,34 @@ def test_fixed_scenario_arrangement_fails_closed():
             (((1, 0, 0, 0, 0), (0, 1, 0, 0, 0), (0, 0, 1, 0, 0)),),
             payoff_additive_certified=True, max_boundary_combinations=1,
         )
-    with pytest.raises(ValueError, match="joint-action limit"):
+    with pytest.raises(ValueError, match="marginal variable limit"):
         synthesize_fixed_scenario_additive_plan(
             (((1, 0, 0, 0, 0), (0, 1, 0, 0, 0), (0, 0, 1, 0, 0),
               (0, 0, 0, 1, 0), (0, 0, 0, 0, 1)),) * 2,
-            payoff_additive_certified=True, max_active_joint_actions=1,
+            payoff_additive_certified=True, max_marginal_variables=1,
         )
+
+
+def test_fixed_scenario_marginal_recovery_defeats_tie_product_explosion():
+    basis = tuple(
+        tuple(5 if scenario == action else 0 for scenario in range(5))
+        for action in range(5)
+    )
+    plan = synthesize_fixed_scenario_additive_plan(
+        (basis,) * 15,
+        payoff_additive_certified=True,
+        max_active_joint_actions=1,
+    )
+    assert plan.certificate_valid
+    assert plan.minimax_value == 15
+    assert plan.nature_probabilities == (Fraction(1, 5),) * 5
+    assert plan.tied_joint_action_count == 5 ** 15
+    assert plan.marginal_variable_count == 75
+    assert plan.pure_payoff_state_count == 3876
+    assert len(plan.joint_actions) == 1
+    assert not plan.strict_randomization_necessary
+    assert plan.support_bound == 5
+    assert plan.reason == "fixed_scenario_additive_arrangement_marginal_certificate"
 
 def test_orbit_quotient_uses_two_vertex_sparse_support_fast_path():
     plan = synthesize_orbit_ambiguity_plan(
