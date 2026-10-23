@@ -36,9 +36,9 @@ computation must not enumerate the Cartesian joint-action space.
 
 1. Implement one generic rational planner for `2 <= m <= 8`; retain the
    specialized two/three/four-scenario interfaces as predecessor controls.
-2. Exhaustively test the normalized five-scenario binary family with three
-   two-action components, each having a zero baseline and an arbitrary binary
-   contrast: `32^3 = 32,768` games.
+2. Exhaustively test the five-scenario complementary-binary family with three
+   two-action components, each action pair `(v, 1-v)` ranging over all binary
+   vectors: `32^3 = 32,768` ordered games.
 3. Compare every case against an independently expanded joint-action solver.
 4. Before opening outcomes, freeze 50 seeded mixed-shape five-scenario games,
    balanced between strict-randomization and pure-optimal outcomes when the
