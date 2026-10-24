@@ -10,6 +10,7 @@ from theorica.agents.robust_provenance import (
     deterministic_tv_frontier,
     divergence_agnostic_symmetry_value,
     reconstruct_affine_scenario_payoffs,
+    reconstruct_feature_span_scenario_payoffs,
     robust_provenance_frontier,
     sample_orbit_ambiguity_plan,
     sample_orbit_balanced_plan,
@@ -35,6 +36,61 @@ from theorica.agents.robust_provenance import (
     synthesize_uniform_ambiguity_plan,
     unrank_uniform_k_subset,
 )
+
+
+def test_feature_span_reconstruction_uses_rank_not_width():
+    xs = tuple(Fraction(index, 5) for index in range(-4, 7))
+    features = tuple((1, x, x * x, x * x * x, 2 * x + 3 * x * x)
+                     for x in xs)
+    coefficients = (
+        ((2, -1, 3, 2, 0), (0, 4, -2, 1, 0)),
+        ((-3, 2, 1, -1, 0), (5, -2, 2, 3, 0)),
+    )
+    table = tuple(tuple(tuple(
+        sum((coefficient * feature for coefficient, feature
+             in zip(action, row)), Fraction(0))
+        for row in features
+    ) for action in component) for component in coefficients)
+    calls = []
+
+    def oracle(index):
+        calls.append(index)
+        return tuple(tuple(action[index] for action in component)
+                     for component in table)
+
+    result = reconstruct_feature_span_scenario_payoffs(
+        features,
+        oracle,
+        payoff_in_feature_span_certified=True,
+    )
+    assert result.certificate_valid
+    assert result.feature_width == 5
+    assert result.feature_rank == 4
+    assert result.query_count == 4
+    assert calls == list(result.query_indices)
+    assert result.component_payoff_vectors == table
+
+
+def test_feature_span_reconstruction_refuses_uncertified_before_query():
+    calls = []
+    with pytest.raises(ValueError, match="feature span"):
+        reconstruct_feature_span_scenario_payoffs(
+            ((1, 0), (1, 1)),
+            lambda index: calls.append(index),
+            payoff_in_feature_span_certified=False,
+        )
+    assert calls == []
+
+
+def test_feature_span_reconstruction_refuses_inconsistent_rows_before_query():
+    calls = []
+    with pytest.raises(ValueError, match="width"):
+        reconstruct_feature_span_scenario_payoffs(
+            ((1, 0), (1, 1, 2)),
+            lambda index: calls.append(index),
+            payoff_in_feature_span_certified=True,
+        )
+    assert calls == []
 
 
 def test_affine_scenario_reconstruction_queries_exact_basis_only():

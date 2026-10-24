@@ -30,6 +30,8 @@ on:
       - "scripts/audit_rank_three_nature_support.py"
       - "scripts/verify_affine_scenario_query_complexity.py"
       - "scripts/audit_affine_scenario_query_complexity.py"
+      - "scripts/verify_feature_rank_query_complexity.py"
+      - "scripts/audit_feature_rank_query_complexity.py"
       - "docs/COUPLED_ADDITIVE_MINIMAX_*.md"
       - "docs/TWO_VERTEX_ADDITIVE_ENVELOPE_*.md"
       - "docs/THREE_VERTEX_ADDITIVE_ARRANGEMENT_*.md"
@@ -40,6 +42,7 @@ on:
       - "docs/RANK_THREE_SCENARIO_POLYTOPE_*.md"
       - "docs/RANK_THREE_NATURE_SUPPORT_*.md"
       - "docs/AFFINE_SCENARIO_QUERY_COMPLEXITY_*.md"
+      - "docs/FEATURE_RANK_QUERY_COMPLEXITY_*.md"
       - ".github/workflows/additive-product-minimax.yml"
 
 jobs:
@@ -73,4 +76,6 @@ jobs:
       - run: python scripts/audit_rank_three_nature_support.py
       - run: python scripts/verify_affine_scenario_query_complexity.py
       - run: python scripts/audit_affine_scenario_query_complexity.py
+      - run: python scripts/verify_feature_rank_query_complexity.py
+      - run: python scripts/audit_feature_rank_query_complexity.py
       - run: pytest -q tests/test_robust_provenance.py

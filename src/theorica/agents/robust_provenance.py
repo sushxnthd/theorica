@@ -762,6 +762,21 @@ class AffineScenarioReconstruction:
     reason: str
 
 
+@dataclass(frozen=True)
+class FeatureSpanScenarioReconstruction:
+    """Exact payoff reconstruction from a rational feature-row basis."""
+    component_payoff_vectors: tuple[tuple[tuple[Fraction, ...], ...], ...]
+    feature_rows: tuple[tuple[Fraction, ...], ...]
+    query_indices: tuple[int, ...]
+    pivot_columns: tuple[int, ...]
+    feature_rank: int
+    feature_width: int
+    scenario_count: int
+    query_count: int
+    certificate_valid: bool
+    reason: str
+
+
 def _solve_fraction_system(rows, rhs):
     """Solve a square rational system; return None when singular."""
     n = len(rows)
@@ -1257,6 +1272,133 @@ def _fixed_scenario_pure_witness(vectors, tied, value, max_states):
         if len(states) > int(max_states):
             raise ValueError("exact pure-payoff state limit exceeded")
     return any(min(state) >= value for state in states), peak
+
+
+def _fraction_matrix_rank(rows):
+    """Return exact row rank for a rectangular rational matrix."""
+    matrix = [[Fraction(value) for value in row] for row in rows]
+    if not matrix:
+        return 0
+    width = len(matrix[0])
+    rank = 0
+    for column in range(width):
+        pivot = next((row for row in range(rank, len(matrix))
+                      if matrix[row][column] != 0), None)
+        if pivot is None:
+            continue
+        matrix[rank], matrix[pivot] = matrix[pivot], matrix[rank]
+        scale = matrix[rank][column]
+        matrix[rank] = [value / scale for value in matrix[rank]]
+        for row in range(len(matrix)):
+            if row == rank or matrix[row][column] == 0:
+                continue
+            scale = matrix[row][column]
+            matrix[row] = [matrix[row][item] - scale * matrix[rank][item]
+                           for item in range(width)]
+        rank += 1
+        if rank == len(matrix):
+            break
+    return rank
+
+
+def reconstruct_feature_span_scenario_payoffs(
+    feature_rows,
+    scenario_oracle,
+    *,
+    payoff_in_feature_span_certified: bool,
+) -> FeatureSpanScenarioReconstruction:
+    """Recover all payoffs using one query per independent feature row."""
+    if not payoff_in_feature_span_certified:
+        raise ValueError("a certificate that payoffs lie in the feature span is required")
+    features = tuple(
+        tuple(Fraction(value) for value in row)
+        for row in feature_rows
+    )
+    if not features or not features[0]:
+        raise ValueError("at least one nonempty feature row is required")
+    width = len(features[0])
+    if any(len(row) != width for row in features):
+        raise ValueError("feature rows must share one width")
+
+    query_indices = []
+    basis = []
+    for index, row in enumerate(features):
+        if _fraction_matrix_rank(tuple(basis) + (row,)) > len(basis):
+            query_indices.append(index)
+            basis.append(row)
+    rank = len(basis)
+    if rank == 0:
+        raise ValueError("feature rows have zero rank")
+    pivots = next((columns for columns in combinations(range(width), rank)
+                   if _solve_fraction_system(
+                       tuple(tuple(basis[row][column] for column in columns)
+                             for row in range(rank)),
+                       (Fraction(0),) * rank,
+                   ) is not None), None)
+    if pivots is None:
+        raise RuntimeError("feature-row basis lacks exact pivot columns")
+    pivot_matrix = tuple(
+        tuple(basis[row][column] for row in range(rank))
+        for column in pivots
+    )
+    row_weights = []
+    for feature in features:
+        weights = _solve_fraction_system(
+            pivot_matrix,
+            tuple(feature[column] for column in pivots),
+        )
+        if weights is None or any(
+            sum((weights[row] * basis[row][column] for row in range(rank)),
+                Fraction(0)) != feature[column]
+            for column in range(width)
+        ):
+            raise RuntimeError("feature row failed exact span reconstruction")
+        row_weights.append(weights)
+
+    queried = []
+    for index in query_indices:
+        response = tuple(
+            tuple(Fraction(value) for value in component)
+            for component in scenario_oracle(index)
+        )
+        if not response or any(not component for component in response):
+            raise ValueError("the scenario oracle returned an empty payoff shape")
+        queried.append(response)
+    shape = tuple(len(component) for component in queried[0])
+    if any(tuple(len(component) for component in response) != shape
+           for response in queried):
+        raise ValueError("the scenario oracle returned inconsistent payoff shapes")
+
+    reconstructed = tuple(
+        tuple(tuple(
+            sum((weights[position] * queried[position][component][action]
+                 for position in range(rank)), Fraction(0))
+            for weights in row_weights
+        ) for action in range(action_count))
+        for component, action_count in enumerate(shape)
+    )
+    valid = (
+        len(query_indices) == rank
+        and all(
+            reconstructed[component][action][scenario]
+            == queried[position][component][action]
+            for position, scenario in enumerate(query_indices)
+            for component in range(len(shape))
+            for action in range(shape[component])
+        )
+    )
+    return FeatureSpanScenarioReconstruction(
+        component_payoff_vectors=reconstructed,
+        feature_rows=features,
+        query_indices=tuple(query_indices),
+        pivot_columns=tuple(pivots),
+        feature_rank=rank,
+        feature_width=width,
+        scenario_count=len(features),
+        query_count=len(query_indices),
+        certificate_valid=valid,
+        reason="exact_feature_row_span_reconstruction_certificate",
+    )
 
 
 def reconstruct_affine_scenario_payoffs(
