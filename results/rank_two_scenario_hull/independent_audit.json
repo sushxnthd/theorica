@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "falsification": true,
+    "holdout_count": true,
+    "holdout_digest": true,
+    "holdout_shapes": true,
+    "opened_classification": true,
+    "opened_count": true,
+    "opened_digest": true,
+    "primary_passed": true,
+    "scaling": true
+  },
+  "passed": true,
+  "schema": "rank-two-scenario-hull-independent-audit-v1"
+}

@@ -710,6 +710,25 @@ class RankOneScenarioQuotientPlan:
     reason: str
 
 
+@dataclass(frozen=True)
+class RankTwoScenarioHullPlan:
+    """Exact convex-hull quotient for affine-rank-two scenario columns."""
+    component_payoff_vectors: tuple[tuple[tuple[Fraction, ...], ...], ...]
+    projected_coordinates: tuple[tuple[Fraction, Fraction], ...]
+    extreme_indices: tuple[int, ...]
+    affine_dimension: int
+    effective_scenario_count: int
+    joint_actions: tuple[tuple[tuple[int, ...], Fraction], ...]
+    minimax_value: Fraction
+    nature_probabilities: tuple[Fraction, ...]
+    strict_randomization_necessary: bool
+    scenario_count: int
+    expanded_action_count: int
+    support_bound: int
+    certificate_valid: bool
+    reason: str
+
+
 def _solve_fraction_system(rows, rhs):
     """Solve a square rational system; return None when singular."""
     n = len(rows)
@@ -1306,6 +1325,151 @@ def synthesize_rank_one_scenario_quotient_plan(
         support_bound=2,
         certificate_valid=valid,
         reason="rank_one_scenario_quotient_certificate",
+    )
+
+
+def synthesize_rank_two_scenario_hull_plan(
+    component_payoff_vectors,
+    *,
+    payoff_additive_certified: bool,
+    max_extreme_scenarios: int = 8,
+) -> RankTwoScenarioHullPlan:
+    """Delete non-extreme columns from an exact affine-rank-two scenario set."""
+    if not payoff_additive_certified:
+        raise ValueError("a certificate that payoff is additive is required")
+    if not component_payoff_vectors:
+        raise ValueError("at least one component is required")
+    vectors = tuple(
+        tuple(tuple(Fraction(value) for value in action) for action in component)
+        for component in component_payoff_vectors
+    )
+    if any(not component or not component[0] for component in vectors):
+        raise ValueError("every component needs at least one nonempty action")
+    scenario_count = len(vectors[0][0])
+    if scenario_count < 3:
+        raise ValueError("affine rank two requires at least three scenarios")
+    if any(len(action) != scenario_count
+           for component in vectors for action in component):
+        raise ValueError("all component actions must share one scenario count")
+
+    profiles = tuple(action for component in vectors for action in component)
+    columns = tuple(
+        tuple(profile[scenario] for profile in profiles)
+        for scenario in range(scenario_count)
+    )
+    origin = columns[0]
+    differences = tuple(
+        tuple(column[row] - origin[row] for row in range(len(origin)))
+        for column in columns
+    )
+    first = next((difference for difference in differences if any(difference)), None)
+    if first is None:
+        raise ValueError("scenario payoff columns have affine dimension below two")
+    second = None
+    pivots = None
+    for candidate in differences:
+        for left in range(len(first)):
+            for right in range(left + 1, len(first)):
+                determinant = (
+                    first[left] * candidate[right]
+                    - first[right] * candidate[left]
+                )
+                if determinant:
+                    second = candidate
+                    pivots = (left, right)
+                    break
+            if second is not None:
+                break
+        if second is not None:
+            break
+    if second is None or pivots is None:
+        raise ValueError("scenario payoff columns have affine dimension below two")
+
+    left, right = pivots
+    determinant = first[left] * second[right] - first[right] * second[left]
+    for difference in differences:
+        alpha = (difference[left] * second[right]
+                 - difference[right] * second[left]) / determinant
+        beta = (first[left] * difference[right]
+                - first[right] * difference[left]) / determinant
+        if any(alpha * first[row] + beta * second[row] != difference[row]
+               for row in range(len(first))):
+            raise ValueError("scenario payoff columns have affine dimension above two")
+
+    coordinates = tuple((difference[left], difference[right])
+                        for difference in differences)
+    unique = {}
+    for index, coordinate in enumerate(coordinates):
+        unique.setdefault(coordinate, index)
+    points = tuple(sorted((x, y, index) for (x, y), index in unique.items()))
+
+    def cross(origin_point, left_point, right_point):
+        return ((left_point[0] - origin_point[0])
+                * (right_point[1] - origin_point[1])
+                - (left_point[1] - origin_point[1])
+                * (right_point[0] - origin_point[0]))
+
+    lower = []
+    for point in points:
+        while len(lower) >= 2 and cross(lower[-2], lower[-1], point) <= 0:
+            lower.pop()
+        lower.append(point)
+    upper = []
+    for point in reversed(points):
+        while len(upper) >= 2 and cross(upper[-2], upper[-1], point) <= 0:
+            upper.pop()
+        upper.append(point)
+    hull = tuple(lower[:-1] + upper[:-1])
+    extreme_indices = tuple(point[2] for point in hull)
+    if len(extreme_indices) < 3:
+        raise RuntimeError("rank-two coordinates produced a degenerate hull")
+    if len(extreme_indices) > int(max_extreme_scenarios):
+        raise ValueError("rank-two hull exceeds the certified scenario cap")
+
+    reduced_vectors = tuple(
+        tuple(tuple(action[index] for index in extreme_indices)
+              for action in component)
+        for component in vectors
+    )
+    reduced = synthesize_fixed_scenario_additive_plan(
+        reduced_vectors,
+        payoff_additive_certified=True,
+        max_scenarios=max_extreme_scenarios,
+    )
+    nature = [Fraction(0)] * scenario_count
+    for position, index in enumerate(extreme_indices):
+        nature[index] = reduced.nature_probabilities[position]
+    realized = tuple(
+        sum((mass * sum((vectors[t][actions[t]][scenario]
+                         for t in range(len(vectors))), Fraction(0))
+             for actions, mass in reduced.joint_actions), Fraction(0))
+        for scenario in range(scenario_count)
+    )
+    expanded = 1
+    for component in vectors:
+        expanded *= len(component)
+    valid = (
+        reduced.certificate_valid
+        and sum(nature, Fraction(0)) == 1
+        and min(realized) == reduced.minimax_value
+        and len(reduced.joint_actions) <= len(extreme_indices)
+        and all(mass > 0 for _, mass in reduced.joint_actions)
+    )
+    return RankTwoScenarioHullPlan(
+        component_payoff_vectors=vectors,
+        projected_coordinates=coordinates,
+        extreme_indices=extreme_indices,
+        affine_dimension=2,
+        effective_scenario_count=len(extreme_indices),
+        joint_actions=reduced.joint_actions,
+        minimax_value=reduced.minimax_value,
+        nature_probabilities=tuple(nature),
+        strict_randomization_necessary=reduced.strict_randomization_necessary,
+        scenario_count=scenario_count,
+        expanded_action_count=expanded,
+        support_bound=len(extreme_indices),
+        certificate_valid=valid,
+        reason="rank_two_scenario_convex_hull_certificate",
     )
 
 

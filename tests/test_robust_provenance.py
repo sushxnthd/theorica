@@ -21,6 +21,7 @@ from theorica.agents.robust_provenance import (
     synthesize_four_vertex_additive_plan,
     synthesize_fixed_scenario_additive_plan,
     synthesize_rank_one_scenario_quotient_plan,
+    synthesize_rank_two_scenario_hull_plan,
     synthesize_orbit_ambiguity_plan,
     synthesize_orbit_balanced_plan,
     synthesize_orbit_mixture_plan,
@@ -677,6 +678,79 @@ def test_rank_one_scenario_quotient_rejects_rank_two_profiles(monkeypatch):
             payoff_additive_certified=True,
         )
     assert calls == []
+
+
+def test_rank_two_scenario_hull_removes_interior_scenarios():
+    coordinates = (
+        (Fraction(0), Fraction(0)),
+        (Fraction(1), Fraction(0)),
+        (Fraction(0), Fraction(1)),
+        (Fraction(1, 4), Fraction(1, 4)),
+        (Fraction(1, 3), Fraction(1, 3)),
+        (Fraction(1, 5), Fraction(2, 5)),
+        (Fraction(2, 5), Fraction(1, 5)),
+        (Fraction(1, 6), Fraction(1, 2)),
+        (Fraction(1, 2), Fraction(1, 6)),
+        (Fraction(1, 4), Fraction(1, 4)),
+        (Fraction(1, 8), Fraction(3, 8)),
+        (Fraction(3, 8), Fraction(1, 8)),
+    )
+    plan = synthesize_rank_two_scenario_hull_plan(
+        ((
+            tuple(1 - x - y for x, y in coordinates),
+            tuple(x for x, _ in coordinates),
+            tuple(y for _, y in coordinates),
+        ),),
+        payoff_additive_certified=True,
+    )
+    assert plan.affine_dimension == 2
+    assert plan.scenario_count == 12
+    assert plan.effective_scenario_count == 3
+    assert set(plan.extreme_indices) == {0, 1, 2}
+    assert plan.minimax_value == Fraction(1, 3)
+    assert plan.strict_randomization_necessary
+    assert len(plan.joint_actions) == 3
+    assert plan.certificate_valid
+
+
+def test_rank_two_scenario_hull_rejects_rank_three_before_planning(monkeypatch):
+    calls = []
+
+    def forbidden_planner(*args, **kwargs):
+        calls.append((args, kwargs))
+        raise AssertionError("invalid rank reached the fixed-scenario planner")
+
+    monkeypatch.setattr(
+        "theorica.agents.robust_provenance.synthesize_fixed_scenario_additive_plan",
+        forbidden_planner,
+    )
+    with pytest.raises(ValueError, match="affine dimension above two"):
+        synthesize_rank_two_scenario_hull_plan(
+            (((0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1)),),
+            payoff_additive_certified=True,
+        )
+    assert calls == []
+
+
+def test_rank_two_scenario_hull_rejects_more_than_eight_vertices(monkeypatch):
+    calls = []
+
+    def forbidden_planner(*args, **kwargs):
+        calls.append((args, kwargs))
+        raise AssertionError("over-cap hull reached the fixed-scenario planner")
+
+    monkeypatch.setattr(
+        "theorica.agents.robust_provenance.synthesize_fixed_scenario_additive_plan",
+        forbidden_planner,
+    )
+    x = tuple(range(-4, 5))
+    with pytest.raises(ValueError, match="hull exceeds"):
+        synthesize_rank_two_scenario_hull_plan(
+            ((x, tuple(value * value for value in x)),),
+            payoff_additive_certified=True,
+        )
+    assert calls == []
+
 
 def test_orbit_quotient_uses_two_vertex_sparse_support_fast_path():
     plan = synthesize_orbit_ambiguity_plan(
