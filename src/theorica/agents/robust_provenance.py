@@ -691,6 +691,25 @@ class FixedScenarioAdditiveRobustPlan:
     reason: str
 
 
+@dataclass(frozen=True)
+class RankOneScenarioQuotientPlan:
+    """Exact two-endpoint quotient for affine-rank-one scenario profiles."""
+    component_payoff_vectors: tuple[tuple[tuple[Fraction, ...], ...], ...]
+    scenario_coordinates: tuple[Fraction, ...]
+    endpoint_indices: tuple[int, int]
+    affine_dimension: int
+    effective_scenario_count: int
+    joint_actions: tuple[tuple[tuple[int, ...], Fraction], ...]
+    minimax_value: Fraction
+    nature_probabilities: tuple[Fraction, ...]
+    strict_randomization_necessary: bool
+    scenario_count: int
+    expanded_action_count: int
+    support_bound: int
+    certificate_valid: bool
+    reason: str
+
+
 def _solve_fraction_system(rows, rhs):
     """Solve a square rational system; return None when singular."""
     n = len(rows)
@@ -1186,6 +1205,108 @@ def _fixed_scenario_pure_witness(vectors, tied, value, max_states):
         if len(states) > int(max_states):
             raise ValueError("exact pure-payoff state limit exceeded")
     return any(min(state) >= value for state in states), peak
+
+
+def synthesize_rank_one_scenario_quotient_plan(
+    component_payoff_vectors,
+    *,
+    payoff_additive_certified: bool,
+) -> RankOneScenarioQuotientPlan:
+    """Collapse arbitrarily many affine-rank-one scenarios to two endpoints.
+
+    If every component-local payoff profile is affine in one shared scenario
+    coordinate, every additive joint payoff is affine in that coordinate too.
+    Nature mixtures therefore range over an interval, whose two endpoints are
+    sufficient and necessary for exact minimax planning.
+    """
+    if not payoff_additive_certified:
+        raise ValueError("a certificate that payoff is additive is required")
+    if not component_payoff_vectors:
+        raise ValueError("at least one component is required")
+    vectors = tuple(
+        tuple(tuple(Fraction(value) for value in action) for action in component)
+        for component in component_payoff_vectors
+    )
+    if any(not component or not component[0] for component in vectors):
+        raise ValueError("every component needs at least one nonempty action")
+    scenario_count = len(vectors[0][0])
+    if scenario_count < 2:
+        raise ValueError("at least two scenarios are required")
+    if any(len(action) != scenario_count
+           for component in vectors for action in component):
+        raise ValueError("all component actions must share one scenario count")
+
+    profiles = tuple(action for component in vectors for action in component)
+    anchor = next((profile for profile in profiles
+                   if any(value != profile[0] for value in profile[1:])), None)
+    if anchor is None:
+        coordinates = (Fraction(0),) * scenario_count
+        affine_dimension = 0
+        lower = upper = 0
+    else:
+        coordinates = anchor
+        affine_dimension = 1
+        base = 0
+        witness = next(i for i in range(1, scenario_count)
+                       if coordinates[i] != coordinates[base])
+        denominator = coordinates[witness] - coordinates[base]
+        for profile in profiles:
+            slope = (profile[witness] - profile[base]) / denominator
+            intercept = profile[base] - slope * coordinates[base]
+            if any(intercept + slope * coordinates[i] != profile[i]
+                   for i in range(scenario_count)):
+                raise ValueError("scenario payoff columns have affine dimension above one")
+        lower = min(range(scenario_count), key=lambda i: (coordinates[i], i))
+        upper = min(range(scenario_count), key=lambda i: (-coordinates[i], i))
+
+    pairs = tuple(
+        tuple((action[lower], action[upper]) for action in component)
+        for component in vectors
+    )
+    reduced = synthesize_two_vertex_additive_plan(
+        pairs,
+        payoff_additive_certified=True,
+    )
+    nature = [Fraction(0)] * scenario_count
+    if lower == upper:
+        nature[lower] = 1
+        effective_scenarios = 1
+    else:
+        nature[lower] = reduced.nature_probability
+        nature[upper] = 1 - reduced.nature_probability
+        effective_scenarios = 2
+    realized = tuple(
+        sum((mass * sum((vectors[t][actions[t]][scenario]
+                         for t in range(len(vectors))), Fraction(0))
+             for actions, mass in reduced.joint_actions), Fraction(0))
+        for scenario in range(scenario_count)
+    )
+    expanded = 1
+    for component in vectors:
+        expanded *= len(component)
+    valid = (
+        reduced.certificate_valid
+        and sum(nature, Fraction(0)) == 1
+        and min(realized) == reduced.minimax_value
+        and len(reduced.joint_actions) <= 2
+        and all(mass > 0 for _, mass in reduced.joint_actions)
+    )
+    return RankOneScenarioQuotientPlan(
+        component_payoff_vectors=vectors,
+        scenario_coordinates=tuple(coordinates),
+        endpoint_indices=(lower, upper),
+        affine_dimension=affine_dimension,
+        effective_scenario_count=effective_scenarios,
+        joint_actions=reduced.joint_actions,
+        minimax_value=reduced.minimax_value,
+        nature_probabilities=tuple(nature),
+        strict_randomization_necessary=reduced.strict_randomization_necessary,
+        scenario_count=scenario_count,
+        expanded_action_count=expanded,
+        support_bound=2,
+        certificate_valid=valid,
+        reason="rank_one_scenario_quotient_certificate",
+    )
 
 
 def synthesize_fixed_scenario_additive_plan(

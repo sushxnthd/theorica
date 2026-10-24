@@ -20,6 +20,7 @@ from theorica.agents.robust_provenance import (
     synthesize_coupled_additive_plan,
     synthesize_four_vertex_additive_plan,
     synthesize_fixed_scenario_additive_plan,
+    synthesize_rank_one_scenario_quotient_plan,
     synthesize_orbit_ambiguity_plan,
     synthesize_orbit_balanced_plan,
     synthesize_orbit_mixture_plan,
@@ -627,6 +628,55 @@ def test_fixed_scenario_marginal_recovery_defeats_tie_product_explosion():
     assert not plan.strict_randomization_necessary
     assert plan.support_bound == 5
     assert plan.reason == "fixed_scenario_additive_arrangement_marginal_certificate"
+
+
+def test_rank_one_scenario_quotient_removes_ambient_scenario_cap():
+    coordinates = tuple(range(-5, 7))
+    plan = synthesize_rank_one_scenario_quotient_plan(
+        (((tuple(2 + z for z in coordinates),
+           tuple(2 - z for z in coordinates))),),
+        payoff_additive_certified=True,
+    )
+    assert plan.scenario_count == 12
+    assert plan.effective_scenario_count == 2
+    assert plan.affine_dimension == 1
+    assert plan.endpoint_indices == (0, 11)
+    assert plan.minimax_value == 2
+    assert plan.strict_randomization_necessary
+    assert len(plan.joint_actions) == 2
+    assert plan.certificate_valid
+
+
+def test_rank_one_scenario_quotient_handles_constant_pure_game():
+    plan = synthesize_rank_one_scenario_quotient_plan(
+        (((3, 3, 3, 3), (1, 1, 1, 1)),),
+        payoff_additive_certified=True,
+    )
+    assert plan.affine_dimension == 0
+    assert plan.effective_scenario_count == 1
+    assert plan.minimax_value == 3
+    assert not plan.strict_randomization_necessary
+    assert plan.joint_actions == (((0,), Fraction(1)),)
+    assert plan.certificate_valid
+
+
+def test_rank_one_scenario_quotient_rejects_rank_two_profiles(monkeypatch):
+    calls = []
+
+    def forbidden_planner(*args, **kwargs):
+        calls.append((args, kwargs))
+        raise AssertionError("rank-two input reached the endpoint planner")
+
+    monkeypatch.setattr(
+        "theorica.agents.robust_provenance.synthesize_two_vertex_additive_plan",
+        forbidden_planner,
+    )
+    with pytest.raises(ValueError, match="affine dimension above one"):
+        synthesize_rank_one_scenario_quotient_plan(
+            (((0, 1, 0), (0, 0, 1)),),
+            payoff_additive_certified=True,
+        )
+    assert calls == []
 
 def test_orbit_quotient_uses_two_vertex_sparse_support_fast_path():
     plan = synthesize_orbit_ambiguity_plan(

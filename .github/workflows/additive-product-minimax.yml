@@ -20,11 +20,14 @@ on:
       - "scripts/audit_four_vertex_additive_arrangement.py"
       - "scripts/verify_fixed_scenario_additive_arrangement.py"
       - "scripts/audit_fixed_scenario_additive_arrangement.py"
+      - "scripts/verify_rank_one_scenario_quotient.py"
+      - "scripts/audit_rank_one_scenario_quotient.py"
       - "docs/COUPLED_ADDITIVE_MINIMAX_*.md"
       - "docs/TWO_VERTEX_ADDITIVE_ENVELOPE_*.md"
       - "docs/THREE_VERTEX_ADDITIVE_ARRANGEMENT_*.md"
       - "docs/FOUR_VERTEX_ADDITIVE_ARRANGEMENT_*.md"
       - "docs/FIXED_SCENARIO_*.md"
+      - "docs/RANK_ONE_SCENARIO_QUOTIENT_*.md"
       - ".github/workflows/additive-product-minimax.yml"
 
 jobs:
@@ -48,4 +51,6 @@ jobs:
       - run: python scripts/audit_four_vertex_additive_arrangement.py
       - run: python scripts/verify_fixed_scenario_additive_arrangement.py
       - run: python scripts/audit_fixed_scenario_additive_arrangement.py
+      - run: python scripts/verify_rank_one_scenario_quotient.py
+      - run: python scripts/audit_rank_one_scenario_quotient.py
       - run: pytest -q tests/test_robust_provenance.py
