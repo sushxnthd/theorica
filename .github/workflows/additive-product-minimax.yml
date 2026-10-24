@@ -24,6 +24,8 @@ on:
       - "scripts/audit_rank_one_scenario_quotient.py"
       - "scripts/verify_rank_two_scenario_hull.py"
       - "scripts/audit_rank_two_scenario_hull.py"
+      - "scripts/verify_rank_three_scenario_polytope.py"
+      - "scripts/audit_rank_three_scenario_polytope.py"
       - "docs/COUPLED_ADDITIVE_MINIMAX_*.md"
       - "docs/TWO_VERTEX_ADDITIVE_ENVELOPE_*.md"
       - "docs/THREE_VERTEX_ADDITIVE_ARRANGEMENT_*.md"
@@ -31,6 +33,7 @@ on:
       - "docs/FIXED_SCENARIO_*.md"
       - "docs/RANK_ONE_SCENARIO_QUOTIENT_*.md"
       - "docs/RANK_TWO_SCENARIO_HULL_*.md"
+      - "docs/RANK_THREE_SCENARIO_POLYTOPE_*.md"
       - ".github/workflows/additive-product-minimax.yml"
 
 jobs:
@@ -58,4 +61,6 @@ jobs:
       - run: python scripts/audit_rank_one_scenario_quotient.py
       - run: python scripts/verify_rank_two_scenario_hull.py
       - run: python scripts/audit_rank_two_scenario_hull.py
+      - run: python scripts/verify_rank_three_scenario_polytope.py
+      - run: python scripts/audit_rank_three_scenario_polytope.py
       - run: pytest -q tests/test_robust_provenance.py

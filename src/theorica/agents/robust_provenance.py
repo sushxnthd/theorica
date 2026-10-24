@@ -10,6 +10,7 @@ from math import comb, lcm
 
 import numpy as np
 from scipy.optimize import linprog
+from scipy.spatial import ConvexHull, QhullError
 
 
 @dataclass(frozen=True)
@@ -715,6 +716,25 @@ class RankTwoScenarioHullPlan:
     """Exact convex-hull quotient for affine-rank-two scenario columns."""
     component_payoff_vectors: tuple[tuple[tuple[Fraction, ...], ...], ...]
     projected_coordinates: tuple[tuple[Fraction, Fraction], ...]
+    extreme_indices: tuple[int, ...]
+    affine_dimension: int
+    effective_scenario_count: int
+    joint_actions: tuple[tuple[tuple[int, ...], Fraction], ...]
+    minimax_value: Fraction
+    nature_probabilities: tuple[Fraction, ...]
+    strict_randomization_necessary: bool
+    scenario_count: int
+    expanded_action_count: int
+    support_bound: int
+    certificate_valid: bool
+    reason: str
+
+
+@dataclass(frozen=True)
+class RankThreeScenarioPolytopePlan:
+    """Exact convex-hull quotient for affine-rank-three scenario columns."""
+    component_payoff_vectors: tuple[tuple[tuple[Fraction, ...], ...], ...]
+    projected_coordinates: tuple[tuple[Fraction, Fraction, Fraction], ...]
     extreme_indices: tuple[int, ...]
     affine_dimension: int
     effective_scenario_count: int
@@ -1470,6 +1490,183 @@ def synthesize_rank_two_scenario_hull_plan(
         support_bound=len(extreme_indices),
         certificate_valid=valid,
         reason="rank_two_scenario_convex_hull_certificate",
+    )
+
+
+def _point_in_rational_3d_hull(point, candidates):
+    """Exact Carathéodory membership using supports of size at most four."""
+    target = tuple(Fraction(value) for value in point)
+    others = tuple(tuple(Fraction(value) for value in item)
+                   for item in candidates)
+    equations_rhs = target + (Fraction(1),)
+    for support_size in range(1, min(4, len(others)) + 1):
+        for support in combinations(others, support_size):
+            equations = tuple(
+                tuple(vertex[coordinate] for vertex in support)
+                for coordinate in range(3)
+            ) + ((Fraction(1),) * support_size,)
+            for selected in combinations(range(4), support_size):
+                weights = _solve_fraction_system(
+                    tuple(equations[index] for index in selected),
+                    tuple(equations_rhs[index] for index in selected),
+                )
+                if weights is None or any(weight < 0 for weight in weights):
+                    continue
+                if all(
+                    sum((equations[row][column] * weights[column]
+                         for column in range(support_size)), Fraction(0))
+                    == equations_rhs[row]
+                    for row in range(4)
+                ):
+                    return True
+    return False
+
+
+def synthesize_rank_three_scenario_polytope_plan(
+    component_payoff_vectors,
+    *,
+    payoff_additive_certified: bool,
+    max_extreme_scenarios: int = 8,
+) -> RankThreeScenarioPolytopePlan:
+    """Delete non-vertex columns from an exact affine-rank-three scenario set."""
+    if not payoff_additive_certified:
+        raise ValueError("a certificate that payoff is additive is required")
+    if not component_payoff_vectors:
+        raise ValueError("at least one component is required")
+    vectors = tuple(
+        tuple(tuple(Fraction(value) for value in action) for action in component)
+        for component in component_payoff_vectors
+    )
+    if any(not component or not component[0] for component in vectors):
+        raise ValueError("every component needs at least one nonempty action")
+    scenario_count = len(vectors[0][0])
+    if scenario_count < 4:
+        raise ValueError("affine rank three requires at least four scenarios")
+    if any(len(action) != scenario_count
+           for component in vectors for action in component):
+        raise ValueError("all component actions must share one scenario count")
+
+    profiles = tuple(action for component in vectors for action in component)
+    columns = tuple(
+        tuple(profile[scenario] for profile in profiles)
+        for scenario in range(scenario_count)
+    )
+    origin = columns[0]
+    differences = tuple(
+        tuple(column[row] - origin[row] for row in range(len(origin)))
+        for column in columns
+    )
+
+    basis = None
+    pivots = None
+    for candidate_basis in combinations(differences[1:], 3):
+        for candidate_pivots in combinations(range(len(origin)), 3):
+            matrix = tuple(
+                tuple(candidate_basis[column][row] for column in range(3))
+                for row in candidate_pivots
+            )
+            if _solve_fraction_system(matrix, (Fraction(0),) * 3) is not None:
+                basis = candidate_basis
+                pivots = candidate_pivots
+                break
+        if basis is not None:
+            break
+    if basis is None or pivots is None:
+        raise ValueError("scenario payoff columns have affine dimension below three")
+
+    pivot_matrix = tuple(
+        tuple(basis[column][row] for column in range(3))
+        for row in pivots
+    )
+    coordinates = []
+    for difference in differences:
+        coefficients = _solve_fraction_system(
+            pivot_matrix,
+            tuple(difference[row] for row in pivots),
+        )
+        if coefficients is None or any(
+            sum((coefficients[column] * basis[column][row]
+                 for column in range(3)), Fraction(0)) != difference[row]
+            for row in range(len(origin))
+        ):
+            raise ValueError("scenario payoff columns have affine dimension above three")
+        coordinates.append(tuple(coefficients))
+    projected = tuple(coordinates)
+
+    unique: dict[tuple[Fraction, Fraction, Fraction], int] = {}
+    for index, coordinate in enumerate(projected):
+        unique.setdefault(coordinate, index)
+    unique_points = tuple(unique)
+    try:
+        proposal = ConvexHull(np.asarray(unique_points, dtype=float))
+    except QhullError as error:
+        raise ValueError("rank-three polytope proposal failed safely") from error
+    proposed = tuple(unique_points[index] for index in proposal.vertices)
+    extreme_coordinates = tuple(
+        point for point in proposed
+        if not _point_in_rational_3d_hull(
+            point,
+            tuple(candidate for candidate in proposed if candidate != point),
+        )
+    )
+    if any(
+        not _point_in_rational_3d_hull(point, extreme_coordinates)
+        for point in unique_points if point not in extreme_coordinates
+    ):
+        raise RuntimeError("floating hull proposal failed exact coverage certification")
+    extreme_indices = tuple(unique[point] for point in extreme_coordinates)
+    if len(extreme_indices) < 4:
+        raise RuntimeError("rank-three coordinates produced a degenerate polytope")
+    if len(extreme_indices) > int(max_extreme_scenarios):
+        raise ValueError("rank-three polytope exceeds the certified scenario cap")
+
+    reduced_vectors = tuple(
+        tuple(tuple(action[index] for index in extreme_indices)
+              for action in component)
+        for component in vectors
+    )
+    reduced = synthesize_fixed_scenario_additive_plan(
+        reduced_vectors,
+        payoff_additive_certified=True,
+        max_scenarios=max_extreme_scenarios,
+    )
+    nature = [Fraction(0)] * scenario_count
+    for position, index in enumerate(extreme_indices):
+        nature[index] = reduced.nature_probabilities[position]
+    realized = tuple(
+        sum((mass * sum((vectors[t][actions[t]][scenario]
+                         for t in range(len(vectors))), Fraction(0))
+             for actions, mass in reduced.joint_actions), Fraction(0))
+        for scenario in range(scenario_count)
+    )
+    expanded = 1
+    for component in vectors:
+        expanded *= len(component)
+    valid = (
+        reduced.certificate_valid
+        and sum(nature, Fraction(0)) == 1
+        and min(realized) == reduced.minimax_value
+        and len(reduced.joint_actions) <= len(extreme_indices)
+        and all(mass > 0 for _, mass in reduced.joint_actions)
+        and all(nature[index] == 0
+                for index in range(scenario_count)
+                if index not in extreme_indices)
+    )
+    return RankThreeScenarioPolytopePlan(
+        component_payoff_vectors=vectors,
+        projected_coordinates=projected,
+        extreme_indices=extreme_indices,
+        affine_dimension=3,
+        effective_scenario_count=len(extreme_indices),
+        joint_actions=reduced.joint_actions,
+        minimax_value=reduced.minimax_value,
+        nature_probabilities=tuple(nature),
+        strict_randomization_necessary=reduced.strict_randomization_necessary,
+        scenario_count=scenario_count,
+        expanded_action_count=expanded,
+        support_bound=len(extreme_indices),
+        certificate_valid=valid,
+        reason="rank_three_scenario_convex_polytope_certificate",
     )
 
 

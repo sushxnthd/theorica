@@ -18,13 +18,14 @@ from theorica.agents.robust_provenance import (
     solve_two_vertex_robust_game,
     synthesize_additive_product_plan,
     synthesize_coupled_additive_plan,
-    synthesize_four_vertex_additive_plan,
     synthesize_fixed_scenario_additive_plan,
-    synthesize_rank_one_scenario_quotient_plan,
-    synthesize_rank_two_scenario_hull_plan,
+    synthesize_four_vertex_additive_plan,
     synthesize_orbit_ambiguity_plan,
     synthesize_orbit_balanced_plan,
     synthesize_orbit_mixture_plan,
+    synthesize_rank_one_scenario_quotient_plan,
+    synthesize_rank_three_scenario_polytope_plan,
+    synthesize_rank_two_scenario_hull_plan,
     synthesize_robust_randomized_plan,
     synthesize_three_vertex_additive_plan,
     synthesize_two_vertex_additive_plan,
@@ -747,6 +748,77 @@ def test_rank_two_scenario_hull_rejects_more_than_eight_vertices(monkeypatch):
     with pytest.raises(ValueError, match="hull exceeds"):
         synthesize_rank_two_scenario_hull_plan(
             ((x, tuple(value * value for value in x)),),
+            payoff_additive_certified=True,
+        )
+    assert calls == []
+
+
+def test_rank_three_scenario_polytope_removes_interior_scenarios():
+    coordinates = (
+        (Fraction(0), Fraction(0), Fraction(0)),
+        (Fraction(1), Fraction(0), Fraction(0)),
+        (Fraction(0), Fraction(1), Fraction(0)),
+        (Fraction(0), Fraction(0), Fraction(1)),
+        (Fraction(1, 4), Fraction(1, 4), Fraction(1, 4)),
+        (Fraction(1, 2), Fraction(1, 6), Fraction(1, 6)),
+        (Fraction(1, 6), Fraction(1, 2), Fraction(1, 6)),
+        (Fraction(1, 6), Fraction(1, 6), Fraction(1, 2)),
+    )
+    plan = synthesize_rank_three_scenario_polytope_plan(
+        ((
+            tuple(1 - x - y - z for x, y, z in coordinates),
+            tuple(x for x, _, _ in coordinates),
+            tuple(y for _, y, _ in coordinates),
+            tuple(z for _, _, z in coordinates),
+        ),),
+        payoff_additive_certified=True,
+    )
+    assert plan.affine_dimension == 3
+    assert plan.scenario_count == 8
+    assert plan.effective_scenario_count == 4
+    assert set(plan.extreme_indices) == {0, 1, 2, 3}
+    assert plan.minimax_value == Fraction(1, 4)
+    assert plan.strict_randomization_necessary
+    assert len(plan.joint_actions) == 4
+    assert plan.certificate_valid
+
+
+def test_rank_three_scenario_polytope_rejects_rank_four_before_planning(monkeypatch):
+    calls = []
+
+    def forbidden_planner(*args, **kwargs):
+        calls.append((args, kwargs))
+        raise AssertionError("rank-four input reached the fixed-scenario planner")
+
+    monkeypatch.setattr(
+        "theorica.agents.robust_provenance.synthesize_fixed_scenario_additive_plan",
+        forbidden_planner,
+    )
+    with pytest.raises(ValueError, match="affine dimension above three"):
+        synthesize_rank_three_scenario_polytope_plan(
+            (((0, 1, 0, 0, 0), (0, 0, 1, 0, 0),
+              (0, 0, 0, 1, 0), (0, 0, 0, 0, 1)),),
+            payoff_additive_certified=True,
+        )
+    assert calls == []
+
+
+def test_rank_three_scenario_polytope_rejects_more_than_eight_vertices(monkeypatch):
+    calls = []
+
+    def forbidden_planner(*args, **kwargs):
+        calls.append((args, kwargs))
+        raise AssertionError("over-cap polytope reached the fixed-scenario planner")
+
+    monkeypatch.setattr(
+        "theorica.agents.robust_provenance.synthesize_fixed_scenario_additive_plan",
+        forbidden_planner,
+    )
+    x = tuple(Fraction(value) for value in range(-4, 5))
+    with pytest.raises(ValueError, match="polytope exceeds"):
+        synthesize_rank_three_scenario_polytope_plan(
+            ((x, tuple(value * value for value in x),
+              tuple(value * value * value for value in x)),),
             payoff_additive_certified=True,
         )
     assert calls == []
