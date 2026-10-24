@@ -1,9 +1,11 @@
+from dataclasses import replace
 from fractions import Fraction
 from itertools import combinations
 
 import pytest
 
 from theorica.agents.robust_provenance import (
+    compress_rank_three_nature_certificate,
     deterministic_strictly_dominated,
     deterministic_tv_frontier,
     divergence_agnostic_symmetry_value,
@@ -780,7 +782,56 @@ def test_rank_three_scenario_polytope_removes_interior_scenarios():
     assert plan.minimax_value == Fraction(1, 4)
     assert plan.strict_randomization_necessary
     assert len(plan.joint_actions) == 4
+    assert sum(weight > 0 for weight in plan.nature_probabilities) == 4
+    assert plan.support_bound == 4
     assert plan.certificate_valid
+
+
+def test_rank_three_nature_certificate_compresses_dense_optimal_intervention(
+    monkeypatch,
+):
+    coordinates = tuple(
+        (Fraction(x), Fraction(y), Fraction(z))
+        for x in (-1, 1) for y in (-1, 1) for z in (-1, 1)
+    )
+    actions = tuple(
+        tuple(sign * point[axis] for point in coordinates)
+        for axis in range(3) for sign in (-1, 1)
+    )
+    real_planner = synthesize_fixed_scenario_additive_plan
+
+    def dense_nature_planner(*args, **kwargs):
+        plan = real_planner(*args, **kwargs)
+        return replace(
+            plan,
+            nature_probabilities=(Fraction(1, 8),) * 8,
+        )
+
+    monkeypatch.setattr(
+        "theorica.agents.robust_provenance.synthesize_fixed_scenario_additive_plan",
+        dense_nature_planner,
+    )
+    plan = synthesize_rank_three_scenario_polytope_plan(
+        (actions,),
+        payoff_additive_certified=True,
+    )
+    assert plan.effective_scenario_count == 8
+    assert sum(weight > 0 for weight in plan.nature_probabilities) <= 4
+    assert plan.support_bound == 4
+    assert all(
+        sum(plan.nature_probabilities[index] * action[index]
+            for index in range(8)) == 0
+        for action in actions
+    )
+    assert plan.certificate_valid
+
+
+def test_rank_three_nature_certificate_rejects_invalid_distribution():
+    with pytest.raises(ValueError, match="probability distribution"):
+        compress_rank_three_nature_certificate(
+            ((0, 0, 0), (1, 0, 0), (0, 1, 0), (0, 0, 1)),
+            (Fraction(1, 2), Fraction(1, 2), Fraction(1, 2), Fraction(-1, 2)),
+        )
 
 
 def test_rank_three_scenario_polytope_rejects_rank_four_before_planning(monkeypatch):

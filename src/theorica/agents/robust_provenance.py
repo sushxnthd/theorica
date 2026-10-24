@@ -1493,14 +1493,15 @@ def synthesize_rank_two_scenario_hull_plan(
     )
 
 
-def _point_in_rational_3d_hull(point, candidates):
-    """Exact Carathéodory membership using supports of size at most four."""
+def _rational_3d_hull_weights(point, candidates):
+    """Return exact Carathéodory weights on at most four candidates."""
     target = tuple(Fraction(value) for value in point)
     others = tuple(tuple(Fraction(value) for value in item)
                    for item in candidates)
     equations_rhs = target + (Fraction(1),)
     for support_size in range(1, min(4, len(others)) + 1):
-        for support in combinations(others, support_size):
+        for indices in combinations(range(len(others)), support_size):
+            support = tuple(others[index] for index in indices)
             equations = tuple(
                 tuple(vertex[coordinate] for vertex in support)
                 for coordinate in range(3)
@@ -1518,8 +1519,54 @@ def _point_in_rational_3d_hull(point, candidates):
                     == equations_rhs[row]
                     for row in range(4)
                 ):
-                    return True
-    return False
+                    result = [Fraction(0)] * len(others)
+                    for index, weight in zip(indices, weights, strict=True):
+                        result[index] = weight
+                    return tuple(result)
+    return None
+
+
+def _point_in_rational_3d_hull(point, candidates):
+    """Exact Carathéodory membership using supports of size at most four."""
+    return _rational_3d_hull_weights(point, candidates) is not None
+
+
+def compress_rank_three_nature_certificate(
+    projected_coordinates,
+    nature_probabilities,
+):
+    """Preserve an exact rank-three barycenter on at most four scenarios."""
+    points = tuple(
+        tuple(Fraction(value) for value in point)
+        for point in projected_coordinates
+    )
+    weights = tuple(Fraction(value) for value in nature_probabilities)
+    if not points or len(points) != len(weights):
+        raise ValueError("coordinates and nature weights must have equal nonzero length")
+    if any(len(point) != 3 for point in points):
+        raise ValueError("rank-three coordinates must have exactly three entries")
+    if any(weight < 0 for weight in weights) \
+            or sum(weights, Fraction(0)) != 1:
+        raise ValueError("nature weights must be a probability distribution")
+    barycenter = tuple(
+        sum((weights[index] * point[coordinate]
+             for index, point in enumerate(points)), Fraction(0))
+        for coordinate in range(3)
+    )
+    compressed = _rational_3d_hull_weights(barycenter, points)
+    if compressed is None:
+        raise RuntimeError("rank-three nature certificate compression failed")
+    compressed_barycenter = tuple(
+        sum((compressed[index] * point[coordinate]
+             for index, point in enumerate(points)), Fraction(0))
+        for coordinate in range(3)
+    )
+    if sum(compressed, Fraction(0)) != 1 \
+            or any(weight < 0 for weight in compressed) \
+            or sum(weight > 0 for weight in compressed) > 4 \
+            or compressed_barycenter != barycenter:
+        raise RuntimeError("invalid rank-three nature compression certificate")
+    return compressed
 
 
 def synthesize_rank_three_scenario_polytope_plan(
@@ -1630,9 +1677,24 @@ def synthesize_rank_three_scenario_polytope_plan(
         payoff_additive_certified=True,
         max_scenarios=max_extreme_scenarios,
     )
+    reduced_nature = tuple(reduced.nature_probabilities)
+    compressed_nature = compress_rank_three_nature_certificate(
+        extreme_coordinates,
+        reduced_nature,
+    )
     nature = [Fraction(0)] * scenario_count
     for position, index in enumerate(extreme_indices):
-        nature[index] = reduced.nature_probabilities[position]
+        nature[index] = compressed_nature[position]
+    original_expectations = tuple(
+        sum((reduced_nature[position] * profile[index]
+             for position, index in enumerate(extreme_indices)), Fraction(0))
+        for profile in profiles
+    )
+    compressed_expectations = tuple(
+        sum((nature[index] * profile[index] for index in range(scenario_count)),
+            Fraction(0))
+        for profile in profiles
+    )
     realized = tuple(
         sum((mass * sum((vectors[t][actions[t]][scenario]
                          for t in range(len(vectors))), Fraction(0))
@@ -1648,6 +1710,8 @@ def synthesize_rank_three_scenario_polytope_plan(
         and min(realized) == reduced.minimax_value
         and len(reduced.joint_actions) <= len(extreme_indices)
         and all(mass > 0 for _, mass in reduced.joint_actions)
+        and sum(weight > 0 for weight in nature) <= 4
+        and original_expectations == compressed_expectations
         and all(nature[index] == 0
                 for index in range(scenario_count)
                 if index not in extreme_indices)
@@ -1664,7 +1728,7 @@ def synthesize_rank_three_scenario_polytope_plan(
         strict_randomization_necessary=reduced.strict_randomization_necessary,
         scenario_count=scenario_count,
         expanded_action_count=expanded,
-        support_bound=len(extreme_indices),
+        support_bound=4,
         certificate_valid=valid,
         reason="rank_three_scenario_convex_polytope_certificate",
     )
