@@ -1,0 +1,81 @@
+name: additive-and-coupled-product-minimax
+
+on:
+  push:
+    branches:
+      - "breakthrough-engine/additive-product-minimax-law-*"
+  pull_request:
+    paths:
+      - "src/theorica/agents/robust_provenance.py"
+      - "tests/test_robust_provenance.py"
+      - "scripts/verify_additive_product_minimax.py"
+      - "scripts/audit_additive_product_minimax.py"
+      - "scripts/verify_coupled_additive_minimax.py"
+      - "scripts/audit_coupled_additive_minimax.py"
+      - "scripts/verify_two_vertex_additive_envelope.py"
+      - "scripts/audit_two_vertex_additive_envelope.py"
+      - "scripts/verify_three_vertex_additive_arrangement.py"
+      - "scripts/audit_three_vertex_additive_arrangement.py"
+      - "scripts/verify_four_vertex_additive_arrangement.py"
+      - "scripts/audit_four_vertex_additive_arrangement.py"
+      - "scripts/verify_fixed_scenario_additive_arrangement.py"
+      - "scripts/audit_fixed_scenario_additive_arrangement.py"
+      - "scripts/verify_rank_one_scenario_quotient.py"
+      - "scripts/audit_rank_one_scenario_quotient.py"
+      - "scripts/verify_rank_two_scenario_hull.py"
+      - "scripts/audit_rank_two_scenario_hull.py"
+      - "scripts/verify_rank_three_scenario_polytope.py"
+      - "scripts/audit_rank_three_scenario_polytope.py"
+      - "scripts/verify_rank_three_nature_support.py"
+      - "scripts/audit_rank_three_nature_support.py"
+      - "scripts/verify_affine_scenario_query_complexity.py"
+      - "scripts/audit_affine_scenario_query_complexity.py"
+      - "scripts/verify_feature_rank_query_complexity.py"
+      - "scripts/audit_feature_rank_query_complexity.py"
+      - "docs/COUPLED_ADDITIVE_MINIMAX_*.md"
+      - "docs/TWO_VERTEX_ADDITIVE_ENVELOPE_*.md"
+      - "docs/THREE_VERTEX_ADDITIVE_ARRANGEMENT_*.md"
+      - "docs/FOUR_VERTEX_ADDITIVE_ARRANGEMENT_*.md"
+      - "docs/FIXED_SCENARIO_*.md"
+      - "docs/RANK_ONE_SCENARIO_QUOTIENT_*.md"
+      - "docs/RANK_TWO_SCENARIO_HULL_*.md"
+      - "docs/RANK_THREE_SCENARIO_POLYTOPE_*.md"
+      - "docs/RANK_THREE_NATURE_SUPPORT_*.md"
+      - "docs/AFFINE_SCENARIO_QUERY_COMPLEXITY_*.md"
+      - "docs/FEATURE_RANK_QUERY_COMPLEXITY_*.md"
+      - ".github/workflows/additive-product-minimax.yml"
+
+jobs:
+  exact-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -e ".[dev]"
+      - run: python scripts/verify_additive_product_minimax.py
+      - run: python scripts/audit_additive_product_minimax.py
+      - run: python scripts/verify_coupled_additive_minimax.py
+      - run: python scripts/audit_coupled_additive_minimax.py
+      - run: python scripts/verify_two_vertex_additive_envelope.py
+      - run: python scripts/audit_two_vertex_additive_envelope.py
+      - run: python scripts/verify_three_vertex_additive_arrangement.py
+      - run: python scripts/audit_three_vertex_additive_arrangement.py
+      - run: python scripts/verify_four_vertex_additive_arrangement.py
+      - run: python scripts/audit_four_vertex_additive_arrangement.py
+      - run: python scripts/verify_fixed_scenario_additive_arrangement.py
+      - run: python scripts/audit_fixed_scenario_additive_arrangement.py
+      - run: python scripts/verify_rank_one_scenario_quotient.py
+      - run: python scripts/audit_rank_one_scenario_quotient.py
+      - run: python scripts/verify_rank_two_scenario_hull.py
+      - run: python scripts/audit_rank_two_scenario_hull.py
+      - run: python scripts/verify_rank_three_scenario_polytope.py
+      - run: python scripts/audit_rank_three_scenario_polytope.py
+      - run: python scripts/verify_rank_three_nature_support.py
+      - run: python scripts/audit_rank_three_nature_support.py
+      - run: python scripts/verify_affine_scenario_query_complexity.py
+      - run: python scripts/audit_affine_scenario_query_complexity.py
+      - run: python scripts/verify_feature_rank_query_complexity.py
+      - run: python scripts/audit_feature_rank_query_complexity.py
+      - run: pytest -q tests/test_robust_provenance.py

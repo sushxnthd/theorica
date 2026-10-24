@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "component_global_agreement": true,
+    "holdout_values": true,
+    "opened_case_count": true,
+    "primary_certificates": true,
+    "pure_count": true,
+    "scaling_certificate": true,
+    "strict_count": true,
+    "symmetry_class_count": true
+  },
+  "independent_digest": "2b040ce4c6f55594793f76c5491827ef0515d80c9bd00c9dde2929f88964779f",
+  "passed": true,
+  "schema": "four-vertex-additive-arrangement-audit-v1"
+}

@@ -1,0 +1,24 @@
+{
+  "claim": "coupled-additive marginal minimax law and exact zero-bonus criterion",
+  "exhaustive_cases": 98415,
+  "expanded_value_mismatches": 0,
+  "criterion_mismatches": 0,
+  "zero_bonus_cases": 60903,
+  "strict_bonus_cases": 37512,
+  "proper_nonrectangular_zero_bonus_cases": 54342,
+  "proper_nonrectangular_strict_bonus_cases": 37512,
+  "maximum_coupling_bonus": "4",
+  "maximum_policy_support": 3,
+  "by_coupled_vertex_count": {
+    "1": {"cases": 26244, "zero_bonus": 8464, "strict_bonus": 17780},
+    "2": {"cases": 39366, "zero_bonus": 23830, "strict_bonus": 15536},
+    "3": {"cases": 26244, "zero_bonus": 22048, "strict_bonus": 4196},
+    "4": {"cases": 6561, "zero_bonus": 6561, "strict_bonus": 0}
+  },
+  "prospective_seed": 20261026,
+  "prospective_cases": 32,
+  "prospective_zero_bonus_cases": 13,
+  "prospective_strict_bonus_cases": 19,
+  "scaling_witness": {"factors": 6, "expanded_actions": 64, "reduced_variables": 7, "value": "6"},
+  "status": "pass"
+}
