@@ -749,6 +749,19 @@ class RankThreeScenarioPolytopePlan:
     reason: str
 
 
+@dataclass(frozen=True)
+class AffineScenarioReconstruction:
+    """Exact payoff-table reconstruction from an affine scenario basis."""
+    component_payoff_vectors: tuple[tuple[tuple[Fraction, ...], ...], ...]
+    scenario_coordinates: tuple[tuple[Fraction, ...], ...]
+    query_indices: tuple[int, ...]
+    descriptor_dimension: int
+    scenario_count: int
+    query_count: int
+    certificate_valid: bool
+    reason: str
+
+
 def _solve_fraction_system(rows, rhs):
     """Solve a square rational system; return None when singular."""
     n = len(rows)
@@ -1244,6 +1257,103 @@ def _fixed_scenario_pure_witness(vectors, tied, value, max_states):
         if len(states) > int(max_states):
             raise ValueError("exact pure-payoff state limit exceeded")
     return any(min(state) >= value for state in states), peak
+
+
+def reconstruct_affine_scenario_payoffs(
+    scenario_coordinates,
+    scenario_oracle,
+    *,
+    payoff_affine_certified: bool,
+    max_dimension: int = 3,
+) -> AffineScenarioReconstruction:
+    """Reconstruct every local payoff using exactly d+1 scenario queries.
+
+    The certificate is semantic and external: observations at d+1 points
+    cannot themselves prove affinity elsewhere. Given that certificate and
+    known rational descriptors spanning Q^d, exact interpolation is sufficient.
+    """
+    if not payoff_affine_certified:
+        raise ValueError("a certificate that payoffs are affine is required")
+    coordinates = tuple(
+        tuple(Fraction(value) for value in point)
+        for point in scenario_coordinates
+    )
+    if not coordinates:
+        raise ValueError("at least one scenario descriptor is required")
+    dimension = len(coordinates[0])
+    if not 1 <= dimension <= int(max_dimension):
+        raise ValueError("descriptor dimension exceeds the certified range")
+    if any(len(point) != dimension for point in coordinates):
+        raise ValueError("scenario descriptors must share one dimension")
+    if len(coordinates) < dimension + 1:
+        raise ValueError("too few scenarios to span the descriptor dimension")
+
+    augmented = tuple((Fraction(1),) + point for point in coordinates)
+    query_indices = None
+    for indices in combinations(range(len(coordinates)), dimension + 1):
+        matrix = tuple(augmented[index] for index in indices)
+        if _solve_fraction_system(
+            matrix,
+            (Fraction(0),) * (dimension + 1),
+        ) is not None:
+            query_indices = tuple(indices)
+            break
+    if query_indices is None:
+        raise ValueError("scenario descriptors do not affinely span their dimension")
+
+    queried = []
+    for index in query_indices:
+        response = tuple(
+            tuple(Fraction(value) for value in component)
+            for component in scenario_oracle(index)
+        )
+        if not response or any(not component for component in response):
+            raise ValueError("the scenario oracle returned an empty payoff shape")
+        queried.append(response)
+    shape = tuple(len(component) for component in queried[0])
+    if any(tuple(len(component) for component in response) != shape
+           for response in queried):
+        raise ValueError("the scenario oracle returned inconsistent payoff shapes")
+
+    basis_matrix = tuple(augmented[index] for index in query_indices)
+    components = []
+    for component_index, action_count in enumerate(shape):
+        actions = []
+        for action_index in range(action_count):
+            observations = tuple(
+                response[component_index][action_index]
+                for response in queried
+            )
+            coefficients = _solve_fraction_system(basis_matrix, observations)
+            if coefficients is None:
+                raise RuntimeError("affine interpolation basis became singular")
+            actions.append(tuple(
+                sum((coefficients[position] * row[position]
+                     for position in range(dimension + 1)), Fraction(0))
+                for row in augmented
+            ))
+        components.append(tuple(actions))
+    reconstructed = tuple(components)
+    valid = (
+        len(query_indices) == dimension + 1
+        and all(
+            reconstructed[component][action][scenario]
+            == queried[position][component][action]
+            for position, scenario in enumerate(query_indices)
+            for component in range(len(shape))
+            for action in range(shape[component])
+        )
+    )
+    return AffineScenarioReconstruction(
+        component_payoff_vectors=reconstructed,
+        scenario_coordinates=coordinates,
+        query_indices=query_indices,
+        descriptor_dimension=dimension,
+        scenario_count=len(coordinates),
+        query_count=len(query_indices),
+        certificate_valid=valid,
+        reason="exact_affine_scenario_interpolation_certificate",
+    )
 
 
 def synthesize_rank_one_scenario_quotient_plan(

@@ -9,6 +9,7 @@ from theorica.agents.robust_provenance import (
     deterministic_strictly_dominated,
     deterministic_tv_frontier,
     divergence_agnostic_symmetry_value,
+    reconstruct_affine_scenario_payoffs,
     robust_provenance_frontier,
     sample_orbit_ambiguity_plan,
     sample_orbit_balanced_plan,
@@ -34,6 +35,70 @@ from theorica.agents.robust_provenance import (
     synthesize_uniform_ambiguity_plan,
     unrank_uniform_k_subset,
 )
+
+
+def test_affine_scenario_reconstruction_queries_exact_basis_only():
+    coordinates = (
+        (0, 0, 0),
+        (1, 0, 0),
+        (0, 1, 0),
+        (0, 0, 1),
+        (2, -1, 3),
+        (-2, 4, 1),
+    )
+    coefficients = (
+        ((3, 2, -1, 4), (-2, 1, 5, -3)),
+        ((7, -4, 2, 1), (1, 3, 3, 3)),
+    )
+    table = tuple(
+        tuple(tuple(
+            action[0] + sum(slope * coordinate
+                            for slope, coordinate in zip(action[1:], point))
+            for point in coordinates
+        ) for action in component)
+        for component in coefficients
+    )
+    calls = []
+
+    def oracle(index):
+        calls.append(index)
+        return tuple(
+            tuple(action[index] for action in component)
+            for component in table
+        )
+
+    result = reconstruct_affine_scenario_payoffs(
+        coordinates,
+        oracle,
+        payoff_affine_certified=True,
+    )
+    assert result.certificate_valid
+    assert result.query_indices == (0, 1, 2, 3)
+    assert result.query_count == 4
+    assert calls == [0, 1, 2, 3]
+    assert result.component_payoff_vectors == table
+
+
+def test_affine_scenario_reconstruction_refuses_uncertified_before_query():
+    calls = []
+    with pytest.raises(ValueError, match="affine"):
+        reconstruct_affine_scenario_payoffs(
+            ((0,), (1,)),
+            lambda index: calls.append(index),
+            payoff_affine_certified=False,
+        )
+    assert calls == []
+
+
+def test_affine_scenario_reconstruction_refuses_nonspanning_before_query():
+    calls = []
+    with pytest.raises(ValueError, match="span"):
+        reconstruct_affine_scenario_payoffs(
+            ((0, 0), (1, 1), (2, 2)),
+            lambda index: calls.append(index),
+            payoff_affine_certified=True,
+        )
+    assert calls == []
 
 
 def test_exact_deterministic_tv_law():
