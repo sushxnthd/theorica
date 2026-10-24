@@ -7,7 +7,9 @@ on:
   pull_request:
     paths:
       - "src/theorica/agents/robust_provenance.py"
+      - "src/theorica/agents/corruption_resilient_features.py"
       - "tests/test_robust_provenance.py"
+      - "tests/test_corruption_resilient_features.py"
       - "scripts/verify_additive_product_minimax.py"
       - "scripts/audit_additive_product_minimax.py"
       - "scripts/verify_coupled_additive_minimax.py"
@@ -32,6 +34,8 @@ on:
       - "scripts/audit_affine_scenario_query_complexity.py"
       - "scripts/verify_feature_rank_query_complexity.py"
       - "scripts/audit_feature_rank_query_complexity.py"
+      - "scripts/verify_corruption_resilient_feature_queries.py"
+      - "scripts/audit_corruption_resilient_feature_queries.py"
       - "docs/COUPLED_ADDITIVE_MINIMAX_*.md"
       - "docs/TWO_VERTEX_ADDITIVE_ENVELOPE_*.md"
       - "docs/THREE_VERTEX_ADDITIVE_ARRANGEMENT_*.md"
@@ -43,6 +47,7 @@ on:
       - "docs/RANK_THREE_NATURE_SUPPORT_*.md"
       - "docs/AFFINE_SCENARIO_QUERY_COMPLEXITY_*.md"
       - "docs/FEATURE_RANK_QUERY_COMPLEXITY_*.md"
+      - "docs/CORRUPTION_RESILIENT_FEATURE_QUERY_*.md"
       - ".github/workflows/additive-product-minimax.yml"
 
 jobs:
@@ -78,4 +83,7 @@ jobs:
       - run: python scripts/audit_affine_scenario_query_complexity.py
       - run: python scripts/verify_feature_rank_query_complexity.py
       - run: python scripts/audit_feature_rank_query_complexity.py
+      - run: python scripts/verify_corruption_resilient_feature_queries.py
+      - run: python scripts/audit_corruption_resilient_feature_queries.py
       - run: pytest -q tests/test_robust_provenance.py
+      - run: pytest -q tests/test_corruption_resilient_features.py

@@ -211,3 +211,39 @@ The strongest defensible wording is:
 
 Use "first-ever" only as a **priority hypothesis**, not as a settled historical
 fact, until independent experts have attempted to falsify it.
+
+## Corruption-resilient feature queries
+
+### Supported
+
+- Under a known rational rank-`r` feature map, certified exact span membership,
+  and at most `t` adversarially corrupted queried scenarios, exact recovery is
+  possible on a selected row set exactly when its evaluation code has minimum
+  distance at least `2t + 1`.
+- This is equivalent to retaining rank `r` after every deletion of `2t`
+  selected rows. The production selector evaluates that certificate before
+  observing outcomes and fails closed when no subset is certified.
+- Distinct-point Vandermonde families need exactly `r + 2t` queries. General
+  geometry can need more: a persisted rank-two boundary needs six queries for
+  `t = 1` although the Singleton lower bound is four.
+- Exact opened, prospective, lower-bound, and independently reimplemented
+  checks all pass; rank-only interpolation falsely accepts the adversarial
+  controls.
+
+### Not supported
+
+- Novelty of the coding-theoretic distance characterization, deletion-rank
+  equivalence, Singleton bound, or MDS/Vandermonde construction.
+- Unknown or approximate features, stochastic noise, floating-point recovery,
+  more than `t` corruptions, or optimal search beyond the configured cap.
+- Downstream validation beyond exact two-action robust games on the large
+  prospective families.
+
+### Current wording
+
+> **THEORICA now has an exact, fail-closed scenario-query selector and rational
+> decoder that turns classical code distance into a geometry-sensitive robust-
+> planning capability: it corrects up to `t` adversarial scenario responses
+> exactly when the selected feature evaluations retain full rank after every
+> `2t` deletions, attaining `r + 2t` queries on MDS families and abstaining or
+> spending more on degenerate geometry.**
