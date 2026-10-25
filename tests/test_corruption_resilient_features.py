@@ -3,6 +3,7 @@ from fractions import Fraction
 import pytest
 
 from theorica.agents.corruption_resilient_features import (
+    certify_two_action_plan_from_ambiguous_transcript,
     reconstruct_corruption_resilient_feature_payoffs,
 )
 
@@ -92,3 +93,47 @@ def test_feature_reconstruction_rejects_excess_erasure_budget():
             erasure_budget=1,
         )
     assert len(calls) == 5
+
+
+def test_ambiguous_model_can_have_identifiable_robust_decision():
+    result = certify_two_action_plan_from_ambiguous_transcript(
+        ((1, 0), (1, 1), (1, 2)),
+        (0, 1, 2),
+        ((0, 0), (0, 0), (0, 1)),
+        payoff_in_feature_span_certified=True,
+        corruption_budget=1,
+    )
+    assert result.certificate_valid
+    assert result.version_space_size == 3
+    assert not result.model_identifiable
+    assert result.value_identifiable and result.policy_identifiable
+    assert result.minimax_value == 0
+    assert result.action_probabilities == (Fraction(1), Fraction(0))
+
+
+def test_ambiguous_transcript_abstains_when_values_differ():
+    result = certify_two_action_plan_from_ambiguous_transcript(
+        ((1, 0), (1, 1), (1, 2)),
+        (0, 1, 2),
+        ((0, 0), (0, 0), (1, 1)),
+        payoff_in_feature_span_certified=True,
+        corruption_budget=1,
+    )
+    assert result.certificate_valid
+    assert not result.value_identifiable
+    assert not result.policy_identifiable
+    assert result.action_probabilities is None
+
+
+def test_equal_values_still_abstain_for_disjoint_optimal_policies():
+    result = certify_two_action_plan_from_ambiguous_transcript(
+        ((1, 0), (1, 1), (1, 2)),
+        (0, 1, 2),
+        ((-2, -1), (-1, -1), (-2, 0)),
+        payoff_in_feature_span_certified=True,
+        corruption_budget=1,
+    )
+    assert result.certificate_valid
+    assert result.value_identifiable
+    assert not result.policy_identifiable
+    assert result.reason == "ambiguous_transcript_has_disjoint_optimal_policy_sets"

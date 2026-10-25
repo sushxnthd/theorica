@@ -40,6 +40,8 @@ on:
       - "scripts/audit_error_erasure_feature_queries.py"
       - "scripts/verify_error_erasure_exhaustive_patterns.py"
       - "scripts/audit_error_erasure_exhaustive_patterns.py"
+      - "scripts/verify_decision_identifiable_list_decoding.py"
+      - "scripts/audit_decision_identifiable_list_decoding.py"
       - "docs/COUPLED_ADDITIVE_MINIMAX_*.md"
       - "docs/TWO_VERTEX_ADDITIVE_ENVELOPE_*.md"
       - "docs/THREE_VERTEX_ADDITIVE_ARRANGEMENT_*.md"
@@ -53,6 +55,7 @@ on:
       - "docs/FEATURE_RANK_QUERY_COMPLEXITY_*.md"
       - "docs/CORRUPTION_RESILIENT_FEATURE_QUERY_*.md"
       - "docs/ERROR_ERASURE_FEATURE_QUERY_*.md"
+      - "docs/DECISION_IDENTIFIABLE_LIST_DECODING_*.md"
       - ".github/workflows/additive-product-minimax.yml"
 
 jobs:
@@ -94,5 +97,7 @@ jobs:
       - run: python scripts/audit_error_erasure_feature_queries.py
       - run: python scripts/verify_error_erasure_exhaustive_patterns.py
       - run: python scripts/audit_error_erasure_exhaustive_patterns.py
+      - run: python scripts/verify_decision_identifiable_list_decoding.py
+      - run: python scripts/audit_decision_identifiable_list_decoding.py
       - run: pytest -q tests/test_robust_provenance.py
       - run: pytest -q tests/test_corruption_resilient_features.py

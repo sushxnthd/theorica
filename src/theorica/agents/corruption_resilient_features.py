@@ -2,11 +2,12 @@
 
 from dataclasses import dataclass
 from fractions import Fraction
-from itertools import combinations
+from itertools import combinations, product
 
 from theorica.agents.robust_provenance import (
     _fraction_matrix_rank,
     _solve_fraction_system,
+    solve_two_action_robust_game,
 )
 
 
@@ -32,6 +33,22 @@ class CorruptionResilientFeatureReconstruction:
     reason: str
 
 
+@dataclass(frozen=True)
+class DecisionIdentifiableTwoActionPlan:
+    """Exact robust-plan certificate over an ambiguous algebraic version space."""
+
+    action_probabilities: tuple[Fraction, Fraction] | None
+    minimax_value: Fraction | None
+    common_optimal_interval: tuple[Fraction, Fraction] | None
+    version_space_size: int
+    model_identifiable: bool
+    value_identifiable: bool
+    policy_identifiable: bool
+    candidate_pairs_tested: int
+    certificate_valid: bool
+    reason: str
+
+
 def _feature_code_minimum_distance(rows, rank):
     """Return the exact Hamming distance of the rational evaluation code."""
     maximum_zero_count = 0
@@ -46,6 +63,154 @@ def _feature_code_minimum_distance(rows, rank):
             )
             maximum_zero_count = max(maximum_zero_count, zero_count)
     return len(rows) - maximum_zero_count
+
+
+def _two_action_optimal_interval(payoff_matrix, value):
+    """Return all action-zero probabilities attaining an exact robust value."""
+    lower, upper = Fraction(0), Fraction(1)
+    for left, right in zip(payoff_matrix[0], payoff_matrix[1]):
+        slope = left - right
+        if slope > 0:
+            lower = max(lower, (value - right) / slope)
+        elif slope < 0:
+            upper = min(upper, (value - right) / slope)
+        elif right < value:
+            return None
+    if lower > upper:
+        return None
+    return lower, upper
+
+
+def certify_two_action_plan_from_ambiguous_transcript(
+    feature_rows,
+    query_indices,
+    observed_payoffs,
+    *,
+    payoff_in_feature_span_certified: bool,
+    corruption_budget: int,
+    erasure_budget: int = 0,
+    max_version_space: int = 10_000,
+) -> DecisionIdentifiableTwoActionPlan:
+    """Plan exactly when every feasible corrupted completion agrees on a policy.
+
+    Unlike unique decoding, this routine keeps every feature-span completion
+    within the shared row-corruption budget.  It then applies the necessary and
+    sufficient two-action decision quotient: invariant value plus intersecting
+    exact optimal-policy intervals.
+    """
+    if not payoff_in_feature_span_certified:
+        raise ValueError("a certificate that payoffs lie in the feature span is required")
+    if corruption_budget < 0 or erasure_budget < 0:
+        raise ValueError("error and erasure budgets must be nonnegative")
+    features = tuple(tuple(Fraction(value) for value in row) for row in feature_rows)
+    indices = tuple(int(index) for index in query_indices)
+    observations = tuple(
+        None if row is None else tuple(Fraction(value) for value in row)
+        for row in observed_payoffs
+    )
+    if not features or not features[0]:
+        raise ValueError("at least one nonempty feature row is required")
+    if len(indices) != len(observations) or len(set(indices)) != len(indices):
+        raise ValueError("query indices and observations must align without duplicates")
+    if any(index < 0 or index >= len(features) for index in indices):
+        raise ValueError("query index is outside the feature table")
+    if any(row is not None and len(row) != 2 for row in observations):
+        raise ValueError("each available observation must contain exactly two actions")
+    erased = tuple(position for position, row in enumerate(observations) if row is None)
+    if len(erased) > erasure_budget:
+        raise ValueError("the transcript exceeds the certified erasure budget")
+    available = tuple(position for position, row in enumerate(observations) if row is not None)
+    rank = _fraction_matrix_rank(features)
+    if len(available) < rank:
+        raise ValueError("too few available rows span the feature rank")
+    width = len(features[0])
+    pivots = next(
+        (
+            columns
+            for columns in combinations(range(width), rank)
+            if _fraction_matrix_rank(
+                tuple(tuple(row[column] for column in columns) for row in features)
+            ) == rank
+        ),
+        None,
+    )
+    if pivots is None:
+        raise RuntimeError("feature table lacks exact pivot columns")
+    reduced = tuple(tuple(row[column] for column in pivots) for row in features)
+
+    action_candidates = []
+    for action in range(2):
+        candidates = {}
+        for basis_positions in combinations(available, rank):
+            coefficients = _solve_fraction_system(
+                tuple(reduced[indices[position]] for position in basis_positions),
+                tuple(observations[position][action] for position in basis_positions),
+            )
+            if coefficients is None:
+                continue
+            predictions = tuple(
+                sum((value * coefficient for value, coefficient in zip(row, coefficients)),
+                    Fraction(0))
+                for row in reduced
+            )
+            disagreements = frozenset(
+                position for position in available
+                if predictions[indices[position]] != observations[position][action]
+            )
+            if len(disagreements) <= corruption_budget:
+                candidates[predictions] = disagreements
+        action_candidates.append(tuple(candidates.items()))
+
+    version_space = {}
+    tested = 0
+    for left, right in product(*action_candidates):
+        tested += 1
+        if tested > max_version_space:
+            raise ValueError("decision version-space cap exceeded")
+        if len(left[1] | right[1]) <= corruption_budget:
+            version_space[(left[0], right[0])] = left[1] | right[1]
+    if not version_space:
+        raise ValueError("no feature-span completion matches the certified transcript")
+
+    games = tuple(version_space)
+    solutions = tuple(solve_two_action_robust_game(game) for game in games)
+    if any(not solution.certificate_valid for solution in solutions):
+        raise RuntimeError("an exact robust-game certificate failed")
+    values = {solution.minimax_value for solution in solutions}
+    intervals = tuple(
+        _two_action_optimal_interval(game, solution.minimax_value)
+        for game, solution in zip(games, solutions)
+    )
+    if any(interval is None for interval in intervals):
+        raise RuntimeError("an exact optimal-policy interval failed")
+    common_lower = max(interval[0] for interval in intervals if interval is not None)
+    common_upper = min(interval[1] for interval in intervals if interval is not None)
+    value_identifiable = len(values) == 1
+    policy_identifiable = value_identifiable and common_lower <= common_upper
+    if not policy_identifiable:
+        reason = (
+            "ambiguous_transcript_has_multiple_robust_values"
+            if not value_identifiable
+            else "ambiguous_transcript_has_disjoint_optimal_policy_sets"
+        )
+        return DecisionIdentifiableTwoActionPlan(
+            None, None, None, len(games), len(games) == 1, value_identifiable,
+            False, tested, True, reason,
+        )
+
+    weight = common_lower
+    value = next(iter(values))
+    valid = all(
+        min(weight * game[0][scenario] + (1 - weight) * game[1][scenario]
+            for scenario in range(len(features))) == value
+        for game in games
+    )
+    return DecisionIdentifiableTwoActionPlan(
+        (weight, 1 - weight), value, (common_lower, common_upper), len(games),
+        len(games) == 1, True, True, tested, valid,
+        "decision_identifiable_despite_model_ambiguity"
+        if len(games) > 1 else "uniquely_decoded_model",
+    )
 
 
 def reconstruct_corruption_resilient_feature_payoffs(
