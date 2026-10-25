@@ -44,6 +44,7 @@ class DecisionIdentifiableTwoActionPlan:
     model_identifiable: bool
     value_identifiable: bool
     policy_identifiable: bool
+    finite_list_minimum_distance: int
     candidate_pairs_tested: int
     certificate_valid: bool
     reason: str
@@ -123,6 +124,15 @@ def certify_two_action_plan_from_ambiguous_transcript(
     rank = _fraction_matrix_rank(features)
     if len(available) < rank:
         raise ValueError("too few available rows span the feature rank")
+    available_rows = tuple(features[indices[position]] for position in available)
+    if _fraction_matrix_rank(available_rows) != rank:
+        raise ValueError("available query rows do not span the feature rank")
+    finite_list_distance = _feature_code_minimum_distance(available_rows, rank)
+    if finite_list_distance < corruption_budget + 1:
+        raise ValueError(
+            "query geometry does not guarantee a finite completion list under "
+            "the certified corruption budget"
+        )
     width = len(features[0])
     pivots = next(
         (
@@ -195,7 +205,7 @@ def certify_two_action_plan_from_ambiguous_transcript(
         )
         return DecisionIdentifiableTwoActionPlan(
             None, None, None, len(games), len(games) == 1, value_identifiable,
-            False, tested, True, reason,
+            False, finite_list_distance, tested, True, reason,
         )
 
     weight = common_lower
@@ -207,7 +217,7 @@ def certify_two_action_plan_from_ambiguous_transcript(
     )
     return DecisionIdentifiableTwoActionPlan(
         (weight, 1 - weight), value, (common_lower, common_upper), len(games),
-        len(games) == 1, True, True, tested, valid,
+        len(games) == 1, True, True, finite_list_distance, tested, valid,
         "decision_identifiable_despite_model_ambiguity"
         if len(games) > 1 else "uniquely_decoded_model",
     )

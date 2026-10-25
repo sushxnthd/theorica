@@ -109,6 +109,7 @@ def test_ambiguous_model_can_have_identifiable_robust_decision():
     assert result.value_identifiable and result.policy_identifiable
     assert result.minimax_value == 0
     assert result.action_probabilities == (Fraction(1), Fraction(0))
+    assert result.finite_list_minimum_distance == 2
 
 
 def test_ambiguous_transcript_abstains_when_values_differ():
@@ -137,3 +138,14 @@ def test_equal_values_still_abstain_for_disjoint_optimal_policies():
     assert result.value_identifiable
     assert not result.policy_identifiable
     assert result.reason == "ambiguous_transcript_has_disjoint_optimal_policy_sets"
+
+
+def test_ambiguous_planner_rejects_infinite_list_geometry_before_enumeration():
+    with pytest.raises(ValueError, match="finite completion list"):
+        certify_two_action_plan_from_ambiguous_transcript(
+            ((1, 0), (1, 0), (0, 1)),
+            (0, 1, 2),
+            ((0, 0), (0, 0), (0, 1)),
+            payoff_in_feature_span_certified=True,
+            corruption_budget=1,
+        )
