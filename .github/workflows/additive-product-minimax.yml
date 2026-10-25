@@ -48,6 +48,8 @@ on:
       - "scripts/audit_finite_list_error_erasure_selector.py"
       - "scripts/verify_multi_action_decision_quotient.py"
       - "scripts/audit_multi_action_decision_quotient.py"
+      - "scripts/verify_stacked_ambiguity_gap.py"
+      - "scripts/audit_stacked_ambiguity_gap.py"
       - "docs/COUPLED_ADDITIVE_MINIMAX_*.md"
       - "docs/TWO_VERTEX_ADDITIVE_ENVELOPE_*.md"
       - "docs/THREE_VERTEX_ADDITIVE_ARRANGEMENT_*.md"
@@ -112,5 +114,7 @@ jobs:
       - run: python scripts/audit_finite_list_error_erasure_selector.py
       - run: python scripts/verify_multi_action_decision_quotient.py
       - run: python scripts/audit_multi_action_decision_quotient.py
+      - run: python scripts/verify_stacked_ambiguity_gap.py
+      - run: python scripts/audit_stacked_ambiguity_gap.py
       - run: pytest -q tests/test_robust_provenance.py
       - run: pytest -q tests/test_corruption_resilient_features.py

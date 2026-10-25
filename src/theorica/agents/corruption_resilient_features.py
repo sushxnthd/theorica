@@ -1,6 +1,6 @@
 """Exact feature-span reconstruction under bounded adversarial query errors."""
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from fractions import Fraction
 from itertools import combinations, product
 
@@ -81,6 +81,26 @@ class DecisionIdentifiableMultiActionPlan:
     finite_list_minimum_distance: int | None
     impossibility_witness: tuple[int, ...]
     candidate_combinations_tested: int
+    certificate_valid: bool
+    reason: str
+    stacked_value: Fraction | None = None
+    ambiguity_gap: Fraction | None = None
+    scenario_witness: tuple[tuple[int, int], ...] = ()
+
+
+@dataclass(frozen=True)
+class StackedAmbiguityGapCertificate:
+    """Exact scalar and sparse witness for multi-completion decision ambiguity."""
+
+    action_probabilities: tuple[Fraction, ...] | None
+    common_value: Fraction | None
+    stacked_value: Fraction | None
+    ambiguity_gap: Fraction | None
+    completion_count: int
+    action_count: int
+    value_identifiable: bool
+    policy_identifiable: bool
+    scenario_witness: tuple[tuple[int, int], ...]
     certificate_valid: bool
     reason: str
 
@@ -270,6 +290,120 @@ def _common_optimal_policy(games, values, selected=None):
     return None
 
 
+def certify_stacked_ambiguity_gap(games) -> StackedAmbiguityGapCertificate:
+    """Reduce common-policy identifiability to one exact stacked robust game.
+
+    When every completion has robust value ``v``, concatenating their scenario
+    columns produces value ``v_stack <= v``.  Equality holds exactly when one
+    policy is optimal for every completion.  A strict gap has a witness of at
+    most ``a`` individual scenario columns for ``a`` actions.
+    """
+    exact_games = tuple(
+        tuple(tuple(Fraction(value) for value in row) for row in game)
+        for game in games
+    )
+    if not exact_games:
+        raise ValueError("at least one feasible completion is required")
+    action_count = len(exact_games[0])
+    if action_count < 2 or any(len(game) != action_count for game in exact_games):
+        raise ValueError("all completions must share at least two actions")
+    if any(
+        not game[0] or any(len(row) != len(game[0]) for row in game)
+        for game in exact_games
+    ):
+        raise ValueError("each completion must be a nonempty rectangular game")
+
+    solved = tuple(_solve_multi_action_robust_game(game) for game in exact_games)
+    values = tuple(item[0] for item in solved)
+    if len(set(values)) != 1:
+        return StackedAmbiguityGapCertificate(
+            None,
+            None,
+            None,
+            None,
+            len(exact_games),
+            action_count,
+            False,
+            False,
+            (),
+            True,
+            "ambiguous_transcript_has_multiple_robust_values",
+        )
+
+    common_value = values[0]
+    labelled_columns = tuple(
+        (
+            (completion, scenario),
+            tuple(game[action][scenario] for action in range(action_count)),
+        )
+        for completion, game in enumerate(exact_games)
+        for scenario in range(len(game[0]))
+    )
+    stacked_game = tuple(
+        tuple(column[action] for _, column in labelled_columns)
+        for action in range(action_count)
+    )
+    stacked_value, stacked_policy = _solve_multi_action_robust_game(stacked_game)
+    gap = common_value - stacked_value
+    if gap < 0:
+        raise RuntimeError("stacked robust value exceeded an individual value")
+    if gap == 0:
+        valid = all(
+            min(
+                sum(
+                    (stacked_policy[action] * game[action][scenario]
+                     for action in range(action_count)),
+                    Fraction(0),
+                )
+                for scenario in range(len(game[0]))
+            ) == common_value
+            for game in exact_games
+        )
+        return StackedAmbiguityGapCertificate(
+            stacked_policy,
+            common_value,
+            stacked_value,
+            gap,
+            len(exact_games),
+            action_count,
+            True,
+            True,
+            (),
+            valid,
+            "zero_stacked_ambiguity_gap_common_policy",
+        )
+
+    witness: tuple[tuple[int, int], ...] = ()
+    witness_value = common_value
+    for size in range(1, min(action_count, len(labelled_columns)) + 1):
+        for selected in combinations(range(len(labelled_columns)), size):
+            selected_game = tuple(
+                tuple(labelled_columns[index][1][action] for index in selected)
+                for action in range(action_count)
+            )
+            candidate_value, _ = _solve_multi_action_robust_game(selected_game)
+            if candidate_value < common_value:
+                witness = tuple(labelled_columns[index][0] for index in selected)
+                witness_value = candidate_value
+                break
+        if witness:
+            break
+    valid = bool(witness) and len(witness) <= action_count and witness_value < common_value
+    return StackedAmbiguityGapCertificate(
+        None,
+        common_value,
+        stacked_value,
+        gap,
+        len(exact_games),
+        action_count,
+        True,
+        False,
+        witness,
+        valid,
+        "positive_stacked_ambiguity_gap_requires_abstention",
+    )
+
+
 def certify_common_robust_plan(
     games,
     *,
@@ -289,6 +423,7 @@ def certify_common_robust_plan(
     if any(not game[0] or any(len(row) != len(game[0]) for row in game)
            for game in exact_games):
         raise ValueError("each completion must be a nonempty rectangular game")
+    stacked = certify_stacked_ambiguity_gap(exact_games)
     solved = tuple(_solve_multi_action_robust_game(game) for game in exact_games)
     values = tuple(item[0] for item in solved)
     distinct_values = set(values)
@@ -297,11 +432,17 @@ def certify_common_robust_plan(
             (0, index) for index in range(1, len(values))
             if values[index] != values[0]
         )
-        return DecisionIdentifiableMultiActionPlan(
+        result = DecisionIdentifiableMultiActionPlan(
             None, None, len(exact_games), action_count, len(exact_games) == 1,
             False, False, finite_list_minimum_distance, first,
             candidate_combinations_tested, True,
             "ambiguous_transcript_has_multiple_robust_values",
+        )
+        return replace(
+            result,
+            stacked_value=stacked.stacked_value,
+            ambiguity_gap=stacked.ambiguity_gap,
+            scenario_witness=stacked.scenario_witness,
         )
     policy = _common_optimal_policy(exact_games, values)
     if policy is None:
@@ -318,11 +459,17 @@ def certify_common_robust_plan(
         valid = len(witness) <= action_count and _common_optimal_policy(
             exact_games, values, witness
         ) is None
-        return DecisionIdentifiableMultiActionPlan(
+        result = DecisionIdentifiableMultiActionPlan(
             None, values[0], len(exact_games), action_count,
             len(exact_games) == 1, True, False, finite_list_minimum_distance,
             witness, candidate_combinations_tested, valid,
             "ambiguous_transcript_has_disjoint_optimal_policy_polytopes",
+        )
+        return replace(
+            result,
+            stacked_value=stacked.stacked_value,
+            ambiguity_gap=stacked.ambiguity_gap,
+            scenario_witness=stacked.scenario_witness,
         )
     valid = all(
         min(
@@ -332,12 +479,18 @@ def certify_common_robust_plan(
         ) == values[index]
         for index, game in enumerate(exact_games)
     )
-    return DecisionIdentifiableMultiActionPlan(
+    result = DecisionIdentifiableMultiActionPlan(
         policy, values[0], len(exact_games), action_count,
         len(exact_games) == 1, True, True, finite_list_minimum_distance, (),
         candidate_combinations_tested, valid,
         "decision_identifiable_despite_model_ambiguity"
         if len(exact_games) > 1 else "uniquely_decoded_model",
+    )
+    return replace(
+        result,
+        stacked_value=stacked.stacked_value,
+        ambiguity_gap=stacked.ambiguity_gap,
+        scenario_witness=stacked.scenario_witness,
     )
 
 

@@ -5,6 +5,7 @@ import pytest
 from theorica.agents.corruption_resilient_features import (
     certify_common_robust_plan,
     certify_multi_action_plan_from_ambiguous_transcript,
+    certify_stacked_ambiguity_gap,
     certify_two_action_plan_from_ambiguous_transcript,
     reconstruct_corruption_resilient_feature_payoffs,
     select_finite_list_feature_queries,
@@ -213,3 +214,35 @@ def test_multi_action_corrupted_transcript_returns_exact_certificate():
     assert result.certificate_valid
     assert result.action_count == 3
     assert result.finite_list_minimum_distance == 2
+
+
+def test_stacked_gap_is_zero_exactly_for_a_common_policy():
+    result = certify_stacked_ambiguity_gap((
+        ((0,), (-1,), (-2,)),
+        ((0,), (-3,), (-1,)),
+    ))
+    assert result.certificate_valid and result.policy_identifiable
+    assert result.common_value == result.stacked_value == 0
+    assert result.ambiguity_gap == 0
+    assert result.action_probabilities == (1, 0, 0)
+
+
+def test_stacked_gap_returns_sharp_scenario_witness():
+    games = tuple(
+        tuple((Fraction(-1 if action == excluded else 0),)
+              for action in range(5))
+        for excluded in range(5)
+    )
+    result = certify_stacked_ambiguity_gap(games)
+    assert result.certificate_valid and not result.policy_identifiable
+    assert result.common_value == 0
+    assert result.stacked_value == Fraction(-1, 5)
+    assert result.ambiguity_gap == Fraction(1, 5)
+    assert result.scenario_witness == tuple((index, 0) for index in range(5))
+
+
+def test_stacked_gap_abstains_when_values_differ():
+    result = certify_stacked_ambiguity_gap((((0,), (-1,)), ((1,), (-1,))))
+    assert result.certificate_valid
+    assert not result.value_identifiable
+    assert result.ambiguity_gap is None
