@@ -225,6 +225,8 @@ def test_stacked_gap_is_zero_exactly_for_a_common_policy():
     assert result.common_value == result.stacked_value == 0
     assert result.ambiguity_gap == 0
     assert result.action_probabilities == (1, 0, 0)
+    assert len(result.adversary_scenario_weights) <= 3
+    assert max(result.adversary_action_payoffs) == 0
 
 
 def test_stacked_gap_returns_sharp_scenario_witness():
@@ -239,6 +241,23 @@ def test_stacked_gap_returns_sharp_scenario_witness():
     assert result.stacked_value == Fraction(-1, 5)
     assert result.ambiguity_gap == Fraction(1, 5)
     assert result.scenario_witness == tuple((index, 0) for index in range(5))
+    assert result.adversary_scenario_weights == tuple(
+        (index, 0, Fraction(1, 5)) for index in range(5)
+    )
+    assert result.adversary_action_payoffs == (Fraction(-1, 5),) * 5
+    assert result.stacked_action_probabilities == (Fraction(1, 5),) * 5
+
+
+def test_stacked_dual_certificate_has_action_bounded_support():
+    games = (
+        ((0, 0, 0), (-1, 2, 3), (-1, -3, 4)),
+        ((0, 0), (-1, 5), (-1, -2)),
+    )
+    result = certify_stacked_ambiguity_gap(games)
+    assert result.certificate_valid
+    assert len(result.adversary_scenario_weights) <= 3
+    assert sum(weight for _, _, weight in result.adversary_scenario_weights) == 1
+    assert max(result.adversary_action_payoffs) == result.stacked_value
 
 
 def test_stacked_gap_abstains_when_values_differ():

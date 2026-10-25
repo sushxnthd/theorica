@@ -1,0 +1,6441 @@
+{
+  "cases": [
+    {
+      "actions": 3,
+      "case": 0,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "-17/11"
+    },
+    {
+      "actions": 4,
+      "case": 1,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "-16/11"
+    },
+    {
+      "actions": 3,
+      "case": 2,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "-15/11"
+    },
+    {
+      "actions": 4,
+      "case": 3,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "-14/11"
+    },
+    {
+      "actions": 3,
+      "case": 4,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "-13/11"
+    },
+    {
+      "actions": 4,
+      "case": 5,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "-12/11"
+    },
+    {
+      "actions": 3,
+      "case": 6,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "-1"
+    },
+    {
+      "actions": 4,
+      "case": 7,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "-10/11"
+    },
+    {
+      "actions": 3,
+      "case": 8,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "-9/11"
+    },
+    {
+      "actions": 4,
+      "case": 9,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "-8/11"
+    },
+    {
+      "actions": 3,
+      "case": 10,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "-7/11"
+    },
+    {
+      "actions": 4,
+      "case": 11,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "-6/11"
+    },
+    {
+      "actions": 3,
+      "case": 12,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "-5/11"
+    },
+    {
+      "actions": 4,
+      "case": 13,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "-4/11"
+    },
+    {
+      "actions": 3,
+      "case": 14,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "-3/11"
+    },
+    {
+      "actions": 4,
+      "case": 15,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "-2/11"
+    },
+    {
+      "actions": 3,
+      "case": 16,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "-1/11"
+    },
+    {
+      "actions": 4,
+      "case": 17,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "0"
+    },
+    {
+      "actions": 3,
+      "case": 18,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "1/11"
+    },
+    {
+      "actions": 4,
+      "case": 19,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "2/11"
+    },
+    {
+      "actions": 3,
+      "case": 20,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "3/11"
+    },
+    {
+      "actions": 4,
+      "case": 21,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "4/11"
+    },
+    {
+      "actions": 3,
+      "case": 22,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "5/11"
+    },
+    {
+      "actions": 4,
+      "case": 23,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "6/11"
+    },
+    {
+      "actions": 3,
+      "case": 24,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "7/11"
+    },
+    {
+      "actions": 4,
+      "case": 25,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "8/11"
+    },
+    {
+      "actions": 3,
+      "case": 26,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "9/11"
+    },
+    {
+      "actions": 4,
+      "case": 27,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "10/11"
+    },
+    {
+      "actions": 3,
+      "case": 28,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "1"
+    },
+    {
+      "actions": 4,
+      "case": 29,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "12/11"
+    },
+    {
+      "actions": 3,
+      "case": 30,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "13/11"
+    },
+    {
+      "actions": 4,
+      "case": 31,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "14/11"
+    },
+    {
+      "actions": 3,
+      "case": 32,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "15/11"
+    },
+    {
+      "actions": 4,
+      "case": 33,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "16/11"
+    },
+    {
+      "actions": 3,
+      "case": 34,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "17/11"
+    },
+    {
+      "actions": 4,
+      "case": 35,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "18/11"
+    },
+    {
+      "actions": 3,
+      "case": 36,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "19/11"
+    },
+    {
+      "actions": 4,
+      "case": 37,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "20/11"
+    },
+    {
+      "actions": 3,
+      "case": 38,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "21/11"
+    },
+    {
+      "actions": 4,
+      "case": 39,
+      "dual_support": 2,
+      "family": "transcript-affine",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "2"
+    },
+    {
+      "actions": 3,
+      "case": 100,
+      "dual_support": 2,
+      "family": "transcript-reciprocal",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "83/11"
+    },
+    {
+      "actions": 4,
+      "case": 101,
+      "dual_support": 2,
+      "family": "transcript-reciprocal",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "84/11"
+    },
+    {
+      "actions": 3,
+      "case": 102,
+      "dual_support": 2,
+      "family": "transcript-reciprocal",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "85/11"
+    },
+    {
+      "actions": 4,
+      "case": 103,
+      "dual_support": 2,
+      "family": "transcript-reciprocal",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "86/11"
+    },
+    {
+      "actions": 3,
+      "case": 104,
+      "dual_support": 2,
+      "family": "transcript-reciprocal",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "87/11"
+    },
+    {
+      "actions": 4,
+      "case": 105,
+      "dual_support": 2,
+      "family": "transcript-reciprocal",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "8"
+    },
+    {
+      "actions": 3,
+      "case": 106,
+      "dual_support": 2,
+      "family": "transcript-reciprocal",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "89/11"
+    },
+    {
+      "actions": 4,
+      "case": 107,
+      "dual_support": 2,
+      "family": "transcript-reciprocal",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "90/11"
+    },
+    {
+      "actions": 3,
+      "case": 108,
+      "dual_support": 2,
+      "family": "transcript-reciprocal",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "91/11"
+    },
+    {
+      "actions": 4,
+      "case": 109,
+      "dual_support": 2,
+      "family": "transcript-reciprocal",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "92/11"
+    },
+    {
+      "actions": 3,
+      "case": 110,
+      "dual_support": 2,
+      "family": "transcript-reciprocal",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "93/11"
+    },
+    {
+      "actions": 4,
+      "case": 111,
+      "dual_support": 2,
+      "family": "transcript-reciprocal",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "94/11"
+    },
+    {
+      "actions": 3,
+      "case": 112,
+      "dual_support": 2,
+      "family": "transcript-reciprocal",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "95/11"
+    },
+    {
+      "actions": 4,
+      "case": 113,
+      "dual_support": 2,
+      "family": "transcript-reciprocal",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "96/11"
+    },
+    {
+      "actions": 3,
+      "case": 114,
+      "dual_support": 2,
+      "family": "transcript-reciprocal",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "97/11"
+    },
+    {
+      "actions": 4,
+      "case": 115,
+      "dual_support": 2,
+      "family": "transcript-reciprocal",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "98/11"
+    },
+    {
+      "actions": 3,
+      "case": 116,
+      "dual_support": 2,
+      "family": "transcript-reciprocal",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "9"
+    },
+    {
+      "actions": 4,
+      "case": 117,
+      "dual_support": 2,
+      "family": "transcript-reciprocal",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "100/11"
+    },
+    {
+      "actions": 3,
+      "case": 118,
+      "dual_support": 2,
+      "family": "transcript-reciprocal",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "101/11"
+    },
+    {
+      "actions": 4,
+      "case": 119,
+      "dual_support": 2,
+      "family": "transcript-reciprocal",
+      "gap": "0",
+      "passed": true,
+      "stacked_value": "102/11"
+    },
+    {
+      "actions": 3,
+      "case": 0,
+      "common_value": "-8/9",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/3"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-11/9",
+        "-11/9",
+        "-11/9"
+      ],
+      "extras_per_completion": 0,
+      "family": "known-sharp-face",
+      "games": [
+        [
+          [
+            "-17/9"
+          ],
+          [
+            "-8/9"
+          ],
+          [
+            "-8/9"
+          ]
+        ],
+        [
+          [
+            "-8/9"
+          ],
+          [
+            "-17/9"
+          ],
+          [
+            "-8/9"
+          ]
+        ],
+        [
+          [
+            "-8/9"
+          ],
+          [
+            "-8/9"
+          ],
+          [
+            "-17/9"
+          ]
+        ]
+      ],
+      "gap": "1/3",
+      "passed": true,
+      "stacked_policy": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ],
+      "stacked_value": "-11/9"
+    },
+    {
+      "actions": 3,
+      "case": 1,
+      "common_value": "-7/9",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/3"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-10/9",
+        "-10/9",
+        "-10/9"
+      ],
+      "extras_per_completion": 0,
+      "family": "known-sharp-face",
+      "games": [
+        [
+          [
+            "-16/9"
+          ],
+          [
+            "-7/9"
+          ],
+          [
+            "-7/9"
+          ]
+        ],
+        [
+          [
+            "-7/9"
+          ],
+          [
+            "-16/9"
+          ],
+          [
+            "-7/9"
+          ]
+        ],
+        [
+          [
+            "-7/9"
+          ],
+          [
+            "-7/9"
+          ],
+          [
+            "-16/9"
+          ]
+        ]
+      ],
+      "gap": "1/3",
+      "passed": true,
+      "stacked_policy": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ],
+      "stacked_value": "-10/9"
+    },
+    {
+      "actions": 3,
+      "case": 2,
+      "common_value": "-2/3",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/3"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-1",
+        "-1",
+        "-1"
+      ],
+      "extras_per_completion": 0,
+      "family": "known-sharp-face",
+      "games": [
+        [
+          [
+            "-5/3"
+          ],
+          [
+            "-2/3"
+          ],
+          [
+            "-2/3"
+          ]
+        ],
+        [
+          [
+            "-2/3"
+          ],
+          [
+            "-5/3"
+          ],
+          [
+            "-2/3"
+          ]
+        ],
+        [
+          [
+            "-2/3"
+          ],
+          [
+            "-2/3"
+          ],
+          [
+            "-5/3"
+          ]
+        ]
+      ],
+      "gap": "1/3",
+      "passed": true,
+      "stacked_policy": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ],
+      "stacked_value": "-1"
+    },
+    {
+      "actions": 3,
+      "case": 3,
+      "common_value": "-5/9",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/3"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-8/9",
+        "-8/9",
+        "-8/9"
+      ],
+      "extras_per_completion": 0,
+      "family": "known-sharp-face",
+      "games": [
+        [
+          [
+            "-14/9"
+          ],
+          [
+            "-5/9"
+          ],
+          [
+            "-5/9"
+          ]
+        ],
+        [
+          [
+            "-5/9"
+          ],
+          [
+            "-14/9"
+          ],
+          [
+            "-5/9"
+          ]
+        ],
+        [
+          [
+            "-5/9"
+          ],
+          [
+            "-5/9"
+          ],
+          [
+            "-14/9"
+          ]
+        ]
+      ],
+      "gap": "1/3",
+      "passed": true,
+      "stacked_policy": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ],
+      "stacked_value": "-8/9"
+    },
+    {
+      "actions": 3,
+      "case": 4,
+      "common_value": "-4/9",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/3"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-7/9",
+        "-7/9",
+        "-7/9"
+      ],
+      "extras_per_completion": 0,
+      "family": "known-sharp-face",
+      "games": [
+        [
+          [
+            "-13/9"
+          ],
+          [
+            "-4/9"
+          ],
+          [
+            "-4/9"
+          ]
+        ],
+        [
+          [
+            "-4/9"
+          ],
+          [
+            "-13/9"
+          ],
+          [
+            "-4/9"
+          ]
+        ],
+        [
+          [
+            "-4/9"
+          ],
+          [
+            "-4/9"
+          ],
+          [
+            "-13/9"
+          ]
+        ]
+      ],
+      "gap": "1/3",
+      "passed": true,
+      "stacked_policy": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ],
+      "stacked_value": "-7/9"
+    },
+    {
+      "actions": 3,
+      "case": 5,
+      "common_value": "-1/3",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/3"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-2/3",
+        "-2/3",
+        "-2/3"
+      ],
+      "extras_per_completion": 0,
+      "family": "known-sharp-face",
+      "games": [
+        [
+          [
+            "-4/3"
+          ],
+          [
+            "-1/3"
+          ],
+          [
+            "-1/3"
+          ]
+        ],
+        [
+          [
+            "-1/3"
+          ],
+          [
+            "-4/3"
+          ],
+          [
+            "-1/3"
+          ]
+        ],
+        [
+          [
+            "-1/3"
+          ],
+          [
+            "-1/3"
+          ],
+          [
+            "-4/3"
+          ]
+        ]
+      ],
+      "gap": "1/3",
+      "passed": true,
+      "stacked_policy": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ],
+      "stacked_value": "-2/3"
+    },
+    {
+      "actions": 3,
+      "case": 6,
+      "common_value": "-2/9",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/3"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-5/9",
+        "-5/9",
+        "-5/9"
+      ],
+      "extras_per_completion": 0,
+      "family": "known-sharp-face",
+      "games": [
+        [
+          [
+            "-11/9"
+          ],
+          [
+            "-2/9"
+          ],
+          [
+            "-2/9"
+          ]
+        ],
+        [
+          [
+            "-2/9"
+          ],
+          [
+            "-11/9"
+          ],
+          [
+            "-2/9"
+          ]
+        ],
+        [
+          [
+            "-2/9"
+          ],
+          [
+            "-2/9"
+          ],
+          [
+            "-11/9"
+          ]
+        ]
+      ],
+      "gap": "1/3",
+      "passed": true,
+      "stacked_policy": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ],
+      "stacked_value": "-5/9"
+    },
+    {
+      "actions": 3,
+      "case": 7,
+      "common_value": "-1/9",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/3"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-4/9",
+        "-4/9",
+        "-4/9"
+      ],
+      "extras_per_completion": 0,
+      "family": "known-sharp-face",
+      "games": [
+        [
+          [
+            "-10/9"
+          ],
+          [
+            "-1/9"
+          ],
+          [
+            "-1/9"
+          ]
+        ],
+        [
+          [
+            "-1/9"
+          ],
+          [
+            "-10/9"
+          ],
+          [
+            "-1/9"
+          ]
+        ],
+        [
+          [
+            "-1/9"
+          ],
+          [
+            "-1/9"
+          ],
+          [
+            "-10/9"
+          ]
+        ]
+      ],
+      "gap": "1/3",
+      "passed": true,
+      "stacked_policy": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ],
+      "stacked_value": "-4/9"
+    },
+    {
+      "actions": 3,
+      "case": 8,
+      "common_value": "0",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/3"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-1/3",
+        "-1/3",
+        "-1/3"
+      ],
+      "extras_per_completion": 0,
+      "family": "known-sharp-face",
+      "games": [
+        [
+          [
+            "-1"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ]
+        ],
+        [
+          [
+            "0"
+          ],
+          [
+            "-1"
+          ],
+          [
+            "0"
+          ]
+        ],
+        [
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "-1"
+          ]
+        ]
+      ],
+      "gap": "1/3",
+      "passed": true,
+      "stacked_policy": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ],
+      "stacked_value": "-1/3"
+    },
+    {
+      "actions": 3,
+      "case": 9,
+      "common_value": "1/9",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/3"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-2/9",
+        "-2/9",
+        "-2/9"
+      ],
+      "extras_per_completion": 0,
+      "family": "known-sharp-face",
+      "games": [
+        [
+          [
+            "-8/9"
+          ],
+          [
+            "1/9"
+          ],
+          [
+            "1/9"
+          ]
+        ],
+        [
+          [
+            "1/9"
+          ],
+          [
+            "-8/9"
+          ],
+          [
+            "1/9"
+          ]
+        ],
+        [
+          [
+            "1/9"
+          ],
+          [
+            "1/9"
+          ],
+          [
+            "-8/9"
+          ]
+        ]
+      ],
+      "gap": "1/3",
+      "passed": true,
+      "stacked_policy": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ],
+      "stacked_value": "-2/9"
+    },
+    {
+      "actions": 4,
+      "case": 10,
+      "common_value": "2/9",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/4"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-1/36",
+        "-1/36",
+        "-1/36",
+        "-1/36"
+      ],
+      "extras_per_completion": 0,
+      "family": "known-sharp-face",
+      "games": [
+        [
+          [
+            "-7/9"
+          ],
+          [
+            "2/9"
+          ],
+          [
+            "2/9"
+          ],
+          [
+            "2/9"
+          ]
+        ],
+        [
+          [
+            "2/9"
+          ],
+          [
+            "-7/9"
+          ],
+          [
+            "2/9"
+          ],
+          [
+            "2/9"
+          ]
+        ],
+        [
+          [
+            "2/9"
+          ],
+          [
+            "2/9"
+          ],
+          [
+            "-7/9"
+          ],
+          [
+            "2/9"
+          ]
+        ],
+        [
+          [
+            "2/9"
+          ],
+          [
+            "2/9"
+          ],
+          [
+            "2/9"
+          ],
+          [
+            "-7/9"
+          ]
+        ]
+      ],
+      "gap": "1/4",
+      "passed": true,
+      "stacked_policy": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "stacked_value": "-1/36"
+    },
+    {
+      "actions": 4,
+      "case": 11,
+      "common_value": "1/3",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/4"
+        }
+      ],
+      "dual_action_payoffs": [
+        "1/12",
+        "1/12",
+        "1/12",
+        "1/12"
+      ],
+      "extras_per_completion": 0,
+      "family": "known-sharp-face",
+      "games": [
+        [
+          [
+            "-2/3"
+          ],
+          [
+            "1/3"
+          ],
+          [
+            "1/3"
+          ],
+          [
+            "1/3"
+          ]
+        ],
+        [
+          [
+            "1/3"
+          ],
+          [
+            "-2/3"
+          ],
+          [
+            "1/3"
+          ],
+          [
+            "1/3"
+          ]
+        ],
+        [
+          [
+            "1/3"
+          ],
+          [
+            "1/3"
+          ],
+          [
+            "-2/3"
+          ],
+          [
+            "1/3"
+          ]
+        ],
+        [
+          [
+            "1/3"
+          ],
+          [
+            "1/3"
+          ],
+          [
+            "1/3"
+          ],
+          [
+            "-2/3"
+          ]
+        ]
+      ],
+      "gap": "1/4",
+      "passed": true,
+      "stacked_policy": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "stacked_value": "1/12"
+    },
+    {
+      "actions": 4,
+      "case": 12,
+      "common_value": "4/9",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/4"
+        }
+      ],
+      "dual_action_payoffs": [
+        "7/36",
+        "7/36",
+        "7/36",
+        "7/36"
+      ],
+      "extras_per_completion": 0,
+      "family": "known-sharp-face",
+      "games": [
+        [
+          [
+            "-5/9"
+          ],
+          [
+            "4/9"
+          ],
+          [
+            "4/9"
+          ],
+          [
+            "4/9"
+          ]
+        ],
+        [
+          [
+            "4/9"
+          ],
+          [
+            "-5/9"
+          ],
+          [
+            "4/9"
+          ],
+          [
+            "4/9"
+          ]
+        ],
+        [
+          [
+            "4/9"
+          ],
+          [
+            "4/9"
+          ],
+          [
+            "-5/9"
+          ],
+          [
+            "4/9"
+          ]
+        ],
+        [
+          [
+            "4/9"
+          ],
+          [
+            "4/9"
+          ],
+          [
+            "4/9"
+          ],
+          [
+            "-5/9"
+          ]
+        ]
+      ],
+      "gap": "1/4",
+      "passed": true,
+      "stacked_policy": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "stacked_value": "7/36"
+    },
+    {
+      "actions": 4,
+      "case": 13,
+      "common_value": "5/9",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/4"
+        }
+      ],
+      "dual_action_payoffs": [
+        "11/36",
+        "11/36",
+        "11/36",
+        "11/36"
+      ],
+      "extras_per_completion": 0,
+      "family": "known-sharp-face",
+      "games": [
+        [
+          [
+            "-4/9"
+          ],
+          [
+            "5/9"
+          ],
+          [
+            "5/9"
+          ],
+          [
+            "5/9"
+          ]
+        ],
+        [
+          [
+            "5/9"
+          ],
+          [
+            "-4/9"
+          ],
+          [
+            "5/9"
+          ],
+          [
+            "5/9"
+          ]
+        ],
+        [
+          [
+            "5/9"
+          ],
+          [
+            "5/9"
+          ],
+          [
+            "-4/9"
+          ],
+          [
+            "5/9"
+          ]
+        ],
+        [
+          [
+            "5/9"
+          ],
+          [
+            "5/9"
+          ],
+          [
+            "5/9"
+          ],
+          [
+            "-4/9"
+          ]
+        ]
+      ],
+      "gap": "1/4",
+      "passed": true,
+      "stacked_policy": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "stacked_value": "11/36"
+    },
+    {
+      "actions": 4,
+      "case": 14,
+      "common_value": "2/3",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/4"
+        }
+      ],
+      "dual_action_payoffs": [
+        "5/12",
+        "5/12",
+        "5/12",
+        "5/12"
+      ],
+      "extras_per_completion": 0,
+      "family": "known-sharp-face",
+      "games": [
+        [
+          [
+            "-1/3"
+          ],
+          [
+            "2/3"
+          ],
+          [
+            "2/3"
+          ],
+          [
+            "2/3"
+          ]
+        ],
+        [
+          [
+            "2/3"
+          ],
+          [
+            "-1/3"
+          ],
+          [
+            "2/3"
+          ],
+          [
+            "2/3"
+          ]
+        ],
+        [
+          [
+            "2/3"
+          ],
+          [
+            "2/3"
+          ],
+          [
+            "-1/3"
+          ],
+          [
+            "2/3"
+          ]
+        ],
+        [
+          [
+            "2/3"
+          ],
+          [
+            "2/3"
+          ],
+          [
+            "2/3"
+          ],
+          [
+            "-1/3"
+          ]
+        ]
+      ],
+      "gap": "1/4",
+      "passed": true,
+      "stacked_policy": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "stacked_value": "5/12"
+    },
+    {
+      "actions": 4,
+      "case": 15,
+      "common_value": "7/9",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/4"
+        }
+      ],
+      "dual_action_payoffs": [
+        "19/36",
+        "19/36",
+        "19/36",
+        "19/36"
+      ],
+      "extras_per_completion": 0,
+      "family": "known-sharp-face",
+      "games": [
+        [
+          [
+            "-2/9"
+          ],
+          [
+            "7/9"
+          ],
+          [
+            "7/9"
+          ],
+          [
+            "7/9"
+          ]
+        ],
+        [
+          [
+            "7/9"
+          ],
+          [
+            "-2/9"
+          ],
+          [
+            "7/9"
+          ],
+          [
+            "7/9"
+          ]
+        ],
+        [
+          [
+            "7/9"
+          ],
+          [
+            "7/9"
+          ],
+          [
+            "-2/9"
+          ],
+          [
+            "7/9"
+          ]
+        ],
+        [
+          [
+            "7/9"
+          ],
+          [
+            "7/9"
+          ],
+          [
+            "7/9"
+          ],
+          [
+            "-2/9"
+          ]
+        ]
+      ],
+      "gap": "1/4",
+      "passed": true,
+      "stacked_policy": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "stacked_value": "19/36"
+    },
+    {
+      "actions": 4,
+      "case": 16,
+      "common_value": "8/9",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/4"
+        }
+      ],
+      "dual_action_payoffs": [
+        "23/36",
+        "23/36",
+        "23/36",
+        "23/36"
+      ],
+      "extras_per_completion": 0,
+      "family": "known-sharp-face",
+      "games": [
+        [
+          [
+            "-1/9"
+          ],
+          [
+            "8/9"
+          ],
+          [
+            "8/9"
+          ],
+          [
+            "8/9"
+          ]
+        ],
+        [
+          [
+            "8/9"
+          ],
+          [
+            "-1/9"
+          ],
+          [
+            "8/9"
+          ],
+          [
+            "8/9"
+          ]
+        ],
+        [
+          [
+            "8/9"
+          ],
+          [
+            "8/9"
+          ],
+          [
+            "-1/9"
+          ],
+          [
+            "8/9"
+          ]
+        ],
+        [
+          [
+            "8/9"
+          ],
+          [
+            "8/9"
+          ],
+          [
+            "8/9"
+          ],
+          [
+            "-1/9"
+          ]
+        ]
+      ],
+      "gap": "1/4",
+      "passed": true,
+      "stacked_policy": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "stacked_value": "23/36"
+    },
+    {
+      "actions": 4,
+      "case": 17,
+      "common_value": "1",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/4"
+        }
+      ],
+      "dual_action_payoffs": [
+        "3/4",
+        "3/4",
+        "3/4",
+        "3/4"
+      ],
+      "extras_per_completion": 0,
+      "family": "known-sharp-face",
+      "games": [
+        [
+          [
+            "0"
+          ],
+          [
+            "1"
+          ],
+          [
+            "1"
+          ],
+          [
+            "1"
+          ]
+        ],
+        [
+          [
+            "1"
+          ],
+          [
+            "0"
+          ],
+          [
+            "1"
+          ],
+          [
+            "1"
+          ]
+        ],
+        [
+          [
+            "1"
+          ],
+          [
+            "1"
+          ],
+          [
+            "0"
+          ],
+          [
+            "1"
+          ]
+        ],
+        [
+          [
+            "1"
+          ],
+          [
+            "1"
+          ],
+          [
+            "1"
+          ],
+          [
+            "0"
+          ]
+        ]
+      ],
+      "gap": "1/4",
+      "passed": true,
+      "stacked_policy": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "stacked_value": "3/4"
+    },
+    {
+      "actions": 4,
+      "case": 18,
+      "common_value": "10/9",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/4"
+        }
+      ],
+      "dual_action_payoffs": [
+        "31/36",
+        "31/36",
+        "31/36",
+        "31/36"
+      ],
+      "extras_per_completion": 0,
+      "family": "known-sharp-face",
+      "games": [
+        [
+          [
+            "1/9"
+          ],
+          [
+            "10/9"
+          ],
+          [
+            "10/9"
+          ],
+          [
+            "10/9"
+          ]
+        ],
+        [
+          [
+            "10/9"
+          ],
+          [
+            "1/9"
+          ],
+          [
+            "10/9"
+          ],
+          [
+            "10/9"
+          ]
+        ],
+        [
+          [
+            "10/9"
+          ],
+          [
+            "10/9"
+          ],
+          [
+            "1/9"
+          ],
+          [
+            "10/9"
+          ]
+        ],
+        [
+          [
+            "10/9"
+          ],
+          [
+            "10/9"
+          ],
+          [
+            "10/9"
+          ],
+          [
+            "1/9"
+          ]
+        ]
+      ],
+      "gap": "1/4",
+      "passed": true,
+      "stacked_policy": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "stacked_value": "31/36"
+    },
+    {
+      "actions": 4,
+      "case": 19,
+      "common_value": "11/9",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/4"
+        }
+      ],
+      "dual_action_payoffs": [
+        "35/36",
+        "35/36",
+        "35/36",
+        "35/36"
+      ],
+      "extras_per_completion": 0,
+      "family": "known-sharp-face",
+      "games": [
+        [
+          [
+            "2/9"
+          ],
+          [
+            "11/9"
+          ],
+          [
+            "11/9"
+          ],
+          [
+            "11/9"
+          ]
+        ],
+        [
+          [
+            "11/9"
+          ],
+          [
+            "2/9"
+          ],
+          [
+            "11/9"
+          ],
+          [
+            "11/9"
+          ]
+        ],
+        [
+          [
+            "11/9"
+          ],
+          [
+            "11/9"
+          ],
+          [
+            "2/9"
+          ],
+          [
+            "11/9"
+          ]
+        ],
+        [
+          [
+            "11/9"
+          ],
+          [
+            "11/9"
+          ],
+          [
+            "11/9"
+          ],
+          [
+            "2/9"
+          ]
+        ]
+      ],
+      "gap": "1/4",
+      "passed": true,
+      "stacked_policy": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "stacked_value": "35/36"
+    },
+    {
+      "actions": 6,
+      "case": 200,
+      "common_value": "-4/7",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 4,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 5,
+          "scenario": 0,
+          "weight": "1/6"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-31/42",
+        "-31/42",
+        "-31/42",
+        "-31/42",
+        "-31/42",
+        "-31/42"
+      ],
+      "extras_per_completion": 0,
+      "family": "prospective-six-action",
+      "games": [
+        [
+          [
+            "-11/7"
+          ],
+          [
+            "-4/7"
+          ],
+          [
+            "-4/7"
+          ],
+          [
+            "-4/7"
+          ],
+          [
+            "-4/7"
+          ],
+          [
+            "-4/7"
+          ]
+        ],
+        [
+          [
+            "-4/7"
+          ],
+          [
+            "-11/7"
+          ],
+          [
+            "-4/7"
+          ],
+          [
+            "-4/7"
+          ],
+          [
+            "-4/7"
+          ],
+          [
+            "-4/7"
+          ]
+        ],
+        [
+          [
+            "-4/7"
+          ],
+          [
+            "-4/7"
+          ],
+          [
+            "-11/7"
+          ],
+          [
+            "-4/7"
+          ],
+          [
+            "-4/7"
+          ],
+          [
+            "-4/7"
+          ]
+        ],
+        [
+          [
+            "-4/7"
+          ],
+          [
+            "-4/7"
+          ],
+          [
+            "-4/7"
+          ],
+          [
+            "-11/7"
+          ],
+          [
+            "-4/7"
+          ],
+          [
+            "-4/7"
+          ]
+        ],
+        [
+          [
+            "-4/7"
+          ],
+          [
+            "-4/7"
+          ],
+          [
+            "-4/7"
+          ],
+          [
+            "-4/7"
+          ],
+          [
+            "-11/7"
+          ],
+          [
+            "-4/7"
+          ]
+        ],
+        [
+          [
+            "-4/7"
+          ],
+          [
+            "-4/7"
+          ],
+          [
+            "-4/7"
+          ],
+          [
+            "-4/7"
+          ],
+          [
+            "-4/7"
+          ],
+          [
+            "-11/7"
+          ]
+        ]
+      ],
+      "gap": "1/6",
+      "passed": true,
+      "stacked_policy": [
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6"
+      ],
+      "stacked_value": "-31/42"
+    },
+    {
+      "actions": 6,
+      "case": 201,
+      "common_value": "-3/7",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 4,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 5,
+          "scenario": 0,
+          "weight": "1/6"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-25/42",
+        "-25/42",
+        "-25/42",
+        "-25/42",
+        "-25/42",
+        "-25/42"
+      ],
+      "extras_per_completion": 0,
+      "family": "prospective-six-action",
+      "games": [
+        [
+          [
+            "-10/7"
+          ],
+          [
+            "-3/7"
+          ],
+          [
+            "-3/7"
+          ],
+          [
+            "-3/7"
+          ],
+          [
+            "-3/7"
+          ],
+          [
+            "-3/7"
+          ]
+        ],
+        [
+          [
+            "-3/7"
+          ],
+          [
+            "-10/7"
+          ],
+          [
+            "-3/7"
+          ],
+          [
+            "-3/7"
+          ],
+          [
+            "-3/7"
+          ],
+          [
+            "-3/7"
+          ]
+        ],
+        [
+          [
+            "-3/7"
+          ],
+          [
+            "-3/7"
+          ],
+          [
+            "-10/7"
+          ],
+          [
+            "-3/7"
+          ],
+          [
+            "-3/7"
+          ],
+          [
+            "-3/7"
+          ]
+        ],
+        [
+          [
+            "-3/7"
+          ],
+          [
+            "-3/7"
+          ],
+          [
+            "-3/7"
+          ],
+          [
+            "-10/7"
+          ],
+          [
+            "-3/7"
+          ],
+          [
+            "-3/7"
+          ]
+        ],
+        [
+          [
+            "-3/7"
+          ],
+          [
+            "-3/7"
+          ],
+          [
+            "-3/7"
+          ],
+          [
+            "-3/7"
+          ],
+          [
+            "-10/7"
+          ],
+          [
+            "-3/7"
+          ]
+        ],
+        [
+          [
+            "-3/7"
+          ],
+          [
+            "-3/7"
+          ],
+          [
+            "-3/7"
+          ],
+          [
+            "-3/7"
+          ],
+          [
+            "-3/7"
+          ],
+          [
+            "-10/7"
+          ]
+        ]
+      ],
+      "gap": "1/6",
+      "passed": true,
+      "stacked_policy": [
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6"
+      ],
+      "stacked_value": "-25/42"
+    },
+    {
+      "actions": 6,
+      "case": 202,
+      "common_value": "-2/7",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 4,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 5,
+          "scenario": 0,
+          "weight": "1/6"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-19/42",
+        "-19/42",
+        "-19/42",
+        "-19/42",
+        "-19/42",
+        "-19/42"
+      ],
+      "extras_per_completion": 0,
+      "family": "prospective-six-action",
+      "games": [
+        [
+          [
+            "-9/7"
+          ],
+          [
+            "-2/7"
+          ],
+          [
+            "-2/7"
+          ],
+          [
+            "-2/7"
+          ],
+          [
+            "-2/7"
+          ],
+          [
+            "-2/7"
+          ]
+        ],
+        [
+          [
+            "-2/7"
+          ],
+          [
+            "-9/7"
+          ],
+          [
+            "-2/7"
+          ],
+          [
+            "-2/7"
+          ],
+          [
+            "-2/7"
+          ],
+          [
+            "-2/7"
+          ]
+        ],
+        [
+          [
+            "-2/7"
+          ],
+          [
+            "-2/7"
+          ],
+          [
+            "-9/7"
+          ],
+          [
+            "-2/7"
+          ],
+          [
+            "-2/7"
+          ],
+          [
+            "-2/7"
+          ]
+        ],
+        [
+          [
+            "-2/7"
+          ],
+          [
+            "-2/7"
+          ],
+          [
+            "-2/7"
+          ],
+          [
+            "-9/7"
+          ],
+          [
+            "-2/7"
+          ],
+          [
+            "-2/7"
+          ]
+        ],
+        [
+          [
+            "-2/7"
+          ],
+          [
+            "-2/7"
+          ],
+          [
+            "-2/7"
+          ],
+          [
+            "-2/7"
+          ],
+          [
+            "-9/7"
+          ],
+          [
+            "-2/7"
+          ]
+        ],
+        [
+          [
+            "-2/7"
+          ],
+          [
+            "-2/7"
+          ],
+          [
+            "-2/7"
+          ],
+          [
+            "-2/7"
+          ],
+          [
+            "-2/7"
+          ],
+          [
+            "-9/7"
+          ]
+        ]
+      ],
+      "gap": "1/6",
+      "passed": true,
+      "stacked_policy": [
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6"
+      ],
+      "stacked_value": "-19/42"
+    },
+    {
+      "actions": 6,
+      "case": 203,
+      "common_value": "-1/7",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 4,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 5,
+          "scenario": 0,
+          "weight": "1/6"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-13/42",
+        "-13/42",
+        "-13/42",
+        "-13/42",
+        "-13/42",
+        "-13/42"
+      ],
+      "extras_per_completion": 0,
+      "family": "prospective-six-action",
+      "games": [
+        [
+          [
+            "-8/7"
+          ],
+          [
+            "-1/7"
+          ],
+          [
+            "-1/7"
+          ],
+          [
+            "-1/7"
+          ],
+          [
+            "-1/7"
+          ],
+          [
+            "-1/7"
+          ]
+        ],
+        [
+          [
+            "-1/7"
+          ],
+          [
+            "-8/7"
+          ],
+          [
+            "-1/7"
+          ],
+          [
+            "-1/7"
+          ],
+          [
+            "-1/7"
+          ],
+          [
+            "-1/7"
+          ]
+        ],
+        [
+          [
+            "-1/7"
+          ],
+          [
+            "-1/7"
+          ],
+          [
+            "-8/7"
+          ],
+          [
+            "-1/7"
+          ],
+          [
+            "-1/7"
+          ],
+          [
+            "-1/7"
+          ]
+        ],
+        [
+          [
+            "-1/7"
+          ],
+          [
+            "-1/7"
+          ],
+          [
+            "-1/7"
+          ],
+          [
+            "-8/7"
+          ],
+          [
+            "-1/7"
+          ],
+          [
+            "-1/7"
+          ]
+        ],
+        [
+          [
+            "-1/7"
+          ],
+          [
+            "-1/7"
+          ],
+          [
+            "-1/7"
+          ],
+          [
+            "-1/7"
+          ],
+          [
+            "-8/7"
+          ],
+          [
+            "-1/7"
+          ]
+        ],
+        [
+          [
+            "-1/7"
+          ],
+          [
+            "-1/7"
+          ],
+          [
+            "-1/7"
+          ],
+          [
+            "-1/7"
+          ],
+          [
+            "-1/7"
+          ],
+          [
+            "-8/7"
+          ]
+        ]
+      ],
+      "gap": "1/6",
+      "passed": true,
+      "stacked_policy": [
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6"
+      ],
+      "stacked_value": "-13/42"
+    },
+    {
+      "actions": 6,
+      "case": 204,
+      "common_value": "0",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 4,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 5,
+          "scenario": 0,
+          "weight": "1/6"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-1/6",
+        "-1/6",
+        "-1/6",
+        "-1/6",
+        "-1/6",
+        "-1/6"
+      ],
+      "extras_per_completion": 0,
+      "family": "prospective-six-action",
+      "games": [
+        [
+          [
+            "-1"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ]
+        ],
+        [
+          [
+            "0"
+          ],
+          [
+            "-1"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ]
+        ],
+        [
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "-1"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ]
+        ],
+        [
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "-1"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ]
+        ],
+        [
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "-1"
+          ],
+          [
+            "0"
+          ]
+        ],
+        [
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "-1"
+          ]
+        ]
+      ],
+      "gap": "1/6",
+      "passed": true,
+      "stacked_policy": [
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6"
+      ],
+      "stacked_value": "-1/6"
+    },
+    {
+      "actions": 6,
+      "case": 205,
+      "common_value": "1/7",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 4,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 5,
+          "scenario": 0,
+          "weight": "1/6"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-1/42",
+        "-1/42",
+        "-1/42",
+        "-1/42",
+        "-1/42",
+        "-1/42"
+      ],
+      "extras_per_completion": 0,
+      "family": "prospective-six-action",
+      "games": [
+        [
+          [
+            "-6/7"
+          ],
+          [
+            "1/7"
+          ],
+          [
+            "1/7"
+          ],
+          [
+            "1/7"
+          ],
+          [
+            "1/7"
+          ],
+          [
+            "1/7"
+          ]
+        ],
+        [
+          [
+            "1/7"
+          ],
+          [
+            "-6/7"
+          ],
+          [
+            "1/7"
+          ],
+          [
+            "1/7"
+          ],
+          [
+            "1/7"
+          ],
+          [
+            "1/7"
+          ]
+        ],
+        [
+          [
+            "1/7"
+          ],
+          [
+            "1/7"
+          ],
+          [
+            "-6/7"
+          ],
+          [
+            "1/7"
+          ],
+          [
+            "1/7"
+          ],
+          [
+            "1/7"
+          ]
+        ],
+        [
+          [
+            "1/7"
+          ],
+          [
+            "1/7"
+          ],
+          [
+            "1/7"
+          ],
+          [
+            "-6/7"
+          ],
+          [
+            "1/7"
+          ],
+          [
+            "1/7"
+          ]
+        ],
+        [
+          [
+            "1/7"
+          ],
+          [
+            "1/7"
+          ],
+          [
+            "1/7"
+          ],
+          [
+            "1/7"
+          ],
+          [
+            "-6/7"
+          ],
+          [
+            "1/7"
+          ]
+        ],
+        [
+          [
+            "1/7"
+          ],
+          [
+            "1/7"
+          ],
+          [
+            "1/7"
+          ],
+          [
+            "1/7"
+          ],
+          [
+            "1/7"
+          ],
+          [
+            "-6/7"
+          ]
+        ]
+      ],
+      "gap": "1/6",
+      "passed": true,
+      "stacked_policy": [
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6"
+      ],
+      "stacked_value": "-1/42"
+    },
+    {
+      "actions": 6,
+      "case": 206,
+      "common_value": "2/7",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 4,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 5,
+          "scenario": 0,
+          "weight": "1/6"
+        }
+      ],
+      "dual_action_payoffs": [
+        "5/42",
+        "5/42",
+        "5/42",
+        "5/42",
+        "5/42",
+        "5/42"
+      ],
+      "extras_per_completion": 0,
+      "family": "prospective-six-action",
+      "games": [
+        [
+          [
+            "-5/7"
+          ],
+          [
+            "2/7"
+          ],
+          [
+            "2/7"
+          ],
+          [
+            "2/7"
+          ],
+          [
+            "2/7"
+          ],
+          [
+            "2/7"
+          ]
+        ],
+        [
+          [
+            "2/7"
+          ],
+          [
+            "-5/7"
+          ],
+          [
+            "2/7"
+          ],
+          [
+            "2/7"
+          ],
+          [
+            "2/7"
+          ],
+          [
+            "2/7"
+          ]
+        ],
+        [
+          [
+            "2/7"
+          ],
+          [
+            "2/7"
+          ],
+          [
+            "-5/7"
+          ],
+          [
+            "2/7"
+          ],
+          [
+            "2/7"
+          ],
+          [
+            "2/7"
+          ]
+        ],
+        [
+          [
+            "2/7"
+          ],
+          [
+            "2/7"
+          ],
+          [
+            "2/7"
+          ],
+          [
+            "-5/7"
+          ],
+          [
+            "2/7"
+          ],
+          [
+            "2/7"
+          ]
+        ],
+        [
+          [
+            "2/7"
+          ],
+          [
+            "2/7"
+          ],
+          [
+            "2/7"
+          ],
+          [
+            "2/7"
+          ],
+          [
+            "-5/7"
+          ],
+          [
+            "2/7"
+          ]
+        ],
+        [
+          [
+            "2/7"
+          ],
+          [
+            "2/7"
+          ],
+          [
+            "2/7"
+          ],
+          [
+            "2/7"
+          ],
+          [
+            "2/7"
+          ],
+          [
+            "-5/7"
+          ]
+        ]
+      ],
+      "gap": "1/6",
+      "passed": true,
+      "stacked_policy": [
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6"
+      ],
+      "stacked_value": "5/42"
+    },
+    {
+      "actions": 6,
+      "case": 207,
+      "common_value": "3/7",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 4,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 5,
+          "scenario": 0,
+          "weight": "1/6"
+        }
+      ],
+      "dual_action_payoffs": [
+        "11/42",
+        "11/42",
+        "11/42",
+        "11/42",
+        "11/42",
+        "11/42"
+      ],
+      "extras_per_completion": 0,
+      "family": "prospective-six-action",
+      "games": [
+        [
+          [
+            "-4/7"
+          ],
+          [
+            "3/7"
+          ],
+          [
+            "3/7"
+          ],
+          [
+            "3/7"
+          ],
+          [
+            "3/7"
+          ],
+          [
+            "3/7"
+          ]
+        ],
+        [
+          [
+            "3/7"
+          ],
+          [
+            "-4/7"
+          ],
+          [
+            "3/7"
+          ],
+          [
+            "3/7"
+          ],
+          [
+            "3/7"
+          ],
+          [
+            "3/7"
+          ]
+        ],
+        [
+          [
+            "3/7"
+          ],
+          [
+            "3/7"
+          ],
+          [
+            "-4/7"
+          ],
+          [
+            "3/7"
+          ],
+          [
+            "3/7"
+          ],
+          [
+            "3/7"
+          ]
+        ],
+        [
+          [
+            "3/7"
+          ],
+          [
+            "3/7"
+          ],
+          [
+            "3/7"
+          ],
+          [
+            "-4/7"
+          ],
+          [
+            "3/7"
+          ],
+          [
+            "3/7"
+          ]
+        ],
+        [
+          [
+            "3/7"
+          ],
+          [
+            "3/7"
+          ],
+          [
+            "3/7"
+          ],
+          [
+            "3/7"
+          ],
+          [
+            "-4/7"
+          ],
+          [
+            "3/7"
+          ]
+        ],
+        [
+          [
+            "3/7"
+          ],
+          [
+            "3/7"
+          ],
+          [
+            "3/7"
+          ],
+          [
+            "3/7"
+          ],
+          [
+            "3/7"
+          ],
+          [
+            "-4/7"
+          ]
+        ]
+      ],
+      "gap": "1/6",
+      "passed": true,
+      "stacked_policy": [
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6"
+      ],
+      "stacked_value": "11/42"
+    },
+    {
+      "actions": 6,
+      "case": 208,
+      "common_value": "4/7",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 4,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 5,
+          "scenario": 0,
+          "weight": "1/6"
+        }
+      ],
+      "dual_action_payoffs": [
+        "17/42",
+        "17/42",
+        "17/42",
+        "17/42",
+        "17/42",
+        "17/42"
+      ],
+      "extras_per_completion": 0,
+      "family": "prospective-six-action",
+      "games": [
+        [
+          [
+            "-3/7"
+          ],
+          [
+            "4/7"
+          ],
+          [
+            "4/7"
+          ],
+          [
+            "4/7"
+          ],
+          [
+            "4/7"
+          ],
+          [
+            "4/7"
+          ]
+        ],
+        [
+          [
+            "4/7"
+          ],
+          [
+            "-3/7"
+          ],
+          [
+            "4/7"
+          ],
+          [
+            "4/7"
+          ],
+          [
+            "4/7"
+          ],
+          [
+            "4/7"
+          ]
+        ],
+        [
+          [
+            "4/7"
+          ],
+          [
+            "4/7"
+          ],
+          [
+            "-3/7"
+          ],
+          [
+            "4/7"
+          ],
+          [
+            "4/7"
+          ],
+          [
+            "4/7"
+          ]
+        ],
+        [
+          [
+            "4/7"
+          ],
+          [
+            "4/7"
+          ],
+          [
+            "4/7"
+          ],
+          [
+            "-3/7"
+          ],
+          [
+            "4/7"
+          ],
+          [
+            "4/7"
+          ]
+        ],
+        [
+          [
+            "4/7"
+          ],
+          [
+            "4/7"
+          ],
+          [
+            "4/7"
+          ],
+          [
+            "4/7"
+          ],
+          [
+            "-3/7"
+          ],
+          [
+            "4/7"
+          ]
+        ],
+        [
+          [
+            "4/7"
+          ],
+          [
+            "4/7"
+          ],
+          [
+            "4/7"
+          ],
+          [
+            "4/7"
+          ],
+          [
+            "4/7"
+          ],
+          [
+            "-3/7"
+          ]
+        ]
+      ],
+      "gap": "1/6",
+      "passed": true,
+      "stacked_policy": [
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6"
+      ],
+      "stacked_value": "17/42"
+    },
+    {
+      "actions": 6,
+      "case": 209,
+      "common_value": "5/7",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 4,
+          "scenario": 0,
+          "weight": "1/6"
+        },
+        {
+          "completion": 5,
+          "scenario": 0,
+          "weight": "1/6"
+        }
+      ],
+      "dual_action_payoffs": [
+        "23/42",
+        "23/42",
+        "23/42",
+        "23/42",
+        "23/42",
+        "23/42"
+      ],
+      "extras_per_completion": 0,
+      "family": "prospective-six-action",
+      "games": [
+        [
+          [
+            "-2/7"
+          ],
+          [
+            "5/7"
+          ],
+          [
+            "5/7"
+          ],
+          [
+            "5/7"
+          ],
+          [
+            "5/7"
+          ],
+          [
+            "5/7"
+          ]
+        ],
+        [
+          [
+            "5/7"
+          ],
+          [
+            "-2/7"
+          ],
+          [
+            "5/7"
+          ],
+          [
+            "5/7"
+          ],
+          [
+            "5/7"
+          ],
+          [
+            "5/7"
+          ]
+        ],
+        [
+          [
+            "5/7"
+          ],
+          [
+            "5/7"
+          ],
+          [
+            "-2/7"
+          ],
+          [
+            "5/7"
+          ],
+          [
+            "5/7"
+          ],
+          [
+            "5/7"
+          ]
+        ],
+        [
+          [
+            "5/7"
+          ],
+          [
+            "5/7"
+          ],
+          [
+            "5/7"
+          ],
+          [
+            "-2/7"
+          ],
+          [
+            "5/7"
+          ],
+          [
+            "5/7"
+          ]
+        ],
+        [
+          [
+            "5/7"
+          ],
+          [
+            "5/7"
+          ],
+          [
+            "5/7"
+          ],
+          [
+            "5/7"
+          ],
+          [
+            "-2/7"
+          ],
+          [
+            "5/7"
+          ]
+        ],
+        [
+          [
+            "5/7"
+          ],
+          [
+            "5/7"
+          ],
+          [
+            "5/7"
+          ],
+          [
+            "5/7"
+          ],
+          [
+            "5/7"
+          ],
+          [
+            "-2/7"
+          ]
+        ]
+      ],
+      "gap": "1/6",
+      "passed": true,
+      "stacked_policy": [
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6",
+        "1/6"
+      ],
+      "stacked_value": "23/42"
+    },
+    {
+      "actions": 3,
+      "case": 300,
+      "common_value": "-13/11",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/3"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-50/33",
+        "-50/33",
+        "-50/33"
+      ],
+      "extras_per_completion": 2,
+      "family": "asymmetric-dominated-extra-scenarios",
+      "games": [
+        [
+          [
+            "-24/11",
+            "5/33",
+            "-37/22"
+          ],
+          [
+            "-13/11",
+            "-28/33",
+            "-19/44"
+          ],
+          [
+            "-13/11",
+            "-17/33",
+            "-2/11"
+          ]
+        ],
+        [
+          [
+            "-13/11",
+            "25/44",
+            "-43/55"
+          ],
+          [
+            "-24/11",
+            "-85/44",
+            "-87/55"
+          ],
+          [
+            "-13/11",
+            "-15/22",
+            "-21/55"
+          ]
+        ],
+        [
+          [
+            "-13/11",
+            "12/55",
+            "-28/33"
+          ],
+          [
+            "-13/11",
+            "-54/55",
+            "-15/22"
+          ],
+          [
+            "-24/11",
+            "-98/55",
+            "-50/33"
+          ]
+        ]
+      ],
+      "gap": "1/3",
+      "passed": true,
+      "stacked_policy": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ],
+      "stacked_value": "-50/33"
+    },
+    {
+      "actions": 4,
+      "case": 301,
+      "common_value": "-12/11",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/4"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-59/44",
+        "-59/44",
+        "-59/44",
+        "-59/44"
+      ],
+      "extras_per_completion": 2,
+      "family": "asymmetric-dominated-extra-scenarios",
+      "games": [
+        [
+          [
+            "-23/11",
+            "-58/33",
+            "-59/44"
+          ],
+          [
+            "-12/11",
+            "-14/33",
+            "-1/11"
+          ],
+          [
+            "-12/11",
+            "-1/11",
+            "7/44"
+          ],
+          [
+            "-12/11",
+            "8/33",
+            "9/22"
+          ]
+        ],
+        [
+          [
+            "-12/11",
+            "-37/44",
+            "-27/55"
+          ],
+          [
+            "-23/11",
+            "-35/22",
+            "-71/55"
+          ],
+          [
+            "-12/11",
+            "-15/44",
+            "-1/11"
+          ],
+          [
+            "-12/11",
+            "-1/11",
+            "6/55"
+          ]
+        ],
+        [
+          [
+            "-12/11",
+            "-49/55",
+            "-13/22"
+          ],
+          [
+            "-12/11",
+            "-38/55",
+            "-14/33"
+          ],
+          [
+            "-23/11",
+            "-82/55",
+            "-83/66"
+          ],
+          [
+            "-12/11",
+            "-16/55",
+            "-1/11"
+          ]
+        ],
+        [
+          [
+            "-12/11",
+            "-61/66",
+            "-51/77"
+          ],
+          [
+            "-12/11",
+            "-25/33",
+            "-40/77"
+          ],
+          [
+            "-12/11",
+            "-13/22",
+            "-29/77"
+          ],
+          [
+            "-23/11",
+            "-47/33",
+            "-95/77"
+          ]
+        ]
+      ],
+      "gap": "1/4",
+      "passed": true,
+      "stacked_policy": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "stacked_value": "-59/44"
+    },
+    {
+      "actions": 3,
+      "case": 302,
+      "common_value": "-1",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/3"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-4/3",
+        "-4/3",
+        "-4/3"
+      ],
+      "extras_per_completion": 2,
+      "family": "asymmetric-dominated-extra-scenarios",
+      "games": [
+        [
+          [
+            "-2",
+            "-4/3",
+            "-1"
+          ],
+          [
+            "-1",
+            "0",
+            "1/4"
+          ],
+          [
+            "-1",
+            "1/3",
+            "1/2"
+          ]
+        ],
+        [
+          [
+            "-1",
+            "-1/2",
+            "-1/5"
+          ],
+          [
+            "-2",
+            "-5/4",
+            "-1"
+          ],
+          [
+            "-1",
+            "0",
+            "1/5"
+          ]
+        ],
+        [
+          [
+            "-1",
+            "-3/5",
+            "-1/3"
+          ],
+          [
+            "-1",
+            "-2/5",
+            "-1/6"
+          ],
+          [
+            "-2",
+            "-6/5",
+            "-1"
+          ]
+        ]
+      ],
+      "gap": "1/3",
+      "passed": true,
+      "stacked_policy": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ],
+      "stacked_value": "-4/3"
+    },
+    {
+      "actions": 4,
+      "case": 303,
+      "common_value": "-10/11",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/4"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-51/44",
+        "-51/44",
+        "-51/44",
+        "-51/44"
+      ],
+      "extras_per_completion": 2,
+      "family": "asymmetric-dominated-extra-scenarios",
+      "games": [
+        [
+          [
+            "-21/11",
+            "-10/11",
+            "-29/44"
+          ],
+          [
+            "-10/11",
+            "14/33",
+            "13/22"
+          ],
+          [
+            "-10/11",
+            "25/33",
+            "37/44"
+          ],
+          [
+            "-10/11",
+            "12/11",
+            "-29/44"
+          ]
+        ],
+        [
+          [
+            "-10/11",
+            "-7/44",
+            "1/11"
+          ],
+          [
+            "-21/11",
+            "-10/11",
+            "-39/55"
+          ],
+          [
+            "-10/11",
+            "15/44",
+            "27/55"
+          ],
+          [
+            "-10/11",
+            "13/22",
+            "-39/55"
+          ]
+        ],
+        [
+          [
+            "-10/11",
+            "-17/55",
+            "-5/66"
+          ],
+          [
+            "-10/11",
+            "-6/55",
+            "1/11"
+          ],
+          [
+            "-21/11",
+            "-10/11",
+            "-49/66"
+          ],
+          [
+            "-10/11",
+            "16/55",
+            "-49/66"
+          ]
+        ],
+        [
+          [
+            "-10/11",
+            "-9/22",
+            "-15/77"
+          ],
+          [
+            "-10/11",
+            "-8/33",
+            "-4/77"
+          ],
+          [
+            "-10/11",
+            "-5/66",
+            "1/11"
+          ],
+          [
+            "-21/11",
+            "-10/11",
+            "-136/77"
+          ]
+        ]
+      ],
+      "gap": "1/4",
+      "passed": true,
+      "stacked_policy": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "stacked_value": "-51/44"
+    },
+    {
+      "actions": 3,
+      "case": 304,
+      "common_value": "-9/11",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/3"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-38/33",
+        "-38/33",
+        "-38/33"
+      ],
+      "extras_per_completion": 2,
+      "family": "asymmetric-dominated-extra-scenarios",
+      "games": [
+        [
+          [
+            "-20/11",
+            "-16/33",
+            "-7/22"
+          ],
+          [
+            "-9/11",
+            "28/33",
+            "41/44"
+          ],
+          [
+            "-9/11",
+            "13/11",
+            "-25/44"
+          ]
+        ],
+        [
+          [
+            "-9/11",
+            "2/11",
+            "21/55"
+          ],
+          [
+            "-20/11",
+            "-25/44",
+            "-23/55"
+          ],
+          [
+            "-9/11",
+            "15/22",
+            "-34/55"
+          ]
+        ],
+        [
+          [
+            "-9/11",
+            "-1/55",
+            "2/11"
+          ],
+          [
+            "-9/11",
+            "2/11",
+            "23/66"
+          ],
+          [
+            "-20/11",
+            "-34/55",
+            "-109/66"
+          ]
+        ]
+      ],
+      "gap": "1/3",
+      "passed": true,
+      "stacked_policy": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ],
+      "stacked_value": "-38/33"
+    },
+    {
+      "actions": 4,
+      "case": 305,
+      "common_value": "-8/11",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/4"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-43/44",
+        "-43/44",
+        "-43/44",
+        "-43/44"
+      ],
+      "extras_per_completion": 2,
+      "family": "asymmetric-dominated-extra-scenarios",
+      "games": [
+        [
+          [
+            "-19/11",
+            "-2/33",
+            "1/44"
+          ],
+          [
+            "-8/11",
+            "14/11",
+            "-21/44"
+          ],
+          [
+            "-8/11",
+            "53/33",
+            "-5/22"
+          ],
+          [
+            "-8/11",
+            "-13/33",
+            "1/44"
+          ]
+        ],
+        [
+          [
+            "-8/11",
+            "23/44",
+            "37/55"
+          ],
+          [
+            "-19/11",
+            "-5/22",
+            "-84/55"
+          ],
+          [
+            "-8/11",
+            "45/44",
+            "-18/55"
+          ],
+          [
+            "-8/11",
+            "-21/44",
+            "-7/55"
+          ]
+        ],
+        [
+          [
+            "-8/11",
+            "3/11",
+            "29/66"
+          ],
+          [
+            "-8/11",
+            "26/55",
+            "-37/66"
+          ],
+          [
+            "-19/11",
+            "-18/55",
+            "-46/33"
+          ],
+          [
+            "-8/11",
+            "-29/55",
+            "-5/22"
+          ]
+        ],
+        [
+          [
+            "-8/11",
+            "7/66",
+            "3/11"
+          ],
+          [
+            "-8/11",
+            "3/11",
+            "-45/77"
+          ],
+          [
+            "-8/11",
+            "29/66",
+            "-34/77"
+          ],
+          [
+            "-19/11",
+            "-103/66",
+            "-100/77"
+          ]
+        ]
+      ],
+      "gap": "1/4",
+      "passed": true,
+      "stacked_policy": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "stacked_value": "-43/44"
+    },
+    {
+      "actions": 3,
+      "case": 306,
+      "common_value": "-7/11",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/3"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-32/33",
+        "-32/33",
+        "-32/33"
+      ],
+      "extras_per_completion": 2,
+      "family": "asymmetric-dominated-extra-scenarios",
+      "games": [
+        [
+          [
+            "-18/11",
+            "4/11",
+            "-61/44"
+          ],
+          [
+            "-7/11",
+            "56/33",
+            "-3/22"
+          ],
+          [
+            "-7/11",
+            "-10/33",
+            "5/44"
+          ]
+        ],
+        [
+          [
+            "-7/11",
+            "19/22",
+            "-24/55"
+          ],
+          [
+            "-18/11",
+            "5/44",
+            "-68/55"
+          ],
+          [
+            "-7/11",
+            "-17/44",
+            "-2/55"
+          ]
+        ],
+        [
+          [
+            "-7/11",
+            "31/55",
+            "-31/66"
+          ],
+          [
+            "-7/11",
+            "42/55",
+            "-10/33"
+          ],
+          [
+            "-18/11",
+            "-79/55",
+            "-25/22"
+          ]
+        ]
+      ],
+      "gap": "1/3",
+      "passed": true,
+      "stacked_policy": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ],
+      "stacked_value": "-32/33"
+    },
+    {
+      "actions": 4,
+      "case": 307,
+      "common_value": "-6/11",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/4"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-35/44",
+        "-35/44",
+        "-35/44",
+        "-35/44"
+      ],
+      "extras_per_completion": 2,
+      "family": "asymmetric-dominated-extra-scenarios",
+      "games": [
+        [
+          [
+            "-17/11",
+            "26/33",
+            "-23/22"
+          ],
+          [
+            "-6/11",
+            "-7/33",
+            "9/44"
+          ],
+          [
+            "-6/11",
+            "4/33",
+            "5/11"
+          ],
+          [
+            "-6/11",
+            "5/11",
+            "31/44"
+          ]
+        ],
+        [
+          [
+            "-6/11",
+            "53/44",
+            "-8/55"
+          ],
+          [
+            "-17/11",
+            "-57/44",
+            "-52/55"
+          ],
+          [
+            "-6/11",
+            "-1/22",
+            "14/55"
+          ],
+          [
+            "-6/11",
+            "9/44",
+            "5/11"
+          ]
+        ],
+        [
+          [
+            "-6/11",
+            "47/55",
+            "-7/33"
+          ],
+          [
+            "-6/11",
+            "-19/55",
+            "-1/22"
+          ],
+          [
+            "-17/11",
+            "-63/55",
+            "-29/33"
+          ],
+          [
+            "-6/11",
+            "3/55",
+            "19/66"
+          ]
+        ],
+        [
+          [
+            "-6/11",
+            "41/66",
+            "-20/77"
+          ],
+          [
+            "-6/11",
+            "-25/66",
+            "-9/77"
+          ],
+          [
+            "-6/11",
+            "-7/33",
+            "2/77"
+          ],
+          [
+            "-17/11",
+            "-23/22",
+            "-64/77"
+          ]
+        ]
+      ],
+      "gap": "1/4",
+      "passed": true,
+      "stacked_policy": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "stacked_value": "-35/44"
+    },
+    {
+      "actions": 3,
+      "case": 308,
+      "common_value": "-5/11",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/3"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-26/33",
+        "-26/33",
+        "-26/33"
+      ],
+      "extras_per_completion": 2,
+      "family": "asymmetric-dominated-extra-scenarios",
+      "games": [
+        [
+          [
+            "-16/11",
+            "-37/33",
+            "-31/44"
+          ],
+          [
+            "-5/11",
+            "7/33",
+            "6/11"
+          ],
+          [
+            "-5/11",
+            "6/11",
+            "35/44"
+          ]
+        ],
+        [
+          [
+            "-5/11",
+            "-9/44",
+            "8/55"
+          ],
+          [
+            "-16/11",
+            "-21/22",
+            "-36/55"
+          ],
+          [
+            "-5/11",
+            "13/44",
+            "6/11"
+          ]
+        ],
+        [
+          [
+            "-5/11",
+            "-14/55",
+            "1/22"
+          ],
+          [
+            "-5/11",
+            "-3/55",
+            "7/33"
+          ],
+          [
+            "-16/11",
+            "-47/55",
+            "-41/66"
+          ]
+        ]
+      ],
+      "gap": "1/3",
+      "passed": true,
+      "stacked_policy": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ],
+      "stacked_value": "-26/33"
+    },
+    {
+      "actions": 4,
+      "case": 309,
+      "common_value": "-4/11",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/4"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-27/44",
+        "-27/44",
+        "-27/44",
+        "-27/44"
+      ],
+      "extras_per_completion": 2,
+      "family": "asymmetric-dominated-extra-scenarios",
+      "games": [
+        [
+          [
+            "-15/11",
+            "-23/33",
+            "-4/11"
+          ],
+          [
+            "-4/11",
+            "7/11",
+            "39/44"
+          ],
+          [
+            "-4/11",
+            "32/33",
+            "25/22"
+          ],
+          [
+            "-4/11",
+            "43/33",
+            "61/44"
+          ]
+        ],
+        [
+          [
+            "-4/11",
+            "3/22",
+            "24/55"
+          ],
+          [
+            "-15/11",
+            "-27/44",
+            "-4/11"
+          ],
+          [
+            "-4/11",
+            "7/11",
+            "46/55"
+          ],
+          [
+            "-4/11",
+            "39/44",
+            "57/55"
+          ]
+        ],
+        [
+          [
+            "-4/11",
+            "2/55",
+            "10/33"
+          ],
+          [
+            "-4/11",
+            "13/55",
+            "31/66"
+          ],
+          [
+            "-15/11",
+            "-31/55",
+            "-4/11"
+          ],
+          [
+            "-4/11",
+            "7/11",
+            "53/66"
+          ]
+        ],
+        [
+          [
+            "-4/11",
+            "-1/33",
+            "16/77"
+          ],
+          [
+            "-4/11",
+            "3/22",
+            "27/77"
+          ],
+          [
+            "-4/11",
+            "10/33",
+            "38/77"
+          ],
+          [
+            "-15/11",
+            "-35/66",
+            "-4/11"
+          ]
+        ]
+      ],
+      "gap": "1/4",
+      "passed": true,
+      "stacked_policy": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "stacked_value": "-27/44"
+    },
+    {
+      "actions": 3,
+      "case": 310,
+      "common_value": "-3/11",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/3"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-20/33",
+        "-20/33",
+        "-20/33"
+      ],
+      "extras_per_completion": 2,
+      "family": "asymmetric-dominated-extra-scenarios",
+      "games": [
+        [
+          [
+            "-14/11",
+            "-3/11",
+            "-1/44"
+          ],
+          [
+            "-3/11",
+            "35/33",
+            "27/22"
+          ],
+          [
+            "-3/11",
+            "46/33",
+            "65/44"
+          ]
+        ],
+        [
+          [
+            "-3/11",
+            "21/44",
+            "8/11"
+          ],
+          [
+            "-14/11",
+            "-3/11",
+            "-4/55"
+          ],
+          [
+            "-3/11",
+            "43/44",
+            "62/55"
+          ]
+        ],
+        [
+          [
+            "-3/11",
+            "18/55",
+            "37/66"
+          ],
+          [
+            "-3/11",
+            "29/55",
+            "8/11"
+          ],
+          [
+            "-14/11",
+            "-3/11",
+            "-7/66"
+          ]
+        ]
+      ],
+      "gap": "1/3",
+      "passed": true,
+      "stacked_policy": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ],
+      "stacked_value": "-20/33"
+    },
+    {
+      "actions": 4,
+      "case": 311,
+      "common_value": "-2/11",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/4"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-19/44",
+        "-19/44",
+        "-19/44",
+        "-19/44"
+      ],
+      "extras_per_completion": 2,
+      "family": "asymmetric-dominated-extra-scenarios",
+      "games": [
+        [
+          [
+            "-13/11",
+            "5/33",
+            "7/22"
+          ],
+          [
+            "-2/11",
+            "49/33",
+            "69/44"
+          ],
+          [
+            "-2/11",
+            "20/11",
+            "3/44"
+          ],
+          [
+            "-2/11",
+            "71/33",
+            "7/22"
+          ]
+        ],
+        [
+          [
+            "-2/11",
+            "9/11",
+            "56/55"
+          ],
+          [
+            "-13/11",
+            "3/44",
+            "12/55"
+          ],
+          [
+            "-2/11",
+            "29/22",
+            "1/55"
+          ],
+          [
+            "-2/11",
+            "69/44",
+            "12/55"
+          ]
+        ],
+        [
+          [
+            "-2/11",
+            "34/55",
+            "9/11"
+          ],
+          [
+            "-2/11",
+            "9/11",
+            "65/66"
+          ],
+          [
+            "-13/11",
+            "1/55",
+            "-67/66"
+          ],
+          [
+            "-2/11",
+            "67/55",
+            "5/33"
+          ]
+        ],
+        [
+          [
+            "-2/11",
+            "16/33",
+            "52/77"
+          ],
+          [
+            "-2/11",
+            "43/66",
+            "9/11"
+          ],
+          [
+            "-2/11",
+            "9/11",
+            "-3/77"
+          ],
+          [
+            "-13/11",
+            "-1/66",
+            "-69/77"
+          ]
+        ]
+      ],
+      "gap": "1/4",
+      "passed": true,
+      "stacked_policy": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "stacked_value": "-19/44"
+    },
+    {
+      "actions": 3,
+      "case": 312,
+      "common_value": "-1/11",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/3"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-14/33",
+        "-14/33",
+        "-14/33"
+      ],
+      "extras_per_completion": 2,
+      "family": "asymmetric-dominated-extra-scenarios",
+      "games": [
+        [
+          [
+            "-12/11",
+            "19/33",
+            "29/44"
+          ],
+          [
+            "-1/11",
+            "21/11",
+            "7/44"
+          ],
+          [
+            "-1/11",
+            "74/33",
+            "9/22"
+          ]
+        ],
+        [
+          [
+            "-1/11",
+            "51/44",
+            "72/55"
+          ],
+          [
+            "-12/11",
+            "9/22",
+            "-49/55"
+          ],
+          [
+            "-1/11",
+            "73/44",
+            "17/55"
+          ]
+        ],
+        [
+          [
+            "-1/11",
+            "10/11",
+            "71/66"
+          ],
+          [
+            "-1/11",
+            "61/55",
+            "5/66"
+          ],
+          [
+            "-12/11",
+            "17/55",
+            "-25/33"
+          ]
+        ]
+      ],
+      "gap": "1/3",
+      "passed": true,
+      "stacked_policy": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ],
+      "stacked_value": "-14/33"
+    },
+    {
+      "actions": 4,
+      "case": 313,
+      "common_value": "0",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/4"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-1/4",
+        "-1/4",
+        "-1/4",
+        "-1/4"
+      ],
+      "extras_per_completion": 2,
+      "family": "asymmetric-dominated-extra-scenarios",
+      "games": [
+        [
+          [
+            "-1",
+            "1",
+            "-3/4"
+          ],
+          [
+            "0",
+            "7/3",
+            "1/2"
+          ],
+          [
+            "0",
+            "1/3",
+            "3/4"
+          ],
+          [
+            "0",
+            "2/3",
+            "1"
+          ]
+        ],
+        [
+          [
+            "0",
+            "3/2",
+            "1/5"
+          ],
+          [
+            "-1",
+            "3/4",
+            "-3/5"
+          ],
+          [
+            "0",
+            "1/4",
+            "3/5"
+          ],
+          [
+            "0",
+            "1/2",
+            "4/5"
+          ]
+        ],
+        [
+          [
+            "0",
+            "6/5",
+            "1/6"
+          ],
+          [
+            "0",
+            "7/5",
+            "1/3"
+          ],
+          [
+            "-1",
+            "-4/5",
+            "-1/2"
+          ],
+          [
+            "0",
+            "2/5",
+            "2/3"
+          ]
+        ],
+        [
+          [
+            "0",
+            "1",
+            "1/7"
+          ],
+          [
+            "0",
+            "7/6",
+            "2/7"
+          ],
+          [
+            "0",
+            "1/6",
+            "3/7"
+          ],
+          [
+            "-1",
+            "-2/3",
+            "-3/7"
+          ]
+        ]
+      ],
+      "gap": "1/4",
+      "passed": true,
+      "stacked_policy": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "stacked_value": "-1/4"
+    },
+    {
+      "actions": 3,
+      "case": 314,
+      "common_value": "1/11",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/3"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-8/33",
+        "-8/33",
+        "-8/33"
+      ],
+      "extras_per_completion": 2,
+      "family": "asymmetric-dominated-extra-scenarios",
+      "games": [
+        [
+          [
+            "-10/11",
+            "47/33",
+            "-9/22"
+          ],
+          [
+            "1/11",
+            "14/33",
+            "37/44"
+          ],
+          [
+            "1/11",
+            "25/33",
+            "12/11"
+          ]
+        ],
+        [
+          [
+            "1/11",
+            "81/44",
+            "27/55"
+          ],
+          [
+            "-10/11",
+            "-29/44",
+            "-17/55"
+          ],
+          [
+            "1/11",
+            "13/22",
+            "49/55"
+          ]
+        ],
+        [
+          [
+            "1/11",
+            "82/55",
+            "14/33"
+          ],
+          [
+            "1/11",
+            "16/55",
+            "13/22"
+          ],
+          [
+            "-10/11",
+            "-28/55",
+            "-8/33"
+          ]
+        ]
+      ],
+      "gap": "1/3",
+      "passed": true,
+      "stacked_policy": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ],
+      "stacked_value": "-8/33"
+    },
+    {
+      "actions": 4,
+      "case": 315,
+      "common_value": "2/11",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/4"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-3/44",
+        "-3/44",
+        "-3/44",
+        "-3/44"
+      ],
+      "extras_per_completion": 2,
+      "family": "asymmetric-dominated-extra-scenarios",
+      "games": [
+        [
+          [
+            "-9/11",
+            "-16/33",
+            "-3/44"
+          ],
+          [
+            "2/11",
+            "28/33",
+            "13/11"
+          ],
+          [
+            "2/11",
+            "13/11",
+            "63/44"
+          ],
+          [
+            "2/11",
+            "50/33",
+            "37/22"
+          ]
+        ],
+        [
+          [
+            "2/11",
+            "19/44",
+            "43/55"
+          ],
+          [
+            "-9/11",
+            "-7/22",
+            "-1/55"
+          ],
+          [
+            "2/11",
+            "41/44",
+            "13/11"
+          ],
+          [
+            "2/11",
+            "13/11",
+            "76/55"
+          ]
+        ],
+        [
+          [
+            "2/11",
+            "21/55",
+            "15/22"
+          ],
+          [
+            "2/11",
+            "32/55",
+            "28/33"
+          ],
+          [
+            "-9/11",
+            "-12/55",
+            "1/66"
+          ],
+          [
+            "2/11",
+            "54/55",
+            "13/11"
+          ]
+        ],
+        [
+          [
+            "2/11",
+            "23/66",
+            "47/77"
+          ],
+          [
+            "2/11",
+            "17/33",
+            "58/77"
+          ],
+          [
+            "2/11",
+            "15/22",
+            "69/77"
+          ],
+          [
+            "-9/11",
+            "-5/33",
+            "3/77"
+          ]
+        ]
+      ],
+      "gap": "1/4",
+      "passed": true,
+      "stacked_policy": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "stacked_value": "-3/44"
+    },
+    {
+      "actions": 3,
+      "case": 316,
+      "common_value": "3/11",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/3"
+        }
+      ],
+      "dual_action_payoffs": [
+        "-2/33",
+        "-2/33",
+        "-2/33"
+      ],
+      "extras_per_completion": 2,
+      "family": "asymmetric-dominated-extra-scenarios",
+      "games": [
+        [
+          [
+            "-8/11",
+            "-2/33",
+            "3/11"
+          ],
+          [
+            "3/11",
+            "14/11",
+            "67/44"
+          ],
+          [
+            "3/11",
+            "53/33",
+            "39/22"
+          ]
+        ],
+        [
+          [
+            "3/11",
+            "17/22",
+            "59/55"
+          ],
+          [
+            "-8/11",
+            "1/44",
+            "3/11"
+          ],
+          [
+            "3/11",
+            "14/11",
+            "81/55"
+          ]
+        ],
+        [
+          [
+            "3/11",
+            "37/55",
+            "31/33"
+          ],
+          [
+            "3/11",
+            "48/55",
+            "73/66"
+          ],
+          [
+            "-8/11",
+            "4/55",
+            "3/11"
+          ]
+        ]
+      ],
+      "gap": "1/3",
+      "passed": true,
+      "stacked_policy": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ],
+      "stacked_value": "-2/33"
+    },
+    {
+      "actions": 4,
+      "case": 317,
+      "common_value": "4/11",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/4"
+        }
+      ],
+      "dual_action_payoffs": [
+        "5/44",
+        "5/44",
+        "5/44",
+        "5/44"
+      ],
+      "extras_per_completion": 2,
+      "family": "asymmetric-dominated-extra-scenarios",
+      "games": [
+        [
+          [
+            "-7/11",
+            "4/11",
+            "27/44"
+          ],
+          [
+            "4/11",
+            "56/33",
+            "41/22"
+          ],
+          [
+            "4/11",
+            "67/33",
+            "93/44"
+          ],
+          [
+            "4/11",
+            "26/11",
+            "27/44"
+          ]
+        ],
+        [
+          [
+            "4/11",
+            "49/44",
+            "15/11"
+          ],
+          [
+            "-7/11",
+            "4/11",
+            "31/55"
+          ],
+          [
+            "4/11",
+            "71/44",
+            "97/55"
+          ],
+          [
+            "4/11",
+            "41/22",
+            "31/55"
+          ]
+        ],
+        [
+          [
+            "4/11",
+            "53/55",
+            "79/66"
+          ],
+          [
+            "4/11",
+            "64/55",
+            "15/11"
+          ],
+          [
+            "-7/11",
+            "4/11",
+            "35/66"
+          ],
+          [
+            "4/11",
+            "86/55",
+            "35/66"
+          ]
+        ],
+        [
+          [
+            "4/11",
+            "19/22",
+            "83/77"
+          ],
+          [
+            "4/11",
+            "34/33",
+            "94/77"
+          ],
+          [
+            "4/11",
+            "79/66",
+            "15/11"
+          ],
+          [
+            "-7/11",
+            "4/11",
+            "-38/77"
+          ]
+        ]
+      ],
+      "gap": "1/4",
+      "passed": true,
+      "stacked_policy": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "stacked_value": "5/44"
+    },
+    {
+      "actions": 3,
+      "case": 318,
+      "common_value": "5/11",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/3"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/3"
+        }
+      ],
+      "dual_action_payoffs": [
+        "4/33",
+        "4/33",
+        "4/33"
+      ],
+      "extras_per_completion": 2,
+      "family": "asymmetric-dominated-extra-scenarios",
+      "games": [
+        [
+          [
+            "-6/11",
+            "26/33",
+            "21/22"
+          ],
+          [
+            "5/11",
+            "70/33",
+            "97/44"
+          ],
+          [
+            "5/11",
+            "27/11",
+            "31/44"
+          ]
+        ],
+        [
+          [
+            "5/11",
+            "16/11",
+            "91/55"
+          ],
+          [
+            "-6/11",
+            "31/44",
+            "47/55"
+          ],
+          [
+            "5/11",
+            "43/22",
+            "36/55"
+          ]
+        ],
+        [
+          [
+            "5/11",
+            "69/55",
+            "16/11"
+          ],
+          [
+            "5/11",
+            "16/11",
+            "107/66"
+          ],
+          [
+            "-6/11",
+            "36/55",
+            "-25/66"
+          ]
+        ]
+      ],
+      "gap": "1/3",
+      "passed": true,
+      "stacked_policy": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ],
+      "stacked_value": "4/33"
+    },
+    {
+      "actions": 4,
+      "case": 319,
+      "common_value": "6/11",
+      "dual": [
+        {
+          "completion": 0,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 1,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 2,
+          "scenario": 0,
+          "weight": "1/4"
+        },
+        {
+          "completion": 3,
+          "scenario": 0,
+          "weight": "1/4"
+        }
+      ],
+      "dual_action_payoffs": [
+        "13/44",
+        "13/44",
+        "13/44",
+        "13/44"
+      ],
+      "extras_per_completion": 2,
+      "family": "asymmetric-dominated-extra-scenarios",
+      "games": [
+        [
+          [
+            "-5/11",
+            "40/33",
+            "57/44"
+          ],
+          [
+            "6/11",
+            "28/11",
+            "35/44"
+          ],
+          [
+            "6/11",
+            "95/33",
+            "23/22"
+          ],
+          [
+            "6/11",
+            "29/33",
+            "57/44"
+          ]
+        ],
+        [
+          [
+            "6/11",
+            "79/44",
+            "107/55"
+          ],
+          [
+            "-5/11",
+            "23/22",
+            "-14/55"
+          ],
+          [
+            "6/11",
+            "101/44",
+            "52/55"
+          ],
+          [
+            "6/11",
+            "35/44",
+            "63/55"
+          ]
+        ],
+        [
+          [
+            "6/11",
+            "17/11",
+            "113/66"
+          ],
+          [
+            "6/11",
+            "96/55",
+            "47/66"
+          ],
+          [
+            "-5/11",
+            "52/55",
+            "-4/33"
+          ],
+          [
+            "6/11",
+            "41/55",
+            "23/22"
+          ]
+        ],
+        [
+          [
+            "6/11",
+            "91/66",
+            "17/11"
+          ],
+          [
+            "6/11",
+            "17/11",
+            "53/77"
+          ],
+          [
+            "6/11",
+            "113/66",
+            "64/77"
+          ],
+          [
+            "-5/11",
+            "-19/66",
+            "-2/77"
+          ]
+        ]
+      ],
+      "gap": "1/4",
+      "passed": true,
+      "stacked_policy": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "stacked_value": "13/44"
+    },
+    {
+      "case": 0,
+      "family": "unequal-value",
+      "passed": true
+    },
+    {
+      "case": 1,
+      "family": "unequal-value",
+      "passed": true
+    },
+    {
+      "case": 2,
+      "family": "unequal-value",
+      "passed": true
+    },
+    {
+      "case": 3,
+      "family": "unequal-value",
+      "passed": true
+    },
+    {
+      "case": 4,
+      "family": "unequal-value",
+      "passed": true
+    },
+    {
+      "case": 5,
+      "family": "unequal-value",
+      "passed": true
+    },
+    {
+      "case": 6,
+      "family": "unequal-value",
+      "passed": true
+    },
+    {
+      "case": 7,
+      "family": "unequal-value",
+      "passed": true
+    },
+    {
+      "case": 8,
+      "family": "unequal-value",
+      "passed": true
+    },
+    {
+      "case": 9,
+      "family": "unequal-value",
+      "passed": true
+    },
+    {
+      "case": 10,
+      "family": "unequal-value",
+      "passed": true
+    },
+    {
+      "case": 11,
+      "family": "unequal-value",
+      "passed": true
+    },
+    {
+      "case": 12,
+      "family": "unequal-value",
+      "passed": true
+    },
+    {
+      "case": 13,
+      "family": "unequal-value",
+      "passed": true
+    },
+    {
+      "case": 14,
+      "family": "unequal-value",
+      "passed": true
+    },
+    {
+      "case": 15,
+      "family": "unequal-value",
+      "passed": true
+    },
+    {
+      "case": 16,
+      "family": "unequal-value",
+      "passed": true
+    },
+    {
+      "case": 17,
+      "family": "unequal-value",
+      "passed": true
+    },
+    {
+      "case": 18,
+      "family": "unequal-value",
+      "passed": true
+    },
+    {
+      "case": 19,
+      "family": "unequal-value",
+      "passed": true
+    }
+  ],
+  "schema": "theorica.stacked-ambiguity-dual/1",
+  "summary": {
+    "asymmetric_extra_scenario_duals": 20,
+    "asymmetric_extra_scenario_total": 20,
+    "exact_case_digest": "723f8081fc7633a706afbc1953b5c9577947759c357fa3196da386b46acc8d8c",
+    "holdout_total": 20,
+    "holdout_zero_gap_duals": 20,
+    "known_sharp_duals": 20,
+    "known_sharp_total": 20,
+    "opened_total": 40,
+    "opened_zero_gap_duals": 40,
+    "passed": true,
+    "prospective_six_action_duals": 10,
+    "prospective_six_action_total": 10,
+    "unequal_value_abstentions": 20,
+    "unequal_value_total": 20
+  }
+}

@@ -50,6 +50,8 @@ on:
       - "scripts/audit_multi_action_decision_quotient.py"
       - "scripts/verify_stacked_ambiguity_gap.py"
       - "scripts/audit_stacked_ambiguity_gap.py"
+      - "scripts/verify_stacked_ambiguity_dual.py"
+      - "scripts/audit_stacked_ambiguity_dual.py"
       - "docs/COUPLED_ADDITIVE_MINIMAX_*.md"
       - "docs/TWO_VERTEX_ADDITIVE_ENVELOPE_*.md"
       - "docs/THREE_VERTEX_ADDITIVE_ARRANGEMENT_*.md"
@@ -65,6 +67,8 @@ on:
       - "docs/ERROR_ERASURE_FEATURE_QUERY_*.md"
       - "docs/DECISION_IDENTIFIABLE_LIST_DECODING_*.md"
       - "docs/FINITE_LIST_GEOMETRY_BOUNDARY_*.md"
+      - "docs/STACKED_AMBIGUITY_*.md"
+      - "results/stacked_ambiguity_dual/*.json"
       - ".github/workflows/additive-product-minimax.yml"
 
 jobs:
@@ -116,5 +120,7 @@ jobs:
       - run: python scripts/audit_multi_action_decision_quotient.py
       - run: python scripts/verify_stacked_ambiguity_gap.py
       - run: python scripts/audit_stacked_ambiguity_gap.py
+      - run: python scripts/verify_stacked_ambiguity_dual.py
+      - run: python scripts/audit_stacked_ambiguity_dual.py
       - run: pytest -q tests/test_robust_provenance.py
       - run: pytest -q tests/test_corruption_resilient_features.py

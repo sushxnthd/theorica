@@ -86,6 +86,9 @@ class DecisionIdentifiableMultiActionPlan:
     stacked_value: Fraction | None = None
     ambiguity_gap: Fraction | None = None
     scenario_witness: tuple[tuple[int, int], ...] = ()
+    adversary_scenario_weights: tuple[tuple[int, int, Fraction], ...] = ()
+    adversary_action_payoffs: tuple[Fraction, ...] = ()
+    stacked_action_probabilities: tuple[Fraction, ...] | None = None
 
 
 @dataclass(frozen=True)
@@ -103,6 +106,9 @@ class StackedAmbiguityGapCertificate:
     scenario_witness: tuple[tuple[int, int], ...]
     certificate_valid: bool
     reason: str
+    adversary_scenario_weights: tuple[tuple[int, int, Fraction], ...] = ()
+    adversary_action_payoffs: tuple[Fraction, ...] = ()
+    stacked_action_probabilities: tuple[Fraction, ...] | None = None
 
 
 def _feature_code_minimum_distance(rows, rank):
@@ -253,6 +259,34 @@ def _solve_multi_action_robust_game(game):
     return value, policy
 
 
+def _solve_multi_action_robust_game_with_dual(game):
+    """Return exact primal and sparse dual solutions of a finite zero-sum game."""
+    matrix = tuple(tuple(Fraction(value) for value in row) for row in game)
+    value, policy = _solve_multi_action_robust_game(matrix)
+    action_count = len(matrix)
+    scenario_count = len(matrix[0])
+    dual_game = tuple(
+        tuple(-matrix[action][scenario] for action in range(action_count))
+        for scenario in range(scenario_count)
+    )
+    negative_value, adversary = _solve_multi_action_robust_game(dual_game)
+    if -negative_value != value:
+        raise RuntimeError("exact robust-game primal and dual values disagree")
+    action_payoffs = tuple(
+        sum(
+            (adversary[scenario] * matrix[action][scenario]
+             for scenario in range(scenario_count)),
+            Fraction(0),
+        )
+        for action in range(action_count)
+    )
+    if max(action_payoffs) != value:
+        raise RuntimeError("exact robust-game dual certificate failed replay")
+    if sum(weight > 0 for weight in adversary) > action_count:
+        raise RuntimeError("exact robust-game dual support exceeded action count")
+    return value, policy, adversary, action_payoffs
+
+
 def _common_optimal_policy(games, values, selected=None):
     """Find an exact point in the selected optimal-policy-polytope intersection."""
     indices = tuple(range(len(games))) if selected is None else tuple(selected)
@@ -343,12 +377,27 @@ def certify_stacked_ambiguity_gap(games) -> StackedAmbiguityGapCertificate:
         tuple(column[action] for _, column in labelled_columns)
         for action in range(action_count)
     )
-    stacked_value, stacked_policy = _solve_multi_action_robust_game(stacked_game)
+    (
+        stacked_value,
+        stacked_policy,
+        adversary,
+        adversary_action_payoffs,
+    ) = _solve_multi_action_robust_game_with_dual(stacked_game)
+    adversary_scenario_weights = tuple(
+        (*labelled_columns[index][0], weight)
+        for index, weight in enumerate(adversary)
+        if weight > 0
+    )
+    dual_valid = (
+        len(adversary_scenario_weights) <= action_count
+        and sum((item[2] for item in adversary_scenario_weights), Fraction(0)) == 1
+        and max(adversary_action_payoffs) == stacked_value
+    )
     gap = common_value - stacked_value
     if gap < 0:
         raise RuntimeError("stacked robust value exceeded an individual value")
     if gap == 0:
-        valid = all(
+        valid = dual_valid and all(
             min(
                 sum(
                     (stacked_policy[action] * game[action][scenario]
@@ -371,6 +420,9 @@ def certify_stacked_ambiguity_gap(games) -> StackedAmbiguityGapCertificate:
             (),
             valid,
             "zero_stacked_ambiguity_gap_common_policy",
+            adversary_scenario_weights,
+            adversary_action_payoffs,
+            stacked_policy,
         )
 
     witness: tuple[tuple[int, int], ...] = ()
@@ -388,7 +440,12 @@ def certify_stacked_ambiguity_gap(games) -> StackedAmbiguityGapCertificate:
                 break
         if witness:
             break
-    valid = bool(witness) and len(witness) <= action_count and witness_value < common_value
+    valid = (
+        dual_valid
+        and bool(witness)
+        and len(witness) <= action_count
+        and witness_value < common_value
+    )
     return StackedAmbiguityGapCertificate(
         None,
         common_value,
@@ -401,6 +458,9 @@ def certify_stacked_ambiguity_gap(games) -> StackedAmbiguityGapCertificate:
         witness,
         valid,
         "positive_stacked_ambiguity_gap_requires_abstention",
+        adversary_scenario_weights,
+        adversary_action_payoffs,
+        stacked_policy,
     )
 
 
@@ -443,6 +503,9 @@ def certify_common_robust_plan(
             stacked_value=stacked.stacked_value,
             ambiguity_gap=stacked.ambiguity_gap,
             scenario_witness=stacked.scenario_witness,
+            adversary_scenario_weights=stacked.adversary_scenario_weights,
+            adversary_action_payoffs=stacked.adversary_action_payoffs,
+            stacked_action_probabilities=stacked.stacked_action_probabilities,
         )
     policy = _common_optimal_policy(exact_games, values)
     if policy is None:
@@ -470,6 +533,9 @@ def certify_common_robust_plan(
             stacked_value=stacked.stacked_value,
             ambiguity_gap=stacked.ambiguity_gap,
             scenario_witness=stacked.scenario_witness,
+            adversary_scenario_weights=stacked.adversary_scenario_weights,
+            adversary_action_payoffs=stacked.adversary_action_payoffs,
+            stacked_action_probabilities=stacked.stacked_action_probabilities,
         )
     valid = all(
         min(
@@ -491,6 +557,9 @@ def certify_common_robust_plan(
         stacked_value=stacked.stacked_value,
         ambiguity_gap=stacked.ambiguity_gap,
         scenario_witness=stacked.scenario_witness,
+        adversary_scenario_weights=stacked.adversary_scenario_weights,
+        adversary_action_payoffs=stacked.adversary_action_payoffs,
+        stacked_action_probabilities=stacked.stacked_action_probabilities,
     )
 
 
