@@ -38,6 +38,8 @@ on:
       - "scripts/audit_corruption_resilient_feature_queries.py"
       - "scripts/verify_error_erasure_feature_queries.py"
       - "scripts/audit_error_erasure_feature_queries.py"
+      - "scripts/verify_error_erasure_exhaustive_patterns.py"
+      - "scripts/audit_error_erasure_exhaustive_patterns.py"
       - "docs/COUPLED_ADDITIVE_MINIMAX_*.md"
       - "docs/TWO_VERTEX_ADDITIVE_ENVELOPE_*.md"
       - "docs/THREE_VERTEX_ADDITIVE_ARRANGEMENT_*.md"
@@ -90,5 +92,7 @@ jobs:
       - run: python scripts/audit_corruption_resilient_feature_queries.py
       - run: python scripts/verify_error_erasure_feature_queries.py
       - run: python scripts/audit_error_erasure_feature_queries.py
+      - run: python scripts/verify_error_erasure_exhaustive_patterns.py
+      - run: python scripts/audit_error_erasure_exhaustive_patterns.py
       - run: pytest -q tests/test_robust_provenance.py
       - run: pytest -q tests/test_corruption_resilient_features.py

@@ -234,6 +234,9 @@ fact, until independent experts have attempted to falsify it.
   preservation after every `2t + s` deletions. MDS families need exactly
   `r + 2t + s` queries. Treating erasures as errors is safe but spends `s`
   unnecessary queries; ignoring them false-accepted all 60 frozen attacks.
+- Every placement in 750 exact small-code cases passed, while an independent
+  checker verified all 128 admissible puncturing patterns and recomputed the
+  same placement count without production imports.
 
 ### Not supported
 

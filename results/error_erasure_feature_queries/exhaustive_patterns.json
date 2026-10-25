@@ -1,0 +1,93 @@
+{
+  "configs": [
+    {
+      "erasure_budget": 1,
+      "error_budget": 1,
+      "failures": [],
+      "family": "vandermonde",
+      "passed": true,
+      "placements": 31,
+      "query_count": 5,
+      "rank": 2
+    },
+    {
+      "erasure_budget": 2,
+      "error_budget": 1,
+      "failures": [],
+      "family": "vandermonde",
+      "passed": true,
+      "placements": 118,
+      "query_count": 6,
+      "rank": 2
+    },
+    {
+      "erasure_budget": 1,
+      "error_budget": 1,
+      "failures": [],
+      "family": "vandermonde",
+      "passed": true,
+      "placements": 43,
+      "query_count": 6,
+      "rank": 3
+    },
+    {
+      "erasure_budget": 2,
+      "error_budget": 1,
+      "failures": [],
+      "family": "vandermonde",
+      "passed": true,
+      "placements": 183,
+      "query_count": 7,
+      "rank": 3
+    },
+    {
+      "erasure_budget": 1,
+      "error_budget": 1,
+      "failures": [],
+      "family": "cauchy",
+      "passed": true,
+      "placements": 31,
+      "query_count": 5,
+      "rank": 2
+    },
+    {
+      "erasure_budget": 2,
+      "error_budget": 1,
+      "failures": [],
+      "family": "cauchy",
+      "passed": true,
+      "placements": 118,
+      "query_count": 6,
+      "rank": 2
+    },
+    {
+      "erasure_budget": 1,
+      "error_budget": 1,
+      "failures": [],
+      "family": "cauchy",
+      "passed": true,
+      "placements": 43,
+      "query_count": 6,
+      "rank": 3
+    },
+    {
+      "erasure_budget": 2,
+      "error_budget": 1,
+      "failures": [],
+      "family": "cauchy",
+      "passed": true,
+      "placements": 183,
+      "query_count": 7,
+      "rank": 3
+    }
+  ],
+  "digest": "0904467aa0a12d8663a57378b3da95f093dd14be2d42c17ffd8b5f0ba69817fd",
+  "passed": true,
+  "schema": "theorica.error-erasure-exhaustive-patterns/1",
+  "summary": {
+    "configurations": 8,
+    "configurations_passed": 8,
+    "failures": 0,
+    "placements": 750
+  }
+}

@@ -52,6 +52,9 @@ identical although the exact robust values differ.
 | Constructive robust-value lower bounds | 60 / 60 |
 | Independent reconstructions | 150 / 150 |
 | Independent lower bounds | 60 / 60 |
+| Exhaustive fault placements on small exact codes | 750 / 750 |
+| Independent punctured-code placement audit | 750 / 750 |
+| Independently checked erasure patterns | 128 / 128 |
 | Error-only false acceptances | 60 / 60 attacks |
 | Queries saved vs treating erasures as errors | 187 total |
 | Independent production imports | 0 |
@@ -61,6 +64,16 @@ The primary evidence digest is
 `763360d9b6d679fc7ae0c67e1bd1632efb328531910e6ce959288ce6c3f67be3`;
 the independent audit digest is
 `85eec1ddc154c90cfd61c2fcb466ffd80d5a89c02ffc5c7cd2ee8ab1a91d8e09`.
+
+After the prospective gate, an additional adversarial falsification enumerated
+every placement with zero or one error and zero through two erasures on eight
+small Vandermonde/Cauchy configurations, using two payoff components with two
+and three actions. All 750 placements decoded exactly. A separate
+production-import-free checker enumerated all 128 allowed puncturing patterns,
+recomputed the residual code distances, and independently recovered the same
+750-placement count. Its digests are
+`0904467aa0a12d8663a57378b3da95f093dd14be2d42c17ffd8b5f0ba69817fd`
+and `3cba777c580c7e194678ccbf5f0c860d632f6960674f462fd231f99c21970c1d`.
 
 ## Strongest controls and falsification
 
@@ -94,6 +107,10 @@ touching the oracle.
   `src/theorica/agents/corruption_resilient_features.py`
 - Primary checker: `scripts/verify_error_erasure_feature_queries.py`
 - Independent checker: `scripts/audit_error_erasure_feature_queries.py`
+- Exhaustive placement checker:
+  `scripts/verify_error_erasure_exhaustive_patterns.py`
+- Independent punctured-code audit:
+  `scripts/audit_error_erasure_exhaustive_patterns.py`
 - Raw evidence: `results/error_erasure_feature_queries/`
 - Hosted gate: `.github/workflows/additive-product-minimax.yml`
 
