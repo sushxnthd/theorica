@@ -229,13 +229,19 @@ fact, until independent experts have attempted to falsify it.
 - Exact opened, prospective, lower-bound, and independently reimplemented
   checks all pass; rank-only interpolation falsely accepts the adversarial
   controls.
+- With up to `s` explicitly unavailable queries as well as `t` corruptions, the
+  exact criterion sharpens to distance at least `2t + s + 1`, equivalently rank
+  preservation after every `2t + s` deletions. MDS families need exactly
+  `r + 2t + s` queries. Treating erasures as errors is safe but spends `s`
+  unnecessary queries; ignoring them false-accepted all 60 frozen attacks.
 
 ### Not supported
 
 - Novelty of the coding-theoretic distance characterization, deletion-rank
   equivalence, Singleton bound, or MDS/Vandermonde construction.
 - Unknown or approximate features, stochastic noise, floating-point recovery,
-  more than `t` corruptions, or optimal search beyond the configured cap.
+  silent failures whose locations are not reported, more than the certified
+  `t` corruptions or `s` erasures, or optimal search beyond the configured cap.
 - Downstream validation beyond exact two-action robust games on the large
   prospective families.
 
@@ -243,7 +249,8 @@ fact, until independent experts have attempted to falsify it.
 
 > **THEORICA now has an exact, fail-closed scenario-query selector and rational
 > decoder that turns classical code distance into a geometry-sensitive robust-
-> planning capability: it corrects up to `t` adversarial scenario responses
-> exactly when the selected feature evaluations retain full rank after every
-> `2t` deletions, attaining `r + 2t` queries on MDS families and abstaining or
-> spending more on degenerate geometry.**
+> planning capability: with `t` adversarial responses and `s` explicitly
+> unavailable responses, it succeeds exactly when the selected feature
+> evaluations retain full rank after every `2t+s` deletions, attaining
+> `r+2t+s` queries on MDS families and abstaining or spending more on
+> degenerate geometry.**

@@ -45,3 +45,50 @@ def test_corruption_resilient_feature_reconstruction_rejects_bad_geometry():
             max_query_count=5,
         )
     assert calls == []
+
+
+def test_feature_reconstruction_corrects_error_after_known_erasure():
+    xs = tuple(Fraction(index - 4, 7) for index in range(10))
+    features = tuple((1, x, x * x) for x in xs)
+    values = tuple(3 + 2 * x - 4 * x * x for x in xs)
+    calls = []
+
+    def oracle(index):
+        calls.append(index)
+        if index == 0:
+            return None
+        return ((values[index] + (13 if index == 1 else 0),),)
+
+    result = reconstruct_corruption_resilient_feature_payoffs(
+        features,
+        oracle,
+        payoff_in_feature_span_certified=True,
+        corruption_budget=1,
+        erasure_budget=1,
+    )
+    assert result.certificate_valid
+    assert result.query_count == 6
+    assert result.minimum_distance == 4
+    assert result.erased_query_indices == (0,)
+    assert result.corrected_query_indices == (1,)
+    assert result.component_payoff_vectors == ((values,),)
+    assert calls == list(result.query_indices)
+
+
+def test_feature_reconstruction_rejects_excess_erasure_budget():
+    features = tuple((1, Fraction(index)) for index in range(7))
+    calls = []
+
+    def oracle(index):
+        calls.append(index)
+        return None if index in (0, 1) else ((Fraction(index),),)
+
+    with pytest.raises(ValueError, match="exceeded the certified erasure budget"):
+        reconstruct_corruption_resilient_feature_payoffs(
+            features,
+            oracle,
+            payoff_in_feature_span_certified=True,
+            corruption_budget=1,
+            erasure_budget=1,
+        )
+    assert len(calls) == 5
