@@ -3,6 +3,8 @@ from fractions import Fraction
 import pytest
 
 from theorica.agents.corruption_resilient_features import (
+    certify_common_robust_plan,
+    certify_multi_action_plan_from_ambiguous_transcript,
     certify_two_action_plan_from_ambiguous_transcript,
     reconstruct_corruption_resilient_feature_payoffs,
     select_finite_list_feature_queries,
@@ -176,3 +178,38 @@ def test_finite_list_selector_rejects_same_size_degenerate_geometry():
             erasure_budget=2,
             max_query_count=5,
         )
+
+
+def test_multi_action_common_policy_survives_model_ambiguity():
+    result = certify_common_robust_plan((
+        ((0,), (-1,), (-2,)),
+        ((0,), (-3,), (-1,)),
+    ))
+    assert result.certificate_valid
+    assert result.policy_identifiable and not result.model_identifiable
+    assert result.action_probabilities == (1, 0, 0)
+    assert result.minimax_value == 0
+
+
+def test_three_action_helly_witness_is_sharp():
+    result = certify_common_robust_plan((
+        ((-1,), (0,), (0,)),
+        ((0,), (-1,), (0,)),
+        ((0,), (0,), (-1,)),
+    ))
+    assert result.certificate_valid
+    assert result.value_identifiable and not result.policy_identifiable
+    assert result.impossibility_witness == (0, 1, 2)
+
+
+def test_multi_action_corrupted_transcript_returns_exact_certificate():
+    result = certify_multi_action_plan_from_ambiguous_transcript(
+        ((1, 0), (1, 1), (1, 2)),
+        (0, 1, 2),
+        ((0, -1, -2), (0, -1, -2), (0, 2, 3)),
+        payoff_in_feature_span_certified=True,
+        corruption_budget=1,
+    )
+    assert result.certificate_valid
+    assert result.action_count == 3
+    assert result.finite_list_minimum_distance == 2

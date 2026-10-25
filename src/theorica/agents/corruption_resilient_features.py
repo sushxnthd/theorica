@@ -67,6 +67,24 @@ class FiniteListFeatureQueryPlan:
     reason: str
 
 
+@dataclass(frozen=True)
+class DecisionIdentifiableMultiActionPlan:
+    """Exact common-policy certificate for a finite family of robust games."""
+
+    action_probabilities: tuple[Fraction, ...] | None
+    minimax_value: Fraction | None
+    version_space_size: int
+    action_count: int
+    model_identifiable: bool
+    value_identifiable: bool
+    policy_identifiable: bool
+    finite_list_minimum_distance: int | None
+    impossibility_witness: tuple[int, ...]
+    candidate_combinations_tested: int
+    certificate_valid: bool
+    reason: str
+
+
 def _feature_code_minimum_distance(rows, rank):
     """Return the exact Hamming distance of the rational evaluation code."""
     maximum_zero_count = 0
@@ -160,6 +178,265 @@ def select_finite_list_feature_queries(
     raise ValueError(
         "no query subset within the cap guarantees a finite completion list "
         "under the certified error-erasure budget"
+    )
+
+
+def _solve_multi_action_robust_game(game):
+    """Return an exact maximin value and one canonical optimal policy."""
+    matrix = tuple(tuple(Fraction(value) for value in row) for row in game)
+    if len(matrix) < 2 or not matrix[0]:
+        raise ValueError("a robust game needs at least two actions and one scenario")
+    if any(len(row) != len(matrix[0]) for row in matrix):
+        raise ValueError("robust-game payoff rows must have equal length")
+    action_count = len(matrix)
+    scenario_count = len(matrix[0])
+    candidates = []
+    for support_size in range(1, min(action_count, scenario_count) + 1):
+        for support in combinations(range(action_count), support_size):
+            for active in combinations(range(scenario_count), support_size):
+                rows = [tuple(Fraction(1) for _ in support) + (Fraction(0),)]
+                rhs = [Fraction(1)]
+                for scenario in active:
+                    rows.append(
+                        tuple(matrix[action][scenario] for action in support)
+                        + (Fraction(-1),)
+                    )
+                    rhs.append(Fraction(0))
+                solved = _solve_fraction_system(tuple(rows), tuple(rhs))
+                if solved is None:
+                    continue
+                weights, value = solved[:-1], solved[-1]
+                if any(weight < 0 for weight in weights):
+                    continue
+                policy = tuple(
+                    next((weights[i] for i, action in enumerate(support)
+                          if action == target), Fraction(0))
+                    for target in range(action_count)
+                )
+                realized = tuple(
+                    sum((policy[action] * matrix[action][scenario]
+                         for action in range(action_count)), Fraction(0))
+                    for scenario in range(scenario_count)
+                )
+                if min(realized) >= value:
+                    candidates.append((value, policy))
+    if not candidates:
+        raise RuntimeError("exact robust-game vertex enumeration found no policy")
+    value = max(candidate[0] for candidate in candidates)
+    policy = min(candidate[1] for candidate in candidates if candidate[0] == value)
+    if min(
+        sum((policy[action] * matrix[action][scenario]
+             for action in range(action_count)), Fraction(0))
+        for scenario in range(scenario_count)
+    ) != value:
+        raise RuntimeError("exact robust-game policy failed replay")
+    return value, policy
+
+
+def _common_optimal_policy(games, values, selected=None):
+    """Find an exact point in the selected optimal-policy-polytope intersection."""
+    indices = tuple(range(len(games))) if selected is None else tuple(selected)
+    action_count = len(games[0])
+    constraints = tuple(
+        (tuple(games[index][action][scenario] for action in range(action_count)),
+         values[index])
+        for index in indices
+        for scenario in range(len(games[index][0]))
+    )
+    for support_size in range(1, action_count + 1):
+        for support in combinations(range(action_count), support_size):
+            active_count = support_size - 1
+            for active in combinations(range(len(constraints)), active_count):
+                rows = [tuple(Fraction(1) for _ in support)]
+                rhs = [Fraction(1)]
+                for constraint_index in active:
+                    coefficients, bound = constraints[constraint_index]
+                    rows.append(tuple(coefficients[action] for action in support))
+                    rhs.append(bound)
+                solved = _solve_fraction_system(tuple(rows), tuple(rhs))
+                if solved is None or any(weight < 0 for weight in solved):
+                    continue
+                policy = tuple(
+                    next((solved[i] for i, action in enumerate(support)
+                          if action == target), Fraction(0))
+                    for target in range(action_count)
+                )
+                if all(
+                    sum((policy[action] * coefficients[action]
+                         for action in range(action_count)), Fraction(0)) >= bound
+                    for coefficients, bound in constraints
+                ):
+                    return policy
+    return None
+
+
+def certify_common_robust_plan(
+    games,
+    *,
+    finite_list_minimum_distance: int | None = None,
+    candidate_combinations_tested: int = 0,
+) -> DecisionIdentifiableMultiActionPlan:
+    """Certify one exact robust policy across a finite completion family."""
+    exact_games = tuple(
+        tuple(tuple(Fraction(value) for value in row) for row in game)
+        for game in games
+    )
+    if not exact_games:
+        raise ValueError("at least one feasible completion is required")
+    action_count = len(exact_games[0])
+    if action_count < 2 or any(len(game) != action_count for game in exact_games):
+        raise ValueError("all completions must share at least two actions")
+    if any(not game[0] or any(len(row) != len(game[0]) for row in game)
+           for game in exact_games):
+        raise ValueError("each completion must be a nonempty rectangular game")
+    solved = tuple(_solve_multi_action_robust_game(game) for game in exact_games)
+    values = tuple(item[0] for item in solved)
+    distinct_values = set(values)
+    if len(distinct_values) != 1:
+        first = next(
+            (0, index) for index in range(1, len(values))
+            if values[index] != values[0]
+        )
+        return DecisionIdentifiableMultiActionPlan(
+            None, None, len(exact_games), action_count, len(exact_games) == 1,
+            False, False, finite_list_minimum_distance, first,
+            candidate_combinations_tested, True,
+            "ambiguous_transcript_has_multiple_robust_values",
+        )
+    policy = _common_optimal_policy(exact_games, values)
+    if policy is None:
+        witness = tuple(range(len(exact_games)))
+        for size in range(2, min(action_count, len(exact_games)) + 1):
+            found = next(
+                (subset for subset in combinations(range(len(exact_games)), size)
+                 if _common_optimal_policy(exact_games, values, subset) is None),
+                None,
+            )
+            if found is not None:
+                witness = found
+                break
+        valid = len(witness) <= action_count and _common_optimal_policy(
+            exact_games, values, witness
+        ) is None
+        return DecisionIdentifiableMultiActionPlan(
+            None, values[0], len(exact_games), action_count,
+            len(exact_games) == 1, True, False, finite_list_minimum_distance,
+            witness, candidate_combinations_tested, valid,
+            "ambiguous_transcript_has_disjoint_optimal_policy_polytopes",
+        )
+    valid = all(
+        min(
+            sum((policy[action] * game[action][scenario]
+                 for action in range(action_count)), Fraction(0))
+            for scenario in range(len(game[0]))
+        ) == values[index]
+        for index, game in enumerate(exact_games)
+    )
+    return DecisionIdentifiableMultiActionPlan(
+        policy, values[0], len(exact_games), action_count,
+        len(exact_games) == 1, True, True, finite_list_minimum_distance, (),
+        candidate_combinations_tested, valid,
+        "decision_identifiable_despite_model_ambiguity"
+        if len(exact_games) > 1 else "uniquely_decoded_model",
+    )
+
+
+def certify_multi_action_plan_from_ambiguous_transcript(
+    feature_rows,
+    query_indices,
+    observed_payoffs,
+    *,
+    payoff_in_feature_span_certified: bool,
+    corruption_budget: int,
+    erasure_budget: int = 0,
+    max_version_space: int = 10_000,
+) -> DecisionIdentifiableMultiActionPlan:
+    """Enumerate a finite corrupted completion list and certify its decision quotient."""
+    if not payoff_in_feature_span_certified:
+        raise ValueError("a certificate that payoffs lie in the feature span is required")
+    if corruption_budget < 0 or erasure_budget < 0:
+        raise ValueError("error and erasure budgets must be nonnegative")
+    features = tuple(tuple(Fraction(value) for value in row) for row in feature_rows)
+    indices = tuple(int(index) for index in query_indices)
+    observations = tuple(
+        None if row is None else tuple(Fraction(value) for value in row)
+        for row in observed_payoffs
+    )
+    if not features or not features[0]:
+        raise ValueError("at least one nonempty feature row is required")
+    if len(indices) != len(observations) or len(set(indices)) != len(indices):
+        raise ValueError("query indices and observations must align without duplicates")
+    erased = tuple(position for position, row in enumerate(observations) if row is None)
+    if len(erased) > erasure_budget:
+        raise ValueError("the transcript exceeds the certified erasure budget")
+    available = tuple(position for position, row in enumerate(observations) if row is not None)
+    if not available:
+        raise ValueError("the transcript has no available observations")
+    action_count = len(observations[available[0]])
+    if action_count < 2 or any(
+        row is not None and len(row) != action_count for row in observations
+    ):
+        raise ValueError("available observations must share at least two actions")
+    rank = _fraction_matrix_rank(features)
+    available_rows = tuple(features[indices[position]] for position in available)
+    if len(available) < rank or _fraction_matrix_rank(available_rows) != rank:
+        raise ValueError("available query rows do not span the feature rank")
+    distance = _feature_code_minimum_distance(available_rows, rank)
+    if distance < corruption_budget + 1:
+        raise ValueError(
+            "query geometry does not guarantee a finite completion list under "
+            "the certified corruption budget"
+        )
+    width = len(features[0])
+    pivots = next(
+        (columns for columns in combinations(range(width), rank)
+         if _fraction_matrix_rank(tuple(
+             tuple(row[column] for column in columns) for row in features
+         )) == rank),
+        None,
+    )
+    if pivots is None:
+        raise RuntimeError("feature table lacks exact pivot columns")
+    reduced = tuple(tuple(row[column] for column in pivots) for row in features)
+    action_candidates = []
+    for action in range(action_count):
+        candidates = {}
+        for basis in combinations(available, rank):
+            coefficients = _solve_fraction_system(
+                tuple(reduced[indices[position]] for position in basis),
+                tuple(observations[position][action] for position in basis),
+            )
+            if coefficients is None:
+                continue
+            predictions = tuple(
+                sum((value * coefficient for value, coefficient in zip(row, coefficients)),
+                    Fraction(0))
+                for row in reduced
+            )
+            disagreements = frozenset(
+                position for position in available
+                if predictions[indices[position]] != observations[position][action]
+            )
+            if len(disagreements) <= corruption_budget:
+                candidates[predictions] = disagreements
+        action_candidates.append(tuple(candidates.items()))
+    version_space = {}
+    tested = 0
+    for candidate_tuple in product(*action_candidates):
+        tested += 1
+        if tested > max_version_space:
+            raise ValueError("decision version-space cap exceeded")
+        disagreements = frozenset().union(
+            *(candidate[1] for candidate in candidate_tuple)
+        )
+        if len(disagreements) <= corruption_budget:
+            version_space[tuple(candidate[0] for candidate in candidate_tuple)] = disagreements
+    if not version_space:
+        raise ValueError("no feature-span completion matches the certified transcript")
+    return certify_common_robust_plan(
+        tuple(version_space),
+        finite_list_minimum_distance=distance,
+        candidate_combinations_tested=tested,
     )
 
 
