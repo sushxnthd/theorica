@@ -5,6 +5,7 @@ import pytest
 from theorica.agents.corruption_resilient_features import (
     certify_two_action_plan_from_ambiguous_transcript,
     reconstruct_corruption_resilient_feature_payoffs,
+    select_finite_list_feature_queries,
 )
 
 
@@ -148,4 +149,30 @@ def test_ambiguous_planner_rejects_infinite_list_geometry_before_enumeration():
             ((0, 0), (0, 0), (0, 1)),
             payoff_in_feature_span_certified=True,
             corruption_budget=1,
+        )
+
+
+def test_finite_list_selector_uses_t_plus_s_distance_boundary():
+    features = tuple((1, Fraction(index), Fraction(index) ** 2) for index in range(8))
+    result = select_finite_list_feature_queries(
+        features,
+        payoff_in_feature_span_certified=True,
+        corruption_budget=1,
+        erasure_budget=2,
+    )
+    assert result.certificate_valid
+    assert result.feature_rank == 3
+    assert result.query_count == 6
+    assert result.minimum_distance == 4
+
+
+def test_finite_list_selector_rejects_same_size_degenerate_geometry():
+    features = ((1, 0), (1, 0), (1, 0), (1, 0), (0, 1))
+    with pytest.raises(ValueError, match="no query subset"):
+        select_finite_list_feature_queries(
+            features,
+            payoff_in_feature_span_certified=True,
+            corruption_budget=1,
+            erasure_budget=2,
+            max_query_count=5,
         )

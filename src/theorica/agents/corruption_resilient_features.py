@@ -50,6 +50,23 @@ class DecisionIdentifiableTwoActionPlan:
     reason: str
 
 
+@dataclass(frozen=True)
+class FiniteListFeatureQueryPlan:
+    """Outcome-independent query geometry certifying a finite completion list."""
+
+    feature_rows: tuple[tuple[Fraction, ...], ...]
+    query_indices: tuple[int, ...]
+    feature_rank: int
+    feature_width: int
+    corruption_budget: int
+    erasure_budget: int
+    query_count: int
+    minimum_distance: int
+    candidate_subsets_tested: int
+    certificate_valid: bool
+    reason: str
+
+
 def _feature_code_minimum_distance(rows, rank):
     """Return the exact Hamming distance of the rational evaluation code."""
     maximum_zero_count = 0
@@ -80,6 +97,70 @@ def _two_action_optimal_interval(payoff_matrix, value):
     if lower > upper:
         return None
     return lower, upper
+
+
+def select_finite_list_feature_queries(
+    feature_rows,
+    *,
+    payoff_in_feature_span_certified: bool,
+    corruption_budget: int,
+    erasure_budget: int = 0,
+    max_query_count: int = 12,
+    max_candidate_subsets: int = 100_000,
+) -> FiniteListFeatureQueryPlan:
+    """Select the smallest geometry finite after all certified faults.
+
+    A selected code is accepted exactly when its minimum distance is at least
+    ``t + s + 1``.  This is equivalent to retaining full feature rank after
+    every deletion of ``t + s`` rows, and guarantees that any realized set of
+    at most ``s`` erasures leaves the transcript-level finite-list distance at
+    least ``t + 1``.
+    """
+    if not payoff_in_feature_span_certified:
+        raise ValueError("a certificate that payoffs lie in the feature span is required")
+    if corruption_budget < 0 or erasure_budget < 0:
+        raise ValueError("error and erasure budgets must be nonnegative")
+    features = tuple(tuple(Fraction(value) for value in row) for row in feature_rows)
+    if not features or not features[0]:
+        raise ValueError("at least one nonempty feature row is required")
+    width = len(features[0])
+    if any(len(row) != width for row in features):
+        raise ValueError("feature rows must share one width")
+    rank = _fraction_matrix_rank(features)
+    if rank == 0:
+        raise ValueError("feature rows have zero rank")
+
+    minimum_queries = rank + corruption_budget + erasure_budget
+    upper = min(len(features), int(max_query_count))
+    tested = 0
+    target_distance = corruption_budget + erasure_budget + 1
+    for query_count in range(minimum_queries, upper + 1):
+        for indices in combinations(range(len(features)), query_count):
+            tested += 1
+            if tested > int(max_candidate_subsets):
+                raise ValueError("finite-list query search limit exceeded")
+            rows = tuple(features[index] for index in indices)
+            if _fraction_matrix_rank(rows) != rank:
+                continue
+            distance = _feature_code_minimum_distance(rows, rank)
+            if distance >= target_distance:
+                return FiniteListFeatureQueryPlan(
+                    features,
+                    tuple(indices),
+                    rank,
+                    width,
+                    corruption_budget,
+                    erasure_budget,
+                    query_count,
+                    distance,
+                    tested,
+                    True,
+                    "finite_list_error_erasure_geometry_certificate",
+                )
+    raise ValueError(
+        "no query subset within the cap guarantees a finite completion list "
+        "under the certified error-erasure budget"
+    )
 
 
 def certify_two_action_plan_from_ambiguous_transcript(
