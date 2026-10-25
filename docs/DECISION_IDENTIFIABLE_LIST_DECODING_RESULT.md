@@ -73,10 +73,25 @@ whose values differ or whose optimal policies do not overlap.
 
 ## Limits and novelty boundary
 
-Version-space reasoning and list decoding are established ideas. The bounded
-claim here is the exact robust-decision quotient, its two-action interval
-criterion, algebraic completion enumerator, matched impossibility witnesses, and
-fail-closed integration. The implementation is limited to one two-action
+Version-space reasoning and list decoding are established ideas. Guruswami's
+folded Reed--Solomon work explicitly formalizes returning all codewords with
+sufficient agreement rather than forcing a unique decode
+(`arXiv:cs/0511072`). Decision-focused learning likewise distinguishes
+prediction fidelity from downstream decision quality. Most directly,
+*Geometric Identification in Predict-Then-Optimize Learning*
+(`arXiv:2609.33472`) studies how multiple reports can induce the same optimal
+decision and characterizes quotient-report identification for the SPO+ population
+risk. That work is about learning-risk geometry, not adversarial feature-code
+transcripts or exact robust-plan certification.
+
+Accordingly, we do **not** claim novelty for list decoding, decision equivalence,
+or optimal-face geometry. The bounded contribution is the exact corrupted-query
+robust-decision quotient, its necessary-and-sufficient two-action interval
+criterion, algebraic completion enumerator with shared row faults, matched
+indistinguishable-world witnesses, and fail-closed execution path. A broader
+priority search is still required before any publication-level novelty claim.
+
+The implementation is limited to one two-action
 component, exact rational features, certified span membership, explicit
 error/erasure budgets, and at most 10,000 candidate pairs. It does not cover
 approximate rank, noisy real arithmetic, unknown feature maps, probabilistic
