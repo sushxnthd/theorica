@@ -3,6 +3,7 @@
 from dataclasses import dataclass, replace
 from fractions import Fraction
 from itertools import combinations, product
+from math import comb
 
 from theorica.agents.robust_provenance import (
     _fraction_matrix_rank,
@@ -151,6 +152,33 @@ class DecisionCorruptionRadiusCertificate:
     incompatibility_witness: tuple[int, ...]
     minimal_witnesses_tested: int
     centers_tested: int
+    certificate_valid: bool
+    reason: str
+
+
+@dataclass(frozen=True)
+class AdaptiveDecisionLieNode:
+    """One state in an exact adaptive decision tree with bounded lies."""
+
+    lie_counts: tuple[int, ...]
+    feasible_completion_indices: tuple[int, ...]
+    query_index: int | None
+    action_probabilities: tuple[Fraction, ...] | None
+    minimax_value: Fraction | None
+    children: tuple[tuple[object, "AdaptiveDecisionLieNode"], ...] = ()
+
+
+@dataclass(frozen=True)
+class AdaptiveDecisionLiePlan:
+    """Exact minimum-depth decision query policy against answer substitutions."""
+
+    root: AdaptiveDecisionLieNode | None
+    worst_case_depth: int | None
+    corruption_budget: int
+    completion_count: int
+    query_count: int
+    states_solved: int
+    compatibility_states_solved: int
     certificate_valid: bool
     reason: str
 
@@ -725,6 +753,203 @@ def plan_decision_identifying_queries(games, query_outcomes) -> DecisionQueryPla
         depth == 0,
         True,
         "exact_minimax_decision_query_tree",
+    )
+
+
+def plan_adaptive_decision_queries_with_lies(
+    games,
+    query_outcomes,
+    *,
+    corruption_budget: int,
+) -> AdaptiveDecisionLiePlan:
+    """Return an exact minimum-depth adaptive decision tree under bounded lies.
+
+    Each row of ``query_outcomes`` is one physical query instance. Repeated
+    measurements are represented by repeated rows. An answer substitution must
+    lie in that query's declared finite outcome alphabet.
+    """
+    if corruption_budget < 0:
+        raise ValueError("corruption_budget must be nonnegative")
+    exact_games = tuple(
+        tuple(tuple(Fraction(value) for value in row) for row in game)
+        for game in games
+    )
+    if not exact_games:
+        raise ValueError("at least one feasible completion is required")
+    outcomes = tuple(tuple(row) for row in query_outcomes)
+    completion_count = len(exact_games)
+    if any(len(row) != completion_count for row in outcomes):
+        raise ValueError("every query must define one outcome per completion")
+    for row in outcomes:
+        try:
+            tuple(hash(value) for value in row)
+        except TypeError as exc:
+            raise ValueError("query outcomes must be hashable") from exc
+
+    alphabets = tuple(
+        tuple(
+            sorted(
+                set(row),
+                key=lambda value: (type(value).__name__, repr(value)),
+            )
+        )
+        for row in outcomes
+    )
+    eliminated = corruption_budget + 1
+    compatibility_cache = {}
+    pair_compatibility_cache = {}
+    solution_cache = {}
+
+    def feasible(lie_counts):
+        return tuple(
+            index
+            for index, count in enumerate(lie_counts)
+            if count <= corruption_budget
+        )
+
+    def compatible(indices):
+        if indices in compatibility_cache:
+            return compatibility_cache[indices]
+        for left, right in combinations(indices, 2):
+            pair = (left, right)
+            if pair not in pair_compatibility_cache:
+                pair_compatibility_cache[pair] = certify_common_robust_plan(
+                    (exact_games[left], exact_games[right])
+                ).policy_identifiable
+            if not pair_compatibility_cache[pair]:
+                compatibility_cache[indices] = None
+                return None
+        compatibility_cache[indices] = certify_common_robust_plan(
+            tuple(exact_games[index] for index in indices)
+        )
+        return compatibility_cache[indices]
+
+    def updated_counts(lie_counts, query, answer):
+        return tuple(
+            min(eliminated, count + (outcomes[query][index] != answer))
+            for index, count in enumerate(lie_counts)
+        )
+
+    def all_pairwise_incompatible(indices):
+        for left, right in combinations(indices, 2):
+            pair = (left, right)
+            if pair not in pair_compatibility_cache:
+                pair_compatibility_cache[pair] = certify_common_robust_plan(
+                    (exact_games[left], exact_games[right])
+                ).policy_identifiable
+            if pair_compatibility_cache[pair]:
+                return False
+        return len(indices) > 1
+
+    def binary_sphere_bound_fails(lie_counts, indices, depth_limit):
+        if not all_pairwise_incompatible(indices):
+            return False
+        weight = sum(
+            sum(
+                comb(depth_limit, additional_lies)
+                for additional_lies in range(corruption_budget - lie_counts[index] + 1)
+            )
+            for index in indices
+        )
+        return weight > 2**depth_limit
+
+    def search(lie_counts, remaining, depth_limit):
+        key = (lie_counts, remaining, depth_limit)
+        if key in solution_cache:
+            return solution_cache[key]
+        indices = feasible(lie_counts)
+        certificate = compatible(indices)
+        if (
+            certificate is not None
+            and certificate.policy_identifiable
+            and certificate.certificate_valid
+        ):
+            result = AdaptiveDecisionLieNode(
+                lie_counts,
+                indices,
+                None,
+                certificate.action_probabilities,
+                certificate.minimax_value,
+            )
+            solution_cache[key] = result
+            return result
+        if depth_limit == 0 or not remaining:
+            solution_cache[key] = None
+            return None
+        if all(len(alphabets[query]) <= 2 for query in remaining) and (
+            binary_sphere_bound_fails(lie_counts, indices, depth_limit)
+        ):
+            solution_cache[key] = None
+            return None
+
+        seen_rows = set()
+        for query in remaining:
+            row = outcomes[query]
+            if row in seen_rows:
+                continue
+            seen_rows.add(row)
+            if len({row[index] for index in indices}) < 2:
+                continue
+            next_remaining = tuple(item for item in remaining if item != query)
+            answer_states = tuple(
+                (answer, child_counts)
+                for answer in alphabets[query]
+                if feasible(
+                    child_counts := updated_counts(lie_counts, query, answer)
+                )
+            )
+            branches = []
+            for answer, child_counts in answer_states:
+                child = search(child_counts, next_remaining, depth_limit - 1)
+                if child is None:
+                    break
+                branches.append((answer, child))
+            if len(branches) != len(answer_states) or not branches:
+                continue
+            node = AdaptiveDecisionLieNode(
+                lie_counts,
+                indices,
+                query,
+                None,
+                None,
+                tuple(branches),
+            )
+            solution_cache[key] = node
+            return node
+        solution_cache[key] = None
+        return None
+
+    initial_counts = (0,) * completion_count
+    remaining = tuple(range(len(outcomes)))
+    root = None
+    depth = None
+    for depth_limit in range(len(outcomes) + 1):
+        root = search(initial_counts, remaining, depth_limit)
+        if root is not None:
+            depth = depth_limit
+            break
+    if root is None:
+        return AdaptiveDecisionLiePlan(
+            None,
+            None,
+            corruption_budget,
+            completion_count,
+            len(outcomes),
+            len(solution_cache),
+            len(compatibility_cache),
+            True,
+            "available_queries_cannot_identify_a_decision_under_corruption",
+        )
+    return AdaptiveDecisionLiePlan(
+        root,
+        depth,
+        corruption_budget,
+        completion_count,
+        len(outcomes),
+        len(solution_cache),
+        len(compatibility_cache),
+        True,
+        "exact_minimax_adaptive_decision_tree_with_lies",
     )
 
 

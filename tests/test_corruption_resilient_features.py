@@ -8,6 +8,7 @@ from theorica.agents.corruption_resilient_features import (
     certify_multi_action_plan_from_ambiguous_transcript,
     certify_stacked_ambiguity_gap,
     certify_two_action_plan_from_ambiguous_transcript,
+    plan_adaptive_decision_queries_with_lies,
     plan_decision_identifying_queries,
     reconstruct_corruption_resilient_feature_payoffs,
     select_finite_list_feature_queries,
@@ -401,3 +402,57 @@ def test_corruption_radius_is_unbounded_when_decision_is_already_identified():
     assert result.decision_radius is None
     assert result.max_certified_corruptions is None
     assert result.robust_to_budget
+
+
+def test_adaptive_decision_tree_needs_three_repeated_answers_for_one_lie():
+    games = (
+        _unique_mixing_game(Fraction(1, 3)),
+        _unique_mixing_game(Fraction(2, 3)),
+    )
+    plan = plan_adaptive_decision_queries_with_lies(
+        games,
+        ((0, 1),) * 3,
+        corruption_budget=1,
+    )
+
+    assert plan.certificate_valid
+    assert plan.worst_case_depth == 3
+    assert plan.root is not None
+    assert plan.root.lie_counts == (0, 0)
+
+
+def test_adaptive_decision_tree_fails_closed_when_repetition_is_missing():
+    games = (
+        _unique_mixing_game(Fraction(1, 3)),
+        _unique_mixing_game(Fraction(2, 3)),
+    )
+    plan = plan_adaptive_decision_queries_with_lies(
+        games,
+        ((0, 1),) * 2,
+        corruption_budget=1,
+    )
+
+    assert plan.certificate_valid
+    assert plan.root is None
+    assert plan.worst_case_depth is None
+    assert "under_corruption" in plan.reason
+
+
+def test_adaptive_lie_tree_uses_full_higher_order_compatibility():
+    games = tuple(
+        tuple((Fraction(-1 if action == excluded else 0),) for action in range(3))
+        for excluded in range(3)
+    )
+    assert all(
+        certify_common_robust_plan((games[left], games[right])).policy_identifiable
+        for left in range(3)
+        for right in range(left + 1, 3)
+    )
+    plan = plan_adaptive_decision_queries_with_lies(
+        games,
+        ((0, 1, 1),) * 3,
+        corruption_budget=1,
+    )
+
+    assert plan.certificate_valid
+    assert plan.worst_case_depth == 3
