@@ -7,9 +7,18 @@ from theorica.agents.corruption_resilient_features import (
     certify_multi_action_plan_from_ambiguous_transcript,
     certify_stacked_ambiguity_gap,
     certify_two_action_plan_from_ambiguous_transcript,
+    plan_decision_identifying_queries,
     reconstruct_corruption_resilient_feature_payoffs,
     select_finite_list_feature_queries,
 )
+
+
+def _unique_mixing_game(probability):
+    probability = Fraction(probability)
+    return (
+        (1 - probability, probability - 1),
+        (-probability, probability),
+    )
 
 
 def test_corruption_resilient_feature_reconstruction_corrects_one_bad_query():
@@ -274,3 +283,53 @@ def test_stacked_gap_abstains_when_values_differ():
     assert result.certificate_valid
     assert not result.value_identifiable
     assert result.ambiguity_gap is None
+
+
+def test_exact_decision_query_tree_matches_binary_depth():
+    games = tuple(_unique_mixing_game(Fraction(index + 1, 5)) for index in range(4))
+    plan = plan_decision_identifying_queries(
+        games,
+        ((0, 0, 1, 1), (0, 1, 0, 1)),
+    )
+    assert plan.certificate_valid
+    assert plan.worst_case_depth == 2
+    assert plan.root is not None and plan.root.query_index == 0
+
+
+def test_decision_queries_can_beat_unique_model_recovery():
+    games = tuple(
+        _unique_mixing_game(Fraction(1, 3) if index < 4 else Fraction(2, 3))
+        for index in range(8)
+    )
+    plan = plan_decision_identifying_queries(
+        games,
+        (
+            tuple(index // 4 for index in range(8)),
+            tuple((index >> 1) & 1 for index in range(8)),
+            tuple(index & 1 for index in range(8)),
+        ),
+    )
+    assert plan.worst_case_depth == 1
+    assert plan.root is not None and plan.root.query_index == 0
+
+
+def test_decision_query_tree_fails_closed_when_queries_cannot_separate_policies():
+    games = tuple(_unique_mixing_game(Fraction(index + 1, 5)) for index in range(4))
+    plan = plan_decision_identifying_queries(games, ((0, 0, 1, 1),))
+    assert plan.certificate_valid
+    assert plan.root is None and plan.worst_case_depth is None
+    assert "cannot_identify" in plan.reason
+
+
+def test_higher_order_conflict_is_resolved_despite_pairwise_compatibility():
+    games = tuple(
+        tuple((Fraction(-1 if action == excluded else 0),) for action in range(3))
+        for excluded in range(3)
+    )
+    assert all(
+        certify_common_robust_plan((games[left], games[right])).policy_identifiable
+        for left in range(3)
+        for right in range(left + 1, 3)
+    )
+    plan = plan_decision_identifying_queries(games, ((0, 1, 1),))
+    assert plan.worst_case_depth == 1

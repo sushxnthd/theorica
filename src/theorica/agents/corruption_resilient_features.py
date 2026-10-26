@@ -111,6 +111,31 @@ class StackedAmbiguityGapCertificate:
     stacked_action_probabilities: tuple[Fraction, ...] | None = None
 
 
+@dataclass(frozen=True)
+class DecisionQueryNode:
+    """One node in an exact adaptive decision-identification query tree."""
+
+    completion_indices: tuple[int, ...]
+    query_index: int | None
+    action_probabilities: tuple[Fraction, ...] | None
+    minimax_value: Fraction | None
+    children: tuple[tuple[object, "DecisionQueryNode"], ...] = ()
+
+
+@dataclass(frozen=True)
+class DecisionQueryPlan:
+    """Minimum worst-case query plan for identifying a robust decision."""
+
+    root: DecisionQueryNode | None
+    worst_case_depth: int | None
+    completion_count: int
+    query_count: int
+    states_solved: int
+    policy_identifiable_without_queries: bool
+    certificate_valid: bool
+    reason: str
+
+
 def _feature_code_minimum_distance(rows, rank):
     """Return the exact Hamming distance of the rational evaluation code."""
     maximum_zero_count = 0
@@ -567,6 +592,120 @@ def certify_common_robust_plan(
         adversary_scenario_weights=stacked.adversary_scenario_weights,
         adversary_action_payoffs=stacked.adversary_action_payoffs,
         stacked_action_probabilities=stacked.stacked_action_probabilities,
+    )
+
+
+def plan_decision_identifying_queries(games, query_outcomes) -> DecisionQueryPlan:
+    """Return an exact minimum-depth adaptive query tree or fail closed.
+
+    ``query_outcomes[q][completion]`` is the exact outcome that follow-up query
+    ``q`` would produce in that feasible completion. Queries may have any
+    finite, hashable outcome alphabet.
+    """
+    exact_games = tuple(
+        tuple(tuple(Fraction(value) for value in row) for row in game)
+        for game in games
+    )
+    if not exact_games:
+        raise ValueError("at least one feasible completion is required")
+    outcomes = tuple(tuple(row) for row in query_outcomes)
+    completion_count = len(exact_games)
+    if any(len(row) != completion_count for row in outcomes):
+        raise ValueError("every query must define one outcome per completion")
+    for row in outcomes:
+        try:
+            tuple(hash(value) for value in row)
+        except TypeError as exc:
+            raise ValueError("query outcomes must be hashable") from exc
+
+    compatibility_cache = {}
+    solution_cache = {}
+
+    def compatible(state):
+        if state not in compatibility_cache:
+            compatibility_cache[state] = certify_common_robust_plan(
+                tuple(exact_games[index] for index in state)
+            )
+        return compatibility_cache[state]
+
+    def solve(state, remaining):
+        key = (state, remaining)
+        if key in solution_cache:
+            return solution_cache[key]
+        certificate = compatible(state)
+        if certificate.policy_identifiable and certificate.certificate_valid:
+            result = (
+                0,
+                DecisionQueryNode(
+                    state,
+                    None,
+                    certificate.action_probabilities,
+                    certificate.minimax_value,
+                ),
+            )
+            solution_cache[key] = result
+            return result
+
+        best = None
+        for query in remaining:
+            cells = {}
+            for completion in state:
+                cells.setdefault(outcomes[query][completion], []).append(completion)
+            if len(cells) < 2:
+                continue
+            next_remaining = tuple(item for item in remaining if item != query)
+            branches = []
+            finite = True
+            for outcome, members in sorted(
+                cells.items(), key=lambda item: (type(item[0]).__name__, repr(item[0]))
+            ):
+                child = solve(tuple(members), next_remaining)
+                if child is None:
+                    finite = False
+                    break
+                branches.append((outcome, child[0], child[1]))
+            if not finite:
+                continue
+            depth = 1 + max(item[1] for item in branches)
+            node = DecisionQueryNode(
+                state,
+                query,
+                None,
+                None,
+                tuple((outcome, child) for outcome, _, child in branches),
+            )
+            candidate = (depth, query, node)
+            if best is None or candidate[:2] < best[:2]:
+                best = candidate
+        result = None if best is None else (best[0], best[2])
+        solution_cache[key] = result
+        return result
+
+    initial_state = tuple(range(completion_count))
+    initial_certificate = compatible(initial_state)
+    solved = solve(initial_state, tuple(range(len(outcomes))))
+    states_solved = len(solution_cache)
+    if solved is None:
+        return DecisionQueryPlan(
+            None,
+            None,
+            completion_count,
+            len(outcomes),
+            states_solved,
+            initial_certificate.policy_identifiable,
+            True,
+            "available_queries_cannot_identify_a_common_robust_policy",
+        )
+    depth, root = solved
+    return DecisionQueryPlan(
+        root,
+        depth,
+        completion_count,
+        len(outcomes),
+        states_solved,
+        depth == 0,
+        True,
+        "exact_minimax_decision_query_tree",
     )
 
 
