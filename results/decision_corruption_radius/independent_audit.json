@@ -1,0 +1,9 @@
+{
+  "audit_digest": "0ea970a54bf37448bab93e0a5d7ca5b46fa8fbd183037b88e2924d2bd53bfbed",
+  "cases_passed": 26,
+  "cases_total": 26,
+  "passed": true,
+  "primary_passed": true,
+  "production_imports": 0,
+  "schema": "theorica.decision-corruption-radius-audit/1"
+}

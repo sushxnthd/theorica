@@ -4,6 +4,7 @@ import pytest
 
 from theorica.agents.corruption_resilient_features import (
     certify_common_robust_plan,
+    certify_decision_query_corruption_radius,
     certify_multi_action_plan_from_ambiguous_transcript,
     certify_stacked_ambiguity_gap,
     certify_two_action_plan_from_ambiguous_transcript,
@@ -333,3 +334,70 @@ def test_higher_order_conflict_is_resolved_despite_pairwise_compatibility():
     )
     plan = plan_decision_identifying_queries(games, ((0, 1, 1),))
     assert plan.worst_case_depth == 1
+
+
+def test_tripled_coordinate_code_corrects_one_query_error():
+    games = tuple(_unique_mixing_game(Fraction(index + 1, 5)) for index in range(4))
+    bits = ((0, 0, 1, 1), (0, 1, 0, 1))
+    result = certify_decision_query_corruption_radius(
+        games,
+        tuple(row for row in bits for _ in range(3)),
+        corruption_budget=1,
+    )
+
+    assert result.certificate_valid
+    assert result.decision_radius == 2
+    assert result.max_certified_corruptions == 1
+    assert result.robust_to_budget
+
+
+def test_decision_code_can_be_shorter_than_unique_model_code():
+    games = tuple(
+        _unique_mixing_game(Fraction(1, 3) if index < 4 else Fraction(2, 3))
+        for index in range(8)
+    )
+    result = certify_decision_query_corruption_radius(
+        games,
+        ((0, 0, 0, 0, 1, 1, 1, 1),) * 3,
+        corruption_budget=1,
+    )
+
+    assert result.decision_radius == 2
+    assert result.robust_to_budget
+    assert result.query_count == 3
+
+
+def test_higher_order_corruption_attack_defeats_pairwise_conflict_distance():
+    games = tuple(
+        tuple((Fraction(-1 if action == excluded else 0),) for action in range(3))
+        for excluded in range(3)
+    )
+    assert all(
+        certify_common_robust_plan((games[left], games[right])).policy_identifiable
+        for left in range(3)
+        for right in range(left + 1, 3)
+    )
+    result = certify_decision_query_corruption_radius(
+        games,
+        ((0, 0, 1), (0, 1, 0), (0, 1, 1)),
+        corruption_budget=1,
+    )
+
+    assert result.certificate_valid
+    assert result.decision_radius == 1
+    assert not result.robust_to_budget
+    assert len(result.incompatibility_witness) == 3
+    assert result.closest_incompatible_center == (0, 0, 1)
+
+
+def test_corruption_radius_is_unbounded_when_decision_is_already_identified():
+    game = _unique_mixing_game(Fraction(1, 3))
+    result = certify_decision_query_corruption_radius(
+        (game, game, game),
+        ((0, 1, 0),),
+        corruption_budget=10,
+    )
+
+    assert result.decision_radius is None
+    assert result.max_certified_corruptions is None
+    assert result.robust_to_budget

@@ -54,6 +54,8 @@ on:
       - "scripts/audit_stacked_ambiguity_dual.py"
       - "scripts/verify_decision_query_depth.py"
       - "scripts/audit_decision_query_depth.py"
+      - "scripts/verify_decision_corruption_radius.py"
+      - "scripts/audit_decision_corruption_radius.py"
       - "docs/COUPLED_ADDITIVE_MINIMAX_*.md"
       - "docs/TWO_VERTEX_ADDITIVE_ENVELOPE_*.md"
       - "docs/THREE_VERTEX_ADDITIVE_ARRANGEMENT_*.md"
@@ -71,8 +73,10 @@ on:
       - "docs/FINITE_LIST_GEOMETRY_BOUNDARY_*.md"
       - "docs/STACKED_AMBIGUITY_*.md"
       - "docs/DECISION_QUERY_DEPTH_*.md"
+      - "docs/DECISION_CORRUPTION_RADIUS_*.md"
       - "results/stacked_ambiguity_dual/*.json"
       - "results/decision_query_depth/*.json"
+      - "results/decision_corruption_radius/*.json"
       - ".github/workflows/additive-product-minimax.yml"
 
 jobs:
@@ -128,5 +132,7 @@ jobs:
       - run: python scripts/audit_stacked_ambiguity_dual.py
       - run: python scripts/verify_decision_query_depth.py
       - run: python scripts/audit_decision_query_depth.py
+      - run: python scripts/verify_decision_corruption_radius.py
+      - run: python scripts/audit_decision_corruption_radius.py
       - run: pytest -q tests/test_robust_provenance.py
       - run: pytest -q tests/test_corruption_resilient_features.py

@@ -136,6 +136,25 @@ class DecisionQueryPlan:
     reason: str
 
 
+@dataclass(frozen=True)
+class DecisionCorruptionRadiusCertificate:
+    """Exact adversarial-error radius of a fixed decision-query code."""
+
+    decision_radius: int | None
+    max_certified_corruptions: int | None
+    corruption_budget: int
+    robust_to_budget: bool
+    completion_count: int
+    query_count: int
+    action_count: int
+    closest_incompatible_center: tuple[object, ...]
+    incompatibility_witness: tuple[int, ...]
+    minimal_witnesses_tested: int
+    centers_tested: int
+    certificate_valid: bool
+    reason: str
+
+
 def _feature_code_minimum_distance(rows, rank):
     """Return the exact Hamming distance of the rational evaluation code."""
     maximum_zero_count = 0
@@ -706,6 +725,153 @@ def plan_decision_identifying_queries(games, query_outcomes) -> DecisionQueryPla
         depth == 0,
         True,
         "exact_minimax_decision_query_tree",
+    )
+
+
+def certify_decision_query_corruption_radius(
+    games,
+    query_outcomes,
+    *,
+    corruption_budget: int,
+) -> DecisionCorruptionRadiusCertificate:
+    """Certify the exact answer-corruption radius of fixed follow-up queries.
+
+    ``query_outcomes[q][completion]`` defines the clean query code. The result
+    is fail closed unless every Hamming ball of the requested radius leaves a
+    completion list with one common exact robust policy and value.
+    """
+    if corruption_budget < 0:
+        raise ValueError("corruption_budget must be nonnegative")
+    exact_games = tuple(
+        tuple(tuple(Fraction(value) for value in row) for row in game)
+        for game in games
+    )
+    if not exact_games:
+        raise ValueError("at least one feasible completion is required")
+    outcomes = tuple(tuple(row) for row in query_outcomes)
+    completion_count = len(exact_games)
+    if any(len(row) != completion_count for row in outcomes):
+        raise ValueError("every query must define one outcome per completion")
+    for row in outcomes:
+        try:
+            tuple(hash(value) for value in row)
+        except TypeError as exc:
+            raise ValueError("query outcomes must be hashable") from exc
+
+    full = certify_common_robust_plan(exact_games)
+    action_count = len(exact_games[0])
+    if full.policy_identifiable and full.certificate_valid:
+        return DecisionCorruptionRadiusCertificate(
+            None,
+            None,
+            corruption_budget,
+            True,
+            completion_count,
+            len(outcomes),
+            action_count,
+            (),
+            (),
+            0,
+            0,
+            True,
+            "all_completions_share_one_robust_decision",
+        )
+
+    codewords = tuple(
+        tuple(row[completion] for row in outcomes)
+        for completion in range(completion_count)
+    )
+    minimal_witnesses = []
+    witnesses_tested = 0
+    for size in range(2, min(action_count, completion_count) + 1):
+        for indices in combinations(range(completion_count), size):
+            if any(set(witness).issubset(indices) for witness in minimal_witnesses):
+                continue
+            certificate = certify_common_robust_plan(
+                tuple(exact_games[index] for index in indices)
+            )
+            witnesses_tested += 1
+            if not certificate.policy_identifiable:
+                minimal_witnesses.append(indices)
+
+    if not minimal_witnesses:
+        raise AssertionError("incompatible games lacked a bounded witness")
+
+    centers_tested = 0
+
+    def hamming(left, right):
+        return sum(a != b for a, b in zip(left, right))
+
+    def witness_radius(indices):
+        nonlocal centers_tested
+        words = tuple(codewords[index] for index in indices)
+        if len(words) == 2:
+            first, second = words
+            center = list(first)
+            differences = [
+                position
+                for position, (left, right) in enumerate(zip(first, second))
+                if left != right
+            ]
+            for position in differences[: len(differences) // 2]:
+                center[position] = second[position]
+            centers_tested += 1
+            center = tuple(center)
+            return max(hamming(center, word) for word in words), center
+
+        alphabets = tuple(
+            tuple(sorted(
+                {word[position] for word in words},
+                key=lambda value: (type(value).__name__, repr(value)),
+            ))
+            for position in range(len(outcomes))
+        )
+        best = None
+        for center in product(*alphabets):
+            centers_tested += 1
+            radius = max(hamming(center, word) for word in words)
+            candidate = (radius, tuple((type(value).__name__, repr(value))
+                                       for value in center), center)
+            if best is None or candidate[:2] < best[:2]:
+                best = candidate
+        return best[0], best[2]
+
+    closest = None
+    for witness in minimal_witnesses:
+        radius, center = witness_radius(witness)
+        candidate = (radius, witness, center)
+        if closest is None or candidate[:2] < closest[:2]:
+            closest = candidate
+
+    decision_radius, witness, center = closest
+    witness_certificate = certify_common_robust_plan(
+        tuple(exact_games[index] for index in witness)
+    )
+    valid = (
+        witness_certificate.certificate_valid
+        and not witness_certificate.policy_identifiable
+        and max(hamming(center, codewords[index]) for index in witness)
+        == decision_radius
+    )
+    robust = decision_radius > corruption_budget
+    return DecisionCorruptionRadiusCertificate(
+        decision_radius,
+        decision_radius - 1,
+        corruption_budget,
+        robust,
+        completion_count,
+        len(outcomes),
+        action_count,
+        center,
+        witness,
+        witnesses_tested,
+        centers_tested,
+        valid,
+        (
+            "query_code_certifies_requested_corruption_budget"
+            if robust
+            else "adversarial_transcript_has_no_common_robust_decision"
+        ),
     )
 
 
