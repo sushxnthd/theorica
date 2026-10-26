@@ -212,6 +212,23 @@ class AdaptiveDecisionFaultPlan:
     reason: str
 
 
+@dataclass(frozen=True)
+class AdaptiveDecisionWeightedFaultPlan:
+    """Exact minimum-cost decision policy under substitutions and erasures."""
+
+    root: AdaptiveDecisionFaultNode | None
+    worst_case_cost: int | None
+    worst_case_depth: int | None
+    corruption_budget: int
+    erasure_budget: int
+    completion_count: int
+    query_count: int
+    states_solved: int
+    compatibility_states_solved: int
+    certificate_valid: bool
+    reason: str
+
+
 def qary_prefix_query_library(
     arity: int,
     depth: int,
@@ -245,6 +262,32 @@ def qary_prefix_query_library(
             )
             rows.extend((row,) * copies)
     return tuple(rows)
+
+
+def qary_prefix_query_costs(
+    arity: int,
+    depth: int,
+    *,
+    copies: int = 3,
+    level_costs,
+) -> tuple[int, ...]:
+    """Return costs aligned with :func:`qary_prefix_query_library` rows."""
+    if arity < 2:
+        raise ValueError("arity must be at least two")
+    if depth < 1:
+        raise ValueError("depth must be positive")
+    if copies < 1:
+        raise ValueError("copies must be positive")
+    costs = tuple(level_costs)
+    if len(costs) != depth:
+        raise ValueError("level_costs must contain one cost per level")
+    if any(isinstance(cost, bool) or not isinstance(cost, int) or cost < 1 for cost in costs):
+        raise ValueError("query costs must be positive integers")
+    return tuple(
+        cost
+        for level, cost in enumerate(costs)
+        for _ in range(copies * arity**level)
+    )
 
 
 def _feature_code_minimum_distance(rows, rank):
@@ -1191,6 +1234,209 @@ def plan_adaptive_decision_queries_with_faults(
         len(compatibility_cache),
         True,
         "exact_minimax_adaptive_decision_tree_with_mixed_faults",
+    )
+
+
+def plan_adaptive_decision_queries_with_weighted_faults(
+    games,
+    query_outcomes,
+    *,
+    query_costs,
+    corruption_budget: int,
+    erasure_budget: int,
+) -> AdaptiveDecisionWeightedFaultPlan:
+    """Return an exact minimum-cost tree under substitutions and erasures.
+
+    Monotone cost-bounded search followed by integer binary search certifies
+    the exact optimum. ``None`` remains reserved for a recognized erasure.
+    The solver fails closed when no available tree forces a common exact
+    robust decision.
+    """
+    if corruption_budget < 0 or erasure_budget < 0:
+        raise ValueError("corruption and erasure budgets must be nonnegative")
+    exact_games = tuple(
+        tuple(tuple(Fraction(value) for value in row) for row in game)
+        for game in games
+    )
+    if not exact_games:
+        raise ValueError("at least one feasible completion is required")
+    outcomes = tuple(tuple(row) for row in query_outcomes)
+    costs = tuple(query_costs)
+    completion_count = len(exact_games)
+    if any(len(row) != completion_count for row in outcomes):
+        raise ValueError("every query must define one outcome per completion")
+    if len(costs) != len(outcomes):
+        raise ValueError("query_costs must align with query_outcomes")
+    if any(isinstance(cost, bool) or not isinstance(cost, int) or cost < 1 for cost in costs):
+        raise ValueError("query costs must be positive integers")
+    if any(value is None for row in outcomes for value in row):
+        raise ValueError("None is reserved for recognized erasures")
+    for row in outcomes:
+        try:
+            tuple(hash(value) for value in row)
+        except TypeError as exc:
+            raise ValueError("query outcomes must be hashable") from exc
+
+    alphabets = tuple(
+        tuple(sorted(set(row), key=lambda value: (type(value).__name__, repr(value))))
+        for row in outcomes
+    )
+    eliminated = corruption_budget + 1
+    compatibility_cache = {}
+    pair_compatibility_cache = {}
+    solution_cache = {}
+
+    def feasible(lie_counts):
+        return tuple(
+            index
+            for index, count in enumerate(lie_counts)
+            if count <= corruption_budget
+        )
+
+    def compatible(indices):
+        if indices in compatibility_cache:
+            return compatibility_cache[indices]
+        for left, right in combinations(indices, 2):
+            pair = (left, right)
+            if pair not in pair_compatibility_cache:
+                pair_compatibility_cache[pair] = certify_common_robust_plan(
+                    (exact_games[left], exact_games[right])
+                ).policy_identifiable
+            if not pair_compatibility_cache[pair]:
+                compatibility_cache[indices] = None
+                return None
+        compatibility_cache[indices] = certify_common_robust_plan(
+            tuple(exact_games[index] for index in indices)
+        )
+        return compatibility_cache[indices]
+
+    def updated_counts(lie_counts, query, answer):
+        return tuple(
+            min(eliminated, count + (outcomes[query][index] != answer))
+            for index, count in enumerate(lie_counts)
+        )
+
+    def search(lie_counts, erasures_used, remaining, cost_limit):
+        key = (lie_counts, erasures_used, remaining, cost_limit)
+        if key in solution_cache:
+            return solution_cache[key]
+        indices = feasible(lie_counts)
+        certificate = compatible(indices)
+        if (
+            certificate is not None
+            and certificate.policy_identifiable
+            and certificate.certificate_valid
+        ):
+            result = AdaptiveDecisionFaultNode(
+                lie_counts,
+                erasures_used,
+                indices,
+                None,
+                certificate.action_probabilities,
+                certificate.minimax_value,
+            )
+            solution_cache[key] = result
+            return result
+        if not remaining:
+            solution_cache[key] = None
+            return None
+
+        seen_rows = set()
+        for query in remaining:
+            if costs[query] > cost_limit:
+                continue
+            row = outcomes[query]
+            row_key = (row, costs[query])
+            if row_key in seen_rows:
+                continue
+            seen_rows.add(row_key)
+            if len({row[index] for index in indices}) < 2:
+                continue
+            next_remaining = tuple(item for item in remaining if item != query)
+            answer_states = [
+                (answer, child_counts, erasures_used)
+                for answer in alphabets[query]
+                if feasible(child_counts := updated_counts(lie_counts, query, answer))
+            ]
+            if erasures_used < erasure_budget:
+                answer_states.append((None, lie_counts, erasures_used + 1))
+            branches = []
+            for answer, child_counts, child_erasures in answer_states:
+                child = search(
+                    child_counts,
+                    child_erasures,
+                    next_remaining,
+                    cost_limit - costs[query],
+                )
+                if child is None:
+                    break
+                branches.append((answer, child))
+            if len(branches) != len(answer_states) or not branches:
+                continue
+            node = AdaptiveDecisionFaultNode(
+                lie_counts,
+                erasures_used,
+                indices,
+                query,
+                None,
+                None,
+                tuple(branches),
+            )
+            solution_cache[key] = node
+            return node
+        solution_cache[key] = None
+        return None
+
+    initial_counts = (0,) * completion_count
+    remaining = tuple(range(len(outcomes)))
+    lower = -1
+    upper = sum(costs)
+    root = search(initial_counts, 0, remaining, upper)
+    if root is not None:
+        while upper - lower > 1:
+            middle = (lower + upper) // 2
+            candidate = search(initial_counts, 0, remaining, middle)
+            if candidate is None:
+                lower = middle
+            else:
+                upper = middle
+                root = candidate
+        optimum = upper
+        root = search(initial_counts, 0, remaining, optimum)
+    else:
+        optimum = None
+    if root is None:
+        return AdaptiveDecisionWeightedFaultPlan(
+            None,
+            None,
+            None,
+            corruption_budget,
+            erasure_budget,
+            completion_count,
+            len(outcomes),
+            len(solution_cache),
+            len(compatibility_cache),
+            True,
+            "available_queries_cannot_identify_a_decision_under_weighted_mixed_faults",
+        )
+
+    def tree_depth(node):
+        if node.query_index is None:
+            return 0
+        return 1 + max(tree_depth(child) for _, child in node.children)
+
+    return AdaptiveDecisionWeightedFaultPlan(
+        root,
+        optimum,
+        tree_depth(root),
+        corruption_budget,
+        erasure_budget,
+        completion_count,
+        len(outcomes),
+        len(solution_cache),
+        len(compatibility_cache),
+        True,
+        "exact_minimax_weighted_adaptive_decision_tree_with_mixed_faults",
     )
 
 

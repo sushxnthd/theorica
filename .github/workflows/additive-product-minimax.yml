@@ -64,6 +64,8 @@ on:
       - "scripts/audit_qary_multi_lie_law.py"
       - "scripts/verify_qary_mixed_fault_law.py"
       - "scripts/audit_qary_mixed_fault_law.py"
+      - "scripts/verify_qary_weighted_mixed_fault_law.py"
+      - "scripts/audit_qary_weighted_mixed_fault_law.py"
       - "docs/COUPLED_ADDITIVE_MINIMAX_*.md"
       - "docs/TWO_VERTEX_ADDITIVE_ENVELOPE_*.md"
       - "docs/THREE_VERTEX_ADDITIVE_ARRANGEMENT_*.md"
@@ -86,6 +88,7 @@ on:
       - "docs/QARY_ADAPTIVE_LIE_LAW_*.md"
       - "docs/QARY_MULTI_LIE_LAW_*.md"
       - "docs/QARY_MIXED_FAULT_LAW_*.md"
+      - "docs/QARY_WEIGHTED_MIXED_FAULT_*.md"
       - "results/stacked_ambiguity_dual/*.json"
       - "results/decision_query_depth/*.json"
       - "results/decision_corruption_radius/*.json"
@@ -93,6 +96,7 @@ on:
       - "results/qary_adaptive_lie_law/*.json"
       - "results/qary_multi_lie_law/*.json"
       - "results/qary_mixed_fault_law/*.json"
+      - "results/qary_weighted_mixed_fault_law/*.json"
       - ".github/workflows/additive-product-minimax.yml"
 
 jobs:
@@ -158,5 +162,7 @@ jobs:
       - run: python scripts/audit_qary_multi_lie_law.py
       - run: python scripts/verify_qary_mixed_fault_law.py
       - run: python scripts/audit_qary_mixed_fault_law.py
+      - run: python scripts/verify_qary_weighted_mixed_fault_law.py
+      - run: python scripts/audit_qary_weighted_mixed_fault_law.py
       - run: pytest -q tests/test_robust_provenance.py
       - run: pytest -q tests/test_corruption_resilient_features.py
