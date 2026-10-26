@@ -490,3 +490,38 @@ def test_qary_prefix_library_fails_closed_with_missing_parent_copy():
     assert plan.certificate_valid
     assert plan.root is None
     assert plan.worst_case_depth is None
+
+
+def test_qary_prefix_library_has_exact_two_lie_depth():
+    arity, depth, corruption_budget = 3, 2, 2
+    games = tuple(
+        _unique_mixing_game(Fraction(index + 1, arity**depth + 1))
+        for index in range(arity**depth)
+    )
+    outcomes = qary_prefix_query_library(
+        arity, depth, copies=2 * corruption_budget + 1
+    )
+    plan = plan_adaptive_decision_queries_with_lies(
+        games, outcomes, corruption_budget=corruption_budget
+    )
+
+    assert plan.certificate_valid
+    assert plan.worst_case_depth == (corruption_budget + 1) * depth + corruption_budget
+
+
+def test_qary_prefix_library_fails_closed_with_two_lies_and_missing_copy():
+    arity, depth, corruption_budget = 3, 2, 2
+    games = tuple(
+        _unique_mixing_game(Fraction(index + 1, arity**depth + 1))
+        for index in range(arity**depth)
+    )
+    outcomes = qary_prefix_query_library(
+        arity, depth, copies=2 * corruption_budget + 1
+    )[:-1]
+    plan = plan_adaptive_decision_queries_with_lies(
+        games, outcomes, corruption_budget=corruption_budget
+    )
+
+    assert plan.certificate_valid
+    assert plan.root is None
+    assert plan.worst_case_depth is None

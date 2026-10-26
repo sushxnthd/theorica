@@ -1,0 +1,108 @@
+{
+  "case_digest_reproduced": true,
+  "case_total": 12,
+  "cases_replayed": 12,
+  "missing_copy_abstained": true,
+  "missing_copy_depth": null,
+  "passed": true,
+  "production_imports": 0,
+  "replays": [
+    {
+      "actual": 5,
+      "arity": 2,
+      "corruption_budget": 2,
+      "depth": 1,
+      "expected": 5,
+      "passed": true
+    },
+    {
+      "actual": 5,
+      "arity": 3,
+      "corruption_budget": 2,
+      "depth": 1,
+      "expected": 5,
+      "passed": true
+    },
+    {
+      "actual": 8,
+      "arity": 2,
+      "corruption_budget": 2,
+      "depth": 2,
+      "expected": 8,
+      "passed": true
+    },
+    {
+      "actual": 8,
+      "arity": 3,
+      "corruption_budget": 2,
+      "depth": 2,
+      "expected": 8,
+      "passed": true
+    },
+    {
+      "actual": 8,
+      "arity": 4,
+      "corruption_budget": 2,
+      "depth": 2,
+      "expected": 8,
+      "passed": true
+    },
+    {
+      "actual": 8,
+      "arity": 5,
+      "corruption_budget": 2,
+      "depth": 2,
+      "expected": 8,
+      "passed": true
+    },
+    {
+      "actual": 11,
+      "arity": 2,
+      "corruption_budget": 2,
+      "depth": 3,
+      "expected": 11,
+      "passed": true
+    },
+    {
+      "actual": 11,
+      "arity": 2,
+      "corruption_budget": 3,
+      "depth": 2,
+      "expected": 11,
+      "passed": true
+    },
+    {
+      "actual": 11,
+      "arity": 3,
+      "corruption_budget": 3,
+      "depth": 2,
+      "expected": 11,
+      "passed": true
+    },
+    {
+      "actual": 11,
+      "arity": 3,
+      "corruption_budget": 2,
+      "depth": 3,
+      "expected": 11,
+      "passed": true
+    },
+    {
+      "actual": 11,
+      "arity": 4,
+      "corruption_budget": 3,
+      "depth": 2,
+      "expected": 11,
+      "passed": true
+    },
+    {
+      "actual": 15,
+      "arity": 2,
+      "corruption_budget": 3,
+      "depth": 3,
+      "expected": 15,
+      "passed": true
+    }
+  ],
+  "schema": "theorica.qary-multi-lie-law-audit/1"
+}
