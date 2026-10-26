@@ -10,6 +10,7 @@ from theorica.agents.corruption_resilient_features import (
     certify_two_action_plan_from_ambiguous_transcript,
     plan_adaptive_decision_queries_with_lies,
     plan_decision_identifying_queries,
+    qary_prefix_query_library,
     reconstruct_corruption_resilient_feature_payoffs,
     select_finite_list_feature_queries,
 )
@@ -456,3 +457,36 @@ def test_adaptive_lie_tree_uses_full_higher_order_compatibility():
 
     assert plan.certificate_valid
     assert plan.worst_case_depth == 3
+
+
+def test_qary_prefix_library_has_exact_nonbinary_lie_depth():
+    arity, depth = 3, 2
+    games = tuple(
+        _unique_mixing_game(Fraction(index + 1, arity**depth + 1))
+        for index in range(arity**depth)
+    )
+    outcomes = qary_prefix_query_library(arity, depth)
+    plan = plan_adaptive_decision_queries_with_lies(
+        games, outcomes, corruption_budget=1
+    )
+
+    assert len(outcomes) == 3 * sum(arity**level for level in range(depth))
+    assert plan.certificate_valid
+    assert plan.worst_case_depth == 2 * depth + 1
+
+
+def test_qary_prefix_library_fails_closed_with_missing_parent_copy():
+    arity, depth = 3, 2
+    games = tuple(
+        _unique_mixing_game(Fraction(index + 1, arity**depth + 1))
+        for index in range(arity**depth)
+    )
+    outcomes = qary_prefix_query_library(arity, depth)
+    attacked = outcomes[:-1]
+    plan = plan_adaptive_decision_queries_with_lies(
+        games, attacked, corruption_budget=1
+    )
+
+    assert plan.certificate_valid
+    assert plan.root is None
+    assert plan.worst_case_depth is None

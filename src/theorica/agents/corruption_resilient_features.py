@@ -183,6 +183,41 @@ class AdaptiveDecisionLiePlan:
     reason: str
 
 
+def qary_prefix_query_library(
+    arity: int,
+    depth: int,
+    *,
+    copies: int = 3,
+) -> tuple[tuple[int, ...], ...]:
+    """Construct the q-ary prefix-query family used by the adaptive lie law.
+
+    Completions are lexicographically indexed length-``depth`` q-ary words.
+    A prefix query returns the next symbol inside its subtree and zero outside.
+    Repeated physical measurements are represented by repeated rows.
+    """
+    if arity < 2:
+        raise ValueError("arity must be at least two")
+    if depth < 1:
+        raise ValueError("depth must be positive")
+    if copies < 1:
+        raise ValueError("copies must be positive")
+
+    completion_count = arity**depth
+    rows = []
+    for level in range(depth):
+        prefix_divisor = arity ** (depth - level)
+        symbol_divisor = arity ** (depth - level - 1)
+        for prefix in range(arity**level):
+            row = tuple(
+                (completion // symbol_divisor) % arity
+                if completion // prefix_divisor == prefix
+                else 0
+                for completion in range(completion_count)
+            )
+            rows.extend((row,) * copies)
+    return tuple(rows)
+
+
 def _feature_code_minimum_distance(rows, rank):
     """Return the exact Hamming distance of the rational evaluation code."""
     maximum_zero_count = 0

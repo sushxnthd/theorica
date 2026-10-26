@@ -58,6 +58,8 @@ on:
       - "scripts/audit_decision_corruption_radius.py"
       - "scripts/verify_adaptive_decision_lies.py"
       - "scripts/audit_adaptive_decision_lies.py"
+      - "scripts/verify_qary_adaptive_lie_law.py"
+      - "scripts/audit_qary_adaptive_lie_law.py"
       - "docs/COUPLED_ADDITIVE_MINIMAX_*.md"
       - "docs/TWO_VERTEX_ADDITIVE_ENVELOPE_*.md"
       - "docs/THREE_VERTEX_ADDITIVE_ARRANGEMENT_*.md"
@@ -77,10 +79,12 @@ on:
       - "docs/DECISION_QUERY_DEPTH_*.md"
       - "docs/DECISION_CORRUPTION_RADIUS_*.md"
       - "docs/ADAPTIVE_DECISION_LIES_*.md"
+      - "docs/QARY_ADAPTIVE_LIE_LAW_*.md"
       - "results/stacked_ambiguity_dual/*.json"
       - "results/decision_query_depth/*.json"
       - "results/decision_corruption_radius/*.json"
       - "results/adaptive_decision_lies/*.json"
+      - "results/qary_adaptive_lie_law/*.json"
       - ".github/workflows/additive-product-minimax.yml"
 
 jobs:
@@ -140,5 +144,7 @@ jobs:
       - run: python scripts/audit_decision_corruption_radius.py
       - run: python scripts/verify_adaptive_decision_lies.py
       - run: python scripts/audit_adaptive_decision_lies.py
+      - run: python scripts/verify_qary_adaptive_lie_law.py
+      - run: python scripts/audit_qary_adaptive_lie_law.py
       - run: pytest -q tests/test_robust_provenance.py
       - run: pytest -q tests/test_corruption_resilient_features.py
