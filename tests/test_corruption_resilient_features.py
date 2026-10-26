@@ -229,6 +229,15 @@ def test_stacked_gap_is_zero_exactly_for_a_common_policy():
     assert max(result.adversary_action_payoffs) == 0
 
 
+def test_stacked_dual_handles_a_single_labelled_scenario():
+    result = certify_stacked_ambiguity_gap((((1,), (0,), (-1,)),))
+    assert result.certificate_valid and result.policy_identifiable
+    assert result.common_value == result.stacked_value == 1
+    assert result.ambiguity_gap == 0
+    assert result.adversary_scenario_weights == ((0, 0, Fraction(1)),)
+    assert result.adversary_action_payoffs == (1, 0, -1)
+
+
 def test_stacked_gap_returns_sharp_scenario_witness():
     games = tuple(
         tuple((Fraction(-1 if action == excluded else 0),)

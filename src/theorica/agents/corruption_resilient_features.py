@@ -269,7 +269,14 @@ def _solve_multi_action_robust_game_with_dual(game):
         tuple(-matrix[action][scenario] for action in range(action_count))
         for scenario in range(scenario_count)
     )
-    negative_value, adversary = _solve_multi_action_robust_game(dual_game)
+    if scenario_count == 1:
+        # The transposed game has one action, outside the public solver's
+        # deliberate >=2-action contract. Nature's strategy is nevertheless
+        # uniquely the sole scenario, so solve this boundary in closed form.
+        negative_value = min(dual_game[0])
+        adversary = (Fraction(1),)
+    else:
+        negative_value, adversary = _solve_multi_action_robust_game(dual_game)
     if -negative_value != value:
         raise RuntimeError("exact robust-game primal and dual values disagree")
     action_payoffs = tuple(
