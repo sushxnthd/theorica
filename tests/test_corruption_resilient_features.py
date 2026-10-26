@@ -8,6 +8,7 @@ from theorica.agents.corruption_resilient_features import (
     certify_multi_action_plan_from_ambiguous_transcript,
     certify_stacked_ambiguity_gap,
     certify_two_action_plan_from_ambiguous_transcript,
+    plan_adaptive_decision_queries_with_faults,
     plan_adaptive_decision_queries_with_lies,
     plan_decision_identifying_queries,
     qary_prefix_query_library,
@@ -520,6 +521,50 @@ def test_qary_prefix_library_fails_closed_with_two_lies_and_missing_copy():
     )[:-1]
     plan = plan_adaptive_decision_queries_with_lies(
         games, outcomes, corruption_budget=corruption_budget
+    )
+
+    assert plan.certificate_valid
+    assert plan.root is None
+    assert plan.worst_case_depth is None
+
+
+def test_qary_prefix_library_has_exact_mixed_fault_depth():
+    arity, depth, corruptions, erasures = 3, 2, 1, 1
+    completion_count = arity**depth
+    games = tuple(
+        _unique_mixing_game(Fraction(index + 1, completion_count + 1))
+        for index in range(completion_count)
+    )
+    outcomes = qary_prefix_query_library(
+        arity, depth, copies=2 * corruptions + erasures + 1
+    )
+    plan = plan_adaptive_decision_queries_with_faults(
+        games,
+        outcomes,
+        corruption_budget=corruptions,
+        erasure_budget=erasures,
+    )
+
+    assert plan.certificate_valid
+    assert plan.worst_case_depth == 6
+    assert plan.root is not None
+
+
+def test_qary_mixed_fault_library_fails_closed_with_missing_copy():
+    arity, depth, corruptions, erasures = 3, 2, 1, 1
+    completion_count = arity**depth
+    games = tuple(
+        _unique_mixing_game(Fraction(index + 1, completion_count + 1))
+        for index in range(completion_count)
+    )
+    outcomes = qary_prefix_query_library(
+        arity, depth, copies=2 * corruptions + erasures + 1
+    )[:-1]
+    plan = plan_adaptive_decision_queries_with_faults(
+        games,
+        outcomes,
+        corruption_budget=corruptions,
+        erasure_budget=erasures,
     )
 
     assert plan.certificate_valid
