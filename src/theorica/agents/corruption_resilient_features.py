@@ -254,6 +254,22 @@ class QaryThreeLevelInsuranceCertificate:
     certificate_valid: bool
 
 
+@dataclass(frozen=True)
+class QaryRootRespectingInsuranceCertificate:
+    """Arbitrary-depth max-plus certificate for root-respecting policies."""
+
+    arity: int
+    level_costs: tuple[int, ...]
+    available_copies: tuple[int, ...]
+    face_vectors: tuple[tuple[int, ...], ...]
+    face_costs: tuple[int, ...]
+    exact_worst_case_cost: int | None
+    recurrence_cost: int | None
+    active_face_vectors: tuple[tuple[int, ...], ...]
+    certificate_valid: bool
+    reason: str
+
+
 def certify_qary_two_level_insurance(
     arity: int,
     root_cost: int,
@@ -337,6 +353,90 @@ def certify_qary_three_level_insurance(
         optimum,
         tuple(name for name, bound in zip(names, bounds) if bound == optimum),
         True,
+    )
+
+
+def certify_qary_root_respecting_insurance(
+    arity: int,
+    level_costs,
+    *,
+    available_copies=None,
+) -> QaryRootRespectingInsuranceCertificate:
+    """Certify the exact arbitrary-depth root-respecting insurance cost.
+
+    The policy resolves each current prefix before querying a strict
+    descendant.  Its adversarial paths either hide both faults until one level
+    (a single coefficient ``4``), or expose the erasure and substitution at
+    two levels (two coefficients ``3``).  Earlier levels cost two copies and
+    levels after both exposures cost one.
+    """
+    if arity < 2:
+        raise ValueError("arity must be at least two")
+    costs = tuple(level_costs)
+    if not costs:
+        raise ValueError("at least one level cost is required")
+    if any(
+        isinstance(cost, bool) or not isinstance(cost, int) or cost < 1
+        for cost in costs
+    ):
+        raise ValueError("query costs must be positive integers")
+    copies = (4,) * len(costs) if available_copies is None else tuple(available_copies)
+    if len(copies) != len(costs):
+        raise ValueError("available_copies must align with level_costs")
+    if any(isinstance(count, bool) or not isinstance(count, int) or count < 0 for count in copies):
+        raise ValueError("available copy counts must be nonnegative integers")
+
+    depth = len(costs)
+    faces = []
+    for hidden in range(depth):
+        faces.append((2,) * hidden + (4,) + (1,) * (depth - hidden - 1))
+    for erasure_hidden in range(depth - 1):
+        for substitution_hidden in range(depth - erasure_hidden - 1):
+            faces.append(
+                (2,) * erasure_hidden
+                + (3,)
+                + (2,) * substitution_hidden
+                + (3,)
+                + (1,) * (depth - erasure_hidden - substitution_hidden - 2)
+            )
+    face_vectors = tuple(faces)
+    face_costs = tuple(
+        sum(coefficient * cost for coefficient, cost in zip(face, costs))
+        for face in face_vectors
+    )
+
+    no_fault = costs[-1]
+    substitution = 3 * costs[-1]
+    mixed = 4 * costs[-1]
+    for cost in reversed(costs[:-1]):
+        mixed = max(2 * cost + mixed, 3 * cost + substitution, 4 * cost + no_fault)
+        substitution = max(2 * cost + substitution, 3 * cost + no_fault)
+        no_fault = cost + no_fault
+    face_maximum = max(face_costs)
+    active = tuple(
+        face for face, value in zip(face_vectors, face_costs) if value == face_maximum
+    )
+    enough_copies = all(count >= 4 for count in copies)
+    valid = (
+        enough_copies
+        and len(face_vectors) == depth * (depth + 1) // 2
+        and face_maximum == mixed
+    )
+    return QaryRootRespectingInsuranceCertificate(
+        arity,
+        costs,
+        copies,
+        face_vectors,
+        face_costs,
+        face_maximum if valid else None,
+        mixed if enough_copies else None,
+        active if valid else (),
+        valid,
+        (
+            "exact_root_respecting_fault_budget_insurance"
+            if valid
+            else "fewer_than_four_copies_cannot_certify_root_respecting_policy"
+        ),
     )
 
 

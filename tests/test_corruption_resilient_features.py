@@ -6,6 +6,7 @@ from theorica.agents.corruption_resilient_features import (
     certify_common_robust_plan,
     certify_decision_query_corruption_radius,
     certify_multi_action_plan_from_ambiguous_transcript,
+    certify_qary_root_respecting_insurance,
     certify_qary_three_level_insurance,
     certify_qary_two_level_insurance,
     certify_stacked_ambiguity_gap,
@@ -676,3 +677,46 @@ def test_qary_three_level_insurance_closed_form(arity, costs, expected):
     assert certificate.exact_worst_case_cost == expected
     assert certificate.exact_worst_case_cost == max(certificate.adversary_lower_bounds)
     assert certificate.active_faces
+
+
+def test_root_respecting_faces_recover_depth_two_and_six_depth_three_faces():
+    depth_two = certify_qary_root_respecting_insurance(3, (5, 3))
+    assert set(depth_two.face_vectors) == {(2, 4), (3, 3), (4, 1)}
+    assert depth_two.exact_worst_case_cost == 24
+
+    depth_three = certify_qary_root_respecting_insurance(2, (1, 7, 2))
+    assert len(depth_three.face_vectors) == 6
+    assert set(depth_three.face_vectors) == {
+        (2, 2, 4),
+        (2, 3, 3),
+        (2, 4, 1),
+        (3, 2, 3),
+        (3, 3, 1),
+        (4, 1, 1),
+    }
+    assert (0, 4, 2) not in depth_three.face_vectors
+
+
+def test_root_respecting_recurrence_matches_face_maximum_through_depth_six():
+    from itertools import product
+
+    for depth in range(1, 7):
+        for costs in product((1, 2, 3), repeat=depth):
+            certificate = certify_qary_root_respecting_insurance(2 + depth % 4, costs)
+            assert certificate.certificate_valid
+            assert len(certificate.face_vectors) == depth * (depth + 1) // 2
+            assert certificate.exact_worst_case_cost == certificate.recurrence_cost
+            assert certificate.exact_worst_case_cost == max(certificate.face_costs)
+            assert certificate.active_face_vectors
+
+
+def test_root_respecting_certificate_abstains_with_missing_copy():
+    certificate = certify_qary_root_respecting_insurance(
+        3,
+        (2, 5, 1, 3),
+        available_copies=(4, 4, 3, 4),
+    )
+    assert not certificate.certificate_valid
+    assert certificate.exact_worst_case_cost is None
+    assert certificate.active_face_vectors == ()
+    assert "fewer_than_four" in certificate.reason
