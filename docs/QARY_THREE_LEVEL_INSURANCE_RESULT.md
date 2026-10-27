@@ -1,5 +1,14 @@
 # Exact three-level fault-budget insurance law
 
+> **Retracted on 2026-10-27.** The seven-face unrestricted theorem below is
+> false. Its alleged `4b+2c` lower face can exceed the cost of a feasible
+> root-respecting policy, violating minimax monotonicity. The exact violation
+> cone is `c > 2a` and `b > 2a+c`. See
+> [QARY_THREE_LEVEL_MONOTONICITY_CORRECTION_RESULT.md](QARY_THREE_LEVEL_MONOTONICITY_CORRECTION_RESULT.md)
+> for the proof, prospective counterexamples, independent audit, and bounded
+> replacement claim. The original text is retained below as a falsified
+> historical result; it must not be cited as a theorem.
+
 ## Theorem
 
 For the depth-three q-ary prefix-query family with four physical copies of

@@ -244,13 +244,29 @@ class QaryTwoLevelInsuranceCertificate:
 
 @dataclass(frozen=True)
 class QaryThreeLevelInsuranceCertificate:
-    """Seven-face weighted certificate for one substitution and erasure."""
+    """Six-face weighted certificate with an explicit policy-class scope."""
 
     arity: int
     level_costs: tuple[int, int, int]
-    adversary_lower_bounds: tuple[int, int, int, int, int, int, int]
+    adversary_lower_bounds: tuple[int, int, int, int, int, int]
     exact_worst_case_cost: int
     active_faces: tuple[str, ...]
+    certificate_valid: bool
+    policy_class: str
+
+
+@dataclass(frozen=True)
+class ThreeLevelMonotonicityCertificate:
+    """Impossibility witness for a lower face that exceeds a feasible policy."""
+
+    arity: int
+    level_costs: tuple[int, int, int]
+    feasible_root_respecting_cost: int
+    retired_bypass_face_cost: int
+    lower_face_impossible: bool
+    analytic_violation_cone: bool
+    leaf_margin: int
+    middle_margin: int
     certificate_valid: bool
 
 
@@ -311,12 +327,14 @@ def certify_qary_three_level_insurance(
     middle_cost: int,
     leaf_cost: int,
 ) -> QaryThreeLevelInsuranceCertificate:
-    """Return the sharp depth-three cost law for one substitution and erasure.
+    """Return the corrected six-face depth-three insurance certificate.
 
     Each affine face is the price of an adversarial transcript class with a
     different level at which conflicts expose the global fault budget.  Taking
-    their maximum is both the recursive policy cost and the adversarial lower
-    certificate for the q-ary prefix family.
+    their maximum is the root-respecting exact cost for q-ary prefixes. The
+    previously asserted unrestricted q-ary interpretation is deliberately not
+    encoded by this certificate; separate exact searches may validate bounded
+    unrestricted instances.
     """
     if arity < 2:
         raise ValueError("arity must be at least two")
@@ -328,7 +346,6 @@ def certify_qary_three_level_insurance(
         raise ValueError("query costs must be positive integers")
     a, b, c = costs
     names = (
-        "root_bypass",
         "leaf_faults_hidden",
         "late_partial_exposure",
         "middle_insurance",
@@ -337,7 +354,6 @@ def certify_qary_three_level_insurance(
         "root_faults_hidden",
     )
     bounds = (
-        4 * b + 2 * c,
         2 * a + 2 * b + 4 * c,
         2 * a + 3 * b + 3 * c,
         2 * a + 4 * b + c,
@@ -353,6 +369,44 @@ def certify_qary_three_level_insurance(
         optimum,
         tuple(name for name, bound in zip(names, bounds) if bound == optimum),
         True,
+        "root_respecting_qary",
+    )
+
+
+def certify_three_level_monotonicity(
+    arity: int,
+    root_cost: int,
+    middle_cost: int,
+    leaf_cost: int,
+) -> ThreeLevelMonotonicityCertificate:
+    """Reject the retired ``(0,4,2)`` face exactly on its violation cone.
+
+    The complete root-respecting class is a subset of the unrestricted class,
+    so its exact cost is an executable upper bound on the unrestricted optimum.
+    The alleged lower face ``4b+2c`` exceeds that upper bound exactly when
+    ``c > 2a`` and ``b > 2a+c``.  On this cone it cannot be a valid adversarial
+    lower certificate for any arity.
+    """
+    certificate = certify_qary_three_level_insurance(
+        arity,
+        root_cost,
+        middle_cost,
+        leaf_cost,
+    )
+    a, b, c = certificate.level_costs
+    retired = 4 * b + 2 * c
+    impossible = retired > certificate.exact_worst_case_cost
+    cone = c > 2 * a and b > 2 * a + c
+    return ThreeLevelMonotonicityCertificate(
+        arity,
+        certificate.level_costs,
+        certificate.exact_worst_case_cost,
+        retired,
+        impossible,
+        cone,
+        c - 2 * a,
+        b - (2 * a + c),
+        impossible == cone,
     )
 
 

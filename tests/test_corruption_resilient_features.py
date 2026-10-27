@@ -10,6 +10,7 @@ from theorica.agents.corruption_resilient_features import (
     certify_qary_three_level_insurance,
     certify_qary_two_level_insurance,
     certify_stacked_ambiguity_gap,
+    certify_three_level_monotonicity,
     certify_two_action_plan_from_ambiguous_transcript,
     plan_adaptive_decision_queries_with_faults,
     plan_adaptive_decision_queries_with_lies,
@@ -711,6 +712,36 @@ def test_qary_three_level_insurance_closed_form(arity, costs, expected):
     assert certificate.exact_worst_case_cost == expected
     assert certificate.exact_worst_case_cost == max(certificate.adversary_lower_bounds)
     assert certificate.active_faces
+    assert certificate.policy_class == "root_respecting_qary"
+
+
+def test_three_level_certificate_obeys_policy_class_monotonicity():
+    certificate = certify_qary_three_level_insurance(2, 1, 10, 3)
+    root_respecting = certify_qary_root_respecting_insurance(2, (1, 10, 3))
+
+    assert certificate.policy_class == "root_respecting_qary"
+    assert certificate.exact_worst_case_cost == 45
+    assert certificate.exact_worst_case_cost == root_respecting.exact_worst_case_cost
+    assert len(certificate.adversary_lower_bounds) == 6
+    assert "root_bypass" not in certificate.active_faces
+    assert 4 * 10 + 2 * 3 > certificate.exact_worst_case_cost
+
+
+def test_retired_bypass_face_has_exact_impossibility_cone():
+    for a in range(1, 7):
+        for b in range(1, 7):
+            for c in range(1, 7):
+                certificate = certify_three_level_monotonicity(2, a, b, c)
+                assert certificate.certificate_valid
+                assert certificate.lower_face_impossible == (
+                    c > 2 * a and b > 2 * a + c
+                )
+
+    witness = certify_three_level_monotonicity(5, 1, 10, 3)
+    assert witness.lower_face_impossible
+    assert witness.analytic_violation_cone
+    assert witness.retired_bypass_face_cost == 46
+    assert witness.feasible_root_respecting_cost == 45
 
 
 def test_root_respecting_faces_recover_depth_two_and_six_depth_three_faces():
