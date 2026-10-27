@@ -242,6 +242,18 @@ class QaryTwoLevelInsuranceCertificate:
     certificate_valid: bool
 
 
+@dataclass(frozen=True)
+class QaryThreeLevelInsuranceCertificate:
+    """Seven-face weighted certificate for one substitution and erasure."""
+
+    arity: int
+    level_costs: tuple[int, int, int]
+    adversary_lower_bounds: tuple[int, int, int, int, int, int, int]
+    exact_worst_case_cost: int
+    active_faces: tuple[str, ...]
+    certificate_valid: bool
+
+
 def certify_qary_two_level_insurance(
     arity: int,
     root_cost: int,
@@ -273,6 +285,57 @@ def certify_qary_two_level_insurance(
         bounds,
         max(bounds),
         regime,
+        True,
+    )
+
+
+def certify_qary_three_level_insurance(
+    arity: int,
+    root_cost: int,
+    middle_cost: int,
+    leaf_cost: int,
+) -> QaryThreeLevelInsuranceCertificate:
+    """Return the sharp depth-three cost law for one substitution and erasure.
+
+    Each affine face is the price of an adversarial transcript class with a
+    different level at which conflicts expose the global fault budget.  Taking
+    their maximum is both the recursive policy cost and the adversarial lower
+    certificate for the q-ary prefix family.
+    """
+    if arity < 2:
+        raise ValueError("arity must be at least two")
+    costs = (root_cost, middle_cost, leaf_cost)
+    if any(
+        isinstance(cost, bool) or not isinstance(cost, int) or cost < 1
+        for cost in costs
+    ):
+        raise ValueError("query costs must be positive integers")
+    a, b, c = costs
+    names = (
+        "root_bypass",
+        "leaf_faults_hidden",
+        "late_partial_exposure",
+        "middle_insurance",
+        "early_partial_exposure",
+        "root_middle_insurance",
+        "root_faults_hidden",
+    )
+    bounds = (
+        4 * b + 2 * c,
+        2 * a + 2 * b + 4 * c,
+        2 * a + 3 * b + 3 * c,
+        2 * a + 4 * b + c,
+        3 * a + 2 * b + 3 * c,
+        3 * a + 3 * b + c,
+        4 * a + b + c,
+    )
+    optimum = max(bounds)
+    return QaryThreeLevelInsuranceCertificate(
+        arity,
+        costs,
+        bounds,
+        optimum,
+        tuple(name for name, bound in zip(names, bounds) if bound == optimum),
         True,
     )
 

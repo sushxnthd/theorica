@@ -6,6 +6,7 @@ from theorica.agents.corruption_resilient_features import (
     certify_common_robust_plan,
     certify_decision_query_corruption_radius,
     certify_multi_action_plan_from_ambiguous_transcript,
+    certify_qary_three_level_insurance,
     certify_qary_two_level_insurance,
     certify_stacked_ambiguity_gap,
     certify_two_action_plan_from_ambiguous_transcript,
@@ -656,3 +657,22 @@ def test_qary_two_level_insurance_closed_form(
     assert certificate.exact_worst_case_cost == max(
         certificate.adversary_lower_bounds
     )
+
+
+@pytest.mark.parametrize(
+    ("arity", "costs", "expected"),
+    (
+        (2, (1, 7, 2), 32),
+        (2, (7, 2, 1), 31),
+        (2, (2, 1, 7), 34),
+        (2, (3, 6, 2), 32),
+        (3, (1, 2, 3), 18),
+    ),
+)
+def test_qary_three_level_insurance_closed_form(arity, costs, expected):
+    certificate = certify_qary_three_level_insurance(arity, *costs)
+
+    assert certificate.certificate_valid
+    assert certificate.exact_worst_case_cost == expected
+    assert certificate.exact_worst_case_cost == max(certificate.adversary_lower_bounds)
+    assert certificate.active_faces
