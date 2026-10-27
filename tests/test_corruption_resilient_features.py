@@ -604,6 +604,40 @@ def test_qary_prefix_library_has_exact_weighted_mixed_fault_cost():
     assert plan.root is not None
 
 
+def test_weighted_multiset_quotient_preserves_physical_query_identity():
+    arity, depth, corruptions, erasures = 3, 2, 1, 1
+    copies = 2 * corruptions + erasures + 1
+    completion_count = arity**depth
+    games = tuple(
+        _unique_mixing_game(Fraction(index + 1, completion_count + 1))
+        for index in range(completion_count)
+    )
+    outcomes = qary_prefix_query_library(arity, depth, copies=copies)
+    costs = qary_prefix_query_costs(
+        arity, depth, copies=copies, level_costs=(1, 5)
+    )
+    plan = plan_adaptive_decision_queries_with_weighted_faults(
+        games,
+        outcomes,
+        query_costs=costs,
+        corruption_budget=corruptions,
+        erasure_budget=erasures,
+        known_feasible_cost_upper_bound=22,
+    )
+
+    def assert_unique_indices(node, used=()):
+        if node.query_index is None:
+            return
+        assert node.query_index not in used
+        for _, child in node.children:
+            assert_unique_indices(child, used + (node.query_index,))
+
+    assert plan.certificate_valid
+    assert plan.worst_case_cost == 22
+    assert plan.root is not None
+    assert_unique_indices(plan.root)
+
+
 def test_weighted_mixed_fault_library_fails_closed_with_missing_copy():
     arity, depth, corruptions, erasures = 3, 2, 1, 1
     copies = 2 * corruptions + erasures + 1

@@ -1,0 +1,15 @@
+{
+  "arity": 2,
+  "completion_count": 16,
+  "copies_per_group": 4,
+  "depth": 4,
+  "distinct_rows": 15,
+  "imports_theorica": false,
+  "indexed_remaining_states": 1152921504606846976,
+  "passed": true,
+  "physical_queries": 60,
+  "query_groups": 15,
+  "quotient_remaining_states": 30517578125,
+  "raw_state_reduction_factor": 37778931.862957165,
+  "schema": "theorica.qary-multiset-quotient-audit/1"
+}

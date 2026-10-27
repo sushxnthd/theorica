@@ -1455,13 +1455,15 @@ def plan_adaptive_decision_queries_with_weighted_faults(
     query_costs,
     corruption_budget: int,
     erasure_budget: int,
+    known_feasible_cost_upper_bound: int | None = None,
 ) -> AdaptiveDecisionWeightedFaultPlan:
     """Return an exact minimum-cost tree under substitutions and erasures.
 
     Monotone cost-bounded search followed by integer binary search certifies
-    the exact optimum. ``None`` remains reserved for a recognized erasure.
-    The solver fails closed when no available tree forces a common exact
-    robust decision.
+    the exact optimum. A caller may supply the cost of an independently known
+    feasible tree to avoid an unnecessarily loose sum-of-all-queries initial
+    bound. ``None`` remains reserved for a recognized erasure. The solver
+    fails closed when no available tree forces a common exact robust decision.
     """
     if corruption_budget < 0 or erasure_budget < 0:
         raise ValueError("corruption and erasure budgets must be nonnegative")
@@ -1480,6 +1482,13 @@ def plan_adaptive_decision_queries_with_weighted_faults(
         raise ValueError("query_costs must align with query_outcomes")
     if any(isinstance(cost, bool) or not isinstance(cost, int) or cost < 1 for cost in costs):
         raise ValueError("query costs must be positive integers")
+    if known_feasible_cost_upper_bound is not None and (
+        isinstance(known_feasible_cost_upper_bound, bool)
+        or not isinstance(known_feasible_cost_upper_bound, int)
+        or known_feasible_cost_upper_bound < 0
+        or known_feasible_cost_upper_bound > sum(costs)
+    ):
+        raise ValueError("known feasible cost upper bound must be an integer within total cost")
     if any(value is None for row in outcomes for value in row):
         raise ValueError("None is reserved for recognized erasures")
     for row in outcomes:
@@ -1488,9 +1497,16 @@ def plan_adaptive_decision_queries_with_weighted_faults(
         except TypeError as exc:
             raise ValueError("query outcomes must be hashable") from exc
 
+    grouped = {}
+    for query, (row, cost) in enumerate(zip(outcomes, costs)):
+        grouped.setdefault((row, cost), []).append(query)
+    group_rows = tuple(key[0] for key in grouped)
+    group_costs = tuple(key[1] for key in grouped)
+    group_indices = tuple(tuple(indices) for indices in grouped.values())
+    initial_remaining = tuple(len(indices) for indices in group_indices)
     alphabets = tuple(
         tuple(sorted(set(row), key=lambda value: (type(value).__name__, repr(value))))
-        for row in outcomes
+        for row in group_rows
     )
     eliminated = corruption_budget + 1
     compatibility_cache = {}
@@ -1521,9 +1537,9 @@ def plan_adaptive_decision_queries_with_weighted_faults(
         )
         return compatibility_cache[indices]
 
-    def updated_counts(lie_counts, query, answer):
+    def updated_counts(lie_counts, row, answer):
         return tuple(
-            min(eliminated, count + (outcomes[query][index] != answer))
+            min(eliminated, count + (row[index] != answer))
             for index, count in enumerate(lie_counts)
         )
 
@@ -1548,26 +1564,33 @@ def plan_adaptive_decision_queries_with_weighted_faults(
             )
             solution_cache[key] = result
             return result
-        if not remaining:
+        if not any(remaining):
             solution_cache[key] = None
             return None
 
-        seen_rows = set()
-        for query in remaining:
-            if costs[query] > cost_limit:
+        candidates = []
+        for group, count in enumerate(remaining):
+            if count == 0 or group_costs[group] > cost_limit:
                 continue
-            row = outcomes[query]
-            row_key = (row, costs[query])
-            if row_key in seen_rows:
+            cells = {}
+            for index in indices:
+                cells[group_rows[group][index]] = cells.get(group_rows[group][index], 0) + 1
+            if len(cells) < 2:
                 continue
-            seen_rows.add(row_key)
-            if len({row[index] for index in indices}) < 2:
-                continue
-            next_remaining = tuple(item for item in remaining if item != query)
+            candidates.append((group_costs[group], max(cells.values()), group))
+
+        for _, _, group in sorted(candidates):
+            count = remaining[group]
+            row = group_rows[group]
+            query = group_indices[group][initial_remaining[group] - count]
+            next_remaining = tuple(
+                remaining[index] - (index == group)
+                for index in range(len(remaining))
+            )
             answer_states = [
                 (answer, child_counts, erasures_used)
-                for answer in alphabets[query]
-                if feasible(child_counts := updated_counts(lie_counts, query, answer))
+                for answer in alphabets[group]
+                if feasible(child_counts := updated_counts(lie_counts, row, answer))
             ]
             if erasures_used < erasure_budget:
                 answer_states.append((None, lie_counts, erasures_used + 1))
@@ -1577,7 +1600,7 @@ def plan_adaptive_decision_queries_with_weighted_faults(
                     child_counts,
                     child_erasures,
                     next_remaining,
-                    cost_limit - costs[query],
+                    cost_limit - group_costs[group],
                 )
                 if child is None:
                     break
@@ -1599,10 +1622,16 @@ def plan_adaptive_decision_queries_with_weighted_faults(
         return None
 
     initial_counts = (0,) * completion_count
-    remaining = tuple(range(len(outcomes)))
+    remaining = initial_remaining
     lower = -1
-    upper = sum(costs)
+    upper = (
+        sum(costs)
+        if known_feasible_cost_upper_bound is None
+        else known_feasible_cost_upper_bound
+    )
     root = search(initial_counts, 0, remaining, upper)
+    if root is None and known_feasible_cost_upper_bound is not None:
+        raise ValueError("known feasible cost upper bound did not admit a feasible tree")
     if root is not None:
         while upper - lower > 1:
             middle = (lower + upper) // 2
