@@ -6,6 +6,7 @@ from theorica.agents.corruption_resilient_features import (
     certify_common_robust_plan,
     certify_decision_query_corruption_radius,
     certify_multi_action_plan_from_ambiguous_transcript,
+    certify_qary_two_level_insurance,
     certify_stacked_ambiguity_gap,
     certify_two_action_plan_from_ambiguous_transcript,
     plan_adaptive_decision_queries_with_faults,
@@ -624,3 +625,34 @@ def test_weighted_mixed_fault_library_fails_closed_with_missing_copy():
     assert plan.certificate_valid
     assert plan.root is None
     assert plan.worst_case_cost is None
+
+
+@pytest.mark.parametrize(
+    ("arity", "root_cost", "child_cost", "expected", "regime"),
+    (
+        (3, 2, 7, 32, "child_expensive_or_equal"),
+        (4, 5, 3, 24, "intermediate_insurance"),
+        (5, 9, 4, 40, "root_expensive"),
+        (3, 6, 6, 36, "child_expensive_or_equal"),
+        (4, 8, 4, 36, "intermediate_insurance"),
+    ),
+)
+def test_qary_two_level_insurance_closed_form(
+    arity,
+    root_cost,
+    child_cost,
+    expected,
+    regime,
+):
+    certificate = certify_qary_two_level_insurance(
+        arity,
+        root_cost,
+        child_cost,
+    )
+
+    assert certificate.certificate_valid
+    assert certificate.exact_worst_case_cost == expected
+    assert certificate.active_regime == regime
+    assert certificate.exact_worst_case_cost == max(
+        certificate.adversary_lower_bounds
+    )

@@ -1,0 +1,197 @@
+{
+  "cases": [
+    {
+      "active_regime": "child_expensive_or_equal",
+      "adversary_lower_bounds": [
+        6,
+        6,
+        5
+      ],
+      "arity": 2,
+      "certificate_valid": true,
+      "child_cost": 1,
+      "completions": 4,
+      "exact_cost": 6,
+      "exact_depth": 6,
+      "fixed_child_schedule_lower_bound": 8,
+      "formula_cost": 6,
+      "formula_matched": true,
+      "query_instances": 12,
+      "role": "opened",
+      "root_cost": 1,
+      "states_solved": 257
+    },
+    {
+      "active_regime": "child_expensive_or_equal",
+      "adversary_lower_bounds": [
+        14,
+        12,
+        7
+      ],
+      "arity": 2,
+      "certificate_valid": true,
+      "child_cost": 3,
+      "completions": 4,
+      "exact_cost": 14,
+      "exact_depth": 6,
+      "fixed_child_schedule_lower_bound": 24,
+      "formula_cost": 14,
+      "formula_matched": true,
+      "query_instances": 12,
+      "role": "opened",
+      "root_cost": 1,
+      "states_solved": 357
+    },
+    {
+      "active_regime": "root_expensive",
+      "adversary_lower_bounds": [
+        10,
+        12,
+        13
+      ],
+      "arity": 2,
+      "certificate_valid": true,
+      "child_cost": 1,
+      "completions": 4,
+      "exact_cost": 13,
+      "exact_depth": 6,
+      "fixed_child_schedule_lower_bound": 8,
+      "formula_cost": 13,
+      "formula_matched": true,
+      "query_instances": 12,
+      "role": "opened",
+      "root_cost": 3,
+      "states_solved": 462
+    },
+    {
+      "active_regime": "child_expensive_or_equal",
+      "adversary_lower_bounds": [
+        32,
+        27,
+        15
+      ],
+      "arity": 3,
+      "certificate_valid": true,
+      "child_cost": 7,
+      "completions": 9,
+      "exact_cost": 32,
+      "exact_depth": 6,
+      "fixed_child_schedule_lower_bound": 84,
+      "formula_cost": 32,
+      "formula_matched": true,
+      "query_instances": 16,
+      "role": "prospective",
+      "root_cost": 2,
+      "states_solved": 959
+    },
+    {
+      "active_regime": "intermediate_insurance",
+      "adversary_lower_bounds": [
+        22,
+        24,
+        23
+      ],
+      "arity": 4,
+      "certificate_valid": true,
+      "child_cost": 3,
+      "completions": 16,
+      "exact_cost": 24,
+      "exact_depth": 6,
+      "fixed_child_schedule_lower_bound": 48,
+      "formula_cost": 24,
+      "formula_matched": true,
+      "query_instances": 20,
+      "role": "prospective",
+      "root_cost": 5,
+      "states_solved": 1914
+    },
+    {
+      "active_regime": "root_expensive",
+      "adversary_lower_bounds": [
+        34,
+        39,
+        40
+      ],
+      "arity": 5,
+      "certificate_valid": true,
+      "child_cost": 4,
+      "completions": 25,
+      "exact_cost": 40,
+      "exact_depth": 6,
+      "fixed_child_schedule_lower_bound": 80,
+      "formula_cost": 40,
+      "formula_matched": true,
+      "query_instances": 24,
+      "role": "prospective",
+      "root_cost": 9,
+      "states_solved": 5237
+    },
+    {
+      "active_regime": "child_expensive_or_equal",
+      "adversary_lower_bounds": [
+        36,
+        36,
+        30
+      ],
+      "arity": 3,
+      "certificate_valid": true,
+      "child_cost": 6,
+      "completions": 9,
+      "exact_cost": 36,
+      "exact_depth": 6,
+      "fixed_child_schedule_lower_bound": 72,
+      "formula_cost": 36,
+      "formula_matched": true,
+      "query_instances": 16,
+      "role": "prospective",
+      "root_cost": 6,
+      "states_solved": 943
+    },
+    {
+      "active_regime": "intermediate_insurance",
+      "adversary_lower_bounds": [
+        32,
+        36,
+        36
+      ],
+      "arity": 4,
+      "certificate_valid": true,
+      "child_cost": 4,
+      "completions": 16,
+      "exact_cost": 36,
+      "exact_depth": 6,
+      "fixed_child_schedule_lower_bound": 64,
+      "formula_cost": 36,
+      "formula_matched": true,
+      "query_instances": 20,
+      "role": "prospective",
+      "root_cost": 8,
+      "states_solved": 1965
+    }
+  ],
+  "claim": "C_q(a,b)=max(2a+4b,3a+3b,4a+b)",
+  "missing_copy_attack": {
+    "abstained": true,
+    "arity": 3,
+    "child_cost": 7,
+    "exact_cost": null,
+    "reason": "available_queries_cannot_identify_a_decision_under_weighted_mixed_faults",
+    "remaining_query_instances": 15,
+    "root_cost": 2
+  },
+  "schema": "theorica.qary-two-level-insurance/1",
+  "summary": {
+    "case_digest": "167cba8ed18ca84235668d99d9f94ae87a72bb398899423ae64b2b6b4552b8f9",
+    "case_total": 8,
+    "cases_completed": 8,
+    "formula_matches": 8,
+    "missing_copy_abstained": true,
+    "passed": true,
+    "prospective_matches": 5,
+    "regimes_observed": [
+      "child_expensive_or_equal",
+      "intermediate_insurance",
+      "root_expensive"
+    ]
+  }
+}

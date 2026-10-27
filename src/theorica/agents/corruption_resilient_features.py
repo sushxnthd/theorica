@@ -229,6 +229,54 @@ class AdaptiveDecisionWeightedFaultPlan:
     reason: str
 
 
+@dataclass(frozen=True)
+class QaryTwoLevelInsuranceCertificate:
+    """Closed-form weighted certificate for one substitution and erasure."""
+
+    arity: int
+    root_cost: int
+    child_cost: int
+    adversary_lower_bounds: tuple[int, int, int]
+    exact_worst_case_cost: int
+    active_regime: str
+    certificate_valid: bool
+
+
+def certify_qary_two_level_insurance(
+    arity: int,
+    root_cost: int,
+    child_cost: int,
+) -> QaryTwoLevelInsuranceCertificate:
+    """Return the sharp two-level cost law for one substitution and erasure."""
+    if arity < 2:
+        raise ValueError("arity must be at least two")
+    if any(
+        isinstance(cost, bool) or not isinstance(cost, int) or cost < 1
+        for cost in (root_cost, child_cost)
+    ):
+        raise ValueError("query costs must be positive integers")
+    bounds = (
+        2 * root_cost + 4 * child_cost,
+        3 * root_cost + 3 * child_cost,
+        4 * root_cost + child_cost,
+    )
+    if root_cost <= child_cost:
+        regime = "child_expensive_or_equal"
+    elif root_cost <= 2 * child_cost:
+        regime = "intermediate_insurance"
+    else:
+        regime = "root_expensive"
+    return QaryTwoLevelInsuranceCertificate(
+        arity,
+        root_cost,
+        child_cost,
+        bounds,
+        max(bounds),
+        regime,
+        True,
+    )
+
+
 def qary_prefix_query_library(
     arity: int,
     depth: int,
