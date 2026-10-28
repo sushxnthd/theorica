@@ -300,6 +300,24 @@ class BinaryMiddleFirstRatioTwoCertificate:
 
 
 @dataclass(frozen=True)
+class BinaryMiddleFirstIntegerRatioCertificate:
+    """Exact middle-first law for an integer ancestor-cost ratio at least two."""
+
+    heavy_level: str
+    cost_ratio: int
+    base_cost: int
+    leaf_cost: int
+    level_costs: tuple[int, int, int]
+    projected_face_vectors: tuple[tuple[int, int], ...]
+    adversary_lower_bounds: tuple[int, int, int]
+    exact_worst_case_cost: int
+    active_faces: tuple[str, ...]
+    phase_boundaries: tuple[str, str]
+    certificate_valid: bool
+    policy_class: str
+
+
+@dataclass(frozen=True)
 class ThreeLevelMonotonicityCertificate:
     """Impossibility witness for a lower face that exceeds a feasible policy."""
 
@@ -543,6 +561,57 @@ def certify_binary_middle_first_ratio_two(
         ("y=x/2", "y=2x"),
         True,
         "binary_middle_first_ratio_two",
+    )
+
+
+def certify_binary_middle_first_integer_ratio(
+    heavy_level: str,
+    cost_ratio: int,
+    base_cost: int,
+    leaf_cost: int,
+) -> BinaryMiddleFirstIntegerRatioCertificate:
+    """Return the proved exact law for integer ``cost_ratio >= 2``.
+
+    ``heavy_level`` is ``"root"`` for costs ``(kx,x,y)`` or ``"middle"``
+    for costs ``(x,kx,y)``. The exact phase boundaries are
+    ``y=(k-1)x/2`` and ``y=kx``.
+    """
+    if heavy_level not in {"root", "middle"}:
+        raise ValueError("heavy_level must be 'root' or 'middle'")
+    if (
+        isinstance(cost_ratio, bool)
+        or not isinstance(cost_ratio, int)
+        or cost_ratio < 2
+    ):
+        raise ValueError("cost_ratio must be an integer at least two")
+    if any(
+        isinstance(cost, bool) or not isinstance(cost, int) or cost < 1
+        for cost in (base_cost, leaf_cost)
+    ):
+        raise ValueError("query costs must be positive integers")
+    k, x, y = cost_ratio, base_cost, leaf_cost
+    if heavy_level == "root":
+        level_costs = (k * x, x, y)
+        vectors = ((4 * k + 2, 1), (3 * k + 3, 3), (2 * k + 3, 4))
+    else:
+        level_costs = (x, k * x, y)
+        vectors = ((5 * k + 1, 1), (4 * k + 2, 3), (3 * k + 2, 4))
+    names = ("ancestor_heavy", "transition", "leaf_heavy")
+    bounds = tuple(a * x + b * y for a, b in vectors)
+    optimum = max(bounds)
+    return BinaryMiddleFirstIntegerRatioCertificate(
+        heavy_level,
+        k,
+        x,
+        y,
+        level_costs,
+        vectors,
+        bounds,
+        optimum,
+        tuple(name for name, bound in zip(names, bounds) if bound == optimum),
+        ("2y=(k-1)x", "y=kx"),
+        True,
+        "binary_middle_first_integer_ratio",
     )
 
 

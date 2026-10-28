@@ -3,6 +3,7 @@ from fractions import Fraction
 import pytest
 
 from theorica.agents.corruption_resilient_features import (
+    certify_binary_middle_first_integer_ratio,
     certify_binary_middle_first_ratio_two,
     certify_binary_middle_first_symmetric,
     certify_binary_three_level_middle_first,
@@ -866,6 +867,44 @@ def test_binary_middle_first_ratio_two_certificate(
 def test_binary_middle_first_ratio_two_certificate_rejects_invalid_inputs(arguments):
     with pytest.raises(ValueError):
         certify_binary_middle_first_ratio_two(*arguments)
+
+
+@pytest.mark.parametrize(
+    ("heavy_level", "k", "costs", "expected", "active_faces"),
+    (
+        ("root", 3, (2, 5), 39, ("transition",)),
+        ("middle", 3, (2, 5), 43, ("transition",)),
+        ("root", 7, (2, 6), 66, ("ancestor_heavy", "transition")),
+        ("middle", 7, (1, 7), 51, ("transition", "leaf_heavy")),
+        ("root", 11, (79, 1), 3635, ("ancestor_heavy",)),
+        ("middle", 11, (1, 869), 3511, ("leaf_heavy",)),
+    ),
+)
+def test_binary_middle_first_integer_ratio_certificate(
+    heavy_level, k, costs, expected, active_faces
+):
+    certificate = certify_binary_middle_first_integer_ratio(
+        heavy_level, k, *costs
+    )
+
+    assert certificate.certificate_valid
+    assert certificate.exact_worst_case_cost == expected
+    assert certificate.active_faces == active_faces
+    assert certificate.policy_class == "binary_middle_first_integer_ratio"
+
+
+@pytest.mark.parametrize(
+    "arguments",
+    (
+        ("leaf", 3, 1, 1),
+        ("root", 1, 1, 1),
+        ("middle", True, 1, 1),
+        ("root", 3, 0, 1),
+    ),
+)
+def test_binary_middle_first_integer_ratio_rejects_invalid_inputs(arguments):
+    with pytest.raises(ValueError):
+        certify_binary_middle_first_integer_ratio(*arguments)
 
 
 def test_three_level_certificate_obeys_policy_class_monotonicity():
