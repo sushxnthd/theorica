@@ -151,17 +151,26 @@ def main():
             "candidate_cost": expected,
             "matched": exact == item["exact_cost"] == expected,
         })
-    cone_checks = []
-    for cone in primary["upper_bound_cones"]:
-        checks = []
-        exposures = tuple(tuple(row) for row in cone["unique_projected_exposures"])
-        face = tuple(cone["face"])
-        for record in cone["extreme_ray_inequalities"]:
-            ray = tuple(record["ray"])
-            actual = max(sum(a * b for a, b in zip(point, ray)) for point in exposures)
-            limit = sum(a * b for a, b in zip(face, ray))
-            checks.append(actual == record["policy_cost"] and actual <= limit == record["face_cost"])
-        cone_checks.append(all(checks))
+    def replay_cones(records):
+        cone_checks = []
+        for cone in records:
+            checks = []
+            exposures = tuple(tuple(row) for row in cone["unique_projected_exposures"])
+            face = tuple(cone["face"])
+            for record in cone["extreme_ray_inequalities"]:
+                ray = tuple(record["ray"])
+                actual = max(sum(a * b for a, b in zip(point, ray)) for point in exposures)
+                limit = sum(a * b for a, b in zip(face, ray))
+                checks.append(
+                    actual == record["policy_cost"]
+                    and (actual <= limit) == record["passed"]
+                    and limit == record["face_cost"]
+                )
+            cone_checks.append(all(checks) and cone["passed"] == all(item["passed"] for item in cone["extreme_ray_inequalities"]))
+        return cone_checks
+
+    cone_checks = replay_cones(primary["upper_bound_cones"])
+    interior_checks = replay_cones(primary["frozen_interior_policy_negative_result"])
     imports = len({name for name in sys.modules if name.startswith("theorica")} - before)
     result = {
         "schema": "theorica.middle-first-symmetric-slice-audit/1",
@@ -170,6 +179,11 @@ def main():
         "holdout_total": len(replays),
         "holdouts_reproduced": sum(item["matched"] for item in replays),
         "upper_cones_reproduced": sum(cone_checks),
+        "interior_negative_records_reproduced": sum(interior_checks),
+        "interior_policies_covering_cones": sum(
+            item["passed"]
+            for item in primary["frozen_interior_policy_negative_result"]
+        ),
         "replays": replays,
     }
     result["passed"] = (
@@ -177,6 +191,8 @@ def main():
         and guarantees == frozenset(FACES)
         and result["holdouts_reproduced"] == result["holdout_total"] == 7
         and result["upper_cones_reproduced"] == 3
+        and result["interior_negative_records_reproduced"] == 3
+        and result["interior_policies_covering_cones"] == 1
     )
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")

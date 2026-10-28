@@ -1,6 +1,8 @@
 {
   "holdout_total": 7,
   "holdouts_reproduced": 7,
+  "interior_negative_records_reproduced": 3,
+  "interior_policies_covering_cones": 1,
   "maximal_projected_guarantees": [
     [
       5,

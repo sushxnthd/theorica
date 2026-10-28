@@ -22,6 +22,11 @@ CONES = (
     {"face": (6, 3), "synthesis_point": (1, 1), "rays": ((1, 1), (2, 1))},
     {"face": (5, 4), "synthesis_point": (1, 1), "rays": ((0, 1), (1, 1))},
 )
+INTERIOR_CONES = (
+    {"face": (7, 1), "synthesis_point": (79, 1), "rays": ((1, 0), (2, 1))},
+    {"face": (6, 3), "synthesis_point": (3, 2), "rays": ((1, 1), (2, 1))},
+    {"face": (5, 4), "synthesis_point": (1, 79), "rays": ((0, 1), (1, 1))},
+)
 
 
 def games():
@@ -185,6 +190,7 @@ def main():
     guarantees, states = projected_guarantees(problem())
     lower_faces_present = all(face in guarantees for face in FACES)
     cones = [cone_certificate(cone) for cone in CONES]
+    interior_cones = [cone_certificate(cone) for cone in INTERIOR_CONES]
     holdouts = []
     for x, y in HOLDOUTS:
         plan, bound, active = solve(x, y)
@@ -201,6 +207,12 @@ def main():
         "projected_guarantees": [list(vector) for vector in sorted(guarantees)],
         "all_lower_faces_present": lower_faces_present,
         "upper_cones_certified": sum(item["passed"] for item in cones),
+        "frozen_interior_cones_certified": sum(
+            item["passed"] for item in interior_cones
+        ),
+        "frozen_interior_strategy_falsified": not all(
+            item["passed"] for item in interior_cones
+        ),
         "holdout_matches": sum(item["matched"] for item in holdouts),
         "holdout_total": len(holdouts),
         "boundary_ties": {
@@ -211,6 +223,8 @@ def main():
     summary["passed"] = (
         lower_faces_present
         and summary["upper_cones_certified"] == 3
+        and summary["frozen_interior_cones_certified"] == 1
+        and summary["frozen_interior_strategy_falsified"]
         and summary["holdout_matches"] == summary["holdout_total"] == 7
         and len(summary["boundary_ties"]["x_equals_y"]) == 2
         and len(summary["boundary_ties"]["x_equals_2y"]) == 2
@@ -223,6 +237,7 @@ def main():
             "states_checked": states,
         },
         "upper_bound_cones": cones,
+        "frozen_interior_policy_negative_result": interior_cones,
         "holdouts": holdouts,
         "summary": summary,
     }

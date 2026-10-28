@@ -31,9 +31,23 @@ three-dimensional face `(3,4,1)` projects to `(7,1)`.  Its observed tradeoff
 between `(2,5,1)` and `(4,3,1)` is no longer a numerical coincidence: both
 vectors project to the same unavoidable exposure.
 
-## Upper bound: three cone certificates
+## Preserved negative result: interior policies do not cover cones
 
-The exact solver synthesized policies at the two phase boundaries.  Exhaustive
+The frozen protocol proposed synthesizing one policy at an interior point of
+each cone and testing it on both extreme rays.  That subclaim failed.  The
+policy exact at `(79,1)` costs 20 rather than 15 on ray `(2,1)`, and the policy
+exact at `(3,2)` costs 10 rather than 9 on ray `(1,1)`.  Only the leaf-heavy
+interior policy covered its entire cone.
+
+This is a policy-selection failure, not a failure of the exact formula:
+optimal trees need not remain optimal up to both boundaries of a cone.
+Machine-readable evidence preserves all three interior trees and the two
+violated inequalities.
+
+## Reformed upper bound: three boundary certificates
+
+The experiment therefore changed strategy and synthesized policies at the two
+phase boundaries.  Exhaustive
 terminal-tree enumeration verified each policy on both extreme rays of its
 cost cone:
 
