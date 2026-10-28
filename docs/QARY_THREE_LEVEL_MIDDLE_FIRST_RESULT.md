@@ -73,6 +73,14 @@ envelope missed 16 opened cases. Consequently this work makes no leaf-first
 closed-form claim; that route is falsified in its present form and requires a
 different representation or state decomposition.
 
+The subsequent symbolic proof attempt also falsified a stronger-looking but
+incorrect lower-bound route. Five faces are componentwise unavoidable
+transcript exposures, but `(3,4,1)` is not. A valid avoidance tree instead
+realizes the tradeoff pair `(2,5,1)` and `(4,3,1)`, whose midpoint is the
+missing face. See `QARY_THREE_LEVEL_MIDDLE_FIRST_PROOF_RESULT.md`. The next
+kernel therefore uses convex-hull exposure menus rather than scalar transcript
+witnesses.
+
 ## Reproduction
 
 ```bash
