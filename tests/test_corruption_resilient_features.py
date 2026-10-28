@@ -3,6 +3,7 @@ from fractions import Fraction
 import pytest
 
 from theorica.agents.corruption_resilient_features import (
+    certify_binary_middle_first_ratio_two,
     certify_binary_middle_first_symmetric,
     certify_binary_three_level_middle_first,
     certify_common_robust_plan,
@@ -203,10 +204,12 @@ def test_finite_list_selector_rejects_same_size_degenerate_geometry():
 
 
 def test_multi_action_common_policy_survives_model_ambiguity():
-    result = certify_common_robust_plan((
-        ((0,), (-1,), (-2,)),
-        ((0,), (-3,), (-1,)),
-    ))
+    result = certify_common_robust_plan(
+        (
+            ((0,), (-1,), (-2,)),
+            ((0,), (-3,), (-1,)),
+        )
+    )
     assert result.certificate_valid
     assert result.policy_identifiable and not result.model_identifiable
     assert result.action_probabilities == (1, 0, 0)
@@ -214,11 +217,13 @@ def test_multi_action_common_policy_survives_model_ambiguity():
 
 
 def test_three_action_helly_witness_is_sharp():
-    result = certify_common_robust_plan((
-        ((-1,), (0,), (0,)),
-        ((0,), (-1,), (0,)),
-        ((0,), (0,), (-1,)),
-    ))
+    result = certify_common_robust_plan(
+        (
+            ((-1,), (0,), (0,)),
+            ((0,), (-1,), (0,)),
+            ((0,), (0,), (-1,)),
+        )
+    )
     assert result.certificate_valid
     assert result.value_identifiable and not result.policy_identifiable
     assert result.impossibility_witness == (0, 1, 2)
@@ -238,10 +243,12 @@ def test_multi_action_corrupted_transcript_returns_exact_certificate():
 
 
 def test_stacked_gap_is_zero_exactly_for_a_common_policy():
-    result = certify_stacked_ambiguity_gap((
-        ((0,), (-1,), (-2,)),
-        ((0,), (-3,), (-1,)),
-    ))
+    result = certify_stacked_ambiguity_gap(
+        (
+            ((0,), (-1,), (-2,)),
+            ((0,), (-3,), (-1,)),
+        )
+    )
     assert result.certificate_valid and result.policy_identifiable
     assert result.common_value == result.stacked_value == 0
     assert result.ambiguity_gap == 0
@@ -261,8 +268,7 @@ def test_stacked_dual_handles_a_single_labelled_scenario():
 
 def test_stacked_gap_returns_sharp_scenario_witness():
     games = tuple(
-        tuple((Fraction(-1 if action == excluded else 0),)
-              for action in range(5))
+        tuple((Fraction(-1 if action == excluded else 0),) for action in range(5))
         for excluded in range(5)
     )
     result = certify_stacked_ambiguity_gap(games)
@@ -507,9 +513,7 @@ def test_qary_prefix_library_has_exact_two_lie_depth():
         _unique_mixing_game(Fraction(index + 1, arity**depth + 1))
         for index in range(arity**depth)
     )
-    outcomes = qary_prefix_query_library(
-        arity, depth, copies=2 * corruption_budget + 1
-    )
+    outcomes = qary_prefix_query_library(arity, depth, copies=2 * corruption_budget + 1)
     plan = plan_adaptive_decision_queries_with_lies(
         games, outcomes, corruption_budget=corruption_budget
     )
@@ -616,9 +620,7 @@ def test_weighted_multiset_quotient_preserves_physical_query_identity():
         for index in range(completion_count)
     )
     outcomes = qary_prefix_query_library(arity, depth, copies=copies)
-    costs = qary_prefix_query_costs(
-        arity, depth, copies=copies, level_costs=(1, 5)
-    )
+    costs = qary_prefix_query_costs(arity, depth, copies=copies, level_costs=(1, 5))
     plan = plan_adaptive_decision_queries_with_weighted_faults(
         games,
         outcomes,
@@ -644,8 +646,7 @@ def test_weighted_multiset_quotient_preserves_physical_query_identity():
 def test_weighted_mixed_fault_plan_conditions_only_the_initial_query():
     arity, depth, copies = 2, 3, 4
     games = tuple(
-        _unique_mixing_game(Fraction(index + 1, 9))
-        for index in range(arity**depth)
+        _unique_mixing_game(Fraction(index + 1, 9)) for index in range(arity**depth)
     )
     outcomes = qary_prefix_query_library(arity, depth, copies=copies)
     costs = qary_prefix_query_costs(
@@ -676,10 +677,7 @@ def test_weighted_mixed_fault_plan_conditions_only_the_initial_query():
     ((), (0, 0), (True,), (-1,), (28,), (0.5,), 3),
 )
 def test_weighted_mixed_fault_plan_rejects_invalid_initial_query_indices(indices):
-    games = tuple(
-        _unique_mixing_game(Fraction(index + 1, 9))
-        for index in range(8)
-    )
+    games = tuple(_unique_mixing_game(Fraction(index + 1, 9)) for index in range(8))
     outcomes = qary_prefix_query_library(2, 3, copies=4)
     costs = qary_prefix_query_costs(2, 3, copies=4, level_costs=(1, 1, 1))
 
@@ -703,9 +701,9 @@ def test_weighted_mixed_fault_library_fails_closed_with_missing_copy():
         for index in range(completion_count)
     )
     outcomes = qary_prefix_query_library(arity, depth, copies=copies)[:-1]
-    costs = qary_prefix_query_costs(
-        arity, depth, copies=copies, level_costs=(1, 5)
-    )[:-1]
+    costs = qary_prefix_query_costs(arity, depth, copies=copies, level_costs=(1, 5))[
+        :-1
+    ]
     plan = plan_adaptive_decision_queries_with_weighted_faults(
         games,
         outcomes,
@@ -745,9 +743,7 @@ def test_qary_two_level_insurance_closed_form(
     assert certificate.certificate_valid
     assert certificate.exact_worst_case_cost == expected
     assert certificate.active_regime == regime
-    assert certificate.exact_worst_case_cost == max(
-        certificate.adversary_lower_bounds
-    )
+    assert certificate.exact_worst_case_cost == max(certificate.adversary_lower_bounds)
 
 
 @pytest.mark.parametrize(
@@ -820,6 +816,56 @@ def test_binary_middle_first_symmetric_certificate(costs, expected, active_faces
 def test_binary_middle_first_symmetric_certificate_rejects_invalid_costs(costs):
     with pytest.raises(ValueError, match="positive integers"):
         certify_binary_middle_first_symmetric(*costs)
+
+
+@pytest.mark.parametrize(
+    ("doubled_level", "costs", "expected", "vectors", "active_faces"),
+    (
+        ("root", (79, 1), 791, ((10, 1), (9, 3), (7, 4)), ("ancestor_heavy",)),
+        (
+            "root",
+            (2, 1),
+            21,
+            ((10, 1), (9, 3), (7, 4)),
+            ("ancestor_heavy", "transition"),
+        ),
+        ("root", (1, 2), 15, ((10, 1), (9, 3), (7, 4)), ("transition", "leaf_heavy")),
+        ("middle", (79, 1), 870, ((11, 1), (10, 3), (8, 4)), ("ancestor_heavy",)),
+        (
+            "middle",
+            (2, 1),
+            23,
+            ((11, 1), (10, 3), (8, 4)),
+            ("ancestor_heavy", "transition"),
+        ),
+        (
+            "middle",
+            (1, 2),
+            16,
+            ((11, 1), (10, 3), (8, 4)),
+            ("transition", "leaf_heavy"),
+        ),
+    ),
+)
+def test_binary_middle_first_ratio_two_certificate(
+    doubled_level, costs, expected, vectors, active_faces
+):
+    certificate = certify_binary_middle_first_ratio_two(doubled_level, *costs)
+
+    assert certificate.certificate_valid
+    assert certificate.exact_worst_case_cost == expected
+    assert certificate.projected_face_vectors == vectors
+    assert certificate.active_faces == active_faces
+    assert certificate.policy_class == "binary_middle_first_ratio_two"
+
+
+@pytest.mark.parametrize(
+    "arguments",
+    (("leaf", 1, 1), ("root", 0, 1), ("middle", True, 1), ("root", 1.5, 1)),
+)
+def test_binary_middle_first_ratio_two_certificate_rejects_invalid_inputs(arguments):
+    with pytest.raises(ValueError):
+        certify_binary_middle_first_ratio_two(*arguments)
 
 
 def test_three_level_certificate_obeys_policy_class_monotonicity():
