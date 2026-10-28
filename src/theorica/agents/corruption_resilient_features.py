@@ -268,6 +268,21 @@ class BinaryThreeLevelMiddleFirstCertificate:
 
 
 @dataclass(frozen=True)
+class BinaryMiddleFirstSymmetricCertificate:
+    """Exact middle-first law when root and middle queries have equal cost."""
+
+    root_middle_cost: int
+    leaf_cost: int
+    projected_face_vectors: tuple[tuple[int, int], ...]
+    adversary_lower_bounds: tuple[int, int, int]
+    exact_worst_case_cost: int
+    active_faces: tuple[str, ...]
+    phase_boundaries: tuple[str, str]
+    certificate_valid: bool
+    policy_class: str
+
+
+@dataclass(frozen=True)
 class ThreeLevelMonotonicityCertificate:
     """Impossibility witness for a lower face that exceeds a feasible policy."""
 
@@ -427,6 +442,46 @@ def certify_binary_three_level_middle_first(
         tuple(name for name, value in zip(names, bounds) if value == optimum),
         True,
         "binary_middle_first",
+    )
+
+
+def certify_binary_middle_first_symmetric(
+    root_middle_cost: int,
+    leaf_cost: int,
+) -> BinaryMiddleFirstSymmetricCertificate:
+    """Return the proved exact law on the ``root_cost == middle_cost`` slice.
+
+    Projecting transcript exposure ``(r, m, l)`` to ``(r + m, l)`` gives the
+    complete maximal adversary antichain ``(7,1), (6,3), (5,4)``.  Matching
+    policies are certified on the three cones separated by ``x=y`` and
+    ``x=2y``.  The result is exact for the binary, four-copy, middle-first
+    conditioned class only.
+    """
+    costs = (root_middle_cost, leaf_cost)
+    if any(
+        isinstance(cost, bool) or not isinstance(cost, int) or cost < 1
+        for cost in costs
+    ):
+        raise ValueError("query costs must be positive integers")
+    x, y = costs
+    vectors = ((7, 1), (6, 3), (5, 4))
+    names = (
+        "root_middle_heavy",
+        "transition",
+        "leaf_heavy",
+    )
+    bounds = tuple(a * x + b * y for a, b in vectors)
+    optimum = max(bounds)
+    return BinaryMiddleFirstSymmetricCertificate(
+        x,
+        y,
+        vectors,
+        bounds,
+        optimum,
+        tuple(name for name, bound in zip(names, bounds) if bound == optimum),
+        ("x=y", "x=2y"),
+        True,
+        "binary_middle_first_symmetric",
     )
 
 

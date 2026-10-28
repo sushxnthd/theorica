@@ -3,6 +3,7 @@ from fractions import Fraction
 import pytest
 
 from theorica.agents.corruption_resilient_features import (
+    certify_binary_middle_first_symmetric,
     certify_binary_three_level_middle_first,
     certify_common_robust_plan,
     certify_decision_query_corruption_radius,
@@ -793,6 +794,32 @@ def test_binary_three_level_middle_first_certificate(costs, expected, active_fac
 def test_binary_three_level_middle_first_certificate_rejects_invalid_costs(costs):
     with pytest.raises(ValueError, match="positive integers"):
         certify_binary_three_level_middle_first(*costs)
+
+
+@pytest.mark.parametrize(
+    ("costs", "expected", "active_faces"),
+    (
+        ((79, 1), 554, ("root_middle_heavy",)),
+        ((3, 2), 24, ("transition",)),
+        ((1, 79), 321, ("leaf_heavy",)),
+        ((2, 1), 15, ("root_middle_heavy", "transition")),
+        ((1, 1), 9, ("transition", "leaf_heavy")),
+    ),
+)
+def test_binary_middle_first_symmetric_certificate(costs, expected, active_faces):
+    certificate = certify_binary_middle_first_symmetric(*costs)
+
+    assert certificate.certificate_valid
+    assert certificate.exact_worst_case_cost == expected
+    assert certificate.active_faces == active_faces
+    assert certificate.projected_face_vectors == ((7, 1), (6, 3), (5, 4))
+    assert certificate.policy_class == "binary_middle_first_symmetric"
+
+
+@pytest.mark.parametrize("costs", ((0, 1), (True, 1), (1.5, 1)))
+def test_binary_middle_first_symmetric_certificate_rejects_invalid_costs(costs):
+    with pytest.raises(ValueError, match="positive integers"):
+        certify_binary_middle_first_symmetric(*costs)
 
 
 def test_three_level_certificate_obeys_policy_class_monotonicity():

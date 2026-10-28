@@ -1,0 +1,94 @@
+{
+  "holdout_total": 7,
+  "holdouts_reproduced": 7,
+  "maximal_projected_guarantees": [
+    [
+      5,
+      4
+    ],
+    [
+      6,
+      3
+    ],
+    [
+      7,
+      1
+    ]
+  ],
+  "passed": true,
+  "production_imports": 0,
+  "replays": [
+    {
+      "candidate_cost": 554,
+      "independent_exact_cost": 554,
+      "matched": true,
+      "production_exact_cost": 554,
+      "symmetric_costs": [
+        79,
+        1
+      ]
+    },
+    {
+      "candidate_cost": 607,
+      "independent_exact_cost": 607,
+      "matched": true,
+      "production_exact_cost": 607,
+      "symmetric_costs": [
+        81,
+        40
+      ]
+    },
+    {
+      "candidate_cost": 366,
+      "independent_exact_cost": 366,
+      "matched": true,
+      "production_exact_cost": 366,
+      "symmetric_costs": [
+        41,
+        40
+      ]
+    },
+    {
+      "candidate_cost": 364,
+      "independent_exact_cost": 364,
+      "matched": true,
+      "production_exact_cost": 364,
+      "symmetric_costs": [
+        40,
+        41
+      ]
+    },
+    {
+      "candidate_cost": 321,
+      "independent_exact_cost": 321,
+      "matched": true,
+      "production_exact_cost": 321,
+      "symmetric_costs": [
+        1,
+        79
+      ]
+    },
+    {
+      "candidate_cost": 15,
+      "independent_exact_cost": 15,
+      "matched": true,
+      "production_exact_cost": 15,
+      "symmetric_costs": [
+        2,
+        1
+      ]
+    },
+    {
+      "candidate_cost": 9,
+      "independent_exact_cost": 9,
+      "matched": true,
+      "production_exact_cost": 9,
+      "symmetric_costs": [
+        1,
+        1
+      ]
+    }
+  ],
+  "schema": "theorica.middle-first-symmetric-slice-audit/1",
+  "upper_cones_reproduced": 3
+}
