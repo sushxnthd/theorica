@@ -3,6 +3,7 @@ from fractions import Fraction
 import pytest
 
 from theorica.agents.corruption_resilient_features import (
+    certify_binary_three_level_middle_first,
     certify_common_robust_plan,
     certify_decision_query_corruption_radius,
     certify_multi_action_plan_from_ambiguous_transcript,
@@ -766,6 +767,32 @@ def test_qary_three_level_insurance_closed_form(arity, costs, expected):
     assert certificate.exact_worst_case_cost == max(certificate.adversary_lower_bounds)
     assert certificate.active_faces
     assert certificate.policy_class == "root_respecting_qary"
+
+
+@pytest.mark.parametrize(
+    ("costs", "expected", "active_face"),
+    (
+        ((1, 79, 1), 397, "middle_frontloaded"),
+        ((1, 1, 79), 321, "leaf_heavy_after_middle"),
+        ((1, 79, 53), 477, "middle_leaf_transition"),
+        ((79, 1, 53), 399, "balanced_exposure"),
+        ((79, 79, 1), 554, "root_middle_transition"),
+        ((79, 1, 1), 319, "root_heavy_after_middle"),
+    ),
+)
+def test_binary_three_level_middle_first_certificate(costs, expected, active_face):
+    certificate = certify_binary_three_level_middle_first(*costs)
+
+    assert certificate.certificate_valid
+    assert certificate.exact_worst_case_cost == expected
+    assert certificate.active_faces == (active_face,)
+    assert certificate.policy_class == "binary_middle_first"
+
+
+@pytest.mark.parametrize("costs", ((0, 1, 1), (True, 1, 1), (1.5, 1, 1)))
+def test_binary_three_level_middle_first_certificate_rejects_invalid_costs(costs):
+    with pytest.raises(ValueError, match="positive integers"):
+        certify_binary_three_level_middle_first(*costs)
 
 
 def test_three_level_certificate_obeys_policy_class_monotonicity():

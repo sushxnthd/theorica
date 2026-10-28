@@ -77,3 +77,12 @@ does not exclude bypass at another positive cost ray and does not prove results
 for larger arities, greater depths, different fault budgets, or reduced query
 multiplicity. The next mathematical target is a symbolic first-query exchange
 lemma explaining the observed strict dominance.
+
+## Subsequent conditioned-law evidence
+
+The next prospectively frozen experiment isolated the middle-first branch.
+Its six-face max-plus candidate matched twelve unseen exact optima, including
+one unique activator for every face and six predicted margin-one boundaries;
+an independent zero-import solver reproduced all twelve. See
+`QARY_THREE_LEVEL_MIDDLE_FIRST_RESULT.md`. This sharpens the numerical
+first-action profile but still does not supply the universal exchange lemma.

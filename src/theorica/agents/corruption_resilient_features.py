@@ -256,6 +256,18 @@ class QaryThreeLevelInsuranceCertificate:
 
 
 @dataclass(frozen=True)
+class BinaryThreeLevelMiddleFirstCertificate:
+    """Candidate six-face law conditioned on a middle-level first query."""
+
+    level_costs: tuple[int, int, int]
+    adversary_lower_bounds: tuple[int, int, int, int, int, int]
+    exact_worst_case_cost: int
+    active_faces: tuple[str, ...]
+    certificate_valid: bool
+    policy_class: str
+
+
+@dataclass(frozen=True)
 class ThreeLevelMonotonicityCertificate:
     """Impossibility witness for a lower face that exceeds a feasible policy."""
 
@@ -370,6 +382,51 @@ def certify_qary_three_level_insurance(
         tuple(name for name, bound in zip(names, bounds) if bound == optimum),
         True,
         "root_respecting_qary",
+    )
+
+
+def certify_binary_three_level_middle_first(
+    root_cost: int,
+    middle_cost: int,
+    leaf_cost: int,
+) -> BinaryThreeLevelMiddleFirstCertificate:
+    """Return the prospective binary middle-first conditioned cost law.
+
+    The first physical query is required to be at the middle level, while all
+    later adaptive actions remain unrestricted. This deliberately does not
+    claim unrestricted or q-ary exactness.
+    """
+    costs = (root_cost, middle_cost, leaf_cost)
+    if any(
+        isinstance(cost, bool) or not isinstance(cost, int) or cost < 1
+        for cost in costs
+    ):
+        raise ValueError("query costs must be positive integers")
+    a, b, c = costs
+    names = (
+        "middle_frontloaded",
+        "leaf_heavy_after_middle",
+        "middle_leaf_transition",
+        "balanced_exposure",
+        "root_middle_transition",
+        "root_heavy_after_middle",
+    )
+    bounds = (
+        a + 5 * b + c,
+        2 * a + 3 * b + 4 * c,
+        2 * a + 4 * b + 3 * c,
+        3 * a + 3 * b + 3 * c,
+        3 * a + 4 * b + c,
+        4 * a + 2 * b + c,
+    )
+    optimum = max(bounds)
+    return BinaryThreeLevelMiddleFirstCertificate(
+        costs,
+        bounds,
+        optimum,
+        tuple(name for name, value in zip(names, bounds) if value == optimum),
+        True,
+        "binary_middle_first",
     )
 
 
