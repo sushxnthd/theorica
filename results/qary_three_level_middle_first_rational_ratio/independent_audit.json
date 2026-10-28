@@ -1,0 +1,11 @@
+{
+  "holdout_total": 48,
+  "holdouts_reproduced": 48,
+  "passed": true,
+  "production_imports": 0,
+  "schema": "theorica.middle-first-rational-ratio-family-audit/1",
+  "trace_certificate_total": 12,
+  "trace_certificates_reproduced": 12,
+  "universal_cone_total": 6,
+  "universal_cones_reproduced": 6
+}

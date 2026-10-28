@@ -318,6 +318,25 @@ class BinaryMiddleFirstIntegerRatioCertificate:
 
 
 @dataclass(frozen=True)
+class BinaryMiddleFirstRationalRatioCertificate:
+    """Exact middle-first law for a rational ancestor-cost ratio at least two."""
+
+    heavy_level: str
+    ratio_numerator: int
+    ratio_denominator: int
+    unit_cost: int
+    leaf_cost: int
+    level_costs: tuple[int, int, int]
+    projected_face_vectors: tuple[tuple[int, int], ...]
+    adversary_lower_bounds: tuple[int, int, int]
+    exact_worst_case_cost: int
+    active_faces: tuple[str, ...]
+    phase_boundaries: tuple[str, str]
+    certificate_valid: bool
+    policy_class: str
+
+
+@dataclass(frozen=True)
 class ThreeLevelMonotonicityCertificate:
     """Impossibility witness for a lower face that exceeds a feasible policy."""
 
@@ -612,6 +631,63 @@ def certify_binary_middle_first_integer_ratio(
         ("2y=(k-1)x", "y=kx"),
         True,
         "binary_middle_first_integer_ratio",
+    )
+
+
+def certify_binary_middle_first_rational_ratio(
+    heavy_level: str,
+    ratio_numerator: int,
+    ratio_denominator: int,
+    unit_cost: int,
+    leaf_cost: int,
+) -> BinaryMiddleFirstRationalRatioCertificate:
+    """Return the exact law for rational ratio ``p/q >= 2``.
+
+    ``heavy_level`` is ``"root"`` for costs ``(pu,qu,y)`` or ``"middle"``
+    for costs ``(qu,pu,y)``. Inputs remain integral while representing every
+    positive rational ancestor-cost ratio in the proved domain.
+    """
+    if heavy_level not in {"root", "middle"}:
+        raise ValueError("heavy_level must be 'root' or 'middle'")
+    values = (ratio_numerator, ratio_denominator, unit_cost, leaf_cost)
+    if any(isinstance(value, bool) or not isinstance(value, int) for value in values):
+        raise ValueError("ratio and query-cost inputs must be integers")
+    p, q, unit, leaf = values
+    if q < 1 or p < 2 * q:
+        raise ValueError("ratio_numerator/ratio_denominator must be at least two")
+    if unit < 1 or leaf < 1:
+        raise ValueError("query costs must be positive integers")
+    if heavy_level == "root":
+        level_costs = (p * unit, q * unit, leaf)
+        vectors = (
+            (4 * p + 2 * q, 1),
+            (3 * p + 3 * q, 3),
+            (2 * p + 3 * q, 4),
+        )
+    else:
+        level_costs = (q * unit, p * unit, leaf)
+        vectors = (
+            (5 * p + q, 1),
+            (4 * p + 2 * q, 3),
+            (3 * p + 2 * q, 4),
+        )
+    names = ("ancestor_heavy", "transition", "leaf_heavy")
+    bounds = tuple(a * unit + b * leaf for a, b in vectors)
+    optimum = max(bounds)
+    return BinaryMiddleFirstRationalRatioCertificate(
+        heavy_level,
+        p,
+        q,
+        unit,
+        leaf,
+        level_costs,
+        vectors,
+        bounds,
+        optimum,
+        tuple(name for name, bound in zip(names, bounds) if bound == optimum),
+        ("2y=(p-q)u", "y=pu"),
+        True,
+        "binary_middle_first_rational_ratio",
     )
 
 
