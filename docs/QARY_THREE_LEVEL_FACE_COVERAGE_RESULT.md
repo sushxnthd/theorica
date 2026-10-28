@@ -46,10 +46,13 @@ Machine-readable primary and independent records are stored under
 ## Bounded conclusion
 
 The corrected six-face expression now agrees with exact unrestricted binary
-search on 228 cost triples: the prior exhaustive `{1,...,6}^3` box, six
+search on 240 cost triples: the prior exhaustive `{1,...,6}^3` box, six
 prospective counterexamples to the retired seventh face, and these six
-prospective face-coverage holdouts. Every surviving face has exact evidence at
-a 40:1 cost ratio, including near-boundary margins of one and two.
+prospective face-coverage holdouts, followed by twelve conditioned
+ancestor-bypass rays. Every surviving face has exact evidence at a 40:1 cost
+ratio, including near-boundary margins of one and two. The later conditioned
+suite found root-first exact and both descendant-first levels strictly worse
+on all twelve rays; see `QARY_THREE_LEVEL_ANCESTOR_BYPASS_RESULT.md`.
 
 This is stronger falsification evidence, not a universal theorem. Finite
 binary searches do not exclude an ancestor-bypass counterexample elsewhere

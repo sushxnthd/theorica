@@ -1510,14 +1510,18 @@ def plan_adaptive_decision_queries_with_weighted_faults(
     corruption_budget: int,
     erasure_budget: int,
     known_feasible_cost_upper_bound: int | None = None,
+    allowed_initial_query_indices=None,
 ) -> AdaptiveDecisionWeightedFaultPlan:
     """Return an exact minimum-cost tree under substitutions and erasures.
 
     Monotone cost-bounded search followed by integer binary search certifies
     the exact optimum. A caller may supply the cost of an independently known
     feasible tree to avoid an unnecessarily loose sum-of-all-queries initial
-    bound. ``None`` remains reserved for a recognized erasure. The solver
-    fails closed when no available tree forces a common exact robust decision.
+    bound. ``allowed_initial_query_indices`` can condition the optimum on an
+    exact set of permitted first physical queries; later actions remain
+    unrestricted. ``None`` remains reserved for a recognized erasure. The
+    solver fails closed when no available tree forces a common exact robust
+    decision.
     """
     if corruption_budget < 0 or erasure_budget < 0:
         raise ValueError("corruption and erasure budgets must be nonnegative")
@@ -1551,12 +1555,45 @@ def plan_adaptive_decision_queries_with_weighted_faults(
         except TypeError as exc:
             raise ValueError("query outcomes must be hashable") from exc
 
+    if allowed_initial_query_indices is None:
+        allowed_initial = None
+    else:
+        try:
+            allowed_initial = tuple(allowed_initial_query_indices)
+        except TypeError as exc:
+            raise ValueError("allowed initial query indices must be iterable") from exc
+        if not allowed_initial:
+            raise ValueError("allowed initial query indices must be nonempty")
+        if any(
+            isinstance(index, bool)
+            or not isinstance(index, int)
+            or index < 0
+            or index >= len(outcomes)
+            for index in allowed_initial
+        ):
+            raise ValueError("allowed initial query indices must be valid integers")
+        if len(set(allowed_initial)) != len(allowed_initial):
+            raise ValueError("allowed initial query indices must be unique")
+        allowed_initial = frozenset(allowed_initial)
+
     grouped = {}
     for query, (row, cost) in enumerate(zip(outcomes, costs)):
         grouped.setdefault((row, cost), []).append(query)
     group_rows = tuple(key[0] for key in grouped)
     group_costs = tuple(key[1] for key in grouped)
-    group_indices = tuple(tuple(indices) for indices in grouped.values())
+    group_indices = tuple(
+        tuple(
+            sorted(
+                indices,
+                key=(
+                    (lambda index: (index not in allowed_initial, index))
+                    if allowed_initial is not None
+                    else (lambda index: index)
+                ),
+            )
+        )
+        for indices in grouped.values()
+    )
     initial_remaining = tuple(len(indices) for indices in group_indices)
     alphabets = tuple(
         tuple(sorted(set(row), key=lambda value: (type(value).__name__, repr(value))))
@@ -1622,9 +1659,20 @@ def plan_adaptive_decision_queries_with_weighted_faults(
             solution_cache[key] = None
             return None
 
+        initial_state = (
+            lie_counts == initial_counts
+            and erasures_used == 0
+            and remaining == initial_remaining
+        )
         candidates = []
         for group, count in enumerate(remaining):
             if count == 0 or group_costs[group] > cost_limit:
+                continue
+            if (
+                initial_state
+                and allowed_initial is not None
+                and not any(index in allowed_initial for index in group_indices[group])
+            ):
                 continue
             cells = {}
             for index in indices:

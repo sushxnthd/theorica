@@ -639,6 +639,59 @@ def test_weighted_multiset_quotient_preserves_physical_query_identity():
     assert_unique_indices(plan.root)
 
 
+def test_weighted_mixed_fault_plan_conditions_only_the_initial_query():
+    arity, depth, copies = 2, 3, 4
+    games = tuple(
+        _unique_mixing_game(Fraction(index + 1, 9))
+        for index in range(arity**depth)
+    )
+    outcomes = qary_prefix_query_library(arity, depth, copies=copies)
+    costs = qary_prefix_query_costs(
+        arity, depth, copies=copies, level_costs=(40, 1, 20)
+    )
+    root_first = plan_adaptive_decision_queries_with_weighted_faults(
+        games,
+        outcomes,
+        query_costs=costs,
+        corruption_budget=1,
+        erasure_budget=1,
+        known_feasible_cost_upper_bound=182,
+        allowed_initial_query_indices=range(4),
+    )
+
+    assert root_first.certificate_valid
+    assert root_first.worst_case_cost == 182
+    assert root_first.root is not None
+    assert root_first.root.query_index in range(4)
+    assert any(
+        child.query_index is not None and child.query_index >= 4
+        for _, child in root_first.root.children
+    )
+
+
+@pytest.mark.parametrize(
+    "indices",
+    ((), (0, 0), (True,), (-1,), (28,), (0.5,), 3),
+)
+def test_weighted_mixed_fault_plan_rejects_invalid_initial_query_indices(indices):
+    games = tuple(
+        _unique_mixing_game(Fraction(index + 1, 9))
+        for index in range(8)
+    )
+    outcomes = qary_prefix_query_library(2, 3, copies=4)
+    costs = qary_prefix_query_costs(2, 3, copies=4, level_costs=(1, 1, 1))
+
+    with pytest.raises(ValueError, match="allowed initial query indices"):
+        plan_adaptive_decision_queries_with_weighted_faults(
+            games,
+            outcomes,
+            query_costs=costs,
+            corruption_budget=1,
+            erasure_budget=1,
+            allowed_initial_query_indices=indices,
+        )
+
+
 def test_weighted_mixed_fault_library_fails_closed_with_missing_copy():
     arity, depth, corruptions, erasures = 3, 2, 1, 1
     copies = 2 * corruptions + erasures + 1

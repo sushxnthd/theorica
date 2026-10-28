@@ -86,11 +86,14 @@ digest is
 
 The general result is the monotonicity veto: the retired face is impossible
 on the stated cone for every arity. Exact unrestricted binary searches support
-the six-face replacement on 228 tested cost triples (216 exhaustive-grid
-cases plus twelve prospective holdouts). The six later holdouts uniquely
+the six-face replacement on 240 tested cost triples (216 exhaustive-grid
+cases plus twenty-four prospective holdouts). Six holdouts uniquely
 activate every surviving face at 40:1-scale ratios, including phase margins
-of one and two; see `QARY_THREE_LEVEL_FACE_COVERAGE_RESULT.md`. Independent
-implementations replayed both prospective suites. This finite evidence does
+of one and two; a further twelve conditioned rays found root-first exact and
+both descendant-first levels strictly worse. See
+`QARY_THREE_LEVEL_FACE_COVERAGE_RESULT.md` and
+`QARY_THREE_LEVEL_ANCESTOR_BYPASS_RESULT.md`. Independent implementations
+replayed every prospective suite. This finite evidence does
 **not** by itself prove the six-face law
 for every positive binary cost triple, for arity greater than two, at greater
 depth, with other fault budgets, or with fewer physical copies. Those remain
