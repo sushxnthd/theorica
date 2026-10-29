@@ -337,6 +337,23 @@ class BinaryMiddleFirstRationalRatioCertificate:
 
 
 @dataclass(frozen=True)
+class BinaryMiddleFirstAllRatioLowerBoundCertificate:
+    """Universal adversarial lower bound for every positive ancestor ratio."""
+
+    ratio_numerator: int
+    ratio_denominator: int
+    unit_cost: int
+    leaf_cost: int
+    level_costs: tuple[int, int, int]
+    exposure_vectors: tuple[tuple[int, int, int], ...]
+    adversary_lower_bounds: tuple[int, int, int, int, int, int]
+    certified_lower_bound: int
+    active_faces: tuple[str, ...]
+    certificate_valid: bool
+    policy_class: str
+
+
+@dataclass(frozen=True)
 class ThreeLevelMonotonicityCertificate:
     """Impossibility witness for a lower face that exceeds a feasible policy."""
 
@@ -688,6 +705,65 @@ def certify_binary_middle_first_rational_ratio(
         ("2y=(p-q)u", "y=pu"),
         True,
         "binary_middle_first_rational_ratio",
+    )
+
+
+def certify_binary_middle_first_all_ratio_lower_bound(
+    ratio_numerator: int,
+    ratio_denominator: int,
+    unit_cost: int,
+    leaf_cost: int,
+) -> BinaryMiddleFirstAllRatioLowerBoundCertificate:
+    """Return the proved six-face lower bound for every positive ratio.
+
+    Costs are ``(p*u, q*u, y)``.  The exact affine decision-trace partition
+    proves that these six exposure vectors generate the complete projected
+    adversary antichain for all positive rational ``p/q``.  This certificate
+    is deliberately a lower/impossibility boundary: universal matching upper
+    policies are not claimed in the moderate-ratio regime.
+    """
+    values = (ratio_numerator, ratio_denominator, unit_cost, leaf_cost)
+    if any(isinstance(value, bool) or not isinstance(value, int) for value in values):
+        raise ValueError("ratio and query-cost inputs must be integers")
+    p, q, unit, leaf = values
+    if p < 1 or q < 1:
+        raise ValueError("ratio numerator and denominator must be positive")
+    if unit < 1 or leaf < 1:
+        raise ValueError("query costs must be positive integers")
+    level_costs = (p * unit, q * unit, leaf)
+    vectors = (
+        (1, 5, 1),
+        (2, 3, 4),
+        (2, 4, 3),
+        (3, 3, 3),
+        (3, 4, 1),
+        (4, 2, 1),
+    )
+    names = (
+        "middle_frontloaded",
+        "leaf_heavy_after_middle",
+        "middle_leaf_transition",
+        "balanced_exposure",
+        "root_middle_transition",
+        "root_heavy_after_middle",
+    )
+    bounds = tuple(
+        (root * p + middle * q) * unit + leaves * leaf
+        for root, middle, leaves in vectors
+    )
+    lower_bound = max(bounds)
+    return BinaryMiddleFirstAllRatioLowerBoundCertificate(
+        p,
+        q,
+        unit,
+        leaf,
+        level_costs,
+        vectors,
+        bounds,
+        lower_bound,
+        tuple(name for name, value in zip(names, bounds) if value == lower_bound),
+        True,
+        "binary_middle_first_all_ratio_lower_bound",
     )
 
 

@@ -80,6 +80,8 @@ on:
       - "scripts/audit_qary_three_level_middle_first_integer_ratio.py"
       - "scripts/verify_qary_three_level_middle_first_rational_ratio.py"
       - "scripts/audit_qary_three_level_middle_first_rational_ratio.py"
+      - "scripts/verify_qary_three_level_middle_first_all_ratios.py"
+      - "scripts/audit_qary_three_level_middle_first_all_ratios.py"
       - "docs/COUPLED_ADDITIVE_MINIMAX_*.md"
       - "docs/TWO_VERTEX_ADDITIVE_ENVELOPE_*.md"
       - "docs/THREE_VERTEX_ADDITIVE_ARRANGEMENT_*.md"
@@ -121,6 +123,7 @@ on:
       - "results/qary_three_level_middle_first_ratio_two/*.json"
       - "results/qary_three_level_middle_first_integer_ratio/*.json"
       - "results/qary_three_level_middle_first_rational_ratio/*.json"
+      - "results/qary_three_level_middle_first_all_ratios/*.json"
       - ".github/workflows/additive-product-minimax.yml"
 
 jobs:
@@ -202,5 +205,7 @@ jobs:
       - run: python scripts/audit_qary_three_level_middle_first_integer_ratio.py
       - run: python scripts/verify_qary_three_level_middle_first_rational_ratio.py
       - run: python scripts/audit_qary_three_level_middle_first_rational_ratio.py
+      - run: python scripts/verify_qary_three_level_middle_first_all_ratios.py
+      - run: python scripts/audit_qary_three_level_middle_first_all_ratios.py
       - run: pytest -q tests/test_robust_provenance.py
       - run: pytest -q tests/test_corruption_resilient_features.py
