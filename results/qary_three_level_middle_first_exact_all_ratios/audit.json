@@ -1,0 +1,12 @@
+{
+  "face_ray_enumeration_total": 6,
+  "face_ray_enumerations_matched": 6,
+  "feasible_face_exposure_replay_total": 5,
+  "feasible_face_exposure_replays_passed": 5,
+  "passed": true,
+  "problem_face_common_policy_independently_feasible": false,
+  "problem_face_independent_states": 3719,
+  "production_module_imports": 0,
+  "prospective_scalar_matches": 12,
+  "prospective_scalar_total": 12
+}
