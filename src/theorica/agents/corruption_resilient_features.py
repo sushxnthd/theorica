@@ -295,6 +295,21 @@ class TernaryMiddleFirstSymmetricCertificate:
 
 
 @dataclass(frozen=True)
+class TernaryMiddleFirstAncestorSymmetricCertificate:
+    """Exact ternary law when root and middle query costs are equal."""
+
+    root_middle_cost: int
+    leaf_cost: int
+    projected_face_vectors: tuple[tuple[int, int], ...]
+    adversary_lower_bounds: tuple[int, int, int]
+    exact_worst_case_cost: int
+    active_faces: tuple[str, ...]
+    phase_boundaries: tuple[str, str]
+    certificate_valid: bool
+    policy_class: str
+
+
+@dataclass(frozen=True)
 class BinaryMiddleFirstRatioTwoCertificate:
     """Exact middle-first law when one ancestor level costs twice the other."""
 
@@ -600,6 +615,39 @@ def certify_ternary_middle_first_symmetric(
         9,
         True,
         "ternary_middle_first_equal_level_costs",
+    )
+
+
+def certify_ternary_middle_first_ancestor_symmetric(
+    root_middle_cost: int,
+    leaf_cost: int,
+) -> TernaryMiddleFirstAncestorSymmetricCertificate:
+    """Return the exact ternary middle-first law for costs ``(x,x,y)``.
+
+    One depth-nine ternary policy satisfies the complete extreme-ray budgets
+    for all three cost cones.  The binary completion embedding supplies the
+    matching lower faces.
+    """
+    if any(
+        isinstance(cost, bool) or not isinstance(cost, int) or cost < 1
+        for cost in (root_middle_cost, leaf_cost)
+    ):
+        raise ValueError("query costs must be positive integers")
+    x, y = root_middle_cost, leaf_cost
+    vectors = ((7, 1), (6, 3), (5, 4))
+    names = ("ancestor_heavy", "transition", "leaf_heavy")
+    bounds = tuple(a * x + b * y for a, b in vectors)
+    optimum = max(bounds)
+    return TernaryMiddleFirstAncestorSymmetricCertificate(
+        x,
+        y,
+        vectors,
+        bounds,
+        optimum,
+        tuple(name for name, bound in zip(names, bounds) if bound == optimum),
+        ("x=y", "x=2y"),
+        True,
+        "ternary_middle_first_equal_ancestor_costs",
     )
 
 
