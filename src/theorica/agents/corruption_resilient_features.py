@@ -412,7 +412,8 @@ class BinaryMiddleFirstAllCostCertificate:
 class ThreeLevelMonotonicityCertificate:
     """Impossibility witness for a lower face that exceeds a feasible policy."""
 
-    arity: int    level_costs: tuple[int, int, int]
+    arity: int
+    level_costs: tuple[int, int, int]
     feasible_root_respecting_cost: int
     retired_bypass_face_cost: int
     lower_face_impossible: bool
@@ -844,7 +845,8 @@ def certify_binary_middle_first_rational_ratio(
         bounds,
         optimum,
         tuple(name for name, bound in zip(names, bounds) if bound == optimum),
-        ("2y=(p-q)u", "y=pu"),        True,
+        ("2y=(p-q)u", "y=pu"),
+        True,
         "binary_middle_first_rational_ratio",
     )
 
@@ -1243,7 +1245,8 @@ def select_finite_list_feature_queries(
 
 
 def _solve_multi_action_robust_game(game):
-    """Return an exact maximin value and one canonical optimal policy."""    matrix = tuple(tuple(Fraction(value) for value in row) for row in game)
+    """Return an exact maximin value and one canonical optimal policy."""
+    matrix = tuple(tuple(Fraction(value) for value in row) for row in game)
     if len(matrix) < 2 or not matrix[0]:
         raise ValueError("a robust game needs at least two actions and one scenario")
     if any(len(row) != len(matrix[0]) for row in matrix):
@@ -1642,7 +1645,8 @@ def certify_common_robust_plan(
                     policy[action] * game[action][scenario]
                     for action in range(action_count)
                 ),
-                Fraction(0),            )
+                Fraction(0),
+            )
             for scenario in range(len(game[0]))
         )
         == values[index]
@@ -2041,7 +2045,8 @@ def plan_adaptive_decision_queries_with_faults(
                     (exact_games[left], exact_games[right])
                 ).policy_identifiable
             if not pair_compatibility_cache[pair]:
-                compatibility_cache[indices] = None                return None
+                compatibility_cache[indices] = None
+                return None
         compatibility_cache[indices] = certify_common_robust_plan(
             tuple(exact_games[index] for index in indices)
         )
@@ -2440,7 +2445,8 @@ def plan_adaptive_decision_queries_with_weighted_faults(
         len(solution_cache),
         len(compatibility_cache),
         True,
-        "exact_minimax_weighted_adaptive_decision_tree_with_mixed_faults",    )
+        "exact_minimax_weighted_adaptive_decision_tree_with_mixed_faults",
+    )
 
 
 def certify_decision_query_corruption_radius(
@@ -2839,7 +2845,8 @@ def certify_two_action_plan_from_ambiguous_transcript(
         reason = (
             "ambiguous_transcript_has_multiple_robust_values"
             if not value_identifiable
-            else "ambiguous_transcript_has_disjoint_optimal_policy_sets"        )
+            else "ambiguous_transcript_has_disjoint_optimal_policy_sets"
+        )
         return DecisionIdentifiableTwoActionPlan(
             None,
             None,

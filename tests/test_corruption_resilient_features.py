@@ -424,7 +424,8 @@ def test_higher_order_conflict_is_resolved_despite_pairwise_compatibility():
 
 
 def test_tripled_coordinate_code_corrects_one_query_error():
-    games = tuple(_unique_mixing_game(Fraction(index + 1, 5)) for index in range(4))    bits = ((0, 0, 1, 1), (0, 1, 0, 1))
+    games = tuple(_unique_mixing_game(Fraction(index + 1, 5)) for index in range(4))
+    bits = ((0, 0, 1, 1), (0, 1, 0, 1))
     result = certify_decision_query_corruption_radius(
         games,
         tuple(row for row in bits for _ in range(3)),
@@ -823,7 +824,8 @@ def test_qary_two_level_insurance_closed_form(
         (2, (2, 1, 7), 34),
         (2, (3, 6, 2), 32),
         (3, (1, 2, 3), 18),
-    ),)
+    ),
+)
 def test_qary_three_level_insurance_closed_form(arity, costs, expected):
     certificate = certify_qary_three_level_insurance(arity, *costs)
 
