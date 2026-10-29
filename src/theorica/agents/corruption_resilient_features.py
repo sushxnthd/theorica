@@ -1,6 +1,3 @@
-Warning: truncated output (original token count: 27339)
-Total output lines: 3071
-
 """Exact feature-span reconstruction under bounded adversarial query errors."""
 
 from dataclasses import dataclass, replace
@@ -415,8 +412,7 @@ class BinaryMiddleFirstAllCostCertificate:
 class ThreeLevelMonotonicityCertificate:
     """Impossibility witness for a lower face that exceeds a feasible policy."""
 
-    arity: int
-    level_costs: tuple[int, int, int]
+    arity: int    level_costs: tuple[int, int, int]
     feasible_root_respecting_cost: int
     retired_bypass_face_cost: int
     lower_face_impossible: bool
@@ -848,8 +844,7 @@ def certify_binary_middle_first_rational_ratio(
         bounds,
         optimum,
         tuple(name for name, bound in zip(names, bounds) if bound == optimum),
-        ("2y=(p-q)u", "y=pu"),
-        True,
+        ("2y=(p-q)u", "y=pu"),        True,
         "binary_middle_first_rational_ratio",
     )
 
@@ -1229,7 +1224,607 @@ def select_finite_list_feature_queries(
             distance = _feature_code_minimum_distance(rows, rank)
             if distance >= target_distance:
                 return FiniteListFeatureQueryPlan(
-              …7339 tokens truncated…      for row in outcomes
+                    features,
+                    tuple(indices),
+                    rank,
+                    width,
+                    corruption_budget,
+                    erasure_budget,
+                    query_count,
+                    distance,
+                    tested,
+                    True,
+                    "finite_list_error_erasure_geometry_certificate",
+                )
+    raise ValueError(
+        "no query subset within the cap guarantees a finite completion list "
+        "under the certified error-erasure budget"
+    )
+
+
+def _solve_multi_action_robust_game(game):
+    """Return an exact maximin value and one canonical optimal policy."""    matrix = tuple(tuple(Fraction(value) for value in row) for row in game)
+    if len(matrix) < 2 or not matrix[0]:
+        raise ValueError("a robust game needs at least two actions and one scenario")
+    if any(len(row) != len(matrix[0]) for row in matrix):
+        raise ValueError("robust-game payoff rows must have equal length")
+    action_count = len(matrix)
+    scenario_count = len(matrix[0])
+    candidates = []
+    for support_size in range(1, min(action_count, scenario_count) + 1):
+        for support in combinations(range(action_count), support_size):
+            for active in combinations(range(scenario_count), support_size):
+                rows = [tuple(Fraction(1) for _ in support) + (Fraction(0),)]
+                rhs = [Fraction(1)]
+                for scenario in active:
+                    rows.append(
+                        tuple(matrix[action][scenario] for action in support)
+                        + (Fraction(-1),)
+                    )
+                    rhs.append(Fraction(0))
+                solved = _solve_fraction_system(tuple(rows), tuple(rhs))
+                if solved is None:
+                    continue
+                weights, value = solved[:-1], solved[-1]
+                if any(weight < 0 for weight in weights):
+                    continue
+                policy = tuple(
+                    next(
+                        (
+                            weights[i]
+                            for i, action in enumerate(support)
+                            if action == target
+                        ),
+                        Fraction(0),
+                    )
+                    for target in range(action_count)
+                )
+                realized = tuple(
+                    sum(
+                        (
+                            policy[action] * matrix[action][scenario]
+                            for action in range(action_count)
+                        ),
+                        Fraction(0),
+                    )
+                    for scenario in range(scenario_count)
+                )
+                if min(realized) >= value:
+                    candidates.append((value, policy))
+    if not candidates:
+        raise RuntimeError("exact robust-game vertex enumeration found no policy")
+    value = max(candidate[0] for candidate in candidates)
+    policy = min(candidate[1] for candidate in candidates if candidate[0] == value)
+    if (
+        min(
+            sum(
+                (
+                    policy[action] * matrix[action][scenario]
+                    for action in range(action_count)
+                ),
+                Fraction(0),
+            )
+            for scenario in range(scenario_count)
+        )
+        != value
+    ):
+        raise RuntimeError("exact robust-game policy failed replay")
+    return value, policy
+
+
+def _solve_multi_action_robust_game_with_dual(game):
+    """Return exact primal and sparse dual solutions of a finite zero-sum game."""
+    matrix = tuple(tuple(Fraction(value) for value in row) for row in game)
+    value, policy = _solve_multi_action_robust_game(matrix)
+    action_count = len(matrix)
+    scenario_count = len(matrix[0])
+    dual_game = tuple(
+        tuple(-matrix[action][scenario] for action in range(action_count))
+        for scenario in range(scenario_count)
+    )
+    if scenario_count == 1:
+        # The transposed game has one action, outside the public solver's
+        # deliberate >=2-action contract. Nature's strategy is nevertheless
+        # uniquely the sole scenario, so solve this boundary in closed form.
+        negative_value = min(dual_game[0])
+        adversary = (Fraction(1),)
+    else:
+        negative_value, adversary = _solve_multi_action_robust_game(dual_game)
+    if -negative_value != value:
+        raise RuntimeError("exact robust-game primal and dual values disagree")
+    action_payoffs = tuple(
+        sum(
+            (
+                adversary[scenario] * matrix[action][scenario]
+                for scenario in range(scenario_count)
+            ),
+            Fraction(0),
+        )
+        for action in range(action_count)
+    )
+    if max(action_payoffs) != value:
+        raise RuntimeError("exact robust-game dual certificate failed replay")
+    if sum(weight > 0 for weight in adversary) > action_count:
+        raise RuntimeError("exact robust-game dual support exceeded action count")
+    return value, policy, adversary, action_payoffs
+
+
+def _common_optimal_policy(games, values, selected=None):
+    """Find an exact point in the selected optimal-policy-polytope intersection."""
+    indices = tuple(range(len(games))) if selected is None else tuple(selected)
+    action_count = len(games[0])
+    constraints = tuple(
+        (
+            tuple(games[index][action][scenario] for action in range(action_count)),
+            values[index],
+        )
+        for index in indices
+        for scenario in range(len(games[index][0]))
+    )
+    for support_size in range(1, action_count + 1):
+        for support in combinations(range(action_count), support_size):
+            active_count = support_size - 1
+            for active in combinations(range(len(constraints)), active_count):
+                rows = [tuple(Fraction(1) for _ in support)]
+                rhs = [Fraction(1)]
+                for constraint_index in active:
+                    coefficients, bound = constraints[constraint_index]
+                    rows.append(tuple(coefficients[action] for action in support))
+                    rhs.append(bound)
+                solved = _solve_fraction_system(tuple(rows), tuple(rhs))
+                if solved is None or any(weight < 0 for weight in solved):
+                    continue
+                policy = tuple(
+                    next(
+                        (
+                            solved[i]
+                            for i, action in enumerate(support)
+                            if action == target
+                        ),
+                        Fraction(0),
+                    )
+                    for target in range(action_count)
+                )
+                if all(
+                    sum(
+                        (
+                            policy[action] * coefficients[action]
+                            for action in range(action_count)
+                        ),
+                        Fraction(0),
+                    )
+                    >= bound
+                    for coefficients, bound in constraints
+                ):
+                    return policy
+    return None
+
+
+def certify_stacked_ambiguity_gap(games) -> StackedAmbiguityGapCertificate:
+    """Reduce common-policy identifiability to one exact stacked robust game.
+
+    When every completion has robust value ``v``, concatenating their scenario
+    columns produces value ``v_stack <= v``.  Equality holds exactly when one
+    policy is optimal for every completion.  A strict gap has a witness of at
+    most ``a`` individual scenario columns for ``a`` actions.
+    """
+    exact_games = tuple(
+        tuple(tuple(Fraction(value) for value in row) for row in game) for game in games
+    )
+    if not exact_games:
+        raise ValueError("at least one feasible completion is required")
+    action_count = len(exact_games[0])
+    if action_count < 2 or any(len(game) != action_count for game in exact_games):
+        raise ValueError("all completions must share at least two actions")
+    if any(
+        not game[0] or any(len(row) != len(game[0]) for row in game)
+        for game in exact_games
+    ):
+        raise ValueError("each completion must be a nonempty rectangular game")
+
+    solved = tuple(_solve_multi_action_robust_game(game) for game in exact_games)
+    values = tuple(item[0] for item in solved)
+    if len(set(values)) != 1:
+        return StackedAmbiguityGapCertificate(
+            None,
+            None,
+            None,
+            None,
+            len(exact_games),
+            action_count,
+            False,
+            False,
+            (),
+            True,
+            "ambiguous_transcript_has_multiple_robust_values",
+        )
+
+    common_value = values[0]
+    labelled_columns = tuple(
+        (
+            (completion, scenario),
+            tuple(game[action][scenario] for action in range(action_count)),
+        )
+        for completion, game in enumerate(exact_games)
+        for scenario in range(len(game[0]))
+    )
+    stacked_game = tuple(
+        tuple(column[action] for _, column in labelled_columns)
+        for action in range(action_count)
+    )
+    (
+        stacked_value,
+        stacked_policy,
+        adversary,
+        adversary_action_payoffs,
+    ) = _solve_multi_action_robust_game_with_dual(stacked_game)
+    adversary_scenario_weights = tuple(
+        (*labelled_columns[index][0], weight)
+        for index, weight in enumerate(adversary)
+        if weight > 0
+    )
+    dual_valid = (
+        len(adversary_scenario_weights) <= action_count
+        and sum((item[2] for item in adversary_scenario_weights), Fraction(0)) == 1
+        and max(adversary_action_payoffs) == stacked_value
+    )
+    gap = common_value - stacked_value
+    if gap < 0:
+        raise RuntimeError("stacked robust value exceeded an individual value")
+    if gap == 0:
+        valid = dual_valid and all(
+            min(
+                sum(
+                    (
+                        stacked_policy[action] * game[action][scenario]
+                        for action in range(action_count)
+                    ),
+                    Fraction(0),
+                )
+                for scenario in range(len(game[0]))
+            )
+            == common_value
+            for game in exact_games
+        )
+        return StackedAmbiguityGapCertificate(
+            stacked_policy,
+            common_value,
+            stacked_value,
+            gap,
+            len(exact_games),
+            action_count,
+            True,
+            True,
+            (),
+            valid,
+            "zero_stacked_ambiguity_gap_common_policy",
+            adversary_scenario_weights,
+            adversary_action_payoffs,
+            stacked_policy,
+        )
+
+    witness: tuple[tuple[int, int], ...] = ()
+    witness_value = common_value
+    for size in range(1, min(action_count, len(labelled_columns)) + 1):
+        for selected in combinations(range(len(labelled_columns)), size):
+            selected_game = tuple(
+                tuple(labelled_columns[index][1][action] for index in selected)
+                for action in range(action_count)
+            )
+            candidate_value, _ = _solve_multi_action_robust_game(selected_game)
+            if candidate_value < common_value:
+                witness = tuple(labelled_columns[index][0] for index in selected)
+                witness_value = candidate_value
+                break
+        if witness:
+            break
+    valid = (
+        dual_valid
+        and bool(witness)
+        and len(witness) <= action_count
+        and witness_value < common_value
+    )
+    return StackedAmbiguityGapCertificate(
+        None,
+        common_value,
+        stacked_value,
+        gap,
+        len(exact_games),
+        action_count,
+        True,
+        False,
+        witness,
+        valid,
+        "positive_stacked_ambiguity_gap_requires_abstention",
+        adversary_scenario_weights,
+        adversary_action_payoffs,
+        stacked_policy,
+    )
+
+
+def certify_common_robust_plan(
+    games,
+    *,
+    finite_list_minimum_distance: int | None = None,
+    candidate_combinations_tested: int = 0,
+) -> DecisionIdentifiableMultiActionPlan:
+    """Certify one exact robust policy across a finite completion family."""
+    exact_games = tuple(
+        tuple(tuple(Fraction(value) for value in row) for row in game) for game in games
+    )
+    if not exact_games:
+        raise ValueError("at least one feasible completion is required")
+    action_count = len(exact_games[0])
+    if action_count < 2 or any(len(game) != action_count for game in exact_games):
+        raise ValueError("all completions must share at least two actions")
+    if any(
+        not game[0] or any(len(row) != len(game[0]) for row in game)
+        for game in exact_games
+    ):
+        raise ValueError("each completion must be a nonempty rectangular game")
+    stacked = certify_stacked_ambiguity_gap(exact_games)
+    solved = tuple(_solve_multi_action_robust_game(game) for game in exact_games)
+    values = tuple(item[0] for item in solved)
+    distinct_values = set(values)
+    if len(distinct_values) != 1:
+        first = next(
+            (0, index) for index in range(1, len(values)) if values[index] != values[0]
+        )
+        result = DecisionIdentifiableMultiActionPlan(
+            None,
+            None,
+            len(exact_games),
+            action_count,
+            len(exact_games) == 1,
+            False,
+            False,
+            finite_list_minimum_distance,
+            first,
+            candidate_combinations_tested,
+            True,
+            "ambiguous_transcript_has_multiple_robust_values",
+        )
+        return replace(
+            result,
+            stacked_value=stacked.stacked_value,
+            ambiguity_gap=stacked.ambiguity_gap,
+            scenario_witness=stacked.scenario_witness,
+            adversary_scenario_weights=stacked.adversary_scenario_weights,
+            adversary_action_payoffs=stacked.adversary_action_payoffs,
+            stacked_action_probabilities=stacked.stacked_action_probabilities,
+        )
+    policy = _common_optimal_policy(exact_games, values)
+    if policy is None:
+        witness = tuple(range(len(exact_games)))
+        for size in range(2, min(action_count, len(exact_games)) + 1):
+            found = next(
+                (
+                    subset
+                    for subset in combinations(range(len(exact_games)), size)
+                    if _common_optimal_policy(exact_games, values, subset) is None
+                ),
+                None,
+            )
+            if found is not None:
+                witness = found
+                break
+        valid = (
+            len(witness) <= action_count
+            and _common_optimal_policy(exact_games, values, witness) is None
+        )
+        result = DecisionIdentifiableMultiActionPlan(
+            None,
+            values[0],
+            len(exact_games),
+            action_count,
+            len(exact_games) == 1,
+            True,
+            False,
+            finite_list_minimum_distance,
+            witness,
+            candidate_combinations_tested,
+            valid,
+            "ambiguous_transcript_has_disjoint_optimal_policy_polytopes",
+        )
+        return replace(
+            result,
+            stacked_value=stacked.stacked_value,
+            ambiguity_gap=stacked.ambiguity_gap,
+            scenario_witness=stacked.scenario_witness,
+            adversary_scenario_weights=stacked.adversary_scenario_weights,
+            adversary_action_payoffs=stacked.adversary_action_payoffs,
+            stacked_action_probabilities=stacked.stacked_action_probabilities,
+        )
+    valid = all(
+        min(
+            sum(
+                (
+                    policy[action] * game[action][scenario]
+                    for action in range(action_count)
+                ),
+                Fraction(0),            )
+            for scenario in range(len(game[0]))
+        )
+        == values[index]
+        for index, game in enumerate(exact_games)
+    )
+    result = DecisionIdentifiableMultiActionPlan(
+        policy,
+        values[0],
+        len(exact_games),
+        action_count,
+        len(exact_games) == 1,
+        True,
+        True,
+        finite_list_minimum_distance,
+        (),
+        candidate_combinations_tested,
+        valid,
+        "decision_identifiable_despite_model_ambiguity"
+        if len(exact_games) > 1
+        else "uniquely_decoded_model",
+    )
+    return replace(
+        result,
+        stacked_value=stacked.stacked_value,
+        ambiguity_gap=stacked.ambiguity_gap,
+        scenario_witness=stacked.scenario_witness,
+        adversary_scenario_weights=stacked.adversary_scenario_weights,
+        adversary_action_payoffs=stacked.adversary_action_payoffs,
+        stacked_action_probabilities=stacked.stacked_action_probabilities,
+    )
+
+
+def plan_decision_identifying_queries(games, query_outcomes) -> DecisionQueryPlan:
+    """Return an exact minimum-depth adaptive query tree or fail closed.
+
+    ``query_outcomes[q][completion]`` is the exact outcome that follow-up query
+    ``q`` would produce in that feasible completion. Queries may have any
+    finite, hashable outcome alphabet.
+    """
+    exact_games = tuple(
+        tuple(tuple(Fraction(value) for value in row) for row in game) for game in games
+    )
+    if not exact_games:
+        raise ValueError("at least one feasible completion is required")
+    outcomes = tuple(tuple(row) for row in query_outcomes)
+    completion_count = len(exact_games)
+    if any(len(row) != completion_count for row in outcomes):
+        raise ValueError("every query must define one outcome per completion")
+    for row in outcomes:
+        try:
+            tuple(hash(value) for value in row)
+        except TypeError as exc:
+            raise ValueError("query outcomes must be hashable") from exc
+
+    compatibility_cache = {}
+    solution_cache = {}
+
+    def compatible(state):
+        if state not in compatibility_cache:
+            compatibility_cache[state] = certify_common_robust_plan(
+                tuple(exact_games[index] for index in state)
+            )
+        return compatibility_cache[state]
+
+    def solve(state, remaining):
+        key = (state, remaining)
+        if key in solution_cache:
+            return solution_cache[key]
+        certificate = compatible(state)
+        if certificate.policy_identifiable and certificate.certificate_valid:
+            result = (
+                0,
+                DecisionQueryNode(
+                    state,
+                    None,
+                    certificate.action_probabilities,
+                    certificate.minimax_value,
+                ),
+            )
+            solution_cache[key] = result
+            return result
+
+        best = None
+        for query in remaining:
+            cells = {}
+            for completion in state:
+                cells.setdefault(outcomes[query][completion], []).append(completion)
+            if len(cells) < 2:
+                continue
+            next_remaining = tuple(item for item in remaining if item != query)
+            branches = []
+            finite = True
+            for outcome, members in sorted(
+                cells.items(), key=lambda item: (type(item[0]).__name__, repr(item[0]))
+            ):
+                child = solve(tuple(members), next_remaining)
+                if child is None:
+                    finite = False
+                    break
+                branches.append((outcome, child[0], child[1]))
+            if not finite:
+                continue
+            depth = 1 + max(item[1] for item in branches)
+            node = DecisionQueryNode(
+                state,
+                query,
+                None,
+                None,
+                tuple((outcome, child) for outcome, _, child in branches),
+            )
+            candidate = (depth, query, node)
+            if best is None or candidate[:2] < best[:2]:
+                best = candidate
+        result = None if best is None else (best[0], best[2])
+        solution_cache[key] = result
+        return result
+
+    initial_state = tuple(range(completion_count))
+    initial_certificate = compatible(initial_state)
+    solved = solve(initial_state, tuple(range(len(outcomes))))
+    states_solved = len(solution_cache)
+    if solved is None:
+        return DecisionQueryPlan(
+            None,
+            None,
+            completion_count,
+            len(outcomes),
+            states_solved,
+            initial_certificate.policy_identifiable,
+            True,
+            "available_queries_cannot_identify_a_common_robust_policy",
+        )
+    depth, root = solved
+    return DecisionQueryPlan(
+        root,
+        depth,
+        completion_count,
+        len(outcomes),
+        states_solved,
+        depth == 0,
+        True,
+        "exact_minimax_decision_query_tree",
+    )
+
+
+def plan_adaptive_decision_queries_with_lies(
+    games,
+    query_outcomes,
+    *,
+    corruption_budget: int,
+) -> AdaptiveDecisionLiePlan:
+    """Return an exact minimum-depth adaptive decision tree under bounded lies.
+
+    Each row of ``query_outcomes`` is one physical query instance. Repeated
+    measurements are represented by repeated rows. An answer substitution must
+    lie in that query's declared finite outcome alphabet.
+    """
+    if corruption_budget < 0:
+        raise ValueError("corruption_budget must be nonnegative")
+    exact_games = tuple(
+        tuple(tuple(Fraction(value) for value in row) for row in game) for game in games
+    )
+    if not exact_games:
+        raise ValueError("at least one feasible completion is required")
+    outcomes = tuple(tuple(row) for row in query_outcomes)
+    completion_count = len(exact_games)
+    if any(len(row) != completion_count for row in outcomes):
+        raise ValueError("every query must define one outcome per completion")
+    for row in outcomes:
+        try:
+            tuple(hash(value) for value in row)
+        except TypeError as exc:
+            raise ValueError("query outcomes must be hashable") from exc
+
+    alphabets = tuple(
+        tuple(
+            sorted(
+                set(row),
+                key=lambda value: (type(value).__name__, repr(value)),
+            )
+        )
+        for row in outcomes
     )
     eliminated = corruption_budget + 1
     compatibility_cache = {}
@@ -1255,6 +1850,198 @@ def select_finite_list_feature_queries(
             if not pair_compatibility_cache[pair]:
                 compatibility_cache[indices] = None
                 return None
+        compatibility_cache[indices] = certify_common_robust_plan(
+            tuple(exact_games[index] for index in indices)
+        )
+        return compatibility_cache[indices]
+
+    def updated_counts(lie_counts, query, answer):
+        return tuple(
+            min(eliminated, count + (outcomes[query][index] != answer))
+            for index, count in enumerate(lie_counts)
+        )
+
+    def all_pairwise_incompatible(indices):
+        for left, right in combinations(indices, 2):
+            pair = (left, right)
+            if pair not in pair_compatibility_cache:
+                pair_compatibility_cache[pair] = certify_common_robust_plan(
+                    (exact_games[left], exact_games[right])
+                ).policy_identifiable
+            if pair_compatibility_cache[pair]:
+                return False
+        return len(indices) > 1
+
+    def binary_sphere_bound_fails(lie_counts, indices, depth_limit):
+        if not all_pairwise_incompatible(indices):
+            return False
+        weight = sum(
+            sum(
+                comb(depth_limit, additional_lies)
+                for additional_lies in range(corruption_budget - lie_counts[index] + 1)
+            )
+            for index in indices
+        )
+        return weight > 2**depth_limit
+
+    def search(lie_counts, remaining, depth_limit):
+        key = (lie_counts, remaining, depth_limit)
+        if key in solution_cache:
+            return solution_cache[key]
+        indices = feasible(lie_counts)
+        certificate = compatible(indices)
+        if (
+            certificate is not None
+            and certificate.policy_identifiable
+            and certificate.certificate_valid
+        ):
+            result = AdaptiveDecisionLieNode(
+                lie_counts,
+                indices,
+                None,
+                certificate.action_probabilities,
+                certificate.minimax_value,
+            )
+            solution_cache[key] = result
+            return result
+        if depth_limit == 0 or not remaining:
+            solution_cache[key] = None
+            return None
+        if all(len(alphabets[query]) <= 2 for query in remaining) and (
+            binary_sphere_bound_fails(lie_counts, indices, depth_limit)
+        ):
+            solution_cache[key] = None
+            return None
+
+        seen_rows = set()
+        for query in remaining:
+            row = outcomes[query]
+            if row in seen_rows:
+                continue
+            seen_rows.add(row)
+            if len({row[index] for index in indices}) < 2:
+                continue
+            next_remaining = tuple(item for item in remaining if item != query)
+            answer_states = tuple(
+                (answer, child_counts)
+                for answer in alphabets[query]
+                if feasible(child_counts := updated_counts(lie_counts, query, answer))
+            )
+            branches = []
+            for answer, child_counts in answer_states:
+                child = search(child_counts, next_remaining, depth_limit - 1)
+                if child is None:
+                    break
+                branches.append((answer, child))
+            if len(branches) != len(answer_states) or not branches:
+                continue
+            node = AdaptiveDecisionLieNode(
+                lie_counts,
+                indices,
+                query,
+                None,
+                None,
+                tuple(branches),
+            )
+            solution_cache[key] = node
+            return node
+        solution_cache[key] = None
+        return None
+
+    initial_counts = (0,) * completion_count
+    remaining = tuple(range(len(outcomes)))
+    root = None
+    depth = None
+    for depth_limit in range(len(outcomes) + 1):
+        root = search(initial_counts, remaining, depth_limit)
+        if root is not None:
+            depth = depth_limit
+            break
+    if root is None:
+        return AdaptiveDecisionLiePlan(
+            None,
+            None,
+            corruption_budget,
+            completion_count,
+            len(outcomes),
+            len(solution_cache),
+            len(compatibility_cache),
+            True,
+            "available_queries_cannot_identify_a_decision_under_corruption",
+        )
+    return AdaptiveDecisionLiePlan(
+        root,
+        depth,
+        corruption_budget,
+        completion_count,
+        len(outcomes),
+        len(solution_cache),
+        len(compatibility_cache),
+        True,
+        "exact_minimax_adaptive_decision_tree_with_lies",
+    )
+
+
+def plan_adaptive_decision_queries_with_faults(
+    games,
+    query_outcomes,
+    *,
+    corruption_budget: int,
+    erasure_budget: int,
+) -> AdaptiveDecisionFaultPlan:
+    """Return an exact decision tree under bounded substitutions and erasures.
+
+    ``None`` is reserved for the recognized-erasure edge and therefore may not
+    occur as a clean query outcome.  Substitution and erasure budgets are
+    global across the transcript.  The result fails closed if the available
+    physical query instances cannot force one common exact robust decision.
+    """
+    if corruption_budget < 0 or erasure_budget < 0:
+        raise ValueError("corruption and erasure budgets must be nonnegative")
+    exact_games = tuple(
+        tuple(tuple(Fraction(value) for value in row) for row in game) for game in games
+    )
+    if not exact_games:
+        raise ValueError("at least one feasible completion is required")
+    outcomes = tuple(tuple(row) for row in query_outcomes)
+    completion_count = len(exact_games)
+    if any(len(row) != completion_count for row in outcomes):
+        raise ValueError("every query must define one outcome per completion")
+    if any(value is None for row in outcomes for value in row):
+        raise ValueError("None is reserved for recognized erasures")
+    for row in outcomes:
+        try:
+            tuple(hash(value) for value in row)
+        except TypeError as exc:
+            raise ValueError("query outcomes must be hashable") from exc
+
+    alphabets = tuple(
+        tuple(sorted(set(row), key=lambda value: (type(value).__name__, repr(value))))
+        for row in outcomes
+    )
+    eliminated = corruption_budget + 1
+    compatibility_cache = {}
+    pair_compatibility_cache = {}
+    solution_cache = {}
+
+    def feasible(lie_counts):
+        return tuple(
+            index
+            for index, count in enumerate(lie_counts)
+            if count <= corruption_budget
+        )
+
+    def compatible(indices):
+        if indices in compatibility_cache:
+            return compatibility_cache[indices]
+        for left, right in combinations(indices, 2):
+            pair = (left, right)
+            if pair not in pair_compatibility_cache:
+                pair_compatibility_cache[pair] = certify_common_robust_plan(
+                    (exact_games[left], exact_games[right])
+                ).policy_identifiable
+            if not pair_compatibility_cache[pair]:
+                compatibility_cache[indices] = None                return None
         compatibility_cache[indices] = certify_common_robust_plan(
             tuple(exact_games[index] for index in indices)
         )
@@ -1653,8 +2440,7 @@ def plan_adaptive_decision_queries_with_weighted_faults(
         len(solution_cache),
         len(compatibility_cache),
         True,
-        "exact_minimax_weighted_adaptive_decision_tree_with_mixed_faults",
-    )
+        "exact_minimax_weighted_adaptive_decision_tree_with_mixed_faults",    )
 
 
 def certify_decision_query_corruption_radius(
@@ -2053,8 +2839,7 @@ def certify_two_action_plan_from_ambiguous_transcript(
         reason = (
             "ambiguous_transcript_has_multiple_robust_values"
             if not value_identifiable
-            else "ambiguous_transcript_has_disjoint_optimal_policy_sets"
-        )
+            else "ambiguous_transcript_has_disjoint_optimal_policy_sets"        )
         return DecisionIdentifiableTwoActionPlan(
             None,
             None,
