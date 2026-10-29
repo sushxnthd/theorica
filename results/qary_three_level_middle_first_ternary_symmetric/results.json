@@ -1,0 +1,190 @@
+{
+  "arity": 3,
+  "binary_embedding_lower_bound": 9,
+  "certificate_api_cost": 9,
+  "compatibility_states_solved": 954,
+  "completions": 27,
+  "copies_per_prefix": 4,
+  "corruption_budget": 1,
+  "erasure_budget": 1,
+  "exact_unit_cost": 9,
+  "exact_worst_case_depth": 9,
+  "passed": true,
+  "prospective_scales": [
+    {
+      "homogeneous_from_unit_certificate": true,
+      "level_cost": 1,
+      "predicted_exact_cost": 9
+    },
+    {
+      "homogeneous_from_unit_certificate": true,
+      "level_cost": 2,
+      "predicted_exact_cost": 18
+    },
+    {
+      "homogeneous_from_unit_certificate": true,
+      "level_cost": 3,
+      "predicted_exact_cost": 27
+    },
+    {
+      "homogeneous_from_unit_certificate": true,
+      "level_cost": 5,
+      "predicted_exact_cost": 45
+    },
+    {
+      "homogeneous_from_unit_certificate": true,
+      "level_cost": 11,
+      "predicted_exact_cost": 99
+    },
+    {
+      "homogeneous_from_unit_certificate": true,
+      "level_cost": 29,
+      "predicted_exact_cost": 261
+    }
+  ],
+  "schema": "theorica.middle-first-ternary-symmetric/1",
+  "states_solved": 125698,
+  "terminal_transcripts": 2721,
+  "unique_terminal_exposures": [
+    [
+      1,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      2
+    ],
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      1,
+      2,
+      4
+    ],
+    [
+      1,
+      3,
+      1
+    ],
+    [
+      1,
+      3,
+      2
+    ],
+    [
+      1,
+      3,
+      3
+    ],
+    [
+      1,
+      4,
+      1
+    ],
+    [
+      2,
+      2,
+      1
+    ],
+    [
+      2,
+      2,
+      2
+    ],
+    [
+      2,
+      2,
+      3
+    ],
+    [
+      2,
+      2,
+      4
+    ],
+    [
+      2,
+      3,
+      1
+    ],
+    [
+      2,
+      3,
+      2
+    ],
+    [
+      2,
+      3,
+      3
+    ],
+    [
+      2,
+      3,
+      4
+    ],
+    [
+      2,
+      4,
+      1
+    ],
+    [
+      2,
+      4,
+      2
+    ],
+    [
+      2,
+      4,
+      3
+    ],
+    [
+      2,
+      5,
+      1
+    ],
+    [
+      3,
+      2,
+      1
+    ],
+    [
+      3,
+      2,
+      2
+    ],
+    [
+      3,
+      2,
+      3
+    ],
+    [
+      3,
+      3,
+      1
+    ],
+    [
+      3,
+      3,
+      2
+    ],
+    [
+      3,
+      3,
+      3
+    ],
+    [
+      3,
+      4,
+      1
+    ],
+    [
+      4,
+      2,
+      1
+    ]
+  ]
+}

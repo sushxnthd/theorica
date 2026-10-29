@@ -17,6 +17,7 @@ from theorica.agents.corruption_resilient_features import (
     certify_qary_three_level_insurance,
     certify_qary_two_level_insurance,
     certify_stacked_ambiguity_gap,
+    certify_ternary_middle_first_symmetric,
     certify_three_level_monotonicity,
     certify_two_action_plan_from_ambiguous_transcript,
     plan_adaptive_decision_queries_with_faults,
@@ -28,6 +29,20 @@ from theorica.agents.corruption_resilient_features import (
     reconstruct_corruption_resilient_feature_payoffs,
     select_finite_list_feature_queries,
 )
+
+
+def test_ternary_middle_first_symmetric_certificate_scales_exactly():
+    certificate = certify_ternary_middle_first_symmetric(7)
+    assert certificate.arity == 3
+    assert certificate.exact_worst_case_depth == 9
+    assert certificate.exact_worst_case_cost == 63
+    assert certificate.certificate_valid
+
+
+@pytest.mark.parametrize("cost", (0, -1, True, 1.5))
+def test_ternary_middle_first_symmetric_certificate_rejects_invalid_cost(cost):
+    with pytest.raises(ValueError, match="positive integer"):
+        certify_ternary_middle_first_symmetric(cost)
 
 
 def _unique_mixing_game(probability):

@@ -283,6 +283,18 @@ class BinaryMiddleFirstSymmetricCertificate:
 
 
 @dataclass(frozen=True)
+class TernaryMiddleFirstSymmetricCertificate:
+    """Exact equal-level-cost law for ternary middle-first planning."""
+
+    level_cost: int
+    arity: int
+    exact_worst_case_cost: int
+    exact_worst_case_depth: int
+    certificate_valid: bool
+    policy_class: str
+
+
+@dataclass(frozen=True)
 class BinaryMiddleFirstRatioTwoCertificate:
     """Exact middle-first law when one ancestor level costs twice the other."""
 
@@ -566,6 +578,28 @@ def certify_binary_middle_first_symmetric(
         ("x=y", "x=2y"),
         True,
         "binary_middle_first_symmetric",
+    )
+
+
+def certify_ternary_middle_first_symmetric(
+    level_cost: int,
+) -> TernaryMiddleFirstSymmetricCertificate:
+    """Return the exact ternary equal-cost middle-first certificate.
+
+    The unit-cost ternary problem has exact robust query depth nine.  Positive
+    equal level costs scale every transcript by ``level_cost``.  The guarantee
+    is restricted to arity three, depth three, four copies, one substitution,
+    one erasure, and a middle-level initial query.
+    """
+    if isinstance(level_cost, bool) or not isinstance(level_cost, int) or level_cost < 1:
+        raise ValueError("level cost must be a positive integer")
+    return TernaryMiddleFirstSymmetricCertificate(
+        level_cost,
+        3,
+        9 * level_cost,
+        9,
+        True,
+        "ternary_middle_first_equal_level_costs",
     )
 
 
