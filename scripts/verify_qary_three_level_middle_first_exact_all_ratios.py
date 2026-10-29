@@ -65,10 +65,14 @@ def extreme_rays(face):
     return tuple(sorted(rays))
 
 
-def synthesize_face(face_index, ray_indices=None):
+def synthesize_face(face_index, ray_indices=None, custom_rays=None):
     face = FACES[face_index]
     all_rays = extreme_rays(face)
-    rays = all_rays if ray_indices is None else tuple(all_rays[index] for index in ray_indices)
+    rays = (
+        tuple(custom_rays)
+        if custom_rays is not None
+        else (all_rays if ray_indices is None else tuple(all_rays[index] for index in ray_indices))
+    )
     limits = tuple(dot(face, ray) for ray in rays)
     groups = problem()
     exact_games = games()

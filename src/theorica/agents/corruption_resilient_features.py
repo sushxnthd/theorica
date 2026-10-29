@@ -354,6 +354,19 @@ class BinaryMiddleFirstAllRatioLowerBoundCertificate:
 
 
 @dataclass(frozen=True)
+class BinaryMiddleFirstAllCostCertificate:
+    """Exact middle-first law for every positive three-level cost triple."""
+
+    level_costs: tuple[int, int, int]
+    exposure_vectors: tuple[tuple[int, int, int], ...]
+    adversary_lower_bounds: tuple[int, int, int, int, int, int]
+    exact_worst_case_cost: int
+    active_faces: tuple[str, ...]
+    certificate_valid: bool
+    policy_class: str
+
+
+@dataclass(frozen=True)
 class ThreeLevelMonotonicityCertificate:
     """Impossibility witness for a lower face that exceeds a feasible policy."""
 
@@ -764,6 +777,56 @@ def certify_binary_middle_first_all_ratio_lower_bound(
         tuple(name for name, value in zip(names, bounds) if value == lower_bound),
         True,
         "binary_middle_first_all_ratio_lower_bound",
+    )
+
+
+def certify_binary_middle_first_all_costs(
+    root_cost: int,
+    middle_cost: int,
+    leaf_cost: int,
+) -> BinaryMiddleFirstAllCostCertificate:
+    """Return the exact law for all positive three-level query costs.
+
+    The complete affine adversary antichain gives the six lower faces. Five
+    face-active cones have one matching policy each. The exceptional
+    ``(3,4,1)`` cone is covered by a six-cell policy fan whose zero-leaf edge
+    breaks at ancestor ratios ``1/2, 2/3, 1, 3/2, 2``.
+    """
+    costs = (root_cost, middle_cost, leaf_cost)
+    if any(
+        isinstance(cost, bool) or not isinstance(cost, int) or cost < 1
+        for cost in costs
+    ):
+        raise ValueError("query costs must be positive integers")
+    vectors = (
+        (1, 5, 1),
+        (2, 3, 4),
+        (2, 4, 3),
+        (3, 3, 3),
+        (3, 4, 1),
+        (4, 2, 1),
+    )
+    names = (
+        "middle_frontloaded",
+        "leaf_heavy_after_middle",
+        "middle_leaf_transition",
+        "balanced_exposure",
+        "root_middle_transition",
+        "root_heavy_after_middle",
+    )
+    bounds = tuple(
+        sum(exposure * cost for exposure, cost in zip(vector, costs))
+        for vector in vectors
+    )
+    optimum = max(bounds)
+    return BinaryMiddleFirstAllCostCertificate(
+        costs,
+        vectors,
+        bounds,
+        optimum,
+        tuple(name for name, value in zip(names, bounds) if value == optimum),
+        True,
+        "binary_middle_first_all_positive_costs",
     )
 
 
