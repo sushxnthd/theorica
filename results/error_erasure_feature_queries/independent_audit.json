@@ -1,0 +1,10 @@
+{
+  "digest": "85eec1ddc154c90cfd61c2fcb466ffd80d5a89c02ffc5c7cd2ee8ab1a91d8e09",
+  "lower_bounds": 60,
+  "lower_bounds_passed": 60,
+  "passed": true,
+  "production_imports": 0,
+  "reconstructions": 150,
+  "reconstructions_passed": 150,
+  "schema": "theorica.error-erasure-feature-queries-audit/1"
+}

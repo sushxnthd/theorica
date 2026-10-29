@@ -1,15 +1,16 @@
 """Robust query frontiers for uncertain certified provenance priors."""
 from __future__ import annotations
 
+import hashlib
+import json
 from dataclasses import dataclass
 from fractions import Fraction
-import hashlib
-from itertools import combinations
-import json
-from math import lcm
+from itertools import combinations, product
+from math import comb, lcm
 
 import numpy as np
 from scipy.optimize import linprog
+from scipy.spatial import ConvexHull, QhullError
 
 
 @dataclass(frozen=True)
@@ -582,6 +583,1827 @@ class TwoVertexRobustGame:
     certificate_valid: bool
 
 
+@dataclass(frozen=True)
+class AdditiveProductRobustPlan:
+    """Exact sparse coupling certificate for an additive rectangular product."""
+
+    component_payoff_matrices: tuple[tuple[tuple[Fraction, ...], ...], ...]
+    component_action_probabilities: tuple[tuple[Fraction, ...], ...]
+    joint_components: tuple[tuple[tuple[int, ...], Fraction], ...]
+    component_values: tuple[Fraction, ...]
+    component_best_pure_values: tuple[Fraction, ...]
+    minimax_value: Fraction
+    best_pure_value: Fraction
+    randomized_gain: Fraction
+    strict_randomization_advantage: bool
+    expanded_action_count: int
+    expanded_vertex_count: int
+    support_bound: int
+    certificate_valid: bool
+    reason: str
+
+
+@dataclass(frozen=True)
+class CoupledAdditiveRobustPlan:
+    """Exact marginal-LP certificate for additive, finitely coupled ambiguity."""
+    component_payoff_matrices: tuple[tuple[tuple[Fraction, ...], ...], ...]
+    ambiguity_vertices: tuple[tuple[int, ...], ...]
+    component_action_probabilities: tuple[tuple[Fraction, ...], ...]
+    joint_components: tuple[tuple[tuple[int, ...], Fraction], ...]
+    minimax_value: Fraction
+    rectangular_baseline_value: Fraction
+    coupling_bonus: Fraction
+    rectangular_value_survives: bool
+    zero_bonus_nature_witness: tuple[Fraction, ...]
+    expanded_action_count: int
+    reduced_variable_count: int
+    support_bound: int
+    certificate_valid: bool
+    reason: str
+
+
+@dataclass(frozen=True)
+class TwoVertexAdditiveRobustPlan:
+    """Exact product-free certificate for additive games with two scenarios."""
+    component_payoff_pairs: tuple[tuple[tuple[Fraction, Fraction], ...], ...]
+    joint_actions: tuple[tuple[tuple[int, ...], Fraction], ...]
+    minimax_value: Fraction
+    nature_probability: Fraction
+    strict_randomization_necessary: bool
+    pure_optimal_witness: tuple[int, ...]
+    expanded_action_count: int
+    breakpoint_count: int
+    support_bound: int
+    certificate_valid: bool
+    reason: str
+
+
+@dataclass(frozen=True)
+class ThreeVertexAdditiveRobustPlan:
+    """Exact arrangement certificate for additive games with three scenarios."""
+    component_payoff_triples: tuple[tuple[tuple[Fraction, Fraction, Fraction], ...], ...]
+    joint_actions: tuple[tuple[tuple[int, ...], Fraction], ...]
+    minimax_value: Fraction
+    nature_probabilities: tuple[Fraction, Fraction, Fraction]
+    strict_randomization_necessary: bool
+    expanded_action_count: int
+    tie_line_count: int
+    arrangement_candidate_count: int
+    support_bound: int
+    certificate_valid: bool
+    reason: str
+
+
+@dataclass(frozen=True)
+class FourVertexAdditiveRobustPlan:
+    """Exact arrangement certificate for additive games with four scenarios."""
+    component_payoff_vectors: tuple[tuple[tuple[Fraction, ...], ...], ...]
+    joint_actions: tuple[tuple[tuple[int, ...], Fraction], ...]
+    minimax_value: Fraction
+    nature_probabilities: tuple[Fraction, Fraction, Fraction, Fraction]
+    strict_randomization_necessary: bool
+    expanded_action_count: int
+    tie_hyperplane_count: int
+    arrangement_candidate_count: int
+    candidate_upper_bound: int
+    support_bound: int
+    certificate_valid: bool
+    reason: str
+
+
+@dataclass(frozen=True)
+class FixedScenarioAdditiveRobustPlan:
+    """Exact arrangement certificate for a bounded fixed scenario count."""
+    component_payoff_vectors: tuple[tuple[tuple[Fraction, ...], ...], ...]
+    joint_actions: tuple[tuple[tuple[int, ...], Fraction], ...]
+    minimax_value: Fraction
+    nature_probabilities: tuple[Fraction, ...]
+    strict_randomization_necessary: bool
+    scenario_count: int
+    expanded_action_count: int
+    tie_hyperplane_count: int
+    arrangement_candidate_count: int
+    candidate_upper_bound: int
+    support_bound: int
+    tied_joint_action_count: int
+    marginal_variable_count: int
+    pure_payoff_state_count: int
+    certificate_valid: bool
+    reason: str
+
+
+@dataclass(frozen=True)
+class RankOneScenarioQuotientPlan:
+    """Exact two-endpoint quotient for affine-rank-one scenario profiles."""
+    component_payoff_vectors: tuple[tuple[tuple[Fraction, ...], ...], ...]
+    scenario_coordinates: tuple[Fraction, ...]
+    endpoint_indices: tuple[int, int]
+    affine_dimension: int
+    effective_scenario_count: int
+    joint_actions: tuple[tuple[tuple[int, ...], Fraction], ...]
+    minimax_value: Fraction
+    nature_probabilities: tuple[Fraction, ...]
+    strict_randomization_necessary: bool
+    scenario_count: int
+    expanded_action_count: int
+    support_bound: int
+    certificate_valid: bool
+    reason: str
+
+
+@dataclass(frozen=True)
+class RankTwoScenarioHullPlan:
+    """Exact convex-hull quotient for affine-rank-two scenario columns."""
+    component_payoff_vectors: tuple[tuple[tuple[Fraction, ...], ...], ...]
+    projected_coordinates: tuple[tuple[Fraction, Fraction], ...]
+    extreme_indices: tuple[int, ...]
+    affine_dimension: int
+    effective_scenario_count: int
+    joint_actions: tuple[tuple[tuple[int, ...], Fraction], ...]
+    minimax_value: Fraction
+    nature_probabilities: tuple[Fraction, ...]
+    strict_randomization_necessary: bool
+    scenario_count: int
+    expanded_action_count: int
+    support_bound: int
+    certificate_valid: bool
+    reason: str
+
+
+@dataclass(frozen=True)
+class RankThreeScenarioPolytopePlan:
+    """Exact convex-hull quotient for affine-rank-three scenario columns."""
+    component_payoff_vectors: tuple[tuple[tuple[Fraction, ...], ...], ...]
+    projected_coordinates: tuple[tuple[Fraction, Fraction, Fraction], ...]
+    extreme_indices: tuple[int, ...]
+    affine_dimension: int
+    effective_scenario_count: int
+    joint_actions: tuple[tuple[tuple[int, ...], Fraction], ...]
+    minimax_value: Fraction
+    nature_probabilities: tuple[Fraction, ...]
+    strict_randomization_necessary: bool
+    scenario_count: int
+    expanded_action_count: int
+    support_bound: int
+    certificate_valid: bool
+    reason: str
+
+
+@dataclass(frozen=True)
+class AffineScenarioReconstruction:
+    """Exact payoff-table reconstruction from an affine scenario basis."""
+    component_payoff_vectors: tuple[tuple[tuple[Fraction, ...], ...], ...]
+    scenario_coordinates: tuple[tuple[Fraction, ...], ...]
+    query_indices: tuple[int, ...]
+    descriptor_dimension: int
+    scenario_count: int
+    query_count: int
+    certificate_valid: bool
+    reason: str
+
+
+@dataclass(frozen=True)
+class FeatureSpanScenarioReconstruction:
+    """Exact payoff reconstruction from a rational feature-row basis."""
+    component_payoff_vectors: tuple[tuple[tuple[Fraction, ...], ...], ...]
+    feature_rows: tuple[tuple[Fraction, ...], ...]
+    query_indices: tuple[int, ...]
+    pivot_columns: tuple[int, ...]
+    feature_rank: int
+    feature_width: int
+    scenario_count: int
+    query_count: int
+    certificate_valid: bool
+    reason: str
+
+
+def _solve_fraction_system(rows, rhs):
+    """Solve a square rational system; return None when singular."""
+    n = len(rows)
+    if n == 0:
+        return ()
+    a = [list(rows[i]) + [rhs[i]] for i in range(n)]
+    for col in range(n):
+        pivot = next((r for r in range(col, n) if a[r][col] != 0), None)
+        if pivot is None:
+            return None
+        a[col], a[pivot] = a[pivot], a[col]
+        scale = a[col][col]
+        a[col] = [x / scale for x in a[col]]
+        for row in range(n):
+            if row == col or a[row][col] == 0:
+                continue
+            scale = a[row][col]
+            a[row] = [a[row][j] - scale * a[col][j] for j in range(n + 1)]
+    return tuple(a[row][-1] for row in range(n))
+
+
+def _greedy_common_mass_coupling(marginals):
+    active = [[[i, p] for i, p in enumerate(m) if p > 0] for m in marginals]
+    pos = [0] * len(active)
+    joint = []
+    while all(pos[t] < len(active[t]) for t in range(len(active))):
+        actions = tuple(active[t][pos[t]][0] for t in range(len(active)))
+        mass = min(active[t][pos[t]][1] for t in range(len(active)))
+        joint.append((actions, mass))
+        for t in range(len(active)):
+            active[t][pos[t]][1] -= mass
+            if active[t][pos[t]][1] == 0:
+                pos[t] += 1
+    return tuple(joint)
+
+
+def _component_exact_solution(matrix):
+    if len(matrix[0]) == 2:
+        solved = solve_two_vertex_robust_game(matrix)
+    elif len(matrix) == 2:
+        solved = solve_two_action_robust_game((matrix[0], matrix[1]))
+    else:
+        raise ValueError("each component must have two actions or two vertices")
+    if not solved.certificate_valid:
+        raise RuntimeError("component exact certificate failed")
+    return solved.action_probabilities, solved.minimax_value
+
+
+def synthesize_two_vertex_additive_plan(
+    component_payoff_pairs,
+    *,
+    payoff_additive_certified: bool,
+    max_delta_states: int = 2_000_000,
+) -> TwoVertexAdditiveRobustPlan:
+    """Solve an additive two-scenario game without Cartesian action expansion.
+
+    The nature dual is the sum of component upper envelopes. Its minimizer is
+    therefore an endpoint or a breakpoint of one component envelope. At an
+    interior minimizer, a deterministic optimum exists exactly when zero is a
+    reachable sum of payoff differences among the tied component actions.
+    """
+    if not payoff_additive_certified:
+        raise ValueError("a certificate that payoff is additive is required")
+    if not component_payoff_pairs:
+        raise ValueError("at least one component is required")
+    pairs = tuple(
+        tuple(tuple(Fraction(value) for value in action) for action in component)
+        for component in component_payoff_pairs
+    )
+    if any(not component or any(len(action) != 2 for action in component)
+           for component in pairs):
+        raise ValueError("each component action must have two scenario payoffs")
+
+    candidates = {Fraction(0), Fraction(1)}
+    for component in pairs:
+        for left, right in combinations(component, 2):
+            left_slope = left[0] - left[1]
+            right_slope = right[0] - right[1]
+            denominator = left_slope - right_slope
+            if denominator == 0:
+                continue
+            crossing = (right[1] - left[1]) / denominator
+            if 0 <= crossing <= 1:
+                candidates.add(crossing)
+
+    def line(action, probability):
+        return probability * action[0] + (1 - probability) * action[1]
+
+    def dual(probability):
+        return sum((max(line(action, probability) for action in component)
+                    for component in pairs), Fraction(0))
+
+    nature_probability = min(candidates, key=lambda p: (dual(p), p))
+    value = dual(nature_probability)
+    tied = tuple(
+        tuple(i for i, action in enumerate(component)
+              if line(action, nature_probability)
+              == max(line(candidate, nature_probability) for candidate in component))
+        for component in pairs
+    )
+
+    reachable = {Fraction(0): ()}
+    for t, actions in enumerate(tied):
+        updated = {}
+        for total, prefix in reachable.items():
+            for action in actions:
+                delta = pairs[t][action][0] - pairs[t][action][1]
+                updated.setdefault(total + delta, prefix + (action,))
+        if len(updated) > int(max_delta_states):
+            raise ValueError("exact tied-delta state limit exceeded")
+        reachable = updated
+
+    pure = reachable.get(Fraction(0), ()) if 0 < nature_probability < 1 else ()
+    if pure:
+        joint = ((pure, Fraction(1)),)
+        strict = False
+    else:
+        low_delta = min(reachable)
+        high_delta = max(reachable)
+        low = reachable[low_delta]
+        high = reachable[high_delta]
+        if nature_probability == 0:
+            if high_delta < 0:
+                raise RuntimeError("invalid left-boundary dual certificate")
+            joint = ((high, Fraction(1)),)
+            pure = high
+            strict = False
+        elif nature_probability == 1:
+            if low_delta > 0:
+                raise RuntimeError("invalid right-boundary dual certificate")
+            joint = ((low, Fraction(1)),)
+            pure = low
+            strict = False
+        else:
+            if not low_delta < 0 < high_delta:
+                raise RuntimeError("interior dual minimizer lacks bracketing responses")
+            low_mass = high_delta / (high_delta - low_delta)
+            joint = ((low, low_mass), (high, 1 - low_mass))
+            strict = True
+
+    realized = tuple(
+        sum((mass * sum((pairs[t][actions[t]][scenario]
+                         for t in range(len(pairs))), Fraction(0))
+             for actions, mass in joint), Fraction(0))
+        for scenario in range(2)
+    )
+    expanded = 1
+    for component in pairs:
+        expanded *= len(component)
+    valid = (
+        sum((mass for _, mass in joint), Fraction(0)) == 1
+        and all(mass > 0 for _, mass in joint)
+        and min(realized) == value
+        and len(joint) <= 2
+        and strict == (0 < nature_probability < 1 and not pure)
+    )
+    return TwoVertexAdditiveRobustPlan(
+        pairs, joint, value, nature_probability, strict, pure, expanded,
+        len(candidates), 2, valid,
+        "two_vertex_additive_envelope_certificate",
+    )
+
+
+def _three_vertex_policy(active, value):
+    """Find an exact support-at-most-three policy over active joint responses."""
+    for actions, payoff in active:
+        if min(payoff) >= value:
+            return ((actions, Fraction(1)),)
+
+    for left, right in combinations(active, 2):
+        low, high = Fraction(0), Fraction(1)
+        feasible = True
+        for scenario in range(3):
+            delta = left[1][scenario] - right[1][scenario]
+            rhs = value - right[1][scenario]
+            if delta > 0:
+                low = max(low, rhs / delta)
+            elif delta < 0:
+                high = min(high, rhs / delta)
+            elif rhs > 0:
+                feasible = False
+        if feasible and low <= high and high >= 0 and low <= 1:
+            weight = max(Fraction(0), low)
+            if weight <= min(Fraction(1), high):
+                result = []
+                if weight:
+                    result.append((left[0], weight))
+                if weight < 1:
+                    result.append((right[0], 1 - weight))
+                if result:
+                    return tuple(result)
+
+    for first, second, third in combinations(active, 3):
+        inequalities = [
+            ((Fraction(-1), Fraction(0)), Fraction(0)),
+            ((Fraction(0), Fraction(-1)), Fraction(0)),
+            ((Fraction(1), Fraction(1)), Fraction(1)),
+        ]
+        for scenario in range(3):
+            a = first[1][scenario] - third[1][scenario]
+            b = second[1][scenario] - third[1][scenario]
+            inequalities.append(((-a, -b), third[1][scenario] - value))
+        for i, j in combinations(range(len(inequalities)), 2):
+            point = _solve_fraction_system(
+                (inequalities[i][0], inequalities[j][0]),
+                (inequalities[i][1], inequalities[j][1]),
+            )
+            if point is None or any(
+                row[0] * point[0] + row[1] * point[1] > rhs
+                for row, rhs in inequalities
+            ):
+                continue
+            weights = (point[0], point[1], 1 - point[0] - point[1])
+            result = tuple(
+                (entry[0], weight)
+                for entry, weight in zip((first, second, third), weights)
+                if weight > 0
+            )
+            if result:
+                return result
+    raise RuntimeError("dual optimum lacks a support-at-most-three primal witness")
+
+
+def synthesize_three_vertex_additive_plan(
+    component_payoff_triples,
+    *,
+    payoff_additive_certified: bool,
+    max_active_joint_actions: int = 500_000,
+) -> ThreeVertexAdditiveRobustPlan:
+    """Solve an additive three-scenario game by an exact line arrangement.
+
+    Nature's dual is a convex piecewise-affine function on a triangle. Its
+    minimum is attained at a triangle/arrangement vertex generated solely by
+    component-local action ties. Policy recovery enumerates only actions tied
+    at the minimizing point and fails closed above the configured cap.
+    """
+    if not payoff_additive_certified:
+        raise ValueError("a certificate that payoff is additive is required")
+    if not component_payoff_triples:
+        raise ValueError("at least one component is required")
+    triples = tuple(
+        tuple(tuple(Fraction(value) for value in action) for action in component)
+        for component in component_payoff_triples
+    )
+    if any(not component or any(len(action) != 3 for action in component)
+           for component in triples):
+        raise ValueError("each component action must have three scenario payoffs")
+
+    lines = set()
+    for component in triples:
+        for left, right in combinations(component, 2):
+            alpha = (left[0] - left[2]) - (right[0] - right[2])
+            beta = (left[1] - left[2]) - (right[1] - right[2])
+            gamma = right[2] - left[2]
+            if alpha or beta:
+                lines.add((alpha, beta, gamma))
+
+    def inside(point):
+        return point[0] >= 0 and point[1] >= 0 and sum(point) <= 1
+
+    candidates = {(Fraction(0), Fraction(0)),
+                  (Fraction(1), Fraction(0)),
+                  (Fraction(0), Fraction(1))}
+    for alpha, beta, gamma in lines:
+        if beta:
+            point = (Fraction(0), gamma / beta)
+            if inside(point):
+                candidates.add(point)
+        if alpha:
+            point = (gamma / alpha, Fraction(0))
+            if inside(point):
+                candidates.add(point)
+        if alpha != beta:
+            x = (gamma - beta) / (alpha - beta)
+            point = (x, 1 - x)
+            if inside(point):
+                candidates.add(point)
+    for left, right in combinations(lines, 2):
+        point = _solve_fraction_system(
+            ((left[0], left[1]), (right[0], right[1])),
+            (left[2], right[2]),
+        )
+        if point is not None and inside(point):
+            candidates.add(point)
+
+    def plane(action, point):
+        x, y = point
+        return x * action[0] + y * action[1] + (1 - x - y) * action[2]
+
+    def dual(point):
+        return sum((max(plane(action, point) for action in component)
+                    for component in triples), Fraction(0))
+
+    nature_point = min(candidates, key=lambda point: (dual(point), point))
+    value = dual(nature_point)
+    tied = tuple(
+        tuple(i for i, action in enumerate(component)
+              if plane(action, nature_point)
+              == max(plane(candidate, nature_point) for candidate in component))
+        for component in triples
+    )
+    active_count = 1
+    for actions in tied:
+        active_count *= len(actions)
+    if active_count > int(max_active_joint_actions):
+        raise ValueError("exact tied joint-action limit exceeded")
+
+    active = []
+    for actions in product(*tied):
+        payoff = tuple(
+            sum((triples[t][actions[t]][scenario] for t in range(len(triples))),
+                Fraction(0))
+            for scenario in range(3)
+        )
+        active.append((tuple(actions), payoff))
+    joint = _three_vertex_policy(tuple(active), value)
+    realized = tuple(
+        sum((mass * sum((triples[t][actions[t]][scenario]
+                         for t in range(len(triples))), Fraction(0))
+             for actions, mass in joint), Fraction(0))
+        for scenario in range(3)
+    )
+    expanded = 1
+    for component in triples:
+        expanded *= len(component)
+    nature = (nature_point[0], nature_point[1], 1 - sum(nature_point))
+    valid = (
+        sum((mass for _, mass in joint), Fraction(0)) == 1
+        and all(mass > 0 for _, mass in joint)
+        and min(realized) == value
+        and len(joint) <= 3
+        and sum(nature) == 1
+        and all(probability >= 0 for probability in nature)
+    )
+    return ThreeVertexAdditiveRobustPlan(
+        triples, joint, value, nature, len(joint) > 1, expanded, len(lines),
+        len(candidates), 3, valid,
+        "three_vertex_additive_arrangement_certificate",
+    )
+
+
+def _fixed_scenario_policy(active, value, scenario_count):
+    """Return an exact primal witness with support at most scenario_count."""
+    for support_size in range(1, scenario_count + 1):
+        for selected in combinations(active, support_size):
+            if support_size == 1:
+                if min(selected[0][1]) >= value:
+                    return ((selected[0][0], Fraction(1)),)
+                continue
+            dimension = support_size - 1
+            last = selected[-1][1]
+            inequalities = []
+            for i in range(dimension):
+                row = [Fraction(0)] * dimension
+                row[i] = -1
+                inequalities.append((tuple(row), Fraction(0)))
+            inequalities.append((tuple(Fraction(1) for _ in range(dimension)),
+                                  Fraction(1)))
+            for scenario in range(scenario_count):
+                row = tuple(
+                    -(selected[i][1][scenario] - last[scenario])
+                    for i in range(dimension)
+                )
+                inequalities.append((row, last[scenario] - value))
+            for boundary in combinations(range(len(inequalities)), dimension):
+                point = _solve_fraction_system(
+                    tuple(inequalities[i][0] for i in boundary),
+                    tuple(inequalities[i][1] for i in boundary),
+                )
+                if point is None or any(
+                    sum((row[i] * point[i] for i in range(dimension)),
+                        Fraction(0)) > rhs
+                    for row, rhs in inequalities
+                ):
+                    continue
+                weights = tuple(point) + (Fraction(1) - sum(point, Fraction(0)),)
+                result = tuple(
+                    (entry[0], weight)
+                    for entry, weight in zip(selected, weights)
+                    if weight > 0
+                )
+                if result:
+                    return result
+    raise RuntimeError("dual optimum lacks a sparse primal witness")
+
+
+def _fixed_scenario_marginal_policy(
+    vectors, tied, value, scenario_count, max_marginal_variables,
+):
+    """Recover an exact policy from a numerically proposed marginal LP basis.
+
+    HiGHS is used only to propose a sparse basis.  Every returned probability
+    is reconstructed by ``_solve_fraction_system`` and accepted only after an
+    exact rational replay of all simplex and scenario inequalities.
+    """
+    flat = tuple(
+        (component, action, vectors[component][action])
+        for component, actions in enumerate(tied)
+        for action in actions
+    )
+    variable_count = len(flat)
+    if variable_count > int(max_marginal_variables):
+        raise ValueError("exact marginal variable limit exceeded")
+
+    objective = np.arange(1, variable_count + 1, dtype=float)
+    scenario_rows = np.asarray([
+        [-float(payoff[scenario]) for _, _, payoff in flat]
+        for scenario in range(scenario_count)
+    ])
+    component_rows = np.asarray([
+        [float(component == target) for component, _, _ in flat]
+        for target in range(len(vectors))
+    ])
+    proposed = linprog(
+        objective,
+        A_ub=scenario_rows,
+        b_ub=np.full(scenario_count, -float(value)),
+        A_eq=component_rows,
+        b_eq=np.ones(len(vectors)),
+        bounds=(0, None),
+        method="highs-ds",
+    )
+    if not proposed.success:
+        raise RuntimeError("marginal policy basis proposal failed")
+
+    supports = []
+    for tolerance in (1e-7, 1e-9, 1e-11, 1e-13):
+        support = tuple(i for i, probability in enumerate(proposed.x)
+                        if probability > tolerance)
+        if support not in supports:
+            supports.append(support)
+
+    component_count = len(vectors)
+    for support in supports:
+        active_scenarios = len(support) - component_count
+        if active_scenarios < 0 or active_scenarios > scenario_count - 1:
+            continue
+        for scenarios in combinations(range(scenario_count), active_scenarios):
+            rows = []
+            rhs = []
+            for target in range(component_count):
+                rows.append(tuple(
+                    Fraction(int(flat[index][0] == target)) for index in support
+                ))
+                rhs.append(Fraction(1))
+            for scenario in scenarios:
+                rows.append(tuple(flat[index][2][scenario] for index in support))
+                rhs.append(value)
+            probabilities = _solve_fraction_system(tuple(rows), tuple(rhs))
+            if probabilities is None or any(probability < 0 for probability in probabilities):
+                continue
+
+            marginals = [[Fraction(0) for _ in component]
+                         for component in vectors]
+            for index, probability in zip(support, probabilities):
+                component, action, _ = flat[index]
+                marginals[component][action] = probability
+            marginals = tuple(tuple(marginal) for marginal in marginals)
+            if any(sum(marginal, Fraction(0)) != 1 for marginal in marginals):
+                continue
+            realized = tuple(
+                sum((marginals[t][action] * vectors[t][action][scenario]
+                     for t in range(component_count)
+                     for action in range(len(vectors[t]))), Fraction(0))
+                for scenario in range(scenario_count)
+            )
+            if min(realized) < value:
+                continue
+
+            joint = _greedy_common_mass_coupling(marginals)
+            support_bound = 1 + sum(
+                sum(probability > 0 for probability in marginal) - 1
+                for marginal in marginals
+            )
+            if support_bound > scenario_count or len(joint) > support_bound:
+                continue
+            return marginals, joint, variable_count, support_bound
+    raise RuntimeError("numerical marginal basis lacked an exact rational certificate")
+
+
+def _fixed_scenario_pure_witness(vectors, tied, value, max_states):
+    """Decide pure optimality by exact distinct cumulative-payoff states."""
+    zero = (Fraction(0),) * len(vectors[0][0])
+    states = {zero}
+    peak = 1
+    for component, actions in enumerate(tied):
+        states = {
+            tuple(state[scenario] + vectors[component][action][scenario]
+                  for scenario in range(len(zero)))
+            for state in states for action in actions
+        }
+        peak = max(peak, len(states))
+        if len(states) > int(max_states):
+            raise ValueError("exact pure-payoff state limit exceeded")
+    return any(min(state) >= value for state in states), peak
+
+
+def _fraction_matrix_rank(rows):
+    """Return exact row rank for a rectangular rational matrix."""
+    matrix = [[Fraction(value) for value in row] for row in rows]
+    if not matrix:
+        return 0
+    width = len(matrix[0])
+    rank = 0
+    for column in range(width):
+        pivot = next((row for row in range(rank, len(matrix))
+                      if matrix[row][column] != 0), None)
+        if pivot is None:
+            continue
+        matrix[rank], matrix[pivot] = matrix[pivot], matrix[rank]
+        scale = matrix[rank][column]
+        matrix[rank] = [value / scale for value in matrix[rank]]
+        for row in range(len(matrix)):
+            if row == rank or matrix[row][column] == 0:
+                continue
+            scale = matrix[row][column]
+            matrix[row] = [matrix[row][item] - scale * matrix[rank][item]
+                           for item in range(width)]
+        rank += 1
+        if rank == len(matrix):
+            break
+    return rank
+
+
+def reconstruct_feature_span_scenario_payoffs(
+    feature_rows,
+    scenario_oracle,
+    *,
+    payoff_in_feature_span_certified: bool,
+) -> FeatureSpanScenarioReconstruction:
+    """Recover all payoffs using one query per independent feature row."""
+    if not payoff_in_feature_span_certified:
+        raise ValueError("a certificate that payoffs lie in the feature span is required")
+    features = tuple(
+        tuple(Fraction(value) for value in row)
+        for row in feature_rows
+    )
+    if not features or not features[0]:
+        raise ValueError("at least one nonempty feature row is required")
+    width = len(features[0])
+    if any(len(row) != width for row in features):
+        raise ValueError("feature rows must share one width")
+
+    query_indices = []
+    basis = []
+    for index, row in enumerate(features):
+        if _fraction_matrix_rank(tuple(basis) + (row,)) > len(basis):
+            query_indices.append(index)
+            basis.append(row)
+    rank = len(basis)
+    if rank == 0:
+        raise ValueError("feature rows have zero rank")
+    pivots = next((columns for columns in combinations(range(width), rank)
+                   if _solve_fraction_system(
+                       tuple(tuple(basis[row][column] for column in columns)
+                             for row in range(rank)),
+                       (Fraction(0),) * rank,
+                   ) is not None), None)
+    if pivots is None:
+        raise RuntimeError("feature-row basis lacks exact pivot columns")
+    pivot_matrix = tuple(
+        tuple(basis[row][column] for row in range(rank))
+        for column in pivots
+    )
+    row_weights = []
+    for feature in features:
+        weights = _solve_fraction_system(
+            pivot_matrix,
+            tuple(feature[column] for column in pivots),
+        )
+        if weights is None or any(
+            sum((weights[row] * basis[row][column] for row in range(rank)),
+                Fraction(0)) != feature[column]
+            for column in range(width)
+        ):
+            raise RuntimeError("feature row failed exact span reconstruction")
+        row_weights.append(weights)
+
+    queried = []
+    for index in query_indices:
+        response = tuple(
+            tuple(Fraction(value) for value in component)
+            for component in scenario_oracle(index)
+        )
+        if not response or any(not component for component in response):
+            raise ValueError("the scenario oracle returned an empty payoff shape")
+        queried.append(response)
+    shape = tuple(len(component) for component in queried[0])
+    if any(tuple(len(component) for component in response) != shape
+           for response in queried):
+        raise ValueError("the scenario oracle returned inconsistent payoff shapes")
+
+    reconstructed = tuple(
+        tuple(tuple(
+            sum((weights[position] * queried[position][component][action]
+                 for position in range(rank)), Fraction(0))
+            for weights in row_weights
+        ) for action in range(action_count))
+        for component, action_count in enumerate(shape)
+    )
+    valid = (
+        len(query_indices) == rank
+        and all(
+            reconstructed[component][action][scenario]
+            == queried[position][component][action]
+            for position, scenario in enumerate(query_indices)
+            for component in range(len(shape))
+            for action in range(shape[component])
+        )
+    )
+    return FeatureSpanScenarioReconstruction(
+        component_payoff_vectors=reconstructed,
+        feature_rows=features,
+        query_indices=tuple(query_indices),
+        pivot_columns=tuple(pivots),
+        feature_rank=rank,
+        feature_width=width,
+        scenario_count=len(features),
+        query_count=len(query_indices),
+        certificate_valid=valid,
+        reason="exact_feature_row_span_reconstruction_certificate",
+    )
+
+
+def reconstruct_affine_scenario_payoffs(
+    scenario_coordinates,
+    scenario_oracle,
+    *,
+    payoff_affine_certified: bool,
+    max_dimension: int = 3,
+) -> AffineScenarioReconstruction:
+    """Reconstruct every local payoff using exactly d+1 scenario queries.
+
+    The certificate is semantic and external: observations at d+1 points
+    cannot themselves prove affinity elsewhere. Given that certificate and
+    known rational descriptors spanning Q^d, exact interpolation is sufficient.
+    """
+    if not payoff_affine_certified:
+        raise ValueError("a certificate that payoffs are affine is required")
+    coordinates = tuple(
+        tuple(Fraction(value) for value in point)
+        for point in scenario_coordinates
+    )
+    if not coordinates:
+        raise ValueError("at least one scenario descriptor is required")
+    dimension = len(coordinates[0])
+    if not 1 <= dimension <= int(max_dimension):
+        raise ValueError("descriptor dimension exceeds the certified range")
+    if any(len(point) != dimension for point in coordinates):
+        raise ValueError("scenario descriptors must share one dimension")
+    if len(coordinates) < dimension + 1:
+        raise ValueError("too few scenarios to span the descriptor dimension")
+
+    augmented = tuple((Fraction(1),) + point for point in coordinates)
+    query_indices = None
+    for indices in combinations(range(len(coordinates)), dimension + 1):
+        matrix = tuple(augmented[index] for index in indices)
+        if _solve_fraction_system(
+            matrix,
+            (Fraction(0),) * (dimension + 1),
+        ) is not None:
+            query_indices = tuple(indices)
+            break
+    if query_indices is None:
+        raise ValueError("scenario descriptors do not affinely span their dimension")
+
+    queried = []
+    for index in query_indices:
+        response = tuple(
+            tuple(Fraction(value) for value in component)
+            for component in scenario_oracle(index)
+        )
+        if not response or any(not component for component in response):
+            raise ValueError("the scenario oracle returned an empty payoff shape")
+        queried.append(response)
+    shape = tuple(len(component) for component in queried[0])
+    if any(tuple(len(component) for component in response) != shape
+           for response in queried):
+        raise ValueError("the scenario oracle returned inconsistent payoff shapes")
+
+    basis_matrix = tuple(augmented[index] for index in query_indices)
+    components = []
+    for component_index, action_count in enumerate(shape):
+        actions = []
+        for action_index in range(action_count):
+            observations = tuple(
+                response[component_index][action_index]
+                for response in queried
+            )
+            coefficients = _solve_fraction_system(basis_matrix, observations)
+            if coefficients is None:
+                raise RuntimeError("affine interpolation basis became singular")
+            actions.append(tuple(
+                sum((coefficients[position] * row[position]
+                     for position in range(dimension + 1)), Fraction(0))
+                for row in augmented
+            ))
+        components.append(tuple(actions))
+    reconstructed = tuple(components)
+    valid = (
+        len(query_indices) == dimension + 1
+        and all(
+            reconstructed[component][action][scenario]
+            == queried[position][component][action]
+            for position, scenario in enumerate(query_indices)
+            for component in range(len(shape))
+            for action in range(shape[component])
+        )
+    )
+    return AffineScenarioReconstruction(
+        component_payoff_vectors=reconstructed,
+        scenario_coordinates=coordinates,
+        query_indices=query_indices,
+        descriptor_dimension=dimension,
+        scenario_count=len(coordinates),
+        query_count=len(query_indices),
+        certificate_valid=valid,
+        reason="exact_affine_scenario_interpolation_certificate",
+    )
+
+
+def synthesize_rank_one_scenario_quotient_plan(
+    component_payoff_vectors,
+    *,
+    payoff_additive_certified: bool,
+) -> RankOneScenarioQuotientPlan:
+    """Collapse arbitrarily many affine-rank-one scenarios to two endpoints.
+
+    If every component-local payoff profile is affine in one shared scenario
+    coordinate, every additive joint payoff is affine in that coordinate too.
+    Nature mixtures therefore range over an interval, whose two endpoints are
+    sufficient and necessary for exact minimax planning.
+    """
+    if not payoff_additive_certified:
+        raise ValueError("a certificate that payoff is additive is required")
+    if not component_payoff_vectors:
+        raise ValueError("at least one component is required")
+    vectors = tuple(
+        tuple(tuple(Fraction(value) for value in action) for action in component)
+        for component in component_payoff_vectors
+    )
+    if any(not component or not component[0] for component in vectors):
+        raise ValueError("every component needs at least one nonempty action")
+    scenario_count = len(vectors[0][0])
+    if scenario_count < 2:
+        raise ValueError("at least two scenarios are required")
+    if any(len(action) != scenario_count
+           for component in vectors for action in component):
+        raise ValueError("all component actions must share one scenario count")
+
+    profiles = tuple(action for component in vectors for action in component)
+    anchor = next((profile for profile in profiles
+                   if any(value != profile[0] for value in profile[1:])), None)
+    if anchor is None:
+        coordinates = (Fraction(0),) * scenario_count
+        affine_dimension = 0
+        lower = upper = 0
+    else:
+        coordinates = anchor
+        affine_dimension = 1
+        base = 0
+        witness = next(i for i in range(1, scenario_count)
+                       if coordinates[i] != coordinates[base])
+        denominator = coordinates[witness] - coordinates[base]
+        for profile in profiles:
+            slope = (profile[witness] - profile[base]) / denominator
+            intercept = profile[base] - slope * coordinates[base]
+            if any(intercept + slope * coordinates[i] != profile[i]
+                   for i in range(scenario_count)):
+                raise ValueError("scenario payoff columns have affine dimension above one")
+        lower = min(range(scenario_count), key=lambda i: (coordinates[i], i))
+        upper = min(range(scenario_count), key=lambda i: (-coordinates[i], i))
+
+    pairs = tuple(
+        tuple((action[lower], action[upper]) for action in component)
+        for component in vectors
+    )
+    reduced = synthesize_two_vertex_additive_plan(
+        pairs,
+        payoff_additive_certified=True,
+    )
+    nature = [Fraction(0)] * scenario_count
+    if lower == upper:
+        nature[lower] = 1
+        effective_scenarios = 1
+    else:
+        nature[lower] = reduced.nature_probability
+        nature[upper] = 1 - reduced.nature_probability
+        effective_scenarios = 2
+    realized = tuple(
+        sum((mass * sum((vectors[t][actions[t]][scenario]
+                         for t in range(len(vectors))), Fraction(0))
+             for actions, mass in reduced.joint_actions), Fraction(0))
+        for scenario in range(scenario_count)
+    )
+    expanded = 1
+    for component in vectors:
+        expanded *= len(component)
+    valid = (
+        reduced.certificate_valid
+        and sum(nature, Fraction(0)) == 1
+        and min(realized) == reduced.minimax_value
+        and len(reduced.joint_actions) <= 2
+        and all(mass > 0 for _, mass in reduced.joint_actions)
+    )
+    return RankOneScenarioQuotientPlan(
+        component_payoff_vectors=vectors,
+        scenario_coordinates=tuple(coordinates),
+        endpoint_indices=(lower, upper),
+        affine_dimension=affine_dimension,
+        effective_scenario_count=effective_scenarios,
+        joint_actions=reduced.joint_actions,
+        minimax_value=reduced.minimax_value,
+        nature_probabilities=tuple(nature),
+        strict_randomization_necessary=reduced.strict_randomization_necessary,
+        scenario_count=scenario_count,
+        expanded_action_count=expanded,
+        support_bound=2,
+        certificate_valid=valid,
+        reason="rank_one_scenario_quotient_certificate",
+    )
+
+
+def synthesize_rank_two_scenario_hull_plan(
+    component_payoff_vectors,
+    *,
+    payoff_additive_certified: bool,
+    max_extreme_scenarios: int = 8,
+) -> RankTwoScenarioHullPlan:
+    """Delete non-extreme columns from an exact affine-rank-two scenario set."""
+    if not payoff_additive_certified:
+        raise ValueError("a certificate that payoff is additive is required")
+    if not component_payoff_vectors:
+        raise ValueError("at least one component is required")
+    vectors = tuple(
+        tuple(tuple(Fraction(value) for value in action) for action in component)
+        for component in component_payoff_vectors
+    )
+    if any(not component or not component[0] for component in vectors):
+        raise ValueError("every component needs at least one nonempty action")
+    scenario_count = len(vectors[0][0])
+    if scenario_count < 3:
+        raise ValueError("affine rank two requires at least three scenarios")
+    if any(len(action) != scenario_count
+           for component in vectors for action in component):
+        raise ValueError("all component actions must share one scenario count")
+
+    profiles = tuple(action for component in vectors for action in component)
+    columns = tuple(
+        tuple(profile[scenario] for profile in profiles)
+        for scenario in range(scenario_count)
+    )
+    origin = columns[0]
+    differences = tuple(
+        tuple(column[row] - origin[row] for row in range(len(origin)))
+        for column in columns
+    )
+    first = next((difference for difference in differences if any(difference)), None)
+    if first is None:
+        raise ValueError("scenario payoff columns have affine dimension below two")
+    second = None
+    pivots = None
+    for candidate in differences:
+        for left in range(len(first)):
+            for right in range(left + 1, len(first)):
+                determinant = (
+                    first[left] * candidate[right]
+                    - first[right] * candidate[left]
+                )
+                if determinant:
+                    second = candidate
+                    pivots = (left, right)
+                    break
+            if second is not None:
+                break
+        if second is not None:
+            break
+    if second is None or pivots is None:
+        raise ValueError("scenario payoff columns have affine dimension below two")
+
+    left, right = pivots
+    determinant = first[left] * second[right] - first[right] * second[left]
+    for difference in differences:
+        alpha = (difference[left] * second[right]
+                 - difference[right] * second[left]) / determinant
+        beta = (first[left] * difference[right]
+                - first[right] * difference[left]) / determinant
+        if any(alpha * first[row] + beta * second[row] != difference[row]
+               for row in range(len(first))):
+            raise ValueError("scenario payoff columns have affine dimension above two")
+
+    coordinates = tuple((difference[left], difference[right])
+                        for difference in differences)
+    unique = {}
+    for index, coordinate in enumerate(coordinates):
+        unique.setdefault(coordinate, index)
+    points = tuple(sorted((x, y, index) for (x, y), index in unique.items()))
+
+    def cross(origin_point, left_point, right_point):
+        return ((left_point[0] - origin_point[0])
+                * (right_point[1] - origin_point[1])
+                - (left_point[1] - origin_point[1])
+                * (right_point[0] - origin_point[0]))
+
+    lower = []
+    for point in points:
+        while len(lower) >= 2 and cross(lower[-2], lower[-1], point) <= 0:
+            lower.pop()
+        lower.append(point)
+    upper = []
+    for point in reversed(points):
+        while len(upper) >= 2 and cross(upper[-2], upper[-1], point) <= 0:
+            upper.pop()
+        upper.append(point)
+    hull = tuple(lower[:-1] + upper[:-1])
+    extreme_indices = tuple(point[2] for point in hull)
+    if len(extreme_indices) < 3:
+        raise RuntimeError("rank-two coordinates produced a degenerate hull")
+    if len(extreme_indices) > int(max_extreme_scenarios):
+        raise ValueError("rank-two hull exceeds the certified scenario cap")
+
+    reduced_vectors = tuple(
+        tuple(tuple(action[index] for index in extreme_indices)
+              for action in component)
+        for component in vectors
+    )
+    reduced = synthesize_fixed_scenario_additive_plan(
+        reduced_vectors,
+        payoff_additive_certified=True,
+        max_scenarios=max_extreme_scenarios,
+    )
+    nature = [Fraction(0)] * scenario_count
+    for position, index in enumerate(extreme_indices):
+        nature[index] = reduced.nature_probabilities[position]
+    realized = tuple(
+        sum((mass * sum((vectors[t][actions[t]][scenario]
+                         for t in range(len(vectors))), Fraction(0))
+             for actions, mass in reduced.joint_actions), Fraction(0))
+        for scenario in range(scenario_count)
+    )
+    expanded = 1
+    for component in vectors:
+        expanded *= len(component)
+    valid = (
+        reduced.certificate_valid
+        and sum(nature, Fraction(0)) == 1
+        and min(realized) == reduced.minimax_value
+        and len(reduced.joint_actions) <= len(extreme_indices)
+        and all(mass > 0 for _, mass in reduced.joint_actions)
+    )
+    return RankTwoScenarioHullPlan(
+        component_payoff_vectors=vectors,
+        projected_coordinates=coordinates,
+        extreme_indices=extreme_indices,
+        affine_dimension=2,
+        effective_scenario_count=len(extreme_indices),
+        joint_actions=reduced.joint_actions,
+        minimax_value=reduced.minimax_value,
+        nature_probabilities=tuple(nature),
+        strict_randomization_necessary=reduced.strict_randomization_necessary,
+        scenario_count=scenario_count,
+        expanded_action_count=expanded,
+        support_bound=len(extreme_indices),
+        certificate_valid=valid,
+        reason="rank_two_scenario_convex_hull_certificate",
+    )
+
+
+def _rational_3d_hull_weights(point, candidates):
+    """Return exact Carathéodory weights on at most four candidates."""
+    target = tuple(Fraction(value) for value in point)
+    others = tuple(tuple(Fraction(value) for value in item)
+                   for item in candidates)
+    equations_rhs = target + (Fraction(1),)
+    for support_size in range(1, min(4, len(others)) + 1):
+        for indices in combinations(range(len(others)), support_size):
+            support = tuple(others[index] for index in indices)
+            equations = tuple(
+                tuple(vertex[coordinate] for vertex in support)
+                for coordinate in range(3)
+            ) + ((Fraction(1),) * support_size,)
+            for selected in combinations(range(4), support_size):
+                weights = _solve_fraction_system(
+                    tuple(equations[index] for index in selected),
+                    tuple(equations_rhs[index] for index in selected),
+                )
+                if weights is None or any(weight < 0 for weight in weights):
+                    continue
+                if all(
+                    sum((equations[row][column] * weights[column]
+                         for column in range(support_size)), Fraction(0))
+                    == equations_rhs[row]
+                    for row in range(4)
+                ):
+                    result = [Fraction(0)] * len(others)
+                    for index, weight in zip(indices, weights, strict=True):
+                        result[index] = weight
+                    return tuple(result)
+    return None
+
+
+def _point_in_rational_3d_hull(point, candidates):
+    """Exact Carathéodory membership using supports of size at most four."""
+    return _rational_3d_hull_weights(point, candidates) is not None
+
+
+def compress_rank_three_nature_certificate(
+    projected_coordinates,
+    nature_probabilities,
+):
+    """Preserve an exact rank-three barycenter on at most four scenarios."""
+    points = tuple(
+        tuple(Fraction(value) for value in point)
+        for point in projected_coordinates
+    )
+    weights = tuple(Fraction(value) for value in nature_probabilities)
+    if not points or len(points) != len(weights):
+        raise ValueError("coordinates and nature weights must have equal nonzero length")
+    if any(len(point) != 3 for point in points):
+        raise ValueError("rank-three coordinates must have exactly three entries")
+    if any(weight < 0 for weight in weights) \
+            or sum(weights, Fraction(0)) != 1:
+        raise ValueError("nature weights must be a probability distribution")
+    barycenter = tuple(
+        sum((weights[index] * point[coordinate]
+             for index, point in enumerate(points)), Fraction(0))
+        for coordinate in range(3)
+    )
+    compressed = _rational_3d_hull_weights(barycenter, points)
+    if compressed is None:
+        raise RuntimeError("rank-three nature certificate compression failed")
+    compressed_barycenter = tuple(
+        sum((compressed[index] * point[coordinate]
+             for index, point in enumerate(points)), Fraction(0))
+        for coordinate in range(3)
+    )
+    if sum(compressed, Fraction(0)) != 1 \
+            or any(weight < 0 for weight in compressed) \
+            or sum(weight > 0 for weight in compressed) > 4 \
+            or compressed_barycenter != barycenter:
+        raise RuntimeError("invalid rank-three nature compression certificate")
+    return compressed
+
+
+def synthesize_rank_three_scenario_polytope_plan(
+    component_payoff_vectors,
+    *,
+    payoff_additive_certified: bool,
+    max_extreme_scenarios: int = 8,
+) -> RankThreeScenarioPolytopePlan:
+    """Delete non-vertex columns from an exact affine-rank-three scenario set."""
+    if not payoff_additive_certified:
+        raise ValueError("a certificate that payoff is additive is required")
+    if not component_payoff_vectors:
+        raise ValueError("at least one component is required")
+    vectors = tuple(
+        tuple(tuple(Fraction(value) for value in action) for action in component)
+        for component in component_payoff_vectors
+    )
+    if any(not component or not component[0] for component in vectors):
+        raise ValueError("every component needs at least one nonempty action")
+    scenario_count = len(vectors[0][0])
+    if scenario_count < 4:
+        raise ValueError("affine rank three requires at least four scenarios")
+    if any(len(action) != scenario_count
+           for component in vectors for action in component):
+        raise ValueError("all component actions must share one scenario count")
+
+    profiles = tuple(action for component in vectors for action in component)
+    columns = tuple(
+        tuple(profile[scenario] for profile in profiles)
+        for scenario in range(scenario_count)
+    )
+    origin = columns[0]
+    differences = tuple(
+        tuple(column[row] - origin[row] for row in range(len(origin)))
+        for column in columns
+    )
+
+    basis = None
+    pivots = None
+    for candidate_basis in combinations(differences[1:], 3):
+        for candidate_pivots in combinations(range(len(origin)), 3):
+            matrix = tuple(
+                tuple(candidate_basis[column][row] for column in range(3))
+                for row in candidate_pivots
+            )
+            if _solve_fraction_system(matrix, (Fraction(0),) * 3) is not None:
+                basis = candidate_basis
+                pivots = candidate_pivots
+                break
+        if basis is not None:
+            break
+    if basis is None or pivots is None:
+        raise ValueError("scenario payoff columns have affine dimension below three")
+
+    pivot_matrix = tuple(
+        tuple(basis[column][row] for column in range(3))
+        for row in pivots
+    )
+    coordinates = []
+    for difference in differences:
+        coefficients = _solve_fraction_system(
+            pivot_matrix,
+            tuple(difference[row] for row in pivots),
+        )
+        if coefficients is None or any(
+            sum((coefficients[column] * basis[column][row]
+                 for column in range(3)), Fraction(0)) != difference[row]
+            for row in range(len(origin))
+        ):
+            raise ValueError("scenario payoff columns have affine dimension above three")
+        coordinates.append(tuple(coefficients))
+    projected = tuple(coordinates)
+
+    unique: dict[tuple[Fraction, Fraction, Fraction], int] = {}
+    for index, coordinate in enumerate(projected):
+        unique.setdefault(coordinate, index)
+    unique_points = tuple(unique)
+    try:
+        proposal = ConvexHull(np.asarray(unique_points, dtype=float))
+    except QhullError as error:
+        raise ValueError("rank-three polytope proposal failed safely") from error
+    proposed = tuple(unique_points[index] for index in proposal.vertices)
+    extreme_coordinates = tuple(
+        point for point in proposed
+        if not _point_in_rational_3d_hull(
+            point,
+            tuple(candidate for candidate in proposed if candidate != point),
+        )
+    )
+    if any(
+        not _point_in_rational_3d_hull(point, extreme_coordinates)
+        for point in unique_points if point not in extreme_coordinates
+    ):
+        raise RuntimeError("floating hull proposal failed exact coverage certification")
+    extreme_indices = tuple(unique[point] for point in extreme_coordinates)
+    if len(extreme_indices) < 4:
+        raise RuntimeError("rank-three coordinates produced a degenerate polytope")
+    if len(extreme_indices) > int(max_extreme_scenarios):
+        raise ValueError("rank-three polytope exceeds the certified scenario cap")
+
+    reduced_vectors = tuple(
+        tuple(tuple(action[index] for index in extreme_indices)
+              for action in component)
+        for component in vectors
+    )
+    reduced = synthesize_fixed_scenario_additive_plan(
+        reduced_vectors,
+        payoff_additive_certified=True,
+        max_scenarios=max_extreme_scenarios,
+    )
+    reduced_nature = tuple(reduced.nature_probabilities)
+    compressed_nature = compress_rank_three_nature_certificate(
+        extreme_coordinates,
+        reduced_nature,
+    )
+    nature = [Fraction(0)] * scenario_count
+    for position, index in enumerate(extreme_indices):
+        nature[index] = compressed_nature[position]
+    original_expectations = tuple(
+        sum((reduced_nature[position] * profile[index]
+             for position, index in enumerate(extreme_indices)), Fraction(0))
+        for profile in profiles
+    )
+    compressed_expectations = tuple(
+        sum((nature[index] * profile[index] for index in range(scenario_count)),
+            Fraction(0))
+        for profile in profiles
+    )
+    realized = tuple(
+        sum((mass * sum((vectors[t][actions[t]][scenario]
+                         for t in range(len(vectors))), Fraction(0))
+             for actions, mass in reduced.joint_actions), Fraction(0))
+        for scenario in range(scenario_count)
+    )
+    expanded = 1
+    for component in vectors:
+        expanded *= len(component)
+    valid = (
+        reduced.certificate_valid
+        and sum(nature, Fraction(0)) == 1
+        and min(realized) == reduced.minimax_value
+        and len(reduced.joint_actions) <= len(extreme_indices)
+        and all(mass > 0 for _, mass in reduced.joint_actions)
+        and sum(weight > 0 for weight in nature) <= 4
+        and original_expectations == compressed_expectations
+        and all(nature[index] == 0
+                for index in range(scenario_count)
+                if index not in extreme_indices)
+    )
+    return RankThreeScenarioPolytopePlan(
+        component_payoff_vectors=vectors,
+        projected_coordinates=projected,
+        extreme_indices=extreme_indices,
+        affine_dimension=3,
+        effective_scenario_count=len(extreme_indices),
+        joint_actions=reduced.joint_actions,
+        minimax_value=reduced.minimax_value,
+        nature_probabilities=tuple(nature),
+        strict_randomization_necessary=reduced.strict_randomization_necessary,
+        scenario_count=scenario_count,
+        expanded_action_count=expanded,
+        support_bound=4,
+        certificate_valid=valid,
+        reason="rank_three_scenario_convex_polytope_certificate",
+    )
+
+
+def synthesize_fixed_scenario_additive_plan(
+    component_payoff_vectors,
+    *,
+    payoff_additive_certified: bool,
+    max_scenarios: int = 8,
+    max_boundary_combinations: int = 2_000_000,
+    max_active_joint_actions: int | None = None,
+    max_marginal_variables: int = 500_000,
+    max_pure_payoff_states: int = 500_000,
+) -> FixedScenarioAdditiveRobustPlan:
+    """Solve a certified additive game at any bounded fixed scenario count.
+
+    Value computation enumerates vertices of the component-local tie
+    arrangement in the nature simplex.  It never expands Cartesian joint
+    actions.  Policy recovery solves over component marginals among actions
+    tied at the exact minimizing nature distribution, then couples the exact
+    marginals.  ``max_active_joint_actions`` is retained as an ignored legacy
+    keyword: the recovery path never enumerates that Cartesian product.
+    """
+    if not payoff_additive_certified:
+        raise ValueError("a certificate that payoff is additive is required")
+    if not component_payoff_vectors:
+        raise ValueError("at least one component is required")
+    vectors = tuple(
+        tuple(tuple(Fraction(value) for value in action) for action in component)
+        for component in component_payoff_vectors
+    )
+    if any(not component or not component[0] for component in vectors):
+        raise ValueError("every component needs at least one nonempty action")
+    scenario_count = len(vectors[0][0])
+    if scenario_count < 2 or scenario_count > int(max_scenarios):
+        raise ValueError("scenario count is outside the certified fixed-dimensional cap")
+    if any(len(action) != scenario_count
+           for component in vectors for action in component):
+        raise ValueError("all component actions must share one scenario count")
+
+    dimension = scenario_count - 1
+    ties = set()
+    for component in vectors:
+        for left, right in combinations(component, 2):
+            row = tuple(
+                (left[i] - left[-1]) - (right[i] - right[-1])
+                for i in range(dimension)
+            )
+            rhs = right[-1] - left[-1]
+            if any(row):
+                ties.add((row, rhs))
+
+    facets = tuple(
+        (tuple(Fraction(int(i == j)) for i in range(dimension)), Fraction(0))
+        for j in range(dimension)
+    ) + ((tuple(Fraction(1) for _ in range(dimension)), Fraction(1)),)
+    boundaries = tuple(sorted(ties)) + facets
+    boundary_combinations = comb(len(boundaries), dimension)
+    if boundary_combinations > int(max_boundary_combinations):
+        raise ValueError("exact arrangement boundary-combination limit exceeded")
+
+    def inside(point):
+        return all(value >= 0 for value in point) and sum(point) <= 1
+
+    candidates = set()
+    for selected in combinations(boundaries, dimension):
+        point = _solve_fraction_system(
+            tuple(item[0] for item in selected),
+            tuple(item[1] for item in selected),
+        )
+        if point is not None and inside(point):
+            candidates.add(point)
+    if not candidates:
+        raise RuntimeError("fixed-scenario arrangement has no feasible vertex")
+
+    def affine(action, point):
+        return sum((point[i] * action[i] for i in range(dimension)), Fraction(0)) \
+            + (1 - sum(point, Fraction(0))) * action[-1]
+
+    def dual(point):
+        return sum((max(affine(action, point) for action in component)
+                    for component in vectors), Fraction(0))
+
+    nature_point = min(candidates, key=lambda point: (dual(point), point))
+    value = dual(nature_point)
+    tied = tuple(
+        tuple(i for i, action in enumerate(component)
+              if affine(action, nature_point)
+              == max(affine(candidate, nature_point) for candidate in component))
+        for component in vectors
+    )
+    active_count = 1
+    for actions in tied:
+        active_count *= len(actions)
+    _, joint, marginal_variable_count, marginal_support_bound = \
+        _fixed_scenario_marginal_policy(
+            vectors, tied, value, scenario_count, max_marginal_variables,
+        )
+    pure_optimal, pure_payoff_state_count = _fixed_scenario_pure_witness(
+        vectors, tied, value, max_pure_payoff_states,
+    )
+    realized = tuple(
+        sum((mass * sum((vectors[t][actions[t]][scenario]
+                         for t in range(len(vectors))), Fraction(0))
+             for actions, mass in joint), Fraction(0))
+        for scenario in range(scenario_count)
+    )
+    expanded = 1
+    for component in vectors:
+        expanded *= len(component)
+    nature = tuple(nature_point) + (1 - sum(nature_point, Fraction(0)),)
+    upper_bound = comb(len(ties) + scenario_count, dimension)
+    valid = (
+        sum((mass for _, mass in joint), Fraction(0)) == 1
+        and all(mass > 0 for _, mass in joint)
+        and min(realized) == value
+        and len(joint) <= marginal_support_bound <= scenario_count
+        and sum(nature) == 1
+        and all(probability >= 0 for probability in nature)
+        and len(candidates) <= upper_bound
+    )
+    return FixedScenarioAdditiveRobustPlan(
+        component_payoff_vectors=vectors,
+        joint_actions=joint,
+        minimax_value=value,
+        nature_probabilities=nature,
+        strict_randomization_necessary=not pure_optimal,
+        scenario_count=scenario_count,
+        expanded_action_count=expanded,
+        tie_hyperplane_count=len(ties),
+        arrangement_candidate_count=len(candidates),
+        candidate_upper_bound=upper_bound,
+        support_bound=scenario_count,
+        tied_joint_action_count=active_count,
+        marginal_variable_count=marginal_variable_count,
+        pure_payoff_state_count=pure_payoff_state_count,
+        certificate_valid=valid,
+        reason="fixed_scenario_additive_arrangement_marginal_certificate",
+    )
+
+
+def synthesize_four_vertex_additive_plan(
+    component_payoff_vectors,
+    *,
+    payoff_additive_certified: bool,
+    max_active_joint_actions: int = 500_000,
+) -> FourVertexAdditiveRobustPlan:
+    """Solve an additive four-scenario game by a tetrahedral arrangement.
+
+    The dual is convex piecewise affine on a three-dimensional simplex.  A
+    minimum is attained at an intersection of three component-local tie or
+    simplex-facet hyperplanes, so Cartesian joint actions are unnecessary for
+    value computation.
+    """
+    if not payoff_additive_certified:
+        raise ValueError("a certificate that payoff is additive is required")
+    if not component_payoff_vectors:
+        raise ValueError("at least one component is required")
+    vectors = tuple(
+        tuple(tuple(Fraction(value) for value in action) for action in component)
+        for component in component_payoff_vectors
+    )
+    if any(not component or any(len(action) != 4 for action in component)
+           for component in vectors):
+        raise ValueError("each component action must have four scenario payoffs")
+
+    ties = set()
+    for component in vectors:
+        for left, right in combinations(component, 2):
+            row = tuple(
+                (left[i] - left[3]) - (right[i] - right[3])
+                for i in range(3)
+            )
+            rhs = right[3] - left[3]
+            if any(row):
+                ties.add((row, rhs))
+
+    facets = tuple(
+        (tuple(Fraction(int(i == j)) for i in range(3)), Fraction(0))
+        for j in range(3)
+    ) + (
+        ((Fraction(1), Fraction(1), Fraction(1)), Fraction(1)),
+    )
+    boundaries = tuple(sorted(ties)) + facets
+
+    def inside(point):
+        return all(value >= 0 for value in point) and sum(point) <= 1
+
+    candidates = set()
+    for selected in combinations(boundaries, 3):
+        point = _solve_fraction_system(
+            tuple(item[0] for item in selected),
+            tuple(item[1] for item in selected),
+        )
+        if point is not None and inside(point):
+            candidates.add(point)
+    if not candidates:
+        raise RuntimeError("tetrahedral arrangement has no feasible vertex")
+
+    def affine(action, point):
+        return sum((point[i] * action[i] for i in range(3)), Fraction(0)) \
+            + (1 - sum(point, Fraction(0))) * action[3]
+
+    def dual(point):
+        return sum((max(affine(action, point) for action in component)
+                    for component in vectors), Fraction(0))
+
+    nature_point = min(candidates, key=lambda point: (dual(point), point))
+    value = dual(nature_point)
+    tied = tuple(
+        tuple(i for i, action in enumerate(component)
+              if affine(action, nature_point)
+              == max(affine(candidate, nature_point) for candidate in component))
+        for component in vectors
+    )
+    active_count = 1
+    for actions in tied:
+        active_count *= len(actions)
+    if active_count > int(max_active_joint_actions):
+        raise ValueError("exact tied joint-action limit exceeded")
+
+    active = []
+    for actions in product(*tied):
+        payoff = tuple(
+            sum((vectors[t][actions[t]][scenario] for t in range(len(vectors))),
+                Fraction(0))
+            for scenario in range(4)
+        )
+        active.append((tuple(actions), payoff))
+    joint = _fixed_scenario_policy(tuple(active), value, 4)
+    realized = tuple(
+        sum((mass * sum((vectors[t][actions[t]][scenario]
+                         for t in range(len(vectors))), Fraction(0))
+             for actions, mass in joint), Fraction(0))
+        for scenario in range(4)
+    )
+    expanded = 1
+    for component in vectors:
+        expanded *= len(component)
+    nature = tuple(nature_point) + (1 - sum(nature_point, Fraction(0)),)
+    upper_bound = comb(len(ties) + 4, 3)
+    valid = (
+        sum((mass for _, mass in joint), Fraction(0)) == 1
+        and all(mass > 0 for _, mass in joint)
+        and min(realized) == value
+        and len(joint) <= 4
+        and sum(nature) == 1
+        and all(probability >= 0 for probability in nature)
+        and len(candidates) <= upper_bound
+    )
+    return FourVertexAdditiveRobustPlan(
+        vectors, joint, value, nature, len(joint) > 1, expanded, len(ties),
+        len(candidates), upper_bound, 4, valid,
+        "four_vertex_additive_arrangement_certificate",
+    )
+
+
+def _zero_bonus_nature_feasibility(matrices, vertices, values):
+    """Return lambda on coupled vertices attaining every component value."""
+    m = len(vertices)
+    if m == 1:
+        ok = all(matrix[action][vertices[0][t]] <= values[t]
+                 for t, matrix in enumerate(matrices)
+                 for action in range(len(matrix)))
+        return (Fraction(1),) if ok else ()
+    d = m - 1
+    inequalities = []
+    for i in range(d):
+        row = [Fraction(0)] * d
+        row[i] = -1
+        inequalities.append((tuple(row), Fraction(0)))
+    inequalities.append((tuple(Fraction(1) for _ in range(d)), Fraction(1)))
+    last = vertices[-1]
+    for t, matrix in enumerate(matrices):
+        for action in range(len(matrix)):
+            base = matrix[action][last[t]]
+            row = tuple(matrix[action][vertices[i][t]] - base for i in range(d))
+            inequalities.append((row, values[t] - base))
+    for selected in combinations(range(len(inequalities)), d):
+        x = _solve_fraction_system(
+            tuple(inequalities[i][0] for i in selected),
+            tuple(inequalities[i][1] for i in selected),
+        )
+        if x is None:
+            continue
+        if all(sum((row[i] * x[i] for i in range(d)), Fraction(0)) <= rhs
+               for row, rhs in inequalities):
+            return tuple(x) + (Fraction(1) - sum(x, Fraction(0)),)
+    return ()
+
+
+def synthesize_coupled_additive_plan(
+    component_payoff_matrices,
+    ambiguity_vertices,
+    *,
+    payoff_additive_certified: bool,
+    max_active_sets: int = 2_000_000,
+) -> CoupledAdditiveRobustPlan:
+    """Exact reduced planner for additive payoffs and finite coupled ambiguity."""
+    if not payoff_additive_certified:
+        raise ValueError("a certificate that payoff is additive is required")
+    if not component_payoff_matrices:
+        raise ValueError("at least one component payoff matrix is required")
+    matrices = tuple(tuple(tuple(Fraction(x) for x in row) for row in raw)
+                     for raw in component_payoff_matrices)
+    if any(not matrix or not matrix[0] or
+           any(len(row) != len(matrix[0]) for row in matrix) for matrix in matrices):
+        raise ValueError("component payoff matrices must be nonempty and rectangular")
+    if not ambiguity_vertices:
+        raise ValueError("at least one coupled ambiguity vertex is required")
+    vertices = tuple(tuple(int(i) for i in vertex) for vertex in ambiguity_vertices)
+    if len(set(vertices)) != len(vertices):
+        raise ValueError("coupled ambiguity vertices must be unique")
+    if any(len(vertex) != len(matrices) or
+           any(i < 0 or i >= len(matrices[t][0]) for t, i in enumerate(vertex))
+           for vertex in vertices):
+        raise ValueError("coupled ambiguity vertex is outside a component domain")
+
+    component = tuple(_component_exact_solution(matrix) for matrix in matrices)
+    values = tuple(item[1] for item in component)
+    baseline = sum(values, Fraction(0))
+    offsets, marginal_dimension = [], 0
+    for matrix in matrices:
+        offsets.append(marginal_dimension)
+        marginal_dimension += len(matrix) - 1
+    dimension = marginal_dimension + 1
+
+    boundaries = []
+    for t, matrix in enumerate(matrices):
+        for action in range(len(matrix) - 1):
+            row = [Fraction(0)] * dimension
+            row[offsets[t] + action] = 1
+            boundaries.append((tuple(row), Fraction(0)))
+        row = [Fraction(0)] * dimension
+        for action in range(len(matrix) - 1):
+            row[offsets[t] + action] = 1
+        boundaries.append((tuple(row), Fraction(1)))
+    for vertex in vertices:
+        row = [Fraction(0)] * dimension
+        base = Fraction(0)
+        for t, matrix in enumerate(matrices):
+            last = matrix[-1][vertex[t]]
+            base += last
+            for action in range(len(matrix) - 1):
+                row[offsets[t] + action] -= matrix[action][vertex[t]] - last
+        row[-1] = 1
+        boundaries.append((tuple(row), base))
+
+    from math import comb
+    active_sets = comb(len(boundaries), dimension)
+    if active_sets > int(max_active_sets):
+        raise ValueError("exact coupled solver active-set limit exceeded")
+
+    candidates = []
+    for selected in combinations(range(len(boundaries)), dimension):
+        x = _solve_fraction_system(
+            tuple(boundaries[i][0] for i in selected),
+            tuple(boundaries[i][1] for i in selected),
+        )
+        if x is None:
+            continue
+        feasible = True
+        for t, matrix in enumerate(matrices):
+            marginal = x[offsets[t]:offsets[t] + len(matrix) - 1]
+            if any(p < 0 for p in marginal) or sum(marginal, Fraction(0)) > 1:
+                feasible = False
+                break
+        if not feasible:
+            continue
+        realized = []
+        for vertex in vertices:
+            payoff = Fraction(0)
+            for t, matrix in enumerate(matrices):
+                marginal = x[offsets[t]:offsets[t] + len(matrix) - 1]
+                payoff += sum((marginal[a] * matrix[a][vertex[t]]
+                               for a in range(len(matrix) - 1)), Fraction(0))
+                payoff += (1 - sum(marginal, Fraction(0))) * matrix[-1][vertex[t]]
+            realized.append(payoff)
+        if x[-1] <= min(realized):
+            candidates.append((x[-1], x))
+    if not candidates:
+        raise RuntimeError("coupled marginal LP had no rational vertex")
+    value = max(item[0] for item in candidates)
+    x = min(item[1] for item in candidates if item[0] == value)
+    probabilities = tuple(
+        tuple(x[offsets[t]:offsets[t] + len(matrix) - 1])
+        + (Fraction(1) - sum(x[offsets[t]:offsets[t] + len(matrix) - 1], Fraction(0)),)
+        for t, matrix in enumerate(matrices)
+    )
+    joint = _greedy_common_mass_coupling(probabilities)
+    sizes = tuple(sum(p > 0 for p in marginal) for marginal in probabilities)
+    support_bound = 1 + sum(size - 1 for size in sizes)
+    realized = tuple(
+        sum((mass * sum((matrices[t][actions[t]][vertex[t]]
+                         for t in range(len(matrices))), Fraction(0))
+             for actions, mass in joint), Fraction(0))
+        for vertex in vertices
+    )
+    bonus = value - baseline
+    witness = _zero_bonus_nature_feasibility(matrices, vertices, values)
+    expanded = 1
+    for matrix in matrices:
+        expanded *= len(matrix)
+    recovered = tuple(
+        tuple(sum((mass for actions, mass in joint if actions[t] == action), Fraction(0))
+              for action in range(len(matrices[t])))
+        for t in range(len(matrices))
+    )
+    valid = (
+        bonus >= 0 and min(realized) == value and recovered == probabilities
+        and sum((mass for _, mass in joint), Fraction(0)) == 1
+        and len(joint) <= support_bound
+        and (bonus == 0) == bool(witness)
+        and (not witness or sum(witness, Fraction(0)) == 1)
+    )
+    return CoupledAdditiveRobustPlan(
+        matrices, vertices, probabilities, joint, value, baseline, bonus,
+        bonus == 0, witness, expanded, dimension, support_bound, valid,
+        "coupled_additive_marginal_lp_certificate",
+    )
+
+
 def solve_two_vertex_robust_game(
     payoff_matrix: tuple[tuple[Fraction, Fraction], ...],
 ) -> TwoVertexRobustGame:
@@ -782,6 +2604,119 @@ def solve_two_action_robust_game(
     return TwoActionRobustGame(
         matrix, probabilities, value, pure, gain, gain > 0,
         supported, active, valid,
+    )
+
+
+def synthesize_additive_product_plan(
+    component_payoff_matrices: tuple[tuple[tuple[Fraction, ...], ...], ...],
+    *,
+    payoff_additive_certified: bool,
+    ambiguity_rectangular_certified: bool,
+) -> AdditiveProductRobustPlan:
+    """Solve an additive product game through its factors and sparsely couple them.
+
+    For ``M(a,b) = sum_t M_t(a_t,b_t)`` and a full Cartesian product of
+    ambiguity vertices, the robust value and best-pure value both add.  Any
+    coupling of optimal component policies is therefore optimal.  The greedy
+    common-mass coupling below realizes the component marginals with at most
+    ``1 + sum_t(s_t - 1)`` atoms, where ``s_t`` is the positive support size
+    of component ``t``.
+
+    This executable fast path deliberately supports factors with either two
+    actions or two ambiguity vertices, the exact structural solvers currently
+    certified by THEORICA.  Unsupported structure fails closed.
+    """
+    if not payoff_additive_certified:
+        raise ValueError("a certificate that payoff is additive is required")
+    if not ambiguity_rectangular_certified:
+        raise ValueError("a certificate that ambiguity is rectangular is required")
+    if not component_payoff_matrices:
+        raise ValueError("at least one component payoff matrix is required")
+
+    matrices: list[tuple[tuple[Fraction, ...], ...]] = []
+    probabilities: list[tuple[Fraction, ...]] = []
+    values: list[Fraction] = []
+    pure_values: list[Fraction] = []
+    for raw in component_payoff_matrices:
+        if not raw or not raw[0] or any(len(row) != len(raw[0]) for row in raw):
+            raise ValueError("component payoff matrices must be nonempty and rectangular")
+        matrix = tuple(tuple(Fraction(value) for value in row) for row in raw)
+        if len(matrix[0]) == 2:
+            solved = solve_two_vertex_robust_game(matrix)
+            component_probabilities = solved.action_probabilities
+        elif len(matrix) == 2:
+            solved = solve_two_action_robust_game(matrix)
+            component_probabilities = solved.action_probabilities
+        else:
+            raise ValueError("each component must have two actions or two vertices")
+        if not solved.certificate_valid:
+            raise RuntimeError("component exact certificate failed")
+        matrices.append(matrix)
+        probabilities.append(component_probabilities)
+        values.append(solved.minimax_value)
+        pure_values.append(solved.best_pure_value)
+
+    # Greedy common-mass coupling.  Every step exhausts at least one current
+    # marginal atom; only the final step can exhaust all remaining marginals.
+    active = [
+        [[index, probability] for index, probability in enumerate(component) if probability > 0]
+        for component in probabilities
+    ]
+    positions = [0 for _ in active]
+    joint: list[tuple[tuple[int, ...], Fraction]] = []
+    while all(positions[t] < len(active[t]) for t in range(len(active))):
+        actions = tuple(active[t][positions[t]][0] for t in range(len(active)))
+        mass = min(active[t][positions[t]][1] for t in range(len(active)))
+        joint.append((actions, mass))
+        for t in range(len(active)):
+            active[t][positions[t]][1] -= mass
+            if active[t][positions[t]][1] == 0:
+                positions[t] += 1
+
+    component_probability_tuple = tuple(probabilities)
+    joint_tuple = tuple(joint)
+    component_value_tuple = tuple(values)
+    component_pure_tuple = tuple(pure_values)
+    value = sum(component_value_tuple, Fraction(0))
+    pure = sum(component_pure_tuple, Fraction(0))
+    gain = value - pure
+    support_sizes = tuple(sum(p > 0 for p in component) for component in probabilities)
+    support_bound = 1 + sum(size - 1 for size in support_sizes)
+
+    recovered_marginals = tuple(
+        tuple(sum((mass for actions, mass in joint_tuple if actions[t] == action), Fraction(0))
+              for action in range(len(probabilities[t])))
+        for t in range(len(probabilities))
+    )
+    # Rectangularity makes the joint worst case equal the sum of component
+    # worst cases, so certificate validation remains linear in the component
+    # matrix sizes and never expands the joint ambiguity product.
+    component_realized = tuple(
+        tuple(sum((component_probability_tuple[t][action] * matrix[action][vertex]
+                   for action in range(len(matrix))), Fraction(0))
+              for vertex in range(len(matrix[0])))
+        for t, matrix in enumerate(matrices)
+    )
+    certified_worst = sum((min(payoffs) for payoffs in component_realized), Fraction(0))
+    expanded_actions = 1
+    expanded_vertices = 1
+    for matrix in matrices:
+        expanded_actions *= len(matrix)
+        expanded_vertices *= len(matrix[0])
+    valid = (
+        sum((mass for _, mass in joint_tuple), Fraction(0)) == 1
+        and all(mass > 0 for _, mass in joint_tuple)
+        and recovered_marginals == component_probability_tuple
+        and certified_worst == value
+        and gain == sum((values[t] - pure_values[t] for t in range(len(values))), Fraction(0))
+        and (gain > 0) == any(values[t] > pure_values[t] for t in range(len(values)))
+        and len(joint_tuple) <= support_bound
+    )
+    return AdditiveProductRobustPlan(
+        tuple(matrices), component_probability_tuple, joint_tuple,
+        component_value_tuple, component_pure_tuple, value, pure, gain, gain > 0,
+        expanded_actions, expanded_vertices, support_bound, valid,
+        "additive_rectangular_sparse_coupling_certificate",
     )
 
 

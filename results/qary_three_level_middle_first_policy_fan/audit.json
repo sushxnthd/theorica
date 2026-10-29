@@ -1,0 +1,19 @@
+{
+  "coverage_area_matched": true,
+  "fan_cell_exposure_replay_total": 6,
+  "fan_cell_exposure_replays": 6,
+  "fan_twice_area": [
+    11,
+    105
+  ],
+  "passed": true,
+  "polygon_twice_area": [
+    11,
+    105
+  ],
+  "production_module_imports": 0,
+  "prospective_formula_matches": 18,
+  "prospective_total": 18,
+  "single_face_exposure_replay_total": 5,
+  "single_face_exposure_replays": 5
+}

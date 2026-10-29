@@ -1,0 +1,113 @@
+{
+  "avoidance_policy": {
+    "exists": true,
+    "maximal_exposures": [
+      [
+        2,
+        3,
+        4
+      ],
+      [
+        2,
+        4,
+        3
+      ],
+      [
+        2,
+        5,
+        1
+      ],
+      [
+        3,
+        3,
+        3
+      ],
+      [
+        4,
+        3,
+        1
+      ]
+    ],
+    "states_checked": 403,
+    "target_dominated": false,
+    "terminal_transcripts": 414,
+    "unique_exposures": 32
+  },
+  "avoidance_policy_worst_cost": 554,
+  "guarantee_states_checked": 178964,
+  "maximal_componentwise_guarantees": [
+    [
+      1,
+      5,
+      1
+    ],
+    [
+      2,
+      3,
+      4
+    ],
+    [
+      2,
+      4,
+      3
+    ],
+    [
+      3,
+      3,
+      3
+    ],
+    [
+      4,
+      2,
+      1
+    ]
+  ],
+  "missing_target_faces": [
+    [
+      3,
+      4,
+      1
+    ]
+  ],
+  "passed": true,
+  "production_exact_cost": 554,
+  "schema": "theorica.middle-first-componentwise-falsification/1",
+  "target_face_cost": 554,
+  "target_faces": [
+    [
+      1,
+      5,
+      1
+    ],
+    [
+      2,
+      3,
+      4
+    ],
+    [
+      2,
+      4,
+      3
+    ],
+    [
+      3,
+      3,
+      3
+    ],
+    [
+      3,
+      4,
+      1
+    ],
+    [
+      4,
+      2,
+      1
+    ]
+  ],
+  "witness_costs": [
+    79,
+    79,
+    1
+  ]
+}

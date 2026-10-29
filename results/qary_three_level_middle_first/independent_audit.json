@@ -1,0 +1,225 @@
+{
+  "case_total": 12,
+  "cases_reproduced": 12,
+  "passed": true,
+  "production_imports": 0,
+  "replays": [
+    {
+      "active_faces": [
+        [
+          1,
+          5,
+          1
+        ]
+      ],
+      "candidate_cost": 397,
+      "independent_exact_cost": 397,
+      "level_costs": [
+        1,
+        79,
+        1
+      ],
+      "matched": true,
+      "production_exact_cost": 397
+    },
+    {
+      "active_faces": [
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "candidate_cost": 321,
+      "independent_exact_cost": 321,
+      "level_costs": [
+        1,
+        1,
+        79
+      ],
+      "matched": true,
+      "production_exact_cost": 321
+    },
+    {
+      "active_faces": [
+        [
+          2,
+          4,
+          3
+        ]
+      ],
+      "candidate_cost": 477,
+      "independent_exact_cost": 477,
+      "level_costs": [
+        1,
+        79,
+        53
+      ],
+      "matched": true,
+      "production_exact_cost": 477
+    },
+    {
+      "active_faces": [
+        [
+          3,
+          3,
+          3
+        ]
+      ],
+      "candidate_cost": 399,
+      "independent_exact_cost": 399,
+      "level_costs": [
+        79,
+        1,
+        53
+      ],
+      "matched": true,
+      "production_exact_cost": 399
+    },
+    {
+      "active_faces": [
+        [
+          3,
+          4,
+          1
+        ]
+      ],
+      "candidate_cost": 554,
+      "independent_exact_cost": 554,
+      "level_costs": [
+        79,
+        79,
+        1
+      ],
+      "matched": true,
+      "production_exact_cost": 554
+    },
+    {
+      "active_faces": [
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "candidate_cost": 319,
+      "independent_exact_cost": 319,
+      "level_costs": [
+        79,
+        1,
+        1
+      ],
+      "matched": true,
+      "production_exact_cost": 319
+    },
+    {
+      "active_faces": [
+        [
+          3,
+          4,
+          1
+        ]
+      ],
+      "candidate_cost": 298,
+      "independent_exact_cost": 298,
+      "level_costs": [
+        59,
+        30,
+        1
+      ],
+      "matched": true,
+      "production_exact_cost": 298
+    },
+    {
+      "active_faces": [
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "candidate_cost": 295,
+      "independent_exact_cost": 295,
+      "level_costs": [
+        59,
+        29,
+        1
+      ],
+      "matched": true,
+      "production_exact_cost": 295
+    },
+    {
+      "active_faces": [
+        [
+          3,
+          3,
+          3
+        ]
+      ],
+      "candidate_cost": 354,
+      "independent_exact_cost": 354,
+      "level_costs": [
+        59,
+        1,
+        58
+      ],
+      "matched": true,
+      "production_exact_cost": 354
+    },
+    {
+      "active_faces": [
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "candidate_cost": 355,
+      "independent_exact_cost": 355,
+      "level_costs": [
+        58,
+        1,
+        59
+      ],
+      "matched": true,
+      "production_exact_cost": 355
+    },
+    {
+      "active_faces": [
+        [
+          1,
+          5,
+          1
+        ]
+      ],
+      "candidate_cost": 325,
+      "independent_exact_cost": 325,
+      "level_costs": [
+        29,
+        59,
+        1
+      ],
+      "matched": true,
+      "production_exact_cost": 325
+    },
+    {
+      "active_faces": [
+        [
+          2,
+          4,
+          3
+        ]
+      ],
+      "candidate_cost": 412,
+      "independent_exact_cost": 412,
+      "level_costs": [
+        1,
+        59,
+        58
+      ],
+      "matched": true,
+      "production_exact_cost": 412
+    }
+  ],
+  "schema": "theorica.qary-three-level-middle-first-audit/1"
+}

@@ -1,0 +1,16 @@
+{
+  "binary_embedding_faces_replayed": 3,
+  "independent_depth_8_feasible": false,
+  "independent_depth_9_feasible": true,
+  "independent_depth_states": 78460,
+  "independent_holdout_total": 12,
+  "independent_holdouts_passed": 12,
+  "independent_ray_inequalities_passed": 6,
+  "independent_ray_inequality_total": 6,
+  "passed": true,
+  "phase_boundaries": [
+    "x=y",
+    "x=3y"
+  ],
+  "production_module_imports": 0
+}

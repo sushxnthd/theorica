@@ -1,0 +1,11 @@
+{
+  "digest": "62241bb35199b16c0b6e6cc206fc162ac63b72edffcaa7839f728b78eff33d04",
+  "passed": true,
+  "positive_total": 60,
+  "positive_zero_gap": 60,
+  "production_imports": 0,
+  "prospective_five_action": 10,
+  "schema": "theorica.stacked-ambiguity-gap-audit/1",
+  "sharp_face_total": 30,
+  "sharp_face_witnesses": 30
+}
