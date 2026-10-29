@@ -18,6 +18,7 @@ from theorica.agents.corruption_resilient_features import (
     certify_qary_two_level_insurance,
     certify_stacked_ambiguity_gap,
     certify_ternary_middle_first_ancestor_symmetric,
+    certify_ternary_middle_first_descendant_symmetric,
     certify_ternary_middle_first_symmetric,
     certify_three_level_monotonicity,
     certify_two_action_plan_from_ambiguous_transcript,
@@ -61,6 +62,32 @@ def test_ternary_middle_first_ancestor_symmetric_certificate(x, y, expected, act
 def test_ternary_middle_first_ancestor_symmetric_rejects_invalid_costs(costs):
     with pytest.raises(ValueError, match="positive integers"):
         certify_ternary_middle_first_ancestor_symmetric(*costs)
+
+
+@pytest.mark.parametrize(
+    ("x", "y", "expected", "active"),
+    (
+        (1, 2, 16, ("descendant_heavy",)),
+        (1, 1, 9, ("descendant_heavy", "transition")),
+        (2, 1, 12, ("transition",)),
+        (3, 1, 15, ("transition", "root_heavy")),
+        (4, 1, 19, ("root_heavy",)),
+    ),
+)
+def test_ternary_middle_first_descendant_symmetric_certificate(
+    x, y, expected, active
+):
+    certificate = certify_ternary_middle_first_descendant_symmetric(x, y)
+    assert certificate.exact_worst_case_cost == expected
+    assert certificate.active_faces == active
+    assert certificate.phase_boundaries == ("x=y", "x=3y")
+    assert certificate.certificate_valid
+
+
+@pytest.mark.parametrize("costs", ((0, 1), (1, 0), (-1, 2), (True, 1), (1, 1.5)))
+def test_ternary_middle_first_descendant_symmetric_rejects_invalid_costs(costs):
+    with pytest.raises(ValueError, match="positive integers"):
+        certify_ternary_middle_first_descendant_symmetric(*costs)
 
 
 @pytest.mark.parametrize("cost", (0, -1, True, 1.5))

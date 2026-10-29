@@ -90,6 +90,8 @@ on:
       - "scripts/audit_qary_three_level_middle_first_ternary_symmetric.py"
       - "scripts/verify_qary_three_level_middle_first_ternary_ancestor_symmetric.py"
       - "scripts/audit_qary_three_level_middle_first_ternary_ancestor_symmetric.py"
+      - "scripts/verify_qary_three_level_middle_first_ternary_descendant_symmetric.py"
+      - "scripts/audit_qary_three_level_middle_first_ternary_descendant_symmetric.py"
       - "docs/COUPLED_ADDITIVE_MINIMAX_*.md"
       - "docs/TWO_VERTEX_ADDITIVE_ENVELOPE_*.md"
       - "docs/THREE_VERTEX_ADDITIVE_ARRANGEMENT_*.md"
@@ -136,6 +138,7 @@ on:
       - "results/qary_three_level_middle_first_policy_fan/*.json"
       - "results/qary_three_level_middle_first_ternary_symmetric/*.json"
       - "results/qary_three_level_middle_first_ternary_ancestor_symmetric/*.json"
+      - "results/qary_three_level_middle_first_ternary_descendant_symmetric/*.json"
       - ".github/workflows/additive-product-minimax.yml"
 
 jobs:
@@ -227,5 +230,7 @@ jobs:
       - run: python scripts/audit_qary_three_level_middle_first_ternary_symmetric.py
       - run: python scripts/verify_qary_three_level_middle_first_ternary_ancestor_symmetric.py
       - run: python scripts/audit_qary_three_level_middle_first_ternary_ancestor_symmetric.py
+      - run: python scripts/verify_qary_three_level_middle_first_ternary_descendant_symmetric.py
+      - run: python scripts/audit_qary_three_level_middle_first_ternary_descendant_symmetric.py
       - run: pytest -q tests/test_robust_provenance.py
       - run: pytest -q tests/test_corruption_resilient_features.py
