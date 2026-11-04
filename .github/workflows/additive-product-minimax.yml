@@ -96,6 +96,8 @@ on:
       - "scripts/audit_qary_three_level_middle_first_ternary_root_leaf_symmetric.py"
       - "scripts/verify_qary_ternary_single_word_obstruction.py"
       - "scripts/audit_qary_ternary_single_word_obstruction.py"
+      - "scripts/verify_qary_ternary_obstruction_certificate.py"
+      - "scripts/audit_qary_ternary_obstruction_certificate.py"
       - "docs/COUPLED_ADDITIVE_MINIMAX_*.md"
       - "docs/TWO_VERTEX_ADDITIVE_ENVELOPE_*.md"
       - "docs/THREE_VERTEX_ADDITIVE_ARRANGEMENT_*.md"
@@ -145,6 +147,8 @@ on:
       - "results/qary_three_level_middle_first_ternary_descendant_symmetric/*.json"
       - "results/qary_three_level_middle_first_ternary_root_leaf_symmetric/*.json"
       - "results/qary_ternary_single_word_obstruction/*.json"
+      - "results/qary_ternary_obstruction_certificate/*.json"
+      - "results/qary_ternary_obstruction_certificate/*.json.gz"
       - ".github/workflows/additive-product-minimax.yml"
 
 jobs:
@@ -242,5 +246,7 @@ jobs:
       - run: python scripts/audit_qary_three_level_middle_first_ternary_root_leaf_symmetric.py
       - run: python scripts/verify_qary_ternary_single_word_obstruction.py
       - run: python scripts/audit_qary_ternary_single_word_obstruction.py
+      - run: python scripts/verify_qary_ternary_obstruction_certificate.py
+      - run: python scripts/audit_qary_ternary_obstruction_certificate.py
       - run: pytest -q tests/test_robust_provenance.py
       - run: pytest -q tests/test_corruption_resilient_features.py
