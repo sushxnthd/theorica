@@ -1,0 +1,1186 @@
+{
+  "calibration_closed": true,
+  "predictions": [
+    {
+      "exposures": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          3
+        ],
+        [
+          2,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "level_costs": [
+        2,
+        9,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "pair_index": 1,
+      "predicted_cost": 52,
+      "source_costs": [
+        1,
+        1,
+        1
+      ],
+      "source_role": "discovery_policy"
+    },
+    {
+      "exposures": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          3
+        ],
+        [
+          2,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "level_costs": [
+        2,
+        9,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "pair_index": 2,
+      "predicted_cost": 52,
+      "source_costs": [
+        1,
+        1,
+        1
+      ],
+      "source_role": "discovery_policy"
+    },
+    {
+      "exposures": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          3
+        ],
+        [
+          2,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "level_costs": [
+        3,
+        10,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "pair_index": 0,
+      "predicted_cost": 59,
+      "source_costs": [
+        1,
+        1,
+        1
+      ],
+      "source_role": "discovery_policy"
+    },
+    {
+      "exposures": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          3
+        ],
+        [
+          2,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "level_costs": [
+        3,
+        10,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "pair_index": 1,
+      "predicted_cost": 59,
+      "source_costs": [
+        1,
+        1,
+        1
+      ],
+      "source_role": "discovery_policy"
+    },
+    {
+      "exposures": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          3
+        ],
+        [
+          2,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "level_costs": [
+        3,
+        10,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "pair_index": 2,
+      "predicted_cost": 59,
+      "source_costs": [
+        1,
+        1,
+        1
+      ],
+      "source_role": "discovery_policy"
+    },
+    {
+      "exposures": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          3
+        ],
+        [
+          2,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "level_costs": [
+        4,
+        11,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "pair_index": 0,
+      "predicted_cost": 65,
+      "source_costs": [
+        1,
+        1,
+        1
+      ],
+      "source_role": "discovery_policy"
+    },
+    {
+      "exposures": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          3
+        ],
+        [
+          2,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "level_costs": [
+        4,
+        11,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "pair_index": 1,
+      "predicted_cost": 65,
+      "source_costs": [
+        1,
+        1,
+        1
+      ],
+      "source_role": "discovery_policy"
+    },
+    {
+      "exposures": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          3
+        ],
+        [
+          2,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "level_costs": [
+        4,
+        11,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "pair_index": 2,
+      "predicted_cost": 65,
+      "source_costs": [
+        1,
+        1,
+        1
+      ],
+      "source_role": "discovery_policy"
+    },
+    {
+      "exposures": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          3
+        ],
+        [
+          2,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "level_costs": [
+        5,
+        13,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "pair_index": 0,
+      "predicted_cost": 79,
+      "source_costs": [
+        1,
+        1,
+        1
+      ],
+      "source_role": "discovery_policy"
+    },
+    {
+      "exposures": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          3
+        ],
+        [
+          2,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "level_costs": [
+        5,
+        13,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "pair_index": 1,
+      "predicted_cost": 79,
+      "source_costs": [
+        1,
+        1,
+        1
+      ],
+      "source_role": "discovery_policy"
+    },
+    {
+      "exposures": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          3
+        ],
+        [
+          2,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "level_costs": [
+        5,
+        13,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "pair_index": 2,
+      "predicted_cost": 79,
+      "source_costs": [
+        1,
+        1,
+        1
+      ],
+      "source_role": "discovery_policy"
+    },
+    {
+      "exposures": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          3
+        ],
+        [
+          2,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "level_costs": [
+        7,
+        19,
+        5
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "pair_index": 0,
+      "predicted_cost": 114,
+      "source_costs": [
+        1,
+        1,
+        1
+      ],
+      "source_role": "discovery_policy"
+    },
+    {
+      "exposures": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          3
+        ],
+        [
+          2,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "level_costs": [
+        7,
+        19,
+        5
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "pair_index": 1,
+      "predicted_cost": 114,
+      "source_costs": [
+        1,
+        1,
+        1
+      ],
+      "source_role": "discovery_policy"
+    },
+    {
+      "exposures": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          3
+        ],
+        [
+          2,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "level_costs": [
+        7,
+        19,
+        5
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "pair_index": 2,
+      "predicted_cost": 114,
+      "source_costs": [
+        1,
+        1,
+        1
+      ],
+      "source_role": "discovery_policy"
+    },
+    {
+      "exposures": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          3
+        ],
+        [
+          2,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "level_costs": [
+        11,
+        29,
+        7
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "pair_index": 0,
+      "predicted_cost": 174,
+      "source_costs": [
+        1,
+        1,
+        1
+      ],
+      "source_role": "discovery_policy"
+    },
+    {
+      "exposures": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          3
+        ],
+        [
+          2,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "level_costs": [
+        11,
+        29,
+        7
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "pair_index": 1,
+      "predicted_cost": 174,
+      "source_costs": [
+        1,
+        1,
+        1
+      ],
+      "source_role": "discovery_policy"
+    },
+    {
+      "exposures": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          3
+        ],
+        [
+          2,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "level_costs": [
+        11,
+        29,
+        7
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "pair_index": 2,
+      "predicted_cost": 174,
+      "source_costs": [
+        1,
+        1,
+        1
+      ],
+      "source_role": "discovery_policy"
+    },
+    {
+      "exposures": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          3
+        ],
+        [
+          2,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "level_costs": [
+        13,
+        34,
+        9
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "pair_index": 0,
+      "predicted_cost": 205,
+      "source_costs": [
+        1,
+        1,
+        1
+      ],
+      "source_role": "discovery_policy"
+    },
+    {
+      "exposures": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          3
+        ],
+        [
+          2,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "level_costs": [
+        13,
+        34,
+        9
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "pair_index": 1,
+      "predicted_cost": 205,
+      "source_costs": [
+        1,
+        1,
+        1
+      ],
+      "source_role": "discovery_policy"
+    },
+    {
+      "exposures": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          4,
+          3
+        ],
+        [
+          2,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "level_costs": [
+        13,
+        34,
+        9
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "pair_index": 2,
+      "predicted_cost": 205,
+      "source_costs": [
+        1,
+        1,
+        1
+      ],
+      "source_role": "discovery_policy"
+    }
+  ],
+  "schema": "theorica.ternary-obstruction-column-predictions/1"
+}
