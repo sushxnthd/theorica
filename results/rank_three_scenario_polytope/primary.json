@@ -1,0 +1,59 @@
+{
+  "checks": {
+    "coordinate_extrema_falsified": true,
+    "holdout_shapes": true,
+    "holdouts_exact": true,
+    "opened_exact": true,
+    "opened_mixed_and_pure": true,
+    "over_cap_rejected": true,
+    "rank_four_rejected": true,
+    "scaling_certificate": true
+  },
+  "falsification": {
+    "coordinate_extrema_actual": "29/37",
+    "coordinate_extrema_heuristic": "67/38",
+    "over_cap_attacks": 20,
+    "over_cap_rejections": 20,
+    "rank_four_attacks": 50,
+    "rank_four_rejections": 50
+  },
+  "holdouts": {
+    "ambient_sizes": [
+      9,
+      12,
+      16,
+      20,
+      24
+    ],
+    "cases": 25,
+    "digest": "a34e3b69739649d44225a88914e6275bbd5cacb9ac6b4dc97f81434c48d39379",
+    "max_support": 3,
+    "strict": 20,
+    "vertex_counts": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  "opened": {
+    "cases": 80,
+    "digest": "b79c520609c50d59450236e3a9f17a3fb0ed20538b69d93eef960cce48453c96",
+    "max_support": 3,
+    "strict": 60
+  },
+  "passed": true,
+  "scaling": {
+    "actions_per_component": 2,
+    "ambient_scenarios": 24,
+    "components": 20,
+    "expanded_actions": 1048576,
+    "polytope_vertices": 8,
+    "support": 1,
+    "valid": true,
+    "value": "0"
+  },
+  "schema": "rank-three-scenario-polytope-v1",
+  "seed": 20261026
+}

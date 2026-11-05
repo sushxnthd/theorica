@@ -1,0 +1,35 @@
+{
+  "checks": {
+    "dense_interventions": true,
+    "holdouts_exact": true,
+    "opened_exact": true,
+    "rank_four_rejected": true,
+    "tight_bound": true
+  },
+  "dense_interventions": {
+    "cases": 40,
+    "digest": "dc93dde2bbf23cfe3bdd5bc3ae7d77c0520811a97536ef5a11294dee2b2dc558",
+    "max_support": 4
+  },
+  "holdouts": {
+    "cases": 30,
+    "digest": "38913570f7d7b60a54acd06e822daa392bdb15ff6e52892c95803bb5ad145f47",
+    "max_support": 2
+  },
+  "opened": {
+    "cases": 80,
+    "digest": "46001bee6d4afdde8c35d8801cbfb33346012d426c67cf31bcbc676968d6a12f",
+    "max_support": 2
+  },
+  "passed": true,
+  "rank_four_attacks": 40,
+  "rank_four_rejections": 40,
+  "schema": "rank-three-nature-support-v1",
+  "seed": 20261027,
+  "tightness": {
+    "passed": true,
+    "support": 4,
+    "uniform": true,
+    "value": "1/4"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "case_total": 6,
+  "cases_reproduced": 6,
+  "passed": true,
+  "production_imports": 0,
+  "replays": [
+    {
+      "active_faces": [
+        [
+          2,
+          2,
+          4
+        ]
+      ],
+      "independent_exact_cost": 164,
+      "level_costs": [
+        1,
+        1,
+        40
+      ],
+      "matched": true,
+      "production_exact_cost": 164,
+      "six_face_cost": 164
+    },
+    {
+      "active_faces": [
+        [
+          2,
+          3,
+          3
+        ]
+      ],
+      "independent_exact_cost": 185,
+      "level_costs": [
+        1,
+        40,
+        21
+      ],
+      "matched": true,
+      "production_exact_cost": 185,
+      "six_face_cost": 185
+    },
+    {
+      "active_faces": [
+        [
+          2,
+          4,
+          1
+        ]
+      ],
+      "independent_exact_cost": 163,
+      "level_costs": [
+        1,
+        40,
+        1
+      ],
+      "matched": true,
+      "production_exact_cost": 163,
+      "six_face_cost": 163
+    },
+    {
+      "active_faces": [
+        [
+          3,
+          2,
+          3
+        ]
+      ],
+      "independent_exact_cost": 182,
+      "level_costs": [
+        40,
+        1,
+        20
+      ],
+      "matched": true,
+      "production_exact_cost": 182,
+      "six_face_cost": 182
+    },
+    {
+      "active_faces": [
+        [
+          3,
+          3,
+          1
+        ]
+      ],
+      "independent_exact_cost": 184,
+      "level_costs": [
+        40,
+        21,
+        1
+      ],
+      "matched": true,
+      "production_exact_cost": 184,
+      "six_face_cost": 184
+    },
+    {
+      "active_faces": [
+        [
+          4,
+          1,
+          1
+        ]
+      ],
+      "independent_exact_cost": 162,
+      "level_costs": [
+        40,
+        1,
+        1
+      ],
+      "matched": true,
+      "production_exact_cost": 162,
+      "six_face_cost": 162
+    }
+  ],
+  "schema": "theorica.qary-three-level-face-coverage-audit/1"
+}

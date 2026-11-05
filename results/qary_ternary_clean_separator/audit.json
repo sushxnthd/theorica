@@ -1,0 +1,8 @@
+{
+  "clean_separator_cells_valid": true,
+  "exact_bounds_agree": true,
+  "independent_formula_value": 30,
+  "passed": true,
+  "schema": "theorica.ternary-clean-separator-audit/1",
+  "sealed_count_valid": true
+}

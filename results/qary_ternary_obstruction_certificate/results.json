@@ -1,0 +1,161 @@
+{
+  "certificate_file_sha256": "9b4e860666419ec5e4504073af95337518f00295a942e96877375a9ea5f427b6",
+  "controls": [
+    {
+      "budget_17_infeasible": true,
+      "budget_18_feasible": true,
+      "certificate_edges": 18351,
+      "certificate_max_depth": 12,
+      "certificate_nodes": 6501,
+      "initial_adversarial_responses": [
+        {
+          "group": 1,
+          "observed": 0,
+          "prefix": [
+            0
+          ],
+          "response_kind": "observed"
+        },
+        {
+          "group": 2,
+          "observed": 0,
+          "prefix": [
+            1
+          ],
+          "response_kind": "observed"
+        },
+        {
+          "group": 3,
+          "observed": 0,
+          "prefix": [
+            2
+          ],
+          "response_kind": "observed"
+        }
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "root_hash": "a1263ddb4af6f150d1b5dad9ca72633b9134ff801b650dfa79068bfc04dcfee4",
+      "search_states": 12548,
+      "singleton_deletions_budget_17_feasible": [
+        true,
+        true
+      ]
+    },
+    {
+      "budget_17_infeasible": true,
+      "budget_18_feasible": true,
+      "certificate_edges": 18351,
+      "certificate_max_depth": 12,
+      "certificate_nodes": 6501,
+      "initial_adversarial_responses": [
+        {
+          "group": 1,
+          "observed": 0,
+          "prefix": [
+            0
+          ],
+          "response_kind": "observed"
+        },
+        {
+          "group": 2,
+          "observed": 0,
+          "prefix": [
+            1
+          ],
+          "response_kind": "observed"
+        },
+        {
+          "group": 3,
+          "observed": 0,
+          "prefix": [
+            2
+          ],
+          "response_kind": "observed"
+        }
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "root_hash": "a1263ddb4af6f150d1b5dad9ca72633b9134ff801b650dfa79068bfc04dcfee4",
+      "search_states": 12548,
+      "singleton_deletions_budget_17_feasible": [
+        true,
+        true
+      ]
+    },
+    {
+      "budget_17_infeasible": true,
+      "budget_18_feasible": true,
+      "certificate_edges": 18338,
+      "certificate_max_depth": 12,
+      "certificate_nodes": 6498,
+      "initial_adversarial_responses": [
+        {
+          "group": 1,
+          "observed": 0,
+          "prefix": [
+            0
+          ],
+          "response_kind": "observed"
+        },
+        {
+          "group": 2,
+          "observed": 0,
+          "prefix": [
+            1
+          ],
+          "response_kind": "observed"
+        },
+        {
+          "group": 3,
+          "observed": 0,
+          "prefix": [
+            2
+          ],
+          "response_kind": "observed"
+        }
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "root_hash": "96fcab7a2c56055ed3b68affbbe2d1608ecfdd28938b5d95dde02fa3ede92dff",
+      "search_states": 12678,
+      "singleton_deletions_budget_17_feasible": [
+        true,
+        true
+      ]
+    }
+  ],
+  "passed": true,
+  "schema": "theorica.ternary-obstruction-certificate-result/1",
+  "shared_certificate_nodes": 9932
+}

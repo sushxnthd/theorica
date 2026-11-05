@@ -1,0 +1,12 @@
+{
+  "digest": "aca231815c4c04530f8fa5334a5f7f4b782bff9e26307dc068a9115d48b838d2",
+  "digest_matches": true,
+  "lower_bounds_passed": 90,
+  "lower_bounds_total": 90,
+  "passed": true,
+  "polynomial_witnesses_passed": 8,
+  "polynomial_witnesses_total": 8,
+  "production_imports": false,
+  "reconstructions_passed": 200,
+  "reconstructions_total": 200
+}

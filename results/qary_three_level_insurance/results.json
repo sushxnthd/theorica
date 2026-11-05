@@ -1,0 +1,287 @@
+{
+  "cases": [
+    {
+      "active_faces": [
+        "root_bypass",
+        "middle_insurance"
+      ],
+      "adversary_lower_bounds": [
+        32,
+        24,
+        29,
+        32,
+        23,
+        26,
+        13
+      ],
+      "arity": 2,
+      "certificate_valid": true,
+      "completions": 8,
+      "exact_cost": 32,
+      "exact_depth": 8,
+      "fixed_leaf_schedule_lower_bound": 32,
+      "formula_cost": 32,
+      "formula_matched": true,
+      "level_costs": [
+        1,
+        7,
+        2
+      ],
+      "query_instances": 28,
+      "states_solved": 9843
+    },
+    {
+      "active_faces": [
+        "root_faults_hidden"
+      ],
+      "adversary_lower_bounds": [
+        10,
+        22,
+        23,
+        23,
+        28,
+        28,
+        31
+      ],
+      "arity": 2,
+      "certificate_valid": true,
+      "completions": 8,
+      "exact_cost": 31,
+      "exact_depth": 8,
+      "fixed_leaf_schedule_lower_bound": 16,
+      "formula_cost": 31,
+      "formula_matched": true,
+      "level_costs": [
+        7,
+        2,
+        1
+      ],
+      "query_instances": 28,
+      "states_solved": 24046
+    },
+    {
+      "active_faces": [
+        "leaf_faults_hidden"
+      ],
+      "adversary_lower_bounds": [
+        18,
+        34,
+        28,
+        15,
+        29,
+        16,
+        16
+      ],
+      "arity": 2,
+      "certificate_valid": true,
+      "completions": 8,
+      "exact_cost": 34,
+      "exact_depth": 8,
+      "fixed_leaf_schedule_lower_bound": 112,
+      "formula_cost": 34,
+      "formula_matched": true,
+      "level_costs": [
+        2,
+        1,
+        7
+      ],
+      "query_instances": 28,
+      "states_solved": 4224
+    },
+    {
+      "active_faces": [
+        "middle_insurance"
+      ],
+      "adversary_lower_bounds": [
+        28,
+        26,
+        30,
+        32,
+        27,
+        29,
+        20
+      ],
+      "arity": 2,
+      "certificate_valid": true,
+      "completions": 8,
+      "exact_cost": 32,
+      "exact_depth": 8,
+      "fixed_leaf_schedule_lower_bound": 32,
+      "formula_cost": 32,
+      "formula_matched": true,
+      "level_costs": [
+        3,
+        6,
+        2
+      ],
+      "query_instances": 28,
+      "states_solved": 8590
+    },
+    {
+      "active_faces": [
+        "early_partial_exposure"
+      ],
+      "adversary_lower_bounds": [
+        16,
+        26,
+        27,
+        26,
+        30,
+        29,
+        29
+      ],
+      "arity": 2,
+      "certificate_valid": true,
+      "completions": 8,
+      "exact_cost": 30,
+      "exact_depth": 8,
+      "fixed_leaf_schedule_lower_bound": 32,
+      "formula_cost": 30,
+      "formula_matched": true,
+      "level_costs": [
+        6,
+        3,
+        2
+      ],
+      "query_instances": 28,
+      "states_solved": 5782
+    },
+    {
+      "active_faces": [
+        "leaf_faults_hidden"
+      ],
+      "adversary_lower_bounds": [
+        26,
+        32,
+        31,
+        25,
+        29,
+        23,
+        17
+      ],
+      "arity": 2,
+      "certificate_valid": true,
+      "completions": 8,
+      "exact_cost": 32,
+      "exact_depth": 8,
+      "fixed_leaf_schedule_lower_bound": 80,
+      "formula_cost": 32,
+      "formula_matched": true,
+      "level_costs": [
+        2,
+        4,
+        5
+      ],
+      "query_instances": 28,
+      "states_solved": 4830
+    },
+    {
+      "active_faces": [
+        "leaf_faults_hidden",
+        "late_partial_exposure",
+        "early_partial_exposure"
+      ],
+      "adversary_lower_bounds": [
+        12,
+        16,
+        16,
+        14,
+        16,
+        14,
+        12
+      ],
+      "arity": 3,
+      "certificate_valid": true,
+      "completions": 27,
+      "exact_cost": 16,
+      "exact_depth": 8,
+      "fixed_leaf_schedule_lower_bound": 72,
+      "formula_cost": 16,
+      "formula_matched": true,
+      "level_costs": [
+        2,
+        2,
+        2
+      ],
+      "query_instances": 52,
+      "states_solved": 71855
+    },
+    {
+      "active_faces": [
+        "leaf_faults_hidden"
+      ],
+      "adversary_lower_bounds": [
+        14,
+        18,
+        17,
+        13,
+        16,
+        12,
+        9
+      ],
+      "arity": 3,
+      "certificate_valid": true,
+      "completions": 27,
+      "exact_cost": 18,
+      "exact_depth": 8,
+      "fixed_leaf_schedule_lower_bound": 108,
+      "formula_cost": 18,
+      "formula_matched": true,
+      "level_costs": [
+        1,
+        2,
+        3
+      ],
+      "query_instances": 52,
+      "states_solved": 53704
+    }
+  ],
+  "claim": "C_q(a,b,c)=max(4b+2c,2a+2b+4c,2a+3b+3c,2a+4b+c,3a+2b+3c,3a+3b+c,4a+b+c)",
+  "missing_copy_attack": {
+    "abstained": true,
+    "arity": 2,
+    "exact_cost": null,
+    "level_costs": [
+      2,
+      1,
+      7
+    ],
+    "reason": "available_queries_cannot_identify_a_decision_under_weighted_mixed_faults",
+    "remaining_query_instances": 27
+  },
+  "pre_freeze_timeouts": [
+    [
+      3,
+      1,
+      5,
+      1
+    ],
+    [
+      3,
+      5,
+      1,
+      1
+    ]
+  ],
+  "schema": "theorica.qary-three-level-insurance/1",
+  "summary": {
+    "active_faces_observed": [
+      "early_partial_exposure",
+      "late_partial_exposure",
+      "leaf_faults_hidden",
+      "middle_insurance",
+      "root_bypass",
+      "root_faults_hidden"
+    ],
+    "arities_observed": [
+      2,
+      3
+    ],
+    "case_digest": "5916ad543396eb67d6a92ecd4508f6a41b831fab4dd41b108c8f56bbd00cb010",
+    "case_total": 8,
+    "cases_completed": 8,
+    "formula_matches": 8,
+    "missing_copy_abstained": true,
+    "passed": true
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "exhaustive_digest_reproduced": true,
+    "exponential_scaling_witness": true,
+    "fail_closed_gates_recorded": true,
+    "primary_digest_recomputed": true,
+    "prospective_holdouts_exact": true,
+    "reported_status_consistent": true
+  },
+  "exhaustive_cases": 6561,
+  "exhaustive_strict_cases": 1324,
+  "holdout_cases": 32,
+  "protocol": "theorica.two-vertex-additive-envelope.audit.v1",
+  "status": "pass"
+}

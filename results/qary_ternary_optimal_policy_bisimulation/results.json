@@ -1,0 +1,250 @@
+{
+  "comparisons": [
+    {
+      "P0_root_sha256": "2e1212dadc64e47553d9ae1b57b665ac0d8aa82234f78a2792a62c62b90318b7",
+      "P2_root_sha256": "a065525d3e377e77cf03a9698e44f4f2dba9c7d21bd575625e2deaee1034b237",
+      "equal": false,
+      "first_difference": {
+        "P0": 29,
+        "P2": 27,
+        "path": "root.optimal_actions[0].erasure_child.optimal_actions[0].ordinary_children[2].value"
+      },
+      "name": "unrestricted"
+    },
+    {
+      "P0_root_sha256": "85a35bbf2c4d0be11af2c1632b007f957e71b3a9c4f7779d40d333b7d7c3049e",
+      "P2_root_sha256": "9985e5e4de5df106538eb08b14d85b0a8aac4ecb0f502c67ab74d98b8370a54d",
+      "equal": false,
+      "first_difference": {
+        "P0": 29,
+        "P2": 27,
+        "path": "root.optimal_actions[0].erasure_child.optimal_actions[0].ordinary_children[2].value"
+      },
+      "name": "middle_1"
+    },
+    {
+      "P0_root_sha256": "85a35bbf2c4d0be11af2c1632b007f957e71b3a9c4f7779d40d333b7d7c3049e",
+      "P2_root_sha256": "9985e5e4de5df106538eb08b14d85b0a8aac4ecb0f502c67ab74d98b8370a54d",
+      "equal": false,
+      "first_difference": {
+        "P0": 29,
+        "P2": 27,
+        "path": "root.optimal_actions[0].erasure_child.optimal_actions[0].ordinary_children[2].value"
+      },
+      "name": "middle_2"
+    },
+    {
+      "P0_root_sha256": "f4df2c9a7aca465f03f90c0e46350105c11b81b5db75f6e90ede215b7fb73e4f",
+      "P2_root_sha256": "a8b06f41dd78ba28da051a243c49697ef250767e08c8cde6268ce1e4af00c6db",
+      "equal": false,
+      "first_difference": {
+        "P0": [
+          1,
+          9
+        ],
+        "P2": [
+          1,
+          1,
+          8
+        ],
+        "path": "root.optimal_actions[0].cell_sizes"
+      },
+      "name": "middle_3"
+    }
+  ],
+  "families": [
+    {
+      "bellman_audit": {
+        "evaluated_actions": 2392,
+        "minimum_omitted_gap": 1,
+        "omitted_finite_actions": 1163
+      },
+      "compatibility_states_solved": 313,
+      "label": "P0_isomorphic_orbit_representative",
+      "quotient_node_count": 70,
+      "roots": [
+        {
+          "exact_cost": 51,
+          "name": "unrestricted",
+          "optimal_root_action_count": 2,
+          "root_sha256": "2e1212dadc64e47553d9ae1b57b665ac0d8aa82234f78a2792a62c62b90318b7"
+        },
+        {
+          "exact_cost": 51,
+          "name": "middle_1",
+          "optimal_root_action_count": 1,
+          "root_sha256": "85a35bbf2c4d0be11af2c1632b007f957e71b3a9c4f7779d40d333b7d7c3049e"
+        },
+        {
+          "exact_cost": 51,
+          "name": "middle_2",
+          "optimal_root_action_count": 1,
+          "root_sha256": "85a35bbf2c4d0be11af2c1632b007f957e71b3a9c4f7779d40d333b7d7c3049e"
+        },
+        {
+          "exact_cost": 52,
+          "name": "middle_3",
+          "optimal_root_action_count": 1,
+          "root_sha256": "f4df2c9a7aca465f03f90c0e46350105c11b81b5db75f6e90ede215b7fb73e4f"
+        }
+      ],
+      "value_states_solved": 942101,
+      "words": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "bellman_audit": {
+        "evaluated_actions": 2260,
+        "minimum_omitted_gap": 1,
+        "omitted_finite_actions": 1160
+      },
+      "compatibility_states_solved": 349,
+      "label": "P2_WL_nonisomorphic",
+      "quotient_node_count": 67,
+      "roots": [
+        {
+          "exact_cost": 51,
+          "name": "unrestricted",
+          "optimal_root_action_count": 2,
+          "root_sha256": "a065525d3e377e77cf03a9698e44f4f2dba9c7d21bd575625e2deaee1034b237"
+        },
+        {
+          "exact_cost": 51,
+          "name": "middle_1",
+          "optimal_root_action_count": 1,
+          "root_sha256": "9985e5e4de5df106538eb08b14d85b0a8aac4ecb0f502c67ab74d98b8370a54d"
+        },
+        {
+          "exact_cost": 51,
+          "name": "middle_2",
+          "optimal_root_action_count": 1,
+          "root_sha256": "9985e5e4de5df106538eb08b14d85b0a8aac4ecb0f502c67ab74d98b8370a54d"
+        },
+        {
+          "exact_cost": 52,
+          "name": "middle_3",
+          "optimal_root_action_count": 1,
+          "root_sha256": "a8b06f41dd78ba28da051a243c49697ef250767e08c8cde6268ce1e4af00c6db"
+        }
+      ],
+      "value_states_solved": 943624,
+      "words": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ]
+    }
+  ],
+  "level_costs": [
+    2,
+    9,
+    3
+  ],
+  "opened_reserved_cases": 0,
+  "quotient_gzip_sha256": "110673a520dba933c47d3f52dd91b92be5ba43ed4dde38fd586d0ae84cefefe6",
+  "remaining_reserved_cases": 18,
+  "schema": "theorica.ternary-optimal-policy-bisimulation/1",
+  "summary": {
+    "classification": "set_valued_optimal_policy_separation",
+    "passed": true,
+    "prediction_supported": true,
+    "unequal_root_quotients": 4
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "protocol_seed": 202610242218,
+  "opened_cases": 160,
+  "opened_feature_ranks": [2, 3, 4],
+  "opened_scenario_counts": {"minimum": 9, "maximum": 48},
+  "holdout_seed_sequence": {"start": 1400009, "step": 10007, "count": 40},
+  "holdout_scenario_counts": [53, 79, 113, 167, 257],
+  "polynomial_witness_degrees": [2, 3],
+  "polynomial_witnesses_per_degree": 4,
+  "lower_bound_witnesses_per_rank": 30,
+  "certified_feature_ranks": [2, 3, 4]
+}

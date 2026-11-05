@@ -1,0 +1,58 @@
+{
+  "case_digest_reproduced": true,
+  "case_total": 12,
+  "cases_replayed": 12,
+  "passed": true,
+  "production_imports": 0,
+  "replays": [
+    {
+      "family": "two-class-repetition",
+      "passed": true
+    },
+    {
+      "family": "two-class-repetition",
+      "passed": true
+    },
+    {
+      "family": "two-class-repetition",
+      "passed": true
+    },
+    {
+      "family": "missing-copy-attack",
+      "passed": true
+    },
+    {
+      "family": "missing-copy-attack",
+      "passed": true
+    },
+    {
+      "family": "opened-prefix-tree",
+      "passed": true
+    },
+    {
+      "family": "opened-prefix-tree",
+      "passed": true
+    },
+    {
+      "family": "prospective-prefix-tree",
+      "passed": true
+    },
+    {
+      "family": "higher-order-policy-conflict",
+      "passed": true
+    },
+    {
+      "family": "higher-order-policy-conflict",
+      "passed": true
+    },
+    {
+      "family": "higher-order-policy-conflict",
+      "passed": true
+    },
+    {
+      "family": "higher-order-policy-conflict",
+      "passed": true
+    }
+  ],
+  "schema": "theorica.adaptive-decision-lies-audit/1"
+}

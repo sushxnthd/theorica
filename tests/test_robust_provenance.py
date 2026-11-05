@@ -1,28 +1,160 @@
+from dataclasses import replace
 from fractions import Fraction
 from itertools import combinations
 
 import pytest
 
 from theorica.agents.robust_provenance import (
+    compress_rank_three_nature_certificate,
     deterministic_strictly_dominated,
     deterministic_tv_frontier,
     divergence_agnostic_symmetry_value,
+    reconstruct_affine_scenario_payoffs,
+    reconstruct_feature_span_scenario_payoffs,
     robust_provenance_frontier,
-    sample_orbit_balanced_plan,
     sample_orbit_ambiguity_plan,
+    sample_orbit_balanced_plan,
     sample_orbit_mixture_plan,
     sample_robust_randomized_plan,
     sample_uniform_ambiguity_plan,
-    solve_two_by_two_robust_game,
     solve_two_action_robust_game,
+    solve_two_by_two_robust_game,
     solve_two_vertex_robust_game,
-    synthesize_orbit_balanced_plan,
+    synthesize_additive_product_plan,
+    synthesize_coupled_additive_plan,
+    synthesize_fixed_scenario_additive_plan,
+    synthesize_four_vertex_additive_plan,
     synthesize_orbit_ambiguity_plan,
+    synthesize_orbit_balanced_plan,
     synthesize_orbit_mixture_plan,
+    synthesize_rank_one_scenario_quotient_plan,
+    synthesize_rank_three_scenario_polytope_plan,
+    synthesize_rank_two_scenario_hull_plan,
     synthesize_robust_randomized_plan,
+    synthesize_three_vertex_additive_plan,
+    synthesize_two_vertex_additive_plan,
     synthesize_uniform_ambiguity_plan,
     unrank_uniform_k_subset,
 )
+
+
+def test_feature_span_reconstruction_uses_rank_not_width():
+    xs = tuple(Fraction(index, 5) for index in range(-4, 7))
+    features = tuple((1, x, x * x, x * x * x, 2 * x + 3 * x * x)
+                     for x in xs)
+    coefficients = (
+        ((2, -1, 3, 2, 0), (0, 4, -2, 1, 0)),
+        ((-3, 2, 1, -1, 0), (5, -2, 2, 3, 0)),
+    )
+    table = tuple(tuple(tuple(
+        sum((coefficient * feature for coefficient, feature
+             in zip(action, row)), Fraction(0))
+        for row in features
+    ) for action in component) for component in coefficients)
+    calls = []
+
+    def oracle(index):
+        calls.append(index)
+        return tuple(tuple(action[index] for action in component)
+                     for component in table)
+
+    result = reconstruct_feature_span_scenario_payoffs(
+        features,
+        oracle,
+        payoff_in_feature_span_certified=True,
+    )
+    assert result.certificate_valid
+    assert result.feature_width == 5
+    assert result.feature_rank == 4
+    assert result.query_count == 4
+    assert calls == list(result.query_indices)
+    assert result.component_payoff_vectors == table
+
+
+def test_feature_span_reconstruction_refuses_uncertified_before_query():
+    calls = []
+    with pytest.raises(ValueError, match="feature span"):
+        reconstruct_feature_span_scenario_payoffs(
+            ((1, 0), (1, 1)),
+            lambda index: calls.append(index),
+            payoff_in_feature_span_certified=False,
+        )
+    assert calls == []
+
+
+def test_feature_span_reconstruction_refuses_inconsistent_rows_before_query():
+    calls = []
+    with pytest.raises(ValueError, match="width"):
+        reconstruct_feature_span_scenario_payoffs(
+            ((1, 0), (1, 1, 2)),
+            lambda index: calls.append(index),
+            payoff_in_feature_span_certified=True,
+        )
+    assert calls == []
+
+
+def test_affine_scenario_reconstruction_queries_exact_basis_only():
+    coordinates = (
+        (0, 0, 0),
+        (1, 0, 0),
+        (0, 1, 0),
+        (0, 0, 1),
+        (2, -1, 3),
+        (-2, 4, 1),
+    )
+    coefficients = (
+        ((3, 2, -1, 4), (-2, 1, 5, -3)),
+        ((7, -4, 2, 1), (1, 3, 3, 3)),
+    )
+    table = tuple(
+        tuple(tuple(
+            action[0] + sum(slope * coordinate
+                            for slope, coordinate in zip(action[1:], point))
+            for point in coordinates
+        ) for action in component)
+        for component in coefficients
+    )
+    calls = []
+
+    def oracle(index):
+        calls.append(index)
+        return tuple(
+            tuple(action[index] for action in component)
+            for component in table
+        )
+
+    result = reconstruct_affine_scenario_payoffs(
+        coordinates,
+        oracle,
+        payoff_affine_certified=True,
+    )
+    assert result.certificate_valid
+    assert result.query_indices == (0, 1, 2, 3)
+    assert result.query_count == 4
+    assert calls == [0, 1, 2, 3]
+    assert result.component_payoff_vectors == table
+
+
+def test_affine_scenario_reconstruction_refuses_uncertified_before_query():
+    calls = []
+    with pytest.raises(ValueError, match="affine"):
+        reconstruct_affine_scenario_payoffs(
+            ((0,), (1,)),
+            lambda index: calls.append(index),
+            payoff_affine_certified=False,
+        )
+    assert calls == []
+
+
+def test_affine_scenario_reconstruction_refuses_nonspanning_before_query():
+    calls = []
+    with pytest.raises(ValueError, match="span"):
+        reconstruct_affine_scenario_payoffs(
+            ((0, 0), (1, 1), (2, 2)),
+            lambda index: calls.append(index),
+            payoff_affine_certified=True,
+        )
+    assert calls == []
 
 
 def test_exact_deterministic_tv_law():
@@ -318,6 +450,550 @@ def test_two_vertex_rejects_ragged_or_empty_games():
         solve_two_vertex_robust_game(())
     with pytest.raises(ValueError):
         solve_two_vertex_robust_game(((0, 1, 2),))
+
+
+def test_additive_product_value_strictness_and_sparse_coupling():
+    plan = synthesize_additive_product_plan(
+        (
+            ((0, 2), (2, 0)),
+            ((0, 3), (3, 0)),
+            ((1, 1), (0, 0)),
+        ),
+        payoff_additive_certified=True,
+        ambiguity_rectangular_certified=True,
+    )
+    assert plan.certificate_valid and plan.strict_randomization_advantage
+    assert plan.component_values == (1, Fraction(3, 2), 1)
+    assert plan.minimax_value == Fraction(7, 2)
+    assert plan.best_pure_value == 1
+    assert len(plan.joint_components) == 2
+    assert len(plan.joint_components) <= plan.support_bound == 3
+
+
+def test_additive_product_uses_sum_not_product_support():
+    plan = synthesize_additive_product_plan(
+        tuple((((0, 2), (2, 0))) for _ in range(4)),
+        payoff_additive_certified=True,
+        ambiguity_rectangular_certified=True,
+    )
+    assert plan.certificate_valid and plan.minimax_value == 4
+    assert len(plan.joint_components) == 2
+    assert plan.support_bound == 5
+    assert plan.expanded_action_count == plan.expanded_vertex_count == 16
+
+
+def test_additive_product_fails_closed_without_structure_certificates():
+    game = (((0, 1), (1, 0)),)
+    with pytest.raises(ValueError, match="additive"):
+        synthesize_additive_product_plan(
+            game, payoff_additive_certified=False, ambiguity_rectangular_certified=True,
+        )
+    with pytest.raises(ValueError, match="rectangular"):
+        synthesize_additive_product_plan(
+            game, payoff_additive_certified=True, ambiguity_rectangular_certified=False,
+        )
+
+
+
+def test_coupled_additive_exact_correction_and_zero_bonus_boundary():
+    crossing = ((0, 2), (2, 0))
+    strict = synthesize_coupled_additive_plan(
+        (crossing, crossing), ((0, 0),), payoff_additive_certified=True,
+    )
+    assert strict.certificate_valid
+    assert strict.rectangular_baseline_value == 2
+    assert strict.minimax_value == 4 and strict.coupling_bonus == 2
+    assert not strict.rectangular_value_survives
+    assert strict.zero_bonus_nature_witness == ()
+
+    equality = synthesize_coupled_additive_plan(
+        (crossing, crossing), ((0, 1), (1, 0)), payoff_additive_certified=True,
+    )
+    assert equality.certificate_valid
+    assert equality.minimax_value == equality.rectangular_baseline_value == 2
+    assert equality.rectangular_value_survives
+    assert equality.zero_bonus_nature_witness == (Fraction(1, 2), Fraction(1, 2))
+    assert len(equality.joint_components) <= equality.support_bound
+
+
+def test_coupled_additive_policy_is_executable_on_three_factors():
+    plan = synthesize_coupled_additive_plan(
+        (((0, 2), (2, 0)), ((0, 3), (3, 0)), ((1, 1), (0, 0))),
+        ((0, 0, 0), (1, 1, 1)), payoff_additive_certified=True,
+    )
+    assert plan.certificate_valid
+    assert sum(mass for _, mass in plan.joint_components) == 1
+    assert len(plan.joint_components) <= plan.support_bound
+    realized = tuple(
+        sum(mass * sum(plan.component_payoff_matrices[t][actions[t]][vertex[t]]
+                       for t in range(3))
+            for actions, mass in plan.joint_components)
+        for vertex in plan.ambiguity_vertices
+    )
+    assert min(realized) == plan.minimax_value
+
+
+def test_coupled_additive_fails_closed_without_certified_structure():
+    with pytest.raises(ValueError, match="additive"):
+        synthesize_coupled_additive_plan(
+            (((0, 1), (1, 0)),), ((0,),), payoff_additive_certified=False,
+        )
+    with pytest.raises(ValueError, match="unique"):
+        synthesize_coupled_additive_plan(
+            (((0, 1), (1, 0)),), ((0,), (0,)), payoff_additive_certified=True,
+        )
+    with pytest.raises(ValueError, match="outside"):
+        synthesize_coupled_additive_plan(
+            (((0, 1), (1, 0)),), ((2,),), payoff_additive_certified=True,
+        )
+
+
+def test_two_vertex_additive_envelope_detects_necessary_randomization():
+    plan = synthesize_two_vertex_additive_plan(
+        (((0, 2), (2, 0)), ((0, 3), (3, 0))),
+        payoff_additive_certified=True,
+    )
+    assert plan.certificate_valid
+    assert plan.minimax_value == Fraction(5, 2)
+    assert plan.nature_probability == Fraction(1, 2)
+    assert plan.strict_randomization_necessary
+    assert plan.pure_optimal_witness == ()
+    assert len(plan.joint_actions) == plan.support_bound == 2
+    assert plan.expanded_action_count == 4
+
+
+def test_two_vertex_additive_envelope_returns_pure_zero_delta_witness():
+    plan = synthesize_two_vertex_additive_plan(
+        (((0, 2), (2, 0)), ((0, 2), (2, 0))),
+        payoff_additive_certified=True,
+    )
+    assert plan.certificate_valid
+    assert plan.minimax_value == 2
+    assert not plan.strict_randomization_necessary
+    assert plan.pure_optimal_witness in ((0, 1), (1, 0))
+    assert plan.joint_actions == ((plan.pure_optimal_witness, Fraction(1)),)
+
+
+def test_two_vertex_additive_envelope_fails_closed():
+    with pytest.raises(ValueError, match="additive"):
+        synthesize_two_vertex_additive_plan(
+            (((0, 1),),), payoff_additive_certified=False,
+        )
+    with pytest.raises(ValueError, match="two scenario"):
+        synthesize_two_vertex_additive_plan(
+            (((0, 1, 2),),), payoff_additive_certified=True,
+        )
+    with pytest.raises(ValueError, match="state limit"):
+        synthesize_two_vertex_additive_plan(
+            (((0, 2), (2, 0)), ((0, 3), (3, 0))),
+            payoff_additive_certified=True, max_delta_states=1,
+        )
+
+
+def test_three_vertex_additive_arrangement_needs_three_way_randomization():
+    plan = synthesize_three_vertex_additive_plan(
+        (((2, 0, 0), (0, 2, 0), (0, 0, 2)),),
+        payoff_additive_certified=True,
+    )
+    assert plan.certificate_valid
+    assert plan.minimax_value == Fraction(2, 3)
+    assert plan.nature_probabilities == (Fraction(1, 3),) * 3
+    assert plan.strict_randomization_necessary
+    assert len(plan.joint_actions) == 3
+    assert tuple(mass for _, mass in plan.joint_actions) == (Fraction(1, 3),) * 3
+
+
+def test_three_vertex_additive_arrangement_detects_two_and_one_support():
+    two = synthesize_three_vertex_additive_plan(
+        (((2, 0, 1), (0, 2, 1)),), payoff_additive_certified=True,
+    )
+    assert two.certificate_valid and two.minimax_value == 1
+    assert len(two.joint_actions) == 2
+
+    pure = synthesize_three_vertex_additive_plan(
+        (((1, 1, 1), (3, 0, 0)), ((2, 2, 2), (0, 4, 0))),
+        payoff_additive_certified=True,
+    )
+    assert pure.certificate_valid and pure.minimax_value == 3
+    assert not pure.strict_randomization_necessary
+    assert len(pure.joint_actions) == 1
+
+
+def test_three_vertex_additive_arrangement_fails_closed():
+    with pytest.raises(ValueError, match="additive"):
+        synthesize_three_vertex_additive_plan(
+            (((0, 1, 2),),), payoff_additive_certified=False,
+        )
+    with pytest.raises(ValueError, match="three scenario"):
+        synthesize_three_vertex_additive_plan(
+            (((0, 1),),), payoff_additive_certified=True,
+        )
+    with pytest.raises(ValueError, match="joint-action limit"):
+        synthesize_three_vertex_additive_plan(
+            (((1, 0, 0), (0, 1, 0), (0, 0, 1)),) * 2,
+            payoff_additive_certified=True, max_active_joint_actions=1,
+        )
+
+
+def test_four_vertex_additive_arrangement_needs_four_way_randomization():
+    plan = synthesize_four_vertex_additive_plan(
+        (((4, 0, 0, 0), (0, 4, 0, 0), (0, 0, 4, 0), (0, 0, 0, 4)),),
+        payoff_additive_certified=True,
+    )
+    assert plan.certificate_valid
+    assert plan.minimax_value == 1
+    assert plan.nature_probabilities == (Fraction(1, 4),) * 4
+    assert plan.strict_randomization_necessary
+    assert len(plan.joint_actions) == 4
+    assert tuple(mass for _, mass in plan.joint_actions) == (Fraction(1, 4),) * 4
+
+
+def test_four_vertex_additive_arrangement_detects_pure_optimum():
+    plan = synthesize_four_vertex_additive_plan(
+        (((2, 2, 2, 2), (4, 0, 0, 0)),
+          ((1, 1, 1, 1), (0, 3, 0, 0))),
+        payoff_additive_certified=True,
+    )
+    assert plan.certificate_valid and plan.minimax_value == 3
+    assert not plan.strict_randomization_necessary
+    assert len(plan.joint_actions) == 1
+
+
+def test_four_vertex_additive_arrangement_fails_closed():
+    with pytest.raises(ValueError, match="additive"):
+        synthesize_four_vertex_additive_plan(
+            (((0, 1, 2, 3),),), payoff_additive_certified=False,
+        )
+    with pytest.raises(ValueError, match="four scenario"):
+        synthesize_four_vertex_additive_plan(
+            (((0, 1, 2),),), payoff_additive_certified=True,
+        )
+    with pytest.raises(ValueError, match="joint-action limit"):
+        synthesize_four_vertex_additive_plan(
+            (((1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1)),) * 2,
+            payoff_additive_certified=True, max_active_joint_actions=1,
+        )
+
+
+def test_fixed_scenario_arrangement_needs_five_way_randomization():
+    plan = synthesize_fixed_scenario_additive_plan(
+        (tuple(tuple(5 if i == j else 0 for i in range(5))
+               for j in range(5)),),
+        payoff_additive_certified=True,
+    )
+    assert plan.certificate_valid
+    assert plan.scenario_count == 5
+    assert plan.minimax_value == 1
+    assert plan.nature_probabilities == (Fraction(1, 5),) * 5
+    assert plan.strict_randomization_necessary
+    assert len(plan.joint_actions) == 5
+    assert tuple(mass for _, mass in plan.joint_actions) == (Fraction(1, 5),) * 5
+
+
+def test_fixed_scenario_matches_specialized_four_vertex_planner():
+    components = (
+        ((2, 2, 2, 2), (4, 0, 0, 0)),
+        ((1, 1, 1, 1), (0, 3, 0, 0)),
+    )
+    fixed = synthesize_fixed_scenario_additive_plan(
+        components, payoff_additive_certified=True,
+    )
+    specialized = synthesize_four_vertex_additive_plan(
+        components, payoff_additive_certified=True,
+    )
+    assert fixed.certificate_valid
+    assert fixed.minimax_value == specialized.minimax_value
+    assert fixed.nature_probabilities == specialized.nature_probabilities
+    assert fixed.strict_randomization_necessary == specialized.strict_randomization_necessary
+
+
+def test_fixed_scenario_arrangement_fails_closed():
+    with pytest.raises(ValueError, match="additive"):
+        synthesize_fixed_scenario_additive_plan(
+            (((0, 1),),), payoff_additive_certified=False,
+        )
+    with pytest.raises(ValueError, match="scenario count"):
+        synthesize_fixed_scenario_additive_plan(
+            (((0,),),), payoff_additive_certified=True,
+        )
+    with pytest.raises(ValueError, match="share one scenario count"):
+        synthesize_fixed_scenario_additive_plan(
+            (((0, 1), (0, 1, 2)),), payoff_additive_certified=True,
+        )
+    with pytest.raises(ValueError, match="boundary-combination limit"):
+        synthesize_fixed_scenario_additive_plan(
+            (((1, 0, 0, 0, 0), (0, 1, 0, 0, 0), (0, 0, 1, 0, 0)),),
+            payoff_additive_certified=True, max_boundary_combinations=1,
+        )
+    with pytest.raises(ValueError, match="marginal variable limit"):
+        synthesize_fixed_scenario_additive_plan(
+            (((1, 0, 0, 0, 0), (0, 1, 0, 0, 0), (0, 0, 1, 0, 0),
+              (0, 0, 0, 1, 0), (0, 0, 0, 0, 1)),) * 2,
+            payoff_additive_certified=True, max_marginal_variables=1,
+        )
+
+
+def test_fixed_scenario_marginal_recovery_defeats_tie_product_explosion():
+    basis = tuple(
+        tuple(5 if scenario == action else 0 for scenario in range(5))
+        for action in range(5)
+    )
+    plan = synthesize_fixed_scenario_additive_plan(
+        (basis,) * 15,
+        payoff_additive_certified=True,
+        max_active_joint_actions=1,
+    )
+    assert plan.certificate_valid
+    assert plan.minimax_value == 15
+    assert plan.nature_probabilities == (Fraction(1, 5),) * 5
+    assert plan.tied_joint_action_count == 5 ** 15
+    assert plan.marginal_variable_count == 75
+    assert plan.pure_payoff_state_count == 3876
+    assert len(plan.joint_actions) == 1
+    assert not plan.strict_randomization_necessary
+    assert plan.support_bound == 5
+    assert plan.reason == "fixed_scenario_additive_arrangement_marginal_certificate"
+
+
+def test_rank_one_scenario_quotient_removes_ambient_scenario_cap():
+    coordinates = tuple(range(-5, 7))
+    plan = synthesize_rank_one_scenario_quotient_plan(
+        (((tuple(2 + z for z in coordinates),
+           tuple(2 - z for z in coordinates))),),
+        payoff_additive_certified=True,
+    )
+    assert plan.scenario_count == 12
+    assert plan.effective_scenario_count == 2
+    assert plan.affine_dimension == 1
+    assert plan.endpoint_indices == (0, 11)
+    assert plan.minimax_value == 2
+    assert plan.strict_randomization_necessary
+    assert len(plan.joint_actions) == 2
+    assert plan.certificate_valid
+
+
+def test_rank_one_scenario_quotient_handles_constant_pure_game():
+    plan = synthesize_rank_one_scenario_quotient_plan(
+        (((3, 3, 3, 3), (1, 1, 1, 1)),),
+        payoff_additive_certified=True,
+    )
+    assert plan.affine_dimension == 0
+    assert plan.effective_scenario_count == 1
+    assert plan.minimax_value == 3
+    assert not plan.strict_randomization_necessary
+    assert plan.joint_actions == (((0,), Fraction(1)),)
+    assert plan.certificate_valid
+
+
+def test_rank_one_scenario_quotient_rejects_rank_two_profiles(monkeypatch):
+    calls = []
+
+    def forbidden_planner(*args, **kwargs):
+        calls.append((args, kwargs))
+        raise AssertionError("rank-two input reached the endpoint planner")
+
+    monkeypatch.setattr(
+        "theorica.agents.robust_provenance.synthesize_two_vertex_additive_plan",
+        forbidden_planner,
+    )
+    with pytest.raises(ValueError, match="affine dimension above one"):
+        synthesize_rank_one_scenario_quotient_plan(
+            (((0, 1, 0), (0, 0, 1)),),
+            payoff_additive_certified=True,
+        )
+    assert calls == []
+
+
+def test_rank_two_scenario_hull_removes_interior_scenarios():
+    coordinates = (
+        (Fraction(0), Fraction(0)),
+        (Fraction(1), Fraction(0)),
+        (Fraction(0), Fraction(1)),
+        (Fraction(1, 4), Fraction(1, 4)),
+        (Fraction(1, 3), Fraction(1, 3)),
+        (Fraction(1, 5), Fraction(2, 5)),
+        (Fraction(2, 5), Fraction(1, 5)),
+        (Fraction(1, 6), Fraction(1, 2)),
+        (Fraction(1, 2), Fraction(1, 6)),
+        (Fraction(1, 4), Fraction(1, 4)),
+        (Fraction(1, 8), Fraction(3, 8)),
+        (Fraction(3, 8), Fraction(1, 8)),
+    )
+    plan = synthesize_rank_two_scenario_hull_plan(
+        ((
+            tuple(1 - x - y for x, y in coordinates),
+            tuple(x for x, _ in coordinates),
+            tuple(y for _, y in coordinates),
+        ),),
+        payoff_additive_certified=True,
+    )
+    assert plan.affine_dimension == 2
+    assert plan.scenario_count == 12
+    assert plan.effective_scenario_count == 3
+    assert set(plan.extreme_indices) == {0, 1, 2}
+    assert plan.minimax_value == Fraction(1, 3)
+    assert plan.strict_randomization_necessary
+    assert len(plan.joint_actions) == 3
+    assert plan.certificate_valid
+
+
+def test_rank_two_scenario_hull_rejects_rank_three_before_planning(monkeypatch):
+    calls = []
+
+    def forbidden_planner(*args, **kwargs):
+        calls.append((args, kwargs))
+        raise AssertionError("invalid rank reached the fixed-scenario planner")
+
+    monkeypatch.setattr(
+        "theorica.agents.robust_provenance.synthesize_fixed_scenario_additive_plan",
+        forbidden_planner,
+    )
+    with pytest.raises(ValueError, match="affine dimension above two"):
+        synthesize_rank_two_scenario_hull_plan(
+            (((0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1)),),
+            payoff_additive_certified=True,
+        )
+    assert calls == []
+
+
+def test_rank_two_scenario_hull_rejects_more_than_eight_vertices(monkeypatch):
+    calls = []
+
+    def forbidden_planner(*args, **kwargs):
+        calls.append((args, kwargs))
+        raise AssertionError("over-cap hull reached the fixed-scenario planner")
+
+    monkeypatch.setattr(
+        "theorica.agents.robust_provenance.synthesize_fixed_scenario_additive_plan",
+        forbidden_planner,
+    )
+    x = tuple(range(-4, 5))
+    with pytest.raises(ValueError, match="hull exceeds"):
+        synthesize_rank_two_scenario_hull_plan(
+            ((x, tuple(value * value for value in x)),),
+            payoff_additive_certified=True,
+        )
+    assert calls == []
+
+
+def test_rank_three_scenario_polytope_removes_interior_scenarios():
+    coordinates = (
+        (Fraction(0), Fraction(0), Fraction(0)),
+        (Fraction(1), Fraction(0), Fraction(0)),
+        (Fraction(0), Fraction(1), Fraction(0)),
+        (Fraction(0), Fraction(0), Fraction(1)),
+        (Fraction(1, 4), Fraction(1, 4), Fraction(1, 4)),
+        (Fraction(1, 2), Fraction(1, 6), Fraction(1, 6)),
+        (Fraction(1, 6), Fraction(1, 2), Fraction(1, 6)),
+        (Fraction(1, 6), Fraction(1, 6), Fraction(1, 2)),
+    )
+    plan = synthesize_rank_three_scenario_polytope_plan(
+        ((
+            tuple(1 - x - y - z for x, y, z in coordinates),
+            tuple(x for x, _, _ in coordinates),
+            tuple(y for _, y, _ in coordinates),
+            tuple(z for _, _, z in coordinates),
+        ),),
+        payoff_additive_certified=True,
+    )
+    assert plan.affine_dimension == 3
+    assert plan.scenario_count == 8
+    assert plan.effective_scenario_count == 4
+    assert set(plan.extreme_indices) == {0, 1, 2, 3}
+    assert plan.minimax_value == Fraction(1, 4)
+    assert plan.strict_randomization_necessary
+    assert len(plan.joint_actions) == 4
+    assert sum(weight > 0 for weight in plan.nature_probabilities) == 4
+    assert plan.support_bound == 4
+    assert plan.certificate_valid
+
+
+def test_rank_three_nature_certificate_compresses_dense_optimal_intervention(
+    monkeypatch,
+):
+    coordinates = tuple(
+        (Fraction(x), Fraction(y), Fraction(z))
+        for x in (-1, 1) for y in (-1, 1) for z in (-1, 1)
+    )
+    actions = tuple(
+        tuple(sign * point[axis] for point in coordinates)
+        for axis in range(3) for sign in (-1, 1)
+    )
+    real_planner = synthesize_fixed_scenario_additive_plan
+
+    def dense_nature_planner(*args, **kwargs):
+        plan = real_planner(*args, **kwargs)
+        return replace(
+            plan,
+            nature_probabilities=(Fraction(1, 8),) * 8,
+        )
+
+    monkeypatch.setattr(
+        "theorica.agents.robust_provenance.synthesize_fixed_scenario_additive_plan",
+        dense_nature_planner,
+    )
+    plan = synthesize_rank_three_scenario_polytope_plan(
+        (actions,),
+        payoff_additive_certified=True,
+    )
+    assert plan.effective_scenario_count == 8
+    assert sum(weight > 0 for weight in plan.nature_probabilities) <= 4
+    assert plan.support_bound == 4
+    assert all(
+        sum(plan.nature_probabilities[index] * action[index]
+            for index in range(8)) == 0
+        for action in actions
+    )
+    assert plan.certificate_valid
+
+
+def test_rank_three_nature_certificate_rejects_invalid_distribution():
+    with pytest.raises(ValueError, match="probability distribution"):
+        compress_rank_three_nature_certificate(
+            ((0, 0, 0), (1, 0, 0), (0, 1, 0), (0, 0, 1)),
+            (Fraction(1, 2), Fraction(1, 2), Fraction(1, 2), Fraction(-1, 2)),
+        )
+
+
+def test_rank_three_scenario_polytope_rejects_rank_four_before_planning(monkeypatch):
+    calls = []
+
+    def forbidden_planner(*args, **kwargs):
+        calls.append((args, kwargs))
+        raise AssertionError("rank-four input reached the fixed-scenario planner")
+
+    monkeypatch.setattr(
+        "theorica.agents.robust_provenance.synthesize_fixed_scenario_additive_plan",
+        forbidden_planner,
+    )
+    with pytest.raises(ValueError, match="affine dimension above three"):
+        synthesize_rank_three_scenario_polytope_plan(
+            (((0, 1, 0, 0, 0), (0, 0, 1, 0, 0),
+              (0, 0, 0, 1, 0), (0, 0, 0, 0, 1)),),
+            payoff_additive_certified=True,
+        )
+    assert calls == []
+
+
+def test_rank_three_scenario_polytope_rejects_more_than_eight_vertices(monkeypatch):
+    calls = []
+
+    def forbidden_planner(*args, **kwargs):
+        calls.append((args, kwargs))
+        raise AssertionError("over-cap polytope reached the fixed-scenario planner")
+
+    monkeypatch.setattr(
+        "theorica.agents.robust_provenance.synthesize_fixed_scenario_additive_plan",
+        forbidden_planner,
+    )
+    x = tuple(Fraction(value) for value in range(-4, 5))
+    with pytest.raises(ValueError, match="polytope exceeds"):
+        synthesize_rank_three_scenario_polytope_plan(
+            ((x, tuple(value * value for value in x),
+              tuple(value * value * value for value in x)),),
+            payoff_additive_certified=True,
+        )
+    assert calls == []
 
 
 def test_orbit_quotient_uses_two_vertex_sparse_support_fast_path():

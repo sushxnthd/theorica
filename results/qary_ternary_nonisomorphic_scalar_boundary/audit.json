@@ -1,0 +1,88 @@
+{
+  "checks": [
+    {
+      "family": "P0_isomorphic_orbit_representative",
+      "feasible_at_exact": true,
+      "infeasible_one_below": true,
+      "initial_logical_query": null,
+      "passed": true,
+      "recorded_exact_cost": 51,
+      "states": 12816
+    },
+    {
+      "family": "P0_isomorphic_orbit_representative",
+      "feasible_at_exact": true,
+      "infeasible_one_below": true,
+      "initial_logical_query": 1,
+      "passed": true,
+      "recorded_exact_cost": 51,
+      "states": 10384
+    },
+    {
+      "family": "P0_isomorphic_orbit_representative",
+      "feasible_at_exact": true,
+      "infeasible_one_below": true,
+      "initial_logical_query": 2,
+      "passed": true,
+      "recorded_exact_cost": 51,
+      "states": 3433
+    },
+    {
+      "family": "P0_isomorphic_orbit_representative",
+      "feasible_at_exact": true,
+      "infeasible_one_below": true,
+      "initial_logical_query": 3,
+      "passed": true,
+      "recorded_exact_cost": 52,
+      "states": 4275
+    },
+    {
+      "family": "P2_WL_nonisomorphic",
+      "feasible_at_exact": true,
+      "infeasible_one_below": true,
+      "initial_logical_query": null,
+      "passed": true,
+      "recorded_exact_cost": 51,
+      "states": 12897
+    },
+    {
+      "family": "P2_WL_nonisomorphic",
+      "feasible_at_exact": true,
+      "infeasible_one_below": true,
+      "initial_logical_query": 1,
+      "passed": true,
+      "recorded_exact_cost": 51,
+      "states": 10460
+    },
+    {
+      "family": "P2_WL_nonisomorphic",
+      "feasible_at_exact": true,
+      "infeasible_one_below": true,
+      "initial_logical_query": 2,
+      "passed": true,
+      "recorded_exact_cost": 51,
+      "states": 3457
+    },
+    {
+      "family": "P2_WL_nonisomorphic",
+      "feasible_at_exact": true,
+      "infeasible_one_below": true,
+      "initial_logical_query": 3,
+      "passed": true,
+      "recorded_exact_cost": 52,
+      "states": 4282
+    }
+  ],
+  "schema": "theorica.ternary-nonisomorphic-scalar-boundary-audit/1",
+  "summary": {
+    "boundaries_checked": 8,
+    "boundaries_passed": 8,
+    "canonical_antichains_equal": true,
+    "independent_states": 62004,
+    "middle_root_profiles_equal": true,
+    "passed": true,
+    "scalar_costs_equal": true,
+    "source_sha256": "29c08cf3314db2288f280d9199aead0c963b533ece00515f7141670568907324",
+    "zero_theorica_imports": true
+  }
+}

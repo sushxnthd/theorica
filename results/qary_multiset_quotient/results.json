@@ -1,0 +1,49 @@
+{
+  "schema": "theorica.qary-multiset-quotient/1",
+  "claim_survived": false,
+  "implementation": {
+    "groups_by": [
+      "exact_outcome_row",
+      "integer_cost"
+    ],
+    "physical_index_assignment": "next_unused_original_index",
+    "known_feasible_upper_bound_supported": true
+  },
+  "opened_calibration": {
+    "arity": 2,
+    "depth": 4,
+    "level_costs": [1, 1, 1, 1],
+    "expected_cost": 10,
+    "exact_cost": 10,
+    "exact_depth": 10,
+    "states_solved": 969398,
+    "compatibility_states_solved": 1528,
+    "wall_seconds": 51.49,
+    "matched": true
+  },
+  "prospective_attempts": [
+    {
+      "level_costs": [20, 1, 1, 1],
+      "root_respecting_upper_bound": 83,
+      "status": "240_second_cap_exceeded"
+    },
+    {
+      "level_costs": [1, 20, 1, 1],
+      "root_respecting_upper_bound": 84,
+      "status": "not_opened_after_primary_falsifier"
+    },
+    {
+      "level_costs": [1, 1, 20, 1],
+      "root_respecting_upper_bound": 85,
+      "status": "not_opened_after_primary_falsifier"
+    },
+    {
+      "level_costs": [2, 7, 1, 3],
+      "root_respecting_upper_bound": 36,
+      "status": "exploratory_90_second_run_interrupted_without_result"
+    }
+  ],
+  "negative_result": "copy-permutation quotient is exact but insufficient to resolve a formerly timed-out unrestricted depth-four case",
+  "next_kernel": "ancestor-bypass dominance certificate",
+  "focused_tests_passed": 51
+}

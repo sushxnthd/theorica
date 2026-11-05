@@ -1,0 +1,12 @@
+{
+  "schema": "theorica.stacked-ambiguity-dual-audit/1",
+  "summary": {
+    "exact_case_total": 50,
+    "exact_primal_dual_replays": 50,
+    "passed": true,
+    "primary_digest_reproduced": true,
+    "production_imports": 0,
+    "prospective_six_action_sharp": 10,
+    "prospective_six_action_total": 10
+  }
+}
