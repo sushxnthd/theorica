@@ -98,6 +98,8 @@ on:
       - "scripts/audit_qary_ternary_single_word_obstruction.py"
       - "scripts/verify_qary_ternary_obstruction_certificate.py"
       - "scripts/audit_qary_ternary_obstruction_certificate.py"
+      - "scripts/verify_qary_ternary_canonical_policy_signature.py"
+      - "scripts/audit_qary_ternary_canonical_policy_signature.py"
       - "docs/COUPLED_ADDITIVE_MINIMAX_*.md"
       - "docs/TWO_VERTEX_ADDITIVE_ENVELOPE_*.md"
       - "docs/THREE_VERTEX_ADDITIVE_ARRANGEMENT_*.md"
@@ -149,6 +151,7 @@ on:
       - "results/qary_ternary_single_word_obstruction/*.json"
       - "results/qary_ternary_obstruction_certificate/*.json"
       - "results/qary_ternary_obstruction_certificate/*.json.gz"
+      - "results/qary_ternary_canonical_policy_signature/*"
       - ".github/workflows/additive-product-minimax.yml"
 
 jobs:
@@ -248,5 +251,7 @@ jobs:
       - run: python scripts/audit_qary_ternary_single_word_obstruction.py
       - run: python scripts/verify_qary_ternary_obstruction_certificate.py
       - run: python scripts/audit_qary_ternary_obstruction_certificate.py
+      - run: python scripts/verify_qary_ternary_canonical_policy_signature.py
+      - run: python scripts/audit_qary_ternary_canonical_policy_signature.py
       - run: pytest -q tests/test_robust_provenance.py
       - run: pytest -q tests/test_corruption_resilient_features.py
