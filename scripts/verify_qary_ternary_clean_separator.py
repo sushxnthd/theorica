@@ -65,7 +65,7 @@ def clean_separator(rows, state):
     return witnesses
 
 
-def exact_value(words, level_costs, start):
+def exact_value(words, level_costs, start, allowed_levels=None):
     rows = H.rows(words)
     costs = tuple(level_costs[H.level(i)] for i in range(len(rows)))
     alphabets = tuple(tuple(sorted(set(row))) for row in rows)
@@ -73,6 +73,11 @@ def exact_value(words, level_costs, start):
     compatibility = {}
     states = 0
     actions = 0
+    permitted_levels = (
+        frozenset((0, 1, 2))
+        if allowed_levels is None
+        else frozenset(allowed_levels)
+    )
 
     def live(counts):
         return tuple(i for i, count in enumerate(counts) if count <= 1)
@@ -95,7 +100,9 @@ def exact_value(words, level_costs, start):
         return tuple(
             query
             for query, copies in enumerate(remaining)
-            if copies and len({rows[query][i] for i in ids}) >= 2
+            if copies
+            and H.level(query) in permitted_levels
+            and len({rows[query][i] for i in ids}) >= 2
         )
 
     def transitions(state, query):
@@ -133,7 +140,8 @@ def exact_value(words, level_costs, start):
     root_actions = []
     for query in candidates(start):
         children = [(answer, value(child)) for answer, child in transitions(start, query)]
-        score = INF if not children else costs[query] + max(v for _, v in children)
+        worst_child = INF if not children else max(v for _, v in children)
+        score = INF if worst_child >= INF else costs[query] + worst_child
         root_actions.append(
             {
                 "query_group": query,
@@ -151,6 +159,7 @@ def exact_value(words, level_costs, start):
         "states_solved": states,
         "actions_evaluated": actions,
         "compatibility_states": len(compatibility),
+        "allowed_query_levels": sorted(permitted_levels),
     }
 
 
