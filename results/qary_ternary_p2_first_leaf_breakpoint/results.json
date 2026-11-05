@@ -1,0 +1,412 @@
+{
+  "constant_integer_chamber": {
+    "maximum_c": 7,
+    "minimum_c": 1,
+    "value": 33
+  },
+  "cumulative_opened_reserved_cases": 8,
+  "endpoints": [
+    {
+      "clean_group3_action": {
+        "action_value": 33,
+        "child_values": [
+          22,
+          22,
+          22
+        ],
+        "optimal": true,
+        "query_cost": 11,
+        "query_group": 3,
+        "query_level": 1
+      },
+      "clean_separators": [
+        {
+          "cells": [
+            {
+              "answer": 0,
+              "one_lie": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "zero_lie": []
+            },
+            {
+              "answer": 1,
+              "one_lie": [],
+              "zero_lie": [
+                8
+              ]
+            },
+            {
+              "answer": 2,
+              "one_lie": [],
+              "zero_lie": [
+                9
+              ]
+            }
+          ],
+          "query_group": 3
+        }
+      ],
+      "exact": {
+        "actions_evaluated": 3291,
+        "allowed_query_levels": [
+          0,
+          1,
+          2
+        ],
+        "compatibility_states": 115,
+        "constructive_upper_bound": 33,
+        "exact_lower_bound": 33,
+        "root_actions": [
+          {
+            "action_value": 37,
+            "child_values": [
+              22,
+              22,
+              33
+            ],
+            "optimal": false,
+            "query_cost": 4,
+            "query_group": 0,
+            "query_level": 0
+          },
+          {
+            "action_value": 44,
+            "child_values": [
+              33,
+              15
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 1,
+            "query_level": 1
+          },
+          {
+            "action_value": 44,
+            "child_values": [
+              33,
+              15
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 2,
+            "query_level": 1
+          },
+          {
+            "action_value": 33,
+            "child_values": [
+              22,
+              22,
+              22
+            ],
+            "optimal": true,
+            "query_cost": 11,
+            "query_group": 3,
+            "query_level": 1
+          },
+          {
+            "action_value": 40,
+            "child_values": [
+              33,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 7,
+            "query_group": 4,
+            "query_level": 2
+          },
+          {
+            "action_value": 40,
+            "child_values": [
+              33,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 7,
+            "query_group": 5,
+            "query_level": 2
+          },
+          {
+            "action_value": 40,
+            "child_values": [
+              33,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 7,
+            "query_group": 7,
+            "query_level": 2
+          },
+          {
+            "action_value": 40,
+            "child_values": [
+              33,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 7,
+            "query_group": 8,
+            "query_level": 2
+          }
+        ],
+        "states_solved": 4537
+      },
+      "leaf_cost": 7,
+      "level_costs": [
+        4,
+        11,
+        7
+      ],
+      "predicted_clean_children": [
+        22,
+        22,
+        22
+      ],
+      "predicted_value": 33,
+      "prediction_supported": true
+    },
+    {
+      "clean_group3_action": {
+        "action_value": 34,
+        "child_values": [
+          23,
+          22,
+          22
+        ],
+        "optimal": true,
+        "query_cost": 11,
+        "query_group": 3,
+        "query_level": 1
+      },
+      "clean_separators": [
+        {
+          "cells": [
+            {
+              "answer": 0,
+              "one_lie": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "zero_lie": []
+            },
+            {
+              "answer": 1,
+              "one_lie": [],
+              "zero_lie": [
+                8
+              ]
+            },
+            {
+              "answer": 2,
+              "one_lie": [],
+              "zero_lie": [
+                9
+              ]
+            }
+          ],
+          "query_group": 3
+        }
+      ],
+      "exact": {
+        "actions_evaluated": 3291,
+        "allowed_query_levels": [
+          0,
+          1,
+          2
+        ],
+        "compatibility_states": 115,
+        "constructive_upper_bound": 34,
+        "exact_lower_bound": 34,
+        "root_actions": [
+          {
+            "action_value": 37,
+            "child_values": [
+              23,
+              23,
+              33
+            ],
+            "optimal": false,
+            "query_cost": 4,
+            "query_group": 0,
+            "query_level": 0
+          },
+          {
+            "action_value": 45,
+            "child_values": [
+              34,
+              15
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 1,
+            "query_level": 1
+          },
+          {
+            "action_value": 45,
+            "child_values": [
+              34,
+              15
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 2,
+            "query_level": 1
+          },
+          {
+            "action_value": 34,
+            "child_values": [
+              23,
+              22,
+              22
+            ],
+            "optimal": true,
+            "query_cost": 11,
+            "query_group": 3,
+            "query_level": 1
+          },
+          {
+            "action_value": 42,
+            "child_values": [
+              34,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 8,
+            "query_group": 4,
+            "query_level": 2
+          },
+          {
+            "action_value": 42,
+            "child_values": [
+              34,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 8,
+            "query_group": 5,
+            "query_level": 2
+          },
+          {
+            "action_value": 42,
+            "child_values": [
+              34,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 8,
+            "query_group": 7,
+            "query_level": 2
+          },
+          {
+            "action_value": 42,
+            "child_values": [
+              34,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 8,
+            "query_group": 8,
+            "query_level": 2
+          }
+        ],
+        "states_solved": 4537
+      },
+      "leaf_cost": 8,
+      "level_costs": [
+        4,
+        11,
+        8
+      ],
+      "predicted_clean_children": [
+        23,
+        22,
+        22
+      ],
+      "predicted_value": 34,
+      "prediction_supported": true
+    }
+  ],
+  "family": "P2_WL_nonisomorphic",
+  "first_integer_breakpoint": 8,
+  "fixed_root_middle_costs": [
+    4,
+    11
+  ],
+  "predicted_root_branch": "max(33,26+c)",
+  "prior_exact_endpoints": {
+    "c1": 33,
+    "c2": 33
+  },
+  "remaining_reserved_cases": 10,
+  "schema": "theorica.ternary-p2-first-leaf-breakpoint/1",
+  "summary": {
+    "classification": "first_integer_leaf_breakpoint_confirmed",
+    "passed": true,
+    "prediction_supported": true
+  },
+  "words": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      1,
+      1
+    ],
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      2,
+      1,
+      0
+    ],
+    [
+      2,
+      2,
+      0
+    ]
+  ]
+}
