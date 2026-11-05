@@ -43,10 +43,13 @@ and the new prospective policy was not added to the fan.
 
 ## Scientific consequence and kernel decision
 
-The missing policy is family-specific: repairing one minimal obstruction does
-not transfer even to the next obstruction pair at the same cost vector and
-exact value.  This rules out a universal finite fan built by pair-local
-counterexample columns under the frozen transfer rule.
+The frozen pair-local fan does not transfer the repair to the next obstruction
+pair at the same cost vector and exact value.  The subsequent
+partition-hypergraph experiment shows that this is a missing orbit-closure
+step, not a genuinely family-specific policy: the first two query systems are
+isomorphic and the exact policy transports between them.  Thus this result
+rules out the frozen pair-local update rule, while the stronger original
+interpretation is explicitly superseded.
 
 This is the third consecutive falsification of the minimal-obstruction global
 cost-fan program.  That kernel is terminated rather than patched.  The next
