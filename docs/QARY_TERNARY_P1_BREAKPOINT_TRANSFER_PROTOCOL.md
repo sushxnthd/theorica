@@ -3,8 +3,8 @@
 ## Question
 
 Does the exact first leaf-cost breakpoint proved for the P0 obstruction transfer
-prospectively to the unopened, isomorphic P1 obstruction, including the optimal
-root action and its three exact child values?
+prospectively to the isomorphic P1 obstruction at two unopened cost endpoints,
+including the optimal root action and its three exact child values?
 
 The two ten-word families are
 
@@ -13,7 +13,9 @@ The two ten-word families are
 
 The previously published, level-coloured partition-hypergraph certificate maps
 every query group, completion, and nonempty query cell by the identity map.  No
-P1 endpoint at the costs below is opened before this prediction is frozen.
+P1 endpoint at the costs below is opened before this prediction is frozen.  P1
+itself was previously tested at `(2,9,3)`; only these two cost instances are
+prospective holdouts.
 
 ## Frozen prospective prediction
 
