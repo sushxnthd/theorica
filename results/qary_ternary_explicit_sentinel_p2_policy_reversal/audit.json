@@ -1,0 +1,160 @@
+{
+  "collision_at_c11_valid": true,
+  "diagnostic_law_c9_c10_valid": true,
+  "diagnostic_replay": [
+    {
+      "bounds_equal": true,
+      "group0_children": [
+        20,
+        20,
+        27
+      ],
+      "group11_children": [
+        22,
+        18
+      ],
+      "group3_children": [
+        22,
+        18,
+        18
+      ],
+      "leaf_cost": 9,
+      "minimum": 31,
+      "optimal_groups": [
+        0,
+        11,
+        12
+      ]
+    },
+    {
+      "bounds_equal": true,
+      "group0_children": [
+        21,
+        21,
+        30
+      ],
+      "group11_children": [
+        24,
+        20
+      ],
+      "group3_children": [
+        24,
+        20,
+        20
+      ],
+      "leaf_cost": 10,
+      "minimum": 34,
+      "optimal_groups": [
+        0,
+        11,
+        12
+      ]
+    }
+  ],
+  "passed": true,
+  "production_imports": 0,
+  "reversal_at_c12_falsified": true,
+  "schema": "theorica.ternary-explicit-sentinel-p2-policy-reversal-audit/1",
+  "search_counts_equal": true,
+  "source_replay": [
+    {
+      "bounds_equal": true,
+      "group0_children": [
+        22,
+        22,
+        33
+      ],
+      "group11_children": [
+        26,
+        22
+      ],
+      "group3_children": [
+        26,
+        22,
+        22
+      ],
+      "leaf_cost": 11,
+      "minimum": 37,
+      "optimal_groups": [
+        0,
+        3,
+        11,
+        12
+      ]
+    },
+    {
+      "bounds_equal": true,
+      "group0_children": [
+        23,
+        23,
+        33
+      ],
+      "group11_children": [
+        27,
+        22
+      ],
+      "group3_children": [
+        27,
+        22,
+        22
+      ],
+      "leaf_cost": 12,
+      "minimum": 37,
+      "optimal_groups": [
+        0
+      ]
+    }
+  ],
+  "target_replay": [
+    {
+      "bounds_equal": true,
+      "group0_children": [
+        33,
+        22,
+        22
+      ],
+      "group11_children": [
+        37,
+        11,
+        11
+      ],
+      "group3_children": [
+        33,
+        15,
+        15
+      ],
+      "leaf_cost": 11,
+      "minimum": 37,
+      "optimal_groups": [
+        0,
+        1,
+        4,
+        5
+      ]
+    },
+    {
+      "bounds_equal": true,
+      "group0_children": [
+        33,
+        23,
+        23
+      ],
+      "group11_children": [
+        37,
+        11,
+        11
+      ],
+      "group3_children": [
+        34,
+        16,
+        16
+      ],
+      "leaf_cost": 12,
+      "minimum": 37,
+      "optimal_groups": [
+        0
+      ]
+    }
+  ],
+  "unseen_family_transport_valid": true
+}
