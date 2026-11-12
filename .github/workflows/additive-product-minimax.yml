@@ -101,6 +101,8 @@ on:
       - "scripts/verify_qary_ternary_canonical_policy_signature.py"
       - "scripts/audit_qary_ternary_canonical_policy_signature.py"
       - "scripts/verify_qary_ternary_optimal_policy_bisimulation.py"
+      - "scripts/verify_qary_ternary_explicit_sentinel_orbit_quotient.py"
+      - "scripts/audit_qary_ternary_explicit_sentinel_orbit_quotient.py"
       - "scripts/audit_qary_ternary_optimal_policy_bisimulation.py"
       - "docs/COUPLED_ADDITIVE_MINIMAX_*.md"
       - "docs/TWO_VERTEX_ADDITIVE_ENVELOPE_*.md"
@@ -257,6 +259,8 @@ jobs:
       - run: python scripts/verify_qary_ternary_canonical_policy_signature.py
       - run: python scripts/audit_qary_ternary_canonical_policy_signature.py
       - run: python scripts/verify_qary_ternary_optimal_policy_bisimulation.py
+      - run: python scripts/verify_qary_ternary_explicit_sentinel_orbit_quotient.py
+      - run: python scripts/audit_qary_ternary_explicit_sentinel_orbit_quotient.py
       - run: python scripts/audit_qary_ternary_optimal_policy_bisimulation.py
       - run: pytest -q tests/test_robust_provenance.py
       - run: pytest -q tests/test_corruption_resilient_features.py
