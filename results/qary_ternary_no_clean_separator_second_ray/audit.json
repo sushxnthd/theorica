@@ -1,0 +1,28 @@
+{
+  "exact_bounds_match": true,
+  "exact_gap_matches_root_cost": true,
+  "independent_formula_value": 37,
+  "independent_root_minimum": 37,
+  "no_clean_separator": true,
+  "partition_classifications_match": true,
+  "partition_replay": [
+    {
+      "clean_separator": false,
+      "matches_primary": true,
+      "query_group": 1
+    },
+    {
+      "clean_separator": false,
+      "matches_primary": true,
+      "query_group": 2
+    },
+    {
+      "clean_separator": false,
+      "matches_primary": true,
+      "query_group": 3
+    }
+  ],
+  "passed": true,
+  "reserved_count_valid": true,
+  "schema": "theorica.ternary-no-clean-separator-second-ray-audit/1"
+}

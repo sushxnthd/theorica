@@ -1,0 +1,43 @@
+{
+  "schema": "theorica.middle-first-all-positive-ratios-protocol/1",
+  "protocol_seed": 202610290523,
+  "conditioned_class": {
+    "arity": 2,
+    "depth": 3,
+    "copies_per_query": 4,
+    "substitution_budget": 1,
+    "erasure_budget": 1,
+    "allowed_initial_levels": [1]
+  },
+  "candidate_faces": [
+    [1, 5, 1],
+    [2, 3, 4],
+    [2, 4, 3],
+    [3, 3, 3],
+    [3, 4, 1],
+    [4, 2, 1]
+  ],
+  "structural_boundaries": [
+    [1, 4], [1, 3], [1, 2], [2, 3], [1, 1],
+    [3, 2], [2, 1], [3, 1], [4, 1]
+  ],
+  "prospective_ratios": [
+    [1, 5], [2, 7], [2, 5], [4, 7], [5, 6],
+    [7, 6], [7, 5], [7, 4], [5, 2], [9, 2]
+  ],
+  "prospective_leaf_regimes": ["leaf_cheap", "interior", "leaf_expensive"],
+  "required_checks": [
+    "complete_affine_decision_trace_partition",
+    "zero_unaccounted_crossings",
+    "all_six_faces_recovered",
+    "prospective_exact_tightness",
+    "independent_zero_import_replay",
+    "deterministic_evidence"
+  ],
+  "kill_on": [
+    "unaccounted_crossing",
+    "source_outside_six_faces",
+    "prospective_exact_mismatch",
+    "independent_replay_mismatch"
+  ]
+}

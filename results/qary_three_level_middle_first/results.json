@@ -1,0 +1,375 @@
+{
+  "claim": "prospective binary middle-first six-face candidate",
+  "holdouts": [
+    {
+      "active_faces": [
+        [
+          1,
+          5,
+          1
+        ]
+      ],
+      "certificate_cost": 397,
+      "compatibility_states_solved": 63,
+      "computed_margin": 76,
+      "exact_middle_first_cost": 397,
+      "family": "high_ratio",
+      "first_query_index": 4,
+      "first_query_is_middle": true,
+      "level_costs": [
+        1,
+        79,
+        1
+      ],
+      "matched": true,
+      "predicted_cost": 397,
+      "predicted_face": [
+        1,
+        5,
+        1
+      ],
+      "predicted_margin": 76,
+      "states_solved": 89412
+    },
+    {
+      "active_faces": [
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "certificate_cost": 321,
+      "compatibility_states_solved": 62,
+      "computed_margin": 78,
+      "exact_middle_first_cost": 321,
+      "family": "high_ratio",
+      "first_query_index": 4,
+      "first_query_is_middle": true,
+      "level_costs": [
+        1,
+        1,
+        79
+      ],
+      "matched": true,
+      "predicted_cost": 321,
+      "predicted_face": [
+        2,
+        3,
+        4
+      ],
+      "predicted_margin": 78,
+      "states_solved": 9235
+    },
+    {
+      "active_faces": [
+        [
+          2,
+          4,
+          3
+        ]
+      ],
+      "certificate_cost": 477,
+      "compatibility_states_solved": 64,
+      "computed_margin": 26,
+      "exact_middle_first_cost": 477,
+      "family": "high_ratio",
+      "first_query_index": 4,
+      "first_query_is_middle": true,
+      "level_costs": [
+        1,
+        79,
+        53
+      ],
+      "matched": true,
+      "predicted_cost": 477,
+      "predicted_face": [
+        2,
+        4,
+        3
+      ],
+      "predicted_margin": 26,
+      "states_solved": 28358
+    },
+    {
+      "active_faces": [
+        [
+          3,
+          3,
+          3
+        ]
+      ],
+      "certificate_cost": 399,
+      "compatibility_states_solved": 60,
+      "computed_margin": 26,
+      "exact_middle_first_cost": 399,
+      "family": "high_ratio",
+      "first_query_index": 4,
+      "first_query_is_middle": true,
+      "level_costs": [
+        79,
+        1,
+        53
+      ],
+      "matched": true,
+      "predicted_cost": 399,
+      "predicted_face": [
+        3,
+        3,
+        3
+      ],
+      "predicted_margin": 26,
+      "states_solved": 20515
+    },
+    {
+      "active_faces": [
+        [
+          3,
+          4,
+          1
+        ]
+      ],
+      "certificate_cost": 554,
+      "compatibility_states_solved": 63,
+      "computed_margin": 77,
+      "exact_middle_first_cost": 554,
+      "family": "high_ratio",
+      "first_query_index": 4,
+      "first_query_is_middle": true,
+      "level_costs": [
+        79,
+        79,
+        1
+      ],
+      "matched": true,
+      "predicted_cost": 554,
+      "predicted_face": [
+        3,
+        4,
+        1
+      ],
+      "predicted_margin": 77,
+      "states_solved": 62607
+    },
+    {
+      "active_faces": [
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "certificate_cost": 319,
+      "compatibility_states_solved": 56,
+      "computed_margin": 76,
+      "exact_middle_first_cost": 319,
+      "family": "high_ratio",
+      "first_query_index": 4,
+      "first_query_is_middle": true,
+      "level_costs": [
+        79,
+        1,
+        1
+      ],
+      "matched": true,
+      "predicted_cost": 319,
+      "predicted_face": [
+        4,
+        2,
+        1
+      ],
+      "predicted_margin": 76,
+      "states_solved": 85956
+    },
+    {
+      "active_faces": [
+        [
+          3,
+          4,
+          1
+        ]
+      ],
+      "certificate_cost": 298,
+      "compatibility_states_solved": 68,
+      "computed_margin": 1,
+      "exact_middle_first_cost": 298,
+      "family": "phase_boundary",
+      "first_query_index": 4,
+      "first_query_is_middle": true,
+      "level_costs": [
+        59,
+        30,
+        1
+      ],
+      "matched": true,
+      "predicted_cost": 298,
+      "predicted_face": [
+        3,
+        4,
+        1
+      ],
+      "predicted_margin": 1,
+      "states_solved": 59119
+    },
+    {
+      "active_faces": [
+        [
+          4,
+          2,
+          1
+        ]
+      ],
+      "certificate_cost": 295,
+      "compatibility_states_solved": 64,
+      "computed_margin": 1,
+      "exact_middle_first_cost": 295,
+      "family": "phase_boundary",
+      "first_query_index": 4,
+      "first_query_is_middle": true,
+      "level_costs": [
+        59,
+        29,
+        1
+      ],
+      "matched": true,
+      "predicted_cost": 295,
+      "predicted_face": [
+        4,
+        2,
+        1
+      ],
+      "predicted_margin": 1,
+      "states_solved": 58270
+    },
+    {
+      "active_faces": [
+        [
+          3,
+          3,
+          3
+        ]
+      ],
+      "certificate_cost": 354,
+      "compatibility_states_solved": 61,
+      "computed_margin": 1,
+      "exact_middle_first_cost": 354,
+      "family": "phase_boundary",
+      "first_query_index": 4,
+      "first_query_is_middle": true,
+      "level_costs": [
+        59,
+        1,
+        58
+      ],
+      "matched": true,
+      "predicted_cost": 354,
+      "predicted_face": [
+        3,
+        3,
+        3
+      ],
+      "predicted_margin": 1,
+      "states_solved": 13733
+    },
+    {
+      "active_faces": [
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "certificate_cost": 355,
+      "compatibility_states_solved": 60,
+      "computed_margin": 1,
+      "exact_middle_first_cost": 355,
+      "family": "phase_boundary",
+      "first_query_index": 4,
+      "first_query_is_middle": true,
+      "level_costs": [
+        58,
+        1,
+        59
+      ],
+      "matched": true,
+      "predicted_cost": 355,
+      "predicted_face": [
+        2,
+        3,
+        4
+      ],
+      "predicted_margin": 1,
+      "states_solved": 11512
+    },
+    {
+      "active_faces": [
+        [
+          1,
+          5,
+          1
+        ]
+      ],
+      "certificate_cost": 325,
+      "compatibility_states_solved": 71,
+      "computed_margin": 1,
+      "exact_middle_first_cost": 325,
+      "family": "phase_boundary",
+      "first_query_index": 4,
+      "first_query_is_middle": true,
+      "level_costs": [
+        29,
+        59,
+        1
+      ],
+      "matched": true,
+      "predicted_cost": 325,
+      "predicted_face": [
+        1,
+        5,
+        1
+      ],
+      "predicted_margin": 1,
+      "states_solved": 72958
+    },
+    {
+      "active_faces": [
+        [
+          2,
+          4,
+          3
+        ]
+      ],
+      "certificate_cost": 412,
+      "compatibility_states_solved": 64,
+      "computed_margin": 1,
+      "exact_middle_first_cost": 412,
+      "family": "phase_boundary",
+      "first_query_index": 4,
+      "first_query_is_middle": true,
+      "level_costs": [
+        1,
+        59,
+        58
+      ],
+      "matched": true,
+      "predicted_cost": 412,
+      "predicted_face": [
+        2,
+        4,
+        3
+      ],
+      "predicted_margin": 1,
+      "states_solved": 19079
+    }
+  ],
+  "schema": "theorica.qary-three-level-middle-first/1",
+  "summary": {
+    "high_ratio_matches": 6,
+    "holdout_matches": 12,
+    "holdout_total": 12,
+    "minimum_phase_margin": 1,
+    "passed": true,
+    "phase_boundary_matches": 6,
+    "unique_faces_covered": 6
+  }
+}

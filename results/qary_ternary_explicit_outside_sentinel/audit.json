@@ -1,0 +1,64 @@
+{
+  "endpoint_replays_equal": true,
+  "passed": true,
+  "production_imports": 0,
+  "schema": "theorica.ternary-explicit-outside-sentinel-audit/1",
+  "search_counts_equal": true,
+  "source_replay": [
+    {
+      "bounds_equal": true,
+      "group0_children": [
+        29,
+        29,
+        33
+      ],
+      "leaf_cost": 18,
+      "minimum": 37,
+      "optimal_groups": [
+        0
+      ]
+    },
+    {
+      "bounds_equal": true,
+      "group0_children": [
+        30,
+        30,
+        33
+      ],
+      "leaf_cost": 19,
+      "minimum": 37,
+      "optimal_groups": [
+        0
+      ]
+    }
+  ],
+  "structural_map_valid": true,
+  "target_replay": [
+    {
+      "bounds_equal": true,
+      "group0_children": [
+        29,
+        29,
+        33
+      ],
+      "leaf_cost": 18,
+      "minimum": 37,
+      "optimal_groups": [
+        0
+      ]
+    },
+    {
+      "bounds_equal": true,
+      "group0_children": [
+        30,
+        30,
+        33
+      ],
+      "leaf_cost": 19,
+      "minimum": 37,
+      "optimal_groups": [
+        0
+      ]
+    }
+  ]
+}

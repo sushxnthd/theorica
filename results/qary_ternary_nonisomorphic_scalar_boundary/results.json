@@ -1,0 +1,463 @@
+{
+  "families": [
+    {
+      "middle_roots": [
+        {
+          "exact_cost": 51,
+          "exposure_antichain": [
+            [
+              1,
+              5,
+              1
+            ],
+            [
+              3,
+              3,
+              5
+            ],
+            [
+              3,
+              4,
+              3
+            ],
+            [
+              3,
+              5,
+              0
+            ],
+            [
+              4,
+              2,
+              2
+            ],
+            [
+              4,
+              3,
+              1
+            ],
+            [
+              4,
+              4,
+              0
+            ]
+          ],
+          "logical_middle_query": 1,
+          "states_solved": 32673
+        },
+        {
+          "exact_cost": 51,
+          "exposure_antichain": [
+            [
+              1,
+              5,
+              1
+            ],
+            [
+              3,
+              3,
+              5
+            ],
+            [
+              3,
+              4,
+              3
+            ],
+            [
+              3,
+              5,
+              0
+            ],
+            [
+              4,
+              2,
+              2
+            ],
+            [
+              4,
+              3,
+              1
+            ],
+            [
+              4,
+              4,
+              0
+            ]
+          ],
+          "logical_middle_query": 2,
+          "states_solved": 12306
+        },
+        {
+          "exact_cost": 52,
+          "exposure_antichain": [
+            [
+              2,
+              4,
+              4
+            ],
+            [
+              2,
+              5,
+              1
+            ],
+            [
+              3,
+              3,
+              5
+            ],
+            [
+              3,
+              4,
+              3
+            ],
+            [
+              4,
+              2,
+              2
+            ]
+          ],
+          "logical_middle_query": 3,
+          "states_solved": 11910
+        }
+      ],
+      "name": "P0_isomorphic_orbit_representative",
+      "sorted_middle_root_cost_profile": [
+        51,
+        51,
+        52
+      ],
+      "unrestricted_exact_cost": 51,
+      "unrestricted_exposure_antichain": [
+        [
+          1,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          5
+        ],
+        [
+          3,
+          4,
+          3
+        ],
+        [
+          3,
+          5,
+          0
+        ],
+        [
+          4,
+          2,
+          2
+        ],
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          4,
+          4,
+          0
+        ]
+      ],
+      "unrestricted_states_solved": 43623,
+      "words": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "middle_roots": [
+        {
+          "exact_cost": 51,
+          "exposure_antichain": [
+            [
+              1,
+              5,
+              1
+            ],
+            [
+              3,
+              3,
+              5
+            ],
+            [
+              3,
+              4,
+              3
+            ],
+            [
+              3,
+              5,
+              0
+            ],
+            [
+              4,
+              2,
+              2
+            ],
+            [
+              4,
+              3,
+              1
+            ],
+            [
+              4,
+              4,
+              0
+            ]
+          ],
+          "logical_middle_query": 1,
+          "states_solved": 32915
+        },
+        {
+          "exact_cost": 51,
+          "exposure_antichain": [
+            [
+              1,
+              5,
+              1
+            ],
+            [
+              3,
+              3,
+              5
+            ],
+            [
+              3,
+              4,
+              3
+            ],
+            [
+              3,
+              5,
+              0
+            ],
+            [
+              4,
+              2,
+              2
+            ],
+            [
+              4,
+              3,
+              1
+            ],
+            [
+              4,
+              4,
+              0
+            ]
+          ],
+          "logical_middle_query": 2,
+          "states_solved": 12376
+        },
+        {
+          "exact_cost": 52,
+          "exposure_antichain": [
+            [
+              2,
+              4,
+              4
+            ],
+            [
+              2,
+              5,
+              1
+            ],
+            [
+              3,
+              3,
+              5
+            ],
+            [
+              3,
+              4,
+              3
+            ],
+            [
+              4,
+              2,
+              2
+            ]
+          ],
+          "logical_middle_query": 3,
+          "states_solved": 11945
+        }
+      ],
+      "name": "P2_WL_nonisomorphic",
+      "sorted_middle_root_cost_profile": [
+        51,
+        51,
+        52
+      ],
+      "unrestricted_exact_cost": 51,
+      "unrestricted_exposure_antichain": [
+        [
+          1,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          5
+        ],
+        [
+          3,
+          4,
+          3
+        ],
+        [
+          3,
+          5,
+          0
+        ],
+        [
+          4,
+          2,
+          2
+        ],
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          4,
+          4,
+          0
+        ]
+      ],
+      "unrestricted_states_solved": 41900,
+      "words": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ]
+    }
+  ],
+  "level_costs": [
+    2,
+    9,
+    3
+  ],
+  "schema": "theorica.ternary-nonisomorphic-scalar-boundary/1",
+  "summary": {
+    "P0_exact_cost": 51,
+    "P0_middle_root_cost_profile": [
+      51,
+      51,
+      52
+    ],
+    "P2_exact_cost": 51,
+    "P2_middle_root_cost_profile": [
+      51,
+      51,
+      52
+    ],
+    "classification": "unresolved_finer_boundary",
+    "opened_reserved_cases": 1,
+    "passed": true,
+    "prediction_supported": false,
+    "remaining_reserved_cases": 18
+  }
+}

@@ -1,0 +1,2212 @@
+{
+  "holdout_summary": {
+    "cases": 36,
+    "max_support": 3,
+    "mismatches": 0,
+    "pure_optimal_cases": 18,
+    "strict_randomization_cases": 18
+  },
+  "holdouts": [
+    {
+      "candidates": 21,
+      "components": [
+        [
+          [
+            5,
+            6,
+            -3
+          ],
+          [
+            6,
+            7,
+            0
+          ],
+          [
+            -3,
+            4,
+            5
+          ],
+          [
+            -1,
+            1,
+            -3
+          ]
+        ],
+        [
+          [
+            4,
+            0,
+            6
+          ],
+          [
+            0,
+            6,
+            7
+          ]
+        ],
+        [
+          [
+            -3,
+            6,
+            -3
+          ],
+          [
+            0,
+            4,
+            3
+          ]
+        ],
+        [
+          [
+            2,
+            7,
+            7
+          ],
+          [
+            0,
+            0,
+            4
+          ],
+          [
+            -2,
+            6,
+            0
+          ]
+        ]
+      ],
+      "expanded_actions": 48,
+      "production_strict": false,
+      "production_value": "12",
+      "strict": false,
+      "support": 1,
+      "valid": true,
+      "value": "12"
+    },
+    {
+      "candidates": 13,
+      "components": [
+        [
+          [
+            7,
+            -2,
+            0
+          ],
+          [
+            4,
+            -3,
+            7
+          ],
+          [
+            5,
+            2,
+            -1
+          ]
+        ],
+        [
+          [
+            -1,
+            -1,
+            3
+          ],
+          [
+            -1,
+            0,
+            4
+          ],
+          [
+            -1,
+            0,
+            1
+          ]
+        ]
+      ],
+      "expanded_actions": 9,
+      "production_strict": false,
+      "production_value": "2",
+      "strict": false,
+      "support": 1,
+      "valid": true,
+      "value": "2"
+    },
+    {
+      "candidates": 27,
+      "components": [
+        [
+          [
+            7,
+            3,
+            1
+          ],
+          [
+            2,
+            -1,
+            0
+          ]
+        ],
+        [
+          [
+            2,
+            -2,
+            2
+          ],
+          [
+            4,
+            3,
+            -2
+          ],
+          [
+            -2,
+            4,
+            5
+          ],
+          [
+            5,
+            1,
+            7
+          ]
+        ],
+        [
+          [
+            -1,
+            -3,
+            7
+          ],
+          [
+            -3,
+            1,
+            -1
+          ],
+          [
+            5,
+            2,
+            -1
+          ]
+        ]
+      ],
+      "expanded_actions": 24,
+      "production_strict": true,
+      "production_value": "97/13",
+      "strict": true,
+      "support": 2,
+      "valid": true,
+      "value": "97/13"
+    },
+    {
+      "candidates": 20,
+      "components": [
+        [
+          [
+            -3,
+            -2,
+            1
+          ],
+          [
+            3,
+            3,
+            2
+          ]
+        ],
+        [
+          [
+            6,
+            7,
+            3
+          ],
+          [
+            5,
+            1,
+            6
+          ],
+          [
+            0,
+            2,
+            6
+          ],
+          [
+            -1,
+            -3,
+            2
+          ]
+        ],
+        [
+          [
+            -1,
+            3,
+            4
+          ],
+          [
+            -2,
+            1,
+            6
+          ],
+          [
+            -3,
+            -3,
+            7
+          ]
+        ]
+      ],
+      "expanded_actions": 24,
+      "production_strict": false,
+      "production_value": "8",
+      "strict": false,
+      "support": 1,
+      "valid": true,
+      "value": "8"
+    },
+    {
+      "candidates": 13,
+      "components": [
+        [
+          [
+            5,
+            -2,
+            0
+          ],
+          [
+            6,
+            7,
+            3
+          ],
+          [
+            0,
+            2,
+            7
+          ]
+        ],
+        [
+          [
+            1,
+            3,
+            1
+          ],
+          [
+            4,
+            6,
+            1
+          ],
+          [
+            -1,
+            5,
+            3
+          ]
+        ]
+      ],
+      "expanded_actions": 9,
+      "production_strict": true,
+      "production_value": "32/5",
+      "strict": true,
+      "support": 2,
+      "valid": true,
+      "value": "32/5"
+    },
+    {
+      "candidates": 11,
+      "components": [
+        [
+          [
+            0,
+            -2,
+            0
+          ],
+          [
+            2,
+            -2,
+            5
+          ],
+          [
+            5,
+            -3,
+            7
+          ]
+        ],
+        [
+          [
+            3,
+            -2,
+            1
+          ],
+          [
+            -1,
+            0,
+            -2
+          ],
+          [
+            1,
+            4,
+            0
+          ]
+        ]
+      ],
+      "expanded_actions": 9,
+      "production_strict": false,
+      "production_value": "2",
+      "strict": false,
+      "support": 1,
+      "valid": true,
+      "value": "2"
+    },
+    {
+      "candidates": 16,
+      "components": [
+        [
+          [
+            5,
+            5,
+            -3
+          ],
+          [
+            -2,
+            -2,
+            1
+          ],
+          [
+            7,
+            -1,
+            6
+          ]
+        ],
+        [
+          [
+            4,
+            4,
+            6
+          ],
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            0,
+            7,
+            0
+          ]
+        ]
+      ],
+      "expanded_actions": 9,
+      "production_strict": true,
+      "production_value": "37/5",
+      "strict": true,
+      "support": 3,
+      "valid": true,
+      "value": "37/5"
+    },
+    {
+      "candidates": 9,
+      "components": [
+        [
+          [
+            -1,
+            5,
+            2
+          ],
+          [
+            7,
+            6,
+            7
+          ],
+          [
+            5,
+            4,
+            4
+          ]
+        ],
+        [
+          [
+            0,
+            -3,
+            7
+          ],
+          [
+            -1,
+            -3,
+            2
+          ],
+          [
+            4,
+            4,
+            -1
+          ]
+        ]
+      ],
+      "expanded_actions": 9,
+      "production_strict": true,
+      "production_value": "122/15",
+      "strict": true,
+      "support": 2,
+      "valid": true,
+      "value": "122/15"
+    },
+    {
+      "candidates": 31,
+      "components": [
+        [
+          [
+            4,
+            -1,
+            4
+          ],
+          [
+            7,
+            2,
+            -3
+          ],
+          [
+            4,
+            5,
+            -3
+          ],
+          [
+            7,
+            -1,
+            5
+          ]
+        ],
+        [
+          [
+            -3,
+            2,
+            3
+          ],
+          [
+            2,
+            4,
+            -3
+          ]
+        ],
+        [
+          [
+            3,
+            4,
+            5
+          ],
+          [
+            2,
+            1,
+            4
+          ]
+        ],
+        [
+          [
+            -2,
+            4,
+            -2
+          ],
+          [
+            1,
+            -2,
+            0
+          ],
+          [
+            -2,
+            -1,
+            -2
+          ]
+        ]
+      ],
+      "expanded_actions": 48,
+      "production_strict": true,
+      "production_value": "101/12",
+      "strict": true,
+      "support": 3,
+      "valid": true,
+      "value": "101/12"
+    },
+    {
+      "candidates": 11,
+      "components": [
+        [
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            6,
+            -2
+          ]
+        ],
+        [
+          [
+            -2,
+            -3,
+            2
+          ],
+          [
+            5,
+            -1,
+            0
+          ],
+          [
+            7,
+            1,
+            2
+          ],
+          [
+            2,
+            4,
+            6
+          ]
+        ],
+        [
+          [
+            -2,
+            2,
+            4
+          ],
+          [
+            3,
+            5,
+            7
+          ],
+          [
+            1,
+            5,
+            6
+          ]
+        ]
+      ],
+      "expanded_actions": 24,
+      "production_strict": true,
+      "production_value": "186/17",
+      "strict": true,
+      "support": 3,
+      "valid": true,
+      "value": "186/17"
+    },
+    {
+      "candidates": 57,
+      "components": [
+        [
+          [
+            5,
+            7,
+            -3
+          ],
+          [
+            5,
+            6,
+            -1
+          ],
+          [
+            2,
+            2,
+            4
+          ],
+          [
+            6,
+            2,
+            2
+          ]
+        ],
+        [
+          [
+            0,
+            3,
+            1
+          ],
+          [
+            -1,
+            5,
+            -1
+          ]
+        ],
+        [
+          [
+            5,
+            2,
+            -3
+          ],
+          [
+            3,
+            1,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            6,
+            0
+          ],
+          [
+            -1,
+            4,
+            7
+          ],
+          [
+            5,
+            -3,
+            2
+          ]
+        ]
+      ],
+      "expanded_actions": 48,
+      "production_strict": true,
+      "production_value": "624/67",
+      "strict": true,
+      "support": 3,
+      "valid": true,
+      "value": "624/67"
+    },
+    {
+      "candidates": 17,
+      "components": [
+        [
+          [
+            7,
+            -1,
+            6
+          ],
+          [
+            3,
+            1,
+            3
+          ],
+          [
+            -3,
+            7,
+            1
+          ]
+        ],
+        [
+          [
+            6,
+            2,
+            0
+          ],
+          [
+            7,
+            -3,
+            2
+          ],
+          [
+            -2,
+            6,
+            5
+          ]
+        ]
+      ],
+      "expanded_actions": 9,
+      "production_strict": true,
+      "production_value": "169/29",
+      "strict": true,
+      "support": 3,
+      "valid": true,
+      "value": "169/29"
+    },
+    {
+      "candidates": 22,
+      "components": [
+        [
+          [
+            5,
+            -3,
+            4
+          ],
+          [
+            0,
+            1,
+            6
+          ]
+        ],
+        [
+          [
+            7,
+            1,
+            1
+          ],
+          [
+            6,
+            7,
+            4
+          ],
+          [
+            -2,
+            4,
+            5
+          ],
+          [
+            0,
+            2,
+            -3
+          ]
+        ],
+        [
+          [
+            1,
+            1,
+            -2
+          ],
+          [
+            7,
+            3,
+            6
+          ],
+          [
+            1,
+            -3,
+            1
+          ]
+        ]
+      ],
+      "expanded_actions": 24,
+      "production_strict": false,
+      "production_value": "11",
+      "strict": false,
+      "support": 1,
+      "valid": true,
+      "value": "11"
+    },
+    {
+      "candidates": 20,
+      "components": [
+        [
+          [
+            6,
+            6,
+            0
+          ],
+          [
+            1,
+            3,
+            -2
+          ],
+          [
+            2,
+            0,
+            -1
+          ],
+          [
+            4,
+            5,
+            -2
+          ]
+        ],
+        [
+          [
+            3,
+            6,
+            4
+          ],
+          [
+            -1,
+            -2,
+            -3
+          ]
+        ],
+        [
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            -1,
+            4,
+            5
+          ]
+        ],
+        [
+          [
+            -1,
+            5,
+            -1
+          ],
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            1,
+            0,
+            4
+          ]
+        ]
+      ],
+      "expanded_actions": 48,
+      "production_strict": true,
+      "production_value": "11",
+      "strict": true,
+      "support": 2,
+      "valid": true,
+      "value": "11"
+    },
+    {
+      "candidates": 42,
+      "components": [
+        [
+          [
+            -1,
+            7,
+            -1
+          ],
+          [
+            3,
+            2,
+            -3
+          ],
+          [
+            6,
+            -1,
+            -2
+          ],
+          [
+            1,
+            -1,
+            4
+          ]
+        ],
+        [
+          [
+            4,
+            2,
+            2
+          ],
+          [
+            3,
+            2,
+            3
+          ]
+        ],
+        [
+          [
+            6,
+            -1,
+            -2
+          ],
+          [
+            -3,
+            -3,
+            6
+          ]
+        ],
+        [
+          [
+            7,
+            -1,
+            -1
+          ],
+          [
+            0,
+            4,
+            2
+          ],
+          [
+            -3,
+            -3,
+            -1
+          ]
+        ]
+      ],
+      "expanded_actions": 48,
+      "production_strict": true,
+      "production_value": "1316/191",
+      "strict": true,
+      "support": 3,
+      "valid": true,
+      "value": "1316/191"
+    },
+    {
+      "candidates": 13,
+      "components": [
+        [
+          [
+            6,
+            7,
+            -1
+          ],
+          [
+            4,
+            0,
+            0
+          ],
+          [
+            4,
+            2,
+            5
+          ]
+        ],
+        [
+          [
+            -2,
+            -2,
+            4
+          ],
+          [
+            7,
+            2,
+            4
+          ],
+          [
+            5,
+            3,
+            3
+          ]
+        ]
+      ],
+      "expanded_actions": 9,
+      "production_strict": true,
+      "production_value": "70/11",
+      "strict": true,
+      "support": 2,
+      "valid": true,
+      "value": "70/11"
+    },
+    {
+      "candidates": 19,
+      "components": [
+        [
+          [
+            3,
+            1,
+            3
+          ],
+          [
+            -2,
+            6,
+            4
+          ],
+          [
+            7,
+            1,
+            -2
+          ]
+        ],
+        [
+          [
+            5,
+            3,
+            -3
+          ],
+          [
+            -1,
+            5,
+            3
+          ],
+          [
+            0,
+            4,
+            -1
+          ]
+        ]
+      ],
+      "expanded_actions": 9,
+      "production_strict": true,
+      "production_value": "4",
+      "strict": true,
+      "support": 2,
+      "valid": true,
+      "value": "4"
+    },
+    {
+      "candidates": 15,
+      "components": [
+        [
+          [
+            5,
+            3,
+            5
+          ],
+          [
+            0,
+            3,
+            7
+          ]
+        ],
+        [
+          [
+            5,
+            2,
+            2
+          ],
+          [
+            -1,
+            0,
+            5
+          ],
+          [
+            3,
+            2,
+            6
+          ],
+          [
+            -3,
+            -3,
+            3
+          ]
+        ],
+        [
+          [
+            1,
+            3,
+            1
+          ],
+          [
+            4,
+            4,
+            -3
+          ],
+          [
+            2,
+            6,
+            6
+          ]
+        ]
+      ],
+      "expanded_actions": 24,
+      "production_strict": false,
+      "production_value": "11",
+      "strict": false,
+      "support": 1,
+      "valid": true,
+      "value": "11"
+    },
+    {
+      "candidates": 22,
+      "components": [
+        [
+          [
+            -2,
+            -3,
+            4
+          ],
+          [
+            -3,
+            -1,
+            3
+          ],
+          [
+            1,
+            5,
+            4
+          ],
+          [
+            1,
+            -2,
+            3
+          ]
+        ],
+        [
+          [
+            5,
+            6,
+            5
+          ],
+          [
+            -3,
+            2,
+            -2
+          ]
+        ],
+        [
+          [
+            2,
+            6,
+            -1
+          ],
+          [
+            -2,
+            4,
+            2
+          ]
+        ],
+        [
+          [
+            0,
+            6,
+            2
+          ],
+          [
+            6,
+            0,
+            7
+          ],
+          [
+            -2,
+            6,
+            2
+          ]
+        ]
+      ],
+      "expanded_actions": 48,
+      "production_strict": false,
+      "production_value": "14",
+      "strict": false,
+      "support": 1,
+      "valid": true,
+      "value": "14"
+    },
+    {
+      "candidates": 36,
+      "components": [
+        [
+          [
+            -1,
+            6,
+            1
+          ],
+          [
+            2,
+            7,
+            0
+          ],
+          [
+            2,
+            0,
+            6
+          ],
+          [
+            3,
+            5,
+            3
+          ]
+        ],
+        [
+          [
+            -1,
+            5,
+            -2
+          ],
+          [
+            -2,
+            5,
+            4
+          ]
+        ],
+        [
+          [
+            2,
+            0,
+            -1
+          ],
+          [
+            -3,
+            1,
+            6
+          ]
+        ],
+        [
+          [
+            4,
+            -1,
+            2
+          ],
+          [
+            5,
+            6,
+            -3
+          ],
+          [
+            0,
+            4,
+            -3
+          ]
+        ]
+      ],
+      "expanded_actions": 48,
+      "production_strict": true,
+      "production_value": "43/6",
+      "strict": true,
+      "support": 2,
+      "valid": true,
+      "value": "43/6"
+    },
+    {
+      "candidates": 22,
+      "components": [
+        [
+          [
+            5,
+            5,
+            5
+          ],
+          [
+            2,
+            -3,
+            1
+          ],
+          [
+            1,
+            -1,
+            4
+          ],
+          [
+            -2,
+            1,
+            -1
+          ]
+        ],
+        [
+          [
+            -3,
+            0,
+            -2
+          ],
+          [
+            -3,
+            4,
+            -3
+          ]
+        ],
+        [
+          [
+            -3,
+            7,
+            2
+          ],
+          [
+            -1,
+            -3,
+            -2
+          ]
+        ],
+        [
+          [
+            6,
+            1,
+            2
+          ],
+          [
+            -1,
+            7,
+            6
+          ],
+          [
+            4,
+            -1,
+            -3
+          ]
+        ]
+      ],
+      "expanded_actions": 48,
+      "production_strict": true,
+      "production_value": "17/3",
+      "strict": true,
+      "support": 2,
+      "valid": true,
+      "value": "17/3"
+    },
+    {
+      "candidates": 43,
+      "components": [
+        [
+          [
+            5,
+            -3,
+            2
+          ],
+          [
+            3,
+            5,
+            -1
+          ],
+          [
+            5,
+            4,
+            -2
+          ],
+          [
+            -1,
+            -2,
+            5
+          ]
+        ],
+        [
+          [
+            2,
+            6,
+            6
+          ],
+          [
+            -2,
+            -1,
+            7
+          ]
+        ],
+        [
+          [
+            4,
+            6,
+            2
+          ],
+          [
+            -3,
+            4,
+            -2
+          ]
+        ],
+        [
+          [
+            2,
+            6,
+            6
+          ],
+          [
+            5,
+            0,
+            7
+          ],
+          [
+            6,
+            7,
+            1
+          ]
+        ]
+      ],
+      "expanded_actions": 48,
+      "production_strict": true,
+      "production_value": "737/50",
+      "strict": true,
+      "support": 3,
+      "valid": true,
+      "value": "737/50"
+    },
+    {
+      "candidates": 9,
+      "components": [
+        [
+          [
+            -1,
+            5,
+            6
+          ],
+          [
+            -2,
+            4,
+            3
+          ],
+          [
+            6,
+            6,
+            7
+          ]
+        ],
+        [
+          [
+            3,
+            5,
+            -3
+          ],
+          [
+            -1,
+            2,
+            -1
+          ],
+          [
+            4,
+            2,
+            -2
+          ]
+        ]
+      ],
+      "expanded_actions": 9,
+      "production_strict": true,
+      "production_value": "35/6",
+      "strict": true,
+      "support": 2,
+      "valid": true,
+      "value": "35/6"
+    },
+    {
+      "candidates": 17,
+      "components": [
+        [
+          [
+            3,
+            3,
+            4
+          ],
+          [
+            2,
+            7,
+            5
+          ],
+          [
+            6,
+            5,
+            -3
+          ]
+        ],
+        [
+          [
+            -1,
+            5,
+            -2
+          ],
+          [
+            0,
+            -2,
+            -3
+          ],
+          [
+            3,
+            1,
+            7
+          ]
+        ]
+      ],
+      "expanded_actions": 9,
+      "production_strict": true,
+      "production_value": "445/63",
+      "strict": true,
+      "support": 3,
+      "valid": true,
+      "value": "445/63"
+    },
+    {
+      "candidates": 19,
+      "components": [
+        [
+          [
+            -1,
+            0,
+            6
+          ],
+          [
+            0,
+            2,
+            7
+          ],
+          [
+            0,
+            -1,
+            -2
+          ],
+          [
+            3,
+            3,
+            3
+          ]
+        ],
+        [
+          [
+            1,
+            -1,
+            6
+          ],
+          [
+            1,
+            -1,
+            -2
+          ]
+        ],
+        [
+          [
+            2,
+            5,
+            6
+          ],
+          [
+            3,
+            -2,
+            7
+          ]
+        ],
+        [
+          [
+            -1,
+            3,
+            -3
+          ],
+          [
+            -3,
+            4,
+            -3
+          ],
+          [
+            -1,
+            3,
+            7
+          ]
+        ]
+      ],
+      "expanded_actions": 48,
+      "production_strict": true,
+      "production_value": "45/8",
+      "strict": true,
+      "support": 2,
+      "valid": true,
+      "value": "45/8"
+    },
+    {
+      "candidates": 27,
+      "components": [
+        [
+          [
+            0,
+            0,
+            7
+          ],
+          [
+            0,
+            -2,
+            -3
+          ],
+          [
+            -2,
+            -3,
+            -1
+          ],
+          [
+            -3,
+            -2,
+            6
+          ]
+        ],
+        [
+          [
+            0,
+            -3,
+            3
+          ],
+          [
+            3,
+            -2,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            4,
+            5
+          ],
+          [
+            -3,
+            5,
+            6
+          ]
+        ],
+        [
+          [
+            2,
+            4,
+            -2
+          ],
+          [
+            -1,
+            4,
+            2
+          ],
+          [
+            1,
+            2,
+            3
+          ]
+        ]
+      ],
+      "expanded_actions": 48,
+      "production_strict": false,
+      "production_value": "5",
+      "strict": false,
+      "support": 1,
+      "valid": true,
+      "value": "5"
+    },
+    {
+      "candidates": 12,
+      "components": [
+        [
+          [
+            6,
+            -2,
+            -3
+          ],
+          [
+            -3,
+            -3,
+            1
+          ]
+        ],
+        [
+          [
+            4,
+            -2,
+            7
+          ],
+          [
+            3,
+            -2,
+            4
+          ],
+          [
+            3,
+            -2,
+            3
+          ],
+          [
+            2,
+            -2,
+            2
+          ]
+        ],
+        [
+          [
+            5,
+            7,
+            0
+          ],
+          [
+            6,
+            3,
+            -3
+          ],
+          [
+            6,
+            2,
+            2
+          ]
+        ]
+      ],
+      "expanded_actions": 24,
+      "production_strict": false,
+      "production_value": "3",
+      "strict": false,
+      "support": 1,
+      "valid": true,
+      "value": "3"
+    },
+    {
+      "candidates": 9,
+      "components": [
+        [
+          [
+            6,
+            0,
+            4
+          ],
+          [
+            2,
+            -3,
+            6
+          ],
+          [
+            3,
+            1,
+            -2
+          ]
+        ],
+        [
+          [
+            2,
+            1,
+            7
+          ],
+          [
+            3,
+            3,
+            7
+          ],
+          [
+            -3,
+            -3,
+            -3
+          ]
+        ]
+      ],
+      "expanded_actions": 9,
+      "production_strict": false,
+      "production_value": "4",
+      "strict": false,
+      "support": 1,
+      "valid": true,
+      "value": "4"
+    },
+    {
+      "candidates": 24,
+      "components": [
+        [
+          [
+            -3,
+            -3,
+            3
+          ],
+          [
+            3,
+            4,
+            6
+          ],
+          [
+            2,
+            5,
+            -3
+          ],
+          [
+            4,
+            2,
+            0
+          ]
+        ],
+        [
+          [
+            3,
+            0,
+            4
+          ],
+          [
+            6,
+            4,
+            0
+          ]
+        ],
+        [
+          [
+            2,
+            0,
+            0
+          ],
+          [
+            7,
+            1,
+            -1
+          ]
+        ],
+        [
+          [
+            -1,
+            3,
+            -1
+          ],
+          [
+            0,
+            2,
+            -3
+          ],
+          [
+            -1,
+            2,
+            -2
+          ]
+        ]
+      ],
+      "expanded_actions": 48,
+      "production_strict": false,
+      "production_value": "8",
+      "strict": false,
+      "support": 1,
+      "valid": true,
+      "value": "8"
+    },
+    {
+      "candidates": 6,
+      "components": [
+        [
+          [
+            6,
+            -1,
+            1
+          ],
+          [
+            5,
+            -1,
+            3
+          ],
+          [
+            7,
+            2,
+            4
+          ]
+        ],
+        [
+          [
+            6,
+            2,
+            -1
+          ],
+          [
+            6,
+            5,
+            7
+          ],
+          [
+            0,
+            -2,
+            6
+          ]
+        ]
+      ],
+      "expanded_actions": 9,
+      "production_strict": false,
+      "production_value": "7",
+      "strict": false,
+      "support": 1,
+      "valid": true,
+      "value": "7"
+    },
+    {
+      "candidates": 11,
+      "components": [
+        [
+          [
+            -2,
+            -1,
+            1
+          ],
+          [
+            3,
+            3,
+            -1
+          ],
+          [
+            2,
+            4,
+            6
+          ]
+        ],
+        [
+          [
+            0,
+            2,
+            5
+          ],
+          [
+            6,
+            4,
+            2
+          ],
+          [
+            -2,
+            1,
+            6
+          ]
+        ]
+      ],
+      "expanded_actions": 9,
+      "production_strict": false,
+      "production_value": "8",
+      "strict": false,
+      "support": 1,
+      "valid": true,
+      "value": "8"
+    },
+    {
+      "candidates": 11,
+      "components": [
+        [
+          [
+            1,
+            -1,
+            2
+          ],
+          [
+            1,
+            -3,
+            -3
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            2,
+            1,
+            3
+          ]
+        ],
+        [
+          [
+            1,
+            -3,
+            -3
+          ],
+          [
+            7,
+            -3,
+            7
+          ]
+        ],
+        [
+          [
+            1,
+            6,
+            5
+          ],
+          [
+            7,
+            6,
+            2
+          ]
+        ],
+        [
+          [
+            -1,
+            -3,
+            -3
+          ],
+          [
+            1,
+            -3,
+            5
+          ],
+          [
+            5,
+            -2,
+            3
+          ]
+        ]
+      ],
+      "expanded_actions": 48,
+      "production_strict": false,
+      "production_value": "2",
+      "strict": false,
+      "support": 1,
+      "valid": true,
+      "value": "2"
+    },
+    {
+      "candidates": 16,
+      "components": [
+        [
+          [
+            5,
+            1,
+            6
+          ],
+          [
+            -2,
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            -1,
+            -1,
+            -1
+          ],
+          [
+            1,
+            -1,
+            4
+          ],
+          [
+            -3,
+            -1,
+            1
+          ],
+          [
+            -1,
+            -2,
+            -3
+          ]
+        ],
+        [
+          [
+            -1,
+            -3,
+            6
+          ],
+          [
+            -2,
+            4,
+            1
+          ],
+          [
+            7,
+            0,
+            3
+          ]
+        ]
+      ],
+      "expanded_actions": 24,
+      "production_strict": false,
+      "production_value": "4",
+      "strict": false,
+      "support": 1,
+      "valid": true,
+      "value": "4"
+    },
+    {
+      "candidates": 8,
+      "components": [
+        [
+          [
+            0,
+            3,
+            -1
+          ],
+          [
+            5,
+            6,
+            4
+          ],
+          [
+            -1,
+            2,
+            1
+          ]
+        ],
+        [
+          [
+            -1,
+            0,
+            -1
+          ],
+          [
+            4,
+            -3,
+            1
+          ],
+          [
+            5,
+            6,
+            5
+          ]
+        ]
+      ],
+      "expanded_actions": 9,
+      "production_strict": false,
+      "production_value": "9",
+      "strict": false,
+      "support": 1,
+      "valid": true,
+      "value": "9"
+    },
+    {
+      "candidates": 15,
+      "components": [
+        [
+          [
+            2,
+            1,
+            6
+          ],
+          [
+            7,
+            5,
+            0
+          ],
+          [
+            -3,
+            1,
+            6
+          ],
+          [
+            7,
+            7,
+            -2
+          ]
+        ],
+        [
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            -3,
+            -1,
+            7
+          ]
+        ],
+        [
+          [
+            1,
+            3,
+            6
+          ],
+          [
+            1,
+            7,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            2,
+            1
+          ],
+          [
+            7,
+            5,
+            -1
+          ],
+          [
+            7,
+            7,
+            5
+          ]
+        ]
+      ],
+      "expanded_actions": 48,
+      "production_strict": false,
+      "production_value": "16",
+      "strict": false,
+      "support": 1,
+      "valid": true,
+      "value": "16"
+    },
+    {
+      "candidates": 9,
+      "components": [
+        [
+          [
+            -3,
+            -2,
+            0
+          ],
+          [
+            3,
+            5,
+            0
+          ],
+          [
+            0,
+            5,
+            -3
+          ]
+        ],
+        [
+          [
+            7,
+            3,
+            4
+          ],
+          [
+            2,
+            4,
+            -1
+          ],
+          [
+            -2,
+            -1,
+            4
+          ]
+        ]
+      ],
+      "expanded_actions": 9,
+      "production_strict": false,
+      "production_value": "4",
+      "strict": false,
+      "support": 1,
+      "valid": true,
+      "value": "4"
+    }
+  ],
+  "opened": {
+    "cases": 531441,
+    "digest": "9a8219f255cd6ed4fa3f437c5c0cda2457cdb8c1f05b10acf2893e03e72d0f98",
+    "max_support": 3,
+    "mismatches": 0,
+    "pure_optimal_cases": 381357,
+    "strict_randomization_cases": 150084
+  },
+  "scaling_witness": {
+    "actions_per_component": 4,
+    "arrangement_candidates": 22,
+    "components": 18,
+    "expanded_actions": 68719476736,
+    "support": 2,
+    "tie_lines": 12,
+    "valid": true,
+    "value": "1004/9"
+  },
+  "schema": "three-vertex-additive-arrangement-v1",
+  "seed": 20261028
+}

@@ -1,0 +1,180 @@
+{
+  "assumption_boundaries": {
+    "cross_term_additive_prediction": "0",
+    "cross_term_uniform_lower_bound": "1/2",
+    "nonrectangular_actual_value": "4",
+    "nonrectangular_component_sum": "2"
+  },
+  "claim": "additive rectangular-product minimax law",
+  "exhaustive_two_factor_2x2_cases": 6561,
+  "frozen_three_factor_cases": [
+    {
+      "bound": 1,
+      "strict": false,
+      "support": 1,
+      "value": "7"
+    },
+    {
+      "bound": 3,
+      "strict": true,
+      "support": 3,
+      "value": "95/12"
+    },
+    {
+      "bound": 1,
+      "strict": false,
+      "support": 1,
+      "value": "4"
+    },
+    {
+      "bound": 1,
+      "strict": false,
+      "support": 1,
+      "value": "8"
+    },
+    {
+      "bound": 1,
+      "strict": false,
+      "support": 1,
+      "value": "5"
+    },
+    {
+      "bound": 2,
+      "strict": true,
+      "support": 2,
+      "value": "27/5"
+    },
+    {
+      "bound": 1,
+      "strict": false,
+      "support": 1,
+      "value": "4"
+    },
+    {
+      "bound": 2,
+      "strict": true,
+      "support": 2,
+      "value": "19/3"
+    },
+    {
+      "bound": 1,
+      "strict": false,
+      "support": 1,
+      "value": "5"
+    },
+    {
+      "bound": 1,
+      "strict": false,
+      "support": 1,
+      "value": "8"
+    },
+    {
+      "bound": 2,
+      "strict": true,
+      "support": 2,
+      "value": "34/5"
+    },
+    {
+      "bound": 3,
+      "strict": true,
+      "support": 2,
+      "value": "33/5"
+    },
+    {
+      "bound": 1,
+      "strict": false,
+      "support": 1,
+      "value": "8"
+    },
+    {
+      "bound": 1,
+      "strict": false,
+      "support": 1,
+      "value": "3"
+    },
+    {
+      "bound": 1,
+      "strict": false,
+      "support": 1,
+      "value": "4"
+    },
+    {
+      "bound": 2,
+      "strict": true,
+      "support": 2,
+      "value": "11/2"
+    },
+    {
+      "bound": 1,
+      "strict": false,
+      "support": 1,
+      "value": "5"
+    },
+    {
+      "bound": 2,
+      "strict": true,
+      "support": 2,
+      "value": "11/2"
+    },
+    {
+      "bound": 1,
+      "strict": false,
+      "support": 1,
+      "value": "8"
+    },
+    {
+      "bound": 2,
+      "strict": true,
+      "support": 2,
+      "value": "6"
+    },
+    {
+      "bound": 1,
+      "strict": false,
+      "support": 1,
+      "value": "5"
+    },
+    {
+      "bound": 2,
+      "strict": true,
+      "support": 2,
+      "value": "21/5"
+    },
+    {
+      "bound": 2,
+      "strict": true,
+      "support": 2,
+      "value": "61/7"
+    },
+    {
+      "bound": 2,
+      "strict": true,
+      "support": 2,
+      "value": "5"
+    }
+  ],
+  "frozen_three_factor_seed": 20261025,
+  "maximum_realized_joint_support": 3,
+  "selected_mixed_dimension_cases": [
+    {
+      "best_pure": "1",
+      "bound": 2,
+      "support": 2,
+      "value": "2"
+    },
+    {
+      "best_pure": "1",
+      "bound": 2,
+      "support": 2,
+      "value": "5/3"
+    },
+    {
+      "best_pure": "1",
+      "bound": 2,
+      "support": 2,
+      "value": "2"
+    }
+  ],
+  "status": "pass",
+  "strict_pairs": 2072
+}

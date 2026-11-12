@@ -1,0 +1,292 @@
+{
+  "clean_separator_present": false,
+  "cumulative_opened_reserved_cases": 2,
+  "exact_P0_minus_P2_gap": 3,
+  "family": "P0_isomorphic_orbit_representative",
+  "middle_partitions": [
+    {
+      "cells": [
+        {
+          "answer": 0,
+          "one_lie": [
+            0,
+            1,
+            4,
+            5,
+            6,
+            7
+          ],
+          "zero_lie": [
+            8,
+            9
+          ]
+        },
+        {
+          "answer": 1,
+          "one_lie": [
+            2,
+            3
+          ],
+          "zero_lie": []
+        }
+      ],
+      "clean_separator": false,
+      "query_group": 1,
+      "remaining_copies": 3
+    },
+    {
+      "cells": [
+        {
+          "answer": 0,
+          "one_lie": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "zero_lie": [
+            8,
+            9
+          ]
+        },
+        {
+          "answer": 1,
+          "one_lie": [
+            6,
+            7
+          ],
+          "zero_lie": []
+        }
+      ],
+      "clean_separator": false,
+      "query_group": 2,
+      "remaining_copies": 4
+    },
+    {
+      "cells": [
+        {
+          "answer": 0,
+          "one_lie": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "zero_lie": [
+            8
+          ]
+        },
+        {
+          "answer": 1,
+          "one_lie": [],
+          "zero_lie": [
+            9
+          ]
+        }
+      ],
+      "clean_separator": false,
+      "query_group": 3,
+      "remaining_copies": 4
+    }
+  ],
+  "prior_P2_exact_value": 30,
+  "prospective": {
+    "actions_evaluated": 4571,
+    "compatibility_states": 135,
+    "constructive_upper_bound": 33,
+    "exact_lower_bound": 33,
+    "level_costs": [
+      3,
+      10,
+      3
+    ],
+    "predicted_value": 33,
+    "root_actions": [
+      {
+        "action_value": 33,
+        "child_values": [
+          16,
+          16,
+          30
+        ],
+        "optimal": true,
+        "query_cost": 3,
+        "query_group": 0,
+        "query_level": 0
+      },
+      {
+        "action_value": 43,
+        "child_values": [
+          33,
+          13
+        ],
+        "optimal": false,
+        "query_cost": 10,
+        "query_group": 1,
+        "query_level": 1
+      },
+      {
+        "action_value": 43,
+        "child_values": [
+          33,
+          13
+        ],
+        "optimal": false,
+        "query_cost": 10,
+        "query_group": 2,
+        "query_level": 1
+      },
+      {
+        "action_value": 33,
+        "child_values": [
+          23,
+          20
+        ],
+        "optimal": true,
+        "query_cost": 10,
+        "query_group": 3,
+        "query_level": 1
+      },
+      {
+        "action_value": 36,
+        "child_values": [
+          33,
+          13
+        ],
+        "optimal": false,
+        "query_cost": 3,
+        "query_group": 4,
+        "query_level": 2
+      },
+      {
+        "action_value": 36,
+        "child_values": [
+          33,
+          13
+        ],
+        "optimal": false,
+        "query_cost": 3,
+        "query_group": 5,
+        "query_level": 2
+      },
+      {
+        "action_value": 36,
+        "child_values": [
+          33,
+          13
+        ],
+        "optimal": false,
+        "query_cost": 3,
+        "query_group": 7,
+        "query_level": 2
+      },
+      {
+        "action_value": 36,
+        "child_values": [
+          33,
+          13
+        ],
+        "optimal": false,
+        "query_cost": 3,
+        "query_group": 8,
+        "query_level": 2
+      }
+    ],
+    "states_solved": 5392
+  },
+  "remaining_reserved_cases": 16,
+  "schema": "theorica.ternary-no-clean-separator/1",
+  "summary": {
+    "classification": "clean_separator_two_branch_boundary_supported",
+    "passed": true,
+    "prediction_supported": true
+  },
+  "witness_state": {
+    "erasures_used": 1,
+    "lie_counts": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0
+    ],
+    "remaining_copies": [
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ]
+  },
+  "words": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      1,
+      1
+    ],
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      2,
+      0,
+      0
+    ],
+    [
+      2,
+      1,
+      0
+    ]
+  ]
+}

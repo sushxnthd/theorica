@@ -1,0 +1,9 @@
+{
+  "alphabet": [0, 1, 2],
+  "exhaustive_component_shape": [2, 2],
+  "exhaustive_factor_count": 2,
+  "prospective_factor_count": 3,
+  "prospective_cases": 24,
+  "prospective_seed": 20261025,
+  "required_certificates": ["payoff_additive", "ambiguity_rectangular"]
+}

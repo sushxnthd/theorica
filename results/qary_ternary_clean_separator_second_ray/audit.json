@@ -1,0 +1,10 @@
+{
+  "clean_group_3_reconstructed": true,
+  "exact_bounds_match": true,
+  "group_3_optimal": true,
+  "independent_formula_value": 33,
+  "independent_root_minimum": 33,
+  "passed": true,
+  "reserved_count_valid": true,
+  "schema": "theorica.ternary-clean-separator-second-ray-audit/1"
+}

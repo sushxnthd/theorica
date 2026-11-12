@@ -1,0 +1,3159 @@
+{
+  "holdout_summary": {
+    "cases": 50,
+    "max_support": 5,
+    "mismatches": 0,
+    "pure_optimal_cases": 25,
+    "strict_randomization_cases": 25
+  },
+  "holdouts": [
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            5,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            5,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            5
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "1",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "1"
+    },
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            6,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            6,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            6,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        [
+          [
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "11/5",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "11/5"
+    },
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            7,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            7,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            7,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            7,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            7
+          ]
+        ],
+        [
+          [
+            2,
+            2,
+            2,
+            2,
+            2
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "17/5",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "17/5"
+    },
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            8,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            8,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            8,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            8,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            8
+          ]
+        ],
+        [
+          [
+            3,
+            3,
+            3,
+            3,
+            3
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "23/5",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "23/5"
+    },
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            5,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            5,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            5
+          ]
+        ],
+        [
+          [
+            4,
+            4,
+            4,
+            4,
+            4
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "5",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "5"
+    },
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            6,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            6,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            6,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        [
+          [
+            5,
+            5,
+            5,
+            5,
+            5
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "31/5",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "31/5"
+    },
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            7,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            7,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            7,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            7,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            7
+          ]
+        ],
+        [
+          [
+            6,
+            6,
+            6,
+            6,
+            6
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "37/5",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "37/5"
+    },
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            8,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            8,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            8,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            8,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            8
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "8/5",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "8/5"
+    },
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            5,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            5,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            5
+          ]
+        ],
+        [
+          [
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "2",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "2"
+    },
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            6,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            6,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            6,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        [
+          [
+            2,
+            2,
+            2,
+            2,
+            2
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "16/5",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "16/5"
+    },
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            7,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            7,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            7,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            7,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            7
+          ]
+        ],
+        [
+          [
+            3,
+            3,
+            3,
+            3,
+            3
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "22/5",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "22/5"
+    },
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            8,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            8,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            8,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            8,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            8
+          ]
+        ],
+        [
+          [
+            4,
+            4,
+            4,
+            4,
+            4
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "28/5",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "28/5"
+    },
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            5,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            5,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            5
+          ]
+        ],
+        [
+          [
+            5,
+            5,
+            5,
+            5,
+            5
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "6",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "6"
+    },
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            6,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            6,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            6,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        [
+          [
+            6,
+            6,
+            6,
+            6,
+            6
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "36/5",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "36/5"
+    },
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            7,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            7,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            7,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            7,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            7
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "7/5",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "7/5"
+    },
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            8,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            8,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            8,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            8,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            8
+          ]
+        ],
+        [
+          [
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "13/5",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "13/5"
+    },
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            5,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            5,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            5
+          ]
+        ],
+        [
+          [
+            2,
+            2,
+            2,
+            2,
+            2
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "3",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "3"
+    },
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            6,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            6,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            6,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        [
+          [
+            3,
+            3,
+            3,
+            3,
+            3
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "21/5",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "21/5"
+    },
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            7,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            7,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            7,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            7,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            7
+          ]
+        ],
+        [
+          [
+            4,
+            4,
+            4,
+            4,
+            4
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "27/5",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "27/5"
+    },
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            8,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            8,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            8,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            8,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            8
+          ]
+        ],
+        [
+          [
+            5,
+            5,
+            5,
+            5,
+            5
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "33/5",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "33/5"
+    },
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            5,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            5,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            5
+          ]
+        ],
+        [
+          [
+            6,
+            6,
+            6,
+            6,
+            6
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "7",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "7"
+    },
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            6,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            6,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            6,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "6/5",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "6/5"
+    },
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            7,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            7,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            7,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            7,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            7
+          ]
+        ],
+        [
+          [
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "12/5",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "12/5"
+    },
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            8,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            8,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            8,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            8,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            8
+          ]
+        ],
+        [
+          [
+            2,
+            2,
+            2,
+            2,
+            2
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "18/5",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "18/5"
+    },
+    {
+      "candidate_bound": 1365,
+      "candidates": 31,
+      "components": [
+        [
+          [
+            5,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            5,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            5,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            5
+          ]
+        ],
+        [
+          [
+            3,
+            3,
+            3,
+            3,
+            3
+          ]
+        ]
+      ],
+      "expanded_actions": 5,
+      "expected_class": "strict",
+      "former_recovery_found": true,
+      "former_recovery_support": 5,
+      "marginal_variables": 6,
+      "passed": true,
+      "production_strict": true,
+      "production_value": "4",
+      "strict": true,
+      "support": 5,
+      "tied_joint_actions": 5,
+      "valid": true,
+      "value": "4"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 11,
+      "components": [
+        [
+          [
+            8,
+            8,
+            8,
+            8,
+            8
+          ],
+          [
+            5,
+            -2,
+            7,
+            -3,
+            0
+          ],
+          [
+            6,
+            -4,
+            -1,
+            4,
+            -4
+          ]
+        ],
+        [
+          [
+            8,
+            8,
+            8,
+            8,
+            8
+          ],
+          [
+            7,
+            6,
+            4,
+            -3,
+            1
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "16",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "16"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 9,
+      "components": [
+        [
+          [
+            9,
+            9,
+            9,
+            9,
+            9
+          ],
+          [
+            4,
+            6,
+            4,
+            5,
+            1
+          ],
+          [
+            2,
+            4,
+            -2,
+            -2,
+            3
+          ]
+        ],
+        [
+          [
+            9,
+            9,
+            9,
+            9,
+            9
+          ],
+          [
+            2,
+            3,
+            5,
+            0,
+            0
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "18",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "18"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 11,
+      "components": [
+        [
+          [
+            10,
+            10,
+            10,
+            10,
+            10
+          ],
+          [
+            1,
+            1,
+            0,
+            -3,
+            -4
+          ],
+          [
+            2,
+            -4,
+            -2,
+            0,
+            7
+          ]
+        ],
+        [
+          [
+            10,
+            10,
+            10,
+            10,
+            10
+          ],
+          [
+            4,
+            -2,
+            -2,
+            0,
+            -3
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "20",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "20"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 9,
+      "components": [
+        [
+          [
+            11,
+            11,
+            11,
+            11,
+            11
+          ],
+          [
+            1,
+            -1,
+            6,
+            5,
+            -4
+          ],
+          [
+            4,
+            0,
+            1,
+            3,
+            -4
+          ]
+        ],
+        [
+          [
+            11,
+            11,
+            11,
+            11,
+            11
+          ],
+          [
+            -4,
+            2,
+            -1,
+            -3,
+            3
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "22",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "22"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 8,
+      "components": [
+        [
+          [
+            12,
+            12,
+            12,
+            12,
+            12
+          ],
+          [
+            3,
+            6,
+            4,
+            -3,
+            4
+          ],
+          [
+            -4,
+            6,
+            3,
+            -2,
+            1
+          ]
+        ],
+        [
+          [
+            12,
+            12,
+            12,
+            12,
+            12
+          ],
+          [
+            7,
+            7,
+            7,
+            -1,
+            -4
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "24",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "24"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 9,
+      "components": [
+        [
+          [
+            8,
+            8,
+            8,
+            8,
+            8
+          ],
+          [
+            -4,
+            4,
+            -4,
+            2,
+            -3
+          ],
+          [
+            0,
+            4,
+            -2,
+            -2,
+            -4
+          ]
+        ],
+        [
+          [
+            8,
+            8,
+            8,
+            8,
+            8
+          ],
+          [
+            3,
+            7,
+            4,
+            -2,
+            5
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "16",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "16"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 11,
+      "components": [
+        [
+          [
+            9,
+            9,
+            9,
+            9,
+            9
+          ],
+          [
+            0,
+            7,
+            2,
+            4,
+            -3
+          ],
+          [
+            6,
+            -1,
+            0,
+            -2,
+            6
+          ]
+        ],
+        [
+          [
+            9,
+            9,
+            9,
+            9,
+            9
+          ],
+          [
+            -1,
+            -4,
+            4,
+            4,
+            -2
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "18",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "18"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 5,
+      "components": [
+        [
+          [
+            10,
+            10,
+            10,
+            10,
+            10
+          ],
+          [
+            6,
+            6,
+            3,
+            6,
+            2
+          ],
+          [
+            4,
+            5,
+            0,
+            0,
+            -2
+          ]
+        ],
+        [
+          [
+            10,
+            10,
+            10,
+            10,
+            10
+          ],
+          [
+            -1,
+            7,
+            -2,
+            6,
+            4
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "20",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "20"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 8,
+      "components": [
+        [
+          [
+            11,
+            11,
+            11,
+            11,
+            11
+          ],
+          [
+            4,
+            6,
+            4,
+            2,
+            7
+          ],
+          [
+            -3,
+            -2,
+            4,
+            3,
+            -1
+          ]
+        ],
+        [
+          [
+            11,
+            11,
+            11,
+            11,
+            11
+          ],
+          [
+            2,
+            1,
+            4,
+            7,
+            3
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "22",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "22"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 7,
+      "components": [
+        [
+          [
+            12,
+            12,
+            12,
+            12,
+            12
+          ],
+          [
+            2,
+            -2,
+            7,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            1,
+            6,
+            0
+          ]
+        ],
+        [
+          [
+            12,
+            12,
+            12,
+            12,
+            12
+          ],
+          [
+            4,
+            1,
+            6,
+            0,
+            -3
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "24",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "24"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 9,
+      "components": [
+        [
+          [
+            8,
+            8,
+            8,
+            8,
+            8
+          ],
+          [
+            -1,
+            7,
+            -1,
+            4,
+            7
+          ],
+          [
+            4,
+            6,
+            7,
+            -4,
+            7
+          ]
+        ],
+        [
+          [
+            8,
+            8,
+            8,
+            8,
+            8
+          ],
+          [
+            -3,
+            -1,
+            3,
+            2,
+            -4
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "16",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "16"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 11,
+      "components": [
+        [
+          [
+            9,
+            9,
+            9,
+            9,
+            9
+          ],
+          [
+            7,
+            -4,
+            4,
+            3,
+            -3
+          ],
+          [
+            -1,
+            3,
+            -4,
+            0,
+            2
+          ]
+        ],
+        [
+          [
+            9,
+            9,
+            9,
+            9,
+            9
+          ],
+          [
+            -3,
+            1,
+            0,
+            -4,
+            7
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "18",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "18"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 5,
+      "components": [
+        [
+          [
+            10,
+            10,
+            10,
+            10,
+            10
+          ],
+          [
+            -3,
+            7,
+            -1,
+            7,
+            3
+          ],
+          [
+            -3,
+            -2,
+            -4,
+            4,
+            -4
+          ]
+        ],
+        [
+          [
+            10,
+            10,
+            10,
+            10,
+            10
+          ],
+          [
+            -4,
+            2,
+            3,
+            2,
+            6
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "20",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "20"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 8,
+      "components": [
+        [
+          [
+            11,
+            11,
+            11,
+            11,
+            11
+          ],
+          [
+            7,
+            3,
+            4,
+            1,
+            4
+          ],
+          [
+            2,
+            1,
+            4,
+            2,
+            -1
+          ]
+        ],
+        [
+          [
+            11,
+            11,
+            11,
+            11,
+            11
+          ],
+          [
+            1,
+            1,
+            -1,
+            1,
+            -3
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "22",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "22"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 8,
+      "components": [
+        [
+          [
+            12,
+            12,
+            12,
+            12,
+            12
+          ],
+          [
+            5,
+            2,
+            1,
+            3,
+            5
+          ],
+          [
+            7,
+            -2,
+            0,
+            3,
+            -4
+          ]
+        ],
+        [
+          [
+            12,
+            12,
+            12,
+            12,
+            12
+          ],
+          [
+            6,
+            6,
+            5,
+            2,
+            0
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "24",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "24"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 9,
+      "components": [
+        [
+          [
+            8,
+            8,
+            8,
+            8,
+            8
+          ],
+          [
+            -2,
+            7,
+            6,
+            4,
+            2
+          ],
+          [
+            -1,
+            -3,
+            -4,
+            -2,
+            -3
+          ]
+        ],
+        [
+          [
+            8,
+            8,
+            8,
+            8,
+            8
+          ],
+          [
+            6,
+            -3,
+            -4,
+            6,
+            1
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "16",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "16"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 11,
+      "components": [
+        [
+          [
+            9,
+            9,
+            9,
+            9,
+            9
+          ],
+          [
+            7,
+            -1,
+            6,
+            0,
+            -1
+          ],
+          [
+            1,
+            -4,
+            -1,
+            4,
+            2
+          ]
+        ],
+        [
+          [
+            9,
+            9,
+            9,
+            9,
+            9
+          ],
+          [
+            0,
+            0,
+            -1,
+            1,
+            -1
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "18",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "18"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 11,
+      "components": [
+        [
+          [
+            10,
+            10,
+            10,
+            10,
+            10
+          ],
+          [
+            -4,
+            5,
+            6,
+            1,
+            1
+          ],
+          [
+            5,
+            4,
+            -4,
+            6,
+            6
+          ]
+        ],
+        [
+          [
+            10,
+            10,
+            10,
+            10,
+            10
+          ],
+          [
+            5,
+            -2,
+            0,
+            3,
+            -4
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "20",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "20"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 11,
+      "components": [
+        [
+          [
+            11,
+            11,
+            11,
+            11,
+            11
+          ],
+          [
+            4,
+            -3,
+            6,
+            -3,
+            -1
+          ],
+          [
+            -4,
+            5,
+            5,
+            -1,
+            -3
+          ]
+        ],
+        [
+          [
+            11,
+            11,
+            11,
+            11,
+            11
+          ],
+          [
+            -4,
+            7,
+            6,
+            6,
+            0
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "22",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "22"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 8,
+      "components": [
+        [
+          [
+            12,
+            12,
+            12,
+            12,
+            12
+          ],
+          [
+            -1,
+            4,
+            -2,
+            1,
+            6
+          ],
+          [
+            7,
+            4,
+            5,
+            5,
+            4
+          ]
+        ],
+        [
+          [
+            12,
+            12,
+            12,
+            12,
+            12
+          ],
+          [
+            0,
+            7,
+            1,
+            -3,
+            -3
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "24",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "24"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 11,
+      "components": [
+        [
+          [
+            8,
+            8,
+            8,
+            8,
+            8
+          ],
+          [
+            -4,
+            -1,
+            0,
+            4,
+            1
+          ],
+          [
+            0,
+            7,
+            6,
+            -2,
+            -2
+          ]
+        ],
+        [
+          [
+            8,
+            8,
+            8,
+            8,
+            8
+          ],
+          [
+            0,
+            -1,
+            6,
+            3,
+            3
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "16",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "16"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 9,
+      "components": [
+        [
+          [
+            9,
+            9,
+            9,
+            9,
+            9
+          ],
+          [
+            2,
+            -3,
+            7,
+            -4,
+            4
+          ],
+          [
+            5,
+            4,
+            -2,
+            -3,
+            5
+          ]
+        ],
+        [
+          [
+            9,
+            9,
+            9,
+            9,
+            9
+          ],
+          [
+            -2,
+            4,
+            6,
+            4,
+            7
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "18",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "18"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 5,
+      "components": [
+        [
+          [
+            10,
+            10,
+            10,
+            10,
+            10
+          ],
+          [
+            6,
+            0,
+            1,
+            1,
+            7
+          ],
+          [
+            1,
+            -1,
+            -1,
+            -1,
+            4
+          ]
+        ],
+        [
+          [
+            10,
+            10,
+            10,
+            10,
+            10
+          ],
+          [
+            6,
+            4,
+            1,
+            0,
+            4
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "20",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "20"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 9,
+      "components": [
+        [
+          [
+            11,
+            11,
+            11,
+            11,
+            11
+          ],
+          [
+            3,
+            0,
+            -4,
+            6,
+            -1
+          ],
+          [
+            -3,
+            0,
+            -3,
+            0,
+            6
+          ]
+        ],
+        [
+          [
+            11,
+            11,
+            11,
+            11,
+            11
+          ],
+          [
+            -2,
+            7,
+            4,
+            0,
+            4
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "22",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "22"
+    },
+    {
+      "candidate_bound": 126,
+      "candidates": 11,
+      "components": [
+        [
+          [
+            12,
+            12,
+            12,
+            12,
+            12
+          ],
+          [
+            4,
+            -1,
+            7,
+            -2,
+            0
+          ],
+          [
+            1,
+            5,
+            0,
+            -3,
+            4
+          ]
+        ],
+        [
+          [
+            12,
+            12,
+            12,
+            12,
+            12
+          ],
+          [
+            0,
+            0,
+            1,
+            5,
+            3
+          ]
+        ]
+      ],
+      "expanded_actions": 6,
+      "expected_class": "pure",
+      "former_recovery_found": true,
+      "former_recovery_support": 1,
+      "marginal_variables": 2,
+      "passed": true,
+      "production_strict": false,
+      "production_value": "24",
+      "strict": false,
+      "support": 1,
+      "tied_joint_actions": 1,
+      "valid": true,
+      "value": "24"
+    }
+  ],
+  "opened": {
+    "cases": 32768,
+    "digest": "e136a7b81a0e190fbc7f9af308e6c201b3ce99a6d5904f817ad5c277247c1f56",
+    "max_support": 2,
+    "mismatches": 0,
+    "pure_optimal_cases": 7088,
+    "strict_randomization_cases": 25680,
+    "symmetry_classes": 32
+  },
+  "scaling_witness": {
+    "actions_per_component": 4,
+    "arrangement_candidates": 16,
+    "candidate_upper_bound": 330,
+    "components": 15,
+    "expanded_actions": 1073741824,
+    "scenarios": 5,
+    "support": 1,
+    "tie_hyperplanes": 6,
+    "valid": true,
+    "value": "161"
+  },
+  "schema": "fixed-scenario-additive-arrangement-v1",
+  "seed": 20261024,
+  "tie_explosion_witness": {
+    "actions_per_component": 5,
+    "components": 15,
+    "former_cap": 500000,
+    "former_would_abstain": true,
+    "joint_actions": [
+      {
+        "actions": [
+          0,
+          0,
+          4,
+          2,
+          2,
+          4,
+          1,
+          2,
+          3,
+          3,
+          1,
+          4,
+          0,
+          1,
+          3
+        ],
+        "mass": "1"
+      }
+    ],
+    "marginal_variables": 75,
+    "nature": [
+      "1/5",
+      "1/5",
+      "1/5",
+      "1/5",
+      "1/5"
+    ],
+    "pure_payoff_states": 3876,
+    "realized": [
+      "15",
+      "15",
+      "15",
+      "15",
+      "15"
+    ],
+    "scenarios": 5,
+    "support": 1,
+    "support_bound": 5,
+    "tied_joint_actions": 30517578125,
+    "valid": true,
+    "value": "15"
+  }
+}

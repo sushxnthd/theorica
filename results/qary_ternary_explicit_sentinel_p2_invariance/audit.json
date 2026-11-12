@@ -1,0 +1,73 @@
+{
+  "exploratory_law_c1_c8_replayed": true,
+  "frozen_prediction_falsified": true,
+  "passed": true,
+  "production_imports": 0,
+  "query_group_3_maps_to_1": true,
+  "schema": "theorica.ternary-explicit-sentinel-p2-invariance-audit/1",
+  "search_counts_equal": true,
+  "source_replay": [
+    {
+      "bounds_equal": true,
+      "children": [
+        18,
+        14,
+        14
+      ],
+      "leaf_cost": 7,
+      "minimum": 25,
+      "optimal_groups": [
+        0,
+        11,
+        12
+      ]
+    },
+    {
+      "bounds_equal": true,
+      "children": [
+        20,
+        16,
+        16
+      ],
+      "leaf_cost": 8,
+      "minimum": 28,
+      "optimal_groups": [
+        0,
+        11,
+        12
+      ]
+    }
+  ],
+  "target_replay": [
+    {
+      "bounds_equal": true,
+      "children": [
+        18,
+        14,
+        14
+      ],
+      "leaf_cost": 7,
+      "minimum": 25,
+      "optimal_groups": [
+        0,
+        4,
+        5
+      ]
+    },
+    {
+      "bounds_equal": true,
+      "children": [
+        20,
+        16,
+        16
+      ],
+      "leaf_cost": 8,
+      "minimum": 28,
+      "optimal_groups": [
+        0,
+        4,
+        5
+      ]
+    }
+  ]
+}

@@ -1,0 +1,461 @@
+{
+  "cumulative_opened_reserved_cases": 10,
+  "endpoints": [
+    {
+      "clean_group3_action": {
+        "action_value": 37,
+        "child_values": [
+          26,
+          22,
+          22
+        ],
+        "optimal": true,
+        "query_cost": 11,
+        "query_group": 3,
+        "query_level": 1
+      },
+      "clean_separators": [
+        {
+          "cells": [
+            {
+              "answer": 0,
+              "one_lie": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "zero_lie": []
+            },
+            {
+              "answer": 1,
+              "one_lie": [],
+              "zero_lie": [
+                8
+              ]
+            },
+            {
+              "answer": 2,
+              "one_lie": [],
+              "zero_lie": [
+                9
+              ]
+            }
+          ],
+          "query_group": 3
+        }
+      ],
+      "exact": {
+        "actions_evaluated": 3291,
+        "allowed_query_levels": [
+          0,
+          1,
+          2
+        ],
+        "compatibility_states": 115,
+        "constructive_upper_bound": 37,
+        "exact_lower_bound": 37,
+        "root_actions": [
+          {
+            "action_value": 37,
+            "child_values": [
+              26,
+              26,
+              33
+            ],
+            "optimal": true,
+            "query_cost": 4,
+            "query_group": 0,
+            "query_level": 0
+          },
+          {
+            "action_value": 48,
+            "child_values": [
+              37,
+              15
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 1,
+            "query_level": 1
+          },
+          {
+            "action_value": 48,
+            "child_values": [
+              37,
+              15
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 2,
+            "query_level": 1
+          },
+          {
+            "action_value": 37,
+            "child_values": [
+              26,
+              22,
+              22
+            ],
+            "optimal": true,
+            "query_cost": 11,
+            "query_group": 3,
+            "query_level": 1
+          },
+          {
+            "action_value": 48,
+            "child_values": [
+              37,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 4,
+            "query_level": 2
+          },
+          {
+            "action_value": 48,
+            "child_values": [
+              37,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 5,
+            "query_level": 2
+          },
+          {
+            "action_value": 48,
+            "child_values": [
+              37,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 7,
+            "query_level": 2
+          },
+          {
+            "action_value": 48,
+            "child_values": [
+              37,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 8,
+            "query_level": 2
+          }
+        ],
+        "states_solved": 4537
+      },
+      "leaf_cost": 11,
+      "level_costs": [
+        4,
+        11,
+        11
+      ],
+      "observed_optimal_groups": [
+        0,
+        3
+      ],
+      "predicted_group0_children": [
+        26,
+        26,
+        33
+      ],
+      "predicted_group3_children": [
+        26,
+        22,
+        22
+      ],
+      "predicted_optimal_groups": [
+        0,
+        3
+      ],
+      "predicted_value": 37,
+      "prediction_supported": true,
+      "root_group0_action": {
+        "action_value": 37,
+        "child_values": [
+          26,
+          26,
+          33
+        ],
+        "optimal": true,
+        "query_cost": 4,
+        "query_group": 0,
+        "query_level": 0
+      }
+    },
+    {
+      "clean_group3_action": {
+        "action_value": 38,
+        "child_values": [
+          27,
+          22,
+          22
+        ],
+        "optimal": false,
+        "query_cost": 11,
+        "query_group": 3,
+        "query_level": 1
+      },
+      "clean_separators": [
+        {
+          "cells": [
+            {
+              "answer": 0,
+              "one_lie": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "zero_lie": []
+            },
+            {
+              "answer": 1,
+              "one_lie": [],
+              "zero_lie": [
+                8
+              ]
+            },
+            {
+              "answer": 2,
+              "one_lie": [],
+              "zero_lie": [
+                9
+              ]
+            }
+          ],
+          "query_group": 3
+        }
+      ],
+      "exact": {
+        "actions_evaluated": 3291,
+        "allowed_query_levels": [
+          0,
+          1,
+          2
+        ],
+        "compatibility_states": 115,
+        "constructive_upper_bound": 37,
+        "exact_lower_bound": 37,
+        "root_actions": [
+          {
+            "action_value": 37,
+            "child_values": [
+              27,
+              27,
+              33
+            ],
+            "optimal": true,
+            "query_cost": 4,
+            "query_group": 0,
+            "query_level": 0
+          },
+          {
+            "action_value": 48,
+            "child_values": [
+              37,
+              16
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 1,
+            "query_level": 1
+          },
+          {
+            "action_value": 48,
+            "child_values": [
+              37,
+              16
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 2,
+            "query_level": 1
+          },
+          {
+            "action_value": 38,
+            "child_values": [
+              27,
+              22,
+              22
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 3,
+            "query_level": 1
+          },
+          {
+            "action_value": 49,
+            "child_values": [
+              37,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 12,
+            "query_group": 4,
+            "query_level": 2
+          },
+          {
+            "action_value": 49,
+            "child_values": [
+              37,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 12,
+            "query_group": 5,
+            "query_level": 2
+          },
+          {
+            "action_value": 49,
+            "child_values": [
+              37,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 12,
+            "query_group": 7,
+            "query_level": 2
+          },
+          {
+            "action_value": 49,
+            "child_values": [
+              37,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 12,
+            "query_group": 8,
+            "query_level": 2
+          }
+        ],
+        "states_solved": 4537
+      },
+      "leaf_cost": 12,
+      "level_costs": [
+        4,
+        11,
+        12
+      ],
+      "observed_optimal_groups": [
+        0
+      ],
+      "predicted_group0_children": [
+        27,
+        27,
+        33
+      ],
+      "predicted_group3_children": [
+        27,
+        22,
+        22
+      ],
+      "predicted_optimal_groups": [
+        0
+      ],
+      "predicted_value": 37,
+      "prediction_supported": true,
+      "root_group0_action": {
+        "action_value": 37,
+        "child_values": [
+          27,
+          27,
+          33
+        ],
+        "optimal": true,
+        "query_cost": 4,
+        "query_group": 0,
+        "query_level": 0
+      }
+    }
+  ],
+  "family": "P2_WL_nonisomorphic",
+  "fixed_root_middle_costs": [
+    4,
+    11
+  ],
+  "predicted_clean_branch": "max(33,26+c)",
+  "predicted_root_competitor": 37,
+  "prior_exact_boundary": {
+    "c7": 33,
+    "c8": 34
+  },
+  "remaining_reserved_cases": 8,
+  "schema": "theorica.ternary-p2-root-action-transition/1",
+  "summary": {
+    "classification": "root_action_collision_and_handoff_confirmed",
+    "passed": true,
+    "prediction_supported": true
+  },
+  "transition": {
+    "collision_leaf_cost": 11,
+    "from_query_group": 3,
+    "strict_handoff_leaf_cost": 12,
+    "to_query_group": 0
+  },
+  "words": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      1,
+      1
+    ],
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      2,
+      1,
+      0
+    ],
+    [
+      2,
+      2,
+      0
+    ]
+  ]
+}

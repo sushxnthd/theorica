@@ -1,0 +1,1896 @@
+{
+  "cases": [
+    {
+      "case": 0,
+      "erasure_patterns": 5,
+      "erasures": 1,
+      "errors": 1,
+      "family": "vandermonde",
+      "minimum_distance": 3,
+      "passed": true,
+      "queries": 4,
+      "rank": 2,
+      "saved_vs_unique": 1,
+      "transcript_checks": 5
+    },
+    {
+      "case": 1,
+      "erasure_patterns": 5,
+      "erasures": 1,
+      "errors": 1,
+      "family": "vandermonde",
+      "minimum_distance": 3,
+      "passed": true,
+      "queries": 4,
+      "rank": 2,
+      "saved_vs_unique": 1,
+      "transcript_checks": 5
+    },
+    {
+      "case": 2,
+      "erasure_patterns": 5,
+      "erasures": 1,
+      "errors": 1,
+      "family": "vandermonde",
+      "minimum_distance": 3,
+      "passed": true,
+      "queries": 4,
+      "rank": 2,
+      "saved_vs_unique": 1,
+      "transcript_checks": 5
+    },
+    {
+      "case": 3,
+      "erasure_patterns": 5,
+      "erasures": 1,
+      "errors": 1,
+      "family": "vandermonde",
+      "minimum_distance": 3,
+      "passed": true,
+      "queries": 4,
+      "rank": 2,
+      "saved_vs_unique": 1,
+      "transcript_checks": 5
+    },
+    {
+      "case": 4,
+      "erasure_patterns": 5,
+      "erasures": 1,
+      "errors": 1,
+      "family": "vandermonde",
+      "minimum_distance": 3,
+      "passed": true,
+      "queries": 4,
+      "rank": 2,
+      "saved_vs_unique": 1,
+      "transcript_checks": 5
+    },
+    {
+      "case": 5,
+      "erasure_patterns": 16,
+      "erasures": 2,
+      "errors": 1,
+      "family": "vandermonde",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "saved_vs_unique": 1,
+      "transcript_checks": 16
+    },
+    {
+      "case": 6,
+      "erasure_patterns": 16,
+      "erasures": 2,
+      "errors": 1,
+      "family": "vandermonde",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "saved_vs_unique": 1,
+      "transcript_checks": 16
+    },
+    {
+      "case": 7,
+      "erasure_patterns": 16,
+      "erasures": 2,
+      "errors": 1,
+      "family": "vandermonde",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "saved_vs_unique": 1,
+      "transcript_checks": 16
+    },
+    {
+      "case": 8,
+      "erasure_patterns": 16,
+      "erasures": 2,
+      "errors": 1,
+      "family": "vandermonde",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "saved_vs_unique": 1,
+      "transcript_checks": 16
+    },
+    {
+      "case": 9,
+      "erasure_patterns": 16,
+      "erasures": 2,
+      "errors": 1,
+      "family": "vandermonde",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "saved_vs_unique": 1,
+      "transcript_checks": 16
+    },
+    {
+      "case": 10,
+      "erasure_patterns": 6,
+      "erasures": 1,
+      "errors": 2,
+      "family": "vandermonde",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "saved_vs_unique": 2,
+      "transcript_checks": 6
+    },
+    {
+      "case": 11,
+      "erasure_patterns": 6,
+      "erasures": 1,
+      "errors": 2,
+      "family": "vandermonde",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "saved_vs_unique": 2,
+      "transcript_checks": 6
+    },
+    {
+      "case": 12,
+      "erasure_patterns": 6,
+      "erasures": 1,
+      "errors": 2,
+      "family": "vandermonde",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "saved_vs_unique": 2,
+      "transcript_checks": 6
+    },
+    {
+      "case": 13,
+      "erasure_patterns": 6,
+      "erasures": 1,
+      "errors": 2,
+      "family": "vandermonde",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "saved_vs_unique": 2,
+      "transcript_checks": 6
+    },
+    {
+      "case": 14,
+      "erasure_patterns": 6,
+      "erasures": 1,
+      "errors": 2,
+      "family": "vandermonde",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "saved_vs_unique": 2,
+      "transcript_checks": 6
+    },
+    {
+      "case": 15,
+      "erasure_patterns": 22,
+      "erasures": 2,
+      "errors": 2,
+      "family": "vandermonde",
+      "minimum_distance": 5,
+      "passed": true,
+      "queries": 6,
+      "rank": 2,
+      "saved_vs_unique": 2,
+      "transcript_checks": 22
+    },
+    {
+      "case": 16,
+      "erasure_patterns": 22,
+      "erasures": 2,
+      "errors": 2,
+      "family": "vandermonde",
+      "minimum_distance": 5,
+      "passed": true,
+      "queries": 6,
+      "rank": 2,
+      "saved_vs_unique": 2,
+      "transcript_checks": 22
+    },
+    {
+      "case": 17,
+      "erasure_patterns": 22,
+      "erasures": 2,
+      "errors": 2,
+      "family": "vandermonde",
+      "minimum_distance": 5,
+      "passed": true,
+      "queries": 6,
+      "rank": 2,
+      "saved_vs_unique": 2,
+      "transcript_checks": 22
+    },
+    {
+      "case": 18,
+      "erasure_patterns": 22,
+      "erasures": 2,
+      "errors": 2,
+      "family": "vandermonde",
+      "minimum_distance": 5,
+      "passed": true,
+      "queries": 6,
+      "rank": 2,
+      "saved_vs_unique": 2,
+      "transcript_checks": 22
+    },
+    {
+      "case": 19,
+      "erasure_patterns": 22,
+      "erasures": 2,
+      "errors": 2,
+      "family": "vandermonde",
+      "minimum_distance": 5,
+      "passed": true,
+      "queries": 6,
+      "rank": 2,
+      "saved_vs_unique": 2,
+      "transcript_checks": 22
+    },
+    {
+      "case": 20,
+      "erasure_patterns": 6,
+      "erasures": 1,
+      "errors": 1,
+      "family": "vandermonde",
+      "minimum_distance": 3,
+      "passed": true,
+      "queries": 5,
+      "rank": 3,
+      "saved_vs_unique": 1,
+      "transcript_checks": 6
+    },
+    {
+      "case": 21,
+      "erasure_patterns": 6,
+      "erasures": 1,
+      "errors": 1,
+      "family": "vandermonde",
+      "minimum_distance": 3,
+      "passed": true,
+      "queries": 5,
+      "rank": 3,
+      "saved_vs_unique": 1,
+      "transcript_checks": 6
+    },
+    {
+      "case": 22,
+      "erasure_patterns": 6,
+      "erasures": 1,
+      "errors": 1,
+      "family": "vandermonde",
+      "minimum_distance": 3,
+      "passed": true,
+      "queries": 5,
+      "rank": 3,
+      "saved_vs_unique": 1,
+      "transcript_checks": 6
+    },
+    {
+      "case": 23,
+      "erasure_patterns": 6,
+      "erasures": 1,
+      "errors": 1,
+      "family": "vandermonde",
+      "minimum_distance": 3,
+      "passed": true,
+      "queries": 5,
+      "rank": 3,
+      "saved_vs_unique": 1,
+      "transcript_checks": 6
+    },
+    {
+      "case": 24,
+      "erasure_patterns": 6,
+      "erasures": 1,
+      "errors": 1,
+      "family": "vandermonde",
+      "minimum_distance": 3,
+      "passed": true,
+      "queries": 5,
+      "rank": 3,
+      "saved_vs_unique": 1,
+      "transcript_checks": 6
+    },
+    {
+      "case": 25,
+      "erasure_patterns": 22,
+      "erasures": 2,
+      "errors": 1,
+      "family": "vandermonde",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "saved_vs_unique": 1,
+      "transcript_checks": 22
+    },
+    {
+      "case": 26,
+      "erasure_patterns": 22,
+      "erasures": 2,
+      "errors": 1,
+      "family": "vandermonde",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "saved_vs_unique": 1,
+      "transcript_checks": 22
+    },
+    {
+      "case": 27,
+      "erasure_patterns": 22,
+      "erasures": 2,
+      "errors": 1,
+      "family": "vandermonde",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "saved_vs_unique": 1,
+      "transcript_checks": 22
+    },
+    {
+      "case": 28,
+      "erasure_patterns": 22,
+      "erasures": 2,
+      "errors": 1,
+      "family": "vandermonde",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "saved_vs_unique": 1,
+      "transcript_checks": 22
+    },
+    {
+      "case": 29,
+      "erasure_patterns": 22,
+      "erasures": 2,
+      "errors": 1,
+      "family": "vandermonde",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "saved_vs_unique": 1,
+      "transcript_checks": 22
+    },
+    {
+      "case": 30,
+      "erasure_patterns": 7,
+      "erasures": 1,
+      "errors": 2,
+      "family": "vandermonde",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "saved_vs_unique": 2,
+      "transcript_checks": 7
+    },
+    {
+      "case": 31,
+      "erasure_patterns": 7,
+      "erasures": 1,
+      "errors": 2,
+      "family": "vandermonde",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "saved_vs_unique": 2,
+      "transcript_checks": 7
+    },
+    {
+      "case": 32,
+      "erasure_patterns": 7,
+      "erasures": 1,
+      "errors": 2,
+      "family": "vandermonde",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "saved_vs_unique": 2,
+      "transcript_checks": 7
+    },
+    {
+      "case": 33,
+      "erasure_patterns": 7,
+      "erasures": 1,
+      "errors": 2,
+      "family": "vandermonde",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "saved_vs_unique": 2,
+      "transcript_checks": 7
+    },
+    {
+      "case": 34,
+      "erasure_patterns": 7,
+      "erasures": 1,
+      "errors": 2,
+      "family": "vandermonde",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "saved_vs_unique": 2,
+      "transcript_checks": 7
+    },
+    {
+      "case": 35,
+      "erasure_patterns": 29,
+      "erasures": 2,
+      "errors": 2,
+      "family": "vandermonde",
+      "minimum_distance": 5,
+      "passed": true,
+      "queries": 7,
+      "rank": 3,
+      "saved_vs_unique": 2,
+      "transcript_checks": 29
+    },
+    {
+      "case": 36,
+      "erasure_patterns": 29,
+      "erasures": 2,
+      "errors": 2,
+      "family": "vandermonde",
+      "minimum_distance": 5,
+      "passed": true,
+      "queries": 7,
+      "rank": 3,
+      "saved_vs_unique": 2,
+      "transcript_checks": 29
+    },
+    {
+      "case": 37,
+      "erasure_patterns": 29,
+      "erasures": 2,
+      "errors": 2,
+      "family": "vandermonde",
+      "minimum_distance": 5,
+      "passed": true,
+      "queries": 7,
+      "rank": 3,
+      "saved_vs_unique": 2,
+      "transcript_checks": 29
+    },
+    {
+      "case": 38,
+      "erasure_patterns": 29,
+      "erasures": 2,
+      "errors": 2,
+      "family": "vandermonde",
+      "minimum_distance": 5,
+      "passed": true,
+      "queries": 7,
+      "rank": 3,
+      "saved_vs_unique": 2,
+      "transcript_checks": 29
+    },
+    {
+      "case": 39,
+      "erasure_patterns": 29,
+      "erasures": 2,
+      "errors": 2,
+      "family": "vandermonde",
+      "minimum_distance": 5,
+      "passed": true,
+      "queries": 7,
+      "rank": 3,
+      "saved_vs_unique": 2,
+      "transcript_checks": 29
+    },
+    {
+      "case": 40,
+      "erasure_patterns": 5,
+      "erasures": 1,
+      "errors": 1,
+      "family": "cauchy",
+      "minimum_distance": 3,
+      "passed": true,
+      "queries": 4,
+      "rank": 2,
+      "saved_vs_unique": 1,
+      "transcript_checks": 5
+    },
+    {
+      "case": 41,
+      "erasure_patterns": 5,
+      "erasures": 1,
+      "errors": 1,
+      "family": "cauchy",
+      "minimum_distance": 3,
+      "passed": true,
+      "queries": 4,
+      "rank": 2,
+      "saved_vs_unique": 1,
+      "transcript_checks": 5
+    },
+    {
+      "case": 42,
+      "erasure_patterns": 5,
+      "erasures": 1,
+      "errors": 1,
+      "family": "cauchy",
+      "minimum_distance": 3,
+      "passed": true,
+      "queries": 4,
+      "rank": 2,
+      "saved_vs_unique": 1,
+      "transcript_checks": 5
+    },
+    {
+      "case": 43,
+      "erasure_patterns": 5,
+      "erasures": 1,
+      "errors": 1,
+      "family": "cauchy",
+      "minimum_distance": 3,
+      "passed": true,
+      "queries": 4,
+      "rank": 2,
+      "saved_vs_unique": 1,
+      "transcript_checks": 5
+    },
+    {
+      "case": 44,
+      "erasure_patterns": 5,
+      "erasures": 1,
+      "errors": 1,
+      "family": "cauchy",
+      "minimum_distance": 3,
+      "passed": true,
+      "queries": 4,
+      "rank": 2,
+      "saved_vs_unique": 1,
+      "transcript_checks": 5
+    },
+    {
+      "case": 45,
+      "erasure_patterns": 16,
+      "erasures": 2,
+      "errors": 1,
+      "family": "cauchy",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "saved_vs_unique": 1,
+      "transcript_checks": 16
+    },
+    {
+      "case": 46,
+      "erasure_patterns": 16,
+      "erasures": 2,
+      "errors": 1,
+      "family": "cauchy",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "saved_vs_unique": 1,
+      "transcript_checks": 16
+    },
+    {
+      "case": 47,
+      "erasure_patterns": 16,
+      "erasures": 2,
+      "errors": 1,
+      "family": "cauchy",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "saved_vs_unique": 1,
+      "transcript_checks": 16
+    },
+    {
+      "case": 48,
+      "erasure_patterns": 16,
+      "erasures": 2,
+      "errors": 1,
+      "family": "cauchy",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "saved_vs_unique": 1,
+      "transcript_checks": 16
+    },
+    {
+      "case": 49,
+      "erasure_patterns": 16,
+      "erasures": 2,
+      "errors": 1,
+      "family": "cauchy",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "saved_vs_unique": 1,
+      "transcript_checks": 16
+    },
+    {
+      "case": 50,
+      "erasure_patterns": 6,
+      "erasures": 1,
+      "errors": 2,
+      "family": "cauchy",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "saved_vs_unique": 2,
+      "transcript_checks": 6
+    },
+    {
+      "case": 51,
+      "erasure_patterns": 6,
+      "erasures": 1,
+      "errors": 2,
+      "family": "cauchy",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "saved_vs_unique": 2,
+      "transcript_checks": 6
+    },
+    {
+      "case": 52,
+      "erasure_patterns": 6,
+      "erasures": 1,
+      "errors": 2,
+      "family": "cauchy",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "saved_vs_unique": 2,
+      "transcript_checks": 6
+    },
+    {
+      "case": 53,
+      "erasure_patterns": 6,
+      "erasures": 1,
+      "errors": 2,
+      "family": "cauchy",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "saved_vs_unique": 2,
+      "transcript_checks": 6
+    },
+    {
+      "case": 54,
+      "erasure_patterns": 6,
+      "erasures": 1,
+      "errors": 2,
+      "family": "cauchy",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "saved_vs_unique": 2,
+      "transcript_checks": 6
+    },
+    {
+      "case": 55,
+      "erasure_patterns": 22,
+      "erasures": 2,
+      "errors": 2,
+      "family": "cauchy",
+      "minimum_distance": 5,
+      "passed": true,
+      "queries": 6,
+      "rank": 2,
+      "saved_vs_unique": 2,
+      "transcript_checks": 22
+    },
+    {
+      "case": 56,
+      "erasure_patterns": 22,
+      "erasures": 2,
+      "errors": 2,
+      "family": "cauchy",
+      "minimum_distance": 5,
+      "passed": true,
+      "queries": 6,
+      "rank": 2,
+      "saved_vs_unique": 2,
+      "transcript_checks": 22
+    },
+    {
+      "case": 57,
+      "erasure_patterns": 22,
+      "erasures": 2,
+      "errors": 2,
+      "family": "cauchy",
+      "minimum_distance": 5,
+      "passed": true,
+      "queries": 6,
+      "rank": 2,
+      "saved_vs_unique": 2,
+      "transcript_checks": 22
+    },
+    {
+      "case": 58,
+      "erasure_patterns": 22,
+      "erasures": 2,
+      "errors": 2,
+      "family": "cauchy",
+      "minimum_distance": 5,
+      "passed": true,
+      "queries": 6,
+      "rank": 2,
+      "saved_vs_unique": 2,
+      "transcript_checks": 22
+    },
+    {
+      "case": 59,
+      "erasure_patterns": 22,
+      "erasures": 2,
+      "errors": 2,
+      "family": "cauchy",
+      "minimum_distance": 5,
+      "passed": true,
+      "queries": 6,
+      "rank": 2,
+      "saved_vs_unique": 2,
+      "transcript_checks": 22
+    },
+    {
+      "case": 60,
+      "erasure_patterns": 6,
+      "erasures": 1,
+      "errors": 1,
+      "family": "cauchy",
+      "minimum_distance": 3,
+      "passed": true,
+      "queries": 5,
+      "rank": 3,
+      "saved_vs_unique": 1,
+      "transcript_checks": 6
+    },
+    {
+      "case": 61,
+      "erasure_patterns": 6,
+      "erasures": 1,
+      "errors": 1,
+      "family": "cauchy",
+      "minimum_distance": 3,
+      "passed": true,
+      "queries": 5,
+      "rank": 3,
+      "saved_vs_unique": 1,
+      "transcript_checks": 6
+    },
+    {
+      "case": 62,
+      "erasure_patterns": 6,
+      "erasures": 1,
+      "errors": 1,
+      "family": "cauchy",
+      "minimum_distance": 3,
+      "passed": true,
+      "queries": 5,
+      "rank": 3,
+      "saved_vs_unique": 1,
+      "transcript_checks": 6
+    },
+    {
+      "case": 63,
+      "erasure_patterns": 6,
+      "erasures": 1,
+      "errors": 1,
+      "family": "cauchy",
+      "minimum_distance": 3,
+      "passed": true,
+      "queries": 5,
+      "rank": 3,
+      "saved_vs_unique": 1,
+      "transcript_checks": 6
+    },
+    {
+      "case": 64,
+      "erasure_patterns": 6,
+      "erasures": 1,
+      "errors": 1,
+      "family": "cauchy",
+      "minimum_distance": 3,
+      "passed": true,
+      "queries": 5,
+      "rank": 3,
+      "saved_vs_unique": 1,
+      "transcript_checks": 6
+    },
+    {
+      "case": 65,
+      "erasure_patterns": 22,
+      "erasures": 2,
+      "errors": 1,
+      "family": "cauchy",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "saved_vs_unique": 1,
+      "transcript_checks": 22
+    },
+    {
+      "case": 66,
+      "erasure_patterns": 22,
+      "erasures": 2,
+      "errors": 1,
+      "family": "cauchy",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "saved_vs_unique": 1,
+      "transcript_checks": 22
+    },
+    {
+      "case": 67,
+      "erasure_patterns": 22,
+      "erasures": 2,
+      "errors": 1,
+      "family": "cauchy",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "saved_vs_unique": 1,
+      "transcript_checks": 22
+    },
+    {
+      "case": 68,
+      "erasure_patterns": 22,
+      "erasures": 2,
+      "errors": 1,
+      "family": "cauchy",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "saved_vs_unique": 1,
+      "transcript_checks": 22
+    },
+    {
+      "case": 69,
+      "erasure_patterns": 22,
+      "erasures": 2,
+      "errors": 1,
+      "family": "cauchy",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "saved_vs_unique": 1,
+      "transcript_checks": 22
+    },
+    {
+      "case": 70,
+      "erasure_patterns": 7,
+      "erasures": 1,
+      "errors": 2,
+      "family": "cauchy",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "saved_vs_unique": 2,
+      "transcript_checks": 7
+    },
+    {
+      "case": 71,
+      "erasure_patterns": 7,
+      "erasures": 1,
+      "errors": 2,
+      "family": "cauchy",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "saved_vs_unique": 2,
+      "transcript_checks": 7
+    },
+    {
+      "case": 72,
+      "erasure_patterns": 7,
+      "erasures": 1,
+      "errors": 2,
+      "family": "cauchy",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "saved_vs_unique": 2,
+      "transcript_checks": 7
+    },
+    {
+      "case": 73,
+      "erasure_patterns": 7,
+      "erasures": 1,
+      "errors": 2,
+      "family": "cauchy",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "saved_vs_unique": 2,
+      "transcript_checks": 7
+    },
+    {
+      "case": 74,
+      "erasure_patterns": 7,
+      "erasures": 1,
+      "errors": 2,
+      "family": "cauchy",
+      "minimum_distance": 4,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "saved_vs_unique": 2,
+      "transcript_checks": 7
+    },
+    {
+      "case": 75,
+      "erasure_patterns": 29,
+      "erasures": 2,
+      "errors": 2,
+      "family": "cauchy",
+      "minimum_distance": 5,
+      "passed": true,
+      "queries": 7,
+      "rank": 3,
+      "saved_vs_unique": 2,
+      "transcript_checks": 29
+    },
+    {
+      "case": 76,
+      "erasure_patterns": 29,
+      "erasures": 2,
+      "errors": 2,
+      "family": "cauchy",
+      "minimum_distance": 5,
+      "passed": true,
+      "queries": 7,
+      "rank": 3,
+      "saved_vs_unique": 2,
+      "transcript_checks": 29
+    },
+    {
+      "case": 77,
+      "erasure_patterns": 29,
+      "erasures": 2,
+      "errors": 2,
+      "family": "cauchy",
+      "minimum_distance": 5,
+      "passed": true,
+      "queries": 7,
+      "rank": 3,
+      "saved_vs_unique": 2,
+      "transcript_checks": 29
+    },
+    {
+      "case": 78,
+      "erasure_patterns": 29,
+      "erasures": 2,
+      "errors": 2,
+      "family": "cauchy",
+      "minimum_distance": 5,
+      "passed": true,
+      "queries": 7,
+      "rank": 3,
+      "saved_vs_unique": 2,
+      "transcript_checks": 29
+    },
+    {
+      "case": 79,
+      "erasure_patterns": 29,
+      "erasures": 2,
+      "errors": 2,
+      "family": "cauchy",
+      "minimum_distance": 5,
+      "passed": true,
+      "queries": 7,
+      "rank": 3,
+      "saved_vs_unique": 2,
+      "transcript_checks": 29
+    },
+    {
+      "case": 0,
+      "erasures": 1,
+      "errors": 1,
+      "passed": true,
+      "queries": 4,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        3
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 1,
+      "erasures": 1,
+      "errors": 1,
+      "passed": true,
+      "queries": 5,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        3
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 2,
+      "erasures": 1,
+      "errors": 2,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 3,
+      "erasures": 1,
+      "errors": 2,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 4,
+      "erasures": 2,
+      "errors": 1,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 5,
+      "erasures": 2,
+      "errors": 1,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 6,
+      "erasures": 2,
+      "errors": 2,
+      "passed": true,
+      "queries": 6,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 7,
+      "erasures": 2,
+      "errors": 2,
+      "passed": true,
+      "queries": 7,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 8,
+      "erasures": 1,
+      "errors": 1,
+      "passed": true,
+      "queries": 4,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        3
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 9,
+      "erasures": 1,
+      "errors": 1,
+      "passed": true,
+      "queries": 5,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        3
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 10,
+      "erasures": 1,
+      "errors": 2,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 11,
+      "erasures": 1,
+      "errors": 2,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 12,
+      "erasures": 2,
+      "errors": 1,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 13,
+      "erasures": 2,
+      "errors": 1,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 14,
+      "erasures": 2,
+      "errors": 2,
+      "passed": true,
+      "queries": 6,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 15,
+      "erasures": 2,
+      "errors": 2,
+      "passed": true,
+      "queries": 7,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 16,
+      "erasures": 1,
+      "errors": 1,
+      "passed": true,
+      "queries": 4,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        3
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 17,
+      "erasures": 1,
+      "errors": 1,
+      "passed": true,
+      "queries": 5,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        3
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 18,
+      "erasures": 1,
+      "errors": 2,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 19,
+      "erasures": 1,
+      "errors": 2,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 20,
+      "erasures": 2,
+      "errors": 1,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 21,
+      "erasures": 2,
+      "errors": 1,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 22,
+      "erasures": 2,
+      "errors": 2,
+      "passed": true,
+      "queries": 6,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 23,
+      "erasures": 2,
+      "errors": 2,
+      "passed": true,
+      "queries": 7,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 24,
+      "erasures": 1,
+      "errors": 1,
+      "passed": true,
+      "queries": 4,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        3
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 25,
+      "erasures": 1,
+      "errors": 1,
+      "passed": true,
+      "queries": 5,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        3
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 26,
+      "erasures": 1,
+      "errors": 2,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 27,
+      "erasures": 1,
+      "errors": 2,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 28,
+      "erasures": 2,
+      "errors": 1,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 29,
+      "erasures": 2,
+      "errors": 1,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 30,
+      "erasures": 2,
+      "errors": 2,
+      "passed": true,
+      "queries": 6,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 31,
+      "erasures": 2,
+      "errors": 2,
+      "passed": true,
+      "queries": 7,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 32,
+      "erasures": 1,
+      "errors": 1,
+      "passed": true,
+      "queries": 4,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        3
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 33,
+      "erasures": 1,
+      "errors": 1,
+      "passed": true,
+      "queries": 5,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        3
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 34,
+      "erasures": 1,
+      "errors": 2,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 35,
+      "erasures": 1,
+      "errors": 2,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 36,
+      "erasures": 2,
+      "errors": 1,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 37,
+      "erasures": 2,
+      "errors": 1,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 38,
+      "erasures": 2,
+      "errors": 2,
+      "passed": true,
+      "queries": 6,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 39,
+      "erasures": 2,
+      "errors": 2,
+      "passed": true,
+      "queries": 7,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 40,
+      "erasures": 1,
+      "errors": 1,
+      "passed": true,
+      "queries": 4,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        3
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 41,
+      "erasures": 1,
+      "errors": 1,
+      "passed": true,
+      "queries": 5,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        3
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 42,
+      "erasures": 1,
+      "errors": 2,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 43,
+      "erasures": 1,
+      "errors": 2,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 44,
+      "erasures": 2,
+      "errors": 1,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 45,
+      "erasures": 2,
+      "errors": 1,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 46,
+      "erasures": 2,
+      "errors": 2,
+      "passed": true,
+      "queries": 6,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 47,
+      "erasures": 2,
+      "errors": 2,
+      "passed": true,
+      "queries": 7,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 48,
+      "erasures": 1,
+      "errors": 1,
+      "passed": true,
+      "queries": 4,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        3
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 49,
+      "erasures": 1,
+      "errors": 1,
+      "passed": true,
+      "queries": 5,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        3
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 50,
+      "erasures": 1,
+      "errors": 2,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 51,
+      "erasures": 1,
+      "errors": 2,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 52,
+      "erasures": 2,
+      "errors": 1,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 53,
+      "erasures": 2,
+      "errors": 1,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 54,
+      "erasures": 2,
+      "errors": 2,
+      "passed": true,
+      "queries": 6,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 55,
+      "erasures": 2,
+      "errors": 2,
+      "passed": true,
+      "queries": 7,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 56,
+      "erasures": 1,
+      "errors": 1,
+      "passed": true,
+      "queries": 4,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        3
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 57,
+      "erasures": 1,
+      "errors": 1,
+      "passed": true,
+      "queries": 5,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        3
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 58,
+      "erasures": 1,
+      "errors": 2,
+      "passed": true,
+      "queries": 5,
+      "rank": 2,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    },
+    {
+      "case": 59,
+      "erasures": 1,
+      "errors": 2,
+      "passed": true,
+      "queries": 6,
+      "rank": 3,
+      "rank_drop_witness": [
+        0,
+        1,
+        4
+      ],
+      "rejected_before_transcript": true
+    }
+  ],
+  "schema": "theorica.finite-list-error-erasure-selector/1",
+  "summary": {
+    "cauchy_holdout_total": 40,
+    "cauchy_holdouts_passed": 40,
+    "degenerate_attack_total": 60,
+    "degenerate_attacks_rejected": 60,
+    "digest": "e9db12fddf333bd01fb4eb6371cea97b3dc9185b2cd39f1eae56473bd13c96c9",
+    "erasure_patterns_exhausted": 1130,
+    "passed": true,
+    "positive_case_total": 80,
+    "positive_cases_passed": 80,
+    "queries_saved_vs_unique": 120,
+    "transcript_checks_passed": 1130
+  }
+}

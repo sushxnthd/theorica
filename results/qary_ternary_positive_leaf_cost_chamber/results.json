@@ -1,0 +1,681 @@
+{
+  "cumulative_opened_reserved_cases": 6,
+  "exact_P0_minus_P2_gap_for_all_c_ge_1": 4,
+  "families": [
+    {
+      "clean_separator_present": true,
+      "endpoint_c1": {
+        "actions_evaluated": 3291,
+        "allowed_query_levels": [
+          0,
+          1,
+          2
+        ],
+        "compatibility_states": 115,
+        "constructive_upper_bound": 33,
+        "exact_lower_bound": 33,
+        "root_actions": [
+          {
+            "action_value": 37,
+            "child_values": [
+              16,
+              16,
+              33
+            ],
+            "optimal": false,
+            "query_cost": 4,
+            "query_group": 0,
+            "query_level": 0
+          },
+          {
+            "action_value": 44,
+            "child_values": [
+              33,
+              12
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 1,
+            "query_level": 1
+          },
+          {
+            "action_value": 44,
+            "child_values": [
+              33,
+              12
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 2,
+            "query_level": 1
+          },
+          {
+            "action_value": 33,
+            "child_values": [
+              16,
+              22,
+              22
+            ],
+            "optimal": true,
+            "query_cost": 11,
+            "query_group": 3,
+            "query_level": 1
+          },
+          {
+            "action_value": 34,
+            "child_values": [
+              33,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 1,
+            "query_group": 4,
+            "query_level": 2
+          },
+          {
+            "action_value": 34,
+            "child_values": [
+              33,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 1,
+            "query_group": 5,
+            "query_level": 2
+          },
+          {
+            "action_value": 34,
+            "child_values": [
+              33,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 1,
+            "query_group": 7,
+            "query_level": 2
+          },
+          {
+            "action_value": 34,
+            "child_values": [
+              33,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 1,
+            "query_group": 8,
+            "query_level": 2
+          }
+        ],
+        "states_solved": 4537
+      },
+      "falsification": {
+        "constant_formula_must_fail_for_c_greater_than": 33,
+        "constant_unbounded_leaf_cost_chamber_impossible": true,
+        "endpoint_formula_holds": true,
+        "every_winning_policy_requires_a_leaf_query": true,
+        "necessary_leaf_lower_bound": "V(c) >= c",
+        "root_middle_only_policy_infeasible": true
+      },
+      "family": "P2",
+      "formula_value": 33,
+      "leaf_free_policy_exists": false,
+      "middle_partitions": [
+        {
+          "cells": [
+            {
+              "answer": 0,
+              "one_lie": [
+                0,
+                1,
+                4,
+                5,
+                6,
+                7
+              ],
+              "zero_lie": [
+                8,
+                9
+              ]
+            },
+            {
+              "answer": 1,
+              "one_lie": [
+                2,
+                3
+              ],
+              "zero_lie": []
+            }
+          ],
+          "clean_separator": false,
+          "query_group": 1,
+          "remaining_copies": 3
+        },
+        {
+          "cells": [
+            {
+              "answer": 0,
+              "one_lie": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "zero_lie": [
+                8,
+                9
+              ]
+            },
+            {
+              "answer": 1,
+              "one_lie": [
+                6,
+                7
+              ],
+              "zero_lie": []
+            }
+          ],
+          "clean_separator": false,
+          "query_group": 2,
+          "remaining_copies": 4
+        },
+        {
+          "cells": [
+            {
+              "answer": 0,
+              "one_lie": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "zero_lie": []
+            },
+            {
+              "answer": 1,
+              "one_lie": [],
+              "zero_lie": [
+                8
+              ]
+            },
+            {
+              "answer": 2,
+              "one_lie": [],
+              "zero_lie": [
+                9
+              ]
+            }
+          ],
+          "clean_separator": true,
+          "query_group": 3,
+          "remaining_copies": 4
+        }
+      ],
+      "root_middle_only_upper_bound": {
+        "actions_evaluated": 119,
+        "allowed_query_levels": [
+          0,
+          1
+        ],
+        "compatibility_states": 23,
+        "constructive_upper_bound": 1000000000,
+        "exact_lower_bound": 1000000000,
+        "root_actions": [
+          {
+            "action_value": 1000000000,
+            "child_values": [
+              1000000000,
+              1000000000,
+              33
+            ],
+            "optimal": true,
+            "query_cost": 4,
+            "query_group": 0,
+            "query_level": 0
+          },
+          {
+            "action_value": 1000000000,
+            "child_values": [
+              1000000000,
+              1000000000
+            ],
+            "optimal": true,
+            "query_cost": 11,
+            "query_group": 1,
+            "query_level": 1
+          },
+          {
+            "action_value": 1000000000,
+            "child_values": [
+              1000000000,
+              1000000000
+            ],
+            "optimal": true,
+            "query_cost": 11,
+            "query_group": 2,
+            "query_level": 1
+          },
+          {
+            "action_value": 1000000000,
+            "child_values": [
+              1000000000,
+              22,
+              22
+            ],
+            "optimal": true,
+            "query_cost": 11,
+            "query_group": 3,
+            "query_level": 1
+          }
+        ],
+        "states_solved": 197
+      },
+      "sandwich": {
+        "closed": false,
+        "lower_bound_for_all_c_ge_1": 33,
+        "upper_bound_for_all_c_ge_1": null
+      },
+      "words": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "clean_separator_present": false,
+      "endpoint_c1": {
+        "actions_evaluated": 4571,
+        "allowed_query_levels": [
+          0,
+          1,
+          2
+        ],
+        "compatibility_states": 135,
+        "constructive_upper_bound": 37,
+        "exact_lower_bound": 37,
+        "root_actions": [
+          {
+            "action_value": 37,
+            "child_values": [
+              16,
+              16,
+              33
+            ],
+            "optimal": true,
+            "query_cost": 4,
+            "query_group": 0,
+            "query_level": 0
+          },
+          {
+            "action_value": 48,
+            "child_values": [
+              37,
+              15
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 1,
+            "query_level": 1
+          },
+          {
+            "action_value": 48,
+            "child_values": [
+              37,
+              15
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 2,
+            "query_level": 1
+          },
+          {
+            "action_value": 37,
+            "child_values": [
+              26,
+              22
+            ],
+            "optimal": true,
+            "query_cost": 11,
+            "query_group": 3,
+            "query_level": 1
+          },
+          {
+            "action_value": 38,
+            "child_values": [
+              37,
+              12
+            ],
+            "optimal": false,
+            "query_cost": 1,
+            "query_group": 4,
+            "query_level": 2
+          },
+          {
+            "action_value": 38,
+            "child_values": [
+              37,
+              12
+            ],
+            "optimal": false,
+            "query_cost": 1,
+            "query_group": 5,
+            "query_level": 2
+          },
+          {
+            "action_value": 38,
+            "child_values": [
+              37,
+              12
+            ],
+            "optimal": false,
+            "query_cost": 1,
+            "query_group": 7,
+            "query_level": 2
+          },
+          {
+            "action_value": 38,
+            "child_values": [
+              37,
+              12
+            ],
+            "optimal": false,
+            "query_cost": 1,
+            "query_group": 8,
+            "query_level": 2
+          }
+        ],
+        "states_solved": 5392
+      },
+      "falsification": {
+        "constant_formula_must_fail_for_c_greater_than": 37,
+        "constant_unbounded_leaf_cost_chamber_impossible": true,
+        "endpoint_formula_holds": true,
+        "every_winning_policy_requires_a_leaf_query": true,
+        "necessary_leaf_lower_bound": "V(c) >= c",
+        "root_middle_only_policy_infeasible": true
+      },
+      "family": "P0",
+      "formula_value": 37,
+      "leaf_free_policy_exists": false,
+      "middle_partitions": [
+        {
+          "cells": [
+            {
+              "answer": 0,
+              "one_lie": [
+                0,
+                1,
+                4,
+                5,
+                6,
+                7
+              ],
+              "zero_lie": [
+                8,
+                9
+              ]
+            },
+            {
+              "answer": 1,
+              "one_lie": [
+                2,
+                3
+              ],
+              "zero_lie": []
+            }
+          ],
+          "clean_separator": false,
+          "query_group": 1,
+          "remaining_copies": 3
+        },
+        {
+          "cells": [
+            {
+              "answer": 0,
+              "one_lie": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "zero_lie": [
+                8,
+                9
+              ]
+            },
+            {
+              "answer": 1,
+              "one_lie": [
+                6,
+                7
+              ],
+              "zero_lie": []
+            }
+          ],
+          "clean_separator": false,
+          "query_group": 2,
+          "remaining_copies": 4
+        },
+        {
+          "cells": [
+            {
+              "answer": 0,
+              "one_lie": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "zero_lie": [
+                8
+              ]
+            },
+            {
+              "answer": 1,
+              "one_lie": [],
+              "zero_lie": [
+                9
+              ]
+            }
+          ],
+          "clean_separator": false,
+          "query_group": 3,
+          "remaining_copies": 4
+        }
+      ],
+      "root_middle_only_upper_bound": {
+        "actions_evaluated": 151,
+        "allowed_query_levels": [
+          0,
+          1
+        ],
+        "compatibility_states": 29,
+        "constructive_upper_bound": 1000000000,
+        "exact_lower_bound": 1000000000,
+        "root_actions": [
+          {
+            "action_value": 1000000000,
+            "child_values": [
+              1000000000,
+              1000000000,
+              33
+            ],
+            "optimal": true,
+            "query_cost": 4,
+            "query_group": 0,
+            "query_level": 0
+          },
+          {
+            "action_value": 1000000000,
+            "child_values": [
+              1000000000,
+              1000000000
+            ],
+            "optimal": true,
+            "query_cost": 11,
+            "query_group": 1,
+            "query_level": 1
+          },
+          {
+            "action_value": 1000000000,
+            "child_values": [
+              1000000000,
+              1000000000
+            ],
+            "optimal": true,
+            "query_cost": 11,
+            "query_group": 2,
+            "query_level": 1
+          },
+          {
+            "action_value": 1000000000,
+            "child_values": [
+              1000000000,
+              22
+            ],
+            "optimal": true,
+            "query_cost": 11,
+            "query_group": 3,
+            "query_level": 1
+          }
+        ],
+        "states_solved": 208
+      },
+      "sandwich": {
+        "closed": false,
+        "lower_bound_for_all_c_ge_1": 37,
+        "upper_bound_for_all_c_ge_1": null
+      },
+      "words": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ]
+    }
+  ],
+  "fixed_root_middle_costs": [
+    4,
+    11
+  ],
+  "leaf_cost_domain": {
+    "minimum": 1,
+    "unbounded_above": true
+  },
+  "proof_rule": {
+    "lower": "query-cost monotonicity from exact c=1 endpoint",
+    "upper": "exact root-middle-only policy independent of leaf cost"
+  },
+  "remaining_reserved_cases": 12,
+  "schema": "theorica.ternary-positive-leaf-cost-chamber/1",
+  "summary": {
+    "classification": "leaf_query_necessity_falsifies_unbounded_chamber",
+    "leaf_query_necessity_falsification": true,
+    "passed": true,
+    "prediction_supported": false
+  }
+}

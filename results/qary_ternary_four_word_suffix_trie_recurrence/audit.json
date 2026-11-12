@@ -1,0 +1,28 @@
+{
+  "aggregate_transport_stream_reproduced": true,
+  "class_sizes": {
+    "0": 81,
+    "1": 2916,
+    "10": 1458,
+    "2": 243,
+    "3": 243,
+    "4": 1458,
+    "5": 2187,
+    "6": 54,
+    "7": 162,
+    "8": 2187,
+    "9": 6561
+  },
+  "class_transport_streams_reproduced": 11,
+  "cross_class_nonisomorphisms_checked": 55,
+  "families_reconstructed": 17550,
+  "holdout_maps_reproduced": 11,
+  "passed": true,
+  "production_imports": 0,
+  "q4_count_identity_sum": 635376,
+  "q4_shapes_reconstructed": 14,
+  "results_sha256": "5e8fed6e2f919a862fbe91ade8e6e7782b9b0474a82dcf963ee49dab9d6aae39",
+  "schema": "theorica.ternary-four-word-suffix-trie-recurrence-audit/1",
+  "transport_digests_reproduced": 17550,
+  "trie_shapes_reconstructed": 11
+}

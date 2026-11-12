@@ -1,0 +1,87 @@
+{
+  "schema": "theorica.ternary-obstruction-transfer-boundary-audit/1",
+  "summary": {
+    "P0_P2_independently_WL_separated": true,
+    "independent_states": 106284,
+    "passed": true,
+    "source_sha256": "008d22d71d6983e47ba42b81291e47f36042880edd6d4aed2e81a11b791f647d",
+    "target_checks_passed": 8,
+    "targets_checked": 8,
+    "unseen_families_checked": 7,
+    "zero_theorica_imports": true
+  },
+  "targets": [
+    {
+      "feasible_at_51": true,
+      "infeasible_at_50": true,
+      "mapping_valid": true,
+      "name": "opened_pair_P1",
+      "passed": true,
+      "states": 12816,
+      "transported_policy_cost": 51
+    },
+    {
+      "feasible_at_51": true,
+      "infeasible_at_50": true,
+      "mapping_valid": true,
+      "name": "unseen_coordinate_swap_001",
+      "passed": true,
+      "states": 13755,
+      "transported_policy_cost": 51
+    },
+    {
+      "feasible_at_51": true,
+      "infeasible_at_50": true,
+      "mapping_valid": true,
+      "name": "unseen_coordinate_swap_010",
+      "passed": true,
+      "states": 12816,
+      "transported_policy_cost": 51
+    },
+    {
+      "feasible_at_51": true,
+      "infeasible_at_50": true,
+      "mapping_valid": true,
+      "name": "unseen_coordinate_swap_011",
+      "passed": true,
+      "states": 13755,
+      "transported_policy_cost": 51
+    },
+    {
+      "feasible_at_51": true,
+      "infeasible_at_50": true,
+      "mapping_valid": true,
+      "name": "unseen_coordinate_swap_100",
+      "passed": true,
+      "states": 12816,
+      "transported_policy_cost": 51
+    },
+    {
+      "feasible_at_51": true,
+      "infeasible_at_50": true,
+      "mapping_valid": true,
+      "name": "unseen_coordinate_swap_101",
+      "passed": true,
+      "states": 13755,
+      "transported_policy_cost": 51
+    },
+    {
+      "feasible_at_51": true,
+      "infeasible_at_50": true,
+      "mapping_valid": true,
+      "name": "unseen_coordinate_swap_110",
+      "passed": true,
+      "states": 12816,
+      "transported_policy_cost": 51
+    },
+    {
+      "feasible_at_51": true,
+      "infeasible_at_50": true,
+      "mapping_valid": true,
+      "name": "unseen_coordinate_swap_111",
+      "passed": true,
+      "states": 13755,
+      "transported_policy_cost": 51
+    }
+  ]
+}

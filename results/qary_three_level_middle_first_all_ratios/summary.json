@@ -1,0 +1,46 @@
+{
+  "all_six_faces_recovered": true,
+  "equivalent_boundary_representative_collapses": 3,
+  "holdout_total": 30,
+  "holdouts_matched": 30,
+  "open_cell_total": 10,
+  "open_cells_certified": 10,
+  "passed": true,
+  "source_union": [
+    [
+      1,
+      5,
+      1
+    ],
+    [
+      2,
+      3,
+      4
+    ],
+    [
+      2,
+      4,
+      3
+    ],
+    [
+      3,
+      3,
+      3
+    ],
+    [
+      3,
+      4,
+      1
+    ],
+    [
+      4,
+      2,
+      1
+    ]
+  ],
+  "states_per_trace": [
+    178964
+  ],
+  "trace_projected_antichains_matched": 19,
+  "trace_total": 19
+}

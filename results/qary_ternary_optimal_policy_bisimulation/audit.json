@@ -1,0 +1,10 @@
+{
+  "bellman_state_records_checked": 2124,
+  "content_hashes_checked": 137,
+  "edge_and_optimality_checks": 316,
+  "evaluated_actions_checked": 4652,
+  "passed": true,
+  "production_imports": 0,
+  "root_witnesses_checked": 4,
+  "schema": "theorica.ternary-optimal-policy-bisimulation-audit/1"
+}

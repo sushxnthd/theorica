@@ -1,0 +1,16 @@
+{
+  "protocol_seed": 202610241711,
+  "opened_cases_per_dimension": 40,
+  "opened_dimensions": [1, 2, 3],
+  "opened_scenario_counts": {"minimum": 9, "maximum": 40},
+  "holdout_seeds": [
+    910003, 917922, 925841, 933760, 941679, 949598, 957517, 965436,
+    973355, 981274, 989193, 997112, 1005031, 1012950, 1020869,
+    1028788, 1036707, 1044626, 1052545, 1060464, 1068383, 1076302,
+    1084221, 1092140, 1100059, 1107978, 1115897, 1123816, 1131735,
+    1139654
+  ],
+  "holdout_scenario_counts": [41, 64, 97, 127, 193],
+  "lower_bound_witnesses_per_dimension": 20,
+  "maximum_certified_dimension": 3
+}

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560" role="img" aria-labelledby="title desc">
+  <title id="title">Coupled ambiguity boundary by vertex-set size</title>
+  <desc id="desc">Grouped bars show zero coupling bonus and strict coupling bonus counts across 98415 exact games.</desc>
+  <rect width="1000" height="560" fill="#fbfcfe"/>
+  <text x="72" y="52" font-family="Inter,Arial,sans-serif" font-size="25" font-weight="700" fill="#111827">Coupled ambiguity has a structural boundary, not a cardinality rule</text>
+  <text x="72" y="82" font-family="Inter,Arial,sans-serif" font-size="15" fill="#4b5563">98,415 exact rational games · zero value mismatches · zero criterion mismatches</text>
+  <line x1="92" y1="450" x2="940" y2="450" stroke="#9ca3af" stroke-width="1.5"/>
+  <line x1="92" y1="130" x2="92" y2="450" stroke="#9ca3af" stroke-width="1.5"/>
+  <g font-family="Inter,Arial,sans-serif" font-size="12" fill="#6b7280" text-anchor="end">
+    <text x="82" y="454">0</text><text x="82" y="374">10k</text><text x="82" y="294">20k</text><text x="82" y="214">30k</text><text x="82" y="134">40k</text>
+  </g>
+  <g stroke="#e5e7eb" stroke-width="1">
+    <line x1="92" y1="370" x2="940" y2="370"/><line x1="92" y1="290" x2="940" y2="290"/>
+    <line x1="92" y1="210" x2="940" y2="210"/><line x1="92" y1="130" x2="940" y2="130"/>
+  </g>
+  <g fill="#1769aa">
+    <rect x="160" y="382.3" width="64" height="67.7" rx="4"/>
+    <rect x="360" y="259.4" width="64" height="190.6" rx="4"/>
+    <rect x="560" y="273.6" width="64" height="176.4" rx="4"/>
+    <rect x="760" y="397.5" width="64" height="52.5" rx="4"/>
+  </g>
+  <g fill="#e07a3f">
+    <rect x="230" y="307.8" width="64" height="142.2" rx="4"/>
+    <rect x="430" y="325.7" width="64" height="124.3" rx="4"/>
+    <rect x="630" y="416.4" width="64" height="33.6" rx="4"/>
+    <rect x="830" y="450" width="64" height="0" rx="4"/>
+  </g>
+  <g font-family="Inter,Arial,sans-serif" font-size="13" font-weight="600" text-anchor="middle">
+    <g fill="#1769aa"><text x="192" y="373">8,464</text><text x="392" y="250">23,830</text><text x="592" y="264">22,048</text><text x="792" y="389">6,561</text></g>
+    <g fill="#b4532a"><text x="262" y="299">17,780</text><text x="462" y="317">15,536</text><text x="662" y="408">4,196</text><text x="862" y="440">0</text></g>
+  </g>
+  <g font-family="Inter,Arial,sans-serif" font-size="14" fill="#374151" text-anchor="middle">
+    <text x="227" y="482">1 vertex</text><text x="427" y="482">2 vertices</text>
+    <text x="627" y="482">3 vertices</text><text x="827" y="482">4 vertices (rectangular)</text>
+  </g>
+  <g font-family="Inter,Arial,sans-serif" font-size="14">
+    <rect x="316" y="518" width="16" height="16" rx="3" fill="#1769aa"/><text x="340" y="531" fill="#374151">Rectangular value survives</text>
+    <rect x="548" y="518" width="16" height="16" rx="3" fill="#e07a3f"/><text x="572" y="531" fill="#374151">Strict coupling bonus</text>
+  </g>
+</svg>
