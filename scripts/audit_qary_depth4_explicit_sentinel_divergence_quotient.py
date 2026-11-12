@@ -23,6 +23,77 @@ def rows(words):
     )
 
 
+def level(query):
+    offset = 0
+    for depth in range(D):
+        next_offset = offset + Q**depth
+        if query < next_offset:
+            return depth
+        offset = next_offset
+    raise ValueError(query)
+
+
+def row_partition(row, completion_map=None):
+    mapped = range(len(row)) if completion_map is None else completion_map
+    return tuple(
+        sorted(
+            tuple(sorted(mapped[index] for index, value in enumerate(row) if value == answer))
+            for answer in set(row)
+        )
+    )
+
+
+def constructive_transport(source, target):
+    source_rows, target_rows = rows(source), rows(target)
+    completion_map = list(range(len(source)))
+    buckets = {}
+    for query, row in enumerate(target_rows):
+        buckets.setdefault((level(query), row_partition(row)), []).append(query)
+    query_map = []
+    for query, row in enumerate(source_rows):
+        query_map.append(
+            buckets[(level(query), row_partition(row, completion_map))].pop(0)
+        )
+    assert not any(buckets.values())
+    cells = {}
+    for query, row in enumerate(source_rows):
+        target_query = query_map[query]
+        for answer in set(row):
+            source_cell = {
+                completion_map[index] for index, value in enumerate(row) if value == answer
+            }
+            target_answer = next(
+                value
+                for value in set(target_rows[target_query])
+                if {
+                    index
+                    for index, candidate in enumerate(target_rows[target_query])
+                    if candidate == value
+                }
+                == source_cell
+            )
+            assert all(
+                (value == answer)
+                == (target_rows[target_query][completion_map[index]] == target_answer)
+                for index, value in enumerate(row)
+            )
+            cells[f"{query}:{answer}"] = target_answer
+    transport = {
+        "completions": completion_map,
+        "queries": query_map,
+        "cells": cells,
+        "certificate": {
+            "constructive_partition_bijection": True,
+            "mapping_edge_checked": True,
+            "query_groups_mapped": len(query_map),
+        },
+    }
+    digest = hashlib.sha256(
+        json.dumps(transport, sort_keys=True, separators=(",", ":")).encode()
+    ).hexdigest()
+    return transport, digest
+
+
 def divergence_class(pair):
     return next(
         index
@@ -77,8 +148,12 @@ def main():
         r = divergence_class(pair)
         assert row["class"] == row["computed_common_suffix_prefix"] == r
         counts[r] += 1
+        transport, digest = constructive_transport(
+            (*BASE, *representatives[r]), (*BASE, *pair)
+        )
         map_checks.append(
-            validate_map((*BASE, *representatives[r]), (*BASE, *pair), row["isomorphism"])
+            digest == row["transport_sha256"]
+            and validate_map((*BASE, *representatives[r]), (*BASE, *pair), transport)
         )
 
     holdout_checks = []
@@ -121,6 +196,7 @@ def main():
         "families_reconstructed": len(observed_pairs),
         "class_sizes": {str(key): value for key, value in counts.items()},
         "edge_maps_independently_checked": sum(map_checks) + sum(holdout_checks),
+        "transport_digests_reproduced": sum(map_checks),
         "cross_class_nonisomorphisms_checked": len(
             result["cross_representative_nonisomorphism"]
         ),

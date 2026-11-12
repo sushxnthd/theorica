@@ -2,6 +2,7 @@
 """Complete q=3, d=4 test of the frozen divergence quotient theorem."""
 from __future__ import annotations
 
+import hashlib
 import importlib.util
 import json
 from itertools import combinations, product
@@ -140,6 +141,12 @@ def constructive_transport(source, target):
     }
 
 
+def transport_sha256(transport):
+    return hashlib.sha256(
+        json.dumps(transport, sort_keys=True, separators=(",", ":")).encode()
+    ).hexdigest()
+
+
 def divergence_class(pair):
     for index, (left, right) in enumerate(zip(pair[0][1:], pair[1][1:])):
         if left != right:
@@ -168,7 +175,7 @@ def main():
                 "pair": pair_json(pair),
                 "computed_common_suffix_prefix": divergence_class(pair),
                 "class": r,
-                "isomorphism": transport,
+                "transport_sha256": transport_sha256(transport),
                 "isomorphism_certificate": transport["certificate"],
             }
         )

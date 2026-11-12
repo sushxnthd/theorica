@@ -79,10 +79,13 @@ The zero-production-import audit independently reconstructed:
   and
 - the 117-fold representative-solve reduction.
 
-The result SHA-256 is
-`00d69ec8af68c2624cfa43c63e339033152892685a7785dee36c6eda90fdd133`;
+The repaired compact result SHA-256 is
+`18dd77be48a7ca3dcadb68e421298ec6df31a47db0eb9bf382e73c14ff74da43`;
 the audit SHA-256 is
-`2ebafdf9bf3c364f453f5837ca19638db550db26d45614ad12bf38c7838fe7f8`.
+`6cc93426eee25c22123f163e7c39b6141c581e9f8ef594bf71fa4d761f5d0f3d`.
+The catalogue stores independently regenerable transport digests rather than
+duplicating every full map; all 351 maps are reconstructed and edge-checked by
+the zero-production-import audit.
 
 ## Limits
 
