@@ -153,7 +153,11 @@ def main():
         mapping, certificate = K5.S.H.isomorphism(graphs[left], graphs[right])
         cross[f"{left}:{right}"] = {
             "isomorphic": mapping is not None,
-            "certificate": certificate,
+            "certificate_sha256": hashlib.sha256(
+                json.dumps(
+                    certificate, sort_keys=True, separators=(",", ":")
+                ).encode()
+            ).hexdigest(),
         }
 
     q4_sparse_shapes = K5.recurrence_shapes(H, SPARSE_K, 4)

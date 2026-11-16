@@ -60,9 +60,9 @@ dense representative pair.  The audit passed.
 - All-family transport stream SHA-256:
   `2b3ed399e1140e5b96c7a914c361eea3882f7b0b3e60718a299f7416860e53a4`.
 - Result artifact SHA-256:
-  `fb994d0d22635ed3864a040a30d7818e9dad3eda6478b649b802ee82ced74425`.
+  `19d5c283695c9119fb8b970ea9caf81e9cf52bc173f18cc87321650609ab0fef`.
 - Audit artifact SHA-256:
-  `b9bc8a8630e33b42fe4c0dda6b1782b38385290f3d242633b194e7790035e494`.
+  `6c3bb2160973d93781967a029cb58141e47595b6cd8914cb1ebb237439fe166f`.
 
 ## Limits
 

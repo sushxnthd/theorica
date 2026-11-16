@@ -32,7 +32,7 @@
   "production_imports": 0,
   "q4_sparse_dense_class_count": 24,
   "q4_sparse_dense_orbit_sum": 7624512,
-  "results_sha256": "fb994d0d22635ed3864a040a30d7818e9dad3eda6478b649b802ee82ced74425",
+  "results_sha256": "19d5c283695c9119fb8b970ea9caf81e9cf52bc173f18cc87321650609ab0fef",
   "schema": "theorica.ternary-dense-suffix-trie-complement-duality-audit/1",
   "sparse_classes_reconstructed": 18,
   "transport_digests_reproduced": 80730
