@@ -1,0 +1,27 @@
+{
+  "exact_bounds_match": true,
+  "exact_gap_matches_root_cost": true,
+  "independent_formula_value": 33,
+  "no_clean_separator": true,
+  "partition_classifications_match": true,
+  "partition_replay": [
+    {
+      "clean_separator": false,
+      "matches_primary": true,
+      "query_group": 1
+    },
+    {
+      "clean_separator": false,
+      "matches_primary": true,
+      "query_group": 2
+    },
+    {
+      "clean_separator": false,
+      "matches_primary": true,
+      "query_group": 3
+    }
+  ],
+  "passed": true,
+  "reserved_count_valid": true,
+  "schema": "theorica.ternary-no-clean-separator-audit/1"
+}

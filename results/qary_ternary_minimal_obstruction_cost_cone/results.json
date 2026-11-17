@@ -1,0 +1,5674 @@
+{
+  "candidate_faces": [
+    [
+      1,
+      5,
+      1
+    ],
+    [
+      2,
+      3,
+      4
+    ],
+    [
+      2,
+      4,
+      3
+    ],
+    [
+      3,
+      3,
+      3
+    ],
+    [
+      3,
+      4,
+      1
+    ],
+    [
+      4,
+      2,
+      1
+    ],
+    [
+      2,
+      5,
+      1
+    ]
+  ],
+  "cases": [
+    {
+      "binary_six_face_cost": 9,
+      "compatibility_states_solved": 114,
+      "exact_cost": 9,
+      "level_costs": [
+        1,
+        1,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 8,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 9,
+      "role": "discovery",
+      "states_solved": 9089
+    },
+    {
+      "binary_six_face_cost": 9,
+      "compatibility_states_solved": 114,
+      "exact_cost": 9,
+      "level_costs": [
+        1,
+        1,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 8,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 9,
+      "role": "discovery",
+      "states_solved": 9089
+    },
+    {
+      "binary_six_face_cost": 9,
+      "compatibility_states_solved": 101,
+      "exact_cost": 9,
+      "level_costs": [
+        1,
+        1,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 8,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 9,
+      "role": "discovery",
+      "states_solved": 9093
+    },
+    {
+      "binary_six_face_cost": 13,
+      "compatibility_states_solved": 114,
+      "exact_cost": 13,
+      "level_costs": [
+        1,
+        1,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 9,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 13,
+      "role": "discovery",
+      "states_solved": 10191
+    },
+    {
+      "binary_six_face_cost": 13,
+      "compatibility_states_solved": 114,
+      "exact_cost": 13,
+      "level_costs": [
+        1,
+        1,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 9,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 13,
+      "role": "discovery",
+      "states_solved": 10191
+    },
+    {
+      "binary_six_face_cost": 13,
+      "compatibility_states_solved": 101,
+      "exact_cost": 13,
+      "level_costs": [
+        1,
+        1,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 9,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 13,
+      "role": "discovery",
+      "states_solved": 10196
+    },
+    {
+      "binary_six_face_cost": 17,
+      "compatibility_states_solved": 117,
+      "exact_cost": 17,
+      "level_costs": [
+        1,
+        1,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 10,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 17,
+      "role": "discovery",
+      "states_solved": 13399
+    },
+    {
+      "binary_six_face_cost": 17,
+      "compatibility_states_solved": 117,
+      "exact_cost": 17,
+      "level_costs": [
+        1,
+        1,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 10,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 17,
+      "role": "discovery",
+      "states_solved": 13399
+    },
+    {
+      "binary_six_face_cost": 17,
+      "compatibility_states_solved": 106,
+      "exact_cost": 17,
+      "level_costs": [
+        1,
+        1,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 10,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 17,
+      "role": "discovery",
+      "states_solved": 13462
+    },
+    {
+      "binary_six_face_cost": 21,
+      "compatibility_states_solved": 121,
+      "exact_cost": 21,
+      "level_costs": [
+        1,
+        1,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 11,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 21,
+      "role": "discovery",
+      "states_solved": 14266
+    },
+    {
+      "binary_six_face_cost": 21,
+      "compatibility_states_solved": 121,
+      "exact_cost": 21,
+      "level_costs": [
+        1,
+        1,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 11,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 21,
+      "role": "discovery",
+      "states_solved": 14266
+    },
+    {
+      "binary_six_face_cost": 21,
+      "compatibility_states_solved": 106,
+      "exact_cost": 21,
+      "level_costs": [
+        1,
+        1,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 11,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 21,
+      "role": "discovery",
+      "states_solved": 14330
+    },
+    {
+      "binary_six_face_cost": 13,
+      "compatibility_states_solved": 122,
+      "exact_cost": 13,
+      "level_costs": [
+        1,
+        2,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 13,
+      "new_face_strictly_active": false,
+      "new_face_tied": true,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 13,
+      "role": "discovery",
+      "states_solved": 14369
+    },
+    {
+      "binary_six_face_cost": 13,
+      "compatibility_states_solved": 122,
+      "exact_cost": 13,
+      "level_costs": [
+        1,
+        2,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 13,
+      "new_face_strictly_active": false,
+      "new_face_tied": true,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 13,
+      "role": "discovery",
+      "states_solved": 14369
+    },
+    {
+      "binary_six_face_cost": 13,
+      "compatibility_states_solved": 105,
+      "exact_cost": 13,
+      "level_costs": [
+        1,
+        2,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 13,
+      "new_face_strictly_active": false,
+      "new_face_tied": true,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 13,
+      "role": "discovery",
+      "states_solved": 14391
+    },
+    {
+      "binary_six_face_cost": 16,
+      "compatibility_states_solved": 114,
+      "exact_cost": 16,
+      "level_costs": [
+        1,
+        2,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 14,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 16,
+      "role": "discovery",
+      "states_solved": 12510
+    },
+    {
+      "binary_six_face_cost": 16,
+      "compatibility_states_solved": 114,
+      "exact_cost": 16,
+      "level_costs": [
+        1,
+        2,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 14,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 16,
+      "role": "discovery",
+      "states_solved": 12510
+    },
+    {
+      "binary_six_face_cost": 16,
+      "compatibility_states_solved": 101,
+      "exact_cost": 16,
+      "level_costs": [
+        1,
+        2,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 14,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 16,
+      "role": "discovery",
+      "states_solved": 12513
+    },
+    {
+      "binary_six_face_cost": 20,
+      "compatibility_states_solved": 117,
+      "exact_cost": 20,
+      "level_costs": [
+        1,
+        2,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 15,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 20,
+      "role": "discovery",
+      "states_solved": 13987
+    },
+    {
+      "binary_six_face_cost": 20,
+      "compatibility_states_solved": 117,
+      "exact_cost": 20,
+      "level_costs": [
+        1,
+        2,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 15,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 20,
+      "role": "discovery",
+      "states_solved": 13987
+    },
+    {
+      "binary_six_face_cost": 20,
+      "compatibility_states_solved": 102,
+      "exact_cost": 20,
+      "level_costs": [
+        1,
+        2,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 15,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 20,
+      "role": "discovery",
+      "states_solved": 13996
+    },
+    {
+      "binary_six_face_cost": 24,
+      "compatibility_states_solved": 117,
+      "exact_cost": 24,
+      "level_costs": [
+        1,
+        2,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 16,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 24,
+      "role": "discovery",
+      "states_solved": 14563
+    },
+    {
+      "binary_six_face_cost": 24,
+      "compatibility_states_solved": 117,
+      "exact_cost": 24,
+      "level_costs": [
+        1,
+        2,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 16,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 24,
+      "role": "discovery",
+      "states_solved": 14563
+    },
+    {
+      "binary_six_face_cost": 24,
+      "compatibility_states_solved": 102,
+      "exact_cost": 24,
+      "level_costs": [
+        1,
+        2,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 16,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 24,
+      "role": "discovery",
+      "states_solved": 14576
+    },
+    {
+      "binary_six_face_cost": 17,
+      "compatibility_states_solved": 122,
+      "exact_cost": 18,
+      "level_costs": [
+        1,
+        3,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 18,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 18,
+      "role": "discovery",
+      "states_solved": 30150
+    },
+    {
+      "binary_six_face_cost": 17,
+      "compatibility_states_solved": 122,
+      "exact_cost": 18,
+      "level_costs": [
+        1,
+        3,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 18,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 18,
+      "role": "discovery",
+      "states_solved": 30150
+    },
+    {
+      "binary_six_face_cost": 17,
+      "compatibility_states_solved": 105,
+      "exact_cost": 18,
+      "level_costs": [
+        1,
+        3,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 18,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 18,
+      "role": "discovery",
+      "states_solved": 30342
+    },
+    {
+      "binary_six_face_cost": 20,
+      "compatibility_states_solved": 121,
+      "exact_cost": 20,
+      "level_costs": [
+        1,
+        3,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 19,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 20,
+      "role": "discovery",
+      "states_solved": 18782
+    },
+    {
+      "binary_six_face_cost": 20,
+      "compatibility_states_solved": 121,
+      "exact_cost": 20,
+      "level_costs": [
+        1,
+        3,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 19,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 20,
+      "role": "discovery",
+      "states_solved": 18782
+    },
+    {
+      "binary_six_face_cost": 20,
+      "compatibility_states_solved": 106,
+      "exact_cost": 20,
+      "level_costs": [
+        1,
+        3,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 19,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 20,
+      "role": "discovery",
+      "states_solved": 18797
+    },
+    {
+      "binary_six_face_cost": 23,
+      "compatibility_states_solved": 115,
+      "exact_cost": 23,
+      "level_costs": [
+        1,
+        3,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 20,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 23,
+      "role": "discovery",
+      "states_solved": 15015
+    },
+    {
+      "binary_six_face_cost": 23,
+      "compatibility_states_solved": 115,
+      "exact_cost": 23,
+      "level_costs": [
+        1,
+        3,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 20,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 23,
+      "role": "discovery",
+      "states_solved": 15015
+    },
+    {
+      "binary_six_face_cost": 23,
+      "compatibility_states_solved": 102,
+      "exact_cost": 23,
+      "level_costs": [
+        1,
+        3,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 20,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 23,
+      "role": "discovery",
+      "states_solved": 15018
+    },
+    {
+      "binary_six_face_cost": 27,
+      "compatibility_states_solved": 117,
+      "exact_cost": 27,
+      "level_costs": [
+        1,
+        3,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 21,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 27,
+      "role": "discovery",
+      "states_solved": 14227
+    },
+    {
+      "binary_six_face_cost": 27,
+      "compatibility_states_solved": 117,
+      "exact_cost": 27,
+      "level_costs": [
+        1,
+        3,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 21,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 27,
+      "role": "discovery",
+      "states_solved": 14227
+    },
+    {
+      "binary_six_face_cost": 27,
+      "compatibility_states_solved": 102,
+      "exact_cost": 27,
+      "level_costs": [
+        1,
+        3,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 21,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 27,
+      "role": "discovery",
+      "states_solved": 14236
+    },
+    {
+      "binary_six_face_cost": 22,
+      "compatibility_states_solved": 128,
+      "exact_cost": 23,
+      "level_costs": [
+        1,
+        4,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 23,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 23,
+      "role": "discovery",
+      "states_solved": 42832
+    },
+    {
+      "binary_six_face_cost": 22,
+      "compatibility_states_solved": 128,
+      "exact_cost": 23,
+      "level_costs": [
+        1,
+        4,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 23,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 23,
+      "role": "discovery",
+      "states_solved": 42832
+    },
+    {
+      "binary_six_face_cost": 22,
+      "compatibility_states_solved": 115,
+      "exact_cost": 23,
+      "level_costs": [
+        1,
+        4,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 23,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 23,
+      "role": "discovery",
+      "states_solved": 43232
+    },
+    {
+      "binary_six_face_cost": 24,
+      "compatibility_states_solved": 122,
+      "exact_cost": 24,
+      "level_costs": [
+        1,
+        4,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 24,
+      "new_face_strictly_active": false,
+      "new_face_tied": true,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 24,
+      "role": "discovery",
+      "states_solved": 21818
+    },
+    {
+      "binary_six_face_cost": 24,
+      "compatibility_states_solved": 122,
+      "exact_cost": 24,
+      "level_costs": [
+        1,
+        4,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 24,
+      "new_face_strictly_active": false,
+      "new_face_tied": true,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 24,
+      "role": "discovery",
+      "states_solved": 21818
+    },
+    {
+      "binary_six_face_cost": 24,
+      "compatibility_states_solved": 105,
+      "exact_cost": 24,
+      "level_costs": [
+        1,
+        4,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 24,
+      "new_face_strictly_active": false,
+      "new_face_tied": true,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 24,
+      "role": "discovery",
+      "states_solved": 21826
+    },
+    {
+      "binary_six_face_cost": 27,
+      "compatibility_states_solved": 120,
+      "exact_cost": 27,
+      "level_costs": [
+        1,
+        4,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 25,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 27,
+      "role": "discovery",
+      "states_solved": 19350
+    },
+    {
+      "binary_six_face_cost": 27,
+      "compatibility_states_solved": 120,
+      "exact_cost": 27,
+      "level_costs": [
+        1,
+        4,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 25,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 27,
+      "role": "discovery",
+      "states_solved": 19350
+    },
+    {
+      "binary_six_face_cost": 27,
+      "compatibility_states_solved": 106,
+      "exact_cost": 27,
+      "level_costs": [
+        1,
+        4,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 25,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 27,
+      "role": "discovery",
+      "states_solved": 19360
+    },
+    {
+      "binary_six_face_cost": 30,
+      "compatibility_states_solved": 115,
+      "exact_cost": 30,
+      "level_costs": [
+        1,
+        4,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 26,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 30,
+      "role": "discovery",
+      "states_solved": 15099
+    },
+    {
+      "binary_six_face_cost": 30,
+      "compatibility_states_solved": 115,
+      "exact_cost": 30,
+      "level_costs": [
+        1,
+        4,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 26,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 30,
+      "role": "discovery",
+      "states_solved": 15099
+    },
+    {
+      "binary_six_face_cost": 30,
+      "compatibility_states_solved": 102,
+      "exact_cost": 30,
+      "level_costs": [
+        1,
+        4,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 26,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 30,
+      "role": "discovery",
+      "states_solved": 15102
+    },
+    {
+      "binary_six_face_cost": 12,
+      "compatibility_states_solved": 145,
+      "exact_cost": 12,
+      "level_costs": [
+        2,
+        1,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 10,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 12,
+      "role": "discovery",
+      "states_solved": 20674
+    },
+    {
+      "binary_six_face_cost": 12,
+      "compatibility_states_solved": 145,
+      "exact_cost": 12,
+      "level_costs": [
+        2,
+        1,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 10,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 12,
+      "role": "discovery",
+      "states_solved": 20674
+    },
+    {
+      "binary_six_face_cost": 12,
+      "compatibility_states_solved": 106,
+      "exact_cost": 12,
+      "level_costs": [
+        2,
+        1,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 10,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 12,
+      "role": "discovery",
+      "states_solved": 20536
+    },
+    {
+      "binary_six_face_cost": 15,
+      "compatibility_states_solved": 119,
+      "exact_cost": 15,
+      "level_costs": [
+        2,
+        1,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 11,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 15,
+      "role": "discovery",
+      "states_solved": 15086
+    },
+    {
+      "binary_six_face_cost": 15,
+      "compatibility_states_solved": 119,
+      "exact_cost": 15,
+      "level_costs": [
+        2,
+        1,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 11,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 15,
+      "role": "discovery",
+      "states_solved": 15086
+    },
+    {
+      "binary_six_face_cost": 15,
+      "compatibility_states_solved": 107,
+      "exact_cost": 15,
+      "level_costs": [
+        2,
+        1,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 11,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 15,
+      "role": "discovery",
+      "states_solved": 15096
+    },
+    {
+      "binary_six_face_cost": 19,
+      "compatibility_states_solved": 119,
+      "exact_cost": 19,
+      "level_costs": [
+        2,
+        1,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 12,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 19,
+      "role": "discovery",
+      "states_solved": 17510
+    },
+    {
+      "binary_six_face_cost": 19,
+      "compatibility_states_solved": 119,
+      "exact_cost": 19,
+      "level_costs": [
+        2,
+        1,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 12,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 19,
+      "role": "discovery",
+      "states_solved": 17510
+    },
+    {
+      "binary_six_face_cost": 19,
+      "compatibility_states_solved": 109,
+      "exact_cost": 19,
+      "level_costs": [
+        2,
+        1,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 12,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 19,
+      "role": "discovery",
+      "states_solved": 17489
+    },
+    {
+      "binary_six_face_cost": 23,
+      "compatibility_states_solved": 118,
+      "exact_cost": 23,
+      "level_costs": [
+        2,
+        1,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 13,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 23,
+      "role": "discovery",
+      "states_solved": 17964
+    },
+    {
+      "binary_six_face_cost": 23,
+      "compatibility_states_solved": 118,
+      "exact_cost": 23,
+      "level_costs": [
+        2,
+        1,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 13,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 23,
+      "role": "discovery",
+      "states_solved": 17964
+    },
+    {
+      "binary_six_face_cost": 23,
+      "compatibility_states_solved": 110,
+      "exact_cost": 23,
+      "level_costs": [
+        2,
+        1,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 13,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 23,
+      "role": "discovery",
+      "states_solved": 18006
+    },
+    {
+      "binary_six_face_cost": 15,
+      "compatibility_states_solved": 143,
+      "exact_cost": 15,
+      "level_costs": [
+        2,
+        2,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 15,
+      "new_face_strictly_active": false,
+      "new_face_tied": true,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 15,
+      "role": "discovery",
+      "states_solved": 25928
+    },
+    {
+      "binary_six_face_cost": 15,
+      "compatibility_states_solved": 143,
+      "exact_cost": 15,
+      "level_costs": [
+        2,
+        2,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 15,
+      "new_face_strictly_active": false,
+      "new_face_tied": true,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 15,
+      "role": "discovery",
+      "states_solved": 25928
+    },
+    {
+      "binary_six_face_cost": 15,
+      "compatibility_states_solved": 112,
+      "exact_cost": 15,
+      "level_costs": [
+        2,
+        2,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 15,
+      "new_face_strictly_active": false,
+      "new_face_tied": true,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 15,
+      "role": "discovery",
+      "states_solved": 25833
+    },
+    {
+      "binary_six_face_cost": 22,
+      "compatibility_states_solved": 115,
+      "exact_cost": 22,
+      "level_costs": [
+        2,
+        2,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 17,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 22,
+      "role": "discovery",
+      "states_solved": 14974
+    },
+    {
+      "binary_six_face_cost": 22,
+      "compatibility_states_solved": 115,
+      "exact_cost": 22,
+      "level_costs": [
+        2,
+        2,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 17,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 22,
+      "role": "discovery",
+      "states_solved": 14974
+    },
+    {
+      "binary_six_face_cost": 22,
+      "compatibility_states_solved": 102,
+      "exact_cost": 22,
+      "level_costs": [
+        2,
+        2,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 17,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 22,
+      "role": "discovery",
+      "states_solved": 14980
+    },
+    {
+      "binary_six_face_cost": 19,
+      "compatibility_states_solved": 143,
+      "exact_cost": 20,
+      "level_costs": [
+        2,
+        3,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 20,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 20,
+      "role": "discovery",
+      "states_solved": 41687
+    },
+    {
+      "binary_six_face_cost": 19,
+      "compatibility_states_solved": 143,
+      "exact_cost": 20,
+      "level_costs": [
+        2,
+        3,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 20,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 20,
+      "role": "discovery",
+      "states_solved": 41687
+    },
+    {
+      "binary_six_face_cost": 19,
+      "compatibility_states_solved": 116,
+      "exact_cost": 20,
+      "level_costs": [
+        2,
+        3,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 20,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 20,
+      "role": "discovery",
+      "states_solved": 41405
+    },
+    {
+      "binary_six_face_cost": 22,
+      "compatibility_states_solved": 121,
+      "exact_cost": 22,
+      "level_costs": [
+        2,
+        3,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 21,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 22,
+      "role": "discovery",
+      "states_solved": 18962
+    },
+    {
+      "binary_six_face_cost": 22,
+      "compatibility_states_solved": 121,
+      "exact_cost": 22,
+      "level_costs": [
+        2,
+        3,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 21,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 22,
+      "role": "discovery",
+      "states_solved": 18962
+    },
+    {
+      "binary_six_face_cost": 22,
+      "compatibility_states_solved": 107,
+      "exact_cost": 22,
+      "level_costs": [
+        2,
+        3,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 21,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 22,
+      "role": "discovery",
+      "states_solved": 19055
+    },
+    {
+      "binary_six_face_cost": 25,
+      "compatibility_states_solved": 114,
+      "exact_cost": 25,
+      "level_costs": [
+        2,
+        3,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 22,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 25,
+      "role": "discovery",
+      "states_solved": 14047
+    },
+    {
+      "binary_six_face_cost": 25,
+      "compatibility_states_solved": 114,
+      "exact_cost": 25,
+      "level_costs": [
+        2,
+        3,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 22,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 25,
+      "role": "discovery",
+      "states_solved": 14047
+    },
+    {
+      "binary_six_face_cost": 25,
+      "compatibility_states_solved": 101,
+      "exact_cost": 25,
+      "level_costs": [
+        2,
+        3,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 22,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 25,
+      "role": "discovery",
+      "states_solved": 14050
+    },
+    {
+      "binary_six_face_cost": 29,
+      "compatibility_states_solved": 115,
+      "exact_cost": 29,
+      "level_costs": [
+        2,
+        3,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 23,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 29,
+      "role": "discovery",
+      "states_solved": 14779
+    },
+    {
+      "binary_six_face_cost": 29,
+      "compatibility_states_solved": 115,
+      "exact_cost": 29,
+      "level_costs": [
+        2,
+        3,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 23,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 29,
+      "role": "discovery",
+      "states_solved": 14779
+    },
+    {
+      "binary_six_face_cost": 29,
+      "compatibility_states_solved": 102,
+      "exact_cost": 29,
+      "level_costs": [
+        2,
+        3,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 23,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 29,
+      "role": "discovery",
+      "states_solved": 14782
+    },
+    {
+      "binary_six_face_cost": 23,
+      "compatibility_states_solved": 144,
+      "exact_cost": 25,
+      "level_costs": [
+        2,
+        4,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 25,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 25,
+      "role": "discovery",
+      "states_solved": 49412
+    },
+    {
+      "binary_six_face_cost": 23,
+      "compatibility_states_solved": 144,
+      "exact_cost": 25,
+      "level_costs": [
+        2,
+        4,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 25,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 25,
+      "role": "discovery",
+      "states_solved": 49412
+    },
+    {
+      "binary_six_face_cost": 23,
+      "compatibility_states_solved": 119,
+      "exact_cost": 25,
+      "level_costs": [
+        2,
+        4,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 25,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 25,
+      "role": "discovery",
+      "states_solved": 49344
+    },
+    {
+      "binary_six_face_cost": 29,
+      "compatibility_states_solved": 121,
+      "exact_cost": 29,
+      "level_costs": [
+        2,
+        4,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 27,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 29,
+      "role": "discovery",
+      "states_solved": 19010
+    },
+    {
+      "binary_six_face_cost": 29,
+      "compatibility_states_solved": 121,
+      "exact_cost": 29,
+      "level_costs": [
+        2,
+        4,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 27,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 29,
+      "role": "discovery",
+      "states_solved": 19010
+    },
+    {
+      "binary_six_face_cost": 29,
+      "compatibility_states_solved": 106,
+      "exact_cost": 29,
+      "level_costs": [
+        2,
+        4,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 27,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 29,
+      "role": "discovery",
+      "states_solved": 19025
+    },
+    {
+      "binary_six_face_cost": 15,
+      "compatibility_states_solved": 139,
+      "exact_cost": 15,
+      "level_costs": [
+        3,
+        1,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 12,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 15,
+      "role": "discovery",
+      "states_solved": 26462
+    },
+    {
+      "binary_six_face_cost": 15,
+      "compatibility_states_solved": 139,
+      "exact_cost": 15,
+      "level_costs": [
+        3,
+        1,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 12,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 15,
+      "role": "discovery",
+      "states_solved": 26462
+    },
+    {
+      "binary_six_face_cost": 15,
+      "compatibility_states_solved": 97,
+      "exact_cost": 15,
+      "level_costs": [
+        3,
+        1,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 12,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 15,
+      "role": "discovery",
+      "states_solved": 26414
+    },
+    {
+      "binary_six_face_cost": 18,
+      "compatibility_states_solved": 126,
+      "exact_cost": 18,
+      "level_costs": [
+        3,
+        1,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 13,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 18,
+      "role": "discovery",
+      "states_solved": 24978
+    },
+    {
+      "binary_six_face_cost": 18,
+      "compatibility_states_solved": 126,
+      "exact_cost": 18,
+      "level_costs": [
+        3,
+        1,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 13,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 18,
+      "role": "discovery",
+      "states_solved": 24978
+    },
+    {
+      "binary_six_face_cost": 18,
+      "compatibility_states_solved": 108,
+      "exact_cost": 18,
+      "level_costs": [
+        3,
+        1,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 13,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 18,
+      "role": "discovery",
+      "states_solved": 24818
+    },
+    {
+      "binary_six_face_cost": 21,
+      "compatibility_states_solved": 120,
+      "exact_cost": 21,
+      "level_costs": [
+        3,
+        1,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 14,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 21,
+      "role": "discovery",
+      "states_solved": 19206
+    },
+    {
+      "binary_six_face_cost": 21,
+      "compatibility_states_solved": 120,
+      "exact_cost": 21,
+      "level_costs": [
+        3,
+        1,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 14,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 21,
+      "role": "discovery",
+      "states_solved": 19206
+    },
+    {
+      "binary_six_face_cost": 21,
+      "compatibility_states_solved": 110,
+      "exact_cost": 21,
+      "level_costs": [
+        3,
+        1,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 14,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 21,
+      "role": "discovery",
+      "states_solved": 19218
+    },
+    {
+      "binary_six_face_cost": 25,
+      "compatibility_states_solved": 119,
+      "exact_cost": 25,
+      "level_costs": [
+        3,
+        1,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 15,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 25,
+      "role": "discovery",
+      "states_solved": 18308
+    },
+    {
+      "binary_six_face_cost": 25,
+      "compatibility_states_solved": 119,
+      "exact_cost": 25,
+      "level_costs": [
+        3,
+        1,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 15,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 25,
+      "role": "discovery",
+      "states_solved": 18308
+    },
+    {
+      "binary_six_face_cost": 25,
+      "compatibility_states_solved": 109,
+      "exact_cost": 25,
+      "level_costs": [
+        3,
+        1,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 15,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 25,
+      "role": "discovery",
+      "states_solved": 18299
+    },
+    {
+      "binary_six_face_cost": 18,
+      "compatibility_states_solved": 167,
+      "exact_cost": 18,
+      "level_costs": [
+        3,
+        2,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 17,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 18,
+      "role": "discovery",
+      "states_solved": 36378
+    },
+    {
+      "binary_six_face_cost": 18,
+      "compatibility_states_solved": 167,
+      "exact_cost": 18,
+      "level_costs": [
+        3,
+        2,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 17,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 18,
+      "role": "discovery",
+      "states_solved": 36378
+    },
+    {
+      "binary_six_face_cost": 18,
+      "compatibility_states_solved": 124,
+      "exact_cost": 18,
+      "level_costs": [
+        3,
+        2,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 17,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 18,
+      "role": "discovery",
+      "states_solved": 36938
+    },
+    {
+      "binary_six_face_cost": 21,
+      "compatibility_states_solved": 122,
+      "exact_cost": 21,
+      "level_costs": [
+        3,
+        2,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 18,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 21,
+      "role": "discovery",
+      "states_solved": 26919
+    },
+    {
+      "binary_six_face_cost": 21,
+      "compatibility_states_solved": 122,
+      "exact_cost": 21,
+      "level_costs": [
+        3,
+        2,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 18,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 21,
+      "role": "discovery",
+      "states_solved": 26919
+    },
+    {
+      "binary_six_face_cost": 21,
+      "compatibility_states_solved": 103,
+      "exact_cost": 21,
+      "level_costs": [
+        3,
+        2,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 18,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 21,
+      "role": "discovery",
+      "states_solved": 26760
+    },
+    {
+      "binary_six_face_cost": 24,
+      "compatibility_states_solved": 116,
+      "exact_cost": 24,
+      "level_costs": [
+        3,
+        2,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 19,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 24,
+      "role": "discovery",
+      "states_solved": 21023
+    },
+    {
+      "binary_six_face_cost": 24,
+      "compatibility_states_solved": 116,
+      "exact_cost": 24,
+      "level_costs": [
+        3,
+        2,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 19,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 24,
+      "role": "discovery",
+      "states_solved": 21023
+    },
+    {
+      "binary_six_face_cost": 24,
+      "compatibility_states_solved": 101,
+      "exact_cost": 24,
+      "level_costs": [
+        3,
+        2,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 19,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 24,
+      "role": "discovery",
+      "states_solved": 21029
+    },
+    {
+      "binary_six_face_cost": 28,
+      "compatibility_states_solved": 119,
+      "exact_cost": 28,
+      "level_costs": [
+        3,
+        2,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 20,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 28,
+      "role": "discovery",
+      "states_solved": 19194
+    },
+    {
+      "binary_six_face_cost": 28,
+      "compatibility_states_solved": 119,
+      "exact_cost": 28,
+      "level_costs": [
+        3,
+        2,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 20,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 28,
+      "role": "discovery",
+      "states_solved": 19194
+    },
+    {
+      "binary_six_face_cost": 28,
+      "compatibility_states_solved": 107,
+      "exact_cost": 28,
+      "level_costs": [
+        3,
+        2,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 20,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 28,
+      "role": "discovery",
+      "states_solved": 19190
+    },
+    {
+      "binary_six_face_cost": 22,
+      "compatibility_states_solved": 138,
+      "exact_cost": 22,
+      "level_costs": [
+        3,
+        3,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 22,
+      "new_face_strictly_active": false,
+      "new_face_tied": true,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 22,
+      "role": "discovery",
+      "states_solved": 40828
+    },
+    {
+      "binary_six_face_cost": 22,
+      "compatibility_states_solved": 138,
+      "exact_cost": 22,
+      "level_costs": [
+        3,
+        3,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 22,
+      "new_face_strictly_active": false,
+      "new_face_tied": true,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 22,
+      "role": "discovery",
+      "states_solved": 40828
+    },
+    {
+      "binary_six_face_cost": 22,
+      "compatibility_states_solved": 112,
+      "exact_cost": 22,
+      "level_costs": [
+        3,
+        3,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 22,
+      "new_face_strictly_active": false,
+      "new_face_tied": true,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 22,
+      "role": "discovery",
+      "states_solved": 40754
+    },
+    {
+      "binary_six_face_cost": 24,
+      "compatibility_states_solved": 149,
+      "exact_cost": 24,
+      "level_costs": [
+        3,
+        3,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 23,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 24,
+      "role": "discovery",
+      "states_solved": 29012
+    },
+    {
+      "binary_six_face_cost": 24,
+      "compatibility_states_solved": 149,
+      "exact_cost": 24,
+      "level_costs": [
+        3,
+        3,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 23,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 24,
+      "role": "discovery",
+      "states_solved": 29012
+    },
+    {
+      "binary_six_face_cost": 24,
+      "compatibility_states_solved": 117,
+      "exact_cost": 24,
+      "level_costs": [
+        3,
+        3,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 23,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 24,
+      "role": "discovery",
+      "states_solved": 28991
+    },
+    {
+      "binary_six_face_cost": 31,
+      "compatibility_states_solved": 115,
+      "exact_cost": 31,
+      "level_costs": [
+        3,
+        3,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 25,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 31,
+      "role": "discovery",
+      "states_solved": 15353
+    },
+    {
+      "binary_six_face_cost": 31,
+      "compatibility_states_solved": 115,
+      "exact_cost": 31,
+      "level_costs": [
+        3,
+        3,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 25,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 31,
+      "role": "discovery",
+      "states_solved": 15353
+    },
+    {
+      "binary_six_face_cost": 31,
+      "compatibility_states_solved": 102,
+      "exact_cost": 31,
+      "level_costs": [
+        3,
+        3,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 25,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 31,
+      "role": "discovery",
+      "states_solved": 15359
+    },
+    {
+      "binary_six_face_cost": 26,
+      "compatibility_states_solved": 144,
+      "exact_cost": 27,
+      "level_costs": [
+        3,
+        4,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 27,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 27,
+      "role": "discovery",
+      "states_solved": 48501
+    },
+    {
+      "binary_six_face_cost": 26,
+      "compatibility_states_solved": 144,
+      "exact_cost": 27,
+      "level_costs": [
+        3,
+        4,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 27,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 27,
+      "role": "discovery",
+      "states_solved": 48501
+    },
+    {
+      "binary_six_face_cost": 26,
+      "compatibility_states_solved": 118,
+      "exact_cost": 27,
+      "level_costs": [
+        3,
+        4,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 27,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 27,
+      "role": "discovery",
+      "states_solved": 47561
+    },
+    {
+      "binary_six_face_cost": 28,
+      "compatibility_states_solved": 148,
+      "exact_cost": 28,
+      "level_costs": [
+        3,
+        4,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 28,
+      "new_face_strictly_active": false,
+      "new_face_tied": true,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 28,
+      "role": "discovery",
+      "states_solved": 32987
+    },
+    {
+      "binary_six_face_cost": 28,
+      "compatibility_states_solved": 148,
+      "exact_cost": 28,
+      "level_costs": [
+        3,
+        4,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 28,
+      "new_face_strictly_active": false,
+      "new_face_tied": true,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 28,
+      "role": "discovery",
+      "states_solved": 32987
+    },
+    {
+      "binary_six_face_cost": 28,
+      "compatibility_states_solved": 118,
+      "exact_cost": 28,
+      "level_costs": [
+        3,
+        4,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 28,
+      "new_face_strictly_active": false,
+      "new_face_tied": true,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 28,
+      "role": "discovery",
+      "states_solved": 33119
+    },
+    {
+      "binary_six_face_cost": 31,
+      "compatibility_states_solved": 121,
+      "exact_cost": 31,
+      "level_costs": [
+        3,
+        4,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 29,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 31,
+      "role": "discovery",
+      "states_solved": 19077
+    },
+    {
+      "binary_six_face_cost": 31,
+      "compatibility_states_solved": 121,
+      "exact_cost": 31,
+      "level_costs": [
+        3,
+        4,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 29,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 31,
+      "role": "discovery",
+      "states_solved": 19077
+    },
+    {
+      "binary_six_face_cost": 31,
+      "compatibility_states_solved": 107,
+      "exact_cost": 31,
+      "level_costs": [
+        3,
+        4,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 29,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 31,
+      "role": "discovery",
+      "states_solved": 19170
+    },
+    {
+      "binary_six_face_cost": 34,
+      "compatibility_states_solved": 114,
+      "exact_cost": 34,
+      "level_costs": [
+        3,
+        4,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 30,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 34,
+      "role": "discovery",
+      "states_solved": 18617
+    },
+    {
+      "binary_six_face_cost": 34,
+      "compatibility_states_solved": 114,
+      "exact_cost": 34,
+      "level_costs": [
+        3,
+        4,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 30,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 34,
+      "role": "discovery",
+      "states_solved": 18617
+    },
+    {
+      "binary_six_face_cost": 34,
+      "compatibility_states_solved": 101,
+      "exact_cost": 34,
+      "level_costs": [
+        3,
+        4,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 30,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 34,
+      "role": "discovery",
+      "states_solved": 18620
+    },
+    {
+      "binary_six_face_cost": 19,
+      "compatibility_states_solved": 139,
+      "exact_cost": 19,
+      "level_costs": [
+        4,
+        1,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 14,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 19,
+      "role": "discovery",
+      "states_solved": 55069
+    },
+    {
+      "binary_six_face_cost": 19,
+      "compatibility_states_solved": 139,
+      "exact_cost": 19,
+      "level_costs": [
+        4,
+        1,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 14,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 19,
+      "role": "discovery",
+      "states_solved": 55069
+    },
+    {
+      "binary_six_face_cost": 19,
+      "compatibility_states_solved": 99,
+      "exact_cost": 19,
+      "level_costs": [
+        4,
+        1,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 14,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 19,
+      "role": "discovery",
+      "states_solved": 55030
+    },
+    {
+      "binary_six_face_cost": 21,
+      "compatibility_states_solved": 150,
+      "exact_cost": 21,
+      "level_costs": [
+        4,
+        1,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 15,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 21,
+      "role": "discovery",
+      "states_solved": 30399
+    },
+    {
+      "binary_six_face_cost": 21,
+      "compatibility_states_solved": 150,
+      "exact_cost": 21,
+      "level_costs": [
+        4,
+        1,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 15,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 21,
+      "role": "discovery",
+      "states_solved": 30399
+    },
+    {
+      "binary_six_face_cost": 21,
+      "compatibility_states_solved": 109,
+      "exact_cost": 21,
+      "level_costs": [
+        4,
+        1,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 15,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 21,
+      "role": "discovery",
+      "states_solved": 30326
+    },
+    {
+      "binary_six_face_cost": 24,
+      "compatibility_states_solved": 126,
+      "exact_cost": 24,
+      "level_costs": [
+        4,
+        1,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 16,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 24,
+      "role": "discovery",
+      "states_solved": 24606
+    },
+    {
+      "binary_six_face_cost": 24,
+      "compatibility_states_solved": 126,
+      "exact_cost": 24,
+      "level_costs": [
+        4,
+        1,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 16,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 24,
+      "role": "discovery",
+      "states_solved": 24606
+    },
+    {
+      "binary_six_face_cost": 24,
+      "compatibility_states_solved": 109,
+      "exact_cost": 24,
+      "level_costs": [
+        4,
+        1,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 16,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 24,
+      "role": "discovery",
+      "states_solved": 24487
+    },
+    {
+      "binary_six_face_cost": 27,
+      "compatibility_states_solved": 120,
+      "exact_cost": 27,
+      "level_costs": [
+        4,
+        1,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 17,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 27,
+      "role": "discovery",
+      "states_solved": 19933
+    },
+    {
+      "binary_six_face_cost": 27,
+      "compatibility_states_solved": 120,
+      "exact_cost": 27,
+      "level_costs": [
+        4,
+        1,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 17,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 27,
+      "role": "discovery",
+      "states_solved": 19933
+    },
+    {
+      "binary_six_face_cost": 27,
+      "compatibility_states_solved": 110,
+      "exact_cost": 27,
+      "level_costs": [
+        4,
+        1,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 17,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 27,
+      "role": "discovery",
+      "states_solved": 19951
+    },
+    {
+      "binary_six_face_cost": 21,
+      "compatibility_states_solved": 154,
+      "exact_cost": 21,
+      "level_costs": [
+        4,
+        2,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 19,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 21,
+      "role": "discovery",
+      "states_solved": 39607
+    },
+    {
+      "binary_six_face_cost": 21,
+      "compatibility_states_solved": 154,
+      "exact_cost": 21,
+      "level_costs": [
+        4,
+        2,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 19,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 21,
+      "role": "discovery",
+      "states_solved": 39607
+    },
+    {
+      "binary_six_face_cost": 21,
+      "compatibility_states_solved": 118,
+      "exact_cost": 21,
+      "level_costs": [
+        4,
+        2,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 19,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 21,
+      "role": "discovery",
+      "states_solved": 38734
+    },
+    {
+      "binary_six_face_cost": 27,
+      "compatibility_states_solved": 124,
+      "exact_cost": 27,
+      "level_costs": [
+        4,
+        2,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 21,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 27,
+      "role": "discovery",
+      "states_solved": 23977
+    },
+    {
+      "binary_six_face_cost": 27,
+      "compatibility_states_solved": 124,
+      "exact_cost": 27,
+      "level_costs": [
+        4,
+        2,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 21,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 27,
+      "role": "discovery",
+      "states_solved": 23977
+    },
+    {
+      "binary_six_face_cost": 27,
+      "compatibility_states_solved": 107,
+      "exact_cost": 27,
+      "level_costs": [
+        4,
+        2,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 21,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 27,
+      "role": "discovery",
+      "states_solved": 23874
+    },
+    {
+      "binary_six_face_cost": 25,
+      "compatibility_states_solved": 157,
+      "exact_cost": 25,
+      "level_costs": [
+        4,
+        3,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 24,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 25,
+      "role": "discovery",
+      "states_solved": 44861
+    },
+    {
+      "binary_six_face_cost": 25,
+      "compatibility_states_solved": 157,
+      "exact_cost": 25,
+      "level_costs": [
+        4,
+        3,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 24,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 25,
+      "role": "discovery",
+      "states_solved": 44861
+    },
+    {
+      "binary_six_face_cost": 25,
+      "compatibility_states_solved": 125,
+      "exact_cost": 25,
+      "level_costs": [
+        4,
+        3,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 24,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 25,
+      "role": "discovery",
+      "states_solved": 45483
+    },
+    {
+      "binary_six_face_cost": 27,
+      "compatibility_states_solved": 156,
+      "exact_cost": 27,
+      "level_costs": [
+        4,
+        3,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 25,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 27,
+      "role": "discovery",
+      "states_solved": 35695
+    },
+    {
+      "binary_six_face_cost": 27,
+      "compatibility_states_solved": 156,
+      "exact_cost": 27,
+      "level_costs": [
+        4,
+        3,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 25,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 27,
+      "role": "discovery",
+      "states_solved": 35695
+    },
+    {
+      "binary_six_face_cost": 27,
+      "compatibility_states_solved": 121,
+      "exact_cost": 27,
+      "level_costs": [
+        4,
+        3,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 25,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 27,
+      "role": "discovery",
+      "states_solved": 35483
+    },
+    {
+      "binary_six_face_cost": 30,
+      "compatibility_states_solved": 122,
+      "exact_cost": 30,
+      "level_costs": [
+        4,
+        3,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 26,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 30,
+      "role": "discovery",
+      "states_solved": 26227
+    },
+    {
+      "binary_six_face_cost": 30,
+      "compatibility_states_solved": 122,
+      "exact_cost": 30,
+      "level_costs": [
+        4,
+        3,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 26,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 30,
+      "role": "discovery",
+      "states_solved": 26227
+    },
+    {
+      "binary_six_face_cost": 30,
+      "compatibility_states_solved": 103,
+      "exact_cost": 30,
+      "level_costs": [
+        4,
+        3,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 26,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 30,
+      "role": "discovery",
+      "states_solved": 26064
+    },
+    {
+      "binary_six_face_cost": 33,
+      "compatibility_states_solved": 116,
+      "exact_cost": 33,
+      "level_costs": [
+        4,
+        3,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 27,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 33,
+      "role": "discovery",
+      "states_solved": 25470
+    },
+    {
+      "binary_six_face_cost": 33,
+      "compatibility_states_solved": 116,
+      "exact_cost": 33,
+      "level_costs": [
+        4,
+        3,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 27,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 33,
+      "role": "discovery",
+      "states_solved": 25470
+    },
+    {
+      "binary_six_face_cost": 33,
+      "compatibility_states_solved": 101,
+      "exact_cost": 33,
+      "level_costs": [
+        4,
+        3,
+        4
+      ],
+      "matched": true,
+      "new_face_cost": 27,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 33,
+      "role": "discovery",
+      "states_solved": 25476
+    },
+    {
+      "binary_six_face_cost": 29,
+      "compatibility_states_solved": 139,
+      "exact_cost": 29,
+      "level_costs": [
+        4,
+        4,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 29,
+      "new_face_strictly_active": false,
+      "new_face_tied": true,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 29,
+      "role": "discovery",
+      "states_solved": 46669
+    },
+    {
+      "binary_six_face_cost": 29,
+      "compatibility_states_solved": 139,
+      "exact_cost": 29,
+      "level_costs": [
+        4,
+        4,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 29,
+      "new_face_strictly_active": false,
+      "new_face_tied": true,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 29,
+      "role": "discovery",
+      "states_solved": 46669
+    },
+    {
+      "binary_six_face_cost": 29,
+      "compatibility_states_solved": 113,
+      "exact_cost": 29,
+      "level_costs": [
+        4,
+        4,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 29,
+      "new_face_strictly_active": false,
+      "new_face_tied": true,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 29,
+      "role": "discovery",
+      "states_solved": 46609
+    },
+    {
+      "binary_six_face_cost": 33,
+      "compatibility_states_solved": 146,
+      "exact_cost": 33,
+      "level_costs": [
+        4,
+        4,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 31,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 33,
+      "role": "discovery",
+      "states_solved": 33574
+    },
+    {
+      "binary_six_face_cost": 33,
+      "compatibility_states_solved": 146,
+      "exact_cost": 33,
+      "level_costs": [
+        4,
+        4,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 31,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 33,
+      "role": "discovery",
+      "states_solved": 33574
+    },
+    {
+      "binary_six_face_cost": 33,
+      "compatibility_states_solved": 115,
+      "exact_cost": 33,
+      "level_costs": [
+        4,
+        4,
+        3
+      ],
+      "matched": true,
+      "new_face_cost": 31,
+      "new_face_strictly_active": false,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 33,
+      "role": "discovery",
+      "states_solved": 33519
+    },
+    {
+      "binary_six_face_cost": 27,
+      "compatibility_states_solved": 130,
+      "exact_cost": 28,
+      "level_costs": [
+        1,
+        5,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 28,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 28,
+      "role": "prospective_holdout",
+      "states_solved": 48950
+    },
+    {
+      "binary_six_face_cost": 27,
+      "compatibility_states_solved": 130,
+      "exact_cost": 28,
+      "level_costs": [
+        1,
+        5,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 28,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 28,
+      "role": "prospective_holdout",
+      "states_solved": 48950
+    },
+    {
+      "binary_six_face_cost": 27,
+      "compatibility_states_solved": 117,
+      "exact_cost": 28,
+      "level_costs": [
+        1,
+        5,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 28,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 28,
+      "role": "prospective_holdout",
+      "states_solved": 49463
+    },
+    {
+      "binary_six_face_cost": 30,
+      "compatibility_states_solved": 122,
+      "exact_cost": 31,
+      "level_costs": [
+        2,
+        5,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 31,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 31,
+      "role": "prospective_holdout",
+      "states_solved": 28450
+    },
+    {
+      "binary_six_face_cost": 30,
+      "compatibility_states_solved": 122,
+      "exact_cost": 31,
+      "level_costs": [
+        2,
+        5,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 31,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 31,
+      "role": "prospective_holdout",
+      "states_solved": 28450
+    },
+    {
+      "binary_six_face_cost": 30,
+      "compatibility_states_solved": 105,
+      "exact_cost": 31,
+      "level_costs": [
+        2,
+        5,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 31,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 31,
+      "role": "prospective_holdout",
+      "states_solved": 28579
+    },
+    {
+      "binary_six_face_cost": 24,
+      "compatibility_states_solved": 122,
+      "exact_cost": 24,
+      "level_costs": [
+        1,
+        4,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 24,
+      "new_face_strictly_active": false,
+      "new_face_tied": true,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 24,
+      "role": "prospective_holdout",
+      "states_solved": 21818
+    },
+    {
+      "binary_six_face_cost": 24,
+      "compatibility_states_solved": 122,
+      "exact_cost": 24,
+      "level_costs": [
+        1,
+        4,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 24,
+      "new_face_strictly_active": false,
+      "new_face_tied": true,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 24,
+      "role": "prospective_holdout",
+      "states_solved": 21818
+    },
+    {
+      "binary_six_face_cost": 24,
+      "compatibility_states_solved": 105,
+      "exact_cost": 24,
+      "level_costs": [
+        1,
+        4,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 24,
+      "new_face_strictly_active": false,
+      "new_face_tied": true,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 24,
+      "role": "prospective_holdout",
+      "states_solved": 21826
+    },
+    {
+      "binary_six_face_cost": 38,
+      "compatibility_states_solved": 151,
+      "exact_cost": 40,
+      "level_costs": [
+        2,
+        7,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 40,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 40,
+      "role": "prospective_holdout",
+      "states_solved": 82776
+    },
+    {
+      "binary_six_face_cost": 38,
+      "compatibility_states_solved": 151,
+      "exact_cost": 40,
+      "level_costs": [
+        2,
+        7,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 40,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 40,
+      "role": "prospective_holdout",
+      "states_solved": 82776
+    },
+    {
+      "binary_six_face_cost": 38,
+      "compatibility_states_solved": 129,
+      "exact_cost": 40,
+      "level_costs": [
+        2,
+        7,
+        1
+      ],
+      "matched": true,
+      "new_face_cost": 40,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 40,
+      "role": "prospective_holdout",
+      "states_solved": 83149
+    },
+    {
+      "binary_six_face_cost": 45,
+      "compatibility_states_solved": 153,
+      "exact_cost": 48,
+      "level_costs": [
+        3,
+        8,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 48,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 48,
+      "role": "prospective_holdout",
+      "states_solved": 64178
+    },
+    {
+      "binary_six_face_cost": 45,
+      "compatibility_states_solved": 153,
+      "exact_cost": 48,
+      "level_costs": [
+        3,
+        8,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 48,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 48,
+      "role": "prospective_holdout",
+      "states_solved": 64178
+    },
+    {
+      "binary_six_face_cost": 45,
+      "compatibility_states_solved": 130,
+      "exact_cost": 48,
+      "level_costs": [
+        3,
+        8,
+        2
+      ],
+      "matched": true,
+      "new_face_cost": 48,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "predicted_cost": 48,
+      "role": "prospective_holdout",
+      "states_solved": 64202
+    },
+    {
+      "binary_six_face_cost": 50,
+      "compatibility_states_solved": 122,
+      "exact_cost": 51,
+      "level_costs": [
+        2,
+        9,
+        3
+      ],
+      "matched": false,
+      "new_face_cost": 52,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 52,
+      "role": "prospective_holdout",
+      "states_solved": 34323
+    }
+  ],
+  "discovery_costs": [
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      3
+    ],
+    [
+      1,
+      1,
+      4
+    ],
+    [
+      1,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      2
+    ],
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      1,
+      2,
+      4
+    ],
+    [
+      1,
+      3,
+      1
+    ],
+    [
+      1,
+      3,
+      2
+    ],
+    [
+      1,
+      3,
+      3
+    ],
+    [
+      1,
+      3,
+      4
+    ],
+    [
+      1,
+      4,
+      1
+    ],
+    [
+      1,
+      4,
+      2
+    ],
+    [
+      1,
+      4,
+      3
+    ],
+    [
+      1,
+      4,
+      4
+    ],
+    [
+      2,
+      1,
+      1
+    ],
+    [
+      2,
+      1,
+      2
+    ],
+    [
+      2,
+      1,
+      3
+    ],
+    [
+      2,
+      1,
+      4
+    ],
+    [
+      2,
+      2,
+      1
+    ],
+    [
+      2,
+      2,
+      3
+    ],
+    [
+      2,
+      3,
+      1
+    ],
+    [
+      2,
+      3,
+      2
+    ],
+    [
+      2,
+      3,
+      3
+    ],
+    [
+      2,
+      3,
+      4
+    ],
+    [
+      2,
+      4,
+      1
+    ],
+    [
+      2,
+      4,
+      3
+    ],
+    [
+      3,
+      1,
+      1
+    ],
+    [
+      3,
+      1,
+      2
+    ],
+    [
+      3,
+      1,
+      3
+    ],
+    [
+      3,
+      1,
+      4
+    ],
+    [
+      3,
+      2,
+      1
+    ],
+    [
+      3,
+      2,
+      2
+    ],
+    [
+      3,
+      2,
+      3
+    ],
+    [
+      3,
+      2,
+      4
+    ],
+    [
+      3,
+      3,
+      1
+    ],
+    [
+      3,
+      3,
+      2
+    ],
+    [
+      3,
+      3,
+      4
+    ],
+    [
+      3,
+      4,
+      1
+    ],
+    [
+      3,
+      4,
+      2
+    ],
+    [
+      3,
+      4,
+      3
+    ],
+    [
+      3,
+      4,
+      4
+    ],
+    [
+      4,
+      1,
+      1
+    ],
+    [
+      4,
+      1,
+      2
+    ],
+    [
+      4,
+      1,
+      3
+    ],
+    [
+      4,
+      1,
+      4
+    ],
+    [
+      4,
+      2,
+      1
+    ],
+    [
+      4,
+      2,
+      3
+    ],
+    [
+      4,
+      3,
+      1
+    ],
+    [
+      4,
+      3,
+      2
+    ],
+    [
+      4,
+      3,
+      3
+    ],
+    [
+      4,
+      3,
+      4
+    ],
+    [
+      4,
+      4,
+      1
+    ],
+    [
+      4,
+      4,
+      3
+    ]
+  ],
+  "prospective_holdouts": [
+    [
+      1,
+      5,
+      1
+    ],
+    [
+      2,
+      5,
+      2
+    ],
+    [
+      1,
+      4,
+      2
+    ],
+    [
+      2,
+      7,
+      1
+    ],
+    [
+      3,
+      8,
+      2
+    ],
+    [
+      2,
+      9,
+      3
+    ],
+    [
+      3,
+      10,
+      3
+    ],
+    [
+      4,
+      11,
+      2
+    ],
+    [
+      5,
+      13,
+      4
+    ],
+    [
+      7,
+      19,
+      5
+    ],
+    [
+      11,
+      29,
+      7
+    ],
+    [
+      13,
+      34,
+      9
+    ]
+  ],
+  "schema": "theorica.ternary-minimal-obstruction-cost-cone/1",
+  "summary": {
+    "binary_face_cases": 132,
+    "candidate_falsified": true,
+    "candidate_supported": false,
+    "cases_matched": 180,
+    "cases_run": 181,
+    "discovery_triples": 55,
+    "experiment_completed": true,
+    "first_mismatch": {
+      "binary_six_face_cost": 50,
+      "compatibility_states_solved": 122,
+      "exact_cost": 51,
+      "level_costs": [
+        2,
+        9,
+        3
+      ],
+      "matched": false,
+      "new_face_cost": 52,
+      "new_face_strictly_active": true,
+      "new_face_tied": false,
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "predicted_cost": 52,
+      "role": "prospective_holdout",
+      "states_solved": 34323
+    },
+    "new_face_strict_cases": 28,
+    "new_face_tie_cases": 21,
+    "obstruction_pairs": 3,
+    "passed": true,
+    "prospective_holdout_triples": 12,
+    "total_states_solved": 4830453
+  }
+}

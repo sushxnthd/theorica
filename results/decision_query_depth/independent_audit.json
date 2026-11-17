@@ -1,0 +1,175 @@
+{
+  "cases": [
+    {
+      "completions": 2,
+      "depth": 1,
+      "family": "opened-binary-feature-code",
+      "passed": true
+    },
+    {
+      "completions": 3,
+      "depth": 2,
+      "family": "opened-binary-feature-code",
+      "passed": true
+    },
+    {
+      "completions": 4,
+      "depth": 2,
+      "family": "opened-binary-feature-code",
+      "passed": true
+    },
+    {
+      "completions": 5,
+      "depth": 3,
+      "family": "opened-binary-feature-code",
+      "passed": true
+    },
+    {
+      "completions": 6,
+      "depth": 3,
+      "family": "opened-binary-feature-code",
+      "passed": true
+    },
+    {
+      "completions": 7,
+      "depth": 3,
+      "family": "opened-binary-feature-code",
+      "passed": true
+    },
+    {
+      "completions": 8,
+      "depth": 3,
+      "family": "opened-binary-feature-code",
+      "passed": true
+    },
+    {
+      "depth": 1,
+      "dimension": 1,
+      "family": "coordinate",
+      "passed": true
+    },
+    {
+      "depth": 2,
+      "dimension": 2,
+      "family": "coordinate",
+      "passed": true
+    },
+    {
+      "depth": 3,
+      "dimension": 3,
+      "family": "coordinate",
+      "passed": true
+    },
+    {
+      "depth": 4,
+      "dimension": 4,
+      "family": "coordinate",
+      "passed": true
+    },
+    {
+      "depth": 5,
+      "dimension": 5,
+      "family": "coordinate",
+      "passed": true
+    },
+    {
+      "depth": 6,
+      "dimension": 6,
+      "family": "coordinate",
+      "passed": true
+    },
+    {
+      "depth": 1,
+      "dimension": 2,
+      "family": "decision-quotient-saving",
+      "passed": true
+    },
+    {
+      "depth": null,
+      "dimension": 2,
+      "family": "missing-coordinate",
+      "passed": true
+    },
+    {
+      "depth": 1,
+      "dimension": 3,
+      "family": "decision-quotient-saving",
+      "passed": true
+    },
+    {
+      "depth": null,
+      "dimension": 3,
+      "family": "missing-coordinate",
+      "passed": true
+    },
+    {
+      "depth": 1,
+      "dimension": 4,
+      "family": "decision-quotient-saving",
+      "passed": true
+    },
+    {
+      "depth": null,
+      "dimension": 4,
+      "family": "missing-coordinate",
+      "passed": true
+    },
+    {
+      "depth": 1,
+      "dimension": 5,
+      "family": "decision-quotient-saving",
+      "passed": true
+    },
+    {
+      "depth": null,
+      "dimension": 5,
+      "family": "missing-coordinate",
+      "passed": true
+    },
+    {
+      "depth": 1,
+      "dimension": 6,
+      "family": "decision-quotient-saving",
+      "passed": true
+    },
+    {
+      "depth": null,
+      "dimension": 6,
+      "family": "missing-coordinate",
+      "passed": true
+    },
+    {
+      "actions": 3,
+      "depth": 1,
+      "family": "higher-order",
+      "passed": true
+    },
+    {
+      "actions": 4,
+      "depth": 1,
+      "family": "higher-order",
+      "passed": true
+    },
+    {
+      "actions": 5,
+      "depth": 1,
+      "family": "higher-order",
+      "passed": true
+    },
+    {
+      "actions": 6,
+      "depth": 1,
+      "family": "higher-order",
+      "passed": true
+    }
+  ],
+  "schema": "theorica.decision-query-depth-audit/1",
+  "summary": {
+    "audit_digest": "2071935512be2ce87db4655d83eecc6ee92f39039fb32b7389b33d197658cecc",
+    "cases_passed": 27,
+    "cases_total": 27,
+    "passed": true,
+    "primary_passed": true,
+    "production_imports": 0
+  }
+}

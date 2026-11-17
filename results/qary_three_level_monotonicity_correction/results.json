@@ -1,0 +1,3139 @@
+{
+  "claim": "the retired (0,4,2) face is impossible exactly when c>2a and b>2a+c",
+  "corrected_binary_conjecture": "six-face root-respecting maximum",
+  "exhaustive_binary_grid": [
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 8,
+      "level_costs": [
+        1,
+        1,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 8,
+      "six_face_cost": 8,
+      "states_solved": 3127
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 12,
+      "level_costs": [
+        1,
+        1,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 12,
+      "six_face_cost": 12,
+      "states_solved": 3219
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 16,
+      "level_costs": [
+        1,
+        1,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 16,
+      "six_face_cost": 16,
+      "states_solved": 4235
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 20,
+      "level_costs": [
+        1,
+        1,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 20,
+      "six_face_cost": 20,
+      "states_solved": 4451
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 24,
+      "level_costs": [
+        1,
+        1,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 24,
+      "six_face_cost": 24,
+      "states_solved": 4497
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 28,
+      "level_costs": [
+        1,
+        1,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 28,
+      "six_face_cost": 28,
+      "states_solved": 4602
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 11,
+      "level_costs": [
+        1,
+        2,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 11,
+      "six_face_cost": 11,
+      "states_solved": 4673
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 14,
+      "level_costs": [
+        1,
+        2,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 14,
+      "six_face_cost": 14,
+      "states_solved": 3268
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 18,
+      "level_costs": [
+        1,
+        2,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 18,
+      "six_face_cost": 18,
+      "states_solved": 4155
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 22,
+      "level_costs": [
+        1,
+        2,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 22,
+      "six_face_cost": 22,
+      "states_solved": 4269
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 26,
+      "level_costs": [
+        1,
+        2,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 26,
+      "six_face_cost": 26,
+      "states_solved": 4323
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 30,
+      "level_costs": [
+        1,
+        2,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 30,
+      "six_face_cost": 30,
+      "states_solved": 4503
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 15,
+      "level_costs": [
+        1,
+        3,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 15,
+      "six_face_cost": 15,
+      "states_solved": 6528
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 17,
+      "level_costs": [
+        1,
+        3,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 17,
+      "six_face_cost": 17,
+      "states_solved": 5231
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 20,
+      "level_costs": [
+        1,
+        3,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 20,
+      "six_face_cost": 20,
+      "states_solved": 4054
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 24,
+      "level_costs": [
+        1,
+        3,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 24,
+      "six_face_cost": 24,
+      "states_solved": 4040
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 28,
+      "level_costs": [
+        1,
+        3,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 28,
+      "six_face_cost": 28,
+      "states_solved": 4141
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 32,
+      "level_costs": [
+        1,
+        3,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 32,
+      "six_face_cost": 32,
+      "states_solved": 5176
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 19,
+      "level_costs": [
+        1,
+        4,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 19,
+      "six_face_cost": 19,
+      "states_solved": 10584
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 20,
+      "level_costs": [
+        1,
+        4,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 20,
+      "six_face_cost": 20,
+      "states_solved": 5826
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 23,
+      "level_costs": [
+        1,
+        4,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 23,
+      "six_face_cost": 23,
+      "states_solved": 5397
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 26,
+      "level_costs": [
+        1,
+        4,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 26,
+      "six_face_cost": 26,
+      "states_solved": 4056
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 30,
+      "level_costs": [
+        1,
+        4,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 30,
+      "six_face_cost": 30,
+      "states_solved": 4119
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 34,
+      "level_costs": [
+        1,
+        4,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 34,
+      "six_face_cost": 34,
+      "states_solved": 5107
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 23,
+      "level_costs": [
+        1,
+        5,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 23,
+      "six_face_cost": 23,
+      "states_solved": 13011
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 24,
+      "level_costs": [
+        1,
+        5,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 24,
+      "six_face_cost": 24,
+      "states_solved": 7128
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 26,
+      "level_costs": [
+        1,
+        5,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 26,
+      "six_face_cost": 26,
+      "states_solved": 5614
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 29,
+      "level_costs": [
+        1,
+        5,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 29,
+      "six_face_cost": 29,
+      "states_solved": 5168
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 32,
+      "level_costs": [
+        1,
+        5,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 32,
+      "six_face_cost": 32,
+      "states_solved": 4968
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 36,
+      "level_costs": [
+        1,
+        5,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 36,
+      "six_face_cost": 36,
+      "states_solved": 5049
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 27,
+      "level_costs": [
+        1,
+        6,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 27,
+      "six_face_cost": 27,
+      "states_solved": 14971
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 28,
+      "level_costs": [
+        1,
+        6,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 28,
+      "six_face_cost": 28,
+      "states_solved": 8705
+    },
+    {
+      "analytic_violation_cone": true,
+      "exact_unrestricted_binary_cost": 29,
+      "level_costs": [
+        1,
+        6,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": true,
+      "retired_seven_face_cost": 30,
+      "six_face_cost": 29,
+      "states_solved": 5962
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 32,
+      "level_costs": [
+        1,
+        6,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 32,
+      "six_face_cost": 32,
+      "states_solved": 6748
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 35,
+      "level_costs": [
+        1,
+        6,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 35,
+      "six_face_cost": 35,
+      "states_solved": 6186
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 38,
+      "level_costs": [
+        1,
+        6,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 38,
+      "six_face_cost": 38,
+      "states_solved": 4976
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 11,
+      "level_costs": [
+        2,
+        1,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 11,
+      "six_face_cost": 11,
+      "states_solved": 12134
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 14,
+      "level_costs": [
+        2,
+        1,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 14,
+      "six_face_cost": 14,
+      "states_solved": 7081
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 18,
+      "level_costs": [
+        2,
+        1,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 18,
+      "six_face_cost": 18,
+      "states_solved": 7409
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 22,
+      "level_costs": [
+        2,
+        1,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 22,
+      "six_face_cost": 22,
+      "states_solved": 7134
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 26,
+      "level_costs": [
+        2,
+        1,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 26,
+      "six_face_cost": 26,
+      "states_solved": 7133
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 30,
+      "level_costs": [
+        2,
+        1,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 30,
+      "six_face_cost": 30,
+      "states_solved": 7278
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 13,
+      "level_costs": [
+        2,
+        2,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 13,
+      "six_face_cost": 13,
+      "states_solved": 10467
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 16,
+      "level_costs": [
+        2,
+        2,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 16,
+      "six_face_cost": 16,
+      "states_solved": 4439
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 20,
+      "level_costs": [
+        2,
+        2,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 20,
+      "six_face_cost": 20,
+      "states_solved": 4617
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 24,
+      "level_costs": [
+        2,
+        2,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 24,
+      "six_face_cost": 24,
+      "states_solved": 4487
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 28,
+      "level_costs": [
+        2,
+        2,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 28,
+      "six_face_cost": 28,
+      "states_solved": 4565
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 32,
+      "level_costs": [
+        2,
+        2,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 32,
+      "six_face_cost": 32,
+      "states_solved": 5531
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 17,
+      "level_costs": [
+        2,
+        3,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 17,
+      "six_face_cost": 17,
+      "states_solved": 14664
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 19,
+      "level_costs": [
+        2,
+        3,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 19,
+      "six_face_cost": 19,
+      "states_solved": 5856
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 22,
+      "level_costs": [
+        2,
+        3,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 22,
+      "six_face_cost": 22,
+      "states_solved": 4580
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 26,
+      "level_costs": [
+        2,
+        3,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 26,
+      "six_face_cost": 26,
+      "states_solved": 4481
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 30,
+      "level_costs": [
+        2,
+        3,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 30,
+      "six_face_cost": 30,
+      "states_solved": 4494
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 34,
+      "level_costs": [
+        2,
+        3,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 34,
+      "six_face_cost": 34,
+      "states_solved": 5529
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 21,
+      "level_costs": [
+        2,
+        4,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 21,
+      "six_face_cost": 21,
+      "states_solved": 17244
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 22,
+      "level_costs": [
+        2,
+        4,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 22,
+      "six_face_cost": 22,
+      "states_solved": 6330
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 25,
+      "level_costs": [
+        2,
+        4,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 25,
+      "six_face_cost": 25,
+      "states_solved": 5416
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 28,
+      "level_costs": [
+        2,
+        4,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 28,
+      "six_face_cost": 28,
+      "states_solved": 4462
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 32,
+      "level_costs": [
+        2,
+        4,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 32,
+      "six_face_cost": 32,
+      "states_solved": 5386
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 36,
+      "level_costs": [
+        2,
+        4,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 36,
+      "six_face_cost": 36,
+      "states_solved": 5383
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 25,
+      "level_costs": [
+        2,
+        5,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 25,
+      "six_face_cost": 25,
+      "states_solved": 19724
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 26,
+      "level_costs": [
+        2,
+        5,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 26,
+      "six_face_cost": 26,
+      "states_solved": 7461
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 28,
+      "level_costs": [
+        2,
+        5,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 28,
+      "six_face_cost": 28,
+      "states_solved": 5835
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 31,
+      "level_costs": [
+        2,
+        5,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 31,
+      "six_face_cost": 31,
+      "states_solved": 5538
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 34,
+      "level_costs": [
+        2,
+        5,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 34,
+      "six_face_cost": 34,
+      "states_solved": 5374
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 38,
+      "level_costs": [
+        2,
+        5,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 38,
+      "six_face_cost": 38,
+      "states_solved": 5431
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 29,
+      "level_costs": [
+        2,
+        6,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 29,
+      "six_face_cost": 29,
+      "states_solved": 22167
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 30,
+      "level_costs": [
+        2,
+        6,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 30,
+      "six_face_cost": 30,
+      "states_solved": 8966
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 31,
+      "level_costs": [
+        2,
+        6,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 31,
+      "six_face_cost": 31,
+      "states_solved": 6242
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 34,
+      "level_costs": [
+        2,
+        6,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 34,
+      "six_face_cost": 34,
+      "states_solved": 6830
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 37,
+      "level_costs": [
+        2,
+        6,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 37,
+      "six_face_cost": 37,
+      "states_solved": 6513
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 40,
+      "level_costs": [
+        2,
+        6,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 40,
+      "six_face_cost": 40,
+      "states_solved": 5248
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 14,
+      "level_costs": [
+        3,
+        1,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 14,
+      "six_face_cost": 14,
+      "states_solved": 15220
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 17,
+      "level_costs": [
+        3,
+        1,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 17,
+      "six_face_cost": 17,
+      "states_solved": 12180
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 20,
+      "level_costs": [
+        3,
+        1,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 20,
+      "six_face_cost": 20,
+      "states_solved": 8547
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 24,
+      "level_costs": [
+        3,
+        1,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 24,
+      "six_face_cost": 24,
+      "states_solved": 7702
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 28,
+      "level_costs": [
+        3,
+        1,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 28,
+      "six_face_cost": 28,
+      "states_solved": 7337
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 32,
+      "level_costs": [
+        3,
+        1,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 32,
+      "six_face_cost": 32,
+      "states_solved": 8480
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 16,
+      "level_costs": [
+        3,
+        2,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 16,
+      "six_face_cost": 16,
+      "states_solved": 15389
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 19,
+      "level_costs": [
+        3,
+        2,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 19,
+      "six_face_cost": 19,
+      "states_solved": 11460
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 22,
+      "level_costs": [
+        3,
+        2,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 22,
+      "six_face_cost": 22,
+      "states_solved": 8256
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 26,
+      "level_costs": [
+        3,
+        2,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 26,
+      "six_face_cost": 26,
+      "states_solved": 8075
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 30,
+      "level_costs": [
+        3,
+        2,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 30,
+      "six_face_cost": 30,
+      "states_solved": 7357
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 34,
+      "level_costs": [
+        3,
+        2,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 34,
+      "six_face_cost": 34,
+      "states_solved": 8544
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 19,
+      "level_costs": [
+        3,
+        3,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 19,
+      "six_face_cost": 19,
+      "states_solved": 15341
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 21,
+      "level_costs": [
+        3,
+        3,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 21,
+      "six_face_cost": 21,
+      "states_solved": 10994
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 24,
+      "level_costs": [
+        3,
+        3,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 24,
+      "six_face_cost": 24,
+      "states_solved": 4439
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 28,
+      "level_costs": [
+        3,
+        3,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 28,
+      "six_face_cost": 28,
+      "states_solved": 4769
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 32,
+      "level_costs": [
+        3,
+        3,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 32,
+      "six_face_cost": 32,
+      "states_solved": 5844
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 36,
+      "level_costs": [
+        3,
+        3,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 36,
+      "six_face_cost": 36,
+      "states_solved": 5755
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 23,
+      "level_costs": [
+        3,
+        4,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 23,
+      "six_face_cost": 23,
+      "states_solved": 17568
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 24,
+      "level_costs": [
+        3,
+        4,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 24,
+      "six_face_cost": 24,
+      "states_solved": 11984
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 27,
+      "level_costs": [
+        3,
+        4,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 27,
+      "six_face_cost": 27,
+      "states_solved": 5836
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 30,
+      "level_costs": [
+        3,
+        4,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 30,
+      "six_face_cost": 30,
+      "states_solved": 4706
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 34,
+      "level_costs": [
+        3,
+        4,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 34,
+      "six_face_cost": 34,
+      "states_solved": 5819
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 38,
+      "level_costs": [
+        3,
+        4,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 38,
+      "six_face_cost": 38,
+      "states_solved": 5805
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 27,
+      "level_costs": [
+        3,
+        5,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 27,
+      "six_face_cost": 27,
+      "states_solved": 18946
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 28,
+      "level_costs": [
+        3,
+        5,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 28,
+      "six_face_cost": 28,
+      "states_solved": 13182
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 30,
+      "level_costs": [
+        3,
+        5,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 30,
+      "six_face_cost": 30,
+      "states_solved": 6208
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 33,
+      "level_costs": [
+        3,
+        5,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 33,
+      "six_face_cost": 33,
+      "states_solved": 6752
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 36,
+      "level_costs": [
+        3,
+        5,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 36,
+      "six_face_cost": 36,
+      "states_solved": 5774
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 40,
+      "level_costs": [
+        3,
+        5,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 40,
+      "six_face_cost": 40,
+      "states_solved": 5644
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 31,
+      "level_costs": [
+        3,
+        6,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 31,
+      "six_face_cost": 31,
+      "states_solved": 20231
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 32,
+      "level_costs": [
+        3,
+        6,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 32,
+      "six_face_cost": 32,
+      "states_solved": 16979
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 33,
+      "level_costs": [
+        3,
+        6,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 33,
+      "six_face_cost": 33,
+      "states_solved": 7987
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 36,
+      "level_costs": [
+        3,
+        6,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 36,
+      "six_face_cost": 36,
+      "states_solved": 7198
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 39,
+      "level_costs": [
+        3,
+        6,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 39,
+      "six_face_cost": 39,
+      "states_solved": 6864
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 42,
+      "level_costs": [
+        3,
+        6,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 42,
+      "six_face_cost": 42,
+      "states_solved": 5656
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 18,
+      "level_costs": [
+        4,
+        1,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 18,
+      "six_face_cost": 18,
+      "states_solved": 29560
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 20,
+      "level_costs": [
+        4,
+        1,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 20,
+      "six_face_cost": 20,
+      "states_solved": 15230
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 23,
+      "level_costs": [
+        4,
+        1,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 23,
+      "six_face_cost": 23,
+      "states_solved": 11743
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 26,
+      "level_costs": [
+        4,
+        1,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 26,
+      "six_face_cost": 26,
+      "states_solved": 8807
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 30,
+      "level_costs": [
+        4,
+        1,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 30,
+      "six_face_cost": 30,
+      "states_solved": 8069
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 34,
+      "level_costs": [
+        4,
+        1,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 34,
+      "six_face_cost": 34,
+      "states_solved": 8875
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 19,
+      "level_costs": [
+        4,
+        2,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 19,
+      "six_face_cost": 19,
+      "states_solved": 18170
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 22,
+      "level_costs": [
+        4,
+        2,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 22,
+      "six_face_cost": 22,
+      "states_solved": 14947
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 25,
+      "level_costs": [
+        4,
+        2,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 25,
+      "six_face_cost": 25,
+      "states_solved": 10847
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 28,
+      "level_costs": [
+        4,
+        2,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 28,
+      "six_face_cost": 28,
+      "states_solved": 8540
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 32,
+      "level_costs": [
+        4,
+        2,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 32,
+      "six_face_cost": 32,
+      "states_solved": 9527
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 36,
+      "level_costs": [
+        4,
+        2,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 36,
+      "six_face_cost": 36,
+      "states_solved": 8848
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 22,
+      "level_costs": [
+        4,
+        3,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 22,
+      "six_face_cost": 22,
+      "states_solved": 18562
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 24,
+      "level_costs": [
+        4,
+        3,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 24,
+      "six_face_cost": 24,
+      "states_solved": 14482
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 27,
+      "level_costs": [
+        4,
+        3,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 27,
+      "six_face_cost": 27,
+      "states_solved": 11006
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 30,
+      "level_costs": [
+        4,
+        3,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 30,
+      "six_face_cost": 30,
+      "states_solved": 8280
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 34,
+      "level_costs": [
+        4,
+        3,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 34,
+      "six_face_cost": 34,
+      "states_solved": 9376
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 38,
+      "level_costs": [
+        4,
+        3,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 38,
+      "six_face_cost": 38,
+      "states_solved": 9309
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 25,
+      "level_costs": [
+        4,
+        4,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 25,
+      "six_face_cost": 25,
+      "states_solved": 17486
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 26,
+      "level_costs": [
+        4,
+        4,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 26,
+      "six_face_cost": 26,
+      "states_solved": 12281
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 29,
+      "level_costs": [
+        4,
+        4,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 29,
+      "six_face_cost": 29,
+      "states_solved": 10725
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 32,
+      "level_costs": [
+        4,
+        4,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 32,
+      "six_face_cost": 32,
+      "states_solved": 5751
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 36,
+      "level_costs": [
+        4,
+        4,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 36,
+      "six_face_cost": 36,
+      "states_solved": 6081
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 40,
+      "level_costs": [
+        4,
+        4,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 40,
+      "six_face_cost": 40,
+      "states_solved": 5987
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 29,
+      "level_costs": [
+        4,
+        5,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 29,
+      "six_face_cost": 29,
+      "states_solved": 19041
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 30,
+      "level_costs": [
+        4,
+        5,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 30,
+      "six_face_cost": 30,
+      "states_solved": 14294
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 32,
+      "level_costs": [
+        4,
+        5,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 32,
+      "six_face_cost": 32,
+      "states_solved": 12824
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 35,
+      "level_costs": [
+        4,
+        5,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 35,
+      "six_face_cost": 35,
+      "states_solved": 7163
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 38,
+      "level_costs": [
+        4,
+        5,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 38,
+      "six_face_cost": 38,
+      "states_solved": 6018
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 42,
+      "level_costs": [
+        4,
+        5,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 42,
+      "six_face_cost": 42,
+      "states_solved": 5977
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 33,
+      "level_costs": [
+        4,
+        6,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 33,
+      "six_face_cost": 33,
+      "states_solved": 22966
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 34,
+      "level_costs": [
+        4,
+        6,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 34,
+      "six_face_cost": 34,
+      "states_solved": 17094
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 35,
+      "level_costs": [
+        4,
+        6,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 35,
+      "six_face_cost": 35,
+      "states_solved": 13708
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 38,
+      "level_costs": [
+        4,
+        6,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 38,
+      "six_face_cost": 38,
+      "states_solved": 7532
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 41,
+      "level_costs": [
+        4,
+        6,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 41,
+      "six_face_cost": 41,
+      "states_solved": 6816
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 44,
+      "level_costs": [
+        4,
+        6,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 44,
+      "six_face_cost": 44,
+      "states_solved": 5900
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 22,
+      "level_costs": [
+        5,
+        1,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 22,
+      "six_face_cost": 22,
+      "states_solved": 45684
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 23,
+      "level_costs": [
+        5,
+        1,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 23,
+      "six_face_cost": 23,
+      "states_solved": 18030
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 26,
+      "level_costs": [
+        5,
+        1,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 26,
+      "six_face_cost": 26,
+      "states_solved": 14257
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 29,
+      "level_costs": [
+        5,
+        1,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 29,
+      "six_face_cost": 29,
+      "states_solved": 11499
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 32,
+      "level_costs": [
+        5,
+        1,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 32,
+      "six_face_cost": 32,
+      "states_solved": 10265
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 36,
+      "level_costs": [
+        5,
+        1,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 36,
+      "six_face_cost": 36,
+      "states_solved": 9527
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 23,
+      "level_costs": [
+        5,
+        2,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 23,
+      "six_face_cost": 23,
+      "states_solved": 28233
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 25,
+      "level_costs": [
+        5,
+        2,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 25,
+      "six_face_cost": 25,
+      "states_solved": 15799
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 28,
+      "level_costs": [
+        5,
+        2,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 28,
+      "six_face_cost": 28,
+      "states_solved": 13480
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 31,
+      "level_costs": [
+        5,
+        2,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 31,
+      "six_face_cost": 31,
+      "states_solved": 10894
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 34,
+      "level_costs": [
+        5,
+        2,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 34,
+      "six_face_cost": 34,
+      "states_solved": 9995
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 38,
+      "level_costs": [
+        5,
+        2,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 38,
+      "six_face_cost": 38,
+      "states_solved": 9937
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 25,
+      "level_costs": [
+        5,
+        3,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 25,
+      "six_face_cost": 25,
+      "states_solved": 21658
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 27,
+      "level_costs": [
+        5,
+        3,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 27,
+      "six_face_cost": 27,
+      "states_solved": 16262
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 30,
+      "level_costs": [
+        5,
+        3,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 30,
+      "six_face_cost": 30,
+      "states_solved": 12871
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 33,
+      "level_costs": [
+        5,
+        3,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 33,
+      "six_face_cost": 33,
+      "states_solved": 12130
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 36,
+      "level_costs": [
+        5,
+        3,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 36,
+      "six_face_cost": 36,
+      "states_solved": 9720
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 40,
+      "level_costs": [
+        5,
+        3,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 40,
+      "six_face_cost": 40,
+      "states_solved": 9454
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 28,
+      "level_costs": [
+        5,
+        4,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 28,
+      "six_face_cost": 28,
+      "states_solved": 20371
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 29,
+      "level_costs": [
+        5,
+        4,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 29,
+      "six_face_cost": 29,
+      "states_solved": 14056
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 32,
+      "level_costs": [
+        5,
+        4,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 32,
+      "six_face_cost": 32,
+      "states_solved": 15191
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 35,
+      "level_costs": [
+        5,
+        4,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 35,
+      "six_face_cost": 35,
+      "states_solved": 12358
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 38,
+      "level_costs": [
+        5,
+        4,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 38,
+      "six_face_cost": 38,
+      "states_solved": 9592
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 42,
+      "level_costs": [
+        5,
+        4,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 42,
+      "six_face_cost": 42,
+      "states_solved": 9384
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 31,
+      "level_costs": [
+        5,
+        5,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 31,
+      "six_face_cost": 31,
+      "states_solved": 19382
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 32,
+      "level_costs": [
+        5,
+        5,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 32,
+      "six_face_cost": 32,
+      "states_solved": 15457
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 34,
+      "level_costs": [
+        5,
+        5,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 34,
+      "six_face_cost": 34,
+      "states_solved": 12934
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 37,
+      "level_costs": [
+        5,
+        5,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 37,
+      "six_face_cost": 37,
+      "states_solved": 12055
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 40,
+      "level_costs": [
+        5,
+        5,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 40,
+      "six_face_cost": 40,
+      "states_solved": 5751
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 44,
+      "level_costs": [
+        5,
+        5,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 44,
+      "six_face_cost": 44,
+      "states_solved": 6115
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 35,
+      "level_costs": [
+        5,
+        6,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 35,
+      "six_face_cost": 35,
+      "states_solved": 23180
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 36,
+      "level_costs": [
+        5,
+        6,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 36,
+      "six_face_cost": 36,
+      "states_solved": 17852
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 37,
+      "level_costs": [
+        5,
+        6,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 37,
+      "six_face_cost": 37,
+      "states_solved": 13748
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 40,
+      "level_costs": [
+        5,
+        6,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 40,
+      "six_face_cost": 40,
+      "states_solved": 12617
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 43,
+      "level_costs": [
+        5,
+        6,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 43,
+      "six_face_cost": 43,
+      "states_solved": 7163
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 46,
+      "level_costs": [
+        5,
+        6,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 46,
+      "six_face_cost": 46,
+      "states_solved": 6018
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 26,
+      "level_costs": [
+        6,
+        1,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 26,
+      "six_face_cost": 26,
+      "states_solved": 55970
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 27,
+      "level_costs": [
+        6,
+        1,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 27,
+      "six_face_cost": 27,
+      "states_solved": 25654
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 29,
+      "level_costs": [
+        6,
+        1,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 29,
+      "six_face_cost": 29,
+      "states_solved": 16269
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 32,
+      "level_costs": [
+        6,
+        1,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 32,
+      "six_face_cost": 32,
+      "states_solved": 14937
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 35,
+      "level_costs": [
+        6,
+        1,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 35,
+      "six_face_cost": 35,
+      "states_solved": 13031
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 38,
+      "level_costs": [
+        6,
+        1,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 38,
+      "six_face_cost": 38,
+      "states_solved": 10482
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 27,
+      "level_costs": [
+        6,
+        2,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 27,
+      "six_face_cost": 27,
+      "states_solved": 38514
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 28,
+      "level_costs": [
+        6,
+        2,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 28,
+      "six_face_cost": 28,
+      "states_solved": 18413
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 31,
+      "level_costs": [
+        6,
+        2,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 31,
+      "six_face_cost": 31,
+      "states_solved": 15408
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 34,
+      "level_costs": [
+        6,
+        2,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 34,
+      "six_face_cost": 34,
+      "states_solved": 14633
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 37,
+      "level_costs": [
+        6,
+        2,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 37,
+      "six_face_cost": 37,
+      "states_solved": 12392
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 40,
+      "level_costs": [
+        6,
+        2,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 40,
+      "six_face_cost": 40,
+      "states_solved": 10107
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 28,
+      "level_costs": [
+        6,
+        3,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 28,
+      "six_face_cost": 28,
+      "states_solved": 24055
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 30,
+      "level_costs": [
+        6,
+        3,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 30,
+      "six_face_cost": 30,
+      "states_solved": 17204
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 33,
+      "level_costs": [
+        6,
+        3,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 33,
+      "six_face_cost": 33,
+      "states_solved": 17760
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 36,
+      "level_costs": [
+        6,
+        3,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 36,
+      "six_face_cost": 36,
+      "states_solved": 13737
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 39,
+      "level_costs": [
+        6,
+        3,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 39,
+      "six_face_cost": 39,
+      "states_solved": 12093
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 42,
+      "level_costs": [
+        6,
+        3,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 42,
+      "six_face_cost": 42,
+      "states_solved": 9999
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 31,
+      "level_costs": [
+        6,
+        4,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 31,
+      "six_face_cost": 31,
+      "states_solved": 24593
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 32,
+      "level_costs": [
+        6,
+        4,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 32,
+      "six_face_cost": 32,
+      "states_solved": 18580
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 35,
+      "level_costs": [
+        6,
+        4,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 35,
+      "six_face_cost": 35,
+      "states_solved": 17673
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 38,
+      "level_costs": [
+        6,
+        4,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 38,
+      "six_face_cost": 38,
+      "states_solved": 13783
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 41,
+      "level_costs": [
+        6,
+        4,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 41,
+      "six_face_cost": 41,
+      "states_solved": 12003
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 44,
+      "level_costs": [
+        6,
+        4,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 44,
+      "six_face_cost": 44,
+      "states_solved": 9743
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 34,
+      "level_costs": [
+        6,
+        5,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 34,
+      "six_face_cost": 34,
+      "states_solved": 24477
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 35,
+      "level_costs": [
+        6,
+        5,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 35,
+      "six_face_cost": 35,
+      "states_solved": 17975
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 37,
+      "level_costs": [
+        6,
+        5,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 37,
+      "six_face_cost": 37,
+      "states_solved": 16181
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 40,
+      "level_costs": [
+        6,
+        5,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 40,
+      "six_face_cost": 40,
+      "states_solved": 14840
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 43,
+      "level_costs": [
+        6,
+        5,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 43,
+      "six_face_cost": 43,
+      "states_solved": 12358
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 46,
+      "level_costs": [
+        6,
+        5,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 46,
+      "six_face_cost": 46,
+      "states_solved": 9592
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 37,
+      "level_costs": [
+        6,
+        6,
+        1
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 37,
+      "six_face_cost": 37,
+      "states_solved": 23356
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 38,
+      "level_costs": [
+        6,
+        6,
+        2
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 38,
+      "six_face_cost": 38,
+      "states_solved": 17769
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 39,
+      "level_costs": [
+        6,
+        6,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 39,
+      "six_face_cost": 39,
+      "states_solved": 14095
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 42,
+      "level_costs": [
+        6,
+        6,
+        4
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 42,
+      "six_face_cost": 42,
+      "states_solved": 12767
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 45,
+      "level_costs": [
+        6,
+        6,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 45,
+      "six_face_cost": 45,
+      "states_solved": 12050
+    },
+    {
+      "analytic_violation_cone": false,
+      "exact_unrestricted_binary_cost": 48,
+      "level_costs": [
+        6,
+        6,
+        6
+      ],
+      "matched": true,
+      "retired_face_impossible": false,
+      "retired_seven_face_cost": 48,
+      "six_face_cost": 48,
+      "states_solved": 5751
+    }
+  ],
+  "holdouts": [
+    {
+      "analytic_violation_cone": true,
+      "exact_unrestricted_binary_cost": 85,
+      "level_costs": [
+        1,
+        20,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": true,
+      "retired_seven_face_cost": 86,
+      "six_face_cost": 85,
+      "states_solved": 28318
+    },
+    {
+      "analytic_violation_cone": true,
+      "exact_unrestricted_binary_cost": 33,
+      "level_costs": [
+        1,
+        7,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": true,
+      "retired_seven_face_cost": 34,
+      "six_face_cost": 33,
+      "states_solved": 8571
+    },
+    {
+      "analytic_violation_cone": true,
+      "exact_unrestricted_binary_cost": 77,
+      "level_costs": [
+        2,
+        17,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": true,
+      "retired_seven_face_cost": 78,
+      "six_face_cost": 77,
+      "states_solved": 15673
+    },
+    {
+      "analytic_violation_cone": true,
+      "exact_unrestricted_binary_cost": 113,
+      "level_costs": [
+        3,
+        25,
+        7
+      ],
+      "matched": true,
+      "retired_face_impossible": true,
+      "retired_seven_face_cost": 114,
+      "six_face_cost": 113,
+      "states_solved": 17023
+    },
+    {
+      "analytic_violation_cone": true,
+      "exact_unrestricted_binary_cost": 29,
+      "level_costs": [
+        1,
+        6,
+        3
+      ],
+      "matched": true,
+      "retired_face_impossible": true,
+      "retired_seven_face_cost": 30,
+      "six_face_cost": 29,
+      "states_solved": 5962
+    },
+    {
+      "analytic_violation_cone": true,
+      "exact_unrestricted_binary_cost": 65,
+      "level_costs": [
+        2,
+        14,
+        5
+      ],
+      "matched": true,
+      "retired_face_impossible": true,
+      "retired_seven_face_cost": 66,
+      "six_face_cost": 65,
+      "states_solved": 12860
+    }
+  ],
+  "missing_copy_attack": {
+    "abstained": true,
+    "exact_cost": null,
+    "level_costs": [
+      2,
+      1,
+      7
+    ],
+    "remaining_query_instances": 27
+  },
+  "schema": "theorica.qary-three-level-monotonicity-correction/1",
+  "summary": {
+    "analytic_cone_matches": 216,
+    "exhaustive_digest": "f8e26029a92858b7297890a054261f58b4d4f0a34dd5ff1c090ed39296bd82d3",
+    "exhaustive_matches": 216,
+    "exhaustive_total": 216,
+    "grid_retired_face_violations": 1,
+    "holdout_matches": 6,
+    "holdout_total": 6,
+    "missing_copy_abstained": true,
+    "passed": true,
+    "strict_retired_counterexamples": 6
+  }
+}

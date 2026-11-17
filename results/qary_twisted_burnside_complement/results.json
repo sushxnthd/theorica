@@ -1,0 +1,582 @@
+{
+  "q2_h4_holdout": {
+    "complement_fixed_shape_classes": 23,
+    "cycle_type_distribution": [
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 1,
+        "cycle_type": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 8,
+        "cycle_type": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 36,
+        "cycle_type": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 8,
+        "cycle_type": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          4
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 104,
+        "cycle_type": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 48,
+        "cycle_type": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          4
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 230,
+        "cycle_type": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 200,
+        "cycle_type": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          4
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 72,
+        "cycle_type": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          4,
+          4
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 32,
+        "cycle_type": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          8
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 376,
+        "cycle_type": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 480,
+        "cycle_type": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          4
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 288,
+        "cycle_type": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          4,
+          4
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 128,
+        "cycle_type": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          8
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 484,
+        "cycle_type": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 888,
+        "cycle_type": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          4
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 848,
+        "cycle_type": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          4,
+          4
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 320,
+        "cycle_type": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          8
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 224,
+        "cycle_type": [
+          1,
+          1,
+          1,
+          1,
+          4,
+          4,
+          4
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 128,
+        "cycle_type": [
+          1,
+          1,
+          1,
+          1,
+          4,
+          8
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 408,
+        "cycle_type": [
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 944,
+        "cycle_type": [
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          4
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 1120,
+        "cycle_type": [
+          1,
+          1,
+          2,
+          2,
+          2,
+          4,
+          4
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 384,
+        "cycle_type": [
+          1,
+          1,
+          2,
+          2,
+          2,
+          8
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 448,
+        "cycle_type": [
+          1,
+          1,
+          2,
+          4,
+          4,
+          4
+        ]
+      },
+      {
+        "alternating_weight_each": 0,
+        "alternating_weight_total": 0,
+        "automorphisms": 256,
+        "cycle_type": [
+          1,
+          1,
+          2,
+          4,
+          8
+        ]
+      },
+      {
+        "alternating_weight_each": 256,
+        "alternating_weight_total": 106752,
+        "automorphisms": 417,
+        "cycle_type": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "alternating_weight_each": 128,
+        "alternating_weight_total": 187392,
+        "automorphisms": 1464,
+        "cycle_type": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          4
+        ]
+      },
+      {
+        "alternating_weight_each": 64,
+        "alternating_weight_total": 193024,
+        "automorphisms": 3016,
+        "cycle_type": [
+          2,
+          2,
+          2,
+          2,
+          4,
+          4
+        ]
+      },
+      {
+        "alternating_weight_each": 32,
+        "alternating_weight_total": 33792,
+        "automorphisms": 1056,
+        "cycle_type": [
+          2,
+          2,
+          2,
+          2,
+          8
+        ]
+      },
+      {
+        "alternating_weight_each": 32,
+        "alternating_weight_total": 99328,
+        "automorphisms": 3104,
+        "cycle_type": [
+          2,
+          2,
+          4,
+          4,
+          4
+        ]
+      },
+      {
+        "alternating_weight_each": 16,
+        "alternating_weight_total": 30720,
+        "automorphisms": 1920,
+        "cycle_type": [
+          2,
+          2,
+          4,
+          8
+        ]
+      },
+      {
+        "alternating_weight_each": 16,
+        "alternating_weight_total": 47360,
+        "automorphisms": 2960,
+        "cycle_type": [
+          4,
+          4,
+          4,
+          4
+        ]
+      },
+      {
+        "alternating_weight_each": 8,
+        "alternating_weight_total": 35840,
+        "automorphisms": 4480,
+        "cycle_type": [
+          4,
+          4,
+          8
+        ]
+      },
+      {
+        "alternating_weight_each": 4,
+        "alternating_weight_total": 15360,
+        "automorphisms": 3840,
+        "cycle_type": [
+          8,
+          8
+        ]
+      },
+      {
+        "alternating_weight_each": 2,
+        "alternating_weight_total": 4096,
+        "automorphisms": 2048,
+        "cycle_type": [
+          16
+        ]
+      }
+    ],
+    "cycle_type_distribution_sha256": "9f71ca443aacfed515cfdb45bd404b3dd47195bf1d7dccf65efa59b465e46172",
+    "distinct_cycle_types": 36,
+    "eligible_even_cycle_automorphisms": 24305,
+    "explicit_group_stream_sha256": "d5953285b03cfe1c9947e4e597a43ef4c5dc5d11e569445c53d11d76785e8e62",
+    "group_order": 32768,
+    "half_density_shape_classes": 35,
+    "height": 4,
+    "internal_node_count": 15,
+    "labelled_half_density_families": 12870,
+    "leaf_count": 16,
+    "suffix_shape_classes": 231,
+    "twisted_orbit_count": 23,
+    "twisted_weight_sum": 753664
+  },
+  "schema": "theorica.twisted-burnside-complement/1",
+  "summary": {
+    "all_32768_automorphisms_enumerated": true,
+    "all_induced_leaf_maps_are_permutations": true,
+    "odd_cycle_types_rejected": true,
+    "overall_passed": true,
+    "twisted_orbit_count_matches_shape_enumeration": true,
+    "twisted_sum_matches_frozen_prediction": true
+  },
+  "theorem": {
+    "cycle_obstruction": "an odd leaf cycle implies |Fix(Cg)|=0",
+    "even_cycle_count": "all cycles even implies |Fix(Cg)|=2^c(g)",
+    "orbit_trace": "F=|G|^-1 sum_g |Fix(Cg)|"
+  }
+}

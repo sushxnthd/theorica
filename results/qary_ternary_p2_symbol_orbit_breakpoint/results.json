@@ -1,0 +1,453 @@
+{
+  "constant_integer_chamber": {
+    "maximum_c": 7,
+    "minimum_c": 1,
+    "value": 33
+  },
+  "cumulative_opened_reserved_cases": 16,
+  "endpoints": [
+    {
+      "exact": {
+        "actions_evaluated": 3291,
+        "allowed_query_levels": [
+          0,
+          1,
+          2
+        ],
+        "compatibility_states": 115,
+        "constructive_upper_bound": 33,
+        "exact_lower_bound": 33,
+        "root_actions": [
+          {
+            "action_value": 37,
+            "child_values": [
+              22,
+              33,
+              22
+            ],
+            "optimal": false,
+            "query_cost": 4,
+            "query_group": 0,
+            "query_level": 0
+          },
+          {
+            "action_value": 44,
+            "child_values": [
+              33,
+              15
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 1,
+            "query_level": 1
+          },
+          {
+            "action_value": 33,
+            "child_values": [
+              22,
+              22,
+              22
+            ],
+            "optimal": true,
+            "query_cost": 11,
+            "query_group": 2,
+            "query_level": 1
+          },
+          {
+            "action_value": 44,
+            "child_values": [
+              33,
+              15
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 3,
+            "query_level": 1
+          },
+          {
+            "action_value": 40,
+            "child_values": [
+              33,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 7,
+            "query_group": 4,
+            "query_level": 2
+          },
+          {
+            "action_value": 40,
+            "child_values": [
+              33,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 7,
+            "query_group": 6,
+            "query_level": 2
+          },
+          {
+            "action_value": 40,
+            "child_values": [
+              33,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 7,
+            "query_group": 10,
+            "query_level": 2
+          },
+          {
+            "action_value": 40,
+            "child_values": [
+              33,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 7,
+            "query_group": 12,
+            "query_level": 2
+          }
+        ],
+        "states_solved": 4537
+      },
+      "leaf_cost": 7,
+      "level_costs": [
+        4,
+        11,
+        7
+      ],
+      "observed_optimal_groups": [
+        2
+      ],
+      "predicted_group2_children": [
+        22,
+        22,
+        22
+      ],
+      "predicted_value": 33,
+      "prediction_supported": true,
+      "root_group2_action": {
+        "action_value": 33,
+        "child_values": [
+          22,
+          22,
+          22
+        ],
+        "optimal": true,
+        "query_cost": 11,
+        "query_group": 2,
+        "query_level": 1
+      }
+    },
+    {
+      "exact": {
+        "actions_evaluated": 3291,
+        "allowed_query_levels": [
+          0,
+          1,
+          2
+        ],
+        "compatibility_states": 115,
+        "constructive_upper_bound": 34,
+        "exact_lower_bound": 34,
+        "root_actions": [
+          {
+            "action_value": 37,
+            "child_values": [
+              23,
+              33,
+              23
+            ],
+            "optimal": false,
+            "query_cost": 4,
+            "query_group": 0,
+            "query_level": 0
+          },
+          {
+            "action_value": 45,
+            "child_values": [
+              34,
+              15
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 1,
+            "query_level": 1
+          },
+          {
+            "action_value": 34,
+            "child_values": [
+              23,
+              22,
+              22
+            ],
+            "optimal": true,
+            "query_cost": 11,
+            "query_group": 2,
+            "query_level": 1
+          },
+          {
+            "action_value": 45,
+            "child_values": [
+              34,
+              15
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 3,
+            "query_level": 1
+          },
+          {
+            "action_value": 42,
+            "child_values": [
+              34,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 8,
+            "query_group": 4,
+            "query_level": 2
+          },
+          {
+            "action_value": 42,
+            "child_values": [
+              34,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 8,
+            "query_group": 6,
+            "query_level": 2
+          },
+          {
+            "action_value": 42,
+            "child_values": [
+              34,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 8,
+            "query_group": 10,
+            "query_level": 2
+          },
+          {
+            "action_value": 42,
+            "child_values": [
+              34,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 8,
+            "query_group": 12,
+            "query_level": 2
+          }
+        ],
+        "states_solved": 4537
+      },
+      "leaf_cost": 8,
+      "level_costs": [
+        4,
+        11,
+        8
+      ],
+      "observed_optimal_groups": [
+        2
+      ],
+      "predicted_group2_children": [
+        23,
+        22,
+        22
+      ],
+      "predicted_value": 34,
+      "prediction_supported": true,
+      "root_group2_action": {
+        "action_value": 34,
+        "child_values": [
+          23,
+          22,
+          22
+        ],
+        "optimal": true,
+        "query_cost": 11,
+        "query_group": 2,
+        "query_level": 1
+      }
+    }
+  ],
+  "first_integer_breakpoint": 8,
+  "fixed_root_middle_costs": [
+    4,
+    11
+  ],
+  "isomorphism_certificate": {
+    "backtracking_steps": 46,
+    "left_color_sizes": [
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      5,
+      5
+    ],
+    "mapping_edge_checked": true,
+    "refinement_rounds": 5,
+    "right_color_sizes": [
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      5,
+      5
+    ]
+  },
+  "isomorphism_mapping": {
+    "cells": {
+      "0:0": 0,
+      "0:1": 2,
+      "0:2": 1,
+      "10:0": 0,
+      "11:0": 0,
+      "12:0": 0,
+      "1:0": 0,
+      "1:1": 2,
+      "2:0": 0,
+      "2:1": 2,
+      "3:0": 0,
+      "3:1": 2,
+      "3:2": 1,
+      "4:0": 0,
+      "4:1": 2,
+      "5:0": 0,
+      "5:1": 2,
+      "6:0": 0,
+      "7:0": 0,
+      "7:1": 2,
+      "8:0": 0,
+      "8:1": 2,
+      "9:0": 0
+    },
+    "completions": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "queries": [
+      0,
+      1,
+      3,
+      2,
+      4,
+      6,
+      8,
+      10,
+      12,
+      9,
+      11,
+      5,
+      7
+    ]
+  },
+  "predicted_clean_branch": "max(33,26+c)",
+  "remaining_reserved_cases": 2,
+  "schema": "theorica.ternary-p2-symbol-orbit-breakpoint/1",
+  "source_family": "P2",
+  "summary": {
+    "classification": "symbol_orbit_breakpoint_transfer_confirmed",
+    "mapping_supported": true,
+    "passed": true,
+    "prediction_supported": true
+  },
+  "symbol_action": "swap_1_2_in_all_three_coordinates",
+  "words": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      2
+    ],
+    [
+      0,
+      2,
+      0
+    ],
+    [
+      0,
+      2,
+      2
+    ],
+    [
+      2,
+      0,
+      0
+    ],
+    [
+      2,
+      0,
+      2
+    ],
+    [
+      2,
+      2,
+      0
+    ],
+    [
+      2,
+      2,
+      2
+    ],
+    [
+      1,
+      2,
+      0
+    ],
+    [
+      1,
+      1,
+      0
+    ]
+  ]
+}

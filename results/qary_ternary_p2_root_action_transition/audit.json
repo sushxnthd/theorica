@@ -1,0 +1,30 @@
+{
+  "endpoint_replay": [
+    {
+      "clean_group3_present": true,
+      "independent_group0_value": 37,
+      "independent_group3_value": 37,
+      "independent_optimal_groups": [
+        0,
+        3
+      ],
+      "leaf_cost": 11,
+      "valid": true
+    },
+    {
+      "clean_group3_present": true,
+      "independent_group0_value": 37,
+      "independent_group3_value": 38,
+      "independent_optimal_groups": [
+        0
+      ],
+      "leaf_cost": 12,
+      "valid": true
+    }
+  ],
+  "passed": true,
+  "production_imports": 0,
+  "reserved_count_valid": true,
+  "schema": "theorica.ternary-p2-root-action-transition-audit/1",
+  "tie_to_handoff_replayed": true
+}

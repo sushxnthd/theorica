@@ -1,0 +1,7 @@
+{
+  "checker": "independent_fraction_only_no_production_import",
+  "exhaustive_cases": 98415,
+  "zero_bonus_cases": 60903,
+  "strict_bonus_cases": 37512,
+  "status": "pass"
+}

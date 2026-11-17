@@ -1,0 +1,39 @@
+{
+  "avoidance_exposure_worst_cost": 554,
+  "avoidance_target_dominated": false,
+  "maximal_componentwise_guarantees": [
+    [
+      1,
+      5,
+      1
+    ],
+    [
+      2,
+      3,
+      4
+    ],
+    [
+      2,
+      4,
+      3
+    ],
+    [
+      3,
+      3,
+      3
+    ],
+    [
+      4,
+      2,
+      1
+    ]
+  ],
+  "missing_target": [
+    3,
+    4,
+    1
+  ],
+  "passed": true,
+  "production_imports": 0,
+  "schema": "theorica.middle-first-componentwise-audit/1"
+}

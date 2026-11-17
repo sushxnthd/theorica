@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "falsification": true,
+    "holdout_count": true,
+    "holdout_digest": true,
+    "holdout_sizes": true,
+    "opened_classification": true,
+    "opened_count": true,
+    "opened_digest": true,
+    "primary_passed": true,
+    "scaling_arithmetic": true
+  },
+  "passed": true,
+  "schema": "rank-one-scenario-quotient-independent-audit-v1"
+}

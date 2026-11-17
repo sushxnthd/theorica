@@ -1,0 +1,17 @@
+{
+  "seed": 20261028,
+  "opened_payoffs": [0, 1, 2],
+  "opened_components": 2,
+  "opened_actions_per_component": 2,
+  "holdout_count": 36,
+  "holdout_pure_target": 18,
+  "holdout_randomized_target": 18,
+  "max_active_joint_actions": 500000,
+  "publishable_gate": {
+    "value_mismatches": 0,
+    "strictness_mismatches": 0,
+    "policy_failures": 0,
+    "max_support": 3,
+    "independent_audit_passes": true
+  }
+}

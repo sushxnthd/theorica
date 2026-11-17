@@ -1,0 +1,84 @@
+{
+  "case_digest_reproduced": true,
+  "case_total": 8,
+  "cases_replayed": 8,
+  "missing_copy_abstained": true,
+  "missing_copy_cost": null,
+  "passed": true,
+  "production_imports": 0,
+  "replays": [
+    {
+      "actual": 6,
+      "arity": 2,
+      "child_cost": 1,
+      "formula": 6,
+      "matched": true,
+      "production_exact": 6,
+      "root_cost": 1
+    },
+    {
+      "actual": 14,
+      "arity": 2,
+      "child_cost": 3,
+      "formula": 14,
+      "matched": true,
+      "production_exact": 14,
+      "root_cost": 1
+    },
+    {
+      "actual": 13,
+      "arity": 2,
+      "child_cost": 1,
+      "formula": 13,
+      "matched": true,
+      "production_exact": 13,
+      "root_cost": 3
+    },
+    {
+      "actual": 32,
+      "arity": 3,
+      "child_cost": 7,
+      "formula": 32,
+      "matched": true,
+      "production_exact": 32,
+      "root_cost": 2
+    },
+    {
+      "actual": 24,
+      "arity": 4,
+      "child_cost": 3,
+      "formula": 24,
+      "matched": true,
+      "production_exact": 24,
+      "root_cost": 5
+    },
+    {
+      "actual": 40,
+      "arity": 5,
+      "child_cost": 4,
+      "formula": 40,
+      "matched": true,
+      "production_exact": 40,
+      "root_cost": 9
+    },
+    {
+      "actual": 36,
+      "arity": 3,
+      "child_cost": 6,
+      "formula": 36,
+      "matched": true,
+      "production_exact": 36,
+      "root_cost": 6
+    },
+    {
+      "actual": 36,
+      "arity": 4,
+      "child_cost": 4,
+      "formula": 36,
+      "matched": true,
+      "production_exact": 36,
+      "root_cost": 8
+    }
+  ],
+  "schema": "theorica.qary-two-level-insurance-audit/1"
+}

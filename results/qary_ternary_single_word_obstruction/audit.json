@@ -1,0 +1,54 @@
+{
+  "independent_baseline_budget_17_feasible": true,
+  "independent_obstruction_pairs": [
+    [
+      [
+        2,
+        0,
+        0
+      ],
+      [
+        2,
+        1,
+        0
+      ]
+    ],
+    [
+      [
+        2,
+        0,
+        0
+      ],
+      [
+        2,
+        2,
+        0
+      ]
+    ],
+    [
+      [
+        2,
+        1,
+        0
+      ],
+      [
+        2,
+        2,
+        0
+      ]
+    ]
+  ],
+  "independent_pair_total": 171,
+  "independent_pairs_budget_17_infeasible": 3,
+  "independent_singleton_total": 19,
+  "independent_singletons_budget_17_feasible": 19,
+  "independent_states_solved": 248786,
+  "independent_symmetry_check_total": 18,
+  "independent_symmetry_checks_obstructing": 6,
+  "independent_zero_fixing_check_total": 6,
+  "independent_zero_fixing_checks_obstructing": 6,
+  "independent_zero_moving_check_total": 12,
+  "independent_zero_moving_checks_feasible_at_17": 12,
+  "passed": true,
+  "production_module_imports": 0
+}

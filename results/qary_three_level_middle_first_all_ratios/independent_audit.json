@@ -1,0 +1,10 @@
+{
+  "all_six_faces_recovered": true,
+  "holdout_total": 30,
+  "holdouts_reproduced": 30,
+  "passed": true,
+  "production_imports": 0,
+  "schema": "theorica.middle-first-all-positive-ratios-audit/1",
+  "trace_certificate_total": 19,
+  "trace_certificates_reproduced": 19
+}

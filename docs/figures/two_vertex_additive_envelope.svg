@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="460" viewBox="0 0 1000 460" role="img" aria-labelledby="title desc">
+  <title id="title">Two-vertex additive envelope and strict randomization certificate</title>
+  <desc id="desc">The summed upper envelope is minimized at one half. Tied joint payoff differences exclude zero but bracket it, producing a two-atom optimum.</desc>
+  <rect width="1000" height="460" fill="#ffffff"/>
+  <style>
+    text { font-family: Inter, Arial, sans-serif; fill: #17211b; }
+    .title { font-size: 23px; font-weight: 700; }
+    .label { font-size: 15px; }
+    .small { font-size: 13px; fill: #536158; }
+    .axis { stroke: #87928b; stroke-width: 1.5; }
+    .grid { stroke: #e6ebe8; stroke-width: 1; }
+  </style>
+  <text x="52" y="42" class="title">Product-free two-vertex planning</text>
+  <text x="52" y="68" class="small">Example: component payoff pairs (0,2)/(2,0) and (0,3)/(3,0)</text>
+
+  <rect x="52" y="92" width="540" height="300" rx="12" fill="#f7faf8" stroke="#d8e2dc"/>
+  <text x="76" y="124" class="label" font-weight="700">Summed nature envelope</text>
+  <line x1="102" y1="350" x2="554" y2="350" class="axis"/>
+  <line x1="102" y1="350" x2="102" y2="154" class="axis"/>
+  <line x1="328" y1="350" x2="328" y2="154" class="grid"/>
+  <line x1="102" y1="252" x2="554" y2="252" class="grid"/>
+  <text x="96" y="374" class="small">0</text>
+  <text x="318" y="374" class="small">½</text>
+  <text x="548" y="374" class="small">1</text>
+  <text x="560" y="355" class="small">λ</text>
+  <text x="72" y="258" class="small">2.5</text>
+  <path d="M102 154 L328 252 L554 154" fill="none" stroke="#137a4b" stroke-width="5" stroke-linejoin="round"/>
+  <circle cx="328" cy="252" r="7" fill="#137a4b"/>
+  <text x="342" y="245" class="label">V = 5/2</text>
+  <text x="143" y="186" class="small">g(λ) = Σ maxₐ[λuₜₐ+(1−λ)vₜₐ]</text>
+  <text x="180" y="330" class="small">one component breakpoint, no joint-action expansion</text>
+
+  <rect x="620" y="92" width="328" height="300" rx="12" fill="#f7faf8" stroke="#d8e2dc"/>
+  <text x="644" y="124" class="label" font-weight="700">Tied-difference certificate</text>
+  <line x1="662" y1="250" x2="910" y2="250" class="axis"/>
+  <line x1="786" y1="230" x2="786" y2="270" stroke="#c54242" stroke-width="2"/>
+  <text x="778" y="292" class="small">0</text>
+  <circle cx="666" cy="250" r="7" fill="#819087"/>
+  <circle cx="738" cy="250" r="9" fill="#137a4b"/>
+  <circle cx="834" cy="250" r="9" fill="#137a4b"/>
+  <circle cx="906" cy="250" r="7" fill="#819087"/>
+  <text x="656" y="225" class="small">−5</text>
+  <text x="730" y="225" class="small">−1</text>
+  <text x="827" y="225" class="small">+1</text>
+  <text x="898" y="225" class="small">+5</text>
+  <path d="M738 278 Q786 320 834 278" fill="none" stroke="#137a4b" stroke-width="3"/>
+  <text x="681" y="344" class="label">0 unreachable → mixing necessary</text>
+  <text x="686" y="367" class="small">two bracketing atoms, each mass 1/2</text>
+
+  <text x="52" y="430" class="small">The envelope candidate count is additive across components; the explicit policy support is at most two.</text>
+</svg>

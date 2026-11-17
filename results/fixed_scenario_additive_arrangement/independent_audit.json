@@ -1,0 +1,17 @@
+{
+  "checks": {
+    "candidate_law": true,
+    "holdout_values_and_classes": true,
+    "opened_classification": true,
+    "opened_count": true,
+    "opened_digest": true,
+    "primary_certificates": true,
+    "scaling_certificate": true,
+    "symmetry_count": true,
+    "tie_explosion_count": true,
+    "tie_explosion_exact_replay": true
+  },
+  "independent_digest": "e136a7b81a0e190fbc7f9af308e6c201b3ce99a6d5904f817ad5c277247c1f56",
+  "passed": true,
+  "schema": "fixed-scenario-additive-arrangement-audit-v2"
+}

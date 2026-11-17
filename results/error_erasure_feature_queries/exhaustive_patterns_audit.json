@@ -1,0 +1,94 @@
+{
+  "digest": "3cba777c580c7e194678ccbf5f0c860d632f6960674f462fd231f99c21970c1d",
+  "passed": true,
+  "records": [
+    {
+      "distance_failures": 0,
+      "erasure_budget": 1,
+      "erasure_patterns_checked": 6,
+      "error_budget": 1,
+      "family": "vandermonde",
+      "passed": true,
+      "placements_recomputed": 31,
+      "rank": 2
+    },
+    {
+      "distance_failures": 0,
+      "erasure_budget": 2,
+      "erasure_patterns_checked": 22,
+      "error_budget": 1,
+      "family": "vandermonde",
+      "passed": true,
+      "placements_recomputed": 118,
+      "rank": 2
+    },
+    {
+      "distance_failures": 0,
+      "erasure_budget": 1,
+      "erasure_patterns_checked": 7,
+      "error_budget": 1,
+      "family": "vandermonde",
+      "passed": true,
+      "placements_recomputed": 43,
+      "rank": 3
+    },
+    {
+      "distance_failures": 0,
+      "erasure_budget": 2,
+      "erasure_patterns_checked": 29,
+      "error_budget": 1,
+      "family": "vandermonde",
+      "passed": true,
+      "placements_recomputed": 183,
+      "rank": 3
+    },
+    {
+      "distance_failures": 0,
+      "erasure_budget": 1,
+      "erasure_patterns_checked": 6,
+      "error_budget": 1,
+      "family": "cauchy",
+      "passed": true,
+      "placements_recomputed": 31,
+      "rank": 2
+    },
+    {
+      "distance_failures": 0,
+      "erasure_budget": 2,
+      "erasure_patterns_checked": 22,
+      "error_budget": 1,
+      "family": "cauchy",
+      "passed": true,
+      "placements_recomputed": 118,
+      "rank": 2
+    },
+    {
+      "distance_failures": 0,
+      "erasure_budget": 1,
+      "erasure_patterns_checked": 7,
+      "error_budget": 1,
+      "family": "cauchy",
+      "passed": true,
+      "placements_recomputed": 43,
+      "rank": 3
+    },
+    {
+      "distance_failures": 0,
+      "erasure_budget": 2,
+      "erasure_patterns_checked": 29,
+      "error_budget": 1,
+      "family": "cauchy",
+      "passed": true,
+      "placements_recomputed": 183,
+      "rank": 3
+    }
+  ],
+  "schema": "theorica.error-erasure-exhaustive-patterns-audit/1",
+  "summary": {
+    "configurations": 8,
+    "configurations_passed": 8,
+    "erasure_patterns_checked": 128,
+    "placements_recomputed": 750,
+    "production_imports": 0
+  }
+}

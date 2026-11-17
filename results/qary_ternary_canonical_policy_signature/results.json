@@ -1,0 +1,243 @@
+{
+  "canonical_policies_gzip_sha256": "39ab7a12778ccc1e44de16a66709bed8e3e13a6b24abf80e0408dc5dddab9f88",
+  "comparisons": [
+    {
+      "P0_sha256": "75f945adfe6c607c2c3d8c23887bcf82c7fe2fb3734cd31fec3da9c372f6b3e3",
+      "P2_sha256": "fd1b368b5670693bc0868d3220fa970095a09118b3b40a19925b921bb7535ef2",
+      "equal": false,
+      "first_difference": {
+        "left_length": 2,
+        "path": "root.erasure_child.ordinary_children[2].ordinary_children[0].ordinary_children",
+        "right_length": 3
+      },
+      "name": "unrestricted"
+    },
+    {
+      "P0_sha256": "75f945adfe6c607c2c3d8c23887bcf82c7fe2fb3734cd31fec3da9c372f6b3e3",
+      "P2_sha256": "fd1b368b5670693bc0868d3220fa970095a09118b3b40a19925b921bb7535ef2",
+      "equal": false,
+      "first_difference": {
+        "left_length": 2,
+        "path": "root.erasure_child.ordinary_children[2].ordinary_children[0].ordinary_children",
+        "right_length": 3
+      },
+      "name": "middle_1"
+    },
+    {
+      "P0_sha256": "75f945adfe6c607c2c3d8c23887bcf82c7fe2fb3734cd31fec3da9c372f6b3e3",
+      "P2_sha256": "fd1b368b5670693bc0868d3220fa970095a09118b3b40a19925b921bb7535ef2",
+      "equal": false,
+      "first_difference": {
+        "left_length": 2,
+        "path": "root.erasure_child.ordinary_children[2].ordinary_children[0].ordinary_children",
+        "right_length": 3
+      },
+      "name": "middle_2"
+    },
+    {
+      "P0_sha256": "3cad713c1cdc0be1f0879ce501d033c347dd6adf1b2121296aa9545c87693959",
+      "P2_sha256": "5b315867f95f11e8285070328cceeb5700814deb9bb3de2053389780483d0543",
+      "equal": false,
+      "first_difference": {
+        "left_length": 2,
+        "path": "root.cell_sizes",
+        "right_length": 3
+      },
+      "name": "middle_3"
+    }
+  ],
+  "families": [
+    {
+      "entries": [
+        {
+          "canonical_depth": 11,
+          "canonical_node_count": 1103,
+          "canonical_sha256": "75f945adfe6c607c2c3d8c23887bcf82c7fe2fb3734cd31fec3da9c372f6b3e3",
+          "exact_cost": 51,
+          "name": "unrestricted",
+          "states_solved": 34323
+        },
+        {
+          "canonical_depth": 11,
+          "canonical_node_count": 1103,
+          "canonical_sha256": "75f945adfe6c607c2c3d8c23887bcf82c7fe2fb3734cd31fec3da9c372f6b3e3",
+          "exact_cost": 51,
+          "name": "middle_1",
+          "states_solved": 26190
+        },
+        {
+          "canonical_depth": 11,
+          "canonical_node_count": 1103,
+          "canonical_sha256": "75f945adfe6c607c2c3d8c23887bcf82c7fe2fb3734cd31fec3da9c372f6b3e3",
+          "exact_cost": 51,
+          "name": "middle_2",
+          "states_solved": 10066
+        },
+        {
+          "canonical_depth": 11,
+          "canonical_node_count": 1254,
+          "canonical_sha256": "3cad713c1cdc0be1f0879ce501d033c347dd6adf1b2121296aa9545c87693959",
+          "exact_cost": 52,
+          "name": "middle_3",
+          "states_solved": 14963
+        }
+      ],
+      "label": "P0_isomorphic_orbit_representative",
+      "words": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "entries": [
+        {
+          "canonical_depth": 11,
+          "canonical_node_count": 1133,
+          "canonical_sha256": "fd1b368b5670693bc0868d3220fa970095a09118b3b40a19925b921bb7535ef2",
+          "exact_cost": 51,
+          "name": "unrestricted",
+          "states_solved": 34445
+        },
+        {
+          "canonical_depth": 11,
+          "canonical_node_count": 1133,
+          "canonical_sha256": "fd1b368b5670693bc0868d3220fa970095a09118b3b40a19925b921bb7535ef2",
+          "exact_cost": 51,
+          "name": "middle_1",
+          "states_solved": 26307
+        },
+        {
+          "canonical_depth": 11,
+          "canonical_node_count": 1133,
+          "canonical_sha256": "fd1b368b5670693bc0868d3220fa970095a09118b3b40a19925b921bb7535ef2",
+          "exact_cost": 51,
+          "name": "middle_2",
+          "states_solved": 10082
+        },
+        {
+          "canonical_depth": 11,
+          "canonical_node_count": 1298,
+          "canonical_sha256": "5b315867f95f11e8285070328cceeb5700814deb9bb3de2053389780483d0543",
+          "exact_cost": 52,
+          "name": "middle_3",
+          "states_solved": 14970
+        }
+      ],
+      "label": "P2_WL_nonisomorphic",
+      "words": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ]
+    }
+  ],
+  "level_costs": [
+    2,
+    9,
+    3
+  ],
+  "opened_reserved_cases": 0,
+  "remaining_reserved_cases": 18,
+  "schema": "theorica.ternary-canonical-policy-signature/1",
+  "summary": {
+    "classification": "canonical_policy_tree_separation",
+    "passed": true,
+    "prediction_supported": true,
+    "unequal_signatures": 4
+  }
+}

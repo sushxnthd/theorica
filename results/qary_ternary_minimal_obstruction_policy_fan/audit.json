@@ -1,0 +1,18 @@
+{
+  "schema": "theorica.ternary-minimal-obstruction-policy-fan-audit/1",
+  "summary": {
+    "antichains_total": 101,
+    "antichains_valid": 101,
+    "calibration_replays_passed": 181,
+    "calibration_replays_total": 181,
+    "expected_unique_failure": true,
+    "fans": 3,
+    "passed": true,
+    "policies_checked": 101,
+    "prediction_snapshot_absent": true,
+    "prospective_rows_absent": true,
+    "source_costs_total": 101,
+    "source_costs_valid": 101,
+    "source_sha256": "b75d465dabbce6d9da31e1f4299fcb2c35e2fd29d2434954b1ddde37f8a5c98a"
+  }
+}

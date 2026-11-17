@@ -1,0 +1,68 @@
+{
+  "case_digest_reproduced": true,
+  "case_total": 8,
+  "cases_replayed": 8,
+  "missing_copy_abstained": true,
+  "missing_copy_depth": null,
+  "passed": true,
+  "production_imports": 0,
+  "replays": [
+    {
+      "actual": 3,
+      "arity": 2,
+      "depth": 1,
+      "expected": 3,
+      "passed": true
+    },
+    {
+      "actual": 3,
+      "arity": 3,
+      "depth": 1,
+      "expected": 3,
+      "passed": true
+    },
+    {
+      "actual": 3,
+      "arity": 4,
+      "depth": 1,
+      "expected": 3,
+      "passed": true
+    },
+    {
+      "actual": 5,
+      "arity": 2,
+      "depth": 2,
+      "expected": 5,
+      "passed": true
+    },
+    {
+      "actual": 5,
+      "arity": 3,
+      "depth": 2,
+      "expected": 5,
+      "passed": true
+    },
+    {
+      "actual": 7,
+      "arity": 3,
+      "depth": 3,
+      "expected": 7,
+      "passed": true
+    },
+    {
+      "actual": 5,
+      "arity": 4,
+      "depth": 2,
+      "expected": 5,
+      "passed": true
+    },
+    {
+      "actual": 5,
+      "arity": 5,
+      "depth": 2,
+      "expected": 5,
+      "passed": true
+    }
+  ],
+  "schema": "theorica.qary-adaptive-lie-law-audit/1"
+}

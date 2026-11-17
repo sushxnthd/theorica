@@ -1,0 +1,12 @@
+{
+  "different_middle_families": 27,
+  "edge_maps_independently_checked": 38,
+  "exact_root_minima_reconstructed": 50,
+  "families_reconstructed": 36,
+  "passed": true,
+  "production_imports": 0,
+  "representative_solve_reduction": 18,
+  "results_sha256": "8efcccb38f5de4c6a1126687b342f8f48f12a273e39b9329c48465862ad16453",
+  "same_middle_families": 9,
+  "schema": "theorica.ternary-explicit-sentinel-orbit-quotient-audit/1"
+}

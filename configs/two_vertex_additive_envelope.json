@@ -1,0 +1,13 @@
+{
+  "exhaustive_component_count": 2,
+  "exhaustive_actions_per_component": 2,
+  "exhaustive_payoffs": [0, 1, 2],
+  "holdout_cases": 32,
+  "holdout_component_range": [3, 6],
+  "holdout_action_range": [2, 4],
+  "holdout_payoffs": [0, 7],
+  "holdout_seed": 20261027,
+  "max_delta_states": 2000000,
+  "scaling_actions_per_component": 5,
+  "scaling_components": 20
+}

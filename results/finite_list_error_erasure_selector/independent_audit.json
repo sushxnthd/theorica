@@ -1,0 +1,11 @@
+{
+  "attack_total": 60,
+  "attacks_rejected": 60,
+  "digest": "4d1d19ac5b7c05647aec31993cba41f0a08a297e3bd1e7268bef336f238e81ff",
+  "erasure_patterns_checked": 1130,
+  "passed": true,
+  "positive_cases": 80,
+  "positive_total": 80,
+  "production_imports": 0,
+  "schema": "theorica.finite-list-error-erasure-selector-audit/1"
+}

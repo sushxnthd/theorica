@@ -1,0 +1,6261 @@
+{
+  "P0_P1_certificate": {
+    "backtracking_steps": 45,
+    "left_color_sizes": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      5,
+      5
+    ],
+    "mapping_edge_checked": true,
+    "refinement_rounds": 5,
+    "right_color_sizes": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      5,
+      5
+    ]
+  },
+  "P0_P2_nonisomorphism_certificate": {
+    "WL_multiplicity_separation": true,
+    "left_color_sizes": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      5,
+      5
+    ],
+    "refinement_rounds": 5,
+    "right_color_sizes": [
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      5,
+      5
+    ]
+  },
+  "schema": "theorica.ternary-obstruction-transfer-boundary/1",
+  "source_exposure_antichain": [
+    [
+      1,
+      5,
+      1
+    ],
+    [
+      3,
+      3,
+      5
+    ],
+    [
+      3,
+      4,
+      3
+    ],
+    [
+      3,
+      5,
+      0
+    ],
+    [
+      4,
+      2,
+      2
+    ],
+    [
+      4,
+      3,
+      1
+    ],
+    [
+      4,
+      4,
+      0
+    ]
+  ],
+  "source_policy": {
+    "nodes": [
+      {
+        "children": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            305
+          ],
+          [
+            null,
+            432
+          ]
+        ],
+        "query": 4
+      },
+      {
+        "children": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            117
+          ],
+          [
+            2,
+            244
+          ],
+          [
+            null,
+            272
+          ]
+        ],
+        "query": 0
+      },
+      {
+        "children": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            49
+          ],
+          [
+            2,
+            89
+          ],
+          [
+            null,
+            100
+          ]
+        ],
+        "query": 1
+      },
+      {
+        "children": [
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            44
+          ],
+          [
+            null,
+            48
+          ]
+        ],
+        "query": 16
+      },
+      {
+        "children": [
+          [
+            0,
+            5
+          ],
+          [
+            1,
+            28
+          ],
+          [
+            null,
+            34
+          ]
+        ],
+        "query": 17
+      },
+      {
+        "children": [
+          [
+            0,
+            6
+          ],
+          [
+            1,
+            16
+          ],
+          [
+            null,
+            22
+          ]
+        ],
+        "query": 20
+      },
+      {
+        "children": [
+          [
+            0,
+            7
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            null,
+            14
+          ]
+        ],
+        "query": 5
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            9
+          ],
+          [
+            1,
+            10
+          ],
+          [
+            null,
+            11
+          ]
+        ],
+        "query": 6
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            12
+          ],
+          [
+            1,
+            13
+          ]
+        ],
+        "query": 7
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            15
+          ],
+          [
+            1,
+            11
+          ]
+        ],
+        "query": 6
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            17
+          ],
+          [
+            1,
+            18
+          ],
+          [
+            null,
+            19
+          ]
+        ],
+        "query": 21
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            20
+          ],
+          [
+            1,
+            21
+          ]
+        ],
+        "query": 22
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            23
+          ],
+          [
+            1,
+            19
+          ]
+        ],
+        "query": 21
+      },
+      {
+        "children": [
+          [
+            0,
+            24
+          ],
+          [
+            1,
+            25
+          ]
+        ],
+        "query": 5
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            26
+          ],
+          [
+            1,
+            27
+          ]
+        ],
+        "query": 6
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            29
+          ],
+          [
+            1,
+            30
+          ],
+          [
+            null,
+            31
+          ]
+        ],
+        "query": 18
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            32
+          ],
+          [
+            1,
+            33
+          ]
+        ],
+        "query": 19
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            35
+          ],
+          [
+            1,
+            31
+          ]
+        ],
+        "query": 18
+      },
+      {
+        "children": [
+          [
+            0,
+            36
+          ],
+          [
+            1,
+            41
+          ]
+        ],
+        "query": 20
+      },
+      {
+        "children": [
+          [
+            0,
+            37
+          ],
+          [
+            1,
+            38
+          ]
+        ],
+        "query": 5
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            39
+          ],
+          [
+            1,
+            40
+          ]
+        ],
+        "query": 6
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            42
+          ],
+          [
+            1,
+            43
+          ]
+        ],
+        "query": 21
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            28
+          ],
+          [
+            1,
+            45
+          ],
+          [
+            null,
+            46
+          ]
+        ],
+        "query": 17
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            31
+          ],
+          [
+            1,
+            47
+          ]
+        ],
+        "query": 18
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            34
+          ],
+          [
+            1,
+            46
+          ]
+        ],
+        "query": 17
+      },
+      {
+        "children": [
+          [
+            0,
+            50
+          ],
+          [
+            1,
+            56
+          ],
+          [
+            null,
+            78
+          ]
+        ],
+        "query": 2
+      },
+      {
+        "children": [
+          [
+            0,
+            51
+          ],
+          [
+            1,
+            52
+          ],
+          [
+            null,
+            53
+          ]
+        ],
+        "query": 16
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            54
+          ],
+          [
+            1,
+            55
+          ]
+        ],
+        "query": 17
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            57
+          ],
+          [
+            1,
+            70
+          ],
+          [
+            null,
+            71
+          ]
+        ],
+        "query": 28
+      },
+      {
+        "children": [
+          [
+            0,
+            58
+          ],
+          [
+            1,
+            64
+          ],
+          [
+            null,
+            65
+          ]
+        ],
+        "query": 32
+      },
+      {
+        "children": [
+          [
+            0,
+            59
+          ],
+          [
+            1,
+            60
+          ],
+          [
+            null,
+            61
+          ]
+        ],
+        "query": 8
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            62
+          ],
+          [
+            1,
+            63
+          ]
+        ],
+        "query": 9
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            66
+          ],
+          [
+            1,
+            69
+          ]
+        ],
+        "query": 33
+      },
+      {
+        "children": [
+          [
+            0,
+            67
+          ],
+          [
+            1,
+            68
+          ]
+        ],
+        "query": 8
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            72
+          ],
+          [
+            1,
+            77
+          ]
+        ],
+        "query": 29
+      },
+      {
+        "children": [
+          [
+            0,
+            73
+          ],
+          [
+            1,
+            76
+          ]
+        ],
+        "query": 32
+      },
+      {
+        "children": [
+          [
+            0,
+            74
+          ],
+          [
+            1,
+            75
+          ]
+        ],
+        "query": 8
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            79
+          ],
+          [
+            1,
+            82
+          ]
+        ],
+        "query": 3
+      },
+      {
+        "children": [
+          [
+            0,
+            80
+          ],
+          [
+            1,
+            81
+          ]
+        ],
+        "query": 16
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            83
+          ],
+          [
+            1,
+            88
+          ]
+        ],
+        "query": 28
+      },
+      {
+        "children": [
+          [
+            0,
+            84
+          ],
+          [
+            1,
+            87
+          ]
+        ],
+        "query": 32
+      },
+      {
+        "children": [
+          [
+            0,
+            85
+          ],
+          [
+            1,
+            86
+          ]
+        ],
+        "query": 8
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            50
+          ],
+          [
+            2,
+            90
+          ],
+          [
+            null,
+            96
+          ]
+        ],
+        "query": 2
+      },
+      {
+        "children": [
+          [
+            0,
+            91
+          ],
+          [
+            1,
+            92
+          ],
+          [
+            null,
+            93
+          ]
+        ],
+        "query": 12
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            94
+          ],
+          [
+            1,
+            95
+          ]
+        ],
+        "query": 13
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            79
+          ],
+          [
+            2,
+            97
+          ]
+        ],
+        "query": 3
+      },
+      {
+        "children": [
+          [
+            0,
+            98
+          ],
+          [
+            1,
+            99
+          ]
+        ],
+        "query": 12
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            101
+          ],
+          [
+            1,
+            78
+          ],
+          [
+            2,
+            96
+          ]
+        ],
+        "query": 2
+      },
+      {
+        "children": [
+          [
+            0,
+            102
+          ],
+          [
+            1,
+            115
+          ]
+        ],
+        "query": 16
+      },
+      {
+        "children": [
+          [
+            0,
+            103
+          ],
+          [
+            1,
+            112
+          ]
+        ],
+        "query": 17
+      },
+      {
+        "children": [
+          [
+            0,
+            104
+          ],
+          [
+            1,
+            109
+          ]
+        ],
+        "query": 20
+      },
+      {
+        "children": [
+          [
+            0,
+            105
+          ],
+          [
+            1,
+            106
+          ]
+        ],
+        "query": 5
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            107
+          ],
+          [
+            1,
+            108
+          ]
+        ],
+        "query": 6
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            110
+          ],
+          [
+            1,
+            111
+          ]
+        ],
+        "query": 21
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            113
+          ],
+          [
+            1,
+            114
+          ]
+        ],
+        "query": 18
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            112
+          ],
+          [
+            1,
+            116
+          ]
+        ],
+        "query": 17
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            118
+          ],
+          [
+            1,
+            217
+          ],
+          [
+            null,
+            243
+          ]
+        ],
+        "query": 8
+      },
+      {
+        "children": [
+          [
+            0,
+            119
+          ],
+          [
+            1,
+            176
+          ],
+          [
+            null,
+            196
+          ]
+        ],
+        "query": 9
+      },
+      {
+        "children": [
+          [
+            0,
+            120
+          ],
+          [
+            1,
+            140
+          ],
+          [
+            2,
+            156
+          ],
+          [
+            null,
+            167
+          ]
+        ],
+        "query": 1
+      },
+      {
+        "children": [
+          [
+            0,
+            121
+          ],
+          [
+            1,
+            127
+          ],
+          [
+            null,
+            133
+          ]
+        ],
+        "query": 2
+      },
+      {
+        "children": [
+          [
+            0,
+            122
+          ],
+          [
+            1,
+            123
+          ],
+          [
+            null,
+            124
+          ]
+        ],
+        "query": 16
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            125
+          ],
+          [
+            1,
+            126
+          ]
+        ],
+        "query": 17
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            128
+          ],
+          [
+            1,
+            129
+          ],
+          [
+            null,
+            130
+          ]
+        ],
+        "query": 28
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            131
+          ],
+          [
+            1,
+            132
+          ]
+        ],
+        "query": 29
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            134
+          ],
+          [
+            1,
+            137
+          ]
+        ],
+        "query": 3
+      },
+      {
+        "children": [
+          [
+            0,
+            135
+          ],
+          [
+            1,
+            136
+          ]
+        ],
+        "query": 16
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            138
+          ],
+          [
+            1,
+            139
+          ]
+        ],
+        "query": 28
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            141
+          ],
+          [
+            1,
+            151
+          ],
+          [
+            null,
+            155
+          ]
+        ],
+        "query": 28
+      },
+      {
+        "children": [
+          [
+            0,
+            142
+          ],
+          [
+            1,
+            143
+          ],
+          [
+            null,
+            149
+          ]
+        ],
+        "query": 29
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            144
+          ],
+          [
+            1,
+            145
+          ],
+          [
+            null,
+            146
+          ]
+        ],
+        "query": 30
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            147
+          ],
+          [
+            1,
+            148
+          ]
+        ],
+        "query": 31
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            150
+          ],
+          [
+            1,
+            146
+          ]
+        ],
+        "query": 30
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            143
+          ],
+          [
+            1,
+            152
+          ],
+          [
+            null,
+            153
+          ]
+        ],
+        "query": 29
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            146
+          ],
+          [
+            1,
+            154
+          ]
+        ],
+        "query": 30
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            149
+          ],
+          [
+            1,
+            153
+          ]
+        ],
+        "query": 29
+      },
+      {
+        "children": [
+          [
+            1,
+            127
+          ],
+          [
+            2,
+            157
+          ],
+          [
+            null,
+            163
+          ]
+        ],
+        "query": 2
+      },
+      {
+        "children": [
+          [
+            0,
+            158
+          ],
+          [
+            1,
+            159
+          ],
+          [
+            null,
+            160
+          ]
+        ],
+        "query": 12
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            161
+          ],
+          [
+            1,
+            162
+          ]
+        ],
+        "query": 13
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            1,
+            137
+          ],
+          [
+            2,
+            164
+          ]
+        ],
+        "query": 3
+      },
+      {
+        "children": [
+          [
+            0,
+            165
+          ],
+          [
+            1,
+            166
+          ]
+        ],
+        "query": 12
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            133
+          ],
+          [
+            1,
+            168
+          ],
+          [
+            2,
+            163
+          ]
+        ],
+        "query": 2
+      },
+      {
+        "children": [
+          [
+            0,
+            169
+          ],
+          [
+            1,
+            174
+          ]
+        ],
+        "query": 28
+      },
+      {
+        "children": [
+          [
+            0,
+            170
+          ],
+          [
+            1,
+            171
+          ]
+        ],
+        "query": 29
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            172
+          ],
+          [
+            1,
+            173
+          ]
+        ],
+        "query": 30
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            171
+          ],
+          [
+            1,
+            175
+          ]
+        ],
+        "query": 29
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            177
+          ],
+          [
+            1,
+            183
+          ],
+          [
+            null,
+            189
+          ]
+        ],
+        "query": 10
+      },
+      {
+        "children": [
+          [
+            0,
+            178
+          ],
+          [
+            1,
+            179
+          ],
+          [
+            null,
+            180
+          ]
+        ],
+        "query": 28
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            181
+          ],
+          [
+            1,
+            182
+          ]
+        ],
+        "query": 29
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            184
+          ],
+          [
+            1,
+            185
+          ],
+          [
+            null,
+            186
+          ]
+        ],
+        "query": 32
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            187
+          ],
+          [
+            1,
+            188
+          ]
+        ],
+        "query": 33
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            190
+          ],
+          [
+            1,
+            193
+          ]
+        ],
+        "query": 11
+      },
+      {
+        "children": [
+          [
+            0,
+            191
+          ],
+          [
+            1,
+            192
+          ]
+        ],
+        "query": 28
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            194
+          ],
+          [
+            1,
+            195
+          ]
+        ],
+        "query": 32
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            197
+          ],
+          [
+            1,
+            189
+          ]
+        ],
+        "query": 10
+      },
+      {
+        "children": [
+          [
+            0,
+            198
+          ],
+          [
+            1,
+            205
+          ],
+          [
+            2,
+            213
+          ]
+        ],
+        "query": 1
+      },
+      {
+        "children": [
+          [
+            0,
+            199
+          ],
+          [
+            1,
+            202
+          ]
+        ],
+        "query": 2
+      },
+      {
+        "children": [
+          [
+            0,
+            200
+          ],
+          [
+            1,
+            201
+          ]
+        ],
+        "query": 16
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            203
+          ],
+          [
+            1,
+            204
+          ]
+        ],
+        "query": 28
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            206
+          ],
+          [
+            1,
+            211
+          ]
+        ],
+        "query": 28
+      },
+      {
+        "children": [
+          [
+            0,
+            207
+          ],
+          [
+            1,
+            208
+          ]
+        ],
+        "query": 29
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            209
+          ],
+          [
+            1,
+            210
+          ]
+        ],
+        "query": 30
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            208
+          ],
+          [
+            1,
+            212
+          ]
+        ],
+        "query": 29
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            1,
+            202
+          ],
+          [
+            2,
+            214
+          ]
+        ],
+        "query": 2
+      },
+      {
+        "children": [
+          [
+            0,
+            215
+          ],
+          [
+            1,
+            216
+          ]
+        ],
+        "query": 12
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            176
+          ],
+          [
+            1,
+            218
+          ],
+          [
+            null,
+            234
+          ]
+        ],
+        "query": 9
+      },
+      {
+        "children": [
+          [
+            0,
+            219
+          ],
+          [
+            1,
+            229
+          ],
+          [
+            null,
+            233
+          ]
+        ],
+        "query": 32
+      },
+      {
+        "children": [
+          [
+            0,
+            220
+          ],
+          [
+            1,
+            221
+          ],
+          [
+            null,
+            227
+          ]
+        ],
+        "query": 33
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            222
+          ],
+          [
+            1,
+            223
+          ],
+          [
+            null,
+            224
+          ]
+        ],
+        "query": 34
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            225
+          ],
+          [
+            1,
+            226
+          ]
+        ],
+        "query": 35
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            228
+          ],
+          [
+            1,
+            224
+          ]
+        ],
+        "query": 34
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            221
+          ],
+          [
+            1,
+            230
+          ],
+          [
+            null,
+            231
+          ]
+        ],
+        "query": 33
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            224
+          ],
+          [
+            1,
+            232
+          ]
+        ],
+        "query": 34
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            227
+          ],
+          [
+            1,
+            231
+          ]
+        ],
+        "query": 33
+      },
+      {
+        "children": [
+          [
+            0,
+            189
+          ],
+          [
+            1,
+            235
+          ]
+        ],
+        "query": 10
+      },
+      {
+        "children": [
+          [
+            0,
+            236
+          ],
+          [
+            1,
+            241
+          ]
+        ],
+        "query": 32
+      },
+      {
+        "children": [
+          [
+            0,
+            237
+          ],
+          [
+            1,
+            238
+          ]
+        ],
+        "query": 33
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            239
+          ],
+          [
+            1,
+            240
+          ]
+        ],
+        "query": 34
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            238
+          ],
+          [
+            1,
+            242
+          ]
+        ],
+        "query": 33
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            196
+          ],
+          [
+            1,
+            234
+          ]
+        ],
+        "query": 9
+      },
+      {
+        "children": [
+          [
+            0,
+            89
+          ],
+          [
+            1,
+            245
+          ],
+          [
+            2,
+            247
+          ],
+          [
+            null,
+            263
+          ]
+        ],
+        "query": 1
+      },
+      {
+        "children": [
+          [
+            1,
+            56
+          ],
+          [
+            2,
+            90
+          ],
+          [
+            null,
+            246
+          ]
+        ],
+        "query": 2
+      },
+      {
+        "children": [
+          [
+            1,
+            82
+          ],
+          [
+            2,
+            97
+          ]
+        ],
+        "query": 3
+      },
+      {
+        "children": [
+          [
+            0,
+            248
+          ],
+          [
+            1,
+            258
+          ],
+          [
+            null,
+            262
+          ]
+        ],
+        "query": 12
+      },
+      {
+        "children": [
+          [
+            0,
+            249
+          ],
+          [
+            1,
+            250
+          ],
+          [
+            null,
+            256
+          ]
+        ],
+        "query": 13
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            251
+          ],
+          [
+            1,
+            252
+          ],
+          [
+            null,
+            253
+          ]
+        ],
+        "query": 14
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            254
+          ],
+          [
+            1,
+            255
+          ]
+        ],
+        "query": 15
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            257
+          ],
+          [
+            1,
+            253
+          ]
+        ],
+        "query": 14
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            250
+          ],
+          [
+            1,
+            259
+          ],
+          [
+            null,
+            260
+          ]
+        ],
+        "query": 13
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            253
+          ],
+          [
+            1,
+            261
+          ]
+        ],
+        "query": 14
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            256
+          ],
+          [
+            1,
+            260
+          ]
+        ],
+        "query": 13
+      },
+      {
+        "children": [
+          [
+            0,
+            96
+          ],
+          [
+            1,
+            246
+          ],
+          [
+            2,
+            264
+          ]
+        ],
+        "query": 2
+      },
+      {
+        "children": [
+          [
+            0,
+            265
+          ],
+          [
+            1,
+            270
+          ]
+        ],
+        "query": 12
+      },
+      {
+        "children": [
+          [
+            0,
+            266
+          ],
+          [
+            1,
+            267
+          ]
+        ],
+        "query": 13
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            268
+          ],
+          [
+            1,
+            269
+          ]
+        ],
+        "query": 14
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            267
+          ],
+          [
+            1,
+            271
+          ]
+        ],
+        "query": 13
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            100
+          ],
+          [
+            1,
+            273
+          ],
+          [
+            2,
+            263
+          ]
+        ],
+        "query": 1
+      },
+      {
+        "children": [
+          [
+            0,
+            78
+          ],
+          [
+            1,
+            274
+          ],
+          [
+            2,
+            246
+          ]
+        ],
+        "query": 2
+      },
+      {
+        "children": [
+          [
+            0,
+            275
+          ],
+          [
+            1,
+            303
+          ]
+        ],
+        "query": 28
+      },
+      {
+        "children": [
+          [
+            0,
+            276
+          ],
+          [
+            1,
+            296
+          ]
+        ],
+        "query": 29
+      },
+      {
+        "children": [
+          [
+            0,
+            277
+          ],
+          [
+            1,
+            289
+          ]
+        ],
+        "query": 32
+      },
+      {
+        "children": [
+          [
+            0,
+            278
+          ],
+          [
+            1,
+            283
+          ]
+        ],
+        "query": 8
+      },
+      {
+        "children": [
+          [
+            0,
+            279
+          ],
+          [
+            1,
+            280
+          ]
+        ],
+        "query": 9
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            281
+          ],
+          [
+            1,
+            282
+          ]
+        ],
+        "query": 10
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            280
+          ],
+          [
+            1,
+            284
+          ]
+        ],
+        "query": 9
+      },
+      {
+        "children": [
+          [
+            0,
+            285
+          ],
+          [
+            1,
+            286
+          ]
+        ],
+        "query": 33
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            287
+          ],
+          [
+            1,
+            288
+          ]
+        ],
+        "query": 34
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            290
+          ],
+          [
+            1,
+            295
+          ]
+        ],
+        "query": 33
+      },
+      {
+        "children": [
+          [
+            0,
+            291
+          ],
+          [
+            1,
+            294
+          ]
+        ],
+        "query": 34
+      },
+      {
+        "children": [
+          [
+            0,
+            292
+          ],
+          [
+            1,
+            293
+          ]
+        ],
+        "query": 8
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            297
+          ],
+          [
+            1,
+            302
+          ]
+        ],
+        "query": 30
+      },
+      {
+        "children": [
+          [
+            0,
+            298
+          ],
+          [
+            1,
+            301
+          ]
+        ],
+        "query": 32
+      },
+      {
+        "children": [
+          [
+            0,
+            299
+          ],
+          [
+            1,
+            300
+          ]
+        ],
+        "query": 8
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            296
+          ],
+          [
+            1,
+            304
+          ]
+        ],
+        "query": 29
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            306
+          ],
+          [
+            1,
+            362
+          ],
+          [
+            2,
+            402
+          ],
+          [
+            null,
+            413
+          ]
+        ],
+        "query": 0
+      },
+      {
+        "children": [
+          [
+            0,
+            307
+          ],
+          [
+            1,
+            336
+          ],
+          [
+            null,
+            349
+          ]
+        ],
+        "query": 16
+      },
+      {
+        "children": [
+          [
+            0,
+            308
+          ],
+          [
+            1,
+            331
+          ],
+          [
+            null,
+            335
+          ]
+        ],
+        "query": 20
+      },
+      {
+        "children": [
+          [
+            0,
+            309
+          ],
+          [
+            1,
+            319
+          ],
+          [
+            null,
+            325
+          ]
+        ],
+        "query": 21
+      },
+      {
+        "children": [
+          [
+            0,
+            310
+          ],
+          [
+            1,
+            316
+          ],
+          [
+            null,
+            317
+          ]
+        ],
+        "query": 5
+      },
+      {
+        "children": [
+          [
+            0,
+            311
+          ],
+          [
+            1,
+            312
+          ],
+          [
+            null,
+            313
+          ]
+        ],
+        "query": 6
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            314
+          ],
+          [
+            1,
+            315
+          ]
+        ],
+        "query": 7
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            313
+          ],
+          [
+            1,
+            318
+          ]
+        ],
+        "query": 6
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            320
+          ],
+          [
+            1,
+            321
+          ],
+          [
+            null,
+            322
+          ]
+        ],
+        "query": 22
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            323
+          ],
+          [
+            1,
+            324
+          ]
+        ],
+        "query": 23
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            326
+          ],
+          [
+            1,
+            322
+          ]
+        ],
+        "query": 22
+      },
+      {
+        "children": [
+          [
+            0,
+            327
+          ],
+          [
+            1,
+            330
+          ]
+        ],
+        "query": 5
+      },
+      {
+        "children": [
+          [
+            0,
+            328
+          ],
+          [
+            1,
+            329
+          ]
+        ],
+        "query": 6
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            319
+          ],
+          [
+            1,
+            332
+          ],
+          [
+            null,
+            333
+          ]
+        ],
+        "query": 21
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            322
+          ],
+          [
+            1,
+            334
+          ]
+        ],
+        "query": 22
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            325
+          ],
+          [
+            1,
+            333
+          ]
+        ],
+        "query": 21
+      },
+      {
+        "children": [
+          [
+            0,
+            337
+          ],
+          [
+            1,
+            343
+          ],
+          [
+            null,
+            344
+          ]
+        ],
+        "query": 17
+      },
+      {
+        "children": [
+          [
+            0,
+            338
+          ],
+          [
+            1,
+            339
+          ],
+          [
+            null,
+            340
+          ]
+        ],
+        "query": 20
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            341
+          ],
+          [
+            1,
+            342
+          ]
+        ],
+        "query": 21
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            345
+          ],
+          [
+            1,
+            348
+          ]
+        ],
+        "query": 18
+      },
+      {
+        "children": [
+          [
+            0,
+            346
+          ],
+          [
+            1,
+            347
+          ]
+        ],
+        "query": 20
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            350
+          ],
+          [
+            1,
+            344
+          ]
+        ],
+        "query": 17
+      },
+      {
+        "children": [
+          [
+            0,
+            351
+          ],
+          [
+            1,
+            360
+          ]
+        ],
+        "query": 20
+      },
+      {
+        "children": [
+          [
+            0,
+            352
+          ],
+          [
+            1,
+            357
+          ]
+        ],
+        "query": 21
+      },
+      {
+        "children": [
+          [
+            0,
+            353
+          ],
+          [
+            1,
+            356
+          ]
+        ],
+        "query": 5
+      },
+      {
+        "children": [
+          [
+            0,
+            354
+          ],
+          [
+            1,
+            355
+          ]
+        ],
+        "query": 6
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            358
+          ],
+          [
+            1,
+            359
+          ]
+        ],
+        "query": 22
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            357
+          ],
+          [
+            1,
+            361
+          ]
+        ],
+        "query": 21
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            363
+          ],
+          [
+            1,
+            369
+          ],
+          [
+            null,
+            391
+          ]
+        ],
+        "query": 1
+      },
+      {
+        "children": [
+          [
+            0,
+            364
+          ],
+          [
+            1,
+            365
+          ],
+          [
+            null,
+            366
+          ]
+        ],
+        "query": 20
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            367
+          ],
+          [
+            1,
+            368
+          ]
+        ],
+        "query": 21
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            370
+          ],
+          [
+            1,
+            383
+          ],
+          [
+            null,
+            384
+          ]
+        ],
+        "query": 28
+      },
+      {
+        "children": [
+          [
+            0,
+            371
+          ],
+          [
+            1,
+            377
+          ],
+          [
+            null,
+            378
+          ]
+        ],
+        "query": 32
+      },
+      {
+        "children": [
+          [
+            0,
+            372
+          ],
+          [
+            1,
+            373
+          ],
+          [
+            null,
+            374
+          ]
+        ],
+        "query": 8
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            375
+          ],
+          [
+            1,
+            376
+          ]
+        ],
+        "query": 9
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            379
+          ],
+          [
+            1,
+            382
+          ]
+        ],
+        "query": 33
+      },
+      {
+        "children": [
+          [
+            0,
+            380
+          ],
+          [
+            1,
+            381
+          ]
+        ],
+        "query": 8
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            385
+          ],
+          [
+            1,
+            390
+          ]
+        ],
+        "query": 29
+      },
+      {
+        "children": [
+          [
+            0,
+            386
+          ],
+          [
+            1,
+            389
+          ]
+        ],
+        "query": 32
+      },
+      {
+        "children": [
+          [
+            0,
+            387
+          ],
+          [
+            1,
+            388
+          ]
+        ],
+        "query": 8
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            392
+          ],
+          [
+            1,
+            395
+          ]
+        ],
+        "query": 2
+      },
+      {
+        "children": [
+          [
+            0,
+            393
+          ],
+          [
+            1,
+            394
+          ]
+        ],
+        "query": 20
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            396
+          ],
+          [
+            1,
+            401
+          ]
+        ],
+        "query": 28
+      },
+      {
+        "children": [
+          [
+            0,
+            397
+          ],
+          [
+            1,
+            400
+          ]
+        ],
+        "query": 32
+      },
+      {
+        "children": [
+          [
+            0,
+            398
+          ],
+          [
+            1,
+            399
+          ]
+        ],
+        "query": 8
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            363
+          ],
+          [
+            2,
+            403
+          ],
+          [
+            null,
+            409
+          ]
+        ],
+        "query": 1
+      },
+      {
+        "children": [
+          [
+            0,
+            404
+          ],
+          [
+            1,
+            405
+          ],
+          [
+            null,
+            406
+          ]
+        ],
+        "query": 12
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            407
+          ],
+          [
+            1,
+            408
+          ]
+        ],
+        "query": 13
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            392
+          ],
+          [
+            2,
+            410
+          ]
+        ],
+        "query": 2
+      },
+      {
+        "children": [
+          [
+            0,
+            411
+          ],
+          [
+            1,
+            412
+          ]
+        ],
+        "query": 12
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            414
+          ],
+          [
+            1,
+            391
+          ],
+          [
+            2,
+            409
+          ]
+        ],
+        "query": 1
+      },
+      {
+        "children": [
+          [
+            0,
+            415
+          ],
+          [
+            1,
+            427
+          ]
+        ],
+        "query": 16
+      },
+      {
+        "children": [
+          [
+            0,
+            416
+          ],
+          [
+            1,
+            425
+          ]
+        ],
+        "query": 20
+      },
+      {
+        "children": [
+          [
+            0,
+            417
+          ],
+          [
+            1,
+            422
+          ]
+        ],
+        "query": 21
+      },
+      {
+        "children": [
+          [
+            0,
+            418
+          ],
+          [
+            1,
+            421
+          ]
+        ],
+        "query": 5
+      },
+      {
+        "children": [
+          [
+            0,
+            419
+          ],
+          [
+            1,
+            420
+          ]
+        ],
+        "query": 6
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            423
+          ],
+          [
+            1,
+            424
+          ]
+        ],
+        "query": 22
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            422
+          ],
+          [
+            1,
+            426
+          ]
+        ],
+        "query": 21
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            428
+          ],
+          [
+            1,
+            431
+          ]
+        ],
+        "query": 17
+      },
+      {
+        "children": [
+          [
+            0,
+            429
+          ],
+          [
+            1,
+            430
+          ]
+        ],
+        "query": 20
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            433
+          ],
+          [
+            1,
+            468
+          ],
+          [
+            2,
+            501
+          ]
+        ],
+        "query": 0
+      },
+      {
+        "children": [
+          [
+            0,
+            434
+          ],
+          [
+            1,
+            459
+          ],
+          [
+            2,
+            467
+          ]
+        ],
+        "query": 1
+      },
+      {
+        "children": [
+          [
+            0,
+            435
+          ],
+          [
+            1,
+            457
+          ]
+        ],
+        "query": 16
+      },
+      {
+        "children": [
+          [
+            0,
+            436
+          ],
+          [
+            1,
+            450
+          ]
+        ],
+        "query": 17
+      },
+      {
+        "children": [
+          [
+            0,
+            437
+          ],
+          [
+            1,
+            444
+          ]
+        ],
+        "query": 20
+      },
+      {
+        "children": [
+          [
+            0,
+            14
+          ],
+          [
+            1,
+            438
+          ]
+        ],
+        "query": 5
+      },
+      {
+        "children": [
+          [
+            0,
+            11
+          ],
+          [
+            1,
+            439
+          ]
+        ],
+        "query": 6
+      },
+      {
+        "children": [
+          [
+            0,
+            440
+          ],
+          [
+            1,
+            441
+          ]
+        ],
+        "query": 21
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            442
+          ],
+          [
+            1,
+            443
+          ]
+        ],
+        "query": 22
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            445
+          ],
+          [
+            1,
+            449
+          ]
+        ],
+        "query": 21
+      },
+      {
+        "children": [
+          [
+            0,
+            446
+          ],
+          [
+            1,
+            21
+          ]
+        ],
+        "query": 22
+      },
+      {
+        "children": [
+          [
+            0,
+            447
+          ],
+          [
+            1,
+            448
+          ]
+        ],
+        "query": 5
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            451
+          ],
+          [
+            1,
+            456
+          ]
+        ],
+        "query": 18
+      },
+      {
+        "children": [
+          [
+            0,
+            452
+          ],
+          [
+            1,
+            455
+          ]
+        ],
+        "query": 20
+      },
+      {
+        "children": [
+          [
+            0,
+            453
+          ],
+          [
+            1,
+            454
+          ]
+        ],
+        "query": 5
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            450
+          ],
+          [
+            1,
+            458
+          ]
+        ],
+        "query": 17
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            460
+          ],
+          [
+            1,
+            395
+          ]
+        ],
+        "query": 2
+      },
+      {
+        "children": [
+          [
+            0,
+            461
+          ],
+          [
+            1,
+            466
+          ]
+        ],
+        "query": 16
+      },
+      {
+        "children": [
+          [
+            0,
+            462
+          ],
+          [
+            1,
+            465
+          ]
+        ],
+        "query": 20
+      },
+      {
+        "children": [
+          [
+            0,
+            463
+          ],
+          [
+            1,
+            464
+          ]
+        ],
+        "query": 5
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            460
+          ],
+          [
+            2,
+            410
+          ]
+        ],
+        "query": 2
+      },
+      {
+        "children": [
+          [
+            0,
+            459
+          ],
+          [
+            1,
+            469
+          ],
+          [
+            2,
+            500
+          ]
+        ],
+        "query": 1
+      },
+      {
+        "children": [
+          [
+            0,
+            470
+          ],
+          [
+            1,
+            498
+          ]
+        ],
+        "query": 28
+      },
+      {
+        "children": [
+          [
+            0,
+            471
+          ],
+          [
+            1,
+            491
+          ]
+        ],
+        "query": 29
+      },
+      {
+        "children": [
+          [
+            0,
+            472
+          ],
+          [
+            1,
+            484
+          ]
+        ],
+        "query": 32
+      },
+      {
+        "children": [
+          [
+            0,
+            473
+          ],
+          [
+            1,
+            478
+          ]
+        ],
+        "query": 8
+      },
+      {
+        "children": [
+          [
+            0,
+            474
+          ],
+          [
+            1,
+            475
+          ]
+        ],
+        "query": 9
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            476
+          ],
+          [
+            1,
+            477
+          ]
+        ],
+        "query": 10
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            475
+          ],
+          [
+            1,
+            479
+          ]
+        ],
+        "query": 9
+      },
+      {
+        "children": [
+          [
+            0,
+            480
+          ],
+          [
+            1,
+            481
+          ]
+        ],
+        "query": 33
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            482
+          ],
+          [
+            1,
+            483
+          ]
+        ],
+        "query": 34
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            485
+          ],
+          [
+            1,
+            490
+          ]
+        ],
+        "query": 33
+      },
+      {
+        "children": [
+          [
+            0,
+            486
+          ],
+          [
+            1,
+            489
+          ]
+        ],
+        "query": 34
+      },
+      {
+        "children": [
+          [
+            0,
+            487
+          ],
+          [
+            1,
+            488
+          ]
+        ],
+        "query": 8
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            492
+          ],
+          [
+            1,
+            497
+          ]
+        ],
+        "query": 30
+      },
+      {
+        "children": [
+          [
+            0,
+            493
+          ],
+          [
+            1,
+            496
+          ]
+        ],
+        "query": 32
+      },
+      {
+        "children": [
+          [
+            0,
+            494
+          ],
+          [
+            1,
+            495
+          ]
+        ],
+        "query": 8
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            491
+          ],
+          [
+            1,
+            499
+          ]
+        ],
+        "query": 29
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            1,
+            395
+          ],
+          [
+            2,
+            410
+          ]
+        ],
+        "query": 2
+      },
+      {
+        "children": [
+          [
+            0,
+            467
+          ],
+          [
+            1,
+            500
+          ],
+          [
+            2,
+            502
+          ]
+        ],
+        "query": 1
+      },
+      {
+        "children": [
+          [
+            0,
+            503
+          ],
+          [
+            1,
+            508
+          ]
+        ],
+        "query": 12
+      },
+      {
+        "children": [
+          [
+            0,
+            504
+          ],
+          [
+            1,
+            505
+          ]
+        ],
+        "query": 13
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            506
+          ],
+          [
+            1,
+            507
+          ]
+        ],
+        "query": 14
+      },
+      {
+        "query": null
+      },
+      {
+        "query": null
+      },
+      {
+        "children": [
+          [
+            0,
+            505
+          ],
+          [
+            1,
+            509
+          ]
+        ],
+        "query": 13
+      },
+      {
+        "query": null
+      }
+    ],
+    "root": 0
+  },
+  "source_words": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      1,
+      1
+    ],
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      2,
+      0,
+      0
+    ],
+    [
+      2,
+      1,
+      0
+    ]
+  ],
+  "summary": {
+    "P0_P1_isomorphic": true,
+    "P0_P2_WL_separated": true,
+    "P0_P2_isomorphic": false,
+    "exact_cost_51": 8,
+    "passed": true,
+    "reserved_cost_holdouts_opened": 0,
+    "serialized_policy_nodes": 510,
+    "source_exact_cost": 51,
+    "source_states_solved": 43623,
+    "targets_tested": 8,
+    "transported_cost_51": 8,
+    "unseen_families_tested": 7
+  },
+  "targets": [
+    {
+      "exact_cost": 51,
+      "isomorphism_certificate": {
+        "backtracking_steps": 45,
+        "left_color_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          5,
+          5
+        ],
+        "mapping_edge_checked": true,
+        "refinement_rounds": 5,
+        "right_color_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          5,
+          5
+        ]
+      },
+      "mapping": {
+        "cells": {
+          "0:0": 0,
+          "0:1": 1,
+          "0:2": 2,
+          "10:0": 0,
+          "11:0": 0,
+          "12:0": 0,
+          "1:0": 0,
+          "1:1": 1,
+          "2:0": 0,
+          "2:1": 1,
+          "3:0": 0,
+          "3:1": 2,
+          "4:0": 0,
+          "4:1": 1,
+          "5:0": 0,
+          "5:1": 1,
+          "6:0": 0,
+          "7:0": 0,
+          "7:1": 1,
+          "8:0": 0,
+          "8:1": 1,
+          "9:0": 0
+        },
+        "completions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "queries": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "name": "opened_pair_P1",
+      "passed": true,
+      "states_solved": 43623,
+      "transported_exposure_antichain": [
+        [
+          1,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          5
+        ],
+        [
+          3,
+          4,
+          3
+        ],
+        [
+          3,
+          5,
+          0
+        ],
+        [
+          4,
+          2,
+          2
+        ],
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          4,
+          4,
+          0
+        ]
+      ],
+      "transported_policy_cost": 51,
+      "words": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "exact_cost": 51,
+      "isomorphism_certificate": {
+        "backtracking_steps": 45,
+        "left_color_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          5,
+          5
+        ],
+        "mapping_edge_checked": true,
+        "refinement_rounds": 5,
+        "right_color_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          5,
+          5
+        ]
+      },
+      "mapping": {
+        "cells": {
+          "0:0": 0,
+          "0:1": 2,
+          "0:2": 1,
+          "10:0": 0,
+          "11:0": 0,
+          "12:0": 0,
+          "1:0": 0,
+          "1:1": 1,
+          "2:0": 0,
+          "2:1": 1,
+          "3:0": 0,
+          "3:1": 1,
+          "4:0": 0,
+          "4:1": 1,
+          "5:0": 0,
+          "5:1": 1,
+          "6:0": 0,
+          "7:0": 0,
+          "7:1": 1,
+          "8:0": 0,
+          "8:1": 1,
+          "9:0": 0
+        },
+        "completions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "queries": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          5,
+          8,
+          10,
+          11,
+          9,
+          12,
+          6,
+          7
+        ]
+      },
+      "name": "unseen_coordinate_swap_001",
+      "passed": true,
+      "states_solved": 42554,
+      "transported_exposure_antichain": [
+        [
+          1,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          5
+        ],
+        [
+          3,
+          4,
+          3
+        ],
+        [
+          3,
+          5,
+          0
+        ],
+        [
+          4,
+          2,
+          2
+        ],
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          4,
+          4,
+          0
+        ]
+      ],
+      "transported_policy_cost": 51,
+      "words": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "exact_cost": 51,
+      "isomorphism_certificate": {
+        "backtracking_steps": 45,
+        "left_color_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          5,
+          5
+        ],
+        "mapping_edge_checked": true,
+        "refinement_rounds": 5,
+        "right_color_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          5,
+          5
+        ]
+      },
+      "mapping": {
+        "cells": {
+          "0:0": 0,
+          "0:1": 1,
+          "0:2": 2,
+          "10:0": 0,
+          "11:0": 0,
+          "12:0": 0,
+          "1:0": 0,
+          "1:1": 2,
+          "2:0": 0,
+          "2:1": 2,
+          "3:0": 0,
+          "3:1": 2,
+          "4:0": 0,
+          "4:1": 1,
+          "5:0": 0,
+          "5:1": 1,
+          "6:0": 0,
+          "7:0": 0,
+          "7:1": 1,
+          "8:0": 0,
+          "8:1": 1,
+          "9:0": 0
+        },
+        "completions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "queries": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          5,
+          7,
+          9,
+          8,
+          10,
+          11,
+          12
+        ]
+      },
+      "name": "unseen_coordinate_swap_010",
+      "passed": true,
+      "states_solved": 43623,
+      "transported_exposure_antichain": [
+        [
+          1,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          5
+        ],
+        [
+          3,
+          4,
+          3
+        ],
+        [
+          3,
+          5,
+          0
+        ],
+        [
+          4,
+          2,
+          2
+        ],
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          4,
+          4,
+          0
+        ]
+      ],
+      "transported_policy_cost": 51,
+      "words": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "exact_cost": 51,
+      "isomorphism_certificate": {
+        "backtracking_steps": 45,
+        "left_color_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          5,
+          5
+        ],
+        "mapping_edge_checked": true,
+        "refinement_rounds": 5,
+        "right_color_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          5,
+          5
+        ]
+      },
+      "mapping": {
+        "cells": {
+          "0:0": 0,
+          "0:1": 2,
+          "0:2": 1,
+          "10:0": 0,
+          "11:0": 0,
+          "12:0": 0,
+          "1:0": 0,
+          "1:1": 2,
+          "2:0": 0,
+          "2:1": 2,
+          "3:0": 0,
+          "3:1": 2,
+          "4:0": 0,
+          "4:1": 1,
+          "5:0": 0,
+          "5:1": 1,
+          "6:0": 0,
+          "7:0": 0,
+          "7:1": 1,
+          "8:0": 0,
+          "8:1": 1,
+          "9:0": 0
+        },
+        "completions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "queries": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          9,
+          11,
+          5,
+          7
+        ]
+      },
+      "name": "unseen_coordinate_swap_011",
+      "passed": true,
+      "states_solved": 42554,
+      "transported_exposure_antichain": [
+        [
+          1,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          5
+        ],
+        [
+          3,
+          4,
+          3
+        ],
+        [
+          3,
+          5,
+          0
+        ],
+        [
+          4,
+          2,
+          2
+        ],
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          4,
+          4,
+          0
+        ]
+      ],
+      "transported_policy_cost": 51,
+      "words": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "exact_cost": 51,
+      "isomorphism_certificate": {
+        "backtracking_steps": 45,
+        "left_color_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          5,
+          5
+        ],
+        "mapping_edge_checked": true,
+        "refinement_rounds": 5,
+        "right_color_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          5,
+          5
+        ]
+      },
+      "mapping": {
+        "cells": {
+          "0:0": 0,
+          "0:1": 1,
+          "0:2": 2,
+          "10:0": 0,
+          "11:0": 0,
+          "12:0": 0,
+          "1:0": 0,
+          "1:1": 1,
+          "2:0": 0,
+          "2:1": 1,
+          "3:0": 0,
+          "3:1": 1,
+          "4:0": 0,
+          "4:1": 2,
+          "5:0": 0,
+          "5:1": 2,
+          "6:0": 0,
+          "7:0": 0,
+          "7:1": 2,
+          "8:0": 0,
+          "8:1": 2,
+          "9:0": 0
+        },
+        "completions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "queries": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "name": "unseen_coordinate_swap_100",
+      "passed": true,
+      "states_solved": 43623,
+      "transported_exposure_antichain": [
+        [
+          1,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          5
+        ],
+        [
+          3,
+          4,
+          3
+        ],
+        [
+          3,
+          5,
+          0
+        ],
+        [
+          4,
+          2,
+          2
+        ],
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          4,
+          4,
+          0
+        ]
+      ],
+      "transported_policy_cost": 51,
+      "words": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "exact_cost": 51,
+      "isomorphism_certificate": {
+        "backtracking_steps": 45,
+        "left_color_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          5,
+          5
+        ],
+        "mapping_edge_checked": true,
+        "refinement_rounds": 5,
+        "right_color_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          5,
+          5
+        ]
+      },
+      "mapping": {
+        "cells": {
+          "0:0": 0,
+          "0:1": 2,
+          "0:2": 1,
+          "10:0": 0,
+          "11:0": 0,
+          "12:0": 0,
+          "1:0": 0,
+          "1:1": 1,
+          "2:0": 0,
+          "2:1": 1,
+          "3:0": 0,
+          "3:1": 1,
+          "4:0": 0,
+          "4:1": 2,
+          "5:0": 0,
+          "5:1": 2,
+          "6:0": 0,
+          "7:0": 0,
+          "7:1": 2,
+          "8:0": 0,
+          "8:1": 2,
+          "9:0": 0
+        },
+        "completions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "queries": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          5,
+          8,
+          10,
+          11,
+          9,
+          12,
+          6,
+          7
+        ]
+      },
+      "name": "unseen_coordinate_swap_101",
+      "passed": true,
+      "states_solved": 42554,
+      "transported_exposure_antichain": [
+        [
+          1,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          5
+        ],
+        [
+          3,
+          4,
+          3
+        ],
+        [
+          3,
+          5,
+          0
+        ],
+        [
+          4,
+          2,
+          2
+        ],
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          4,
+          4,
+          0
+        ]
+      ],
+      "transported_policy_cost": 51,
+      "words": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          2
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "exact_cost": 51,
+      "isomorphism_certificate": {
+        "backtracking_steps": 45,
+        "left_color_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          5,
+          5
+        ],
+        "mapping_edge_checked": true,
+        "refinement_rounds": 5,
+        "right_color_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          5,
+          5
+        ]
+      },
+      "mapping": {
+        "cells": {
+          "0:0": 0,
+          "0:1": 1,
+          "0:2": 2,
+          "10:0": 0,
+          "11:0": 0,
+          "12:0": 0,
+          "1:0": 0,
+          "1:1": 2,
+          "2:0": 0,
+          "2:1": 2,
+          "3:0": 0,
+          "3:1": 2,
+          "4:0": 0,
+          "4:1": 2,
+          "5:0": 0,
+          "5:1": 2,
+          "6:0": 0,
+          "7:0": 0,
+          "7:1": 2,
+          "8:0": 0,
+          "8:1": 2,
+          "9:0": 0
+        },
+        "completions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "queries": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          5,
+          7,
+          9,
+          8,
+          10,
+          11,
+          12
+        ]
+      },
+      "name": "unseen_coordinate_swap_110",
+      "passed": true,
+      "states_solved": 43623,
+      "transported_exposure_antichain": [
+        [
+          1,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          5
+        ],
+        [
+          3,
+          4,
+          3
+        ],
+        [
+          3,
+          5,
+          0
+        ],
+        [
+          4,
+          2,
+          2
+        ],
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          4,
+          4,
+          0
+        ]
+      ],
+      "transported_policy_cost": 51,
+      "words": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "exact_cost": 51,
+      "isomorphism_certificate": {
+        "backtracking_steps": 45,
+        "left_color_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          5,
+          5
+        ],
+        "mapping_edge_checked": true,
+        "refinement_rounds": 5,
+        "right_color_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          5,
+          5
+        ]
+      },
+      "mapping": {
+        "cells": {
+          "0:0": 0,
+          "0:1": 2,
+          "0:2": 1,
+          "10:0": 0,
+          "11:0": 0,
+          "12:0": 0,
+          "1:0": 0,
+          "1:1": 2,
+          "2:0": 0,
+          "2:1": 2,
+          "3:0": 0,
+          "3:1": 2,
+          "4:0": 0,
+          "4:1": 2,
+          "5:0": 0,
+          "5:1": 2,
+          "6:0": 0,
+          "7:0": 0,
+          "7:1": 2,
+          "8:0": 0,
+          "8:1": 2,
+          "9:0": 0
+        },
+        "completions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "queries": [
+          0,
+          1,
+          3,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          9,
+          11,
+          5,
+          7
+        ]
+      },
+      "name": "unseen_coordinate_swap_111",
+      "passed": true,
+      "states_solved": 42554,
+      "transported_exposure_antichain": [
+        [
+          1,
+          5,
+          1
+        ],
+        [
+          3,
+          3,
+          5
+        ],
+        [
+          3,
+          4,
+          3
+        ],
+        [
+          3,
+          5,
+          0
+        ],
+        [
+          4,
+          2,
+          2
+        ],
+        [
+          4,
+          3,
+          1
+        ],
+        [
+          4,
+          4,
+          0
+        ]
+      ],
+      "transported_policy_cost": 51,
+      "words": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0
+        ]
+      ]
+    }
+  ]
+}

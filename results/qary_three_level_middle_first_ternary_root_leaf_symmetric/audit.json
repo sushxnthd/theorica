@@ -1,0 +1,15 @@
+{
+  "independent_candidate_face_values": [
+    17,
+    17,
+    15
+  ],
+  "independent_candidate_value": 17,
+  "independent_cost_17_feasible": false,
+  "independent_cost_18_feasible": true,
+  "independent_states_solved": 599660,
+  "passed": true,
+  "primary_exact_value": 18,
+  "primary_states_solved": 1360267,
+  "production_module_imports": 0
+}

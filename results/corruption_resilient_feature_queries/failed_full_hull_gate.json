@@ -1,0 +1,11 @@
+{
+  "schema": "theorica.failed-experiment/1",
+  "experiment": "full downstream hull replay on every corruption case",
+  "result": "terminated_after_120_seconds_without_completion",
+  "exit_code": 130,
+  "scientific_gate_changed": false,
+  "corruption_sweep_changed": false,
+  "holdout_changed": false,
+  "replacement": "exact two-action many-scenario robust solver replay",
+  "reason": "the rank-two and rank-three hull routes intentionally enumerate large exact scenario polytopes; this tested planning scalability rather than the frozen corruption-decoding law"
+}

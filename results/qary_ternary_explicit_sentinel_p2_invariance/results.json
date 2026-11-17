@@ -1,0 +1,1254 @@
+{
+  "alphabet_action": "swap_0_2_fix_outside_minus_1",
+  "candidate_root_branch": "max(33,26+c)",
+  "certified_anchor": {
+    "exact_value": 33,
+    "leaf_cost": 1
+  },
+  "checks": {
+    "7": {
+      "bounds_equal": true,
+      "search_counts_equal": true,
+      "source_signature": false,
+      "target_signature": false
+    },
+    "8": {
+      "bounds_equal": true,
+      "search_counts_equal": true,
+      "source_signature": false,
+      "target_signature": false
+    }
+  },
+  "fixed_root_middle_costs": [
+    4,
+    11
+  ],
+  "isomorphism": {
+    "cells": {
+      "0:0": 1,
+      "0:1": 2,
+      "0:2": 0,
+      "10:-1": -1,
+      "11:-1": -1,
+      "11:0": 2,
+      "12:-1": -1,
+      "12:0": 2,
+      "1:-1": -1,
+      "1:0": 1,
+      "1:1": 2,
+      "2:-1": -1,
+      "2:0": 1,
+      "2:1": 2,
+      "3:-1": -1,
+      "3:1": 1,
+      "3:2": 0,
+      "4:-1": -1,
+      "4:0": 2,
+      "4:1": 1,
+      "5:-1": -1,
+      "5:0": 2,
+      "5:1": 1,
+      "6:-1": -1,
+      "7:-1": -1,
+      "7:0": 2,
+      "7:1": 1,
+      "8:-1": -1,
+      "8:0": 2,
+      "8:1": 1,
+      "9:-1": -1
+    },
+    "completions": [
+      6,
+      7,
+      4,
+      5,
+      2,
+      3,
+      0,
+      1,
+      8,
+      9
+    ],
+    "queries": [
+      0,
+      2,
+      3,
+      1,
+      8,
+      9,
+      6,
+      11,
+      12,
+      7,
+      10,
+      5,
+      4
+    ]
+  },
+  "isomorphism_certificate": {
+    "backtracking_steps": 54,
+    "left_color_sizes": [
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4,
+      4,
+      4,
+      8,
+      8
+    ],
+    "mapping_edge_checked": true,
+    "refinement_rounds": 3,
+    "right_color_sizes": [
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      4,
+      4,
+      4,
+      8,
+      8
+    ]
+  },
+  "outside_response": -1,
+  "post_falsification_exploratory_sweep": [
+    {
+      "exact_value": 7,
+      "leaf_cost": 1,
+      "optimal_actions": [
+        {
+          "action_value": 7,
+          "child_values": [
+            3,
+            3,
+            3
+          ],
+          "optimal": true,
+          "query_cost": 4,
+          "query_group": 0,
+          "query_level": 0
+        },
+        {
+          "action_value": 7,
+          "child_values": [
+            6,
+            2,
+            2
+          ],
+          "optimal": true,
+          "query_cost": 1,
+          "query_group": 4,
+          "query_level": 2
+        },
+        {
+          "action_value": 7,
+          "child_values": [
+            6,
+            2,
+            2
+          ],
+          "optimal": true,
+          "query_cost": 1,
+          "query_group": 5,
+          "query_level": 2
+        },
+        {
+          "action_value": 7,
+          "child_values": [
+            6,
+            2,
+            2
+          ],
+          "optimal": true,
+          "query_cost": 1,
+          "query_group": 7,
+          "query_level": 2
+        },
+        {
+          "action_value": 7,
+          "child_values": [
+            6,
+            2,
+            2
+          ],
+          "optimal": true,
+          "query_cost": 1,
+          "query_group": 8,
+          "query_level": 2
+        },
+        {
+          "action_value": 7,
+          "child_values": [
+            6,
+            2
+          ],
+          "optimal": true,
+          "query_cost": 1,
+          "query_group": 11,
+          "query_level": 2
+        },
+        {
+          "action_value": 7,
+          "child_values": [
+            6,
+            2
+          ],
+          "optimal": true,
+          "query_cost": 1,
+          "query_group": 12,
+          "query_level": 2
+        }
+      ],
+      "optimal_groups": [
+        0,
+        4,
+        5,
+        7,
+        8,
+        11,
+        12
+      ]
+    },
+    {
+      "exact_value": 10,
+      "leaf_cost": 2,
+      "optimal_actions": [
+        {
+          "action_value": 10,
+          "child_values": [
+            6,
+            6,
+            6
+          ],
+          "optimal": true,
+          "query_cost": 4,
+          "query_group": 0,
+          "query_level": 0
+        },
+        {
+          "action_value": 10,
+          "child_values": [
+            8,
+            4
+          ],
+          "optimal": true,
+          "query_cost": 2,
+          "query_group": 11,
+          "query_level": 2
+        },
+        {
+          "action_value": 10,
+          "child_values": [
+            8,
+            4
+          ],
+          "optimal": true,
+          "query_cost": 2,
+          "query_group": 12,
+          "query_level": 2
+        }
+      ],
+      "optimal_groups": [
+        0,
+        11,
+        12
+      ]
+    },
+    {
+      "exact_value": 13,
+      "leaf_cost": 3,
+      "optimal_actions": [
+        {
+          "action_value": 13,
+          "child_values": [
+            9,
+            9,
+            9
+          ],
+          "optimal": true,
+          "query_cost": 4,
+          "query_group": 0,
+          "query_level": 0
+        },
+        {
+          "action_value": 13,
+          "child_values": [
+            10,
+            6
+          ],
+          "optimal": true,
+          "query_cost": 3,
+          "query_group": 11,
+          "query_level": 2
+        },
+        {
+          "action_value": 13,
+          "child_values": [
+            10,
+            6
+          ],
+          "optimal": true,
+          "query_cost": 3,
+          "query_group": 12,
+          "query_level": 2
+        }
+      ],
+      "optimal_groups": [
+        0,
+        11,
+        12
+      ]
+    },
+    {
+      "exact_value": 16,
+      "leaf_cost": 4,
+      "optimal_actions": [
+        {
+          "action_value": 16,
+          "child_values": [
+            12,
+            12,
+            12
+          ],
+          "optimal": true,
+          "query_cost": 4,
+          "query_group": 0,
+          "query_level": 0
+        },
+        {
+          "action_value": 16,
+          "child_values": [
+            12,
+            8
+          ],
+          "optimal": true,
+          "query_cost": 4,
+          "query_group": 11,
+          "query_level": 2
+        },
+        {
+          "action_value": 16,
+          "child_values": [
+            12,
+            8
+          ],
+          "optimal": true,
+          "query_cost": 4,
+          "query_group": 12,
+          "query_level": 2
+        }
+      ],
+      "optimal_groups": [
+        0,
+        11,
+        12
+      ]
+    },
+    {
+      "exact_value": 19,
+      "leaf_cost": 5,
+      "optimal_actions": [
+        {
+          "action_value": 19,
+          "child_values": [
+            14,
+            14,
+            15
+          ],
+          "optimal": true,
+          "query_cost": 4,
+          "query_group": 0,
+          "query_level": 0
+        },
+        {
+          "action_value": 19,
+          "child_values": [
+            14,
+            10
+          ],
+          "optimal": true,
+          "query_cost": 5,
+          "query_group": 11,
+          "query_level": 2
+        },
+        {
+          "action_value": 19,
+          "child_values": [
+            14,
+            10
+          ],
+          "optimal": true,
+          "query_cost": 5,
+          "query_group": 12,
+          "query_level": 2
+        }
+      ],
+      "optimal_groups": [
+        0,
+        11,
+        12
+      ]
+    },
+    {
+      "exact_value": 22,
+      "leaf_cost": 6,
+      "optimal_actions": [
+        {
+          "action_value": 22,
+          "child_values": [
+            16,
+            16,
+            18
+          ],
+          "optimal": true,
+          "query_cost": 4,
+          "query_group": 0,
+          "query_level": 0
+        },
+        {
+          "action_value": 22,
+          "child_values": [
+            16,
+            12
+          ],
+          "optimal": true,
+          "query_cost": 6,
+          "query_group": 11,
+          "query_level": 2
+        },
+        {
+          "action_value": 22,
+          "child_values": [
+            16,
+            12
+          ],
+          "optimal": true,
+          "query_cost": 6,
+          "query_group": 12,
+          "query_level": 2
+        }
+      ],
+      "optimal_groups": [
+        0,
+        11,
+        12
+      ]
+    },
+    {
+      "exact_value": 25,
+      "leaf_cost": 7,
+      "optimal_actions": [
+        {
+          "action_value": 25,
+          "child_values": [
+            18,
+            18,
+            21
+          ],
+          "optimal": true,
+          "query_cost": 4,
+          "query_group": 0,
+          "query_level": 0
+        },
+        {
+          "action_value": 25,
+          "child_values": [
+            18,
+            14
+          ],
+          "optimal": true,
+          "query_cost": 7,
+          "query_group": 11,
+          "query_level": 2
+        },
+        {
+          "action_value": 25,
+          "child_values": [
+            18,
+            14
+          ],
+          "optimal": true,
+          "query_cost": 7,
+          "query_group": 12,
+          "query_level": 2
+        }
+      ],
+      "optimal_groups": [
+        0,
+        11,
+        12
+      ]
+    },
+    {
+      "exact_value": 28,
+      "leaf_cost": 8,
+      "optimal_actions": [
+        {
+          "action_value": 28,
+          "child_values": [
+            19,
+            19,
+            24
+          ],
+          "optimal": true,
+          "query_cost": 4,
+          "query_group": 0,
+          "query_level": 0
+        },
+        {
+          "action_value": 28,
+          "child_values": [
+            20,
+            16
+          ],
+          "optimal": true,
+          "query_cost": 8,
+          "query_group": 11,
+          "query_level": 2
+        },
+        {
+          "action_value": 28,
+          "child_values": [
+            20,
+            16
+          ],
+          "optimal": true,
+          "query_cost": 8,
+          "query_group": 12,
+          "query_level": 2
+        }
+      ],
+      "optimal_groups": [
+        0,
+        11,
+        12
+      ]
+    }
+  ],
+  "schema": "theorica.ternary-explicit-sentinel-p2-invariance/1",
+  "source_endpoints": [
+    {
+      "exact": {
+        "actions_evaluated": 15794,
+        "allowed_query_levels": [
+          0,
+          1,
+          2
+        ],
+        "compatibility_states": 95,
+        "constructive_upper_bound": 25,
+        "exact_lower_bound": 25,
+        "root_actions": [
+          {
+            "action_value": 25,
+            "child_values": [
+              18,
+              18,
+              21
+            ],
+            "optimal": true,
+            "query_cost": 4,
+            "query_group": 0,
+            "query_level": 0
+          },
+          {
+            "action_value": 36,
+            "child_values": [
+              25,
+              11,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 1,
+            "query_level": 1
+          },
+          {
+            "action_value": 36,
+            "child_values": [
+              25,
+              11,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 2,
+            "query_level": 1
+          },
+          {
+            "action_value": 29,
+            "child_values": [
+              18,
+              14,
+              14
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 3,
+            "query_level": 1
+          },
+          {
+            "action_value": 32,
+            "child_values": [
+              25,
+              11,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 7,
+            "query_group": 4,
+            "query_level": 2
+          },
+          {
+            "action_value": 32,
+            "child_values": [
+              25,
+              11,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 7,
+            "query_group": 5,
+            "query_level": 2
+          },
+          {
+            "action_value": 32,
+            "child_values": [
+              25,
+              11,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 7,
+            "query_group": 7,
+            "query_level": 2
+          },
+          {
+            "action_value": 32,
+            "child_values": [
+              25,
+              11,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 7,
+            "query_group": 8,
+            "query_level": 2
+          },
+          {
+            "action_value": 25,
+            "child_values": [
+              18,
+              14
+            ],
+            "optimal": true,
+            "query_cost": 7,
+            "query_group": 11,
+            "query_level": 2
+          },
+          {
+            "action_value": 25,
+            "child_values": [
+              18,
+              14
+            ],
+            "optimal": true,
+            "query_cost": 7,
+            "query_group": 12,
+            "query_level": 2
+          }
+        ],
+        "states_solved": 20085
+      },
+      "exact_value": 25,
+      "leaf_cost": 7,
+      "optimal_groups": [
+        0,
+        11,
+        12
+      ],
+      "predicted_group_children": [
+        18,
+        14,
+        14
+      ]
+    },
+    {
+      "exact": {
+        "actions_evaluated": 15794,
+        "allowed_query_levels": [
+          0,
+          1,
+          2
+        ],
+        "compatibility_states": 95,
+        "constructive_upper_bound": 28,
+        "exact_lower_bound": 28,
+        "root_actions": [
+          {
+            "action_value": 28,
+            "child_values": [
+              19,
+              19,
+              24
+            ],
+            "optimal": true,
+            "query_cost": 4,
+            "query_group": 0,
+            "query_level": 0
+          },
+          {
+            "action_value": 39,
+            "child_values": [
+              28,
+              12,
+              12
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 1,
+            "query_level": 1
+          },
+          {
+            "action_value": 39,
+            "child_values": [
+              28,
+              12,
+              12
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 2,
+            "query_level": 1
+          },
+          {
+            "action_value": 31,
+            "child_values": [
+              20,
+              16,
+              16
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 3,
+            "query_level": 1
+          },
+          {
+            "action_value": 36,
+            "child_values": [
+              28,
+              11,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 8,
+            "query_group": 4,
+            "query_level": 2
+          },
+          {
+            "action_value": 36,
+            "child_values": [
+              28,
+              11,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 8,
+            "query_group": 5,
+            "query_level": 2
+          },
+          {
+            "action_value": 36,
+            "child_values": [
+              28,
+              11,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 8,
+            "query_group": 7,
+            "query_level": 2
+          },
+          {
+            "action_value": 36,
+            "child_values": [
+              28,
+              11,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 8,
+            "query_group": 8,
+            "query_level": 2
+          },
+          {
+            "action_value": 28,
+            "child_values": [
+              20,
+              16
+            ],
+            "optimal": true,
+            "query_cost": 8,
+            "query_group": 11,
+            "query_level": 2
+          },
+          {
+            "action_value": 28,
+            "child_values": [
+              20,
+              16
+            ],
+            "optimal": true,
+            "query_cost": 8,
+            "query_group": 12,
+            "query_level": 2
+          }
+        ],
+        "states_solved": 20085
+      },
+      "exact_value": 28,
+      "leaf_cost": 8,
+      "optimal_groups": [
+        0,
+        11,
+        12
+      ],
+      "predicted_group_children": [
+        20,
+        16,
+        16
+      ]
+    }
+  ],
+  "source_words": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      1,
+      1
+    ],
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      2,
+      1,
+      0
+    ],
+    [
+      2,
+      2,
+      0
+    ]
+  ],
+  "summary": {
+    "classification": "boundary_invariance_falsified",
+    "exploratory_integer_law_c1_c8": "V=4+3c",
+    "frozen_invariance_prediction_passed": false,
+    "observed_values_c7_c8": [
+      25,
+      28
+    ],
+    "response_refinement_changes_p2_values": true,
+    "unseen_family_covariance_passed": true
+  },
+  "target_endpoints": [
+    {
+      "exact": {
+        "actions_evaluated": 15794,
+        "allowed_query_levels": [
+          0,
+          1,
+          2
+        ],
+        "compatibility_states": 95,
+        "constructive_upper_bound": 25,
+        "exact_lower_bound": 25,
+        "root_actions": [
+          {
+            "action_value": 25,
+            "child_values": [
+              21,
+              18,
+              18
+            ],
+            "optimal": true,
+            "query_cost": 4,
+            "query_group": 0,
+            "query_level": 0
+          },
+          {
+            "action_value": 29,
+            "child_values": [
+              18,
+              14,
+              14
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 1,
+            "query_level": 1
+          },
+          {
+            "action_value": 36,
+            "child_values": [
+              25,
+              11,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 2,
+            "query_level": 1
+          },
+          {
+            "action_value": 36,
+            "child_values": [
+              25,
+              11,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 3,
+            "query_level": 1
+          },
+          {
+            "action_value": 25,
+            "child_values": [
+              18,
+              14
+            ],
+            "optimal": true,
+            "query_cost": 7,
+            "query_group": 4,
+            "query_level": 2
+          },
+          {
+            "action_value": 25,
+            "child_values": [
+              18,
+              14
+            ],
+            "optimal": true,
+            "query_cost": 7,
+            "query_group": 5,
+            "query_level": 2
+          },
+          {
+            "action_value": 32,
+            "child_values": [
+              25,
+              11,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 7,
+            "query_group": 8,
+            "query_level": 2
+          },
+          {
+            "action_value": 32,
+            "child_values": [
+              25,
+              11,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 7,
+            "query_group": 9,
+            "query_level": 2
+          },
+          {
+            "action_value": 32,
+            "child_values": [
+              25,
+              11,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 7,
+            "query_group": 11,
+            "query_level": 2
+          },
+          {
+            "action_value": 32,
+            "child_values": [
+              25,
+              11,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 7,
+            "query_group": 12,
+            "query_level": 2
+          }
+        ],
+        "states_solved": 20085
+      },
+      "exact_value": 25,
+      "leaf_cost": 7,
+      "optimal_groups": [
+        0,
+        4,
+        5
+      ],
+      "predicted_group_children": [
+        18,
+        14,
+        14
+      ]
+    },
+    {
+      "exact": {
+        "actions_evaluated": 15794,
+        "allowed_query_levels": [
+          0,
+          1,
+          2
+        ],
+        "compatibility_states": 95,
+        "constructive_upper_bound": 28,
+        "exact_lower_bound": 28,
+        "root_actions": [
+          {
+            "action_value": 28,
+            "child_values": [
+              24,
+              19,
+              19
+            ],
+            "optimal": true,
+            "query_cost": 4,
+            "query_group": 0,
+            "query_level": 0
+          },
+          {
+            "action_value": 31,
+            "child_values": [
+              20,
+              16,
+              16
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 1,
+            "query_level": 1
+          },
+          {
+            "action_value": 39,
+            "child_values": [
+              28,
+              12,
+              12
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 2,
+            "query_level": 1
+          },
+          {
+            "action_value": 39,
+            "child_values": [
+              28,
+              12,
+              12
+            ],
+            "optimal": false,
+            "query_cost": 11,
+            "query_group": 3,
+            "query_level": 1
+          },
+          {
+            "action_value": 28,
+            "child_values": [
+              20,
+              16
+            ],
+            "optimal": true,
+            "query_cost": 8,
+            "query_group": 4,
+            "query_level": 2
+          },
+          {
+            "action_value": 28,
+            "child_values": [
+              20,
+              16
+            ],
+            "optimal": true,
+            "query_cost": 8,
+            "query_group": 5,
+            "query_level": 2
+          },
+          {
+            "action_value": 36,
+            "child_values": [
+              28,
+              11,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 8,
+            "query_group": 8,
+            "query_level": 2
+          },
+          {
+            "action_value": 36,
+            "child_values": [
+              28,
+              11,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 8,
+            "query_group": 9,
+            "query_level": 2
+          },
+          {
+            "action_value": 36,
+            "child_values": [
+              28,
+              11,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 8,
+            "query_group": 11,
+            "query_level": 2
+          },
+          {
+            "action_value": 36,
+            "child_values": [
+              28,
+              11,
+              11
+            ],
+            "optimal": false,
+            "query_cost": 8,
+            "query_group": 12,
+            "query_level": 2
+          }
+        ],
+        "states_solved": 20085
+      },
+      "exact_value": 28,
+      "leaf_cost": 8,
+      "optimal_groups": [
+        0,
+        4,
+        5
+      ],
+      "predicted_group_children": [
+        20,
+        16,
+        16
+      ]
+    }
+  ],
+  "target_words": [
+    [
+      2,
+      2,
+      2
+    ],
+    [
+      2,
+      2,
+      1
+    ],
+    [
+      2,
+      1,
+      2
+    ],
+    [
+      2,
+      1,
+      1
+    ],
+    [
+      1,
+      2,
+      2
+    ],
+    [
+      1,
+      2,
+      1
+    ],
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      0,
+      2
+    ]
+  ]
+}

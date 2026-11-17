@@ -1,0 +1,9 @@
+{
+  "schema": "rank-three-nature-support-config-v1",
+  "seed": 20261027,
+  "opened_cases": 80,
+  "holdout_cases": 30,
+  "dense_interventions": 40,
+  "rank_four_attacks": 40,
+  "certified_support_bound": 4
+}

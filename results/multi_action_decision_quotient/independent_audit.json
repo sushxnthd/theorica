@@ -1,0 +1,10 @@
+{
+  "digest": "0884958ea57fd6782012bb8f7ac6ef3096bcc73a2eadd10f5c9d8f84e888cf86",
+  "helly_face_attacks": 20,
+  "passed": true,
+  "positive_cases": 60,
+  "positive_total": 60,
+  "production_imports": 0,
+  "schema": "theorica.multi-action-decision-quotient-audit/1",
+  "unequal_value_attacks": 20
+}

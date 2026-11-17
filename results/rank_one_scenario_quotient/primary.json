@@ -1,0 +1,50 @@
+{
+  "checks": {
+    "endpoint_heuristic_falsified": true,
+    "holdout_sizes_unseen": true,
+    "holdouts_exact": true,
+    "opened_exact": true,
+    "opened_has_mixed_and_pure": true,
+    "rank_two_zero_false_accepts": true,
+    "scaling_certificate": true
+  },
+  "falsification": {
+    "endpoint_attack_actual": "1/2",
+    "endpoint_heuristic_claim": "1",
+    "false_accepts": 0,
+    "production_rejected": true,
+    "rank_two_attacks": 100
+  },
+  "holdouts": {
+    "cases": 50,
+    "digest": "08b90b88691c87f414b551b16d21152ee527e9f482ea0d7033b7c86808943133",
+    "max_support": 2,
+    "sizes": [
+      9,
+      13,
+      21,
+      34,
+      64
+    ],
+    "strict": 20
+  },
+  "opened": {
+    "cases": 304,
+    "digest": "94d939627edbd739363c94a15c1230aba5f5fd4fe0f5e9b65783b3ff15ce5806",
+    "max_support": 2,
+    "strict": 123
+  },
+  "passed": true,
+  "scaling": {
+    "actions_per_component": 4,
+    "components": 20,
+    "effective_scenarios": 2,
+    "expanded_actions": 1099511627776,
+    "scenarios": 64,
+    "support": 1,
+    "valid": true,
+    "value": "0"
+  },
+  "schema": "rank-one-scenario-quotient-v1",
+  "seed": 20261024
+}

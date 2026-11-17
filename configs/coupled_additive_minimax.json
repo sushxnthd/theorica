@@ -1,0 +1,12 @@
+{
+  "alphabet": [0, 1, 2],
+  "exhaustive_component_shape": [2, 2],
+  "exhaustive_factor_count": 2,
+  "exhaustive_nonempty_coupled_subsets": 15,
+  "prospective_cases": 32,
+  "prospective_factor_count": 3,
+  "prospective_seed": 20261026,
+  "required_certificates": ["payoff_additive", "finite_coupled_ambiguity_vertices"],
+  "strong_baselines": ["expanded_joint_game", "rectangular_component_sum"],
+  "kill_on": ["value_mismatch", "criterion_mismatch", "certificate_failure"]
+}

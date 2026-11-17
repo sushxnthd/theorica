@@ -1,0 +1,32 @@
+{
+  "endpoint_replay": [
+    {
+      "independent_group0_children": [
+        33,
+        33,
+        33
+      ],
+      "independent_group0_value": 37,
+      "independent_root_minimum": 37,
+      "leaf_cost": 18,
+      "valid": true
+    },
+    {
+      "independent_group0_children": [
+        34,
+        34,
+        33
+      ],
+      "independent_group0_value": 38,
+      "independent_root_minimum": 38,
+      "leaf_cost": 19,
+      "valid": true
+    }
+  ],
+  "inference_consistent": true,
+  "passed": true,
+  "predicted_breakpoint_holds": true,
+  "production_imports": 0,
+  "reserved_count_valid": true,
+  "schema": "theorica.ternary-p0-first-leaf-breakpoint-audit/1"
+}

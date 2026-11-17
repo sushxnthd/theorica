@@ -1,0 +1,10 @@
+{
+  "digest": "033ea87c66735df892f97b0e96f9f7e8b6f190ec51e70dc20e22f489c6d7e546",
+  "lower_bounds": 60,
+  "lower_bounds_passed": 60,
+  "passed": true,
+  "production_imports": 0,
+  "reconstructions": 150,
+  "reconstructions_passed": 150,
+  "schema": "theorica.corruption-resilient-feature-queries-audit/1"
+}

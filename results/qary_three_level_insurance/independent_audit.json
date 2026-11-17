@@ -1,0 +1,108 @@
+{
+  "case_digest_reproduced": true,
+  "case_total": 8,
+  "cases_replayed": 8,
+  "missing_copy_abstained": true,
+  "missing_copy_cost": null,
+  "passed": true,
+  "production_imports": 0,
+  "replays": [
+    {
+      "actual": 32,
+      "arity": 2,
+      "formula": 32,
+      "level_costs": [
+        1,
+        7,
+        2
+      ],
+      "matched": true,
+      "production_exact": 32
+    },
+    {
+      "actual": 31,
+      "arity": 2,
+      "formula": 31,
+      "level_costs": [
+        7,
+        2,
+        1
+      ],
+      "matched": true,
+      "production_exact": 31
+    },
+    {
+      "actual": 34,
+      "arity": 2,
+      "formula": 34,
+      "level_costs": [
+        2,
+        1,
+        7
+      ],
+      "matched": true,
+      "production_exact": 34
+    },
+    {
+      "actual": 32,
+      "arity": 2,
+      "formula": 32,
+      "level_costs": [
+        3,
+        6,
+        2
+      ],
+      "matched": true,
+      "production_exact": 32
+    },
+    {
+      "actual": 30,
+      "arity": 2,
+      "formula": 30,
+      "level_costs": [
+        6,
+        3,
+        2
+      ],
+      "matched": true,
+      "production_exact": 30
+    },
+    {
+      "actual": 32,
+      "arity": 2,
+      "formula": 32,
+      "level_costs": [
+        2,
+        4,
+        5
+      ],
+      "matched": true,
+      "production_exact": 32
+    },
+    {
+      "actual": 16,
+      "arity": 3,
+      "formula": 16,
+      "level_costs": [
+        2,
+        2,
+        2
+      ],
+      "matched": true,
+      "production_exact": 16
+    },
+    {
+      "actual": 18,
+      "arity": 3,
+      "formula": 18,
+      "level_costs": [
+        1,
+        2,
+        3
+      ],
+      "matched": true,
+      "production_exact": 18
+    }
+  ],
+  "schema": "theorica.qary-three-level-insurance-audit/1"
+}

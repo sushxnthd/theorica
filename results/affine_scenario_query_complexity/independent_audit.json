@@ -1,0 +1,11 @@
+{
+  "digest": "209053020c22deb9fe318485cc4e43b69ff5c473e8d0bee7697e43a1c1905104",
+  "digest_matches": true,
+  "families_passed": 150,
+  "families_total": 150,
+  "lower_bounds_passed": 60,
+  "lower_bounds_total": 60,
+  "passed": true,
+  "production_imports": false,
+  "production_source_contains_query_api": true
+}

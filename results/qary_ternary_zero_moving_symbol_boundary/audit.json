@@ -1,0 +1,63 @@
+{
+  "color_multiplicity_separation_valid": true,
+  "passed": true,
+  "production_imports": 0,
+  "schema": "theorica.ternary-zero-moving-symbol-boundary-audit/1",
+  "search_expansion_valid": true,
+  "source_replay": [
+    {
+      "group0_children": [
+        33,
+        33,
+        33
+      ],
+      "leaf_cost": 18,
+      "optimal_groups": [
+        0
+      ],
+      "root_minimum": 37,
+      "valid": true
+    },
+    {
+      "group0_children": [
+        34,
+        34,
+        33
+      ],
+      "leaf_cost": 19,
+      "optimal_groups": [
+        0
+      ],
+      "root_minimum": 38,
+      "valid": true
+    }
+  ],
+  "target_replay": [
+    {
+      "group0_children": [
+        33,
+        33,
+        33
+      ],
+      "leaf_cost": 18,
+      "optimal_groups": [
+        0
+      ],
+      "root_minimum": 37,
+      "valid": true
+    },
+    {
+      "group0_children": [
+        34,
+        34,
+        33
+      ],
+      "leaf_cost": 19,
+      "optimal_groups": [
+        0
+      ],
+      "root_minimum": 38,
+      "valid": true
+    }
+  ]
+}

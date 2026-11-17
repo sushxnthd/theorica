@@ -1,0 +1,1196 @@
+{
+  "schema": "theorica.middle-first-ratio-two-slices/1",
+  "slices": {
+    "middle_double": {
+      "faces": [
+        [
+          11,
+          1
+        ],
+        [
+          10,
+          3
+        ],
+        [
+          8,
+          4
+        ]
+      ],
+      "guarantee_states_checked": 178964,
+      "holdouts": [
+        {
+          "active_faces": [
+            [
+              11,
+              1
+            ]
+          ],
+          "base_and_leaf_costs": [
+            79,
+            1
+          ],
+          "exact_cost": 870,
+          "level_costs": [
+            79,
+            158,
+            1
+          ],
+          "matched": true,
+          "predicted_cost": 870
+        },
+        {
+          "active_faces": [
+            [
+              11,
+              1
+            ]
+          ],
+          "base_and_leaf_costs": [
+            81,
+            40
+          ],
+          "exact_cost": 931,
+          "level_costs": [
+            81,
+            162,
+            40
+          ],
+          "matched": true,
+          "predicted_cost": 931
+        },
+        {
+          "active_faces": [
+            [
+              10,
+              3
+            ]
+          ],
+          "base_and_leaf_costs": [
+            41,
+            40
+          ],
+          "exact_cost": 530,
+          "level_costs": [
+            41,
+            82,
+            40
+          ],
+          "matched": true,
+          "predicted_cost": 530
+        },
+        {
+          "active_faces": [
+            [
+              10,
+              3
+            ]
+          ],
+          "base_and_leaf_costs": [
+            40,
+            41
+          ],
+          "exact_cost": 523,
+          "level_costs": [
+            40,
+            80,
+            41
+          ],
+          "matched": true,
+          "predicted_cost": 523
+        },
+        {
+          "active_faces": [
+            [
+              8,
+              4
+            ]
+          ],
+          "base_and_leaf_costs": [
+            40,
+            81
+          ],
+          "exact_cost": 644,
+          "level_costs": [
+            40,
+            80,
+            81
+          ],
+          "matched": true,
+          "predicted_cost": 644
+        },
+        {
+          "active_faces": [
+            [
+              8,
+              4
+            ]
+          ],
+          "base_and_leaf_costs": [
+            1,
+            79
+          ],
+          "exact_cost": 324,
+          "level_costs": [
+            1,
+            2,
+            79
+          ],
+          "matched": true,
+          "predicted_cost": 324
+        },
+        {
+          "active_faces": [
+            [
+              11,
+              1
+            ],
+            [
+              10,
+              3
+            ]
+          ],
+          "base_and_leaf_costs": [
+            2,
+            1
+          ],
+          "exact_cost": 23,
+          "level_costs": [
+            2,
+            4,
+            1
+          ],
+          "matched": true,
+          "predicted_cost": 23
+        },
+        {
+          "active_faces": [
+            [
+              10,
+              3
+            ],
+            [
+              8,
+              4
+            ]
+          ],
+          "base_and_leaf_costs": [
+            1,
+            2
+          ],
+          "exact_cost": 16,
+          "level_costs": [
+            1,
+            2,
+            2
+          ],
+          "matched": true,
+          "predicted_cost": 16
+        }
+      ],
+      "lower_bound_exact": true,
+      "maximal_projected_guarantees": [
+        [
+          8,
+          4
+        ],
+        [
+          10,
+          3
+        ],
+        [
+          11,
+          1
+        ]
+      ],
+      "passed": true,
+      "upper_bound_cones": [
+        {
+          "extreme_ray_inequalities": [
+            {
+              "face_cost": 11,
+              "passed": true,
+              "policy_cost": 11,
+              "ray": [
+                1,
+                0
+              ]
+            },
+            {
+              "face_cost": 23,
+              "passed": true,
+              "policy_cost": 23,
+              "ray": [
+                2,
+                1
+              ]
+            }
+          ],
+          "face": [
+            11,
+            1
+          ],
+          "passed": true,
+          "projected_exposures": [
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              10,
+              1
+            ],
+            [
+              10,
+              2
+            ],
+            [
+              10,
+              3
+            ],
+            [
+              11,
+              1
+            ]
+          ],
+          "search_states": 526,
+          "synthesis_point": [
+            2,
+            1
+          ],
+          "terminal_transcripts": 400
+        },
+        {
+          "extreme_ray_inequalities": [
+            {
+              "face_cost": 23,
+              "passed": true,
+              "policy_cost": 23,
+              "ray": [
+                2,
+                1
+              ]
+            },
+            {
+              "face_cost": 16,
+              "passed": true,
+              "policy_cost": 16,
+              "ray": [
+                1,
+                2
+              ]
+            }
+          ],
+          "face": [
+            10,
+            3
+          ],
+          "passed": true,
+          "projected_exposures": [
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              10,
+              1
+            ],
+            [
+              10,
+              2
+            ],
+            [
+              10,
+              3
+            ],
+            [
+              11,
+              1
+            ]
+          ],
+          "search_states": 497,
+          "synthesis_point": [
+            2,
+            1
+          ],
+          "terminal_transcripts": 400
+        },
+        {
+          "extreme_ray_inequalities": [
+            {
+              "face_cost": 4,
+              "passed": true,
+              "policy_cost": 4,
+              "ray": [
+                0,
+                1
+              ]
+            },
+            {
+              "face_cost": 16,
+              "passed": true,
+              "policy_cost": 16,
+              "ray": [
+                1,
+                2
+              ]
+            }
+          ],
+          "face": [
+            8,
+            4
+          ],
+          "passed": true,
+          "projected_exposures": [
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              10,
+              1
+            ],
+            [
+              10,
+              2
+            ],
+            [
+              10,
+              3
+            ],
+            [
+              11,
+              1
+            ],
+            [
+              12,
+              1
+            ]
+          ],
+          "search_states": 356,
+          "synthesis_point": [
+            1,
+            2
+          ],
+          "terminal_transcripts": 418
+        }
+      ],
+      "weights": [
+        1,
+        2
+      ]
+    },
+    "root_double": {
+      "faces": [
+        [
+          10,
+          1
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          7,
+          4
+        ]
+      ],
+      "guarantee_states_checked": 178964,
+      "holdouts": [
+        {
+          "active_faces": [
+            [
+              10,
+              1
+            ]
+          ],
+          "base_and_leaf_costs": [
+            79,
+            1
+          ],
+          "exact_cost": 791,
+          "level_costs": [
+            158,
+            79,
+            1
+          ],
+          "matched": true,
+          "predicted_cost": 791
+        },
+        {
+          "active_faces": [
+            [
+              10,
+              1
+            ]
+          ],
+          "base_and_leaf_costs": [
+            81,
+            40
+          ],
+          "exact_cost": 850,
+          "level_costs": [
+            162,
+            81,
+            40
+          ],
+          "matched": true,
+          "predicted_cost": 850
+        },
+        {
+          "active_faces": [
+            [
+              9,
+              3
+            ]
+          ],
+          "base_and_leaf_costs": [
+            41,
+            40
+          ],
+          "exact_cost": 489,
+          "level_costs": [
+            82,
+            41,
+            40
+          ],
+          "matched": true,
+          "predicted_cost": 489
+        },
+        {
+          "active_faces": [
+            [
+              9,
+              3
+            ]
+          ],
+          "base_and_leaf_costs": [
+            40,
+            41
+          ],
+          "exact_cost": 483,
+          "level_costs": [
+            80,
+            40,
+            41
+          ],
+          "matched": true,
+          "predicted_cost": 483
+        },
+        {
+          "active_faces": [
+            [
+              7,
+              4
+            ]
+          ],
+          "base_and_leaf_costs": [
+            40,
+            81
+          ],
+          "exact_cost": 604,
+          "level_costs": [
+            80,
+            40,
+            81
+          ],
+          "matched": true,
+          "predicted_cost": 604
+        },
+        {
+          "active_faces": [
+            [
+              7,
+              4
+            ]
+          ],
+          "base_and_leaf_costs": [
+            1,
+            79
+          ],
+          "exact_cost": 323,
+          "level_costs": [
+            2,
+            1,
+            79
+          ],
+          "matched": true,
+          "predicted_cost": 323
+        },
+        {
+          "active_faces": [
+            [
+              10,
+              1
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "base_and_leaf_costs": [
+            2,
+            1
+          ],
+          "exact_cost": 21,
+          "level_costs": [
+            4,
+            2,
+            1
+          ],
+          "matched": true,
+          "predicted_cost": 21
+        },
+        {
+          "active_faces": [
+            [
+              9,
+              3
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "base_and_leaf_costs": [
+            1,
+            2
+          ],
+          "exact_cost": 15,
+          "level_costs": [
+            2,
+            1,
+            2
+          ],
+          "matched": true,
+          "predicted_cost": 15
+        }
+      ],
+      "lower_bound_exact": true,
+      "maximal_projected_guarantees": [
+        [
+          7,
+          4
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          10,
+          1
+        ]
+      ],
+      "passed": true,
+      "upper_bound_cones": [
+        {
+          "extreme_ray_inequalities": [
+            {
+              "face_cost": 10,
+              "passed": true,
+              "policy_cost": 10,
+              "ray": [
+                1,
+                0
+              ]
+            },
+            {
+              "face_cost": 21,
+              "passed": true,
+              "policy_cost": 21,
+              "ray": [
+                2,
+                1
+              ]
+            }
+          ],
+          "face": [
+            10,
+            1
+          ],
+          "passed": true,
+          "projected_exposures": [
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              10,
+              1
+            ]
+          ],
+          "search_states": 356,
+          "synthesis_point": [
+            2,
+            1
+          ],
+          "terminal_transcripts": 418
+        },
+        {
+          "extreme_ray_inequalities": [
+            {
+              "face_cost": 21,
+              "passed": true,
+              "policy_cost": 21,
+              "ray": [
+                2,
+                1
+              ]
+            },
+            {
+              "face_cost": 15,
+              "passed": true,
+              "policy_cost": 15,
+              "ray": [
+                1,
+                2
+              ]
+            }
+          ],
+          "face": [
+            9,
+            3
+          ],
+          "passed": true,
+          "projected_exposures": [
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              10,
+              1
+            ]
+          ],
+          "search_states": 356,
+          "synthesis_point": [
+            2,
+            1
+          ],
+          "terminal_transcripts": 418
+        },
+        {
+          "extreme_ray_inequalities": [
+            {
+              "face_cost": 4,
+              "passed": true,
+              "policy_cost": 4,
+              "ray": [
+                0,
+                1
+              ]
+            },
+            {
+              "face_cost": 15,
+              "passed": true,
+              "policy_cost": 15,
+              "ray": [
+                1,
+                2
+              ]
+            }
+          ],
+          "face": [
+            7,
+            4
+          ],
+          "passed": true,
+          "projected_exposures": [
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              10,
+              1
+            ]
+          ],
+          "search_states": 356,
+          "synthesis_point": [
+            1,
+            2
+          ],
+          "terminal_transcripts": 418
+        }
+      ],
+      "weights": [
+        2,
+        1
+      ]
+    }
+  },
+  "summary": {
+    "cones_certified": 6,
+    "holdout_matches": 16,
+    "holdout_total": 16,
+    "passed": true,
+    "slices_proved": 2
+  },
+  "theorems": {
+    "middle_double": "M(x,y)=max(11x+y,10x+3y,8x+4y)",
+    "root_double": "R(x,y)=max(10x+y,9x+3y,7x+4y)"
+  }
+}

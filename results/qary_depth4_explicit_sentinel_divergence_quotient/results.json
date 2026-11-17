@@ -1,0 +1,9156 @@
+{
+  "alphabet_size": 3,
+  "base_size": 16,
+  "catalogue": [
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "95321c9693fb6a38cffa552b1e6cf4d77f17aad74631f5727d515c5cbaf13107"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "18bf9c3586e9488cc4ee22cf12d4e6d5ec55ef7748f74e685a53b712fecfc181"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "4984cbf39d3a40bce070db7997a1ed29565666de2871d799dcb8300ed02ee549"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "439c117d83ae77ea2a1d241ecbb3b500065e04d659cff01cd617ce6495ce61a3"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "fc2bb34b4a62660f799cae6ed5280fd04bdd9970851de33f56a7b254a0a867d8"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "c7a1039da66744774cb6e96dabb9db7212df9f1041ee33d53200b937278853f7"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "a2c4127bb09684f37d770fb46af28f94cb235597cf7f1f3ec94985bb7c9717a4"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "ce40c4ab7c22fc26246321b2bde91fe46096e1497b4ade6742c997f41c2030aa"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "0cb6c9084718f7f7362137d9db3406c55242efd5ae4f6f56ba3a7831d2b61a51"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "4a0990698ba9f95f766869cb14b9023fe1485a4d1402798691ddebb1a4d8d690"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "d2b492de22ce08d12b806029e9ddd9c23faceeb506c1bf2add8d62cd08d036e8"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "66d77f8f072cc8c9154cfb7a45262f2d5f406d56e32856377374b9630119ec01"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "da445dac507620dd7fc51dbfce5e3a19b8b08a758c7dbf5d780041abfa3bcc32"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "7cf85f789b857b913366d4475c4b7608b87f77387c22e2f93ef4043db939cd16"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "2e92f55154b42316ef90d23aa2c69645204e308ed6658bd106a5e91e2c81954e"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "9f4bf7975fa654a48a160effb5f16685b1257b69919458230a5bcabe2fd9cd57"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "dc6720de2d00ef1d24a5d50800c6ee39e33f36c52e01bba5b0921b09e6da7060"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "f5dd78a005e3870fd1cac0fdbfee31ba16247e076bc85e33c0b30355af599030"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "5c17dc6e5e76cf664f1a75b4d86fd9a2cf7c7a652b80b1b14819590435ac27f4"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "35c001b57741f6d4abc2b1e38798095e60446e6abc6a048e8ed5115dfe27c91f"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "46f159c842a3f000b90ec082c4d0d118c61716f054ecdcbe0cd9e75d31422839"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "0ab6574992e311fd027c31b5cc80aa3a172608ff2f8f48d3051a90bddd1f2616"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "43030535b444123d775959493d70e2c5d3bb3b8cfbfadcfa4a4f624d9fa53029"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "e426593e9177a4ea0b6884189926aac3755a0930e1fdbf48463b044006ead8ee"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "ea64a5e2962e085a713b0a6961687a9c15449c614ce3db38632b0c38abb6e5b3"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "fd39e6f5349dacfc2c23714752a0b859afffd001f26b3e1dc0a7ddafcf3a646f"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "1d1ccaa366d3600665a9d3a1672ba8ecc42a913e2982f663ec7918e3fbc7c5fd"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "0f3454beccd3081856a80086275eb99360d58f5d3968d87e0364df55e01fc024"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "5f2e48edb3607e7233fdbe1b83bb2719a436ccf7d8c9dca3aa7bc1e05c164b08"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "85e4c7f4d4ef2e88d2485ef6e253f7bdbc33fa113384e1f617efc61c976b4f1a"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "b506b23b24fe994acf5dab2d8b54ec4514c046734d89f37a2099e449c74c2d18"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "2edc3ddb1b40d31b79ba63940c9cf805bd4c1be33cd1ba53553441c5bb16d123"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "979cfef12cfae46415e0921f328d5867fba04f925716c9bd00e3aca472783f3f"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          1,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "baf032b459f34a356f97723169f0264218440a65a4ab5c5a73c15585558ba7f5"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          1,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "4394041abe2eae6311ac15d578e3f425cc9d042bc3b0110f5681f108874de726"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          1,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "7de7860b9e0fb7c142656e56c099c28bd739b4fefbc59ee66ed08ed77419e12d"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          1,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "f0e80fcdb22d3a1b2fd846bb183a5198fec0df1354c2a53c39ae740b28b79dc2"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          1,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "c498f6bde267cbd3d1a959f1e229ce92877c3cca96ab9d858afe6e422c1830d8"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          1,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "d61d684a3eaadf367c07eae949658f5f1aa23714e12ba6eb417945f150ef2f19"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          1,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "6702bd2ec00f3522ecdcfec48fc45b8ecf895aa0b83bd39e72002a498d5b70bd"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          1,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "9045ec0a5719b0a4cf26a7e52f97d667c4d64830398267dac09359033187c78b"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "5e043b364686226d324c288cc4a52550351961b57ac95d5691021409707e716f"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "52ddc4128fabd4fc323a2ed63cbf9afbdaf1ed49a04a0326c474e93e874d27f0"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "692c52af0f09da3747701ff75fa97def33ad506d5f37028dc47a3d1932ac061d"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "4484e0a44042ebd204ccd1cc47d30870aa3de21e666e212ddb85eb2f8b4f51cf"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "9c550f3b6fe6abbfd0028eecd9dd918bd0aaa6af17bd30f3934cee1ede18431c"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "41b5d6ff766727df560dcd6d9b67e4d91de665f3d66ad04c476fc44deefb4ae0"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "c445c8ca3f937af463c29c5b32cea0e5d5973bfe5bc16d34254f5c39fb7632e6"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "dbdf92f0a0a211b17f0cc09065e72be257c35bf29f0c3fef728d3331337c7325"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "b8d1659cf11ff8715413103bb9968bab75578fa52a0f24297328eb5139272195"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "44a16f146e8680e3a1c40170d5f7994d902e6ca234217e4b044d1b6ef7008b79"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "3e87c881addc83e8341c8808c750bd77b75ac429881cf58d22adf38bad816a45"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "a4824480581411242491e4cba868a6b9d02e180c8ef6b583e95bbca66b0fa2b0"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "f148eca45a4f78bd07cf1376c18a14b9fb40a11e916305e834b74907f9f9fc89"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "d2308c99e86a1c9d5822b1223f2df9ffaca8d3ff2f56baf3d67e1a3469bc1430"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "69911dce261d56b11bee30e1fa8b97bcefd72863e130c39bb9472e434be5291a"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "8af52bd9428b9148839c9877b6e636fe917ab0d7289c7b15885288497e6aface"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "4373c5f8deb5bb9af4655eb29aca54ad03c16db94b6516da2b0d9b676f680499"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "6f82066585a5fc00d28b99bfcff2068bd10b89c33ac1e13a6c47fb0a01246f07"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "10632e5524c2872e2f133a8c992bd75ed7095db4e0773df41e7531b12e05a657"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "59b26966848eb0d36e8b54f621b825741187010311500e5cf2da044e3d26d2ad"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "b9fec0e3f48a773d8e52737a0941ac14cb5fd61394fb7e479fe23c84ab6ec95f"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "17fd41eaeef8f2eff91352b1beaced72f76ad4dcb0e0b789adc740c27c2d0189"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "24394e52708019e933b61141ec163684836f7d8d79974c0972ec439b24c3d1a0"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "53c9bc669e28a84d8301b8a0970d6556361a40fe39ea656c14cb55fb2d240f9d"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "34085d6fc0cdb64aa64772ce70dffc3620908584bef4cb0d59088cf013602181"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "b3a14c69b215d1bb650d93fa27215bc7d53cdd097f3be2aee56d25216a2c5032"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "96251e61f671edd2413e857584c5bb5666f83b730947079f971b73201d4e8e6a"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "2f55d5ad81959569f80b7ec522abf42eed9bba5e2ce052f51ec051ebb9e31aa8"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "607939c5a77835e5f4d93bfa58052729de89675f544cc54435ac0f128beb21d7"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "87dd7f46fcfe8d437b9b772056e30dc023d6fb8841e17c1eabc69e7e2f717222"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "7af77a77b6e8f8629632fb4f78759e83bbe06d517391ae33ed19e373de8c70c2"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "7055654b2c8589f0454af3dc2f502c9513deb63190070e62d2aa38c2f35db189"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "eced4107c1c1d75cb184c71d218a0896e0fbaab330d79299c560ddcd8c233452"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "ef26296e16219171998bac041eede0a976400047127ab94f90ff022fb5cfa8f8"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          0,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "0dd3d3d0d41caa24ee1c30f1cf964c83d510e09f3a817d3900593d6a63d099a1"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          0,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "839336744edda631ddf6398192609e95374464454d37f5bc85cedf3f67140056"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          0,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "b06d9c9500853b4440ebf611b2083d92d2f9261116e4c8a59362a8c8d9f31f1c"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          0,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "effcf1d26453f720cbb36db85a296a5660c991fde8dadb66c915705998e3d88a"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          0,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "a4ff90b96d3f6b8fbe40bb1c11d38b3c26dcb3abc98eac14e71e9050bcef4923"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "8626a1a252bd576408cb4557f807d48bfa446b7e9367b5eea841154beab19408"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "a6714c0a1bfeabe404960aba28e26728e1d49addd517ff34acf91984b8336dd8"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "8bf2d1c1d0ca190d3364917527b2ae3b55298f0aeeed3421aa7eaff965e2554e"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "3171d81741e822d53133f1cdb6d1cfa06a1a0633493a9ffe70ff76cada1f7f48"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "c48eacf513108654c2542f9e2cfcd28d4ede3ed50b6752a1487eb71324521e33"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "60a7402d70fbd52aedad972174ea3a0ccf3ee82515603cd206801d928c9aa71c"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "62a08808173a17b7307b720ccbf6bc54ba6e323d6c47927bdd946fad0435aaf5"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "9779fcbb80da88066f04dfad790364c9dbf6f620a63b3ac3e4b1cf93ceee3e78"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "6b808de3404086a813ad9a41ca99b5f6fd94df82e6785b96dcbeff985b113ebf"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "3ae1c69f840575642a1e1a23b46e5bf8623bc6dfa87ae0e70e796a1548e918d5"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "fc8bd5c8fab3677c2b88a56787eca0cc39faaae0e62009d2379c99ea2cd12685"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "3d64681850b7b2d2525ba37793b0c93737acefef21a50129fcafd236985d8ac0"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "e0f4711801e963a0927b0e59f1700bda19f2d62e87a9674c416313f52b4278bb"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "d947cb32883e7ac7c12a8443d792806fa47c2240fc62494d7271803763362343"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "f968943784fdc09ca15af69744e97c7e50631d5b742c4201c25435981758a5c8"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "7bddb6d0985c5f8ca2c527d50ab2727f70b7a12a2d9f0e02c14ed06dc8b90772"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "60bbe35f4ebef95ea85e03cb826fcbdf9a36e24b6261e30db686103c1450db42"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "b87c48b96d9caae0103f1a985d3c81c2f60aa73bd5fdfbbdcce7d47999898289"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          0,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "e6644ed36377c24d8fefed4ed076c1b6e41825432b9f693dbf7421b5c8c15643"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          0,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "cb6ded4cab8b2defbafd3e411f596602bae820bab00521f58ab8cd880a6b8d4d"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          0,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "2be0618d5159dd38cac32cca7320eb707095d97d753d9bb107e3da2ebc81a66b"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          0,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "9e82dcece5601a9ac30eda6c524053e55bed03d78307d0a3eebda6467d7822a3"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "1652408aeb45d138db2cf76dfa30610072b84e04ae018ff4f51a55adcdaea04a"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "92c48dcadeeed13f544cd23c27878a98a32b4d40238ca032f90e37ceafab1fb9"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "47de84549834e4908415a9c52169b72c1724cfc1526e9a023baa618a22397a0e"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "808c60047a687cf8f3e563ae85d90e9686a1fd0afff1e62f3684acacb013ed72"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "5568ec9b1babb077704c31920428a55cc9ae4fd16ef3070720c04818ffe50663"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "495d9ed1cb2e545e91f4acf114ee1151d20e371da625caffe3540addfb550d19"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "d6f595f0c30932210a75abc6f94dac1ec94444012b1a7200c461df5eea9d4d65"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "9f1e3c7d62edd9d7bb68d19c5a33649b3958d867cf06815e1f3f76594dff8f42"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "f48e6fa8418efb328c638a889b055820a35de72ce9bbb72f9f8c34b2783a485f"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "ccb5afcad2a2cae2c8a0c0ec427498443160544f3e8569018a2b7f1c432705d6"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "451d738c7c9218b55ea5801120380917a18872c9925207e72d424e66618e26e1"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "1fba8cfb62ffd6015c3b21e398d1cf3e71bf0233e6c39c6a86c4f47746db58c7"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "ddeb0e85a34b6413c4b5569c38c0f87327a628fb815ec90f735ef8a61730dbc7"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "cb733016c5ea53fd4572f11b96975ab6d86ff5123fc4a47b271b9ce43170a022"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "9fac4915c9047dd379f829b88efe198d2037d5fb2aecb766c49e8f84b00da7b6"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "9bcf110a1195e4f38c0d4fcddb4a7857b8a31e8322c54e146e15cc6566afb4b5"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "5bb45e78a0138dde4a16ad8eba5e51edd88e910975bc716d1a2e045b6a380435"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "e6faac58498dee6ee782cc3409b3deadedc0fc54c4ff77ccabed65a8965999f4"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          0,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "31b4a20c7deb90a9a5109939f0b6ab6e21f73a269eabdf77be30ee3dedae78e3"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          0,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "7987ef605700458d00f71a0d00c094871b97a53e591579ee0669137c0936b371"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          0,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "e282d8f16e5256324ba3145f9f41aa9fc44664ccc875e322ab064e0a57ca5f21"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "133c7c8f0ba619ac1281dc673eb67ca82f14469a507a758ef5826d148457815c"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "7dc887c140e5e725214c13fc9f0897d83a9094a2dae544eb7b92c8ec2bc40c99"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "d272347f076f9acdd7ce4573a477ddef694141eda13ffef02083ae506223ae0b"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "ef66cfb256121db10331a07a1405861ba433707f68d78b67a90290247f968c2f"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "130f5f4604646275ce6c9d99c38726985d1bac141b2c2f66ee44ccba4885b5dd"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "027b2a9e2a0334b28631cd931166a9c064204535c4ebadbdbd5b8e57c36dfc89"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "f65fc1b2becc43ae14de4088f4e207e091ee0d41ff7c02922e10439293f20bc9"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "ea8f7953872a6554a3c3003d3fdc67108a362e23c38812831a2dc8f1b3011e2d"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "add482580611a808cfee12cadb53972e3986c37b365be5bb1e7793ab51525f64"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "af87164c04910bf75b98f3a3b250ad6299bc92bc81cc033496bc347c1a2f5aa4"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "ed2f1cbd4b77f7c8086f9961b03c93b9b4f477d0c91b9faa341674d66e37b9d5"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "59fff7175aeba3056ce09bd39fcb04f6aeeb871e953df14d48326b04f5ca5447"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "f9a455c1bafbfcadb3e9fd45e4c6359231656cda29654716864665ebbfb1918e"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "33767ce94f9cdfa921494824325124f8cc8d8677a93f053cdf568c7ca74d70f0"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "2dc8eb1fdf50eb437065208aa9cbef91d5a89924a4b22f850945c2e45c7e5c74"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "5fc500548f1ef01232c218e67234349d0e87f76cb59c3fd817aa64321d95c35b"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "dc28048bf75c342e2d8c6d15dcb0953ea719a27765fee95c9b9e17d444a9252b"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "c8ce15b29a2a6e1f0ce7f2d401a586e48a3122efe8d82a53b49ec48be5fd7162"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          0,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "83c41ea7de9166e87ba679127883a91b35f91df16d59ff86cae2375d358ce073"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          0,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "0190b785e72fe08c7924de4fac522ef18488df3de59c88b0eafe9c8d00942d8e"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          1,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "1c42a77097258474fe33d67b82edc16737daeda86e527a65f2135cb3681ec7fb"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          1,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "08d32091a2d864635f4289ad66a2a073bb510666f2122c29e8b38da0ef5c616e"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          1,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "4dcc9e2ae0af3e50385fd998c7503319680fa70bff5a1292a7504f42815d5ef6"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          1,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "7a1a3242df5ae4360f639e57c17498237392cdaa57a6aa34f67019c41c565d8d"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          1,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "a4a5b3f70b5cb5951d38a9544c852e55fefd47c2d038f0585eafa3282fcdce25"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          1,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "c9ef976cbb707e1abfa3e6ec1d32f5f9ea1a07930fbed81b29996349da16e88f"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          1,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "5d6aa5f4d79939fc6d93f5232eb80a7647bc9a1d20f49576a62aad9190996d90"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          1,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "d0c778e23476c50a10d5826be322cf27394ca31c886aae35e0629e5b6e1f0d99"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "dbe99cedb02c139cf465d508cbb531e57c90c68efd5c49abd639c2b79584ae70"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "9225231b382f635ba8b168b4fa53cd416180b0de2917fb8d6ed3e2319f2c4243"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "625e8c1498512d5f857b2419d7b6fc53c0521bd007c079a1cd022444c2572073"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "70460244bdedcbc64cffaf806a4c0b88628108b7a1ec9da09cd6f98b057bca36"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "f6ffd77f32f4ce915415820e9495572057925d5a171790a3581ddcf592787276"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "54237089a2c375e4f71a89fc9a29ccee37e86a91f81af71e8efc76ddb9728a0f"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "4e684345c5e9563ae440e29bdf7fa01ac1650be237b94cbe3644045219417085"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "d352ffcc55b1fa368fbece3164e335c0068da83c9f28606c6aa3522b422de5ab"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "183d2e5af1a955fba67bfad77190683343efff8d22a86baa8ea073abea8b0843"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "70da1de5f3c0cd72001ebae6f989c9ec54c4bc163bd5830f1ed0da94820fcd6b"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          0,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "6702c889e081c5524f7e373637ccf485861e44aa6e62d8d80c8d673c8df54cf7"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "0ef7e04f26daa0a3124e8bb825df360dbcd4cacd7d613b0303792608f67a5d7d"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "91b69c71de097f5482a7002e992928b4d76075422b81a27a5f5f1b95accb2919"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "fb2273ca29befa432d8b66169f26366c424887d28a13b21a2a9893437135b47a"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "fd44f47cfb606656499da3427a794b207c6330c474015fe87a8baf23dfccaeeb"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "d38fd97994a08ceaedc523c66a4cb9696a99fbbd27b276641390aa0e0c8fa12b"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "41e567b2920720882f8573c7c8343d43348a340f89daef291a4628830eb1d04f"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "232ca07927bdf999640ea536c7c8623f49d95d4dd25913feb28b87c366cd96f7"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "24afa0d4ff3f801f073f6cc2ebefde90d04f9e52231a2bd8f545386d4dc985ef"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "5a90936dfb0cb2308f7eaf8740754f62d770eb9b211c3e8ad16471d5262afebc"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "b8f15620a6803247a2cfdaae9bca86729eb33ee270290f969c29bd9f7c471c4a"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          2,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "0613089a66d7bfe7261db172652cc9efcfa12d0f3152d1d062e885e7bced5e05"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          2,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "d39ed1038c3ccb2c10743b0e5c2b3e6d78c06e18fc8439fe8cb8a77cc96c6c26"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          2,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "66f8dc06b7f40f9b209454e442a326b49c562b0066f31a9f4c4ce736802150b9"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          2,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "24e20788d49d9450e4429e42bb5ce826f17e1f0fc651279eb1f69ee69088c0d4"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          2,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "5e16c20fb471ee0521f70a8b526f086c4c90a5703416e18142fccbf20b20520c"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "b4ed375cad487a131ccccfda05eb4fe334821f622a42dec2e7fadd975ec38e6b"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "b960cee86acff542d5725177ea78d2f981b4788f259c5e7d5078d46b059c13e1"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "73b3e44a2ef18bbccd18b935961d1511471f6f36b7ca1fef7ebc784ec79e6912"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          1,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "2d01bd8b932caa44f613188ab792fedea7c2c3f1387a41bf6559ff9a95b5cb7e"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          1,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "ab6dfc6272a32ca69c13cbe8d2eb75d53c71cf3511ba3791290a86e78bf27494"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          1,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "a2f832ebb92f17b366463bcdae87ff17f596d31c61b0026026a34cf47ef2a45a"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          1,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "2df3ddf3f6a2ef6d727d4dd8a4234bd2aea3cad0606cf4f99cf92edf3e9c405c"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          1,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "fe0addbb9beb9cd964f81434f44af75b70ac10eedb20bb5e02cba474ebaa0f09"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          1,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "3bed7d44db49ce32fc8b13f58002aca73e7c27b2442cf919a596461be28ee4b2"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          1,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "00552c09a57bd579f9ae0be7a6c84e2b85418b136a7958a29ea807026812c7ab"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          1,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "e11c25764333aa6023079723b0f36e89c27e1bb0afab8a1fd1d7242ad4fdacdb"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "41320f77510599a9c123aeeb3e7f59d9ac397f9e5084ae51e6e69df43403ffb4"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "63d098a3d7d36dc688c3c42a336fa80f4bb51d4e16381526138d03b750169c52"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "544e41d7af69e91fabebe7f1db92b02475757ad93f4b259084564e4caabd3b0c"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "328a688a85b4981e5defffa63fbc74b257c61f17962ae8ba547f415e32bd9562"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "771a61d37db3745c0bb6ec38e249bc9deefa0f78ed6d23c8d332f8ebdde89d2d"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "110957eb6aad77099d2fb4665ff83c7a6dddebca0f4b1ca31eedac83115cc3b8"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "6c7ca3513f610737f8e4a017189571cc50e22d6a5f6eeb38ae717f576a4bdf6f"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "60686a160457ef0670dee905d1e77f45ed152411369415330adc41fb432262c2"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "b47a502673c95213b95b25138a121ec1f251710aa1400fe91950dc07d8c4804d"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "95a493db6fae9753c513b95352f7363105f512f3c0f17933ecc3f1b8c135cb8f"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "431455b227b5334f83e1f377f98ac7c41423edcfaeacf693c957a1933e0fe220"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "947af7a0addfe8d5bb4335d0087fe50e1c5c1ca4fe1a2f8006224698bb66ad35"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "0b86f60bd60781b9f037e58f855a1efb247d84d33dde0789f00873f2de3f8c54"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "d40e1d152cbb47508e4314ffa27062b30b300c4280cf738b3f0aedda857a1091"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "4306f99f337bc58b7d1b2afa3479620d7850477aa6cfd8b14edccc9dea186e84"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "765bb6e872639f186d9d123276348d9d60f4816d8c3386ce92dd6d4925c79253"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "96843bec332af29c5bd1c78acb883534d4a542e09073c4f11965b2625f10feed"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "588d2893e9cb88374d913ba79daeb01b7cf4e58846139cf037d8568a9576cde3"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "418846f696288d689998bc324e44c52c6f5d7b175e53e2c99ac6cb699aef0580"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "d593b5b9696ddbc4e1a0f4ac604bed89c524168c243d2434f89a8499f2738ec2"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "56b84b05d8a8a20114a0fb6c07594d9140a2c6f214b12da729ed22012ad08a38"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "46cee7661a8f708fff9250fcdb17a5b23b8222f96943574f9dc0c060aef3d711"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "bc2795eda1de9bb71ff5383871d33c3d2a85cc1631e1dd6dea47b2cb83c648b7"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "ccd8ec5ff8f08c2c760241489fe80a9a96227cdd118814db911525bf6551aa2e"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "e4be3351fa25c24928514507363a7dbb1150c6f138749912215c816af5bbfabb"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "68133afa679709643e2a38663f0d38717b6fbff3b834289b4b82b943d0468152"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "bf134337f602f2e7d5e9dc1ce83ea17af560b1cd52b14f3e878caae98d2c3a1a"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          1,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "08335760d4fbcc3eee55231dd50be786015ee88e1ad38690b4c8dd935a842ed2"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          1,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "f0414e4a964be2c69c9b57dbb862fcd09e6d3705362acff4e7c072b419f70083"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          1,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "7c2fa6d2515b29fe41d92b660b63910797743a5050112c3f6bf1c39b3bf4f58a"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          1,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "81f3cf22fbfd398b8fb10296147bcff810f27d290afb7c675102c9090940d320"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          1,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "43448c89489d20371b1848807f9b5ceea0bc6791fb9f72a505f2c691c3259999"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          1,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "72f7a7598b4fad6583132cfd6dbcf46b4ba8d55bd5d282cdd25eedfbee7d85b3"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "387972a76a1b54446b2d0b79085abaf7d0476e4f6111d191ce8ac80cfcfe5333"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "ade4ce0a2ce62b4f0988b3ce1dd417f006bf2295eb4d6f50bce7bed4c9f80643"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "99b6bb215397295ede29d7a3fc7cfa16bf74f9341cdffdf10409debc3783f596"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "ce352cbb4ea9e6568ea5907eeff1a87a814e25bae4c1965f4488b74feb4b6ba0"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "71e00d62b673d075109d12380b770c046a6d4c8d50064514df3237bbe5b6bc5d"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "1cd343a1e207391d6eab555986604c0506fc07f6d09595c564eb1684e21d2ccf"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "b30d324c400ba8ff9cad45a1023879cd2e601a2894b64a61e58e7374bcc4436b"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "bf88b39223007570a4126c2c13d61116d4683481029265ff28b5f07ee2f9ec6f"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "a52522b5fa366f0f6e186b2ed0d30ecf309b566791bdc56f345944330303ed62"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "12388f932c49005a2bd770463571923a8169f9e954808cfeebe12e0aa7723192"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "e8250abbfe226b88acdcb4203a01573f9cbf36e8706d09b67fce07e361ddc7c5"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "a06e2266a058e12581122d1a789f7a8a4cc6e139e629a910d5b5daac3f1b11d7"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "5e2dae40b62356b8e1fa5ceef5a6e214fea77795e9f1927f6191434e12a3df59"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "24e349c84319f4932404f67a97ac30c4a4865a2ec2a3405c2f7a8905decca71a"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "19149421c5ace079d29dac293d885c58c1ef60fe1fba46131956c469c6dc3399"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "8339f6ee00bcee559876c5a56204931383789f5aafb27705018820516f638399"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "287f9cc5ae7857aec6f41a104dd8dbe02e031d16dcb7b05e8d17fc711aee08ec"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "43604f0278d0fffa7eb46a9eba9d80b8827eea7440361c925cb619fb1dd7a9d4"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "97f7ac4efc2aa030538c7c7e82b894f59a7f06d25d22ecccd76588d7f94ac3c7"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "8abcd3040a8470651e376d8edc570d25ad975ef0c67b9cab20155e34edf87a9e"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "59a066f391fae86465c6691631043b065b45abd807049b574e067331dfce5b5d"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "628b23290ec3b929bd3c106b7c513f7a9dd26ac79f710c6aa79f14f376eec366"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "903b978214d1e2258f69ad31d410fc0b730ad17d9fe1e7a891386cad818bac26"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "c705dd081158e0a30ddefe5eb9234e259db3a5cb62c347df1234ed030092c848"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "c670829ab64d42e2959c14c2ef7144e7cb24e6f244f1ac56bde3429f8b2c0c3a"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "773f4daff8ba0f614ff4d8d5710ee50d04aee9c98d71d0c2c6c09b2e353b59f4"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "0767daa5c02ef569d342534aad147697738983bf9c16dc57c96f266474c109da"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "fd8cc5a2df88ee35dfc470f254e503d0abdf839da8c00456504034b5061f8de6"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "3d564d73c4a20f7dc43dc55f160b552fe41abd45ac204ddd32a5713be504723a"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "c2c3eda55e70f9107368881fa7dc966ce485dbaff3b72fd534d157e761422002"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "7808b0d1ce90e100a056d79f1d032507b71763b50f101bd07e50c9ba4b97ce33"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "4c6bbdafbd64c18f87c75f7a153e7ad6c13d23e690137a2763b73368702db1f9"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "8890f982f2560b658560f51e52477edf0dc29b138fcb3267dc4567085fb1d378"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "2b8b9502190ce20b774333bae86beddb25c9bae8fa078496181773a833cc3937"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "4339d8048b5a9b01e1ce2d309fca4040ee495e4f146baf3cdeb0c111b492f638"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "924f57e78cbdffbc585e7c5e6da609ca12366d24691bc89ade981828a9a38c94"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "6c3285526da3ca39b17c9208cd2021902fe369536fad6cbf699a169d27ad142a"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "c3e8cde490f1dddeb1e4a8dd6aed32914e7d4d2eb8cbf60d855b58115412bd8d"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "3a9b94960df1d5e5aae7b32b0beb21a7b2a98e594846db3fa1a965302697b43e"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "c21923a102843da851e64c349b60bf69d9c8d43e916bc5723119b79563f8051e"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "3e5eeed1f472f39cf1f0e0b68ac6418309e0aaf3a24eddf5b944830f51b90ba9"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "6638cf5a2d1d94431fac981c024da4f729006162a95d1f7d424c7230fe1f71ad"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "0d0f3e81a84e9f8c267ab79ebb43a9847fdfb99862c2294b1a1608b0461d12d3"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "cfcd54183ece7afdec7a9e2923adee7bfc7603afd921d6b75d8133b5c92ddab2"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "6ee787540a35795b9f482bdf81c2a5893bea17016e823db3b586a4c09dfe0b2b"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "611c20cf9ed59249d178590b991b827aff5e96f4258188d0059880a09a1f12f2"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "e8effd57aa8ec3d12d95578cd9130c62b6e2b1eeab06e58a2e37fd60ccc89ae3"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "54230d25266626d2ade0ba5f21fda9cbee4f1d74dee1cb48b4e8d3657c417c9b"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "f7cda22be4f0f123bceb86b26a276927a71338ac4636dad4005982be04ba9697"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "ea34c7039a75eaefebe1880bf52410f1eec922507f7db1520f9a0460a138d08f"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "2c0f95b59f51e9b3079c67af18cc4966bccd5482b0c65b2a7daa8bc75437d7f1"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "715b57daa92b2bee2a5b10f059e0289f1a84d54f8ed0d9d461bfeded19f822c0"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "d0e2782443dbc15181bdd669defc591c379e899e277a9498be0a95c357903717"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "5cb81218adc348233925b6d3c503a432f4bb80bb93108cc572ee1cfad92a0729"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "63b5192c1d4dd816d7c5481a51777ac2884390333dd7433d6184ef6c5e82a58a"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "5c37d437b8bd6746f1148cfbc6bfef06a881865d4c691fbd521ca0b784a443f7"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "3ecef4c476a9d68a01da5a679f7dc03d865d8a44a335025a6b801323c0e9dae9"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "167b1808d46f86f590d3ee41ccd69b8677b5390641c7b5adf20d62cbe6c33bc1"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "d94eb12e8f3e26ab336b5cbb2e25221f63f890b538e21a5499a056bf84c44819"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "b750879f5b3a274c522b7b714cdfa32b978eec3218225b7f7801760e3e7fe125"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "898ea7540ecec5c78334f9fad1d8305b0e84c9973bbb9f9000e1f9e219662ac1"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "90a88719afe7421fdb2a53f593be8325bd45f3c7d93b3fba708a2983294191ef"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "de08c9a902c2c48caaa16982ec73561d37d050c5199f02730835e6431bcf16bd"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "4f765dbfbb85677d872e4a976fc00d7f7cffbd441b9e18e5bc8d7f97ecbcf18a"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          0
+        ],
+        [
+          2,
+          1,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "e7b94bc080682d92fc29163f9b12520607340292b18d573ca9463d919155d7af"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          0
+        ],
+        [
+          2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "68b1f75a2a4cc3aff655b1a1977b923ceb921f5a5f088dc48e15c409fa9ac1f7"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "9614d83d6096c97f124c816fff7a7154fe0d5ec9e3c50fc86d084c7fac884f94"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "83233bada31091c44dfc99e47a1fbc2a8df9b222370a1907da266b16614cce20"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "b64f6261f8ff1cea979c374750939320f7727c8bf61381415542dc09d477e1d0"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "b4dcaec0d7dfd4dd8c340f3f2fde7c73464e37646690a8d908c8e71cf301dec0"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "d426434a6b0655ed02dccc668bf25685d4b550c08e3597cefa5d6e68adb48220"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "9e3a01556b867992112c22933f95968a4c394eb7c4adaa39157a920c1e4c1751"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "8e6cd047f799c208c029c589f9aee0e82bf62f609a569b1e6ae2ef20be8c6138"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "484b85af8cb796cdc30154f95451bf49eb552119131164f4c321f128e99aba60"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "6c6cf77df9abe32b1f90d808abb81ec85c78f4da9b7d253c8540467206d6cf92"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "129fc08cbc7ea74d67bad0d9cf9264b1f1850a5155fb51bccf102e1401f9de80"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          1
+        ],
+        [
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "5254c7ce8d7d7390aec27e2e6a9c76d5b3e9a312d8db790921b6547222c59b61"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          1
+        ],
+        [
+          2,
+          2,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "feb2ff3647a2b243532b3d3cb72ef8789b9e9d3b1d7671e6307ec312b684d8ca"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          1
+        ],
+        [
+          2,
+          2,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "5bde2599cd33acbe36f56053a09fedc07686455961fb3c8c243b2ff738deedbc"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          1
+        ],
+        [
+          2,
+          2,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "a4c8c114d864a1a7ec30aa089e83f25eca41e8a389b2ccac750a3c90be9d1a2b"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          1
+        ],
+        [
+          2,
+          2,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "b59d2f3507108e238b355bd459d858589ba1f4d4b8bde4bb335e98867c5f147d"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          1
+        ],
+        [
+          2,
+          2,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "680546a1a718fcd242d73d1b2fe0be2633024abef0115f18ab3c505609544908"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "6d72543c5bd552d241ae0aabb1cb0e954bbfb0c5bbb701db43148642726b6268"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "9dfdaaf6699a165c98dd291c44e7de6c2ecaef36141f9043481ea3754efbce4c"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "b79dcd4ffd14f816894b07c337f02b62e9aa519bfb34294dd3f9d04cfb262145"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          0,
+          0
+        ]
+      ],
+      "transport_sha256": "1e5e77f69632b5221595b83ba3fd72635a69c3228a46d37ef00d718373f97c33"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "0748990bedeef468643e99a67a92f4a6f296ae846987f1cd6ce3ce2b7d12ba6d"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "6b8db6fe63f246f1018e721901f3bf1e617bd44068bc3b8cf5536be5bed37752"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "9de7ba751e2af744c2f359e279d88ad23602b5d6ef795120a59be2e1dfa9b3af"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "33ffe95df859af635a9d18985e8e475a1c9156db917c18b97bda73edddd9832b"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "f6ed98faaebbb7c12da4549a9b585db655a1cc041e7dfd97aa3e5406f80809e9"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "48308a58e35722401e1270346c420edcce3d3f6cc9b7bd6813f4e575869282d8"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "d0eaa832950d313e94d1bbfb134078ec253f4b4cff5871dc72e4319f15f8c8a8"
+    },
+    {
+      "class": 0,
+      "computed_common_suffix_prefix": 0,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "435383b3d326a580e1f88641f6f87f6e5ad5febfc53fdc54f2b30ce4c821cd71"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          1
+        ]
+      ],
+      "transport_sha256": "bf37c09dbd23876dab2dc635b8c5a35117fd960911c4ed15895be3d4c961608a"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "cf57da8c3aa11daf6e12615f2d48dc2ddbd8710feb0370a0a5f7e3bfdabeed13"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "9f8c601eac289b63aabb4ca391b3543a0ec2391436464a9e4700e58a8b620d30"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "b19a60b0004a764a72e609d72c856cc882fd57a78be2b4a5391d390cb11bd4b0"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "799309c3491f7fde7b757f1b58e9d00a53e8d045d7c47211cc9d2fd56ef22ee6"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "36a6ec33c86364564c156f454ce1804a241ae28fb880787f18a603e71026091c"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "f5fe60286a5e4ff30979e4735f4c09fa94b76ab600394f4713d4de8361f92fd4"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "fa88b1ad5d26d7a1b93a76407f1518dba903119811f69ac30bb8817f2b731f44"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          0,
+          2
+        ]
+      ],
+      "transport_sha256": "886fd3b3caa0f0584b1da577937ce0bf4e49239ee4125254a90a8fb2583521ee"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "b20442f8548e2f6766db53f87a5e805f8c9e6e6f8e530bd4ab53bd263e30ad42"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "6dbe3157329da5950b5e722ae12ea39eb185b1ca70d7e8405017d86f5ad51ea9"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "6ad3e6c4ecd1ad263f494a2d190adfbab8e47b83fcbaff38dbcd87a9d1b23aff"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "fc8d755d4ffe10c833098c2abedd658fccdb184c3bf9e40cae9bc844a4524bf2"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "ee21ef0b4d2356cc16f752f2b491f0af1ebab4f5ce974a9095832722c459041d"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "4f2c0407667d4d4327cb8875287709cdd1ec4d49d43d6387faa9b95f9b235a72"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          1,
+          0
+        ]
+      ],
+      "transport_sha256": "f9740cc257789edbac3c096d35c561317e32730cada37f1a6e1964268ecf070d"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "c9d644e11ddd3e1ff76bb7a25ab896d56d16ccb9973be7ca39470296ef778a19"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "c2d18a32b95e2d5219e8b4aecb54208b0a630aecba983b40e41737df8fc410c6"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "1c319ff27ebd662cf5107f9bf1cd8f5c1ec620e6228bfa4c19bd4dcc88c6a7ec"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "3ae68a33cf3cd087946d76cbd505d4470defcef67e58b52d357e551ad4b64302"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          0,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "d0efcfae13ac2eda93291adbebbe431f7333988311e493c91d9cf4d12d950bb5"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          1
+        ]
+      ],
+      "transport_sha256": "c2da7aa73326c74a9437781ff539686b1a32d3a5262f1d7c3891dc4aa4c456de"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "98683046b13892ac8ca57657e1017febcc601bf38631dac5b5bfe31cf265bbaa"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "d112f4bf81f08c24e1e96702ded32bdac1f060c4f8c88bc3e83696f0a891a061"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "1383df76f73b1215740d7fac1e72495d6f022827678fbb72d23ba3c8c9edadd2"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "fa100e516be6ce0e663d2e5b92c27419211c4fc4cb7ee7655525743823db94c4"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          1,
+          2
+        ]
+      ],
+      "transport_sha256": "38241229cbca2cec25fc8e2e4aff20bb4fa9e7a3caddcd34e8c3688410b65115"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "be88f5424021b653a0d5a919dcedac259b08278f0546bf68169658afb5aae8ae"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "1548dd69f68b3849d2ecf5b6943a0488cb04b0b7ae27dfeeb55448f71a5275eb"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "e90f9b619772f169b85b096db2ac995fd635eb784e081cb9d813babff45112f0"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ]
+      ],
+      "transport_sha256": "5d2a5e3e67620c5638a369184f59cce7278d673c432bfa12fc5f14764183d7a9"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "34c36190a9e5017bbe49b1729758a820f0e1ebfe6587b1111b9805b86fa05a27"
+    },
+    {
+      "class": 1,
+      "computed_common_suffix_prefix": 1,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "8e2291ef7d4bdd596e0b26435a8f8032eb12cb6424df816a33a8cccf5bae650b"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          1
+        ]
+      ],
+      "transport_sha256": "f4a728ffd57b2ae9e4d4220a7c936586ce1ae72bab64cb0fbf3cfbfeb9ee0eb7"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          2,
+          0
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "53661880b4b3a63e24adb171c6b54fa06e10bb90a04f95943b85a06bf7b70851"
+    },
+    {
+      "class": 2,
+      "computed_common_suffix_prefix": 2,
+      "isomorphism_certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "pair": [
+        [
+          2,
+          2,
+          2,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "transport_sha256": "dd70d3b7ada7f1acc046b1e0a709befd2948b8204301c812a679e30949c71dd2"
+    }
+  ],
+  "class_count": 3,
+  "class_sizes": {
+    "0": 243,
+    "1": 81,
+    "2": 27
+  },
+  "cross_representative_nonisomorphism": {
+    "0:1": {
+      "certificate": {
+        "WL_multiplicity_separation": true,
+        "left_color_sizes": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          4,
+          4,
+          4,
+          8,
+          8,
+          8,
+          16,
+          16,
+          17,
+          17
+        ],
+        "refinement_rounds": 5,
+        "right_color_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          4,
+          4,
+          4,
+          4,
+          4,
+          8,
+          8,
+          8,
+          16,
+          16,
+          17,
+          17
+        ]
+      },
+      "isomorphic": false
+    },
+    "0:2": {
+      "certificate": {
+        "WL_multiplicity_separation": true,
+        "left_color_sizes": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          4,
+          4,
+          4,
+          8,
+          8,
+          8,
+          16,
+          16,
+          17,
+          17
+        ],
+        "refinement_rounds": 5,
+        "right_color_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          4,
+          4,
+          4,
+          4,
+          4,
+          8,
+          8,
+          8,
+          16,
+          16,
+          18,
+          18
+        ]
+      },
+      "isomorphic": false
+    },
+    "1:2": {
+      "certificate": {
+        "WL_multiplicity_separation": true,
+        "left_color_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          4,
+          4,
+          4,
+          4,
+          4,
+          8,
+          8,
+          8,
+          16,
+          16,
+          17,
+          17
+        ],
+        "refinement_rounds": 5,
+        "right_color_sizes": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          4,
+          4,
+          4,
+          4,
+          4,
+          8,
+          8,
+          8,
+          16,
+          16,
+          18,
+          18
+        ]
+      },
+      "isomorphic": false
+    }
+  },
+  "depth": 4,
+  "family_count": 351,
+  "fibre_size": 27,
+  "holdouts": {
+    "0": {
+      "certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "computed_common_suffix_prefix": 0,
+      "isomorphism": {
+        "cells": {
+          "0:0": 0,
+          "0:1": 1,
+          "0:2": 2,
+          "10:-1": -1,
+          "10:0": 2,
+          "11:-1": -1,
+          "11:0": 0,
+          "12:-1": -1,
+          "13:-1": -1,
+          "13:0": 0,
+          "13:1": 1,
+          "14:-1": -1,
+          "14:0": 0,
+          "14:1": 1,
+          "15:-1": -1,
+          "16:-1": -1,
+          "16:0": 0,
+          "16:1": 1,
+          "17:-1": -1,
+          "17:0": 0,
+          "17:1": 1,
+          "18:-1": -1,
+          "19:-1": -1,
+          "1:-1": -1,
+          "1:0": 0,
+          "1:1": 1,
+          "20:-1": -1,
+          "21:-1": -1,
+          "22:-1": -1,
+          "22:0": 0,
+          "22:1": 1,
+          "23:-1": -1,
+          "23:0": 0,
+          "23:1": 1,
+          "24:-1": -1,
+          "25:-1": -1,
+          "25:0": 0,
+          "25:1": 1,
+          "26:-1": -1,
+          "26:0": 0,
+          "26:1": 1,
+          "27:-1": -1,
+          "28:-1": -1,
+          "29:-1": -1,
+          "2:-1": -1,
+          "2:0": 0,
+          "2:1": 1,
+          "30:-1": -1,
+          "31:-1": -1,
+          "31:0": 1,
+          "32:-1": -1,
+          "33:-1": -1,
+          "34:-1": -1,
+          "34:0": 2,
+          "35:-1": -1,
+          "36:-1": -1,
+          "37:-1": -1,
+          "38:-1": -1,
+          "39:-1": -1,
+          "3:-1": -1,
+          "3:0": 1,
+          "3:1": 2,
+          "4:-1": -1,
+          "4:0": 0,
+          "4:1": 1,
+          "5:-1": -1,
+          "5:0": 0,
+          "5:1": 1,
+          "6:-1": -1,
+          "7:-1": -1,
+          "7:0": 0,
+          "7:1": 1,
+          "8:-1": -1,
+          "8:0": 0,
+          "8:1": 1,
+          "9:-1": -1
+        },
+        "certificate": {
+          "constructive_partition_bijection": true,
+          "mapping_edge_checked": true,
+          "query_groups_mapped": 40
+        },
+        "completions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "queries": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          11,
+          12,
+          10,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          36,
+          31,
+          32,
+          37,
+          33,
+          34,
+          35,
+          38,
+          39
+        ]
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          1
+        ],
+        [
+          2,
+          2,
+          0,
+          2
+        ]
+      ]
+    },
+    "1": {
+      "certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "computed_common_suffix_prefix": 1,
+      "isomorphism": {
+        "cells": {
+          "0:0": 0,
+          "0:1": 1,
+          "0:2": 2,
+          "10:-1": -1,
+          "10:0": 0,
+          "10:1": 2,
+          "11:-1": -1,
+          "12:-1": -1,
+          "13:-1": -1,
+          "13:0": 0,
+          "13:1": 1,
+          "14:-1": -1,
+          "14:0": 0,
+          "14:1": 1,
+          "15:-1": -1,
+          "16:-1": -1,
+          "16:0": 0,
+          "16:1": 1,
+          "17:-1": -1,
+          "17:0": 0,
+          "17:1": 1,
+          "18:-1": -1,
+          "19:-1": -1,
+          "1:-1": -1,
+          "1:0": 0,
+          "1:1": 1,
+          "20:-1": -1,
+          "21:-1": -1,
+          "22:-1": -1,
+          "22:0": 0,
+          "22:1": 1,
+          "23:-1": -1,
+          "23:0": 0,
+          "23:1": 1,
+          "24:-1": -1,
+          "25:-1": -1,
+          "25:0": 0,
+          "25:1": 1,
+          "26:-1": -1,
+          "26:0": 0,
+          "26:1": 1,
+          "27:-1": -1,
+          "28:-1": -1,
+          "29:-1": -1,
+          "2:-1": -1,
+          "2:0": 0,
+          "2:1": 1,
+          "30:-1": -1,
+          "31:-1": -1,
+          "31:0": 1,
+          "32:-1": -1,
+          "32:0": 2,
+          "33:-1": -1,
+          "34:-1": -1,
+          "35:-1": -1,
+          "36:-1": -1,
+          "37:-1": -1,
+          "38:-1": -1,
+          "39:-1": -1,
+          "3:-1": -1,
+          "3:0": 2,
+          "4:-1": -1,
+          "4:0": 0,
+          "4:1": 1,
+          "5:-1": -1,
+          "5:0": 0,
+          "5:1": 1,
+          "6:-1": -1,
+          "7:-1": -1,
+          "7:0": 0,
+          "7:1": 1,
+          "8:-1": -1,
+          "8:0": 0,
+          "8:1": 1,
+          "9:-1": -1
+        },
+        "certificate": {
+          "constructive_partition_bijection": true,
+          "mapping_edge_checked": true,
+          "query_groups_mapped": 40
+        },
+        "completions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "queries": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          12,
+          10,
+          11,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          37,
+          39,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          38
+        ]
+      },
+      "pair": [
+        [
+          2,
+          2,
+          0,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ]
+    },
+    "2": {
+      "certificate": {
+        "constructive_partition_bijection": true,
+        "mapping_edge_checked": true,
+        "query_groups_mapped": 40
+      },
+      "computed_common_suffix_prefix": 2,
+      "isomorphism": {
+        "cells": {
+          "0:0": 0,
+          "0:1": 1,
+          "0:2": 2,
+          "10:-1": -1,
+          "10:0": 2,
+          "11:-1": -1,
+          "12:-1": -1,
+          "13:-1": -1,
+          "13:0": 0,
+          "13:1": 1,
+          "14:-1": -1,
+          "14:0": 0,
+          "14:1": 1,
+          "15:-1": -1,
+          "16:-1": -1,
+          "16:0": 0,
+          "16:1": 1,
+          "17:-1": -1,
+          "17:0": 0,
+          "17:1": 1,
+          "18:-1": -1,
+          "19:-1": -1,
+          "1:-1": -1,
+          "1:0": 0,
+          "1:1": 1,
+          "20:-1": -1,
+          "21:-1": -1,
+          "22:-1": -1,
+          "22:0": 0,
+          "22:1": 1,
+          "23:-1": -1,
+          "23:0": 0,
+          "23:1": 1,
+          "24:-1": -1,
+          "25:-1": -1,
+          "25:0": 0,
+          "25:1": 1,
+          "26:-1": -1,
+          "26:0": 0,
+          "26:1": 1,
+          "27:-1": -1,
+          "28:-1": -1,
+          "29:-1": -1,
+          "2:-1": -1,
+          "2:0": 0,
+          "2:1": 1,
+          "30:-1": -1,
+          "31:-1": -1,
+          "31:0": 0,
+          "31:1": 2,
+          "32:-1": -1,
+          "33:-1": -1,
+          "34:-1": -1,
+          "35:-1": -1,
+          "36:-1": -1,
+          "37:-1": -1,
+          "38:-1": -1,
+          "39:-1": -1,
+          "3:-1": -1,
+          "3:0": 1,
+          "4:-1": -1,
+          "4:0": 0,
+          "4:1": 1,
+          "5:-1": -1,
+          "5:0": 0,
+          "5:1": 1,
+          "6:-1": -1,
+          "7:-1": -1,
+          "7:0": 0,
+          "7:1": 1,
+          "8:-1": -1,
+          "8:0": 0,
+          "8:1": 1,
+          "9:-1": -1
+        },
+        "certificate": {
+          "constructive_partition_bijection": true,
+          "mapping_edge_checked": true,
+          "query_groups_mapped": 40
+        },
+        "completions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "queries": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          11,
+          10,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          36,
+          31,
+          32,
+          33,
+          34,
+          35,
+          37,
+          38,
+          39
+        ]
+      },
+      "pair": [
+        [
+          2,
+          1,
+          2,
+          0
+        ],
+        [
+          2,
+          1,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "predicted_class_sizes": {
+    "0": 243,
+    "1": 81,
+    "2": 27
+  },
+  "representative_solve_reduction": 117,
+  "schema": "theorica.depth4-explicit-sentinel-divergence-quotient/1",
+  "summary": {
+    "all_351_families_classified": true,
+    "all_frozen_holdouts_passed": true,
+    "closed_form_counts_passed": true,
+    "divergence_invariant_complete": true,
+    "overall_passed": true
+  }
+}

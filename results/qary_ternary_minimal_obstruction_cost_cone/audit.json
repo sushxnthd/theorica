@@ -1,0 +1,4723 @@
+{
+  "cases": [
+    {
+      "candidate_cost": 9,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        1,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 9,
+      "role": "discovery",
+      "states": 4987
+    },
+    {
+      "candidate_cost": 9,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        1,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 9,
+      "role": "discovery",
+      "states": 4987
+    },
+    {
+      "candidate_cost": 9,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        1,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 9,
+      "role": "discovery",
+      "states": 4990
+    },
+    {
+      "candidate_cost": 13,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        1,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 13,
+      "role": "discovery",
+      "states": 5623
+    },
+    {
+      "candidate_cost": 13,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        1,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 13,
+      "role": "discovery",
+      "states": 5623
+    },
+    {
+      "candidate_cost": 13,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        1,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 13,
+      "role": "discovery",
+      "states": 5626
+    },
+    {
+      "candidate_cost": 17,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        1,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 17,
+      "role": "discovery",
+      "states": 6011
+    },
+    {
+      "candidate_cost": 17,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        1,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 17,
+      "role": "discovery",
+      "states": 6011
+    },
+    {
+      "candidate_cost": 17,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        1,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 17,
+      "role": "discovery",
+      "states": 6082
+    },
+    {
+      "candidate_cost": 21,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        1,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 21,
+      "role": "discovery",
+      "states": 6335
+    },
+    {
+      "candidate_cost": 21,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        1,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 21,
+      "role": "discovery",
+      "states": 6335
+    },
+    {
+      "candidate_cost": 21,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        1,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 21,
+      "role": "discovery",
+      "states": 6380
+    },
+    {
+      "candidate_cost": 13,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        2,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 13,
+      "role": "discovery",
+      "states": 7616
+    },
+    {
+      "candidate_cost": 13,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        2,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 13,
+      "role": "discovery",
+      "states": 7616
+    },
+    {
+      "candidate_cost": 13,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        2,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 13,
+      "role": "discovery",
+      "states": 7638
+    },
+    {
+      "candidate_cost": 16,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        2,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 16,
+      "role": "discovery",
+      "states": 5294
+    },
+    {
+      "candidate_cost": 16,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        2,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 16,
+      "role": "discovery",
+      "states": 5294
+    },
+    {
+      "candidate_cost": 16,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        2,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 16,
+      "role": "discovery",
+      "states": 5297
+    },
+    {
+      "candidate_cost": 20,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        2,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 20,
+      "role": "discovery",
+      "states": 5651
+    },
+    {
+      "candidate_cost": 20,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        2,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 20,
+      "role": "discovery",
+      "states": 5651
+    },
+    {
+      "candidate_cost": 20,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        2,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 20,
+      "role": "discovery",
+      "states": 5660
+    },
+    {
+      "candidate_cost": 24,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        2,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 24,
+      "role": "discovery",
+      "states": 5847
+    },
+    {
+      "candidate_cost": 24,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        2,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 24,
+      "role": "discovery",
+      "states": 5847
+    },
+    {
+      "candidate_cost": 24,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        2,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 24,
+      "role": "discovery",
+      "states": 5854
+    },
+    {
+      "candidate_cost": 18,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        3,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 18,
+      "role": "discovery",
+      "states": 12548
+    },
+    {
+      "candidate_cost": 18,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        3,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 18,
+      "role": "discovery",
+      "states": 12548
+    },
+    {
+      "candidate_cost": 18,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        3,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 18,
+      "role": "discovery",
+      "states": 12678
+    },
+    {
+      "candidate_cost": 20,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        3,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 20,
+      "role": "discovery",
+      "states": 7868
+    },
+    {
+      "candidate_cost": 20,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        3,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 20,
+      "role": "discovery",
+      "states": 7868
+    },
+    {
+      "candidate_cost": 20,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        3,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 20,
+      "role": "discovery",
+      "states": 7907
+    },
+    {
+      "candidate_cost": 23,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        3,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 23,
+      "role": "discovery",
+      "states": 5378
+    },
+    {
+      "candidate_cost": 23,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        3,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 23,
+      "role": "discovery",
+      "states": 5378
+    },
+    {
+      "candidate_cost": 23,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        3,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 23,
+      "role": "discovery",
+      "states": 5381
+    },
+    {
+      "candidate_cost": 27,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        3,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 27,
+      "role": "discovery",
+      "states": 5643
+    },
+    {
+      "candidate_cost": 27,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        3,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 27,
+      "role": "discovery",
+      "states": 5643
+    },
+    {
+      "candidate_cost": 27,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        3,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 27,
+      "role": "discovery",
+      "states": 5652
+    },
+    {
+      "candidate_cost": 23,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        4,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 23,
+      "role": "discovery",
+      "states": 16128
+    },
+    {
+      "candidate_cost": 23,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        4,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 23,
+      "role": "discovery",
+      "states": 16128
+    },
+    {
+      "candidate_cost": 23,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        4,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 23,
+      "role": "discovery",
+      "states": 16342
+    },
+    {
+      "candidate_cost": 24,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        4,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 24,
+      "role": "discovery",
+      "states": 8932
+    },
+    {
+      "candidate_cost": 24,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        4,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 24,
+      "role": "discovery",
+      "states": 8932
+    },
+    {
+      "candidate_cost": 24,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        4,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 24,
+      "role": "discovery",
+      "states": 8936
+    },
+    {
+      "candidate_cost": 27,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        4,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 27,
+      "role": "discovery",
+      "states": 7872
+    },
+    {
+      "candidate_cost": 27,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        4,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 27,
+      "role": "discovery",
+      "states": 7872
+    },
+    {
+      "candidate_cost": 27,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        4,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 27,
+      "role": "discovery",
+      "states": 7882
+    },
+    {
+      "candidate_cost": 30,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        4,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 30,
+      "role": "discovery",
+      "states": 5378
+    },
+    {
+      "candidate_cost": 30,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        4,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 30,
+      "role": "discovery",
+      "states": 5378
+    },
+    {
+      "candidate_cost": 30,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        4,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 30,
+      "role": "discovery",
+      "states": 5381
+    },
+    {
+      "candidate_cost": 12,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        1,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 12,
+      "role": "discovery",
+      "states": 7572
+    },
+    {
+      "candidate_cost": 12,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        1,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 12,
+      "role": "discovery",
+      "states": 7572
+    },
+    {
+      "candidate_cost": 12,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        1,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 12,
+      "role": "discovery",
+      "states": 7591
+    },
+    {
+      "candidate_cost": 15,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        1,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 15,
+      "role": "discovery",
+      "states": 5719
+    },
+    {
+      "candidate_cost": 15,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        1,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 15,
+      "role": "discovery",
+      "states": 5719
+    },
+    {
+      "candidate_cost": 15,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        1,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 15,
+      "role": "discovery",
+      "states": 5722
+    },
+    {
+      "candidate_cost": 19,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        1,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 19,
+      "role": "discovery",
+      "states": 6073
+    },
+    {
+      "candidate_cost": 19,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        1,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 19,
+      "role": "discovery",
+      "states": 6073
+    },
+    {
+      "candidate_cost": 19,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        1,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 19,
+      "role": "discovery",
+      "states": 6076
+    },
+    {
+      "candidate_cost": 23,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        1,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 23,
+      "role": "discovery",
+      "states": 6303
+    },
+    {
+      "candidate_cost": 23,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        1,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 23,
+      "role": "discovery",
+      "states": 6303
+    },
+    {
+      "candidate_cost": 23,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        1,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 23,
+      "role": "discovery",
+      "states": 6306
+    },
+    {
+      "candidate_cost": 15,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        2,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 15,
+      "role": "discovery",
+      "states": 6995
+    },
+    {
+      "candidate_cost": 15,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        2,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 15,
+      "role": "discovery",
+      "states": 6995
+    },
+    {
+      "candidate_cost": 15,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        2,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 15,
+      "role": "discovery",
+      "states": 6998
+    },
+    {
+      "candidate_cost": 22,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        2,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 22,
+      "role": "discovery",
+      "states": 5780
+    },
+    {
+      "candidate_cost": 22,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        2,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 22,
+      "role": "discovery",
+      "states": 5780
+    },
+    {
+      "candidate_cost": 22,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        2,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 22,
+      "role": "discovery",
+      "states": 5783
+    },
+    {
+      "candidate_cost": 20,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        3,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 20,
+      "role": "discovery",
+      "states": 11330
+    },
+    {
+      "candidate_cost": 20,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        3,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 20,
+      "role": "discovery",
+      "states": 11330
+    },
+    {
+      "candidate_cost": 20,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        3,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 20,
+      "role": "discovery",
+      "states": 11413
+    },
+    {
+      "candidate_cost": 22,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        3,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 22,
+      "role": "discovery",
+      "states": 7545
+    },
+    {
+      "candidate_cost": 22,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        3,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 22,
+      "role": "discovery",
+      "states": 7545
+    },
+    {
+      "candidate_cost": 22,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        3,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 22,
+      "role": "discovery",
+      "states": 7660
+    },
+    {
+      "candidate_cost": 25,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        3,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 25,
+      "role": "discovery",
+      "states": 5624
+    },
+    {
+      "candidate_cost": 25,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        3,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 25,
+      "role": "discovery",
+      "states": 5624
+    },
+    {
+      "candidate_cost": 25,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        3,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 25,
+      "role": "discovery",
+      "states": 5627
+    },
+    {
+      "candidate_cost": 29,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        3,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 29,
+      "role": "discovery",
+      "states": 5773
+    },
+    {
+      "candidate_cost": 29,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        3,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 29,
+      "role": "discovery",
+      "states": 5773
+    },
+    {
+      "candidate_cost": 29,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        3,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 29,
+      "role": "discovery",
+      "states": 5776
+    },
+    {
+      "candidate_cost": 25,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        4,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 25,
+      "role": "discovery",
+      "states": 14878
+    },
+    {
+      "candidate_cost": 25,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        4,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 25,
+      "role": "discovery",
+      "states": 14878
+    },
+    {
+      "candidate_cost": 25,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        4,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 25,
+      "role": "discovery",
+      "states": 15169
+    },
+    {
+      "candidate_cost": 29,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        4,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 29,
+      "role": "discovery",
+      "states": 7746
+    },
+    {
+      "candidate_cost": 29,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        4,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 29,
+      "role": "discovery",
+      "states": 7746
+    },
+    {
+      "candidate_cost": 29,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        4,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 29,
+      "role": "discovery",
+      "states": 7783
+    },
+    {
+      "candidate_cost": 15,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        1,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 15,
+      "role": "discovery",
+      "states": 9368
+    },
+    {
+      "candidate_cost": 15,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        1,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 15,
+      "role": "discovery",
+      "states": 9368
+    },
+    {
+      "candidate_cost": 15,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        1,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 15,
+      "role": "discovery",
+      "states": 9371
+    },
+    {
+      "candidate_cost": 18,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        1,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 18,
+      "role": "discovery",
+      "states": 7771
+    },
+    {
+      "candidate_cost": 18,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        1,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 18,
+      "role": "discovery",
+      "states": 7771
+    },
+    {
+      "candidate_cost": 18,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        1,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 18,
+      "role": "discovery",
+      "states": 7788
+    },
+    {
+      "candidate_cost": 21,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        1,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 21,
+      "role": "discovery",
+      "states": 6052
+    },
+    {
+      "candidate_cost": 21,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        1,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 21,
+      "role": "discovery",
+      "states": 6052
+    },
+    {
+      "candidate_cost": 21,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        1,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 21,
+      "role": "discovery",
+      "states": 6055
+    },
+    {
+      "candidate_cost": 25,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        1,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 25,
+      "role": "discovery",
+      "states": 6365
+    },
+    {
+      "candidate_cost": 25,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        1,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 25,
+      "role": "discovery",
+      "states": 6365
+    },
+    {
+      "candidate_cost": 25,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        1,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 25,
+      "role": "discovery",
+      "states": 6368
+    },
+    {
+      "candidate_cost": 18,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        2,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 18,
+      "role": "discovery",
+      "states": 8725
+    },
+    {
+      "candidate_cost": 18,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        2,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 18,
+      "role": "discovery",
+      "states": 8725
+    },
+    {
+      "candidate_cost": 18,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        2,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 18,
+      "role": "discovery",
+      "states": 8730
+    },
+    {
+      "candidate_cost": 21,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        2,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 21,
+      "role": "discovery",
+      "states": 7897
+    },
+    {
+      "candidate_cost": 21,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        2,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 21,
+      "role": "discovery",
+      "states": 7897
+    },
+    {
+      "candidate_cost": 21,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        2,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 21,
+      "role": "discovery",
+      "states": 7914
+    },
+    {
+      "candidate_cost": 24,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        2,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 24,
+      "role": "discovery",
+      "states": 5776
+    },
+    {
+      "candidate_cost": 24,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        2,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 24,
+      "role": "discovery",
+      "states": 5776
+    },
+    {
+      "candidate_cost": 24,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        2,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 24,
+      "role": "discovery",
+      "states": 5779
+    },
+    {
+      "candidate_cost": 28,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        2,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 28,
+      "role": "discovery",
+      "states": 5968
+    },
+    {
+      "candidate_cost": 28,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        2,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 28,
+      "role": "discovery",
+      "states": 5968
+    },
+    {
+      "candidate_cost": 28,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        2,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 28,
+      "role": "discovery",
+      "states": 5971
+    },
+    {
+      "candidate_cost": 22,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        3,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 22,
+      "role": "discovery",
+      "states": 10066
+    },
+    {
+      "candidate_cost": 22,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        3,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 22,
+      "role": "discovery",
+      "states": 10066
+    },
+    {
+      "candidate_cost": 22,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        3,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 22,
+      "role": "discovery",
+      "states": 10069
+    },
+    {
+      "candidate_cost": 24,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        3,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 24,
+      "role": "discovery",
+      "states": 6959
+    },
+    {
+      "candidate_cost": 24,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        3,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 24,
+      "role": "discovery",
+      "states": 6959
+    },
+    {
+      "candidate_cost": 24,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        3,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 24,
+      "role": "discovery",
+      "states": 7017
+    },
+    {
+      "candidate_cost": 31,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        3,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 31,
+      "role": "discovery",
+      "states": 5843
+    },
+    {
+      "candidate_cost": 31,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        3,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 31,
+      "role": "discovery",
+      "states": 5843
+    },
+    {
+      "candidate_cost": 31,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        3,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 31,
+      "role": "discovery",
+      "states": 5846
+    },
+    {
+      "candidate_cost": 27,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        4,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 27,
+      "role": "discovery",
+      "states": 13541
+    },
+    {
+      "candidate_cost": 27,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        4,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 27,
+      "role": "discovery",
+      "states": 13541
+    },
+    {
+      "candidate_cost": 27,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        4,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 27,
+      "role": "discovery",
+      "states": 13624
+    },
+    {
+      "candidate_cost": 28,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        4,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 28,
+      "role": "discovery",
+      "states": 7726
+    },
+    {
+      "candidate_cost": 28,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        4,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 28,
+      "role": "discovery",
+      "states": 7726
+    },
+    {
+      "candidate_cost": 28,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        4,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 28,
+      "role": "discovery",
+      "states": 7748
+    },
+    {
+      "candidate_cost": 31,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        4,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 31,
+      "role": "discovery",
+      "states": 7539
+    },
+    {
+      "candidate_cost": 31,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        4,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 31,
+      "role": "discovery",
+      "states": 7539
+    },
+    {
+      "candidate_cost": 31,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        4,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 31,
+      "role": "discovery",
+      "states": 7654
+    },
+    {
+      "candidate_cost": 34,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        4,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 34,
+      "role": "discovery",
+      "states": 5624
+    },
+    {
+      "candidate_cost": 34,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        4,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 34,
+      "role": "discovery",
+      "states": 5624
+    },
+    {
+      "candidate_cost": 34,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        4,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 34,
+      "role": "discovery",
+      "states": 5627
+    },
+    {
+      "candidate_cost": 19,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        1,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 19,
+      "role": "discovery",
+      "states": 18686
+    },
+    {
+      "candidate_cost": 19,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        1,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 19,
+      "role": "discovery",
+      "states": 18686
+    },
+    {
+      "candidate_cost": 19,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        1,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 19,
+      "role": "discovery",
+      "states": 18689
+    },
+    {
+      "candidate_cost": 21,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        1,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 21,
+      "role": "discovery",
+      "states": 9543
+    },
+    {
+      "candidate_cost": 21,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        1,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 21,
+      "role": "discovery",
+      "states": 9543
+    },
+    {
+      "candidate_cost": 21,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        1,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 21,
+      "role": "discovery",
+      "states": 9562
+    },
+    {
+      "candidate_cost": 24,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        1,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 24,
+      "role": "discovery",
+      "states": 7778
+    },
+    {
+      "candidate_cost": 24,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        1,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 24,
+      "role": "discovery",
+      "states": 7778
+    },
+    {
+      "candidate_cost": 24,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        1,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 24,
+      "role": "discovery",
+      "states": 7799
+    },
+    {
+      "candidate_cost": 27,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        1,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 27,
+      "role": "discovery",
+      "states": 6223
+    },
+    {
+      "candidate_cost": 27,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        1,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 27,
+      "role": "discovery",
+      "states": 6223
+    },
+    {
+      "candidate_cost": 27,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        1,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 27,
+      "role": "discovery",
+      "states": 6226
+    },
+    {
+      "candidate_cost": 21,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        2,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 21,
+      "role": "discovery",
+      "states": 9810
+    },
+    {
+      "candidate_cost": 21,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        2,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 21,
+      "role": "discovery",
+      "states": 9810
+    },
+    {
+      "candidate_cost": 21,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        2,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 21,
+      "role": "discovery",
+      "states": 9813
+    },
+    {
+      "candidate_cost": 27,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        2,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 27,
+      "role": "discovery",
+      "states": 7689
+    },
+    {
+      "candidate_cost": 27,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        2,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 27,
+      "role": "discovery",
+      "states": 7689
+    },
+    {
+      "candidate_cost": 27,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        2,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 27,
+      "role": "discovery",
+      "states": 7706
+    },
+    {
+      "candidate_cost": 25,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        3,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 25,
+      "role": "discovery",
+      "states": 11682
+    },
+    {
+      "candidate_cost": 25,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        3,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 25,
+      "role": "discovery",
+      "states": 11682
+    },
+    {
+      "candidate_cost": 25,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        3,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 25,
+      "role": "discovery",
+      "states": 11687
+    },
+    {
+      "candidate_cost": 27,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        3,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 27,
+      "role": "discovery",
+      "states": 8568
+    },
+    {
+      "candidate_cost": 27,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        3,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 27,
+      "role": "discovery",
+      "states": 8568
+    },
+    {
+      "candidate_cost": 27,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        3,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 27,
+      "role": "discovery",
+      "states": 8587
+    },
+    {
+      "candidate_cost": 30,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        3,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 30,
+      "role": "discovery",
+      "states": 7746
+    },
+    {
+      "candidate_cost": 30,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        3,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 30,
+      "role": "discovery",
+      "states": 7746
+    },
+    {
+      "candidate_cost": 30,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        3,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 30,
+      "role": "discovery",
+      "states": 7763
+    },
+    {
+      "candidate_cost": 33,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        3,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 33,
+      "role": "discovery",
+      "states": 5776
+    },
+    {
+      "candidate_cost": 33,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        3,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 33,
+      "role": "discovery",
+      "states": 5776
+    },
+    {
+      "candidate_cost": 33,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        3,
+        4
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 33,
+      "role": "discovery",
+      "states": 5779
+    },
+    {
+      "candidate_cost": 29,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        4,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 29,
+      "role": "discovery",
+      "states": 12463
+    },
+    {
+      "candidate_cost": 29,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        4,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 29,
+      "role": "discovery",
+      "states": 12463
+    },
+    {
+      "candidate_cost": 29,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        4,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 29,
+      "role": "discovery",
+      "states": 12466
+    },
+    {
+      "candidate_cost": 33,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        4,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 33,
+      "role": "discovery",
+      "states": 6952
+    },
+    {
+      "candidate_cost": 33,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        4,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 33,
+      "role": "discovery",
+      "states": 6952
+    },
+    {
+      "candidate_cost": 33,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        4,
+        4,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 33,
+      "role": "discovery",
+      "states": 6955
+    },
+    {
+      "candidate_cost": 28,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        5,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 28,
+      "role": "prospective_holdout",
+      "states": 18979
+    },
+    {
+      "candidate_cost": 28,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        5,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 28,
+      "role": "prospective_holdout",
+      "states": 18979
+    },
+    {
+      "candidate_cost": 28,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        5,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 28,
+      "role": "prospective_holdout",
+      "states": 19216
+    },
+    {
+      "candidate_cost": 31,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        5,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 31,
+      "role": "prospective_holdout",
+      "states": 11224
+    },
+    {
+      "candidate_cost": 31,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        5,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 31,
+      "role": "prospective_holdout",
+      "states": 11224
+    },
+    {
+      "candidate_cost": 31,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        5,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 31,
+      "role": "prospective_holdout",
+      "states": 11289
+    },
+    {
+      "candidate_cost": 24,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        4,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 24,
+      "role": "prospective_holdout",
+      "states": 8932
+    },
+    {
+      "candidate_cost": 24,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        4,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 24,
+      "role": "prospective_holdout",
+      "states": 8932
+    },
+    {
+      "candidate_cost": 24,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        1,
+        4,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 24,
+      "role": "prospective_holdout",
+      "states": 8936
+    },
+    {
+      "candidate_cost": 40,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        7,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 40,
+      "role": "prospective_holdout",
+      "states": 22109
+    },
+    {
+      "candidate_cost": 40,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        7,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 40,
+      "role": "prospective_holdout",
+      "states": 22109
+    },
+    {
+      "candidate_cost": 40,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        7,
+        1
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 40,
+      "role": "prospective_holdout",
+      "states": 22400
+    },
+    {
+      "candidate_cost": 48,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        8,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 48,
+      "role": "prospective_holdout",
+      "states": 16121
+    },
+    {
+      "candidate_cost": 48,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        8,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 48,
+      "role": "prospective_holdout",
+      "states": 16121
+    },
+    {
+      "candidate_cost": 48,
+      "candidate_matched": true,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        3,
+        8,
+        2
+      ],
+      "pair": [
+        [
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          2,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 48,
+      "role": "prospective_holdout",
+      "states": 16374
+    },
+    {
+      "candidate_cost": 52,
+      "candidate_matched": false,
+      "feasible_at_recorded_exact": true,
+      "infeasible_below_recorded_exact": true,
+      "level_costs": [
+        2,
+        9,
+        3
+      ],
+      "pair": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "recorded_exact_cost": 51,
+      "role": "prospective_holdout",
+      "states": 12816
+    }
+  ],
+  "schema": "theorica.ternary-minimal-obstruction-cost-cone-audit/1",
+  "summary": {
+    "audited_cases": 181,
+    "candidate_mismatches": 1,
+    "fail_fast_prefix_exact": true,
+    "feasible_at_recorded_exact": 181,
+    "full_matrix_cases": 201,
+    "independent_states": 1557114,
+    "infeasible_below_recorded_exact": 181,
+    "mismatch_is_final_case": true,
+    "passed": true,
+    "zero_theorica_imports": true
+  }
+}

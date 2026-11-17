@@ -1,0 +1,52 @@
+{
+  "exhaustive_digest_reproduced": true,
+  "exhaustive_replays": 1092,
+  "exhaustive_total": 1092,
+  "holdout_replays": 5,
+  "holdout_total": 5,
+  "passed": true,
+  "production_imports": [],
+  "replays": [
+    {
+      "arity": 2,
+      "depth": 4,
+      "face_count": 10,
+      "face_maximum": 26,
+      "matched": true,
+      "recurrence_cost": 26
+    },
+    {
+      "arity": 3,
+      "depth": 4,
+      "face_count": 10,
+      "face_maximum": 30,
+      "matched": true,
+      "recurrence_cost": 30
+    },
+    {
+      "arity": 5,
+      "depth": 5,
+      "face_count": 15,
+      "face_maximum": 41,
+      "matched": true,
+      "recurrence_cost": 41
+    },
+    {
+      "arity": 2,
+      "depth": 6,
+      "face_count": 21,
+      "face_maximum": 38,
+      "matched": true,
+      "recurrence_cost": 38
+    },
+    {
+      "arity": 3,
+      "depth": 8,
+      "face_count": 36,
+      "face_maximum": 88,
+      "matched": true,
+      "recurrence_cost": 88
+    }
+  ],
+  "schema": "theorica.qary-root-respecting-insurance-audit/1"
+}

@@ -1,0 +1,340 @@
+{
+  "clean_separator": {
+    "present": true,
+    "witnesses": [
+      {
+        "cells": [
+          {
+            "answer": 0,
+            "one_lie": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "zero_lie": []
+          },
+          {
+            "answer": 1,
+            "one_lie": [],
+            "zero_lie": [
+              8
+            ]
+          },
+          {
+            "answer": 2,
+            "one_lie": [],
+            "zero_lie": [
+              9
+            ]
+          }
+        ],
+        "query_group": 3
+      }
+    ]
+  },
+  "discovery_regression": {
+    "actions_evaluated": 3291,
+    "compatibility_states": 115,
+    "constructive_upper_bound": 27,
+    "exact_lower_bound": 27,
+    "level_costs": [
+      2,
+      9,
+      3
+    ],
+    "root_actions": [
+      {
+        "action_value": 29,
+        "child_values": [
+          14,
+          14,
+          27
+        ],
+        "optimal": false,
+        "query_cost": 2,
+        "query_group": 0,
+        "query_level": 0
+      },
+      {
+        "action_value": 36,
+        "child_values": [
+          27,
+          11
+        ],
+        "optimal": false,
+        "query_cost": 9,
+        "query_group": 1,
+        "query_level": 1
+      },
+      {
+        "action_value": 36,
+        "child_values": [
+          27,
+          11
+        ],
+        "optimal": false,
+        "query_cost": 9,
+        "query_group": 2,
+        "query_level": 1
+      },
+      {
+        "action_value": 27,
+        "child_values": [
+          14,
+          18,
+          18
+        ],
+        "optimal": true,
+        "query_cost": 9,
+        "query_group": 3,
+        "query_level": 1
+      },
+      {
+        "action_value": 30,
+        "child_values": [
+          27,
+          9
+        ],
+        "optimal": false,
+        "query_cost": 3,
+        "query_group": 4,
+        "query_level": 2
+      },
+      {
+        "action_value": 30,
+        "child_values": [
+          27,
+          9
+        ],
+        "optimal": false,
+        "query_cost": 3,
+        "query_group": 5,
+        "query_level": 2
+      },
+      {
+        "action_value": 30,
+        "child_values": [
+          27,
+          9
+        ],
+        "optimal": false,
+        "query_cost": 3,
+        "query_group": 7,
+        "query_level": 2
+      },
+      {
+        "action_value": 30,
+        "child_values": [
+          27,
+          9
+        ],
+        "optimal": false,
+        "query_cost": 3,
+        "query_group": 8,
+        "query_level": 2
+      }
+    ],
+    "states_solved": 4537
+  },
+  "family": "P2_WL_nonisomorphic",
+  "opened_reserved_cases": 1,
+  "prospective": {
+    "actions_evaluated": 3291,
+    "compatibility_states": 115,
+    "constructive_upper_bound": 30,
+    "exact_lower_bound": 30,
+    "level_costs": [
+      3,
+      10,
+      3
+    ],
+    "predicted_value": 30,
+    "root_actions": [
+      {
+        "action_value": 33,
+        "child_values": [
+          16,
+          16,
+          30
+        ],
+        "optimal": false,
+        "query_cost": 3,
+        "query_group": 0,
+        "query_level": 0
+      },
+      {
+        "action_value": 40,
+        "child_values": [
+          30,
+          13
+        ],
+        "optimal": false,
+        "query_cost": 10,
+        "query_group": 1,
+        "query_level": 1
+      },
+      {
+        "action_value": 40,
+        "child_values": [
+          30,
+          13
+        ],
+        "optimal": false,
+        "query_cost": 10,
+        "query_group": 2,
+        "query_level": 1
+      },
+      {
+        "action_value": 30,
+        "child_values": [
+          16,
+          20,
+          20
+        ],
+        "optimal": true,
+        "query_cost": 10,
+        "query_group": 3,
+        "query_level": 1
+      },
+      {
+        "action_value": 33,
+        "child_values": [
+          30,
+          10
+        ],
+        "optimal": false,
+        "query_cost": 3,
+        "query_group": 4,
+        "query_level": 2
+      },
+      {
+        "action_value": 33,
+        "child_values": [
+          30,
+          10
+        ],
+        "optimal": false,
+        "query_cost": 3,
+        "query_group": 5,
+        "query_level": 2
+      },
+      {
+        "action_value": 33,
+        "child_values": [
+          30,
+          10
+        ],
+        "optimal": false,
+        "query_cost": 3,
+        "query_group": 7,
+        "query_level": 2
+      },
+      {
+        "action_value": 33,
+        "child_values": [
+          30,
+          10
+        ],
+        "optimal": false,
+        "query_cost": 3,
+        "query_group": 8,
+        "query_level": 2
+      }
+    ],
+    "states_solved": 4537
+  },
+  "remaining_reserved_cases": 17,
+  "schema": "theorica.ternary-clean-separator/1",
+  "summary": {
+    "classification": "clean_separator_residual_law_supported",
+    "passed": true,
+    "prediction_supported": true
+  },
+  "witness_state": {
+    "erasures_used": 1,
+    "lie_counts": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0
+    ],
+    "remaining_copies": [
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ]
+  },
+  "words": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      1,
+      1
+    ],
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      2,
+      1,
+      0
+    ],
+    [
+      2,
+      2,
+      0
+    ]
+  ]
+}

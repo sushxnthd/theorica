@@ -1,0 +1,32 @@
+{
+  "critical_child_crossing_replayed": true,
+  "endpoint_replay": [
+    {
+      "clean_group3_present": true,
+      "independent_branch_value": 33,
+      "independent_child_values": [
+        22,
+        22,
+        22
+      ],
+      "leaf_cost": 7,
+      "valid": true
+    },
+    {
+      "clean_group3_present": true,
+      "independent_branch_value": 34,
+      "independent_child_values": [
+        23,
+        22,
+        22
+      ],
+      "leaf_cost": 8,
+      "valid": true
+    }
+  ],
+  "monotonic_first_integer_breakpoint_valid": true,
+  "passed": true,
+  "production_imports": 0,
+  "reserved_count_valid": true,
+  "schema": "theorica.ternary-p2-first-leaf-breakpoint-audit/1"
+}

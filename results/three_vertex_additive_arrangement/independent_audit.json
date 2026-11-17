@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "holdout_values": true,
+    "opened_case_count": true,
+    "opened_local_global_agreement": true,
+    "primary_zero_mismatches": true,
+    "pure_count": true,
+    "scaling_certificate": true,
+    "strict_count": true,
+    "support_bound": true
+  },
+  "passed": true,
+  "schema": "three-vertex-additive-arrangement-audit-v1"
+}

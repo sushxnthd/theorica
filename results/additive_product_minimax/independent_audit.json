@@ -1,0 +1,7 @@
+{
+  "checker": "independent_fraction_only_no_production_import",
+  "exhaustive_cases": 6561,
+  "maximum_support": 3,
+  "status": "pass",
+  "strict_pairs": 2072
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "theorica.ternary-obstruction-column-generation-audit/1",
+  "summary": {
+    "added_antichain_exact": true,
+    "calibration_cases": 181,
+    "calibration_matches": 181,
+    "columns_added": 1,
+    "fail_fast_cases": 1,
+    "fan_prediction_recomputed": 52,
+    "feasible_at_exact": true,
+    "frozen_predictions": 20,
+    "independent_states": 12816,
+    "infeasible_one_below": true,
+    "passed": true,
+    "recorded_exact": 51,
+    "recorded_prediction": 52,
+    "source_sha256": "47dde841c2fbd1aa1b2042d4c09875865dac3f2d91398c022f3992784bd837e5",
+    "zero_theorica_imports": true
+  }
+}

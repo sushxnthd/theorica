@@ -1,0 +1,2779 @@
+{
+  "claim": "two-vertex additive envelope and exact randomization criterion",
+  "exhaustive_cases": 6561,
+  "exhaustive_pure_cases": 5237,
+  "exhaustive_strict_cases": 1324,
+  "exhaustive_strictness_mismatches": 0,
+  "exhaustive_value_mismatches": 0,
+  "holdout_cases": [
+    {
+      "breakpoints": 5,
+      "components": [
+        [
+          [
+            3,
+            6
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        [
+          [
+            0,
+            0
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        [
+          [
+            6,
+            0
+          ],
+          [
+            1,
+            6
+          ]
+        ],
+        [
+          [
+            3,
+            7
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            3,
+            7
+          ]
+        ]
+      ],
+      "expanded_actions": 32,
+      "nature_probability": "6/11",
+      "policy": [
+        [
+          [
+            0,
+            1,
+            0,
+            0
+          ],
+          "1"
+        ]
+      ],
+      "pure_witness": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "strict_randomization_necessary": false,
+      "value": "19"
+    },
+    {
+      "breakpoints": 5,
+      "components": [
+        [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            4
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        [
+          [
+            2,
+            6
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            1,
+            6
+          ]
+        ],
+        [
+          [
+            6,
+            5
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        [
+          [
+            0,
+            3
+          ],
+          [
+            6,
+            5
+          ],
+          [
+            4,
+            3
+          ]
+        ]
+      ],
+      "expanded_actions": 162,
+      "nature_probability": "1/2",
+      "policy": [
+        [
+          [
+            2,
+            0,
+            1,
+            1,
+            1
+          ],
+          "1/2"
+        ],
+        [
+          [
+            2,
+            0,
+            1,
+            0,
+            1
+          ],
+          "1/2"
+        ]
+      ],
+      "pure_witness": [],
+      "strict_randomization_necessary": true,
+      "value": "47/2"
+    },
+    {
+      "breakpoints": 6,
+      "components": [
+        [
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            7
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            5,
+            6
+          ]
+        ],
+        [
+          [
+            6,
+            6
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            6,
+            5
+          ],
+          [
+            4,
+            7
+          ]
+        ]
+      ],
+      "expanded_actions": 64,
+      "nature_probability": "1",
+      "policy": [
+        [
+          [
+            3,
+            3,
+            0
+          ],
+          "1"
+        ]
+      ],
+      "pure_witness": [
+        3,
+        3,
+        0
+      ],
+      "strict_randomization_necessary": false,
+      "value": "14"
+    },
+    {
+      "breakpoints": 4,
+      "components": [
+        [
+          [
+            3,
+            7
+          ],
+          [
+            5,
+            7
+          ]
+        ],
+        [
+          [
+            0,
+            2
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        [
+          [
+            5,
+            2
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            7
+          ]
+        ]
+      ],
+      "expanded_actions": 16,
+      "nature_probability": "5/7",
+      "policy": [
+        [
+          [
+            1,
+            1,
+            3
+          ],
+          "5/7"
+        ],
+        [
+          [
+            1,
+            1,
+            0
+          ],
+          "2/7"
+        ]
+      ],
+      "pure_witness": [],
+      "strict_randomization_necessary": true,
+      "value": "88/7"
+    },
+    {
+      "breakpoints": 9,
+      "components": [
+        [
+          [
+            5,
+            3
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        [
+          [
+            2,
+            5
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            5
+          ]
+        ],
+        [
+          [
+            5,
+            1
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        [
+          [
+            5,
+            6
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        [
+          [
+            3,
+            2
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            5,
+            0
+          ]
+        ]
+      ],
+      "expanded_actions": 384,
+      "nature_probability": "1/6",
+      "policy": [
+        [
+          [
+            0,
+            3,
+            1,
+            0,
+            1
+          ],
+          "1"
+        ]
+      ],
+      "pure_witness": [
+        0,
+        3,
+        1,
+        0,
+        1
+      ],
+      "strict_randomization_necessary": false,
+      "value": "22"
+    },
+    {
+      "breakpoints": 4,
+      "components": [
+        [
+          [
+            2,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        [
+          [
+            6,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          [
+            5,
+            6
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        [
+          [
+            3,
+            5
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            7,
+            7
+          ]
+        ]
+      ],
+      "expanded_actions": 288,
+      "nature_probability": "1/3",
+      "policy": [
+        [
+          [
+            1,
+            2,
+            2,
+            0,
+            2
+          ],
+          "5/6"
+        ],
+        [
+          [
+            1,
+            2,
+            1,
+            0,
+            2
+          ],
+          "1/6"
+        ]
+      ],
+      "pure_witness": [],
+      "strict_randomization_necessary": true,
+      "value": "77/3"
+    },
+    {
+      "breakpoints": 5,
+      "components": [
+        [
+          [
+            1,
+            7
+          ],
+          [
+            3,
+            7
+          ]
+        ],
+        [
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            6
+          ]
+        ],
+        [
+          [
+            2,
+            6
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            5
+          ]
+        ]
+      ],
+      "expanded_actions": 16,
+      "nature_probability": "1",
+      "policy": [
+        [
+          [
+            1,
+            1,
+            1
+          ],
+          "1"
+        ]
+      ],
+      "pure_witness": [
+        1,
+        1,
+        1
+      ],
+      "strict_randomization_necessary": false,
+      "value": "10"
+    },
+    {
+      "breakpoints": 6,
+      "components": [
+        [
+          [
+            6,
+            2
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            7
+          ]
+        ],
+        [
+          [
+            6,
+            2
+          ],
+          [
+            7,
+            7
+          ]
+        ],
+        [
+          [
+            1,
+            3
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        [
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            7
+          ]
+        ]
+      ],
+      "expanded_actions": 48,
+      "nature_probability": "7/9",
+      "policy": [
+        [
+          [
+            1,
+            1,
+            1,
+            1
+          ],
+          "1/9"
+        ],
+        [
+          [
+            1,
+            1,
+            2,
+            1
+          ],
+          "8/9"
+        ]
+      ],
+      "pure_witness": [],
+      "strict_randomization_necessary": true,
+      "value": "169/9"
+    },
+    {
+      "breakpoints": 7,
+      "components": [
+        [
+          [
+            1,
+            5
+          ],
+          [
+            7,
+            0
+          ]
+        ],
+        [
+          [
+            7,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            4,
+            0
+          ],
+          [
+            1,
+            6
+          ]
+        ],
+        [
+          [
+            5,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        [
+          [
+            4,
+            6
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        [
+          [
+            3,
+            6
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            3
+          ]
+        ]
+      ],
+      "expanded_actions": 144,
+      "nature_probability": "0",
+      "policy": [
+        [
+          [
+            0,
+            0,
+            1,
+            0,
+            2,
+            0
+          ],
+          "1"
+        ]
+      ],
+      "pure_witness": [
+        0,
+        0,
+        1,
+        0,
+        2,
+        0
+      ],
+      "strict_randomization_necessary": false,
+      "value": "23"
+    },
+    {
+      "breakpoints": 4,
+      "components": [
+        [
+          [
+            4,
+            4
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            5,
+            6
+          ]
+        ],
+        [
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            6,
+            5
+          ]
+        ],
+        [
+          [
+            3,
+            1
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            6
+          ]
+        ]
+      ],
+      "expanded_actions": 48,
+      "nature_probability": "6/7",
+      "policy": [
+        [
+          [
+            3,
+            2,
+            1
+          ],
+          "2/7"
+        ],
+        [
+          [
+            3,
+            2,
+            0
+          ],
+          "5/7"
+        ]
+      ],
+      "pure_witness": [],
+      "strict_randomization_necessary": true,
+      "value": "96/7"
+    },
+    {
+      "breakpoints": 6,
+      "components": [
+        [
+          [
+            5,
+            1
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        [
+          [
+            6,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          [
+            7,
+            7
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        [
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        [
+          [
+            6,
+            7
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            7,
+            7
+          ]
+        ],
+        [
+          [
+            3,
+            6
+          ],
+          [
+            3,
+            2
+          ]
+        ]
+      ],
+      "expanded_actions": 512,
+      "nature_probability": "0",
+      "policy": [
+        [
+          [
+            2,
+            0,
+            0,
+            1,
+            3,
+            0
+          ],
+          "1"
+        ]
+      ],
+      "pure_witness": [
+        2,
+        0,
+        0,
+        1,
+        3,
+        0
+      ],
+      "strict_randomization_necessary": false,
+      "value": "29"
+    },
+    {
+      "breakpoints": 7,
+      "components": [
+        [
+          [
+            5,
+            6
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        [
+          [
+            1,
+            4
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        [
+          [
+            6,
+            1
+          ],
+          [
+            6,
+            7
+          ]
+        ]
+      ],
+      "expanded_actions": 24,
+      "nature_probability": "3/4",
+      "policy": [
+        [
+          [
+            0,
+            3,
+            1
+          ],
+          "1/4"
+        ],
+        [
+          [
+            1,
+            3,
+            1
+          ],
+          "3/4"
+        ]
+      ],
+      "pure_witness": [],
+      "strict_randomization_necessary": true,
+      "value": "59/4"
+    },
+    {
+      "breakpoints": 8,
+      "components": [
+        [
+          [
+            1,
+            5
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            7,
+            0
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        [
+          [
+            5,
+            3
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        [
+          [
+            7,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            2,
+            6
+          ]
+        ],
+        [
+          [
+            2,
+            5
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        [
+          [
+            2,
+            1
+          ],
+          [
+            6,
+            0
+          ]
+        ]
+      ],
+      "expanded_actions": 432,
+      "nature_probability": "1/2",
+      "policy": [
+        [
+          [
+            0,
+            3,
+            1,
+            0,
+            0,
+            1
+          ],
+          "13/14"
+        ],
+        [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "1/14"
+        ]
+      ],
+      "pure_witness": [],
+      "strict_randomization_necessary": true,
+      "value": "43/2"
+    },
+    {
+      "breakpoints": 4,
+      "components": [
+        [
+          [
+            3,
+            7
+          ],
+          [
+            3,
+            5
+          ]
+        ],
+        [
+          [
+            5,
+            2
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            1,
+            6
+          ]
+        ],
+        [
+          [
+            2,
+            5
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        [
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            6
+          ]
+        ],
+        [
+          [
+            7,
+            7
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        [
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            6
+          ]
+        ]
+      ],
+      "expanded_actions": 288,
+      "nature_probability": "1",
+      "policy": [
+        [
+          [
+            0,
+            1,
+            1,
+            1,
+            0,
+            2
+          ],
+          "1"
+        ]
+      ],
+      "pure_witness": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        2
+      ],
+      "strict_randomization_necessary": false,
+      "value": "24"
+    },
+    {
+      "breakpoints": 7,
+      "components": [
+        [
+          [
+            0,
+            5
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        [
+          [
+            6,
+            0
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            7,
+            5
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        [
+          [
+            4,
+            4
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            3,
+            6
+          ]
+        ],
+        [
+          [
+            0,
+            5
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      "expanded_actions": 96,
+      "nature_probability": "1/2",
+      "policy": [
+        [
+          [
+            0,
+            2,
+            2,
+            0
+          ],
+          "1/12"
+        ],
+        [
+          [
+            3,
+            2,
+            2,
+            1
+          ],
+          "11/12"
+        ]
+      ],
+      "pure_witness": [],
+      "strict_randomization_necessary": true,
+      "value": "31/2"
+    },
+    {
+      "breakpoints": 6,
+      "components": [
+        [
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        [
+          [
+            3,
+            2
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            6,
+            2
+          ]
+        ],
+        [
+          [
+            3,
+            3
+          ],
+          [
+            6,
+            4
+          ]
+        ],
+        [
+          [
+            7,
+            6
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      ],
+      "expanded_actions": 32,
+      "nature_probability": "0",
+      "policy": [
+        [
+          [
+            1,
+            1,
+            1,
+            0
+          ],
+          "1"
+        ]
+      ],
+      "pure_witness": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "strict_randomization_necessary": false,
+      "value": "20"
+    },
+    {
+      "breakpoints": 8,
+      "components": [
+        [
+          [
+            6,
+            7
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            5,
+            4
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            0
+          ]
+        ],
+        [
+          [
+            6,
+            6
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            2,
+            5
+          ]
+        ]
+      ],
+      "expanded_actions": 96,
+      "nature_probability": "0",
+      "policy": [
+        [
+          [
+            0,
+            0,
+            1,
+            0
+          ],
+          "1"
+        ]
+      ],
+      "pure_witness": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "strict_randomization_necessary": false,
+      "value": "21"
+    },
+    {
+      "breakpoints": 6,
+      "components": [
+        [
+          [
+            0,
+            4
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            6
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        [
+          [
+            2,
+            5
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            5,
+            5
+          ]
+        ],
+        [
+          [
+            5,
+            6
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        [
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "expanded_actions": 288,
+      "nature_probability": "1",
+      "policy": [
+        [
+          [
+            1,
+            1,
+            2,
+            0,
+            1
+          ],
+          "1"
+        ]
+      ],
+      "pure_witness": [
+        1,
+        1,
+        2,
+        0,
+        1
+      ],
+      "strict_randomization_necessary": false,
+      "value": "16"
+    },
+    {
+      "breakpoints": 5,
+      "components": [
+        [
+          [
+            3,
+            1
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            0,
+            5
+          ]
+        ],
+        [
+          [
+            6,
+            4
+          ],
+          [
+            6,
+            1
+          ]
+        ],
+        [
+          [
+            4,
+            0
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            7,
+            0
+          ]
+        ]
+      ],
+      "expanded_actions": 18,
+      "nature_probability": "7/13",
+      "policy": [
+        [
+          [
+            1,
+            0,
+            1
+          ],
+          "8/13"
+        ],
+        [
+          [
+            1,
+            0,
+            2
+          ],
+          "5/13"
+        ]
+      ],
+      "pure_witness": [],
+      "strict_randomization_necessary": true,
+      "value": "199/13"
+    },
+    {
+      "breakpoints": 8,
+      "components": [
+        [
+          [
+            7,
+            7
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        [
+          [
+            3,
+            2
+          ],
+          [
+            6,
+            6
+          ]
+        ],
+        [
+          [
+            3,
+            3
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        [
+          [
+            4,
+            7
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            7,
+            1
+          ]
+        ]
+      ],
+      "expanded_actions": 72,
+      "nature_probability": "5/6",
+      "policy": [
+        [
+          [
+            0,
+            1,
+            0,
+            1
+          ],
+          "5/6"
+        ],
+        [
+          [
+            0,
+            1,
+            0,
+            2
+          ],
+          "1/6"
+        ]
+      ],
+      "pure_witness": [],
+      "strict_randomization_necessary": true,
+      "value": "133/6"
+    },
+    {
+      "breakpoints": 6,
+      "components": [
+        [
+          [
+            5,
+            3
+          ],
+          [
+            5,
+            0
+          ]
+        ],
+        [
+          [
+            1,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        [
+          [
+            5,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            2,
+            6
+          ]
+        ],
+        [
+          [
+            7,
+            5
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            2,
+            4
+          ]
+        ]
+      ],
+      "expanded_actions": 96,
+      "nature_probability": "0",
+      "policy": [
+        [
+          [
+            0,
+            1,
+            2,
+            0
+          ],
+          "1"
+        ]
+      ],
+      "pure_witness": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "strict_randomization_necessary": false,
+      "value": "19"
+    },
+    {
+      "breakpoints": 6,
+      "components": [
+        [
+          [
+            5,
+            3
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            5
+          ]
+        ],
+        [
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            6
+          ]
+        ],
+        [
+          [
+            7,
+            4
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            0,
+            6
+          ]
+        ]
+      ],
+      "expanded_actions": 48,
+      "nature_probability": "2/7",
+      "policy": [
+        [
+          [
+            1,
+            3,
+            0
+          ],
+          "1/7"
+        ],
+        [
+          [
+            1,
+            1,
+            0
+          ],
+          "6/7"
+        ]
+      ],
+      "pure_witness": [],
+      "strict_randomization_necessary": true,
+      "value": "107/7"
+    },
+    {
+      "breakpoints": 4,
+      "components": [
+        [
+          [
+            6,
+            1
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        [
+          [
+            4,
+            5
+          ],
+          [
+            0,
+            7
+          ]
+        ],
+        [
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            4,
+            2
+          ]
+        ]
+      ],
+      "expanded_actions": 18,
+      "nature_probability": "4/7",
+      "policy": [
+        [
+          [
+            1,
+            0,
+            2
+          ],
+          "6/7"
+        ],
+        [
+          [
+            0,
+            0,
+            2
+          ],
+          "1/7"
+        ]
+      ],
+      "pure_witness": [],
+      "strict_randomization_necessary": true,
+      "value": "80/7"
+    },
+    {
+      "breakpoints": 3,
+      "components": [
+        [
+          [
+            7,
+            0
+          ],
+          [
+            7,
+            7
+          ]
+        ],
+        [
+          [
+            5,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        [
+          [
+            7,
+            7
+          ],
+          [
+            7,
+            6
+          ]
+        ]
+      ],
+      "expanded_actions": 64,
+      "nature_probability": "0",
+      "policy": [
+        [
+          [
+            1,
+            2,
+            2,
+            0
+          ],
+          "1"
+        ]
+      ],
+      "pure_witness": [
+        1,
+        2,
+        2,
+        0
+      ],
+      "strict_randomization_necessary": false,
+      "value": "21"
+    },
+    {
+      "breakpoints": 4,
+      "components": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        [
+          [
+            6,
+            1
+          ],
+          [
+            7,
+            3
+          ]
+        ],
+        [
+          [
+            3,
+            6
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      ],
+      "expanded_actions": 16,
+      "nature_probability": "0",
+      "policy": [
+        [
+          [
+            1,
+            1,
+            0
+          ],
+          "1"
+        ]
+      ],
+      "pure_witness": [
+        1,
+        1,
+        0
+      ],
+      "strict_randomization_necessary": false,
+      "value": "9"
+    },
+    {
+      "breakpoints": 6,
+      "components": [
+        [
+          [
+            6,
+            1
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        [
+          [
+            6,
+            3
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            6,
+            5
+          ]
+        ],
+        [
+          [
+            4,
+            7
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            6,
+            3
+          ]
+        ]
+      ],
+      "expanded_actions": 36,
+      "nature_probability": "0",
+      "policy": [
+        [
+          [
+            1,
+            0,
+            1,
+            0
+          ],
+          "1"
+        ]
+      ],
+      "pure_witness": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "strict_randomization_necessary": false,
+      "value": "19"
+    },
+    {
+      "breakpoints": 5,
+      "components": [
+        [
+          [
+            2,
+            4
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        [
+          [
+            3,
+            6
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        [
+          [
+            0,
+            2
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            2,
+            5
+          ]
+        ]
+      ],
+      "expanded_actions": 64,
+      "nature_probability": "1/5",
+      "policy": [
+        [
+          [
+            0,
+            3,
+            1
+          ],
+          "3/5"
+        ],
+        [
+          [
+            2,
+            3,
+            1
+          ],
+          "2/5"
+        ]
+      ],
+      "pure_witness": [],
+      "strict_randomization_necessary": true,
+      "value": "78/5"
+    },
+    {
+      "breakpoints": 8,
+      "components": [
+        [
+          [
+            0,
+            5
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            1,
+            6
+          ]
+        ],
+        [
+          [
+            4,
+            4
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        [
+          [
+            7,
+            5
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            3,
+            6
+          ]
+        ],
+        [
+          [
+            7,
+            2
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            4,
+            7
+          ]
+        ]
+      ],
+      "expanded_actions": 324,
+      "nature_probability": "2/3",
+      "policy": [
+        [
+          [
+            2,
+            0,
+            0,
+            0,
+            0,
+            2
+          ],
+          "5/9"
+        ],
+        [
+          [
+            1,
+            0,
+            0,
+            0,
+            1,
+            2
+          ],
+          "4/9"
+        ]
+      ],
+      "pure_witness": [],
+      "strict_randomization_necessary": true,
+      "value": "73/3"
+    },
+    {
+      "breakpoints": 8,
+      "components": [
+        [
+          [
+            1,
+            7
+          ],
+          [
+            5,
+            5
+          ]
+        ],
+        [
+          [
+            3,
+            2
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            6,
+            7
+          ]
+        ],
+        [
+          [
+            2,
+            6
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            5,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            6
+          ],
+          [
+            2,
+            7
+          ]
+        ]
+      ],
+      "expanded_actions": 96,
+      "nature_probability": "1",
+      "policy": [
+        [
+          [
+            1,
+            3,
+            0,
+            2,
+            1
+          ],
+          "1"
+        ]
+      ],
+      "pure_witness": [
+        1,
+        3,
+        0,
+        2,
+        1
+      ],
+      "strict_randomization_necessary": false,
+      "value": "20"
+    },
+    {
+      "breakpoints": 8,
+      "components": [
+        [
+          [
+            6,
+            3
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        [
+          [
+            3,
+            0
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            7,
+            5
+          ]
+        ],
+        [
+          [
+            6,
+            5
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        [
+          [
+            3,
+            5
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            5,
+            1
+          ]
+        ]
+      ],
+      "expanded_actions": 128,
+      "nature_probability": "2/7",
+      "policy": [
+        [
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          "4/7"
+        ],
+        [
+          [
+            0,
+            3,
+            0,
+            0
+          ],
+          "3/7"
+        ]
+      ],
+      "pure_witness": [],
+      "strict_randomization_necessary": true,
+      "value": "134/7"
+    },
+    {
+      "breakpoints": 6,
+      "components": [
+        [
+          [
+            5,
+            3
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        [
+          [
+            6,
+            2
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            3,
+            6
+          ]
+        ],
+        [
+          [
+            7,
+            1
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        [
+          [
+            7,
+            7
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        [
+          [
+            5,
+            6
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            3,
+            2
+          ]
+        ]
+      ],
+      "expanded_actions": 216,
+      "nature_probability": "3/4",
+      "policy": [
+        [
+          [
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "1/2"
+        ],
+        [
+          [
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "1/2"
+        ]
+      ],
+      "pure_witness": [],
+      "strict_randomization_necessary": true,
+      "value": "30"
+    },
+    {
+      "breakpoints": 6,
+      "components": [
+        [
+          [
+            2,
+            7
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            7
+          ]
+        ],
+        [
+          [
+            5,
+            2
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            2,
+            7
+          ]
+        ]
+      ],
+      "expanded_actions": 24,
+      "nature_probability": "1",
+      "policy": [
+        [
+          [
+            0,
+            1,
+            1
+          ],
+          "1"
+        ]
+      ],
+      "pure_witness": [
+        0,
+        1,
+        1
+      ],
+      "strict_randomization_necessary": false,
+      "value": "13"
+    }
+  ],
+  "holdout_seed": 20261027,
+  "holdout_strictness_mismatches": 0,
+  "holdout_value_mismatches": 0,
+  "maximum_exhaustive_breakpoints": 4,
+  "negative_gates": {
+    "malformed_pairs_rejected": true,
+    "missing_additivity_rejected": true,
+    "state_cap_abstains": true
+  },
+  "pre_digest_sha256": "b12b4d1409fccaddddcbf9f4ae540e1b1f1ce1489ef720d8e4be5e19877c0703",
+  "scaling_witness": {
+    "actions_per_component": 5,
+    "breakpoints": 3,
+    "candidate_upper_bound": 202,
+    "components": 20,
+    "expanded_actions": 95367431640625,
+    "policy_support": 2,
+    "strict_randomization_necessary": true,
+    "value": "19"
+  },
+  "status": "pass"
+}

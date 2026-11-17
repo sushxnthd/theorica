@@ -1,0 +1,187 @@
+{
+  "claim": "all six corrected faces survive ancestor bypass on the frozen holdouts",
+  "holdouts": [
+    {
+      "active_faces": [
+        [
+          2,
+          2,
+          4
+        ]
+      ],
+      "compatibility_states_solved": 57,
+      "computed_margin": 39,
+      "exact_unrestricted_binary_cost": 164,
+      "level_costs": [
+        1,
+        1,
+        40
+      ],
+      "matched": true,
+      "predicted_cost": 164,
+      "predicted_face": [
+        2,
+        2,
+        4
+      ],
+      "predicted_margin": 39,
+      "six_face_cost": 164,
+      "states_solved": 7889
+    },
+    {
+      "active_faces": [
+        [
+          2,
+          3,
+          3
+        ]
+      ],
+      "compatibility_states_solved": 56,
+      "computed_margin": 2,
+      "exact_unrestricted_binary_cost": 185,
+      "level_costs": [
+        1,
+        40,
+        21
+      ],
+      "matched": true,
+      "predicted_cost": 185,
+      "predicted_face": [
+        2,
+        3,
+        3
+      ],
+      "predicted_margin": 2,
+      "six_face_cost": 185,
+      "states_solved": 10267
+    },
+    {
+      "active_faces": [
+        [
+          2,
+          4,
+          1
+        ]
+      ],
+      "compatibility_states_solved": 60,
+      "computed_margin": 38,
+      "exact_unrestricted_binary_cost": 163,
+      "level_costs": [
+        1,
+        40,
+        1
+      ],
+      "matched": true,
+      "predicted_cost": 163,
+      "predicted_face": [
+        2,
+        4,
+        1
+      ],
+      "predicted_margin": 38,
+      "six_face_cost": 163,
+      "states_solved": 41217
+    },
+    {
+      "active_faces": [
+        [
+          3,
+          2,
+          3
+        ]
+      ],
+      "compatibility_states_solved": 61,
+      "computed_margin": 1,
+      "exact_unrestricted_binary_cost": 182,
+      "level_costs": [
+        40,
+        1,
+        20
+      ],
+      "matched": true,
+      "predicted_cost": 182,
+      "predicted_face": [
+        3,
+        2,
+        3
+      ],
+      "predicted_margin": 1,
+      "six_face_cost": 182,
+      "states_solved": 26321
+    },
+    {
+      "active_faces": [
+        [
+          3,
+          3,
+          1
+        ]
+      ],
+      "compatibility_states_solved": 57,
+      "computed_margin": 2,
+      "exact_unrestricted_binary_cost": 184,
+      "level_costs": [
+        40,
+        21,
+        1
+      ],
+      "matched": true,
+      "predicted_cost": 184,
+      "predicted_face": [
+        3,
+        3,
+        1
+      ],
+      "predicted_margin": 2,
+      "six_face_cost": 184,
+      "states_solved": 65240
+    },
+    {
+      "active_faces": [
+        [
+          4,
+          1,
+          1
+        ]
+      ],
+      "compatibility_states_solved": 56,
+      "computed_margin": 37,
+      "exact_unrestricted_binary_cost": 162,
+      "level_costs": [
+        40,
+        1,
+        1
+      ],
+      "matched": true,
+      "predicted_cost": 162,
+      "predicted_face": [
+        4,
+        1,
+        1
+      ],
+      "predicted_margin": 37,
+      "six_face_cost": 162,
+      "states_solved": 128492
+    }
+  ],
+  "missing_copy_attack": {
+    "abstained": true,
+    "exact_cost": null,
+    "level_costs": [
+      40,
+      1,
+      20
+    ],
+    "remaining_query_instances": 27
+  },
+  "schema": "theorica.qary-three-level-face-coverage/1",
+  "summary": {
+    "holdout_matches": 6,
+    "holdout_total": 6,
+    "maximum_cost_ratio": 40.0,
+    "minimum_phase_margin": 1,
+    "missing_copy_abstained": true,
+    "passed": true,
+    "unique_faces_covered": 6
+  }
+}

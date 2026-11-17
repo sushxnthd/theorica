@@ -1,0 +1,261 @@
+{
+  "case_total": 12,
+  "cases_reproduced": 12,
+  "passed": true,
+  "production_imports": 0,
+  "replays": [
+    {
+      "independent_conditioned_costs": {
+        "leaf": 489,
+        "middle": 393,
+        "root": 392,
+        "unrestricted": 392
+      },
+      "level_costs": [
+        1,
+        1,
+        97
+      ],
+      "matched": true,
+      "production_conditioned_costs": {
+        "leaf": 489,
+        "middle": 393,
+        "root": 392,
+        "unrestricted": 392
+      },
+      "six_face_cost": 392
+    },
+    {
+      "independent_conditioned_costs": {
+        "leaf": 489,
+        "middle": 537,
+        "root": 440,
+        "unrestricted": 440
+      },
+      "level_costs": [
+        1,
+        97,
+        49
+      ],
+      "matched": true,
+      "production_conditioned_costs": {
+        "leaf": 489,
+        "middle": 537,
+        "root": 440,
+        "unrestricted": 440
+      },
+      "six_face_cost": 440
+    },
+    {
+      "independent_conditioned_costs": {
+        "leaf": 392,
+        "middle": 487,
+        "root": 391,
+        "unrestricted": 391
+      },
+      "level_costs": [
+        1,
+        97,
+        1
+      ],
+      "matched": true,
+      "production_conditioned_costs": {
+        "leaf": 392,
+        "middle": 487,
+        "root": 391,
+        "unrestricted": 391
+      },
+      "six_face_cost": 391
+    },
+    {
+      "independent_conditioned_costs": {
+        "leaf": 485,
+        "middle": 438,
+        "root": 437,
+        "unrestricted": 437
+      },
+      "level_costs": [
+        97,
+        1,
+        48
+      ],
+      "matched": true,
+      "production_conditioned_costs": {
+        "leaf": 485,
+        "middle": 438,
+        "root": 437,
+        "unrestricted": 437
+      },
+      "six_face_cost": 437
+    },
+    {
+      "independent_conditioned_costs": {
+        "leaf": 440,
+        "middle": 488,
+        "root": 439,
+        "unrestricted": 439
+      },
+      "level_costs": [
+        97,
+        49,
+        1
+      ],
+      "matched": true,
+      "production_conditioned_costs": {
+        "leaf": 440,
+        "middle": 488,
+        "root": 439,
+        "unrestricted": 439
+      },
+      "six_face_cost": 439
+    },
+    {
+      "independent_conditioned_costs": {
+        "leaf": 391,
+        "middle": 391,
+        "root": 390,
+        "unrestricted": 390
+      },
+      "level_costs": [
+        97,
+        1,
+        1
+      ],
+      "matched": true,
+      "production_conditioned_costs": {
+        "leaf": 391,
+        "middle": 391,
+        "root": 390,
+        "unrestricted": 390
+      },
+      "six_face_cost": 390
+    },
+    {
+      "independent_conditioned_costs": {
+        "leaf": 341,
+        "middle": 319,
+        "root": 288,
+        "unrestricted": 288
+      },
+      "level_costs": [
+        7,
+        31,
+        53
+      ],
+      "matched": true,
+      "production_conditioned_costs": {
+        "leaf": 341,
+        "middle": 319,
+        "root": 288,
+        "unrestricted": 288
+      },
+      "six_face_cost": 288
+    },
+    {
+      "independent_conditioned_costs": {
+        "leaf": 266,
+        "middle": 290,
+        "root": 259,
+        "unrestricted": 259
+      },
+      "level_costs": [
+        53,
+        31,
+        7
+      ],
+      "matched": true,
+      "production_conditioned_costs": {
+        "leaf": 266,
+        "middle": 290,
+        "root": 259,
+        "unrestricted": 259
+      },
+      "six_face_cost": 259
+    },
+    {
+      "independent_conditioned_costs": {
+        "leaf": 279,
+        "middle": 297,
+        "root": 250,
+        "unrestricted": 250
+      },
+      "level_costs": [
+        11,
+        47,
+        29
+      ],
+      "matched": true,
+      "production_conditioned_costs": {
+        "leaf": 279,
+        "middle": 297,
+        "root": 250,
+        "unrestricted": 250
+      },
+      "six_face_cost": 250
+    },
+    {
+      "independent_conditioned_costs": {
+        "leaf": 279,
+        "middle": 261,
+        "root": 250,
+        "unrestricted": 250
+      },
+      "level_costs": [
+        47,
+        11,
+        29
+      ],
+      "matched": true,
+      "production_conditioned_costs": {
+        "leaf": 279,
+        "middle": 261,
+        "root": 250,
+        "unrestricted": 250
+      },
+      "six_face_cost": 250
+    },
+    {
+      "independent_conditioned_costs": {
+        "leaf": 268,
+        "middle": 286,
+        "root": 257,
+        "unrestricted": 257
+      },
+      "level_costs": [
+        29,
+        47,
+        11
+      ],
+      "matched": true,
+      "production_conditioned_costs": {
+        "leaf": 268,
+        "middle": 286,
+        "root": 257,
+        "unrestricted": 257
+      },
+      "six_face_cost": 257
+    },
+    {
+      "independent_conditioned_costs": {
+        "leaf": 308,
+        "middle": 279,
+        "root": 268,
+        "unrestricted": 268
+      },
+      "level_costs": [
+        29,
+        11,
+        47
+      ],
+      "matched": true,
+      "production_conditioned_costs": {
+        "leaf": 308,
+        "middle": 279,
+        "root": 268,
+        "unrestricted": 268
+      },
+      "six_face_cost": 268
+    }
+  ],
+  "schema": "theorica.qary-three-level-ancestor-bypass-audit/1"
+}

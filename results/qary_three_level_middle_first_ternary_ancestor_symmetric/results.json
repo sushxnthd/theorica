@@ -1,0 +1,366 @@
+{
+  "cone_certificates": [
+    {
+      "face": [
+        7,
+        1
+      ],
+      "inequalities": [
+        {
+          "face_cost": 7,
+          "passed": true,
+          "policy_cost": 7,
+          "ray": [
+            1,
+            0
+          ]
+        },
+        {
+          "face_cost": 15,
+          "passed": true,
+          "policy_cost": 15,
+          "ray": [
+            2,
+            1
+          ]
+        }
+      ],
+      "passed": true,
+      "rays": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "face": [
+        6,
+        3
+      ],
+      "inequalities": [
+        {
+          "face_cost": 9,
+          "passed": true,
+          "policy_cost": 9,
+          "ray": [
+            1,
+            1
+          ]
+        },
+        {
+          "face_cost": 15,
+          "passed": true,
+          "policy_cost": 15,
+          "ray": [
+            2,
+            1
+          ]
+        }
+      ],
+      "passed": true,
+      "rays": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "face": [
+        5,
+        4
+      ],
+      "inequalities": [
+        {
+          "face_cost": 4,
+          "passed": true,
+          "policy_cost": 4,
+          "ray": [
+            0,
+            1
+          ]
+        },
+        {
+          "face_cost": 9,
+          "passed": true,
+          "policy_cost": 9,
+          "ray": [
+            1,
+            1
+          ]
+        }
+      ],
+      "passed": true,
+      "rays": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    }
+  ],
+  "projected_policy_exposures": [
+    [
+      3,
+      1
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      1
+    ],
+    [
+      4,
+      2
+    ],
+    [
+      4,
+      3
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      5,
+      1
+    ],
+    [
+      5,
+      2
+    ],
+    [
+      5,
+      3
+    ],
+    [
+      5,
+      4
+    ],
+    [
+      6,
+      1
+    ],
+    [
+      6,
+      2
+    ],
+    [
+      6,
+      3
+    ],
+    [
+      7,
+      1
+    ]
+  ],
+  "prospective_holdouts": [
+    {
+      "active_faces": [
+        "ancestor_heavy"
+      ],
+      "certificate_valid": true,
+      "exact_cost": 554,
+      "face_values": [
+        554,
+        477,
+        399
+      ],
+      "leaf_cost": 1,
+      "root_middle_cost": 79
+    },
+    {
+      "active_faces": [
+        "ancestor_heavy"
+      ],
+      "certificate_valid": true,
+      "exact_cost": 607,
+      "face_values": [
+        607,
+        606,
+        565
+      ],
+      "leaf_cost": 40,
+      "root_middle_cost": 81
+    },
+    {
+      "active_faces": [
+        "transition"
+      ],
+      "certificate_valid": true,
+      "exact_cost": 366,
+      "face_values": [
+        327,
+        366,
+        365
+      ],
+      "leaf_cost": 40,
+      "root_middle_cost": 41
+    },
+    {
+      "active_faces": [
+        "leaf_heavy"
+      ],
+      "certificate_valid": true,
+      "exact_cost": 364,
+      "face_values": [
+        321,
+        363,
+        364
+      ],
+      "leaf_cost": 41,
+      "root_middle_cost": 40
+    },
+    {
+      "active_faces": [
+        "leaf_heavy"
+      ],
+      "certificate_valid": true,
+      "exact_cost": 321,
+      "face_values": [
+        86,
+        243,
+        321
+      ],
+      "leaf_cost": 79,
+      "root_middle_cost": 1
+    },
+    {
+      "active_faces": [
+        "ancestor_heavy",
+        "transition"
+      ],
+      "certificate_valid": true,
+      "exact_cost": 15,
+      "face_values": [
+        15,
+        15,
+        14
+      ],
+      "leaf_cost": 1,
+      "root_middle_cost": 2
+    },
+    {
+      "active_faces": [
+        "transition",
+        "leaf_heavy"
+      ],
+      "certificate_valid": true,
+      "exact_cost": 9,
+      "face_values": [
+        8,
+        9,
+        9
+      ],
+      "leaf_cost": 1,
+      "root_middle_cost": 1
+    },
+    {
+      "active_faces": [
+        "transition"
+      ],
+      "certificate_valid": true,
+      "exact_cost": 24,
+      "face_values": [
+        23,
+        24,
+        23
+      ],
+      "leaf_cost": 2,
+      "root_middle_cost": 3
+    },
+    {
+      "active_faces": [
+        "leaf_heavy"
+      ],
+      "certificate_valid": true,
+      "exact_cost": 53,
+      "face_values": [
+        42,
+        51,
+        53
+      ],
+      "leaf_cost": 7,
+      "root_middle_cost": 5
+    },
+    {
+      "active_faces": [
+        "ancestor_heavy"
+      ],
+      "certificate_valid": true,
+      "exact_cost": 80,
+      "face_values": [
+        80,
+        75,
+        67
+      ],
+      "leaf_cost": 3,
+      "root_middle_cost": 11
+    },
+    {
+      "active_faces": [
+        "leaf_heavy"
+      ],
+      "certificate_valid": true,
+      "exact_cost": 133,
+      "face_values": [
+        108,
+        129,
+        133
+      ],
+      "leaf_cost": 17,
+      "root_middle_cost": 13
+    },
+    {
+      "active_faces": [
+        "ancestor_heavy"
+      ],
+      "certificate_valid": true,
+      "exact_cost": 214,
+      "face_values": [
+        214,
+        207,
+        189
+      ],
+      "leaf_cost": 11,
+      "root_middle_cost": 29
+    }
+  ],
+  "schema": "theorica.middle-first-ternary-ancestor-symmetric/1",
+  "summary": {
+    "binary_embedding_lower_faces": 3,
+    "cone_certificate_total": 3,
+    "cone_certificates_passed": 3,
+    "passed": true,
+    "prospective_holdout_total": 12,
+    "prospective_holdouts_certified": 12,
+    "ray_inequalities_passed": 6,
+    "ray_inequality_total": 6,
+    "terminal_transcripts_reused": 2721
+  },
+  "theorem": "T_3(x,x,y)=max(7x+y,6x+3y,5x+4y)"
+}

@@ -1,0 +1,50 @@
+{
+  "checks": {
+    "22": {
+      "search_counts_equal": true,
+      "source": {
+        "exact_bounds_equal": true,
+        "expected_root_children": true,
+        "expected_value": true,
+        "root_minimum": 37,
+        "unique_root": true
+      },
+      "target": {
+        "exact_bounds_equal": true,
+        "expected_root_children": true,
+        "expected_value": true,
+        "root_minimum": 37,
+        "unique_root": true
+      },
+      "transport_child_multiset": true,
+      "transport_value": true
+    },
+    "23": {
+      "search_counts_equal": true,
+      "source": {
+        "exact_bounds_equal": true,
+        "expected_root_children": true,
+        "expected_value": true,
+        "root_minimum": 38,
+        "unique_root": true
+      },
+      "target": {
+        "exact_bounds_equal": true,
+        "expected_root_children": true,
+        "expected_value": true,
+        "root_minimum": 38,
+        "unique_root": true
+      },
+      "transport_child_multiset": true,
+      "transport_value": true
+    }
+  },
+  "diagnostic_law_c9_c10": true,
+  "first_post_collision_increase_c23": true,
+  "low_law_c1_c8": true,
+  "monotonicity_closes_all_integer_costs_c11_c22": true,
+  "passed": true,
+  "plateau_endpoints_c11_c22": true,
+  "production_imports": 0,
+  "schema": "theorica.ternary-explicit-sentinel-p2-second-breakpoint-audit/1"
+}

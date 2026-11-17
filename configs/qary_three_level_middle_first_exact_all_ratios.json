@@ -1,0 +1,46 @@
+{
+  "schema": "theorica.middle-first-exact-all-positive-costs-protocol/1",
+  "protocol_seed": 202610291117,
+  "conditioned_class": {
+    "arity": 2,
+    "depth": 3,
+    "copies_per_query": 4,
+    "substitution_budget": 1,
+    "erasure_budget": 1,
+    "allowed_initial_levels": [1]
+  },
+  "candidate_faces": [
+    [1, 5, 1],
+    [2, 3, 4],
+    [2, 4, 3],
+    [3, 3, 3],
+    [3, 4, 1],
+    [4, 2, 1]
+  ],
+  "upper_proof": {
+    "method": "one exact policy per face, feasible at every extreme ray of the face-active cone",
+    "extreme_rays": "enumerate primitive cross-products of pairs of active homogeneous constraints",
+    "required_face_certificates": 6,
+    "require_complete_terminal_transcript_replay": true
+  },
+  "prospective_cost_triples": [
+    [1, 7, 3], [3, 8, 5], [4, 7, 6], [5, 8, 11],
+    [7, 5, 9], [8, 3, 5], [11, 4, 7], [13, 9, 2],
+    [17, 6, 19], [19, 17, 23], [23, 11, 29], [29, 31, 7]
+  ],
+  "required_checks": [
+    "six_face_cones_cover_positive_orthant",
+    "all_extreme_ray_budgets_satisfied",
+    "complete_policy_replay",
+    "prospective_exact_tightness",
+    "independent_zero_import_replay",
+    "deterministic_evidence"
+  ],
+  "kill_on": [
+    "uncovered_positive_cost",
+    "infeasible_face_policy",
+    "terminal_budget_violation",
+    "prospective_exact_mismatch",
+    "independent_replay_mismatch"
+  ]
+}

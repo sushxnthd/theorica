@@ -1,0 +1,13 @@
+First independent-audit run: mathematical reconstruction passed, deterministic stream gate failed.
+
+Primary fixed-record stream SHA-256:
+82237f3894b2eee585260a488ca3b1fc82a5e1c844af41de3c44a8f20bc67f87
+
+Pre-canonical weak-composition stream SHA-256:
+f195f05cda0c530f71e6a082720aede1435bb08d75b7850a5bf3970f78149dd6
+
+Cause: the weak-composition enumerator ordered multiplicity vectors rather than
+canonical expanded shapes. Counts, all 252 reconstructed maps, stabilizers,
+orbit products, and the exhaustive q=2 coset check were unchanged. The audit
+was repaired by sorting independently reconstructed rows by expanded canonical
+shape before serialization, then rerun to a matching stream digest.

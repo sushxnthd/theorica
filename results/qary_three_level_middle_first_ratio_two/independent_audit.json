@@ -1,0 +1,218 @@
+{
+  "production_imports": 0,
+  "schema": "theorica.middle-first-ratio-two-slices-audit/1",
+  "slices": {
+    "middle_double": {
+      "antichain_exact": true,
+      "cones_reproduced": 3,
+      "holdout_total": 8,
+      "holdouts_reproduced": 8,
+      "maximal_projected_guarantees": [
+        [
+          8,
+          4
+        ],
+        [
+          10,
+          3
+        ],
+        [
+          11,
+          1
+        ]
+      ],
+      "replays": [
+        {
+          "base_and_leaf_costs": [
+            79,
+            1
+          ],
+          "candidate_cost": 870,
+          "independent_exact_cost": 870,
+          "matched": true,
+          "production_exact_cost": 870
+        },
+        {
+          "base_and_leaf_costs": [
+            81,
+            40
+          ],
+          "candidate_cost": 931,
+          "independent_exact_cost": 931,
+          "matched": true,
+          "production_exact_cost": 931
+        },
+        {
+          "base_and_leaf_costs": [
+            41,
+            40
+          ],
+          "candidate_cost": 530,
+          "independent_exact_cost": 530,
+          "matched": true,
+          "production_exact_cost": 530
+        },
+        {
+          "base_and_leaf_costs": [
+            40,
+            41
+          ],
+          "candidate_cost": 523,
+          "independent_exact_cost": 523,
+          "matched": true,
+          "production_exact_cost": 523
+        },
+        {
+          "base_and_leaf_costs": [
+            40,
+            81
+          ],
+          "candidate_cost": 644,
+          "independent_exact_cost": 644,
+          "matched": true,
+          "production_exact_cost": 644
+        },
+        {
+          "base_and_leaf_costs": [
+            1,
+            79
+          ],
+          "candidate_cost": 324,
+          "independent_exact_cost": 324,
+          "matched": true,
+          "production_exact_cost": 324
+        },
+        {
+          "base_and_leaf_costs": [
+            2,
+            1
+          ],
+          "candidate_cost": 23,
+          "independent_exact_cost": 23,
+          "matched": true,
+          "production_exact_cost": 23
+        },
+        {
+          "base_and_leaf_costs": [
+            1,
+            2
+          ],
+          "candidate_cost": 16,
+          "independent_exact_cost": 16,
+          "matched": true,
+          "production_exact_cost": 16
+        }
+      ]
+    },
+    "root_double": {
+      "antichain_exact": true,
+      "cones_reproduced": 3,
+      "holdout_total": 8,
+      "holdouts_reproduced": 8,
+      "maximal_projected_guarantees": [
+        [
+          7,
+          4
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          10,
+          1
+        ]
+      ],
+      "replays": [
+        {
+          "base_and_leaf_costs": [
+            79,
+            1
+          ],
+          "candidate_cost": 791,
+          "independent_exact_cost": 791,
+          "matched": true,
+          "production_exact_cost": 791
+        },
+        {
+          "base_and_leaf_costs": [
+            81,
+            40
+          ],
+          "candidate_cost": 850,
+          "independent_exact_cost": 850,
+          "matched": true,
+          "production_exact_cost": 850
+        },
+        {
+          "base_and_leaf_costs": [
+            41,
+            40
+          ],
+          "candidate_cost": 489,
+          "independent_exact_cost": 489,
+          "matched": true,
+          "production_exact_cost": 489
+        },
+        {
+          "base_and_leaf_costs": [
+            40,
+            41
+          ],
+          "candidate_cost": 483,
+          "independent_exact_cost": 483,
+          "matched": true,
+          "production_exact_cost": 483
+        },
+        {
+          "base_and_leaf_costs": [
+            40,
+            81
+          ],
+          "candidate_cost": 604,
+          "independent_exact_cost": 604,
+          "matched": true,
+          "production_exact_cost": 604
+        },
+        {
+          "base_and_leaf_costs": [
+            1,
+            79
+          ],
+          "candidate_cost": 323,
+          "independent_exact_cost": 323,
+          "matched": true,
+          "production_exact_cost": 323
+        },
+        {
+          "base_and_leaf_costs": [
+            2,
+            1
+          ],
+          "candidate_cost": 21,
+          "independent_exact_cost": 21,
+          "matched": true,
+          "production_exact_cost": 21
+        },
+        {
+          "base_and_leaf_costs": [
+            1,
+            2
+          ],
+          "candidate_cost": 15,
+          "independent_exact_cost": 15,
+          "matched": true,
+          "production_exact_cost": 15
+        }
+      ]
+    }
+  },
+  "summary": {
+    "antichains_reproduced": 2,
+    "cones_reproduced": 6,
+    "holdout_total": 16,
+    "holdouts_reproduced": 16,
+    "passed": true,
+    "production_imports": 0
+  }
+}

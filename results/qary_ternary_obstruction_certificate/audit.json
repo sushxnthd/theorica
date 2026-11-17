@@ -1,0 +1,28 @@
+{
+  "certificate_audits": [
+    {
+      "edges": 18351,
+      "max_depth": 12,
+      "nodes": 6501
+    },
+    {
+      "edges": 18351,
+      "max_depth": 12,
+      "nodes": 6501
+    },
+    {
+      "edges": 18338,
+      "max_depth": 12,
+      "nodes": 6498
+    }
+  ],
+  "certificate_file_sha256": "9b4e860666419ec5e4504073af95337518f00295a942e96877375a9ea5f427b6",
+  "certificates_verified": 3,
+  "mutation_rejections": 3,
+  "mutation_total": 3,
+  "optimizer_calls": 0,
+  "passed": true,
+  "production_module_imports": 0,
+  "shared_nodes_hash_checked": 9932,
+  "summary_file_sha256_matches": true
+}

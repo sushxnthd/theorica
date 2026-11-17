@@ -1,0 +1,75 @@
+{
+  "case_total": 6,
+  "cases_reproduced": 6,
+  "passed": true,
+  "production_imports": 0,
+  "replays": [
+    {
+      "independent_exact_cost": 85,
+      "level_costs": [
+        1,
+        20,
+        3
+      ],
+      "matched": true,
+      "production_exact_cost": 85,
+      "six_face_cost": 85
+    },
+    {
+      "independent_exact_cost": 33,
+      "level_costs": [
+        1,
+        7,
+        3
+      ],
+      "matched": true,
+      "production_exact_cost": 33,
+      "six_face_cost": 33
+    },
+    {
+      "independent_exact_cost": 77,
+      "level_costs": [
+        2,
+        17,
+        5
+      ],
+      "matched": true,
+      "production_exact_cost": 77,
+      "six_face_cost": 77
+    },
+    {
+      "independent_exact_cost": 113,
+      "level_costs": [
+        3,
+        25,
+        7
+      ],
+      "matched": true,
+      "production_exact_cost": 113,
+      "six_face_cost": 113
+    },
+    {
+      "independent_exact_cost": 29,
+      "level_costs": [
+        1,
+        6,
+        3
+      ],
+      "matched": true,
+      "production_exact_cost": 29,
+      "six_face_cost": 29
+    },
+    {
+      "independent_exact_cost": 65,
+      "level_costs": [
+        2,
+        14,
+        5
+      ],
+      "matched": true,
+      "production_exact_cost": 65,
+      "six_face_cost": 65
+    }
+  ],
+  "schema": "theorica.qary-three-level-monotonicity-correction-audit/1"
+}

@@ -1,0 +1,606 @@
+{
+  "claim": "root-first conditioning matches unrestricted exact cost on frozen rays",
+  "holdouts": [
+    {
+      "active_faces": [
+        "leaf_faults_hidden"
+      ],
+      "conditioned": {
+        "leaf": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 69,
+          "exact_cost": 489,
+          "first_query_index": 12,
+          "first_query_level": "leaf",
+          "states_solved": 14819
+        },
+        "middle": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 62,
+          "exact_cost": 393,
+          "first_query_index": 4,
+          "first_query_level": "middle",
+          "states_solved": 7722
+        },
+        "root": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 57,
+          "exact_cost": 392,
+          "first_query_index": 0,
+          "first_query_level": "root",
+          "states_solved": 3501
+        },
+        "unrestricted": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 57,
+          "exact_cost": 392,
+          "first_query_index": 0,
+          "first_query_level": "root",
+          "states_solved": 8877
+        }
+      },
+      "descendant_ties": [],
+      "level_costs": [
+        1,
+        1,
+        97
+      ],
+      "matched": true,
+      "six_face_cost": 392,
+      "strict_ancestor_bypass": false
+    },
+    {
+      "active_faces": [
+        "late_partial_exposure"
+      ],
+      "conditioned": {
+        "leaf": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 64,
+          "exact_cost": 489,
+          "first_query_index": 12,
+          "first_query_level": "leaf",
+          "states_solved": 11978
+        },
+        "middle": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 65,
+          "exact_cost": 537,
+          "first_query_index": 4,
+          "first_query_level": "middle",
+          "states_solved": 12118
+        },
+        "root": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 56,
+          "exact_cost": 440,
+          "first_query_index": 0,
+          "first_query_level": "root",
+          "states_solved": 4864
+        },
+        "unrestricted": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 56,
+          "exact_cost": 440,
+          "first_query_index": 0,
+          "first_query_level": "root",
+          "states_solved": 11506
+        }
+      },
+      "descendant_ties": [],
+      "level_costs": [
+        1,
+        97,
+        49
+      ],
+      "matched": true,
+      "six_face_cost": 440,
+      "strict_ancestor_bypass": false
+    },
+    {
+      "active_faces": [
+        "middle_insurance"
+      ],
+      "conditioned": {
+        "leaf": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 61,
+          "exact_cost": 392,
+          "first_query_index": 12,
+          "first_query_level": "leaf",
+          "states_solved": 37078
+        },
+        "middle": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 60,
+          "exact_cost": 487,
+          "first_query_index": 4,
+          "first_query_level": "middle",
+          "states_solved": 61325
+        },
+        "root": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 60,
+          "exact_cost": 391,
+          "first_query_index": 0,
+          "first_query_level": "root",
+          "states_solved": 18140
+        },
+        "unrestricted": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 60,
+          "exact_cost": 391,
+          "first_query_index": 0,
+          "first_query_level": "root",
+          "states_solved": 47480
+        }
+      },
+      "descendant_ties": [],
+      "level_costs": [
+        1,
+        97,
+        1
+      ],
+      "matched": true,
+      "six_face_cost": 391,
+      "strict_ancestor_bypass": false
+    },
+    {
+      "active_faces": [
+        "early_partial_exposure",
+        "root_faults_hidden"
+      ],
+      "conditioned": {
+        "leaf": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 59,
+          "exact_cost": 485,
+          "first_query_index": 12,
+          "first_query_level": "leaf",
+          "states_solved": 31405
+        },
+        "middle": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 57,
+          "exact_cost": 438,
+          "first_query_index": 4,
+          "first_query_level": "middle",
+          "states_solved": 12617
+        },
+        "root": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 57,
+          "exact_cost": 437,
+          "first_query_index": 0,
+          "first_query_level": "root",
+          "states_solved": 13946
+        },
+        "unrestricted": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 57,
+          "exact_cost": 437,
+          "first_query_index": 0,
+          "first_query_level": "root",
+          "states_solved": 30138
+        }
+      },
+      "descendant_ties": [],
+      "level_costs": [
+        97,
+        1,
+        48
+      ],
+      "matched": true,
+      "six_face_cost": 437,
+      "strict_ancestor_bypass": false
+    },
+    {
+      "active_faces": [
+        "root_middle_insurance"
+      ],
+      "conditioned": {
+        "leaf": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 60,
+          "exact_cost": 440,
+          "first_query_index": 12,
+          "first_query_level": "leaf",
+          "states_solved": 49383
+        },
+        "middle": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 68,
+          "exact_cost": 488,
+          "first_query_index": 4,
+          "first_query_level": "middle",
+          "states_solved": 55524
+        },
+        "root": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 57,
+          "exact_cost": 439,
+          "first_query_index": 0,
+          "first_query_level": "root",
+          "states_solved": 29286
+        },
+        "unrestricted": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 57,
+          "exact_cost": 439,
+          "first_query_index": 0,
+          "first_query_level": "root",
+          "states_solved": 73253
+        }
+      },
+      "descendant_ties": [],
+      "level_costs": [
+        97,
+        49,
+        1
+      ],
+      "matched": true,
+      "six_face_cost": 439,
+      "strict_ancestor_bypass": false
+    },
+    {
+      "active_faces": [
+        "root_faults_hidden"
+      ],
+      "conditioned": {
+        "leaf": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 58,
+          "exact_cost": 391,
+          "first_query_index": 12,
+          "first_query_level": "leaf",
+          "states_solved": 104240
+        },
+        "middle": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 56,
+          "exact_cost": 391,
+          "first_query_index": 4,
+          "first_query_level": "middle",
+          "states_solved": 65043
+        },
+        "root": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 56,
+          "exact_cost": 390,
+          "first_query_index": 0,
+          "first_query_level": "root",
+          "states_solved": 49110
+        },
+        "unrestricted": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 56,
+          "exact_cost": 390,
+          "first_query_index": 0,
+          "first_query_level": "root",
+          "states_solved": 144530
+        }
+      },
+      "descendant_ties": [],
+      "level_costs": [
+        97,
+        1,
+        1
+      ],
+      "matched": true,
+      "six_face_cost": 390,
+      "strict_ancestor_bypass": false
+    },
+    {
+      "active_faces": [
+        "leaf_faults_hidden"
+      ],
+      "conditioned": {
+        "leaf": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 65,
+          "exact_cost": 341,
+          "first_query_index": 12,
+          "first_query_level": "leaf",
+          "states_solved": 29472
+        },
+        "middle": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 62,
+          "exact_cost": 319,
+          "first_query_index": 4,
+          "first_query_level": "middle",
+          "states_solved": 10880
+        },
+        "root": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 56,
+          "exact_cost": 288,
+          "first_query_index": 0,
+          "first_query_level": "root",
+          "states_solved": 3365
+        },
+        "unrestricted": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 56,
+          "exact_cost": 288,
+          "first_query_index": 0,
+          "first_query_level": "root",
+          "states_solved": 8883
+        }
+      },
+      "descendant_ties": [],
+      "level_costs": [
+        7,
+        31,
+        53
+      ],
+      "matched": true,
+      "six_face_cost": 288,
+      "strict_ancestor_bypass": false
+    },
+    {
+      "active_faces": [
+        "root_middle_insurance"
+      ],
+      "conditioned": {
+        "leaf": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 60,
+          "exact_cost": 266,
+          "first_query_index": 12,
+          "first_query_level": "leaf",
+          "states_solved": 59058
+        },
+        "middle": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 68,
+          "exact_cost": 290,
+          "first_query_index": 4,
+          "first_query_level": "middle",
+          "states_solved": 46176
+        },
+        "root": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 57,
+          "exact_cost": 259,
+          "first_query_index": 0,
+          "first_query_level": "root",
+          "states_solved": 27520
+        },
+        "unrestricted": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 57,
+          "exact_cost": 259,
+          "first_query_index": 0,
+          "first_query_level": "root",
+          "states_solved": 53106
+        }
+      },
+      "descendant_ties": [],
+      "level_costs": [
+        53,
+        31,
+        7
+      ],
+      "matched": true,
+      "six_face_cost": 259,
+      "strict_ancestor_bypass": false
+    },
+    {
+      "active_faces": [
+        "late_partial_exposure"
+      ],
+      "conditioned": {
+        "leaf": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 65,
+          "exact_cost": 279,
+          "first_query_index": 12,
+          "first_query_level": "leaf",
+          "states_solved": 12620
+        },
+        "middle": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 64,
+          "exact_cost": 297,
+          "first_query_index": 4,
+          "first_query_level": "middle",
+          "states_solved": 19918
+        },
+        "root": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 56,
+          "exact_cost": 250,
+          "first_query_index": 0,
+          "first_query_level": "root",
+          "states_solved": 4304
+        },
+        "unrestricted": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 56,
+          "exact_cost": 250,
+          "first_query_index": 0,
+          "first_query_level": "root",
+          "states_solved": 10511
+        }
+      },
+      "descendant_ties": [],
+      "level_costs": [
+        11,
+        47,
+        29
+      ],
+      "matched": true,
+      "six_face_cost": 250,
+      "strict_ancestor_bypass": false
+    },
+    {
+      "active_faces": [
+        "early_partial_exposure"
+      ],
+      "conditioned": {
+        "leaf": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 65,
+          "exact_cost": 279,
+          "first_query_index": 12,
+          "first_query_level": "leaf",
+          "states_solved": 25944
+        },
+        "middle": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 61,
+          "exact_cost": 261,
+          "first_query_index": 4,
+          "first_query_level": "middle",
+          "states_solved": 20604
+        },
+        "root": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 60,
+          "exact_cost": 250,
+          "first_query_index": 0,
+          "first_query_level": "root",
+          "states_solved": 9628
+        },
+        "unrestricted": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 61,
+          "exact_cost": 250,
+          "first_query_index": 0,
+          "first_query_level": "root",
+          "states_solved": 21926
+        }
+      },
+      "descendant_ties": [],
+      "level_costs": [
+        47,
+        11,
+        29
+      ],
+      "matched": true,
+      "six_face_cost": 250,
+      "strict_ancestor_bypass": false
+    },
+    {
+      "active_faces": [
+        "middle_insurance"
+      ],
+      "conditioned": {
+        "leaf": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 61,
+          "exact_cost": 268,
+          "first_query_index": 12,
+          "first_query_level": "leaf",
+          "states_solved": 29932
+        },
+        "middle": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 71,
+          "exact_cost": 286,
+          "first_query_index": 4,
+          "first_query_level": "middle",
+          "states_solved": 46080
+        },
+        "root": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 57,
+          "exact_cost": 257,
+          "first_query_index": 0,
+          "first_query_level": "root",
+          "states_solved": 13379
+        },
+        "unrestricted": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 57,
+          "exact_cost": 257,
+          "first_query_index": 0,
+          "first_query_level": "root",
+          "states_solved": 30949
+        }
+      },
+      "descendant_ties": [],
+      "level_costs": [
+        29,
+        47,
+        11
+      ],
+      "matched": true,
+      "six_face_cost": 257,
+      "strict_ancestor_bypass": false
+    },
+    {
+      "active_faces": [
+        "leaf_faults_hidden"
+      ],
+      "conditioned": {
+        "leaf": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 67,
+          "exact_cost": 308,
+          "first_query_index": 12,
+          "first_query_level": "leaf",
+          "states_solved": 22305
+        },
+        "middle": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 60,
+          "exact_cost": 279,
+          "first_query_index": 4,
+          "first_query_level": "middle",
+          "states_solved": 11691
+        },
+        "root": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 61,
+          "exact_cost": 268,
+          "first_query_index": 0,
+          "first_query_level": "root",
+          "states_solved": 4624
+        },
+        "unrestricted": {
+          "certificate_valid": true,
+          "compatibility_states_solved": 61,
+          "exact_cost": 268,
+          "first_query_index": 0,
+          "first_query_level": "root",
+          "states_solved": 13659
+        }
+      },
+      "descendant_ties": [],
+      "level_costs": [
+        29,
+        11,
+        47
+      ],
+      "matched": true,
+      "six_face_cost": 268,
+      "strict_ancestor_bypass": false
+    }
+  ],
+  "missing_copy_attack": {
+    "abstained": true,
+    "exact_cost": null,
+    "level_costs": [
+      97,
+      1,
+      48
+    ],
+    "remaining_query_instances": 27
+  },
+  "schema": "theorica.qary-three-level-ancestor-bypass/1",
+  "summary": {
+    "holdout_matches": 12,
+    "holdout_total": 12,
+    "leaf_first_ties": 0,
+    "maximum_leaf_first_penalty": 97,
+    "maximum_middle_first_penalty": 97,
+    "middle_first_ties": 0,
+    "minimum_leaf_first_penalty": 1,
+    "minimum_middle_first_penalty": 1,
+    "missing_copy_abstained": true,
+    "passed": true,
+    "strict_ancestor_bypass_count": 0
+  }
+}
